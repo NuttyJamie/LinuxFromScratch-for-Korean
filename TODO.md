@@ -1,0 +1,228 @@
+# Linux From Scratch
+## Version 9.1 Published March 1st, 2020
+### Created by Gerard Beekmans
+### Managing Editor: Bruce Dubbs
+Copyright ¨Ï 1999-2020 Gerard Beekmans
+- - -
+
+### Table of Contents
+
+- [ ] Preface
+	- [ ] Foreword
+    - [ ] Audience
+    - [ ] LFS Target Architectures
+    - [ ] Prerequisites
+    - [ ] LFS and Standards
+    - [ ] Rationale for Packages in the Book
+    - [ ] Typography
+    - [ ] Structure
+    - [ ] Errata
+
+- [ ] I. Introduction
+
+    - [ ] 1. Introduction
+        - [ ] How to Build an LFS System
+        - [ ] What's new since the last release
+        - [ ] Changelog
+        - [ ] Resources
+        - [ ] Help
+
+- [ ] II. Preparing for the Build
+
+    - [ ] 2. Preparing the Host System
+        - [ ] Introduction
+        - [ ] Host System Requirements
+        - [ ] Building LFS in Stages
+        - [ ] Creating a New Partition
+        - [ ] Creating a File System on the Partition
+        - [ ] Setting The $LFS Variable
+        - [ ] Mounting the New Partition
+    - [ ] 3. Packages and Patches
+        - [ ] Introduction
+        - [ ] All Packages
+        - [ ] Needed Patches
+    - [ ] 4. Final Preparations
+        - [ ] Introduction
+        - [ ] Creating the $LFS/tools Directory
+        - [ ] Adding the LFS User
+        - [ ] Setting Up the Environment
+        - [ ] About SBUs
+        - [ ] About the Test Suites
+    - [ ] 5. Constructing a Temporary System
+        - [ ] Introduction
+        - [ ] Toolchain Technical Notes
+        - [ ] General Compilation Instructions
+        - [ ] Binutils-2.34 - Pass 1
+        - [ ] GCC-9.2.0 - Pass 1
+        - [ ] Linux-5.5.3 API Headers
+        - [ ] Glibc-2.31
+        - [ ] Libstdc++ from GCC-9.2.0
+        - [ ] Binutils-2.34 - Pass 2
+        - [ ] GCC-9.2.0 - Pass 2
+        - [ ] Tcl-8.6.10
+        - [ ] Expect-5.45.4
+        - [ ] DejaGNU-1.6.2
+        - [ ] M4-1.4.18
+        - [ ] Ncurses-6.2
+        - [ ] Bash-5.0
+        - [ ] Bison-3.5.2
+        - [ ] Bzip2-1.0.8
+        - [ ] Coreutils-8.31
+        - [ ] Diffutils-3.7
+        - [ ] File-5.38
+        - [ ] Findutils-4.7.0
+        - [ ] Gawk-5.0.1
+        - [ ] Gettext-0.20.1
+        - [ ] Grep-3.4
+        - [ ] Gzip-1.10
+        - [ ] Make-4.3
+        - [ ] Patch-2.7.6
+        - [ ] Perl-5.30.1
+        - [ ] Python-3.8.1
+        - [ ] Sed-4.8
+        - [ ] Tar-1.32
+        - [ ] Texinfo-6.7
+        - [ ] Xz-5.2.4
+        - [ ] Stripping
+        - [ ] Changing Ownership
+
+- [ ] III. Building the LFS System
+
+    - [ ] 6. Installing Basic System Software
+        - [ ] Introduction
+        - [ ] Preparing Virtual Kernel File Systems
+        - [ ] Package Management
+        - [ ] Entering the Chroot Environment
+        - [ ] Creating Directories
+        - [ ] Creating Essential Files and Symlinks
+        - [ ] Linux-5.5.3 API Headers
+        - [ ] Man-pages-5.05
+        - [ ] Glibc-2.31
+        - [ ] Adjusting the Toolchain
+        - [ ] Zlib-1.2.11
+        - [ ] Bzip2-1.0.8
+        - [ ] Xz-5.2.4
+        - [ ] File-5.38
+        - [ ] Readline-8.0
+        - [ ] M4-1.4.18
+        - [ ] Bc-2.5.3
+        - [ ] Binutils-2.34
+        - [ ] GMP-6.2.0
+        - [ ] MPFR-4.0.2
+        - [ ] MPC-1.1.0
+        - [ ] Attr-2.4.48
+        - [ ] Acl-2.2.53
+        - [ ] Shadow-4.8.1
+        - [ ] GCC-9.2.0
+        - [ ] Pkg-config-0.29.2
+        - [ ] Ncurses-6.2
+        - [ ] Libcap-2.31
+        - [ ] Sed-4.8
+        - [ ] Psmisc-23.2
+        - [ ] Iana-Etc-2.30
+        - [ ] Bison-3.5.2
+        - [ ] Flex-2.6.4
+        - [ ] Grep-3.4
+        - [ ] Bash-5.0
+        - [ ] Libtool-2.4.6
+        - [ ] GDBM-1.18.1
+        - [ ] Gperf-3.1
+        - [ ] Expat-2.2.9
+        - [ ] Inetutils-1.9.4
+        - [ ] Perl-5.30.1
+        - [ ] XML::Parser-2.46
+        - [ ] Intltool-0.51.0
+        - [ ] Autoconf-2.69
+        - [ ] Automake-1.16.1
+        - [ ] Kmod-26
+        - [ ] Gettext-0.20.1
+        - [ ] Libelf from Elfutils-0.178
+        - [ ] Libffi-3.3
+        - [ ] OpenSSL-1.1.1d
+        - [ ] Python-3.8.1
+        - [ ] Ninja-1.10.0
+        - [ ] Meson-0.53.1
+        - [ ] Coreutils-8.31
+        - [ ] Check-0.14.0
+        - [ ] Diffutils-3.7
+        - [ ] Gawk-5.0.1
+        - [ ] Findutils-4.7.0
+        - [ ] Groff-1.22.4
+        - [ ] GRUB-2.04
+        - [ ] Less-551
+        - [ ] Gzip-1.10
+        - [ ] Zstd-1.4.4
+        - [ ] IPRoute2-5.5.0
+        - [ ] Kbd-2.2.0
+        - [ ] Libpipeline-1.5.2
+        - [ ] Make-4.3
+        - [ ] Patch-2.7.6
+        - [ ] Man-DB-2.9.0
+        - [ ] Tar-1.32
+        - [ ] Texinfo-6.7
+        - [ ] Vim-8.2.0190
+        - [ ] Procps-ng-3.3.15
+        - [ ] Util-linux-2.35.1
+        - [ ] E2fsprogs-1.45.5
+        - [ ] Sysklogd-1.5.1
+        - [ ] Sysvinit-2.96
+        - [ ] Eudev-3.2.9
+        - [ ] About Debugging Symbols
+        - [ ] Stripping Again
+        - [ ] Cleaning Up
+    - [ ] 7. System Configuration
+        - [ ] Introduction
+        - [ ] LFS-Bootscripts-20191031
+        - [ ] Overview of Device and Module Handling
+        - [ ] Managing Devices
+        - [ ] General Network Configuration
+        - [ ] System V Bootscript Usage and Configuration
+        - [ ] The Bash Shell Startup Files
+        - [ ] Creating the /etc/inputrc File
+        - [ ] Creating the /etc/shells File
+    - [ ] 8. Making the LFS System Bootable
+        - [ ] Introduction
+        - [ ] Creating the /etc/fstab File
+        - [ ] Linux-5.5.3
+        - [ ] Using GRUB to Set Up the Boot Process
+    - [ ] 9. The End
+        - [ ] The End
+        - [ ] Get Counted
+        - [ ] Rebooting the System
+        - [ ] What Now?
+
+- [ ] IV. Appendices
+
+    - [ ] A. Acronyms and Terms
+    - [ ] B. Acknowledgments
+    - [ ] C. Dependencies
+    - [ ] D. Boot and sysconfig scripts version-20191031
+        - [ ] /etc/rc.d/init.d/rc
+        - [ ] /lib/lsb/init-functions
+        - [ ] /etc/rc.d/init.d/mountvirtfs
+        - [ ] /etc/rc.d/init.d/modules
+        - [ ] /etc/rc.d/init.d/udev
+        - [ ] /etc/rc.d/init.d/swap
+        - [ ] /etc/rc.d/init.d/setclock
+        - [ ] /etc/rc.d/init.d/checkfs
+        - [ ] /etc/rc.d/init.d/mountfs
+        - [ ] /etc/rc.d/init.d/udev_retry
+        - [ ] /etc/rc.d/init.d/cleanfs
+        - [ ] /etc/rc.d/init.d/console
+        - [ ] /etc/rc.d/init.d/localnet
+        - [ ] /etc/rc.d/init.d/sysctl
+        - [ ] /etc/rc.d/init.d/sysklogd
+        - [ ] /etc/rc.d/init.d/network
+        - [ ] /etc/rc.d/init.d/sendsignals
+        - [ ] /etc/rc.d/init.d/reboot
+        - [ ] /etc/rc.d/init.d/halt
+        - [ ] /etc/rc.d/init.d/template
+        - [ ] /etc/sysconfig/modules
+        - [ ] /etc/sysconfig/createfiles
+        - [ ] /etc/sysconfig/udev-retry
+        - [ ] /sbin/ifup
+        - [ ] /sbin/ifdown
+        - [ ] /lib/services/ipv4-static
+        - [ ] /lib/services/ipv4-static-route
+    - [ ] E. Udev configuration rules
+        - [ ] 55-lfs.rules
