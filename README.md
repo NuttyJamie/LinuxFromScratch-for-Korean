@@ -3,9 +3,9 @@
 [**LinuxFromScratch**](http://linuxfromscratch.org) 프로젝트 가이드 한국어 번역판.
 
 ## 목차 
-- [LinuxFromScratch 프로젝트 소개]
-- [번역 일러두기]
-- [작업 현황]
+- [LinuxFromScratch 프로젝트 소개](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#linux-from-scratch%EB%8A%94)
+- [번역 일러두기](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#%EB%B2%88%EC%97%AD-%EC%9D%BC%EB%9F%AC%EB%91%90%EA%B8%B0)
+- [작업 현황](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#todo)
 
 ## Linux From Scratch는..
 Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계 별로 빌드하여 자신만의 커스텀 리눅스 시스템을 만드는 프로젝트입니다.
@@ -44,6 +44,6 @@ systemd 버전은 본 번역판에서 다루지 않음을 미리 밝힙니다.*
 - Slackware14.2 in VirtualBox 
 
 ## TODO
-- [x] LFS - 현재 작업 중
+- [x] [LFS - 현재 작업 중](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
 - [ ] BLFS
 - [ ] ALFS
