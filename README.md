@@ -32,7 +32,7 @@ Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계 별로 �
 
 ## ※번역 일러두기
 
-*이 번역판은 LFS 프로젝트 9.1 Current Stable버전을 기준으로, 모든 내용과 절차를 직접 테스트하며 작성되었습니다. *
+*이 번역판은 LFS 프로젝트 9.1 Current Stable버전을 기준으로, 모든 내용과 절차를 직접 테스트하며 작성되었습니다.*
 
 - 원문에서의 저자의 의도를 가능한 그대로 전달하기 위해 노력했습니다. 
 - 전문 번역가가 아닌 개인 프로젝트인 관계로 구글 번역기, 네이버 파파고 등 웹 번역 서비스의 도움을 많이 받았습니다. 다만 일부 오역이나 가독성 면에서 부자연스러운 문장들은 수정하고 다듬었습니다.
@@ -49,6 +49,6 @@ Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계 별로 �
 - Slackware14.2 in VirtualBox 
 
 ## TODO
-- [x] [LFS - 현재 작업 중](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
+- [x] [LFS - 현재 진행 중](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
 - [ ] BLFS
 - [ ] ALFS

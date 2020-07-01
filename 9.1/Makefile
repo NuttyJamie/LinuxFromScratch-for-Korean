@@ -58,9 +58,6 @@ book: validate profile-html
          tidy -config tidy.conf $$filename;           \
          true;                                        \
          /bin/bash obfuscate.sh $$filename;           \
-         sed -e "s@text/html@application/xhtml+xml@g" \
-             -e "s/\xa9/\&copy;/ "                    \
-             -i $$filename;                           \
    done;
 
 	$(Q)$(MAKE) --no-print-directory wget-list md5sums
@@ -109,7 +106,6 @@ nochunks: validate profile-html
 	$(Q)sed -i -e "s@text/html@application/xhtml+xml@g"  $(BASEDIR)/$(NOCHUNKS_OUTPUT)
 	$(Q)sed -i -e "s@../wget-list@wget-list@"            $(BASEDIR)/$(NOCHUNKS_OUTPUT)
 	$(Q)sed -i -e "s@../md5sums@md5sums@"                $(BASEDIR)/$(NOCHUNKS_OUTPUT)
-	$(Q)sed -i -e "s@\xa9@\&copy;@"                      $(BASEDIR)/$(NOCHUNKS_OUTPUT)
 
 	@echo "Output at $(BASEDIR)/$(NOCHUNKS_OUTPUT)"
 
