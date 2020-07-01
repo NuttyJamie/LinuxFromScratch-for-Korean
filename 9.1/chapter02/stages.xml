@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,74 +8,63 @@
 <sect1 id="ch-partitioning-stages">
   <?dbhtml filename="stages.html"?>
 
-  <title>Building LFS in Stages</title>
+  <title>LFS 빌드 단계</title>
 
-  <para>LFS is designed to be built in one session.  That is, the
-  instructions assume that the system will not be shut down
-  during the process.  That does not mean that the system has to
-  be done in one sitting.  The issue is that certain procedures
-  have to be re-accomplished after a reboot if resuming LFS at
-  different points.</para>
+	<para>LFS는 한 세션에 구축되도록 설계되었다. 즉, 절차 도중에는 시스템이 종료되지 않을 것으로 가정한다.
+그렇다고 시스템이 앉은 자리에서 한번에 모두 설치되어야 한다는 뜻은 아니다. 문제는 다른 시점에 LFS을 재개할 경우,
+재부팅 후 특정 절차를 다시 수행해야 한다는 점이다.</para>
 
   <sect2>
-  <title>Chapters&nbsp;1&ndash;4</title>
+  <title>1&ndash;4장</title>
 
-    <para>These chapters are accomplished on the host system.  When
-    restarting, be careful of the following:</para>
+    <para>이 장들은 호스트 시스템에서 수행된다. 중단 후 재개할 경우 다음을 주의하라:</para>
   
     <itemizedlist>
       <listitem>
-         <para>Procedures done as the root user after Section 2.4 need to 
-         have the LFS environment variable set <emphasis>FOR THE ROOT
-         USER</emphasis>.</para>
+         <para>섹션 2.4 이후 루트 사용자로 수행되는 절차는 <emphasis>루트 사용자에 대한</emphasis>LFS 환경 변수를
+설정해야 한다.</para>
       </listitem>
     </itemizedlist>
   </sect2>
   
   <sect2>
-  <title>Chapter&nbsp;5</title>
+  <title>5장</title>
 
     <itemizedlist>
       <listitem>
-         <para>The /mnt/lfs partition must be mounted.</para>
+         <para>/mnt/lfs 파티션이 반드시 마운트되어야 함.</para>
       </listitem>
 
       <listitem>
-         <para><emphasis>ALL</emphasis> instructions in Chapter&nbsp;5 
-         must be done by user <emphasis>lfs</emphasis>.  
-         A  <command>su - lfs</command> needs to be done before any 
-         task in Chapter&nbsp;5.</para>
+         <para>5장의 <emphasis>모든</emphasis> 지침은 반드시 <emphasis>lfs</emphasis> 유저에 의해 수행되어야 한다.  
+         <command>su - lfs</command>는 5장의 어떤 작업보다 먼저 수행되어야 한다.</para>
       </listitem>
 
       <listitem>
-         <para>The procedures in <xref linkend='ch-tools-generalinstructions'/>
-         are critical.  If there is any
-         doubt about installing a package, ensure any previously expanded
-         tarballs are removed, re-extract the package files, and complete all
-         instructions in that section.</para>
+         <para><xref linkend='ch-tools-generalinstructions'/>의 절차는 매우 중요하다. 패키지 설치에 대해 의심스러운
+점이 있는 경우 이전에 압축이 풀어진 tarball이 제거되었는지 확실히 하고 패키지 파일을 다시 추출한 후 해당 섹션의 
+모든 지침을 완료하라.
+         </para>
       </listitem>
     </itemizedlist>
   </sect2>
 
   <sect2>
-  <title>Chapters&nbsp;6&ndash;8</title>
+  <title>6&ndash;8장</title>
 
     <itemizedlist>
       <listitem>
-         <para>The /mnt/lfs partition must be mounted.</para>
+         <para>/mnt/lfs 파티션이 반드시 마운트되어야 함.</para>
       </listitem>
 
       <listitem>
-         <para> When entering chroot, the LFS environment variable must be set
-         for root.  The LFS variable is not used otherwise.</para>
+         <para>chroot를 입력할 때는 반드시 루트에 대한 LFS 환경 변수를 설정해야 한다. LFS 변수는 달리 사용되지 않는다.</para>
       </listitem>
 
       <listitem>
-         <para> The virtual file systems must be mounted.  This can be done
-         before or after entering chroot by changing to a host virtual terminal
-         and, as root, running the commands in 
-         <xref linkend='ch-system-bindmount'/> and 
-         <xref linkend='ch-system-kernfsmount'/>.</para>
+         <para>가상 파일 시스템을 반드시 마운트해야 한다. 이는 호스트 가상 터미널로 변경하여 chroot를 입력하기 
+전 또는 후에 수행될 수 있으며, 루트로 <xref linkend='ch-system-bindmount'/> 및 <xref linkend='ch-system-kernfsmount'/>의 
+명령을 실행할 수 있다.</para>
       </listitem>
     </itemizedlist>
   </sect2>

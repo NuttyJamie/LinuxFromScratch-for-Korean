@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,44 +8,40 @@
 <sect1 id="pre-typography">
   <?dbhtml filename="typography.html"?>
 
-  <title>Typography</title>
+  <title>타이포그래피</title>
 
-  <para>To make things easier to follow, there are a few typographical
-  conventions used throughout this book. This section contains some
-  examples of the typographical format found throughout Linux From
-  Scratch.</para>
+  <para>따르기 쉽도록 하기 위해, 이 책 전반에 걸쳐 사용되는 몇 가지 활자
+규칙이 있다. 이 절에는 Linux From Scratch에서 찾을 수 있는 인쇄 형식의 몇 
+가지 예가 수록되어 있다.</para>
 
 <screen role="nodump"><userinput>./configure --prefix=/usr</userinput></screen>
 
-  <para>This form of text is designed to be typed exactly as seen unless
-  otherwise noted in the surrounding text. It is also used in the explanation
-  sections to identify which of the commands is being referenced.</para>
+  <para>이 형태의 텍스트는 옆에 달리 명시되지 않는 한 보이는 대로 정확하게
+ 입력하라. 또한 설명 섹션에서는 어떤 명령어를 참조하고 있는지 식별하기 위해
+ 사용된다.</para>
 
-  <para>In some cases, a logical line is extended to two or more physical lines
-  with a backslash at the end of the line.</para>
+  <para>어떤 경우에는 한 논리적 명령이 두 줄 이상으로 길어져 행 끝에 
+백슬래시가 있는 경우도 있다.</para>
 
 <screen role="nodump"><userinput>CC="gcc -B/usr/bin/" ../binutils-2.18/configure \
   --prefix=/tools --disable-nls --disable-werror</userinput></screen>
 
-  <para>Note that the backslash must be followed by an immediate return.  Other
-  whitespace characters like spaces or tab characters will create incorrect
-  results.</para>
+  <para>백슬래시 뒤에 바로 이어적어야 한다는 점을 유의하라. 스페이스나 탭 
+문자와 같은 공백 문자는 잘못된 결과를 낳을 것이다.</para>
 
 <screen><computeroutput>install-info: unknown option '--dir-file=/mnt/lfs/usr/info/dir'</computeroutput></screen>
 
-  <para>This form of text (fixed-width text) shows screen output, usually as
-  the result of commands issued.  This format is also used to show filenames,
-  such as <filename>/etc/ld.so.conf</filename>.</para>
+  <para>이 형식의 텍스트(고정 너비 텍스트)는 일반적으로 실행된 명령의 
+결과로 화면 출력을 보여준다. 이 형식은 파일 이름(예: <filename>/etc/ld.so.conf</filename>)을 표시하는 데도 사용된다.</para>
 
   <para><emphasis>Emphasis</emphasis></para>
 
-  <para>This form of text is used for several purposes in the book. Its main
-  purpose is to emphasize important points or items.</para>
+  <para>이 형태의 텍스트는 이 책에서 여러 가지 용도로 사용된다. 중요한 포인트나 아이템을 강조하는 것이 주요 목적이다.</para>
 
   <para><ulink url="&lfs-root;"/></para>
 
-  <para>This format is used for hyperlinks both within the LFS community and to
-  external pages. It includes HOWTOs, download locations, and websites.</para>
+  <para>이 형식은 LFS 커뮤니티 내의 하이퍼링크와 외부 페이지에 모두 
+사용된다. HowTO, 다운로드 위치 및 웹 사이트를 포함한다.</para>
 
 <screen role="nodump"><userinput>cat &gt; $LFS/etc/group &lt;&lt; "EOF"
 <literal>root:x:0:
@@ -53,37 +49,36 @@ bin:x:1:
 ......</literal>
 EOF</userinput></screen>
 
-  <para>This format is used when creating configuration files. The first command
-  tells the system to create the file <filename>$LFS/etc/group</filename> from
-  whatever is typed on the following lines until the sequence End Of File (EOF)
-  is encountered. Therefore, this entire section is generally typed as
-  seen.</para>
+  <para>이 형식은 구성 파일을 만들 때 사용된다. 
+	첫 번째 명령은 다음 줄에 무엇이 입력되든 EOF(End Of File) 시퀀스를 마주 
+할 때까지 입력된 내용으로 <filename>$LFS/etc/group</filename> 파일을 
+생성하도록 시스템에 지시한다. 
+따라서 일반적으로 이 섹션 전체가 보이는 대로 입력된다.</para>
 
   <para><replaceable>&lt;REPLACED TEXT&gt;</replaceable></para>
 
-  <para>This format is used to encapsulate text that is not to be typed
-  as seen or for copy-and-paste operations.</para>
+  <para>이 형식은 그대로 입력하지 않는 텍스트를 묶거나 복사하여 붙여넣기 
+작업을 위해 사용된다.</para>
 
   <para><replaceable>[OPTIONAL TEXT]</replaceable></para>
 
-  <para>This format is used to encapsulate text that is optional.</para>
+  <para>이 형식은 선택 사항인 텍스트를 묶는 데 사용된다.</para>
 
   <para><filename>passwd(5)</filename></para>
 
-  <para>This format is used to refer to a specific manual (man) page. The number inside parentheses
-  indicates a specific section inside the manuals. For example,
-  <command>passwd</command> has two man pages. Per LFS installation instructions,
-  those two man pages will be located at
-  <filename>/usr/share/man/man1/passwd.1</filename> and
-  <filename>/usr/share/man/man5/passwd.5</filename>. When the book uses <filename>passwd(5)</filename> it is
-  specifically referring to <filename>/usr/share/man/man5/passwd.5</filename>.
-  <command>man passwd</command> will print the first man page it finds that
-  matches <quote>passwd</quote>, which will be
-  <filename>/usr/share/man/man1/passwd.1</filename>. For this example, you will
-  need to run <command>man 5 passwd</command> in order to read the specific page
-  being referred to. It should be noted that most man pages do not have duplicate
-  page names in different sections. Therefore, <command>man <replaceable>&lt;program
-  name&gt;</replaceable></command> is generally sufficient.</para>
+  <para>이 형식은 특정 매뉴얼(man) 페이지를 참조하는 데 사용된다. 
+괄호 안의 숫자는 설명서 내부의 특정 섹션을 나타낸다. 
+예를 들어, <command>passwd</command>는 두 개의 Man 페이지를 가지고 있다. 
+LFS 설치 지침에 따라 이 두 개의 Man 페이지는 <filename>/usr/share/man/man1/passwd.1</filename> 와 
+<filename>/usr/share/man/man5/passwd.5</filename>에 위치한다. 
+이 책에서 <filename>passwd(5)</filename>라 하면,
+ 그것은 정확히 <filename>/usr/share/man/man5/passwd.5</filename>를 참조한다.
+ <command>man passwd</command>는 <quote>passwd</quote>와 일치하는 첫 번째 
+Man 페이지, <filename>/usr/share/man/man1/passwd.1</filename>를 출력한다. 
+ 이 예시의 경우, 참조되는 특정 페이지를 읽으려면 
+<command>man 5 passwd</command>를 실행해야 한다. 대부분의 맨 페이지에는 
+서로 다른 섹션에 중복된 페이지 이름이 없다는 점에 유의해야 한다. 
+따라서 일반적으론 <command>man <replaceable>&lt;program name&gt;</replaceable></command>으로 충분하다.</para>
 
 </sect1>
 

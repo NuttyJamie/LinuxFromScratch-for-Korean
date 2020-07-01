@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,52 +8,48 @@
 <sect1 id="ch-intro-livecd">
   <?dbhtml filename="livecd.html"?>
 
-  <title>About the Included CD</title>
+  <title>동봉된 CD에 대해</title>
 
-  <para>For your convenience, we have included a CD with this book that
-  contains the source packages needed for creating a Linux From Scratch
-  system.  The CD is bootable and provides a stable working environment
-  for building LFS.  This book refers to this system as the
-  <quote>host system.</quote>  The CD images are actively maintained and
-  updated versions can be found at
-  <ulink url="ftp://ftp.lfs-matrix.net/pub/lfs-livecd/"/></para>
+  <para>당신의 편의를 위해, Linux From Scratch 시스템 구축에 필요한 소스 패키지가 들어있는 CD를 첨부했다. 
+그 CD는 부팅가능하고 LFS 빌드를 할 수 있는 안정적인 작업 환경을 제공한다. 
+이 책은 이 시스템을 <quote>호스트 시스템</quote>으로 간주한다. CD 이미지는 꾸준히 유지 관리되는 중이고 업데이트 
+버전은 <ulink url="ftp://ftp.lfs-matrix.net/pub/lfs-livecd/"/>에서 확인할 수 있다.</para>
 
-  <para>In addition to the tools required to build LFS, the host system
-  on the CD has a number of other helpful tools installed:</para>
+  <para>LFS를 구축하는 데 필요한 도구 외에도 호스트 시스템 CD에는 다른 많은 유용한 도구들이 설치되어 있다:</para>
 
   <itemizedlist>
 
     <listitem>
-      <para>An HTML version of this book</para>
+      <para>이 책의 HTML 버전</para>
     </listitem>
 
     <listitem>
-      <para>The X Window System Environment</para>
+      <para>X 윈도우 시스템 환경</para>
     </listitem>
 
     <listitem>
-      <para>Web Tools</para>
+      <para>웹 도구들</para>
       <itemizedlist>
         <listitem>
-          <para>Wget (command line file retriever)</para>
+          <para>Wget (커맨드 라인 파일 수집기)</para>
         </listitem>
         <listitem>
-          <para>Lynx (text web browser)</para>
+          <para>Lynx (텍스트 웹 브라우저)</para>
         </listitem>
         <listitem>
-          <para>Irssi (console IRC client)</para>
+          <para>Irssi (콘솔 IRC 클라이언트)</para>
         </listitem>
         <listitem>
-          <para>Firefox (graphical web browser)</para>
+          <para>Firefox (그래픽 웹 브라우저)</para>
         </listitem>
         <listitem>
-          <para>Xchat (X-based IRC client)</para>
+          <para>Xchat (X-기반 IRC 클라이언트)</para>
         </listitem>
       </itemizedlist>
     </listitem>
 
     <listitem>
-      <para>Text Editors</para>
+      <para>텍스트 편집기들</para>
       <itemizedlist>
         <listitem>
           <para>Vim</para>
@@ -65,28 +61,28 @@
     </listitem>
 
     <listitem>
-      <para>Network Tools</para>
+      <para>네트워크 도구들</para>
       <itemizedlist>
         <listitem>
-          <para>SSH Server and Client</para>
+          <para>SSH 서버와 클라이언트</para>
         </listitem>
         <listitem>
-          <para>NFS Server and Client</para>
+          <para>NFS 서버와 클라이언트</para>
         </listitem>
         <listitem>
-          <para>Smbmount (mount.cifs) for Windows shares</para>
+          <para>윈도우즈 공유를 위한 Smbmount (mount.cifs) </para>
         </listitem>
         <listitem>
           <para>Subversion</para>
         </listitem>
         <listitem>
-          <para>Dhcpcd (DHCP client)</para>
+          <para>Dhcpcd (DHCP 클라이언트)</para>
         </listitem>
       </itemizedlist>
     </listitem>
 
     <listitem>
-      <para>Filesystem Programs</para>
+      <para>파일시스템 프로그램들</para>
       <itemizedlist>
         <listitem>
           <para>Reiserfsprogs</para>
@@ -98,7 +94,7 @@
     </listitem>
 
     <listitem>
-      <para>nALFS - A tool for automating LFS builds</para>
+      <para>nALFS - LFS 빌드 자동화를 위한 도구</para>
     </listitem>
 
   </itemizedlist>

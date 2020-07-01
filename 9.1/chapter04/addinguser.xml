@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,100 +8,86 @@
 <sect1 id="ch-preps-addinguser">
   <?dbhtml filename="addinguser.html"?>
 
-  <title>Adding the LFS User</title>
+  <title>LFS 유저 추가</title>
 
-  <para>When logged in as user <systemitem class="username">root</systemitem>,
-  making a single mistake can damage or destroy a system. Therefore, we
-  recommend building the packages in the next chapter as an unprivileged user.
-  You could use your own user name, but to make it easier to set up a clean
-  working environment, create a new user called <systemitem
-  class="username">lfs</systemitem> as a member of a new group (also named
-  <systemitem class="groupname">lfs</systemitem>) and use this user during
-  the installation process. As <systemitem class="username">root</systemitem>,
-  issue the following commands to add the new user:</para>
+  <para><systemitem class="username">root</systemitem> 유저로 로그인할 때는, 한 번의 실수로 시스템이 손상되거나 
+파괴될 수 있다. 따라서 다음 장에서는 권한 없는 유저로 패키지를 빌드할 것을 권장한다. 당신만의 유저 이름을 사용할 수
+도 있지만, 깨끗한 작업 환경을 쉽게 설정할 수 있도록 <systemitem class="username">lfs</systemitem>라는 새 사용자를 
+같은 이름의 <systemitem class="groupname">lfs</systemitem>로 명명된 새 그룹의 구성원으로 생성하고 설치 프로세스 
+중에는 이 유저를 사용하라. <systemitem class="username">root</systemitem>로 다음 명령을 실행하여 새 사용자를 추가한다:</para>
 
 <screen><userinput>groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
 
   <variablelist>
-    <title>The meaning of the command line options:</title>
+    <title>명령 줄 옵션들의 의미:</title>
 
     <varlistentry>
       <term><parameter>-s /bin/bash</parameter></term>
       <listitem>
-        <para>This makes <command>bash</command> the default shell for user
-        <systemitem class="username">lfs</systemitem>.</para>
+        <para><systemitem class="username">lfs</systemitem> 유저의 기본 셸을 <command>bash</command>로 지정한다.
+        </para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter>-g lfs</parameter></term>
       <listitem>
-        <para>This option adds user <systemitem class="username">lfs</systemitem>
-        to group <systemitem class="groupname">lfs</systemitem>.</para>
+        <para><systemitem class="username">lfs</systemitem> 유저를 
+        <systemitem class="groupname">lfs</systemitem> 그룹에 추가한다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter>-m</parameter></term>
       <listitem>
-        <para>This creates a home directory for <systemitem
-        class="username">lfs</systemitem>.</para>
+        <para><systemitem class="username">lfs</systemitem> 유저를 위한 홈 디렉토리를 생성한다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter>-k /dev/null</parameter></term>
       <listitem>
-        <para>This parameter prevents possible copying of files from a skeleton
-        directory (default is <filename class="directory">/etc/skel</filename>)
-        by changing the input location to the special null device.</para>
+        <para>이 매개변수는 입력 위치를 특수 null 장치로 변경하여 스켈레톤 디렉토리(기본값은 
+<filename class="directory">/etc/skel</filename>)로부터의 파일 복사를 방지한다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter>lfs</parameter></term>
       <listitem>
-        <para>This is the actual name for the created group and user.</para>
+        <para>생성된 그룹과 유저의 실제 이름이다.</para>
       </listitem>
     </varlistentry>
 
   </variablelist>
 
-  <para>To log in as <systemitem class="username">lfs</systemitem> (as opposed
-  to switching to user <systemitem class="username">lfs</systemitem> when logged
-  in as <systemitem class="username">root</systemitem>, which does not require
-  the <systemitem class="username">lfs</systemitem> user to have a password),
-  give <systemitem class="username">lfs</systemitem> a password:</para>
+  <para><systemitem class="username">lfs</systemitem>로 로그인하려면 
+(<systemitem class="username">root</systemitem>에서 <systemitem class="username">lfs</systemitem> 유저로의 
+전환할 때와 같은 <systemitem class="username">lfs</systemitem> 유저의 비밀번호가 필요 없는 경우와는 달리),
+  다음과 같이 <systemitem class="username">lfs</systemitem>의 암호를 지정하라:</para>
 
 <screen role="nodump"><userinput>passwd lfs</userinput></screen>
 
-  <para>Grant <systemitem class="username">lfs</systemitem> full access to
-  <filename class="directory">$LFS/tools</filename> by making
-  <systemitem class="username">lfs</systemitem> the directory owner:</para>
+  <para><systemitem class="username">lfs</systemitem>를 디렉토리 소유자로 
+<filename class="directory">$LFS/tools</filename>에 대한 전체 액세스 권한을 부여하려면:</para>
 
 <screen><userinput>chown -v lfs $LFS/tools</userinput></screen>
 
-  <para>If a separate working directory was created as suggested, give
-  user <systemitem class="username">lfs</systemitem> ownership of this
-  directory:</para>
+  <para>권장한 방법대로 별도의 작업 디렉토리를 생성했다면 <systemitem class="username">lfs</systemitem> 유저에게
+이 디렉토리의 소유권을 부여하라:</para>
 
 <screen><userinput>chown -v lfs $LFS/sources</userinput></screen>
 
-  <note><para>In some host systems, the following command does not complete
-  properly and suspends the login to the lfs user to the background.  If the
-  prompt "lfs:~$" does not appear immediately, entering the
-  <command>fg</command> command will fix the issue.</para></note>
+  <note><para>일부 호스트 시스템에서는 이 명령이 제대로 완료되지 않고 lfs 유저에 대한 로그인을 백그라운드로 
+일시 중지시킨다. "lfs:~$" 프롬프트가 즉시 나타나지 않으면 <command>fg</command> 명령을 입력하면 문제가 해결된다.</para></note>
 
-  <para>Next, login as user <systemitem class="username">lfs</systemitem>.
-  This can be done via a virtual console, through a display manager, or with
-  the following substitute user command:</para>
+  <para>다음은 <systemitem class="username">lfs</systemitem> 유저로의 로그인이다.
+이 작업은 가상 콘솔이나 디스플레이 관리자를 통해 수행하거나 다음과 같은 대체 사용자 명령을 사용해 수행할 수 있다:</para>
 
 <screen role="nodump"><userinput>su - lfs</userinput></screen>
 
-  <para>The <quote><parameter>-</parameter></quote> instructs
-  <command>su</command> to start a login shell as opposed to a non-login shell.
-  The difference between these two types of shells can be found in detail in
-  <filename>bash(1)</filename> and <command>info bash</command>.</para>
+  <para><quote><parameter>-</parameter></quote>는 <command>su</command>에게 비-로그인 셸과 달리 로그인 셸로 
+실행하도록 지시한다. 이 두 종류의 셸 사이의 차이는 <filename>bash(1)</filename>와 <command>info bash</command>에서 자세히 찾을 수 있다. </para>
 
 </sect1>

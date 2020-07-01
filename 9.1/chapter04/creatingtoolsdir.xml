@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,41 +8,31 @@
 <sect1 id="ch-preps-creatingtoolsdir">
   <?dbhtml filename="creatingtoolsdir.html"?>
 
-  <title>Creating the $LFS/tools Directory</title>
+  <title>$LFS/tools 디렉토리 생성</title>
 
-  <para>All programs compiled in <xref linkend="chapter-temporary-tools"/>
-  will be installed under <filename class="directory">$LFS/tools</filename>
-  to keep them separate from the programs compiled in <xref
-  linkend="chapter-building-system"/>. The programs compiled here are
-  temporary tools and will not be a part of the final LFS system. By keeping
-  these programs in a separate directory, they can easily be discarded later
-  after their use. This also prevents these programs from ending up in the
-  host production directories (easy to do by accident in <xref
-  linkend="chapter-temporary-tools"/>).</para>
+  <para><xref linkend="chapter-temporary-tools"/>에서 컴파일된 모든 프로그램들은 <xref
+  linkend="chapter-building-system"/>에서 컴파일된 프로그램들과 따로 분류하기 위해 
+<filename class="directory">$LFS/tools</filename> 아래에 설치될 것이다. 여기서 컴파일된 프로그램들은 임시 도구로
+최종 LFS 시스템에 속하지 않는다. 이 프로그램들을 별도의 디렉토리에 보관함으로써 나중에 사용 후 쉽게 폐기할 수 있다.
+또 이 프로그램들이 호스트 작업 디렉토리에 머무르는 일을 방지한다(<xref linkend="chapter-temporary-tools"/>에서 
+쉽게 저지르는 실수다).</para>
 
-  <para>Create the required directory by running the following as
-  <systemitem class="username">root</systemitem>:</para>
+  <para>다음을 <systemitem class="username">root</systemitem>로 실행하여 필요한 디렉토리를 생성하라:</para>
 
 <screen><userinput>mkdir -v $LFS/tools</userinput></screen>
 
-  <para>The next step is to create a <filename class="symlink">/tools</filename>
-  symlink on the host system. This will point to the newly-created directory on
-  the LFS partition. Run this command as <systemitem
-  class="username">root</systemitem> as well:</para>
+  <para>다음 단계는 호스트 시스템에 <filename class="symlink">/tools</filename> symlink를 만드는 것이다. 이것은 
+LFS 파티션에 새로 생성된 디렉토리를 가리킬 것이다. <systemitem class="username">root</systemitem>로 이 명령도 실행
+하라:</para>
 
 <screen><userinput>ln -sv $LFS/tools /</userinput></screen>
 
   <note>
-    <para>The above command is correct. The <command>ln</command> command
-    has a few syntactic variations, so be sure to check
-    <command>info coreutils ln</command> and <filename>ln(1)</filename>
-    before reporting what you may think is an error.</para>
+    <para>위의 명령은 정확하다. <command>ln</command> 명령은 여러가지 문법을 가지므로 오류라고 생각할 수 있는 내용
+을 보고하기 전에 <command>info coreutils ln</command>와 <filename>ln(1)</filename>을 반드시 확인하라.</para>
   </note>
 
-  <para>The created symlink enables the toolchain to be compiled so that it
-  always refers to <filename class="directory">/tools</filename>, meaning
-  that the compiler, assembler, and linker will work both in Chapter&nbsp;5
-  (when we are still using some tools from the host) and in the next (when
-  we are <quote>chrooted</quote> to the LFS partition).</para>
+  <para>생성된 symlink는 컴파일된 툴체인이 항상 <filename class="directory">/tools</filename>를 참조할 수 있게
+하는데, 이것은 컴파일러, 어셈블러, 그리고 링커가 5장(호스트의 일부 도구를 여전히 사용하는 시점)과 그 이후(LFS 파티션으로 <quote>chroot한</quote> 시점)에도 작동한다는 것을 의미한다.</para>
 
 </sect1>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,42 +8,40 @@
 <sect1 id="pre-prerequisites">
   <?dbhtml filename="prerequisites.html"?>
 
-  <title>Prerequisites</title>
+  <title>전제 조건</title>
 
-  <para>Building an LFS system is not a simple task. It requires a certain
-  level of existing knowledge of Unix system administration in order to resolve
-  problems and correctly execute the commands listed. In particular, as an
-  absolute minimum, you should already have the ability to use the
-  command line (shell) to copy or move files and directories, list directory
-  and file contents, and change the current directory. It is also expected that
-  you have a reasonable knowledge of using and installing Linux
-  software.</para>
+  <para>LFS 시스템을 구축하는 것은 간단한 일이 아니다. 
+문제를 해결하고 나열된 명령을 올바르게 실행하기 위해서는 유닉스 시스템 
+관리에 대한 일정 수준의 기본 지식이 필요하다. 특히, 아무리 못해도 
+커맨드 라인(셸)을 사용하여 파일과 디렉토리를 복사하거나 이동시키고, 
+디렉토리 및 파일 내용을 나열하고, 현재 디렉토리를 변경할 수 있는 능력을 
+이미 갖추고 있어야 한다. 또한 리눅스 소프트웨어 사용 및 설치에 대한 
+합리적인 지식이 있을 것으로 간주한다.</para>
 
-  <para>Because the LFS book assumes <emphasis>at least</emphasis> this basic
-  level of skill, the various LFS support forums are unlikely to be able to
-  provide you with much assistance in these areas. You will find that your
-  questions regarding such basic knowledge will likely go unanswered or you
-  will simply be referred to the LFS essential pre-reading list.</para>
+  <para>LFS 책은 이러한 기본적인 수준의 기술을 
+<emphasis>최소한의 능력</emphasis>으로 간주하기 때문에, 여러 LFS 지원 
+포럼들은 이러한 분야에서 당신에게 많은 도움을 줄 수 없을 것이다. 
+당신의 그러한 기초지식에 관한 질문들에는 답변이 오지 않거나 그저 LFS 필독 사항 리스트만 추천 받게 될 수 있다.</para>
 
-  <para>Before building an LFS system, we recommend reading the following:</para>
+  <para>LFS 시스템을 빌드하기 전에, 다음을 읽어보기 바란다:</para>
 
   <itemizedlist>
     <listitem>
       <para>Software-Building-HOWTO
       <ulink url="http://www.tldp.org/HOWTO/Software-Building-HOWTO.html"/></para>
 
-      <para>This is a comprehensive guide to building and installing
-      <quote>generic</quote> Unix software packages under Linux. Although it
-      was written some time ago, it still provides a good summary of the
-      basic techniques needed to build and install software.</para>
+      <para>리눅스 아래에 <quote>일반적인</quote> 유닉스 소프트웨어 패키지를
+ 빌드하고 설치하기 위한 포괄적인 안내서다. 
+비록 작성되고 시간이 좀 흘렀지만, 여전히 소프트웨어를 만들고 설치하는 데 
+필요한 기본적인 기술들을 잘 요약해 준다.</para>
     </listitem>
 
     <listitem>
       <para>Beginner's Guide to Installing from Source
       <ulink url="http://moi.vonos.net/linux/beginners-installing-from-source/"/></para>
 
-      <para>This guide provides a good summary of basic skills and
-      techniques needed to build software from source code.</para>
+      <para>이 안내서는 소스 코드에서부터 소프트웨어를 빌드하기 위한 
+기본 스킬과 테크닉에 대해 잘 요약해준다.</para>
     </listitem>
 <!--
     <listitem>

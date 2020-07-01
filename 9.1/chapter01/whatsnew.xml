@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
@@ -9,10 +9,9 @@
 <sect1 id="ch-intro-whatsnew">
   <?dbhtml filename="whatsnew.html"?>
 
-  <title>What's new since the last release</title>
+  <title>지난 릴리스 이후 새로운 기능</title>
 
-  <para>Below is a list of package updates made since the previous
-  release of the book.</para>
+  <para>아래는 이 책의 이전 출간 이후에 만들어진 패키지 업데이트 목록이다.</para>
 
   <!--
     Every package in the book is listed in the "Upgraded to:" section.
@@ -21,7 +20,7 @@
   -->
 
   <itemizedlist>
-    <title>Upgraded to:</title>
+    <title>업그레이드 됨:</title>
     <listitem><para></para></listitem>  <!-- satisfy build -->
     <!--<listitem>
     <para>None</para>
@@ -269,13 +268,13 @@
   </itemizedlist>-->
 
   <itemizedlist>
-    <title>Added:</title>
+    <title>추가됨:</title>
     <listitem><para>Zstd-&zstd-version;</para></listitem>  <!-- satisfy build -->
 
   </itemizedlist>
 
   <itemizedlist>
-    <title>Removed:</title>
+    <title>삭제됨:</title>
     <listitem><para></para></listitem>  <!-- satisfy build -->
 
     <!--<listitem>

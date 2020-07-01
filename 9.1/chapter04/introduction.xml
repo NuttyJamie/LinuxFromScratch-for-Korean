@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,15 +8,11 @@
 <sect1 id="ch-preps-introduction">
   <?dbhtml filename="introduction.html"?>
 
-  <title>Introduction</title>
+  <title>도입</title>
 
-  <para>In this chapter, we will perform a few additional tasks to prepare
-  for building the temporary system. We will create a directory in
-  <filename class="directory">$LFS</filename> for the installation of the
-  temporary tools, add an unprivileged user to reduce risk,
-  and create an appropriate build environment for that user. We will also
-  explain the unit of time we use to measure how long LFS packages take to
-  build, or <quote>SBUs</quote>, and give some information about package
-  test suites.</para>
+  <para>이 장에서는 임시 시스템 구축을 준비하기 위해 몇 가지 추가 작업을 수행할 것이다. 임시 도구 설치를 위해 
+  <filename class="directory">$LFS</filename>에 디렉토리를 생성하고, 위험을 줄이기 위해 권한 없는 사용자를 
+추가하며, 해당 사용자에게 적합한 빌드 환경을 만들 것이다. 또한 LFS 패키지를 구축하는 데 걸리는 시간 단위, 다시말해 
+<quote>SBUs</quote>를 설명하고 패키지 테스트 제품군에 대한 정보를 설명할 것이다.</para>
 
 </sect1>

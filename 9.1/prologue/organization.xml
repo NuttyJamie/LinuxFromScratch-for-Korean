@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,36 +8,31 @@
 <sect1 id="pre-organization">
   <?dbhtml filename="organization.html"?>
 
-  <title>Structure</title>
+  <title>책의 짜임새</title>
 
-  <para>This book is divided into the following parts.</para>
+  <para>이 책은 다음과 같은 부분으로 나뉜다.</para>
 
   <sect2>
-    <title>Part I - Introduction</title>
+    <title>1부 - 소개</title>
 
-    <para>Part I explains a few important notes on how to proceed with the
-    LFS installation.  This section also provides meta-information about
-    the book.</para>
+    <para>1부에선 LFS 설치를 진행하는 방법에 대한 몇 가지 중요한 참고 
+사항을 설명한다. 이 절은 또한 책에 대한 메타 정보도 제공한다.</para>
   </sect2>
 
   <sect2>
-    <title>Part II - Preparing for the Build</title>
+    <title>2부 - 빌드를 위한 준비</title>
 
-    <para>Part II describes how to prepare for the building process&mdash;making
-    a partition, downloading the packages, and compiling temporary
-    tools.</para>
+    <para>2부는 파티션 만들기, 패키지 다운로드, 임시 도구 컴파일 등 
+	빌딩 프로세스를 준비하는 방법을 설명한다.</para>
   </sect2>
 
   <sect2>
-    <title>Part III - Building the LFS System</title>
+    <title>3부 - LFS 시스템 빌드</title>
 
-    <para>Part III guides the reader through the building of the LFS
-    system&mdash;compiling and installing all the packages one by one,
-    setting up the boot scripts, and installing the kernel. The resulting
-    Linux system is the foundation on which other software can be built to
-    expand the system as desired. At the end of this book, there is an
-    easy to use reference listing all of the programs, libraries, and
-    important files that have been installed.</para>
+    <para>3부에선 LFS 시스템 빌드로 독자를 안내한다. &mdash;모든 패키지를 
+하나씩 컴파일 및 설치, 부트 스크립트 설정, 커널 설치. 그 결과물인 
+리눅스 시스템은 다른 소프트웨어를 빌드하여 원하는 대로 시스템을 확장할 수 
+있는 기틀이다. 이 책의 마지막 부분에는 설치된 모든 프로그램, 라이브러리, 중요한 파일들을 나열한 쉬운 참조 자료들이 있다.</para>
   </sect2>
 
 </sect1>

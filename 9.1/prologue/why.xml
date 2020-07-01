@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,526 +8,503 @@
 <sect1 id="pre-why">
   <?dbhtml filename="package-choices.html"?>
 
-  <title>Rationale for Packages in the Book</title>
+  <title>책의 패키지에 대한 설명</title>
 
-    <para>As stated earlier, the goal of LFS is to build a complete and usable
-    foundation-level system.  This includes all packages needed to replicate
-    itself while providing a relatively minimal base from which to customize
-    a more complete system based on the choices of the user.  This does not
-    mean that LFS is the smallest system possible.  Several important packages
-    are included that are not strictly required.  The lists below document the
-    rationale for each package in the book.</para>
+    <para>앞서 말한 바와 같이, 완전하고 사용 가능한 기초 수준의 시스템을 
+	구축하는 것이 LFS의 목표다. 여기에는 사용자의 선택에 따라 보다 완전한 
+	시스템을 사용자 정의하기 위한 비교적 최소한의 기반을 제공하면서 자체 
+	복제에 필요한 모든 패키지가 포함된다. 이것은 LFS가 가능한 가장 작은 
+	시스템이라는 것을 의미하지 않는다. 엄격하게 요구되지 않는 몇 가지 중요한 
+	패키지가 포함되어 있다. 아래 목록은 책에 있는 각 패키지에 대한 설명이다.</para>
 
     <itemizedlist>
 
       <listitem>
         <para>Acl</para>
 
-        <para>This package contains utilities to administer Access 
-        Control Lists, which are used to define more fine-grained 
-        discretionary access rights for files and directories. 
+        <para>액세스 제어 목록을 관리하는 유틸리티가 포함되어 있으며, 
+		이 유틸리티는 파일 및 디렉토리에 대한 보다 세분화된 재량적 
+		액세스 권한을 정의하는 데 사용된다. 
         </para>
       </listitem>
 
       <listitem>
         <para>Attr</para>
 
-        <para>This package contains programs for administering  
-        extended attributes on filesystem objects. 
+        <para>파일 시스템 객체에서 확장 된 속성을 관리하기 위한 프로그램 
         </para>
       </listitem>
 
       <listitem>
         <para>Autoconf</para>
 
-        <para>This package contains programs for producing shell scripts that
-        can automatically configure source code from a developer's
-        template. It is often needed to rebuild a package after updates
-        to the build procedures.</para>
+        <para>개발자 템플릿에서 소스 코드를 자동으로 구성할 수 있는 셸 
+		스크립트 생성 프로그램이 포함되어 있다. 빌드 절차를 
+		업데이트한 후 패키지를 다시 빌드해야 하는 경우가 많다.</para>
       </listitem>
 
       <listitem>
         <para>Automake</para>
 
-        <para>This package contains programs for generating Make files from
-        a template. It is often needed to rebuild a package after updates
-        to the build procedures.</para>
+        <para>템플릿에서 파일 만들기 프로그램을 포함하고 있다. 
+		빌드 절차를 업데이트한 후 패키지를 다시 빌드해야 하는 경우가 많다.
+		</para>
       </listitem>
 
       <listitem>
         <para>Bash</para>
 
-        <para>This package satisfies an LSB core requirement to provide
-        a Bourne Shell interface to the system.  It was chosen over
-        other shell packages because of its common usage and extensive
-        capabilities beyond basic shell functions.</para>
+        <para>이 패키지는 시스템에 Bourne Shell 인터페이스를 제공하기 위한 
+		LSB 핵심 요건이다. 다른 셸 패키지들 사이에서 선택받은 것은 
+		기본 셸 기능을 넘어 보편적인 사용법과 광범위한 기능 때문이다.</para>
       </listitem>
 
       <listitem>
         <para>Bc</para>
 
-        <para>This package provides an arbitrary precision numeric processing language. 
-        It satisfies a requirement needed when building the Linux kernel.</para>
+        <para>임의의 정밀 숫자 처리 언어를 제공한다. 리눅스 커널을 구축할 
+		때 필요한 패키지다.</para>
       </listitem>
 
       <listitem>
         <para>Binutils</para>
 
-        <para>This package contains a linker, an assembler, and other
-        tools for handling object files. The programs in this package are
-        needed to compile most of the packages in an LFS system and beyond.</para>
+        <para>객체 파일을 처리하기 위한 링커, 어셈블러 및 기타 도구가 
+		포함되어 있다. 이 패키지의 프로그램은 대부분의 패키지를 LFS 
+		시스템 및 그 이상에서 컴파일하기 위해 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Bison</para>
 
-        <para>This package contains the GNU version of yacc (Yet Another
-        Compiler Compiler) needed to build several other LFS programs.</para>
+        <para>여러 다른 LFS 프로그램을 구축하는 데 필요한 
+		Yacc(Yet Another Compiler Compiler Compiler)의 GNU 버전이 
+		포함되어 있다.</para>
       </listitem>
 
       <listitem>
         <para>Bzip2</para>
 
-        <para>This package contains programs for compressing and decompressing
-        files.  It is required to decompress many LFS packages.</para>
+        <para>파일을 압축 및 압축 해제하는 프로그램이 포함되어 있다. 
+		많은 LFS 패키지의 압축을 푸는 것이 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Check</para>
 
-        <para>This package contains a test harness for other programs.</para>
+        <para>다른 프로그램을 위한 테스트 하니스가 포함되어 있다.</para>
       </listitem>
 
       <listitem>
         <para>Coreutils</para>
 
-        <para>This package contains a number of essential programs for viewing
-        and manipulating files and directories. These programs are needed for
-        command line file management, and are necessary for the installation
-        procedures of every package in LFS.</para>
+        <para>파일 및 디렉터리를 보고 조작하는 데 필수적인 프로그램이 
+		다수 포함되어 있다. 이러한 프로그램은 명령줄 파일 관리를 위해 
+		필요하며 LFS의 모든 패키지의 설치 절차에 필요하다.</para>
       </listitem>
 
       <listitem revision="systemd">
         <para>D-Bus</para>
 
-        <para>This package contains programs to implement a message bus system, 
-        which a simple way for applications to talk to one another.
-        </para>
+        <para>애플리케이션 간의 통신을 간단하게 해주는 메시지 버스 시스템을
+		구현하는 프로그램을 포함하고 있다.</para>
       </listitem>
 
       <listitem>
         <para>DejaGNU</para>
 
-        <para>This package contains a framework for testing other programs.
-        It is only installed in the temporary toolchain.</para>
+        <para>다른 프로그램을 테스트하기 위한 프레임워크를 포함하고 있다. 
+		임시 툴체인에만 설치된다.</para>
       </listitem>
 
       <listitem>
         <para>Diffutils</para>
 
-        <para>This package contains programs that show the differences
-        between files or directories. These programs can be used to create
-        patches, and are also used in many packages' build procedures.</para>
+        <para>파일 또는 디렉터리 간의 차이를 보여주는 프로그램이 포함되어 
+		있다. 이러한 프로그램은 패치를 만드는 데 사용될 수 있으며, 
+		많은 패키지의 빌드 절차에도 사용된다.</para>
       </listitem>
 
       <listitem>
         <para>E2fsprogs</para>
 
-        <para>This package contains the utilities for handling the ext2, ext3
-        and ext4 file systems.  These are the most common and thoroughly
-        tested file systems that Linux supports.</para>
+        <para>ext2, ext3, ext4 파일 시스템을 처리하는 유틸리티가 포함되어 
+		있다. 이들은 리눅스가 지원하는 가장 보편적이고 철저하게 테스트된 
+		파일 시스템이다.</para>
       </listitem>
 
       <listitem revision="sysv">
         <para>Eudev</para>
 
-        <para>This package is a device manager.  It dynamically controls the entries
-        in the /dev directory as devices are added or removed from the system.
-        </para>
+        <para>이 패키지는 장치 관리자이다. 디바이스가 시스템에서 추가
+		또는 제거될 때 /dev 디렉토리의 항목을 동적으로 제어한다. </para>
       </listitem>
 
       <listitem>
         <para>Expat</para>
 
-        <para>This package contains a relatively small XML parsing library.  It
-        is required by the XML::Parser Perl module.</para>
+        <para>비교적 작은 XML 구문 분석 라이브러리가 포함되어 있다. 
+		XML:Parser Perl 모듈에서 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Expect</para>
 
-        <para>This package contains a program for carrying out scripted
-        dialogues with other interactive programs.  It is commonly used
-        for testing other packages.  It is only installed in the temporary
-        toolchain.</para>
+        <para>다른 대화형 프로그램과 스크립트로 작성된 대화를 수행하기 
+		위한 프로그램이 포함되어 있다. 일반적으로 다른 포장들을 
+		테스트하는데 사용된다. 임시 툴체인에만 설치된다.</para>
       </listitem>
 
       <listitem>
         <para>File</para>
 
-        <para>This package contains a utility for determining the type of a
-        given file or files. A few packages need it to build.</para>
+        <para>지정된 파일 또는 파일의 유형을 결정하는 유틸리티가 
+		포함되어 있다. 몇 개의 꾸러미를 빌드하는 데 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Findutils</para>
 
-        <para>This package contains programs to find files in a file system.
-        It is used in many packages' build scripts.</para>
+        <para>파일 시스템에서 파일을 찾는 프로그램이 포함되어 있다. 
+		많은 패키지의 빌드 스크립트에 사용된다.</para>
       </listitem>
 
       <listitem>
         <para>Flex</para>
 
-        <para>This package contains a utility for generating programs that
-        recognize patterns in text.  It is the GNU version of the lex
-        (lexical analyzer) program.  It is required to build several
-        LFS packages.</para>
+        <para>텍스트의 패턴을 인식하는 프로그램을 생성하는 유틸리티가 
+		포함되어 있다. 렉스(lexical Analyzer) 프로그램의 GNU 버전이다. 
+		여러 개의 LFS 패키지를 구축해야 한다.</para>
       </listitem>
 
       <listitem>
         <para>Gawk</para>
 
-        <para>This package contains programs for manipulating text files.
-        It is the GNU version of awk (Aho-Weinberg-Kernighan). It is used in
-        many other packages' build scripts.</para>
+        <para>텍스트 파일을 조작하는 프로그램을 포함하고 있다. 
+		GNU 버전의 awk(Aho-Weinberg-Kernighan)이다. 
+		다른 많은 패키지의 빌드 스크립트에 사용된다.</para>
       </listitem>
 
       <listitem>
         <para>Gcc</para>
 
-        <para>This package is the Gnu Compiler Collection.  It contains the
-        C and C++ compilers as well as several others not built by LFS.
-        </para>
+        <para>GNU 컴파일러 모음이다. LFS에 의해 빌드되지 않는 여러 다른 
+		컴파일러 뿐아니라 C와 C++ 컴파일러도 포함하고 있다.</para>
       </listitem>
 
       <listitem>
         <para>GDBM</para>
 
-        <para>This package contains the GNU Database Manager library.  It
-        is used by one other LFS package, Man-DB.</para>
+        <para>GNU 데이터베이스 관리자 라이브러리를 포함한다. 
+		다른 LFS 패키지인 Man-DB에서 사용된다.</para>
       </listitem>
 
       <listitem>
         <para>Gettext</para>
 
-        <para>This package contains utilities and libraries for
-        internationalization and localization of numerous packages.</para>
+        <para>수많은 패키지의 국제화 및 현지화를 위한 유틸리티와 
+		라이브러리가 포함되어 있다.</para>
       </listitem>
 
       <listitem>
         <para>Glibc</para>
 
-        <para>This package contains the main C library.  Linux programs would
-        not run without it.</para>
+        <para>메인 C 라이브러리를 포함하고 있다. 
+		리눅스 프로그램은 이것 없이는 실행되지 않을 것이다.</para>
       </listitem>
 
       <listitem>
         <para>GMP</para>
 
-        <para>This package contains math libraries that provide useful functions
-        for arbitrary precision arithmetic.  It is required to build Gcc.</para>
+        <para> 임의 정밀 산술에 유용한 함수를 제공하는 연산 라이브러리가 
+		포함되어 있다. 먼저 GCC를 빌드해야 한다.</para>
       </listitem>
 
       <listitem>
         <para>Gperf</para>
 
-        <para>This package contains a program that generates a perfect hash
-        function from a key set. It is required for Eudev.</para>
+        <para>키 세트로부터 완벽한 해시함수를 생성하는 프로그램이 
+		포함되어 있다. Eudev를 위해 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Grep</para>
 
-        <para>This package contains programs for searching through files. These
-        programs are used by most packages' build scripts.</para>
+        <para>파일을 검색하는 프로그램이 포함되어 있다. 이 프로그램은 
+		대부분의 패키지의 빌드 스크립트에서 사용된다. </para>
       </listitem>
 
       <listitem>
         <para>Groff</para>
 
-        <para>This package contains programs for processing and formatting text.
-        One important function of these programs is to format man pages.</para>
+        <para>텍스트를 처리하고 포맷하는 프로그램이 포함되어 있다. 
+		이 프로그램들의 중요한 기능 중 하나는 Man 페이지 서식을 만드는 것이다.</para>
       </listitem>
 
       <listitem>
         <para>GRUB</para>
 
-        <para>This package is the Grand Unified Boot Loader.  It is one
-        of several boot loaders available, but is the most flexible.
-        </para>
+        <para>이 패키지는 the Grand Unified Boot Loader이다. 여러 부트 로더
+		중 하나지만 가장 유연하다.</para>
       </listitem>
 
       <listitem>
         <para>Gzip</para>
 
-        <para>This package contains programs for compressing and
-        decompressing files. It is needed to decompress many packages in LFS
-        and beyond.</para>
+        <para>파일을 압축 및 압축 해제하는 프로그램이 포함되어 있다. 
+		LFS와 그 이상의 패키지의 압축을 푸는 것이 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Iana-etc</para>
 
-        <para>This package provides data for network services and protocols.
-        It is needed to enable proper networking capabilities.</para>
+        <para>네트워크 서비스와 프로토콜에 대한 데이터를 제공한다. 
+		적절한 네트워킹 기능을 활성화하는 것이 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Inetutils</para>
 
-        <para>This package contains programs for basic network
-        administration.</para>
+        <para>기본 네트워크 관리 프로그램이 포함되어 있다.</para>
       </listitem>
 
       <listitem>
         <para>Intltool</para>
 
-        <para>This package contains tools for extracting translatable 
-        strings from source files.</para>
+        <para>소스 파일에서 변환 가능한 문자열을 추출하는 도구가 포함되어 있다.</para>
       </listitem>
 
       <listitem>
         <para>IProute2</para>
 
-        <para>This package contains programs for basic and advanced IPv4 and
-        IPv6 networking.  It was chosen over the other common network
-        tools package (net-tools) for its IPv6 capabilities.  </para>
+        <para>기본 및 고급 IPv4 및 IPv6 네트워킹을 위한 프로그램이 
+		포함되어 있다. IPv6 기능을 위해 다른 흔한 네트워크 도구 
+		패키지(net-tools) 사이에서 채택되었다.</para>
       </listitem>
 
       <listitem>
         <para>Kbd</para>
 
-        <para>This package contains key-table files, keyboard utilities
-        for non-US keyboards, and a number of console fonts.</para>
+        <para>키 테이블 파일, 미국 이외의 키보드를 위한 키보드 유틸리티 및
+		 다수의 콘솔 글꼴이 포함되어 있다.</para>
       </listitem>
 
       <listitem>
         <para>Kmod</para>
 
-        <para>This package contains programs needed to administer Linux
-        kernel modules.</para>
+        <para> 리눅스 커널 모듈을 관리하는 데 필요한 프로그램이 포함되어 
+		있다.</para>
       </listitem>
 
       <listitem>
         <para>Less</para>
 
-        <para>This package contains a very nice text file viewer that
-        allows scrolling up or down when viewing a file. It is also used by
-        Man-DB for viewing manpages.</para>
+        <para>파일을 볼 때 위아래로 스크롤할 수 있는 매우 멋진 텍스트 
+		파일 뷰어가 포함되어 있다. Man-DB가 Man페이지를 볼 때도 
+		사용한다.</para>
       </listitem>
 
       <listitem>
         <para>Libcap</para>
 
-        <para>This package implements the user-space interfaces to 
-        the POSIX 1003.1e capabilities available in Linux kernels. 
+        <para>리눅스 커널에서 사용할 수 있는 POSIX 1003.1e 기능에 대한 
+		사용자 공간 인터페이스를 구현한다. 
         </para>
       </listitem>
 
       <listitem>
         <para>Libelf</para>
 
-        <para>The elfutils project provides libraries and tools for ELF files
-        and DWARF data.  Most utilities in this package are available in
-        other packages, but the library is needed to build the Linux
-        kernel using the default (and most efficient) configuration.</para>
+        <para>elfutils 프로젝트는 ELF 파일과 DWARF 데이터를 위한 
+		라이브러리와 도구를 제공한다. 이 패키지의 대부분의 유틸리티는 
+		다른 패키지에서도 제공되지만, 이 패키지의 라이브러리는 
+		기본(가장 효율적인) 구성을 사용하여 리눅스 커널을 구축하기 위해 
+		필요하다.</para>
 
       </listitem>
 
       <listitem>
         <para>Libffi</para>
 
-        <para>This package implements a portable, high level programming
-        interface to various calling conventions.  Some programs may not know
-        at the time of compilation what arguments are to be passed to a
-        function. For instance, an interpreter may be told at run-time about
-        the number and types of arguments used to call a given function. Libffi
-        can be used in such programs to provide a bridge from the interpreter
-        program to compiled code.</para>
+        <para>다양한 호출 규약에 대한 포팅 가능한 고급 프로그래밍 
+		인터페이스를 구현한다. 어떤 프로그램은 어떤 인자를 함수에 전달해야
+		 하는지를 컴파일할 때 알지 못할 수 있다. 예를 들어, 인터프리터에는 
+		함수를 호출하는 데 사용되는 인수의 수와 유형들이 런타임에 주어진다.
+		 Libffi는 그러한 인터프리터 프로그램에서 컴파일된 코드로의 
+		통역을 위한 프로그램이다.</para>
 
       </listitem>
 
       <listitem>
         <para>Libpipeline</para>
 
-        <para>The Libpipeline package contains a library for manipulating
-        pipelines of subprocesses in a flexible and convenient way. It is
-        required by the Man-DB package.</para>
+        <para>유연하고 편리한 방법으로 하위 프로세스의 파이프라인을 
+		조작하기 위한 라이브러리를 포함하고 있다. 
+		Man-DB 패키지에 의해 요구된다.</para>
       </listitem>
 
       <listitem>
         <para>Libtool</para>
 
-        <para>This package contains the GNU generic library support
-        script. It wraps the complexity of using shared libraries in a
-        consistent, portable interface.  It is needed by the test
-        suites in other LFS packages.</para>
+        <para>GNU 일반 라이브러리 지원 스크립트가 포함되어 있다. 
+		일관적으로 공유 라이브러리를 사용하는 복잡성을 포팅 가능한 
+		인터페이스로 래핑한다. 다른 LFS 패키지의 테스트 제품군에 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Linux Kernel</para>
 
-        <para>This package is the Operating System.  It is the Linux in
-        the GNU/Linux environment.</para>
+        <para>운영 체제이다. GNU/리눅스 환경의 리눅스이다.</para>
       </listitem>
 
       <listitem>
         <para>M4</para>
 
-        <para>This package contains a general text macro processor useful
-        as a build tool for other programs.</para>
+        <para>다른 프로그램의 빌드 도구로 유용한 
+		일반 텍스트 매크로 프로세서가 포함되어 있다.</para>
       </listitem>
 
       <listitem>
         <para>Make</para>
 
-        <para>This package contains a program for directing the building
-        of packages.  It is required by almost every package in LFS.</para>
+        <para>패키지 빌드를 위한 프로그램을 포함되어 있다.
+		거의 모든 LFS 패키지에 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Man-DB</para>
 
-        <para>This package contains programs for finding and viewing man pages.
-        It was chosen instead of the <application>man</application> package
-        due to superior internationalization capabilities.  It supplies
-        the man program.</para>
+        <para>Man 페이지를 검색하고 볼 수 있는 프로그램이 포함되어 있다. 
+		우수한 다국어화 기능 때문에 <application>man</application> 패키지 
+		대신 채택되었다. Man 프로그램을 제공한다.</para>
       </listitem>
 
       <listitem>
         <para>Man-pages</para>
 
-        <para>This package contains the actual contents of the basic
-        Linux man pages.</para>
+        <para>이 패키지에는 기본적인 리눅스 맨 페이지의 
+		실제 내용이 들어 있다.</para>
       </listitem>
 
       <listitem>
         <para>Meson</para>
 
-        <para>This package provides a software tool for automating the building
-        of software. The main goal for Meson is to minimize the amount of time
-        that software developers need to spend configuring their build
-        system.</para>
+        <para>소프트웨어 구축을 자동화하는 소프트웨어 도구를 제공한다. 
+		Meson의 주요 목표는 소프트웨어 개발자들이 그들의 빌드 시스템을 
+		구성하는 데 필요한 시간을 최소화하는 것이다.</para>
 
       </listitem>
 
       <listitem>
         <para>MPC</para>
 
-        <para>This package contains functions for the arithmetic of complex
-        numbers. It is required by Gcc.</para>
+        <para>복잡한 숫자의 산수를 위한 함수가 포함되어 있다. 
+		gcc가 필요로 하는 패키지다.</para>
       </listitem>
 
       <listitem>
         <para>MPFR</para>
 
-        <para>This package contains functions for multiple precision
-        arithmetic.  It is required by Gcc.</para>
+        <para>다중 정밀 산술 함수가 포함되어 있다. 
+		gcc가 필요로 하는 패키지다.</para>
       </listitem>
 
       <listitem>
         <para>Ninja</para>
 
-        <para>This package contains a small build system with a focus on speed.
-        It is designed to have its input files generated by a higher-level build
-        system, and to run builds as fast as possible.</para>
+        <para>속도에 초점을 맞춘 소형 빌드 시스템을 포함하고 있다. 
+		더 높은 수준의 빌드 시스템에 의해 생성된 입력 파일을 받도록 
+		설계되었고, 가능한 빨리 빌드를 수행하도록 설계되었다.</para>
 
       </listitem>
 
       <listitem>
         <para>Ncurses</para>
 
-        <para>This package contains libraries for terminal-independent
-        handling of character screens.  It is often used to provide
-        cursor control for a menuing system. It is needed by a number of
-        packages in LFS.</para>
+        <para>문자 화면의 터미널 독립적 처리를 위한 라이브러리가 
+		포함되어 있다. 종종 메뉴 시스템을 위한 커서 제어를 위해 사용된다. 
+		LFS의 많은 패키지에 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Openssl</para>
 
-        <para>This package provides management tools and libraries relating to
-        cryptography. These are useful for providing cryptographic functions to
-        other packages, including the Linux kernel.</para>
+        <para>암호화와 관련된 관리 도구와 라이브러리를 제공한다. 
+		이것들은 리눅스 커널을 포함한 다른 패키지의 암호화 기능을 
+		제공하는 데 유용하다.</para>
       </listitem>
 
       <listitem>
         <para>Patch</para>
 
-        <para>This package contains a program for modifying or creating files by
-        applying a <emphasis>patch</emphasis> file typically created
-        by the <application>diff</application> program.  It is needed by
-        the build procedure for several LFS packages.</para>
+        <para>일반적으로 <application>diff</application> 프로그램에 의해 
+		생성된 <emphasis>패치</emphasis> 파일을 적용하여 파일을 수정하거나 
+		만드는 프로그램이 포함되어 있다. 
+		몇 개의 LFS 패키지에 대한 빌드 절차에 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Perl</para>
 
-        <para>This package is an interpreter for the runtime language
-        PERL. It is needed for the installation and test suites of several LFS
-        packages.</para>
+        <para>런타임 언어 PERL의 인터프리터이다. 여러 LFS 패키지의 설치 
+		및 테스트 제품군을 위해 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Pkg-config</para>
 
-        <para>This package provides a program to return meta-data about an
-        installed library or package.</para>
+        <para>설치된 라이브러리 또는 패키지에 대한 메타 데이터를 반환하는 
+		프로그램을 제공한다.</para>
       </listitem>
 
       <listitem>
         <para>Procps-NG</para>
 
-        <para>This package contains programs for monitoring processes. These
-        programs are useful for system administration, and are also used by
-        the LFS Bootscripts.</para>
+        <para>프로세스 모니터링 프로그램이 포함되어 있다. 이러한 프로그램은
+		 시스템 관리에 유용하며 LFS 부트스크립트에 사용되기도 한다.</para>
       </listitem>
 
       <listitem>
         <para>Psmisc</para>
 
-        <para>This package contains programs for displaying information
-        about running processes. These programs are useful for system
-        administration.</para>
+        <para>프로세스 실행에 대한 정보를 표시하는 프로그램이 포함되어 있다.
+		 이러한 프로그램은 시스템 관리에 유용하다.</para>
       </listitem>
 
       <listitem>
         <para>Python 3</para>
 
-        <para>This package provides an interpreted language that has a design
-        philosophy that emphasizes code readability.</para>
+        <para>코드 가독성을 강조하는 디자인 철학이 담긴 인터프리터 언어를 
+		제공한다.</para>
 
       </listitem>
 
       <listitem>
         <para>Readline</para>
 
-        <para>This package is a set of libraries that offers command-line
-        editing and history capabilities.  It is used by Bash.</para>
+        <para>명령줄 편집 및 기록 기능을 제공하는 라이브러리 모음이다. 
+		Bash에 쓰인다.</para>
       </listitem>
 
       <listitem>
         <para>Sed</para>
 
-        <para>This package allows editing of text without opening it in a
-        text editor. It is also needed by most LFS packages' configure
-        scripts.</para>
+        <para>텍스트 편집기에서 열지 않고도 텍스트를 편집할 수 있다. 
+		대부분의 LFS 패키지의 구성 스크립트에도 필요하다.</para>
       </listitem>
 
       <listitem>
         <para>Shadow</para>
 
-        <para>This package contains programs for handling passwords
-        in a secure way.</para>
+        <para>안전한 방법으로 비밀번호를 처리하는 프로그램이 포함되어 있다.
+		</para>
       </listitem>
 
       <listitem revision="sysv">
         <para>Sysklogd</para>
 
-        <para>This package contains programs for logging system messages,
-        such as those given by the kernel or daemon processes when unusual
-        events occur.</para>
+        <para> 비정상적인 이벤트가 발생할 때 커널 또는 데몬 프로세스에 의해
+		 출력된 시스템 메시지를 로깅하는 프로그램이 포함되어 있다.</para>
       </listitem>
 
       <listitem revision="systemd">
@@ -542,78 +519,73 @@
       <listitem revision="sysv">
         <para>Sysvinit</para>
 
-        <para>This package provides the <application>init</application>
-        program, which is the parent of all other processes on the Linux
-        system. </para>
+        <para>리눅스 시스템의 다른 모든 프로세스의 상위인 
+		<application>init</application> 프로그램을 제공한다.</para>
       </listitem>
 
       <listitem>
         <para>Tar</para>
 
-        <para>This package provides archiving and extraction capabilities
-        of virtually all packages used in LFS.</para>
+        <para>LFS에 사용되는 거의 모든 패키지의 보관 및 추출 기능을 제공한다.</para>
       </listitem>
 
       <listitem>
         <para>Tcl</para>
 
-        <para>This package contains the Tool Command Language used
-        in many test suites in LFS packages.  It is only installed in
-        the temporary toolchain.</para>
+        <para>LFS 패키지의 많은 테스트 제품군에서 사용되는 도구 명령어가 
+		포함되어 있다. 임시 툴체인에만 설치된다.</para>
       </listitem>
 
       <listitem>
         <para>Texinfo</para>
 
-        <para>This package contains programs for reading, writing, and
-        converting info pages.  It is used in the installation
-        procedures of many LFS packages.</para>
+        <para>정보 페이지를 읽고, 쓰고, 변환하는 프로그램이 포함되어 있다.
+		 많은 LFS 패키지의 설치 절차에 사용된다.</para>
       </listitem>
 
       <listitem>
         <para>Util-linux</para>
 
-        <para>This package contains miscellaneous utility programs.
-        Among them are utilities for handling file systems, consoles,
-        partitions, and messages.</para>
+        <para>다양한 유틸리티 프로그램이 포함되어 있다. 그 중에는 파일 
+		시스템, 콘솔, 파티션 및 메시지를 처리하는 유틸리티가 있다.</para>
       </listitem>
 
       <listitem>
         <para>Vim</para>
 
-        <para>This package contains an editor. It was chosen because of its
-        compatibility with the classic vi editor and its huge number of powerful
-        capabilities.  An editor is a very personal choice for
-        many users and any other editor could be substituted if desired.</para>
+        <para>이 패키지에는 편집기가 들어 있다. 고전 vi 에디터와의 호환성과 
+		엄청나게 다양하고 강력한 능력때문에 채택되었다. 편집기는 많은 
+		사용자에게 매우 개인적인 취향일 뿐, 원하는 경우 다른 편집기로 
+		대체할 수 있다.</para>
       </listitem>
 
       <listitem>
         <para>XML::Parser</para>
 
-        <para>This package is a Perl module that interfaces with Expat.</para>
+        <para>Expat과 접속하는 Perl 모듈이다.</para>
       </listitem>
 
       <listitem>
         <para>XZ Utils</para>
 
-        <para>This package contains programs for compressing and decompressing
-        files.  It provides the highest compression generally available
-        and is useful for decompressing packages in XZ or LZMA format.</para>
+        <para>파일을 압축 및 압축 해제하는 프로그램이 포함되어 있다. 
+		일반적으로 사용할 수 있는 가장 높은 압축률을 제공하며, XZ 또는 LZMA 
+		형식의 패키지 압축을 푸는 데 유용하다.</para>
       </listitem>
 
       <listitem>
         <para>Zlib</para>
 
-        <para>This package contains compression and decompression routines
-        used by some programs.</para>
+        <para>일부 프로그램에서 사용하는 압축 및 압축 해제 루틴이 
+		포함되어 있다.</para>
       </listitem>
 
       <listitem>
         <para>Zstd</para>
 
-        <para>This package contains compression and decompression routines
-        used by some programs. It provide high compression ratios and a very 
-        wide range of compression / speed trade-offs.</para>
+        <para>일부 프로그램에서 사용하는 압축 및 압축 해제 루틴이 
+		포함되어 있다. 높은 압축율과 매우 광범위한 압축/속도 절충 기능을 
+		제공한다.</para>
       </listitem>
 
     </itemizedlist>

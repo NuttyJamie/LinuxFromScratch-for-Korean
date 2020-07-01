@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,11 +8,9 @@
 <sect1 id="ch-partitioning-introduction">
   <?dbhtml filename="introduction.html"?>
 
-  <title>Introduction</title>
+  <title>도입</title>
 
-  <para>In this chapter, the host tools needed for building LFS
-  are checked and, if necessary, installed.  Then a partition which will 
-  host the LFS system is prepared. We will create the partition 
-  itself, create a file system on it, and mount it.</para>
+  <para>이 장에서는 LFS 구축에 필요한 호스트 도구들을 확인하고 필요한 경우 설치한다. 그러면 LFS 시스템을 호스팅할 
+파티션이 준비된다. 우리는 파티션 자체를 만들고, 그 위에 파일 시스템을 만들어 마운트할 것이다.</para>
 
 </sect1>

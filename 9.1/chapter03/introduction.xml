@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,57 +8,42 @@
 <sect1 id="ch-materials-introduction">
   <?dbhtml filename="introduction.html"?>
 
-  <title>Introduction</title>
+  <title>도입</title>
 
-  <para>This chapter includes a list of packages that need to be downloaded in
-  order to build a basic Linux system. The listed version numbers correspond to
-  versions of the software that are known to work, and this book is based on
-  their use. We highly recommend against using newer versions because the build
-  commands for one version may not work with a newer version. The newest package
-  versions may also have problems that require work-arounds. These work-arounds
-  will be developed and stabilized in the development version of the
-  book.</para>
+  <para>이 장에는 기본적인 리눅스 시스템을 구축하기 위해 다운로드해야 하는 패키지 목록이 포함되어 있다. 
+명시된 버전 번호는 작동하는 것으로 알려진 소프트웨어의 버전이며, 이 책은 그것들을 기반으로 작성되었다. 
+우리는 한 버전에서의 빌드 명령이 새로운 버전에서는 작동하지 않을 수 있기 때문에 새로운 버전을 사용하지 않을 것을 
+강력히 권고한다. 또한 최신 패키지 버전에는 해결이 필요한 문제가 있을 수 있다. 그 해결책은 이 책의 개발 버전에서 
+개발되고 안정될 것이다.</para>
 
-  <para>Download locations may not always be accessible. If a download
-  location has changed since this book was published, Google (<ulink
-  url="http://www.google.com/"/>) provides a useful search engine for
-  most packages. If this search is unsuccessful, try one of the
-  alternative means of downloading discussed at <ulink
-  url="&lfs-root;lfs/packages.html#packages"/>. </para>
+  <para>다운로드 위치가 항상 열려있지는 않을 수 있다. 이 책이 출간된 이후 다운로드 위치가 바뀌었다면 구글(<ulink
+  url="http://www.google.com/"/>)은 대부분의 패키지에 유용한 검색 엔진을 제공한다. 만약 찾지 못하겠다면 <ulink
+  url="&lfs-root;lfs/packages.html#packages"/>에서 설명하는 다른 다운로드 방법 중 하나를 시도해보라. </para>
 
-  <para>Downloaded packages and patches will need to be stored somewhere
-  that is conveniently available throughout the entire build. A working
-  directory is also required to unpack the sources and build them.
-  <filename class="directory">$LFS/sources</filename> can be used both
-  as the place to store the tarballs and patches and as a working
-  directory. By using this directory, the required elements will be
-  located on the LFS partition and will be available during all stages
-  of the building process.</para>
+  <para>다운로드된 패키지와 패치는 전체 빌드에서 편리하게 사용할 수 있는 곳에 저장되어야 할 것이다. 
+소스의 압축을 풀고 그것을 빌드하기 위해서도 작업 디렉토리가 필요하다. 
+<filename class="directory">$LFS/sources</filename>는 tarball과 패치를 저장하는 
+장소와 작업 디렉토리로 모두 사용될 수 있다. 이 디렉토리를 사용함으로써, 필요한 요소들은 LFS 파티션에 위치하게 
+될 것이고, 빌드 프로세스의 모든 단계에서 이용 가능할 것이다.</para>
 
-  <para>To create this directory, execute the following command, as user
-  <systemitem class="username">root</systemitem>, before starting the download
-  session:</para>
+  <para>이 디렉토리를 만들려면 다운로드 섹션을 시작하기 전에 <systemitem class="username">root</systemitem> 유저로
+ 다음 명령을 실행하라:</para>
 
 <screen role="nodump"><userinput>mkdir -v $LFS/sources</userinput></screen>
 
-  <para>Make this directory writable and sticky. <quote>Sticky</quote>
-  means that even if multiple users have write permission on a
-  directory, only the owner of a file can delete the file within a
-  sticky directory. The following command will enable the write and
-  sticky modes:</para>
+  <para>이 디렉토리를 쓰기 가능하고 고정적으로 만들어라. <quote>고정적</quote>이란 여러 명의 사용자가 디렉토리에 
+대한 쓰기 권한을 갖고 있더라도 파일 소유자만이 고정 디렉토리 내에서 파일을 삭제할 수 있다는 것을 의미한다.
+다음 명령은 쓰기 및 고정 모드를 활성화한다:</para>
 
 <screen role="nodump"><userinput>chmod -v a+wt $LFS/sources</userinput></screen>
 
-  <para>An easy way to download all of the packages and patches is by using
-  <ulink url="../wget-list">wget-list</ulink> as an input to
-  <command>wget</command>. For example:</para>
+  <para>모든 패키지와 패치를 다운로드하는 쉬운 방법은 <ulink url="../wget-list">wget-list</ulink>를 
+<command>wget</command>에 입력하는 것이다. 예를 들면 다음과 같다:</para>
 
 <screen role="nodump"><userinput>wget --input-file=wget-list --continue --directory-prefix=$LFS/sources</userinput></screen>
 
-  <para>Additionally, starting with LFS-7.0, there is a separate file,
-  <ulink url="../md5sums">md5sums</ulink>, which can be used to verify that all
-  the correct packages are available before proceeding.  Place that file in
-  <filename class="directory">$LFS/sources</filename> and run:</para>
+  <para>또한 LFS-7.0부터는 별도의 파일로 <ulink url="../md5sums">md5sums</ulink>가 있어, 진행하기 전에 모든 패키지
+들이 올바른지 확인할 수 있다. 해당 파일을 <filename class="directory">$LFS/sources</filename>에 넣고 실행하라:</para>
 
 <screen role="nodump"><userinput>pushd $LFS/sources
 md5sum -c md5sums

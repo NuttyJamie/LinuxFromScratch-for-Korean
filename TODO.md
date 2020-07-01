@@ -7,44 +7,44 @@ Copyright ¨Ï 1999-2020 Gerard Beekmans
 
 ### Table of Contents
 
-- [ ] Preface
-	- [ ] Foreword
-    - [ ] Audience
-    - [ ] LFS Target Architectures
-    - [ ] Prerequisites
-    - [ ] LFS and Standards
-    - [ ] Rationale for Packages in the Book
-    - [ ] Typography
-    - [ ] Structure
-    - [ ] Errata
+- [x] Preface
+	- [x] Foreword
+    - [x] Audience
+    - [x] LFS Target Architectures
+    - [x] Prerequisites
+    - [x] LFS and Standards
+    - [x] Rationale for Packages in the Book
+    - [x] Typography
+    - [x] Structure
+    - [x] Errata
 
-- [ ] I. Introduction
+- [x] I. Introduction
 
-    - [ ] 1. Introduction
-        - [ ] How to Build an LFS System
-        - [ ] What's new since the last release
-        - [ ] Changelog
-        - [ ] Resources
-        - [ ] Help
+    - [x] 1. Introduction
+        - [x] How to Build an LFS System
+        - [x] What's new since the last release
+        - [x] Changelog
+        - [x] Resources
+        - [x] Help
 
-- [ ] II. Preparing for the Build
+- [x] II. Preparing for the Build
 
-    - [ ] 2. Preparing the Host System
-        - [ ] Introduction
-        - [ ] Host System Requirements
-        - [ ] Building LFS in Stages
-        - [ ] Creating a New Partition
-        - [ ] Creating a File System on the Partition
-        - [ ] Setting The $LFS Variable
-        - [ ] Mounting the New Partition
-    - [ ] 3. Packages and Patches
-        - [ ] Introduction
-        - [ ] All Packages
-        - [ ] Needed Patches
-    - [ ] 4. Final Preparations
-        - [ ] Introduction
-        - [ ] Creating the $LFS/tools Directory
-        - [ ] Adding the LFS User
+    - [x] 2. Preparing the Host System
+        - [x] Introduction
+        - [x] Host System Requirements
+        - [x] Building LFS in Stages
+        - [x] Creating a New Partition
+        - [x] Creating a File System on the Partition
+        - [x] Setting The $LFS Variable
+        - [x] Mounting the New Partition
+    - [x] 3. Packages and Patches
+        - [x] Introduction
+        - [x] All Packages
+        - [x] Needed Patches
+    - [x] 4. Final Preparations
+        - [x] Introduction
+        - [x] Creating the $LFS/tools Directory
+        - [x] Adding the LFS User
         - [ ] Setting Up the Environment
         - [ ] About SBUs
         - [ ] About the Test Suites

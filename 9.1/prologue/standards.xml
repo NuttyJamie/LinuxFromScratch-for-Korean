@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,13 +8,13 @@
 <sect1 id="pre-standards">
   <?dbhtml filename="standards.html"?>
 
-  <title>LFS and Standards</title>
+  <title>LFS와 표준</title>
 
   <!--<sect2>
     <title/> -->
 
-     <para>The structure of LFS follows Linux standards as closely as
-     possible.  The primary standards are:</para>
+     <para>LFS의 구조는 가능한 한 리눅스 표준을 따른다. 
+주요 표준은 다음과 같다:</para>
 
     <itemizedlist>
       <listitem>
@@ -31,30 +31,27 @@
         <para><ulink url="http://refspecs.linuxfoundation.org/lsb.shtml">Linux
         Standard Base (LSB) Version 5.0 (2015)</ulink></para>
 
-        <para>The LSB has four separate standards: Core, Desktop,
-        Runtime Languages, and Imaging. In addition to generic requirements
-        there are also architecture specific requirements.  There are also two
-        areas for trial use: Gtk3 and Graphics.  LFS attempts to conform to the
-        architectures discussed in the previous section.</para>
+        <para>LSB에는 코어, 데스크톱, 런타임 언어 및 이미징의 4가지 별도의
+표준이 있다. 일반적인 조건 외에 아키텍쳐별 요구 사항도 있다. 
+또한 시험적으로 적용할 수 있는 영역은 Gtk3와 그래픽스 두 가지가 있다.
+LFS는 가능한 한 이전 섹션에서 언급한 아키텍쳐에 부합할 것이다.</para>
 
-        <note><para>Many people do not agree with the requirements of the LSB.
-        The main purpose of defining it is to ensure that proprietary software
-        will be able to be installed and run properly on a compliant system.
-        Since LFS is source based, the user has complete control over what
-        packages are desired and many choose not to install some packages that
-        are specified by the LSB.</para></note>
+        <note><para>많은 사람들이 LSB의 요구사항에 동의하지 않는다. 
+그것을 정의하는 주된 목적은 독점 소프트웨어가 다양한 시스템에서 제대로 
+설치되고 실행될 수 있도록 하는 것이다. LFS는 소스 기반이기 때문에 
+사용자는 원하는 패키지를 완벽하게 제어할 수 있으며 많은 사용자가 LSB에 
+의해 지정된 일부 패키지를 설치하지 않기도 한다.</para></note>
 
       </listitem>
     </itemizedlist>
 
-    <para>Creating a complete LFS system capable of passing the LSB
-    certifications tests is possible, but not without many additional packages
-    that are beyond the scope of LFS.  These additional packages have
-    installation instructions in BLFS. </para>
+    <para>LSB 인증 시험에 합격할 수 있는 완전한 LFS 시스템을 만드는 것은 
+가능하지만 LFS의 범위를 벗어나는 많은 추가 패키지가 필요하다.
+이 추가 패키지는 BLFS에 설치 지침이 있다. </para>
 
     <variablelist>
-      <bridgehead renderas="sect3">Packages supplied by LFS needed to
-          satisfy the LSB Requirements</bridgehead>
+      <bridgehead renderas="sect3">LFS에서 제공하는 LSB 요구 사항을 
+만족하는 데 필요한 패키지</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -70,7 +67,7 @@
       <varlistentry>
         <term><emphasis>LSB Desktop:</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>없음</para>
         </listitem>
       </varlistentry>
 
@@ -84,30 +81,30 @@
       <varlistentry>
         <term><emphasis>LSB Imaging:</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>없음</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Gtk3 and LSB Graphics (Trial Use):</emphasis></term>
+        <term><emphasis>LSB Gtk3 and LSB Graphics (시범 적용):</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>없음</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Packages supplied by BLFS needed to
-          satisfy the LSB Requirements</bridgehead>
+      <bridgehead renderas="sect3">BLFS에서 제공하는 LSB 요구 사항을 
+만족하는 데 필요한 패키지</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry>
         <term><emphasis>LSB Core:</emphasis></term>
         <listitem>
-          <para>At, Batch (a part of At), Cpio, Ed, Fcrontab, LSB-Tools, NSPR,
-          NSS, PAM, Pax, Sendmail (or Postfix or Exim), time
+          <para>At, Batch (At의 일부), Cpio, Ed, Fcrontab, LSB-Tools, NSPR,
+          NSS, PAM, Pax, Sendmail (또는 Postfix나 Exim), time
           </para>
         </listitem>
       </varlistentry>
@@ -136,7 +133,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Gtk3 and LSB Graphics (Trial Use):</emphasis></term>
+        <term><emphasis>LSB Gtk3 and LSB Graphics (시범 적용):</emphasis></term>
         <listitem>
           <para>GTK+3</para>
         </listitem>
@@ -145,43 +142,43 @@
     </variablelist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Packages not supplied by LFS or BLFS
-      needed to satisfy the LSB Requirements</bridgehead>
+      <bridgehead renderas="sect3">LFS나 BLFS에서 제공하지 않는, LSB 요구 
+사항을 만족하는 데 필요한 패키지</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry>
         <term><emphasis>LSB Core:</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>없음</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><emphasis>LSB Desktop:</emphasis></term>
         <listitem>
-          <para>Qt4 (but Qt5 is provided)</para>
+          <para>Qt4 (단 Qt5는 제공됨)</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><emphasis>LSB Runtime Languages:</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>없음</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><emphasis>LSB Imaging:</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>없음</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><emphasis>LSB Gtk3 and LSB Graphics (Trial Use):</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>없음</para>
         </listitem>
       </varlistentry>
 

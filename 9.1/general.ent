@@ -7,7 +7,7 @@
 <!ENTITY short-versiond  "systemd">
 <!ENTITY generic-versiond "systemd"> 
 
-<!ENTITY releasedate     "March 1st, 2020">
+<!ENTITY releasedate     "2020년 3월 1일">
 
 <!ENTITY copyrightdate   "1999-2020"><!-- jhalfs needs a literal dash, not &ndash; -->
 <!ENTITY milestone       "9.0">
@@ -34,12 +34,12 @@
 
 <!ENTITY anduin-sources  "http://anduin.linuxfromscratch.org/LFS">
 
-<!ENTITY buildtime       "Approximate build time">
-<!ENTITY diskspace       "Required disk space">
+<!ENTITY buildtime       "근사 빌드 시간">
+<!ENTITY diskspace       "디스크 공간 필요">
 <!ENTITY dependencies    "Installation depends on">
 <!ENTITY testsuites      "Test suite depends on">
 <!ENTITY before          "Must be installed before">
-<!ENTITY external        "Optional dependencies">
+<!ENTITY external        "선택적 의존성">
                          
 <!ENTITY gnu             "http://ftp.gnu.org/gnu/">
 <!ENTITY gnu-software    "http://www.gnu.org/software/">

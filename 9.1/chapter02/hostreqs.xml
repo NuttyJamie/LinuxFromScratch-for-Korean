@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,35 +8,30 @@
 <sect1 id="ch-partitioning-hostreqs" xreflabel="Host System Requirements">
   <?dbhtml filename="hostreqs.html"?>
 
-  <title>Host System Requirements</title>
+  <title>호스트 시스템 요구사항</title>
 
-    <para>Your host system should have the following software with the
-    minimum versions indicated. This should not be an issue for most
-    modern Linux distributions. Also note that many distributions will
-    place software headers into separate packages, often in the form of
-    <quote>&lt;package-name&gt;-devel</quote> or
-    <quote>&lt;package-name&gt;-dev</quote>. Be sure to install those if
-    your distribution provides them.</para>
+    <para>호스트 시스템에는 버전이 다음보다 크거나 같은 소프트웨어가 있어야 한다.
+대부분의 현대 리눅스 배포판에서는 문제가 되지 않는다. 또한 많은 배포판에서 소프트웨어 헤더를 종종 
+    <quote>&lt;패키지-이름&gt;-devel</quote>나 <quote>&lt;패키지-이름&gt;-dev</quote> 형식으로 별도의 패키지에 표시한다. 배포판에서 그렇게 제공하는 경우 반드시 설치한다.</para>
 
-   <para>Earlier versions of the listed software packages may work, but have
-   not been tested.</para>
+   <para>나열된 소프트웨어 패키지 버전의 이전 버전도 작동할 수는 있지만, 테스트되지는 않았다.</para>
 
   <itemizedlist spacing="compact">
 
     <listitem>
       <para><emphasis role="strong">Bash-3.2</emphasis> (/bin/sh
-      should be a symbolic or hard link to bash)</para>
+      가 Bash로 심볼릭 또는 하드링크 되어야 한다)</para>
     </listitem>
 
     <listitem>
-      <para><emphasis role="strong">Binutils-2.25</emphasis> (Versions
-      greater than &binutils-version; are not recommended as they have
-      not been tested)</para>
+      <para><emphasis role="strong">Binutils-2.25</emphasis> (&binutils-version; 이후의 버전은 테스트되지 않았기
+때문에 권장되지 않음)</para>
     </listitem>
 
     <listitem>
-      <para><emphasis role="strong">Bison-2.7</emphasis> (/usr/bin/yacc
-      should be a link to bison or small script that executes bison)</para>
+      <para><emphasis role="strong">Bison-2.7</emphasis> (/usr/bin/yacc가 bison이나 bison을 실행하는 작은 
+스크립트에 링크되어야 함)
+      </para>
     </listitem>
 
     <listitem>
@@ -56,21 +51,18 @@
     </listitem>
 
     <listitem>
-      <para><emphasis role="strong">Gawk-4.0.1</emphasis> (/usr/bin/awk
-      should be a link to gawk)</para>
+      <para><emphasis role="strong">Gawk-4.0.1</emphasis> (/usr/bin/awk가 gawk에 링크되어야 함
+      </para>
     </listitem>
 
     <!-- glibc-2.30 requires gcc-6.2 or later -->
     <listitem>
-      <para><emphasis role="strong">GCC-6.2</emphasis> including the C++
-      compiler, <command>g++</command> (Versions greater than &gcc-version; are
-      not recommended as they have not been tested)</para>
+      <para><emphasis role="strong">GCC-6.2</emphasis> C++컴파일러인 <command>g++</command>를 포함 (&gcc-version; 이후의 버전은 테스트되지 않았기 때문에 권장되지 않음)</para>
     </listitem>
 
     <listitem>
-      <para><emphasis role="strong">Glibc-2.11</emphasis> (Versions
-      greater than &glibc-version; are not recommended as they have
-      not been tested)</para>
+      <para><emphasis role="strong">Glibc-2.11</emphasis> (&glibc-version; 이후의 버전은 테스트되지 않았기 때문에
+권장되지 않음)</para>
     </listitem>
 
     <listitem>
@@ -84,19 +76,13 @@
     <listitem>
       <para><emphasis role="strong">Linux Kernel-&min-kernel;</emphasis></para>
 
-      <para>The reason for the kernel version requirement is that we specify
-      that version when building <application>glibc</application> in Chapter&nbsp;6
-      at the recommendation of the developers.  It is also required by
-      udev.</para>
+      <para>이 커널 버전이 필요한 이유는 개발자의 권유로 6장에서 <application>glibc</application>를 빌드할 때 그 
+버전을 명시하기 때문이다. 또 udev에도 필요하다.</para>
 
-      <para>If the host kernel is earlier than &min-kernel; you will need to replace
-      the kernel with a more up to date version. There are two ways
-      you can go about this. First, see if your Linux vendor provides a &min-kernel;
-      or later kernel package. If so, you may wish to install it. If your
-      vendor doesn't offer an acceptable kernel package, or you would prefer not to
-      install it, you can compile a kernel yourself. Instructions for
-      compiling the kernel and configuring the boot loader (assuming the host
-      uses GRUB) are located in <xref linkend="chapter-bootable"/>.</para>
+      <para>호스트 커널이 &min-kernel; 이전인 경우 커널을 최신 버전으로 교체해야 한다. 이것을 할 수 있는 방법은 
+두 가지가 있다. 먼저 리눅스 벤더가 &min-kernel; 이상의 커널 패키지를 제공하는지 확인하라. 만약 그렇다면, 그걸 설치
+하라. 벤더가 수용 가능한 커널 패키지를 제공하지 않거나 당신이 설치하고 싶지 않은 경우 직접 커널을 컴파일할 수 있다.
+커널을 컴파일 하고 부팅 로더를 구성하는 방법(호스트에서 GRUB를 사용하는 것으로 간주)은 <xref linkend="chapter-bootable"/>에 수록되어 있다.</para>
 
     </listitem>
 
@@ -139,12 +125,9 @@
   </itemizedlist>
 
   <important>
-    <para>Note that the symlinks mentioned above are required to build an LFS
-    system using the instructions contained within this book. Symlinks that
-    point to other software (such as dash, mawk, etc.) may work, but are not
-    tested or supported by the LFS development team, and may require either
-    deviation from the instructions or additional patches to some
-    packages.</para>
+    <para>위에 언급된 심볼링크는 이 책에 포함된 지침을 따라 LFS 시스템을 구축하기 위해 필요하다. dash나 mawk같은 
+다른 소프트웨어를 가리키는 Symlink도 작동하겠지만 LFS 개발팀에서 테스트하거나 다뤄지지는 않았으며, 
+책의 지침을 벗어나야 하거나 일부 패키지에 추가 패치가 필요할 수 있다.</para>
   </important>
 
   <!-- Use an empty sect2 element to prevent a pdf warning.  -->
@@ -154,8 +137,7 @@
   </bridgehead>
   <!--<title> </title>-->
 
-  <para >To see whether your host system has all the appropriate versions, and
-  the ability to compile programs, run the following:</para>
+  <para >호스트 시스템에 적절한 버전이 모두 있는지, 프로그램을 컴파일할 수 있는지 확인하려면 다음을 실행하라.:</para>
 
 <!-- ANY additional lines in the script cause a pdf rendering problem-->
 <screen role="nodump"><userinput>cat &gt; version-check.sh &lt;&lt; "EOF"
