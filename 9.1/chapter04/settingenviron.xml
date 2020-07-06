@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,34 +8,26 @@
 <sect1 id="ch-preps-settingenviron">
   <?dbhtml filename="settingenvironment.html"?>
 
-  <title>Setting Up the Environment</title>
+  <title>환경 구축</title>
 
-  <para>Set up a good working environment by creating two new startup files
-  for the <command>bash</command> shell. While logged in as user
-  <systemitem class="username">lfs</systemitem>, issue the following command
-  to create a new <filename>.bash_profile</filename>:</para>
+  <para><command>bash</command> 셸에 대한 두 개의 새 시작 파일을 만들어서 
+작업하기 좋은 환경을 설정한다. <systemitem class="username">lfs</systemitem> 
+유저로 로그인해서 다음 명령을 실행하여 새 <filename>.bash_profile</filename>을 생성하라:</para>
 
 <screen><userinput>cat &gt; ~/.bash_profile &lt;&lt; "EOF"
 <literal>exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash</literal>
 EOF</userinput></screen>
 
-  <para>When logged on as user <systemitem class="username">lfs</systemitem>,
-  the initial shell is usually a <emphasis>login</emphasis> shell which reads
-  the <filename>/etc/profile</filename> of the host (probably containing some
-  settings and environment variables) and then <filename>.bash_profile</filename>.
-  The <command>exec env -i.../bin/bash</command> command in the
-  <filename>.bash_profile</filename> file replaces the running shell with a new
-  one with a completely empty environment, except for the <envar>HOME</envar>,
-  <envar>TERM</envar>, and <envar>PS1</envar> variables. This ensures that no
-  unwanted and potentially hazardous environment variables from the host system
-  leak into the build environment. The technique used here achieves the goal of
-  ensuring a clean environment.</para>
+  <para><systemitem class="username">lfs</systemitem> 유저로 로그인하면, 기본 셸은 보통 
+호스트의 (여러 설정과 환경 변수가 들어있는)<filename>/etc/profile</filename>과 <filename>.bash_profile</filename>
+을 차례로 읽는 로그인 셸이다. <filename>.bash_profile</filename>파일의 <command>exec env -i.../bin/bash</command>
+명령은 <envar>HOME</envar>, <envar>TERM</envar>, 그리고 <envar>PS1</envar> 변수를 제외하고 실행 중인 셸을 완전히
+비어 있는 환경으로 대체한다. 이는 환경 변수들이 호스트 시스템에서 빌드 환경으로 의도치 않게 유출될 일이 없게 한다. 
+이런 테크닉으로 깨끗한 환경을 유지한다는 목표를 달성할 수 있다.</para>
 
-  <para>The new instance of the shell is a <emphasis>non-login</emphasis>
-  shell, which does not read the <filename>/etc/profile</filename> or
-  <filename>.bash_profile</filename> files, but rather reads the
-  <filename>.bashrc</filename> file instead. Create the
-  <filename>.bashrc</filename> file now:</para>
+  <para>셸의 새 인스턴스는 <filename>/etc/profile</filename>이나 <filename>.bash_profile</filename>을 읽지 않고 
+<filename>.bashrc</filename>를 읽는 <emphasis>비-로그인 셸</emphasis>이다. 이제 <filename>.bashrc</filename> 파일을
+만든다:</para>
 
 <screen><userinput>cat &gt; ~/.bashrc &lt;&lt; "EOF"
 <literal>set +h
@@ -47,47 +39,30 @@ PATH=/tools/bin:/bin:/usr/bin
 export LFS LC_ALL LFS_TGT PATH</literal>
 EOF</userinput></screen>
 
-  <para>The <command>set +h</command> command turns off
-  <command>bash</command>'s hash function. Hashing is ordinarily a useful
-  feature&mdash;<command>bash</command> uses a hash table to remember the
-  full path of executable files to avoid searching the <envar>PATH</envar>
-  time and again to find the same executable. However, the new tools should
-  be used as soon as they are installed. By switching off the hash function,
-  the shell will always search the <envar>PATH</envar> when a program is to
-  be run. As such, the shell will find the newly compiled tools in
-  <filename class="directory">$LFS/tools</filename> as soon as they are
-  available without remembering a previous version of the same program in a
-  different location.</para>
+  <para><command>set +h</command> 명령은 <command>bash</command>의 해시함수를 끈다. 해싱은 일반적으로는 유용한 
+기능이다&mdash;<command>bash</command>는 <envar>PATH</envar>를 검색하고 다시 동일한 실행 파일을 검색하는 것을 
+피하기 위해 실행 파일들의 전체 경로를 기억하는 데에 해시 테이블을 사용한다. 그러나, 이 새로운 도구들은
+ 설치하자마자 바로 사용해야 한다. 해시함수를 끄면 셸은 프로그램이 실행될 때 항상 <envar>PATH</envar>를 검색한다.
+이러면 셀은 다른 위치에 있는 동일한 프로그램의 기존 버전을 불러오지 않고  
+<filename class="directory">$LFS/tools</filename>에서 새로 컴파일되어 사용 가능해진 도구를 찾을 것이다.</para>
 
-  <para>Setting the user file-creation mask (umask) to 022 ensures that newly
-  created files and directories are only writable by their owner, but are
-  readable and executable by anyone (assuming default modes are used by the
-  <function>open(2)</function> system call, new files will end up with permission
-  mode 644 and directories with mode 755).</para>
+  <para>사용자 파일 생성 마스크(umask)를 022로 설정하면 새로 생성된 파일과 디렉토리가 오로지 소유자만 쓰기 가능하면서 누구나 읽고 실행 가능한 상태가 된다. (기본 모드가 <function>open(2)</function> 시스템 호출에 의해 쓰여진다고 
+가정하면, 새 파일은 권한 모드 644를, 디렉토리는 755를 가진다.)</para>
 
-  <para>The <envar>LFS</envar> variable should be set to the chosen mount
-  point.</para>
+  <para><envar>LFS</envar> 변수는 선택한 마운트 지점으로 설정되어야 한다.</para>
 
-  <para>The <envar>LC_ALL</envar> variable controls the localization of certain
-  programs, making their messages follow the conventions of a specified country.
-  Setting <envar>LC_ALL</envar> to <quote>POSIX</quote> or <quote>C</quote>
-  (the two are equivalent) ensures that everything will work as expected in
-  the chroot environment.</para>
+	<para><envar>LC_ALL</envar> 변수는 프로그램들의 언어 설정을 담당하여 메시지들을 지정된 국가의 언어로 내보낸다.
+ <envar>LC_ALL</envar>을 <quote>POSIX</quote>나 <quote>C</quote>(둘의 결과는 같다)로 설정하면 
+chroot 환경에서 문제가 생기지 않을 것이다.</para>
 
-  <para>The <envar>LFS_TGT</envar> variable sets a non-default, but compatible machine
-  description for use when building our cross compiler and linker and when cross
-  compiling our temporary toolchain. More information is contained in
-  <xref linkend="ch-tools-toolchaintechnotes" role=""/>.</para>
+  <para><envar>LFS_TGT</envar> 변수는 기본 설정은 아니지만 크로스 컴파일러와 링커를 빌드할 때와 임시 툴체인을 
+크로스 컴파일할 때 호환 가능한 시스템을 설명하는데 유용하다. 자세한 설명은 <xref linkend="ch-tools-toolchaintechnotes" role=""/>을 참조하라.</para>
 
-  <para>By putting <filename class="directory">/tools/bin</filename> ahead of the
-  standard <envar>PATH</envar>, all the programs installed in <xref
-  linkend="chapter-temporary-tools"/> are picked up by the shell immediately after
-  their installation. This, combined with turning off hashing, limits the risk
-  that old programs are used from the host when the same programs are available in
-  the chapter 5 environment.</para>
+  <para><filename class="directory">/tools/bin</filename>을 원래 <envar>PATH</envar>보다 앞에 두면, <xref
+  linkend="chapter-temporary-tools"/>에서 설치된 모든 프로그램들이 설치되자마자 셸에 인식된다. 
+이것은 해싱을 끄는 것과 더불어 5장에서 같은 프로그램이 공존할 때 호스트로부터 기존 프로그램들을 사용하는 실수를 방지한다.</para>
 
-  <para>Finally, to have the environment fully prepared for building the
-  temporary tools, source the just-created user profile:</para>
+  <para>끝으로, 임시 도구 빌드 환경 준비를 마치려면 방금 만든 사용자 프로필의 출처를 지정하라:</para>
 
 <screen><userinput>source ~/.bash_profile</userinput></screen>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,106 +8,77 @@
 <sect1 id="ch-tools-generalinstructions">
   <?dbhtml filename="generalinstructions.html"?>
 
-  <title>General Compilation Instructions</title>
+  <title>일반적인 컴파일 절차</title>
 
-  <para>When building packages there are several assumptions made within
-  the instructions:</para>
+  <para>패키지를 빌드할 때는 지침들이 내포하는 몇 가지 가정들이 있다:</para>
 
   <itemizedlist>
 
   <listitem>
-    <para>Several of the packages are patched before compilation, but only when
-    the patch is needed to circumvent a problem. A patch is often needed in
-    both this and the next chapter, but sometimes in only one or the other.
-    Therefore, do not be concerned if instructions for a downloaded patch seem
-    to be missing.  Warning messages about <emphasis>offset</emphasis> or
-    <emphasis>fuzz</emphasis> may also be encountered when applying a patch. Do
-    not worry about these warnings, as the patch was still successfully
-    applied.</para>
+    <para>몇몇 패키지는 컴파일 전에 패치를 적용하겠지만, 문제를 일으키지 않기 위해 필요할 때만 패치를 적용한다. 패치는 이 장과 다음 장 모두에서 자주 필요하지만, 때로는 단 한 개만 필요할 때도 있다. 따라서 다운로드한 패치에 대한 지침이 누락된 것 같아도 걱정하지 마라. 패치를 적용할 때 <emphasis>offset</emphasis>이나 <emphasis>fuzz</emphasis>에 관한 경고 메시지가 나타날 수도 있다. 그래도 패치가 성공적으로 적용될테니 이러한 경고에 대해서는 걱정할 필요 없다.</para>
   </listitem>
 
   <listitem>
-    <para>During the compilation of most packages, there will be several
-    warnings that scroll by on the screen. These are normal and can safely be
-    ignored.  These warnings are as they appear&mdash;warnings about
-    deprecated, but not invalid, use of the C or C++ syntax. C standards change
-    fairly often, and some packages still use the older standard. This is not a
-    problem, but does prompt the warning.</para>
+    <para>대부분의 패키지를 컴파일하는 동안, 화면을 뒤덮는 여러 경고가 있을 것이다. 이것들은 정상적인 것이며 무시해도 좋다. 이런 경고들은 말하자면&mdash;더 이상 사용되지 않음에도 무시되지 않는 C/C++ 문법에 대한 경고이다. C 표준은 상당히 자주 바뀌는데 일부 패키지는 여전히 예전 표준을 사용하기 때문에 일어나는 일이다. 경고는 출력되겠지만, 문제가 생기진 않는다.</para>
   </listitem>
 
   <listitem>
-    <para>Check one last time that the <envar>LFS</envar> environment variable
-    is set up properly:</para>
+    <para>마지막으로 <envar>LFS</envar> 환경 변수가 올바르게 설정되었는지 재차 확인하라:</para>
 
 <screen role="nodump"><userinput>echo $LFS</userinput></screen>
 
-    <para>Make sure the output shows the path to the LFS partition's mount
-    point, which is <filename class="directory">/mnt/lfs</filename>, using our
-    example.</para>
+    <para>LFS 파티션의 마운트 지점 경로(예시를 따랐다면 <filename class="directory">/mnt/lfs</filename>)가 확실히 출력되는지 확인하라. </para>
   </listitem>
 
   <listitem>
 
-    <para>Finally, two important items must be emphasized:</para>
+    <para>마지막으로, 두 가지 중요한 항목을 꼭 기억하라:</para>
 
     <important>
 
-      <para>The build instructions assume that the <xref
-      linkend='ch-partitioning-hostreqs'/>, including symbolic links, have
-      been set properly:</para>
+      <para>이 빌드 절차는 심볼릭 링크를 포함한 <xref
+      linkend='ch-partitioning-hostreqs'/>이 올바르게 설정되었다고 간주한다:</para>
 
       <itemizedlist role='important'>
 
-        <listitem override='bullet'><para><command>bash</command> is the shell
-        in use.</para></listitem>
+        <listitem override='bullet'><para><command>bash</command>를 셸로 사용한다.</para></listitem>
 
-        <listitem override='bullet'><para><command>sh</command> is a symbolic
-        link to <command>bash</command>.</para></listitem>
+        <listitem override='bullet'><para><command>sh</command>는 <command>bash</command>로 심볼릭 링크되었다.</para></listitem>
 
-        <listitem override='bullet'><para><command>/usr/bin/awk</command> is a
-        symbolic link to <command>gawk</command>.</para></listitem>
+        <listitem override='bullet'><para><command>/usr/bin/awk</command>는 <command>gawk</command>로 심볼릭 링크되었다.</para></listitem>
 
-        <listitem override='bullet'><para><command>/usr/bin/yacc</command> is a
-        symbolic link to <command>bison</command> or a small script that
-        executes bison.</para></listitem>
+        <listitem override='bullet'><para><command>/usr/bin/yacc</command>는 <command>bison</command>이나 bison을 실행하는 스몰 스크립트로 심볼릭 링크되었다.</para></listitem>
 
       </itemizedlist>
     </important>
 
     <important>
-      <para>To re-emphasize the build process:</para>
+      <para>빌드 절차를 다시 강조한다:</para>
 
       <orderedlist numeration="arabic" spacing="compact">
         <listitem>
-          <para>Place all the sources and patches in a directory that will be
-          accessible from the chroot environment such as
-          <filename class="directory">/mnt/lfs/sources/</filename>.  Do
-          <emphasis>not</emphasis> put sources in
-          <filename class="directory">/mnt/lfs/tools/</filename>.</para>
+          <para>모든 소스들과 패치들을 <filename class="directory">/mnt/lfs/sources/</filename>같은 chroot 환경에서 접근할 수 있는 디렉토리에 두어라. 소스를 <filename class="directory">/mnt/lfs/tools/</filename>에 넣지 <emphasis>마라</emphasis>.</para>
         </listitem>
         <listitem>
-          <para>Change to the sources directory.</para>
+          <para>소스들이 있는 디렉토리로 이동한다.</para>
         </listitem>
         <listitem id='buildinstr' xreflabel='Package build instructions'>
-          <para>For each package:</para>
+          <para>각 패키지에 따라선:</para>
           <orderedlist numeration="loweralpha" spacing="compact">
             <listitem>
-              <para>Using the <command>tar</command> program, extract the package
-              to be built.  In Chapter&nbsp;5, ensure you are the <emphasis>lfs</emphasis>
-              user when extracting the package.</para>
+              <para><command>tar</command> 프로그램을 사용해서 빌드될 패키지를 추출하라. 5장에서는, 패키지를 추출할 때 <emphasis>lfs</emphasis> 유저로 로그인하라.</para>
             </listitem>
             <listitem>
-              <para>Change to the directory created when the package was
-              extracted.</para>
+              <para>패키지를 추출할 때 생성된 디렉토리로 이동하라.</para>
             </listitem>
             <listitem>
-              <para>Follow the book's instructions for building the package.</para>
+              <para>패키지를 빌드하기 위해 책의 절차를 따르라.</para>
             </listitem>
             <listitem>
-              <para>Change back to the sources directory.</para>
+              <para>소스들이 있는 디렉토리로 돌아가라.</para>
             </listitem>
             <listitem>
-              <para>Delete the extracted source directory unless instructed otherwise.</para>
+              <para>달리 지시되지 않은 경우 추출된 소스 디렉토리를 삭제하라.</para>
             </listitem>
           </orderedlist>
         </listitem>

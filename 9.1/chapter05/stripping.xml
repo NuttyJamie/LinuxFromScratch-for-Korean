@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,34 +10,23 @@
 
   <title>Stripping</title>
 
-  <para>The steps in this section are optional, but if the LFS partition is
-  rather small, it is beneficial to learn that unnecessary items can be removed.
-  The executables and libraries built so far contain about 70 MB of unneeded
-  debugging symbols. Remove those symbols with:</para>
+  <para>이 절의 단계는 선택 사항이지만 LFS 파티션이 다소 작을 경우, 불필요한 항목을 제거할 수 있다는 점을 배울 수 있다는 점에서 유익하다. 지금까지 빌드된 실행 파일과 라이브러리에는 약 70 MB의 불필요한 디버깅 심볼이 포함되어 있다. 다음 명령으로 이러한 심볼을 제거하라:</para>
 
 <screen><userinput>strip --strip-debug /tools/lib/*
 /usr/bin/strip --strip-unneeded /tools/{,s}bin/*</userinput></screen>
 
-  <para>These commands will skip a number of files, reporting that it does not
-  recognize their file format. Most of these are scripts instead of binaries.
-  Also use the system strip command to include the strip binary in /tools.</para>
+  <para>이 명령들은 파일 형식을 인식하지 못하고 여러 파일을 건너뛴다. 이 중 대부분은 바이너리가 아닌 스크립트이다. 시스템 strip 명령을 사용해 /tools에 strip 바이너리를 포함하라.</para>
 
-  <para>Take care <emphasis>not</emphasis> to use
-  <parameter>--strip-unneeded</parameter> on the libraries. The static
-  ones would be destroyed and the toolchain packages would need to be
-  built all over again.</para>
+  <para>라이브러리에서 <parameter>--strip-unneeded</parameter>를 사용하지 <emphasis>않도록</emphasis> 주의하라. 정적 라이브러리들은 파괴될 것이고 툴체인 패키지는 전체를 다시 빌드해야 한다.</para>
 
-  <para>To save more, remove the documentation:</para>
+  <para>공간을 더 확보하려면 문서를 삭제한다:</para>
 
 <screen><userinput>rm -rf /tools/{,share}/{info,man,doc}</userinput></screen>
 
-  <para>Remove unneeded files:</para>
+  <para>불필요한 파일들을 삭제한다:</para>
 
 <screen><userinput>find /tools/{lib,libexec} -name \*.la -delete</userinput></screen>
 
-  <para>At this point, you should have at least 3 GB of free space in
-  <envar>$LFS</envar> that can be used to build and install Glibc and Gcc in
-  the next phase. If you can build and install Glibc, you can build and install
-  the rest too.</para>
+  <para>이 때, 다음 단계에서 Glibc와 Gcc를 빌드하고 설치하는 데 사용할 수 있는 <envar>$LFS</envar>에 최소 3GB의 여유 공간이 있어야 한다. 만약 Glibc를 빌드하고 설치할 수 있으면, 나머지도 빌드, 설치할 수 있다.</para>
 
 </sect1>

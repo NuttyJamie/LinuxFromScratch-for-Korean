@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -40,40 +40,36 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Make</title>
+    <title>Make 설치</title>
 <!--
     <para>First, work around an error caused by glibc-2.27 and later:</para>
 
 <screen><userinput remap="pre">sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c</userinput></screen>
 -->
-    <para>Prepare Make for compilation:</para>
+    <para>Make 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/tools --without-guile</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure option:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--without-guile</parameter></term>
         <listitem>
-          <para>This ensures that Make-&make-version; won't link against Guile libraries, which
-          may be present on the host system, but won't be available within the
-          <command>chroot</command> environment in the next chapter.</para>
+          <para>Make-&make-version;가 Guile 라이브러리와 링크되지 않게하지만, 다음 장의 <command>chroot</command> 환경에서는 사용할 수 없게 된다.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Compilation is now complete. As discussed earlier, running the test
-    suite is not mandatory for the temporary tools here in this chapter. To run
-    the Make test suite anyway, issue the following command:</para>
+    <para>이제 컴파일이 끝났다. 앞에서 논의한 바와 같이, 이 장의 임시 도구에 대해 테스트 스위트를 반드시 실행해야 하는 것은 아니다. 그래도 Make 테스트 스위트를 실행하려면 다음 명령을 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
@@ -82,8 +78,8 @@
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-make" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는
+    <xref linkend="contents-make" role="."/>에서 찾을 수 있다.</para>
 
   </sect2>
 

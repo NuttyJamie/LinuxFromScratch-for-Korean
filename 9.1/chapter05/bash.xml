@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -41,50 +41,43 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Bash</title>
+    <title>Bash 설치</title>
 <!--
     <para>First, apply the following patch to fix various bugs that have been
     addressed upstream:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&bash-fixes-patch;</userinput></screen>
 -->
-    <para>Prepare Bash for compilation:</para>
+    <para>Bash 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/tools --without-bash-malloc</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--without-bash-malloc</parameter></term>
         <listitem>
-          <para>This option turns off the use of Bash's memory allocation
-          (<function>malloc</function>) function which is known to cause
-          segmentation faults. By turning this option off, Bash will use
-          the <function>malloc</function> functions from Glibc which are
-          more stable.</para>
+          <para>세그먼테이션 오류를 일으키는 것으로 알려진 Bash의 메모리 할당(<function>malloc</function>) 기능을 비활성화한다. 이 옵션을 끄면 Bash는 좀 더 안정적인 Glibc의 <function>malloc</function> 함수를 사용할 것이다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Compilation is now complete. As discussed earlier, running the test
-    suite is not mandatory for the temporary tools here in this chapter. To run
-    the Bash test suite anyway, issue the following command:</para>
+    <para>이제 컴파일이 끝났다. 앞에서 논의한 바와 같이, 이 장의 임시 도구에 대해 테스트 스위트를 반드시 실행해야 하는 것은 아니다. 그래도 Bash 테스트 스위트를 실행하려면 다음 명령을 실행하라:</para>
 
 
 <screen><userinput remap="test">make tests</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Make a link for the programs that use <command>sh</command> for
-    a shell:</para>
+    <para>셸로 <command>sh</command>를 사용하도록 링크를 생성한다:</para>
 
 <screen><userinput remap="install">ln -sv bash /tools/bin/sh</userinput></screen>
 
@@ -93,8 +86,7 @@
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-bash" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는 <xref linkend="contents-bash" role="."/>에서 찾을 수 있다.</para>
 
   </sect2>
 

@@ -8,7 +8,7 @@
 <sect1 id="ch-intro-how">
   <?dbhtml filename="how.html"?>
 
-  <title>LFS 시스템을 빌드하는 법</title>
+  <title>LFS 시스템을 빌드하는 방법</title>
 
   <para>LFS 시스템은 이미 설치된 Linux 배포판(데비안, OpenMandriva, 
 페도라 또는 OpenSUSE 등)을 사용하여 구축할 것이다. 이 기존의 리눅스 
@@ -52,7 +52,7 @@ GCC를 포함한 툴체인의 초석을 다지는 방법을 보여준다
 (다시말해 이 두 가지 핵심 패키지가 재설치됨을 의미한다). 
 다음 단계는 C 라이브러리인 Glibc를 빌드하는 것이다. Glibc는 앞서 구축된 
 툴체인 프로그램으로 빌드된다. 그리고 나서, 툴체인의 두 번째 통로가 
-만들어진다. 여기서, 새로 지은 Glibc과 함께 툴체인이 역동적으로 연결된다. 
+만들어진다. 여기서, 새로 빌드한 Glibc과 함께 툴체인이 동적으로 연결된다. 
 나머지 <xref
   linkend="chapter-temporary-tools"/> 패키지는 이 두 번째 패스 툴체인
 (pass toolchain)을 사용하여 제작된다. 이 작업이 완료되면 실행 중인 

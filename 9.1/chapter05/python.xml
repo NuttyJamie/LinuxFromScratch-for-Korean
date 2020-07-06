@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -41,50 +41,39 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Python</title>
+    <title>Python 설치</title>
 
     <note>
-      <para>There are two package files whose name starts with
-      <quote>python</quote>. The one to extract from is
-      <filename>Python-&python-version;.tar.xz</filename> (notice the
-      uppercase first letter).</para>
+      <para>이름이 <quote>python</quote>으로 시작하는 두 개의 패키지 파일이 있다. 추출할 대상은 <filename>Python-&python-version;.tar.xz</filename>(첫 번째 글자가 대문자임을 참고)이다.</para>
     </note>
 
-    <para>This package first builds the Python interpreter, then some
-    standard Python modules. The main script for building modules is
-    written in Python, and uses hard-coded paths to the host <filename
-    class="directory">/usr/include</filename> and <filename
-    class="directory">/usr/lib</filename> directories. To prevent them
-    from being used, issue:</para>
+    <para>이 패키지는 우선 파이썬 인터프리터를 빌드한 다음 몇 가지 표준 파이썬 모듈을 만든다. 모듈 빌드를 위한 메인 스크립트는 파이썬으로 작성되며, 호스트 <filename class="directory">/usr/include</filename>와 <filename class="directory">/usr/lib</filename> 디렉토리로 하드코드된 경로를 사용한다. 그 곳으로부터 쓰이는 것을 막기 위해 다음을 실행하라:</para>
 
 <screen><userinput remap="pre">sed -i '/def add_multiarch_paths/a \        return' setup.py</userinput></screen>
 
-    <para>Prepare Python for compilation:</para>
+    <para>Python 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/tools --without-ensurepip</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure option:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--without-ensurepip</parameter></term>
         <listitem>
-          <para>This switch disables the Python package installer, which is not
-          needed at this stage.</para>
+          <para>이 단계에서 필요하지 않은 파이썬 패키지 설치 프로그램을 비활성화 한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Compilation is now complete. The test suite requires TK and 
-    and X Windows and cannot be run at this time.
-    </para>
+    <para>이제 컴파일이 끝났다. 테스트 스위트에는 TK와 X 윈도우가 필요하며 지금은 실행할 수 없다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
@@ -93,8 +82,8 @@
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-python" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는
+    <xref linkend="contents-python" role="."/>에서 찾을 수 있다.</para>
 
   </sect2>
 

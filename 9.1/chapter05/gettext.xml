@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -41,17 +41,16 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Gettext</title>
+    <title>Gettext 설치</title>
 
-    <para>For our temporary set of tools, we only need to install
-    three programs from Gettext.</para>
+    <para>우리의 임시 도구 세트를 위해선 Gettext로부터 세 개의 프로그램만 설치하면 된다.</para>
 
-    <para>Prepare Gettext for compilation:</para>
+    <para>Gettext 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --disable-shared</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure option:</title>
+      <title>Configure 옵션들의 의미:</title>
 <!--
       <varlistentry>
         <term><parameter>EMACS="no"</parameter></term>
@@ -65,23 +64,20 @@
       <varlistentry>
         <term><parameter>--disable-shared</parameter></term>
         <listitem>
-          <para>We do not need to install any of the shared Gettext libraries at
-          this time, therefore there is no need to build them.</para>
+          <para>지금은 어떤 공유 Gettext 라이브러리도 설치할 필요가 없으므로 라이브러리를 빌드하지 않는다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>
-    Due to the limited environment, running the test suite at this stage
-    is not recommended.</para>
+    제한된 환경 때문에 이 단계에서는 테스트 스위트를 실행하지 않는 것이 좋다.</para>
 
-    <para>Install the <command>msgfmt</command>, <command>msgmerge</command> and
-    <command>xgettext</command> programs:</para>
+    <para><command>msgfmt</command>, <command>msgmerge</command> 그리고 <command>xgettext</command> 프로그램을 설치한다:</para>
 
 <screen><userinput remap="install">cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /tools/bin</userinput></screen>
 
@@ -90,8 +86,8 @@
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-gettext" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는
+    <xref linkend="contents-gettext" role="."/>에서 찾을 수 있다.</para>
 
   </sect2>
 

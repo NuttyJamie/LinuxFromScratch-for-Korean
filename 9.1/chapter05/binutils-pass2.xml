@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -14,7 +14,7 @@
     <address>&binutils-url;</address>
   </sect1info>
 
-  <title>Binutils-&binutils-version; - Pass 2</title>
+  <title>Binutils-&binutils-version; - 2단계</title>
 
   <indexterm zone="ch-tools-binutils-pass2">
     <primary sortas="a-Binutils">Binutils</primary>
@@ -41,14 +41,14 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Binutils</title>
+    <title>Binutils 설치</title>
 
-    <para>Create a separate build directory again:</para>
+    <para>다시 별도의 빌드 디렉토리를 생성한다:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
-    <para>Prepare Binutils for compilation:</para>
+    <para>Binutils 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">CC=$LFS_TGT-gcc                \
 AR=$LFS_TGT-ar                 \
@@ -61,83 +61,59 @@ RANLIB=$LFS_TGT-ranlib         \
     --with-sysroot</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the new configure options:</title>
+      <title>새 Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>CC=$LFS_TGT-gcc AR=$LFS_TGT-ar RANLIB=$LFS_TGT-ranlib</parameter></term>
         <listitem>
-          <para>Because this is really a native build of Binutils, setting these
-          variables ensures that the build system uses the cross-compiler and
-          associated tools instead of the ones on the host system.</para>
+          <para>이것은 실사용할 Binutils의 네이티브 빌드이기 때문에, 이 옵션을 설정하여 빌드 시스템으로 하여금 호스트 시스템이 아닌 크로스 컴파일러와 관련 도구들을 사용하게끔 한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-lib-path=/tools/lib</parameter></term>
         <listitem>
-          <para>This tells the configure script to specify the library
-          search path during the compilation of Binutils, resulting in
-          <filename class="directory">/tools/lib</filename> being passed
-          to the linker. This prevents the linker from searching through
-          library directories on the host.</para>
+          <para>Binutils를 컴파일하는 동안 라이브러리 검색 경로를 지정하도록 configure 스크립트에 지시해서 <filename class="directory">/tools/lib</filename>가 링커에 전달되도록 한다. 이렇게 해서 링커가 호스트의 라이브러리 디렉토리를 검색하는 것을 방지할 수 있다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-sysroot</parameter></term>
         <listitem>
-          <para>This defines a default (non-existent) sysroot directory
-          <filename class="directory">/tools/$LFS_TGT/sys-root</filename>.
-          It is useful when looking for shared objects which are required by
-          other shared objects explicitly included on the linker's command
-          line. Those objects are searched into the directories listed in
-          <filename>&lt;sysroot&gt;/etc/ld.so.conf</filename>, and failing
-          that, into the linker search path, which is right. If this switch
-          is not given, <filename>/etc/ld.so.conf</filename> on the host
-          is used, that is, programs may be linked to libraries on
-          the host, which we want to avoid.</para>
+          <para>기본(존재하지 않는) sysroot 디렉토리 <filename class="directory">/tools/$LFS_TGT/sys-root</filename>를 정의한다. 링커의 명령줄에 명시된 다른 공유 객체에 필요한 공유 객체를 찾을 때 유용하다. 이러한 객체들은 <filename>&lt;sysroot&gt;/etc/ld.so.conf</filename>에 나열된 디렉토리에서 검색되고, 찾지 못하면, 링커 검색 경로로 검색된다. 만약 이 옵션이 설정되지 않으면, 호스트의 <filename>/etc/ld.so.conf</filename>가 사용되고, 그러면 프로그램이 호스트의 라이브러리에 연결될 수 있으며 이는 우리의 목적에 부합하지 않는다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Now prepare the linker for the <quote>Re-adjusting</quote> phase in
-    the next chapter:</para>
+    <para>이제 다음 장의 링커 <quote>재조정</quote> 단계를 위한 준비를 한다:</para>
 
 <screen><userinput remap="adjust">make -C ld clean
 make -C ld LIB_PATH=/usr/lib:/lib
 cp -v ld/ld-new /tools/bin</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the make parameters:</title>
+      <title>Make 인자들의 의미:</title>
 
       <varlistentry>
         <term><parameter>-C ld clean</parameter></term>
         <listitem>
-          <para>This tells the make program to remove all compiled
-          files in the <filename class="directory">ld</filename>
-          subdirectory.</para>
+          <para><filename class="directory">ld</filename> 하위디렉토리에서 컴파일된 모든 파일을 제거한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>-C ld LIB_PATH=/usr/lib:/lib</parameter></term>
         <listitem>
-          <para>This option rebuilds everything in the <filename
-          class="directory">ld</filename> subdirectory. Specifying the
-          <envar>LIB_PATH</envar> Makefile variable on the command line
-          allows us to override the default value of the temporary tools
-          and point it to the proper final path. The value of this variable
-          specifies the linker's default library search path. This
-          preparation is used in the next chapter.</para>
+          <para><filename class="directory">ld</filename> 하위 디렉토리의 모든 것을 재빌드한다. 명령줄에 <envar>LIB_PATH</envar> Makefile 변수를 지정하면 임시 도구의 기본값을 무시하고 올바른 최종 경로를 가리킬 수 있다. 이 변수의 값이 링커의 기본 라이브러리 검색 경로이다. 이 준비사항은 다음 장에서 쓰인다.</para>
         </listitem>
       </varlistentry>
 
@@ -148,8 +124,7 @@ cp -v ld/ld-new /tools/bin</userinput></screen>
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-binutils" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는 <xref linkend="contents-binutils" role="."/>에서 찾을 수 있다.</para>
 
   </sect2>
 

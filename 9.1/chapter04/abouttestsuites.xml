@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,45 +8,35 @@
 <sect1 id="ch-preps-abouttestsuites">
   <?dbhtml filename="abouttestsuites.html"?>
 
-  <title>About the Test Suites</title>
+  <title>테스트 스위트에 대해</title>
 
-  <para>Most packages provide a test suite. Running the test suite for a
-  newly built package is a good idea because it can provide a <quote>sanity
-  check</quote> indicating that everything compiled correctly. A test suite
-  that passes its set of checks usually proves that the package is
-  functioning as the developer intended. It does not, however, guarantee
-  that the package is totally bug free.</para>
+  <para>대부분의 패키지들은 테스트 스위트를 제공한다.
+ 새로 빌드된 패키지의 테스트 스위트를 실행하는 것은 모든 것이
+정확하게 컴파일됐는지 알 수 있는 <quote>안전성 검사</quote>를 할 수 있기 때문에 좋은 생각이다.
+ 테스트 스위트가 일련의 검사들을 통과하면 보통은 패키지가 개발자가 의도한 대로 작동하고 있다는 의미이다. 그러나 그렇다고 해서 버그가
+완전히 없다는 보장은 없다.</para>
 
-  <para>Some test suites are more important than others. For example,
-  the test suites for the core toolchain packages&mdash;GCC, Binutils, and
-  Glibc&mdash;are of the utmost importance due to their central role in a
-  properly functioning system. The test suites for GCC and Glibc can
-  take a very long time to complete, especially on slower hardware, but
-  are strongly recommended.</para>
+  <para>어떤 테스트 스위트는 다른 것보다 더 중요하다. 예를 들어 핵심 툴체인
+패키지들&mdash;GCC, Binutils와 Glibc&mdash;을 위한 테스트 스위트들은 시스템에서 중요한 역할을 하기 때문에 가장 중요하다. 
+GCC와 Glibc의 테스트 스위트는 특히 느린 하드웨어에서 완료하는 데 매우 오랜
+시간이 걸릴 수 있지만 강력하게 권장한다.</para>
 
   <note>
-    <para>Experience has shown that there is little to be gained from running
-    the test suites in <xref linkend="chapter-temporary-tools"/>. There can be
-    no escaping the fact that the host system always exerts some influence on
-    the tests in that chapter, often causing inexplicable failures. Because
-    the tools built in <xref linkend="chapter-temporary-tools"/> are temporary
-    and eventually discarded, we do not recommend running the test suites in
-    <xref linkend="chapter-temporary-tools"/> for the average reader. The
-    instructions for running those test suites are provided for the benefit of
-    testers and developers, but they are strictly optional.</para>
+    <para>경험에 따르면 <xref linkend="chapter-temporary-tools"/>에서 테스트 스위트를 돌리는 것은 별로 얻을만한 것이 없었다. 호스트 시스템이 해당 장의 테스트에 항상 영향을 미쳐 계속해서 설명할 수 없는 오류가 발생한다는 사실을 
+부정할 수 없다. <xref linkend="chapter-temporary-tools"/>에서 빌드한 
+도구들은 일시적이고 결국 폐기할 것이기 때문에 일반 독자들에게는 <xref linkend="chapter-temporary-tools"/>의 테스트 스위트를 행하는 것을 권장하지 않는다.
+ 이 테스트 스위트들을 실행하는 절차들은 테스터와 개발자들을 위해 제시하지만 엄밀히 말해 선택 사항일 뿐이다.</para>
   </note>
 
-  <para>A common issue with running the test suites for Binutils and GCC
-  is running out of pseudo terminals (PTYs). This can result in a high
-  number of failing tests. This may happen for several reasons, but the
-  most likely cause is that the host system does not have the
-  <systemitem class="filesystem">devpts</systemitem> file system set up
-  correctly. This issue is discussed in greater detail at
-  <ulink url="&lfs-root;lfs/faq.html#no-ptys"/>.</para>
+	<para>Binutils 및 GCC에 대한 테스트 스위트 실행에 관한 흔한 문제는 
+가상 터미널(PYTs)의 부족이다. 이로 인해 많은 테스트 실패를 겪을 수 있다. 
+이런 현상은 여러 이유로 발생할 수 있지만, 가장 가능성이 높은 원인은 
+호스트 시스템에 <systemitem class="filesystem">devpts</systemitem> 파일
+ 시스템이 올바르게 설정되어 있지 않기 때문이다. 
+이 문제는 <ulink url="&lfs-root;lfs/faq.html#no-ptys"/>에서 자세히 설명한다.</para>
 
-  <para>Sometimes package test suites will fail, but for reasons which the
-  developers are aware of and have deemed non-critical. Consult the logs located
-  at <ulink url="&test-results;"/> to verify whether or not these failures are
-  expected. This site is valid for all tests throughout this book.</para>
+  <para>이따금씩 패키지 테스트 스위트가 실패하겠지만 그것은 개발자들이 그다지 치명적이지 않다고 여기기 때문이다. 
+<ulink url="&test-results;"/>에서 로그들을 참고해서 그런 테스트 실패가 
+예상된 케이스인지 확인하라. 이 사이트는 이 책의 모든 테스트에 대해 유효하다.</para>
 
 </sect1>

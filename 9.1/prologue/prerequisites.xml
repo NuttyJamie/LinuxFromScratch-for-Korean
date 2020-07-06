@@ -30,9 +30,9 @@
       <para>Software-Building-HOWTO
       <ulink url="http://www.tldp.org/HOWTO/Software-Building-HOWTO.html"/></para>
 
-      <para>리눅스 아래에 <quote>일반적인</quote> 유닉스 소프트웨어 패키지를
+      <para>리눅스에서 <quote>일반적인</quote> 유닉스 소프트웨어 패키지를
  빌드하고 설치하기 위한 포괄적인 안내서다. 
-비록 작성되고 시간이 좀 흘렀지만, 여전히 소프트웨어를 만들고 설치하는 데 
+비록 작성된지 오래 되었지만, 여전히 소프트웨어를 만들고 설치하는 데 
 필요한 기본적인 기술들을 잘 요약해 준다.</para>
     </listitem>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -14,7 +14,7 @@
     <address>&linux-url;</address>
   </sect1info>
 
-  <title>Linux-&linux-version; API Headers</title>
+  <title>Linux-&linux-version; API 헤더</title>
 
   <indexterm zone="ch-tools-linux-headers">
     <primary sortas="a-Linux">Linux</primary>
@@ -41,23 +41,15 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Linux API Headers</title>
+    <title>리눅스 API 헤더 설치</title>
 
-    <para>The Linux kernel needs to expose an Application Programming Interface
-    (API) for the system's C library (Glibc in LFS) to use.  This is done
-    by way of sanitizing various C header files that are shipped in the Linux
-    kernel source tarball.</para>
+    <para>리눅스 커널은 시스템의 C 라이브러리(LFS에선 Glibc)가 사용할 애플리케이션 프로그래밍 인터페이스(API)를 공개해야한다. 이는 리눅스 커널 소스 tarball에 들어있는 여러 C 헤더 파일들을 검사함으로써 이뤄진다.</para>
 
-    <para>Make sure there are no stale files embedded in the package:</para>
+    <para>패키지에 포함된 오래된 파일이 없는지 확인하라:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
-    <para>Now extract the user-visible kernel headers from the source.
-    The recommended make target <quote>headers_install</quote> cannot be
-    used, because it requires <application>rsync</application>, which may not
-    be available. The headers are first placed in
-    <filename class="directory">./usr</filename>, then copied to the needed
-    location.</para>
+    <para>이제 소스에서 사용자가 볼 수 있는 커널 헤더를 추출한다. 아직 사용할 수 없는 <application>rsync</application>가 필요하기 때문에, <quote>headers_install</quote>를 대상으로 한 make는 할 수 없다. 헤더들을 일단 <filename class="directory">./usr</filename>에 둔 다음, 필요한 위치에 복사한다.</para>
 
 <screen><userinput remap="make">make headers
 </userinput><userinput remap="install">cp -rv usr/include/* /tools/include</userinput></screen>
@@ -67,8 +59,7 @@
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-linux-headers" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는 <xref linkend="contents-linux-headers" role="."/>에서 찾을 수 있다.</para>
 
   </sect2>
 

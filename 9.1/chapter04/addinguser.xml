@@ -10,7 +10,8 @@
 
   <title>LFS 유저 추가</title>
 
-  <para><systemitem class="username">root</systemitem> 유저로 로그인할 때는, 한 번의 실수로 시스템이 손상되거나 
+  <para><systemitem class="username">root</systemitem> 유저로 로그인한 상태
+에서는, 한 번의 실수로 시스템이 손상되거나 
 파괴될 수 있다. 따라서 다음 장에서는 권한 없는 유저로 패키지를 빌드할 것을 권장한다. 당신만의 유저 이름을 사용할 수
 도 있지만, 깨끗한 작업 환경을 쉽게 설정할 수 있도록 <systemitem class="username">lfs</systemitem>라는 새 사용자를 
 같은 이름의 <systemitem class="groupname">lfs</systemitem>로 명명된 새 그룹의 구성원으로 생성하고 설치 프로세스 
@@ -48,8 +49,9 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
     <varlistentry>
       <term><parameter>-k /dev/null</parameter></term>
       <listitem>
-        <para>이 매개변수는 입력 위치를 특수 null 장치로 변경하여 스켈레톤 디렉토리(기본값은 
-<filename class="directory">/etc/skel</filename>)로부터의 파일 복사를 방지한다.</para>
+        <para>이 매개변수는 홈 디렉토리 기본 폴더들을 가져오는 위치를 
+null 장치로 특정하여 스켈레톤 디렉토리(기본값은 
+<filename class="directory">/etc/skel</filename>)로부터의 폴더 복사를 방지한다.</para>
       </listitem>
     </varlistentry>
 
@@ -69,8 +71,9 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
 
 <screen role="nodump"><userinput>passwd lfs</userinput></screen>
 
-  <para><systemitem class="username">lfs</systemitem>를 디렉토리 소유자로 
-<filename class="directory">$LFS/tools</filename>에 대한 전체 액세스 권한을 부여하려면:</para>
+  <para><systemitem class="username">lfs</systemitem>에게 디렉토리 소유권을
+부여해서 <filename class="directory">$LFS/tools</filename>에 대한 전체
+ 액세스 권한을 얻으려면:</para>
 
 <screen><userinput>chown -v lfs $LFS/tools</userinput></screen>
 

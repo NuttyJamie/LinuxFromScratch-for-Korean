@@ -23,8 +23,8 @@ ARM CPU에서도 작동하는 것으로 알려져 있다. 이러한 CPU 중 하�
 빌드 테스트 통계는 다음과 같이 측정되었다.</para>
 
 <screen><computeroutput>아키텍쳐 	 빌드 시간	 빌드 사이즈
-32-bit       239.9 분  3.6 GB
-64-bit       233.2 분  4.4 GB</computeroutput></screen>
+32-bit       239.9 분		3.6 GB
+64-bit       233.2 분		4.4 GB</computeroutput></screen>
 
 <para>보시다시피 동일한 하드웨어에서 64비트 빌드는 32비트 빌드보다 
 3% 빠르지만 22% 더 크다. LFS를 LAMP 서버 또는 방화벽으로 사용하려는 경우 

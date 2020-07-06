@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,32 +8,15 @@
 <sect1 id="ch-tools-changingowner">
   <?dbhtml filename="changingowner.html"?>
 
-  <title>Changing Ownership</title>
+  <title>소유권 변경</title>
 
   <note>
-    <para>The commands in the remainder of this book must be performed while
-    logged in as user <systemitem class="username">root</systemitem> and no
-    longer as user <systemitem class="username">lfs</systemitem>. Also, double
-    check that <envar>$LFS</envar> is set in <systemitem
-    class="username">root</systemitem>'s environment.</para>
+    <para>이 책의 나머지 부분에 있는 명령들은 더 이상 <systemitem class="username">lfs</systemitem> 유저가 아닌 <systemitem class="username">root</systemitem> 유저로 로그인한 상태에서 실행해야 한다. 또, <envar>$LFS</envar>가 <systemitem class="username">root</systemitem>의 환경에 설정되어 있는지 다시 확인하라.</para>
   </note>
 
-  <para>Currently, the <filename class="directory">$LFS/tools</filename> directory
-  is owned by the user <systemitem class="username">lfs</systemitem>, a user
-  that exists only on the host system. If the <filename
-  class="directory">$LFS/tools</filename> directory is kept as is, the files are
-  owned by a user ID without a corresponding account. This is dangerous because
-  a user account created later could get this same user ID and would own the
-  <filename class="directory">$LFS/tools</filename> directory and all the files
-  therein, thus exposing these files to possible malicious manipulation.</para>
+  <para>현재 <filename class="directory">$LFS/tools</filename> 디렉토리는 호스트 시스템에만 존재하는 유저인 <systemitem class="username">lfs</systemitem>가 소유하고 있다. <filename class="directory">$LFS/tools</filename> 디렉토리를 그대로 두면 해당 계정이 없는 유저 ID가 파일을 소유하게 된다. 이것은 나중에 만들어진 사용자 계정이 동일한 유저 ID를 얻을 수 있고 <filename class="directory">$LFS/tools</filename> 디렉토리와 모든 파일을 소유하게 되어 그 안의 파일들이 악의적인 조작에 노출될 수 있기 때문에 위험하다. </para>
 
-  <para>To avoid this issue, you could add the <systemitem
-  class="username">lfs</systemitem> user to the new LFS system later when
-  creating the <filename>/etc/passwd</filename> file, taking care to assign it
-  the same user and group IDs as on the host system. Better yet, change the
-  ownership of the <filename class="directory">$LFS/tools</filename> directory to
-  user <systemitem class="username">root</systemitem> by running the following
-  command:</para>
+  <para>이런 문제를 피하려면, 나중에 <filename>/etc/passwd</filename> 파일을 생성할 때 호스트 시스템과 동일한 유저 및 그룹 ID를 할당하도록 주의하고 <systemitem class="username">lfs</systemitem> 유저를 새 LFS 시스템에 추가하라. 다음 명령으로 <filename class="directory">$LFS/tools</filename> 디렉토리의 소유권을 <systemitem class="username">root</systemitem> 유저로 변경하라:</para>
 
 <screen><userinput>chown -R root:root $LFS/tools</userinput></screen>
 

@@ -1,11 +1,11 @@
 # Linux From Scratch
-## Version 9.1 Published March 1st, 2020
-### Created by Gerard Beekmans
-### Managing Editor: Bruce Dubbs
-Copyright ⓒ 1999-2020 Gerard Beekmans
+## 9.1판 2020년 3월 1일 발행
+### 저자: Gerard Beekmans 
+### 관리 편집자: Bruce Dubbs
+저작권 ⓒ  1999-2020 Gerard Beekmans
 - - -
 
-### Table of Contents
+### 목차
 
 - [x] Preface
 	- [x] Foreword
@@ -45,45 +45,45 @@ Copyright ⓒ 1999-2020 Gerard Beekmans
         - [x] Introduction
         - [x] Creating the $LFS/tools Directory
         - [x] Adding the LFS User
-        - [ ] Setting Up the Environment
-        - [ ] About SBUs
-        - [ ] About the Test Suites
-    - [ ] 5. Constructing a Temporary System
-        - [ ] Introduction
-        - [ ] Toolchain Technical Notes
-        - [ ] General Compilation Instructions
-        - [ ] Binutils-2.34 - Pass 1
-        - [ ] GCC-9.2.0 - Pass 1
-        - [ ] Linux-5.5.3 API Headers
-        - [ ] Glibc-2.31
-        - [ ] Libstdc++ from GCC-9.2.0
-        - [ ] Binutils-2.34 - Pass 2
-        - [ ] GCC-9.2.0 - Pass 2
-        - [ ] Tcl-8.6.10
-        - [ ] Expect-5.45.4
-        - [ ] DejaGNU-1.6.2
-        - [ ] M4-1.4.18
-        - [ ] Ncurses-6.2
-        - [ ] Bash-5.0
-        - [ ] Bison-3.5.2
-        - [ ] Bzip2-1.0.8
-        - [ ] Coreutils-8.31
-        - [ ] Diffutils-3.7
-        - [ ] File-5.38
-        - [ ] Findutils-4.7.0
-        - [ ] Gawk-5.0.1
-        - [ ] Gettext-0.20.1
-        - [ ] Grep-3.4
-        - [ ] Gzip-1.10
-        - [ ] Make-4.3
-        - [ ] Patch-2.7.6
-        - [ ] Perl-5.30.1
-        - [ ] Python-3.8.1
-        - [ ] Sed-4.8
-        - [ ] Tar-1.32
-        - [ ] Texinfo-6.7
-        - [ ] Xz-5.2.4
-        - [ ] Stripping
+        - [x] Setting Up the Environment
+        - [x] About SBUs
+        - [x] About the Test Suites
+    - [x] 5. Constructing a Temporary System
+        - [x] Introduction
+        - [x] Toolchain Technical Notes
+        - [x] General Compilation Instructions
+        - [x] Binutils-2.34 - Pass 1
+        - [x] GCC-9.2.0 - Pass 1
+        - [x] Linux-5.5.3 API Headers
+        - [x] Glibc-2.31
+        - [x] Libstdc++ from GCC-9.2.0
+        - [x] Binutils-2.34 - Pass 2
+        - [x] GCC-9.2.0 - Pass 2
+        - [x] Tcl-8.6.10
+        - [x] Expect-5.45.4
+        - [x] DejaGNU-1.6.2
+        - [x] M4-1.4.18
+        - [x] Ncurses-6.2
+        - [x] Bash-5.0
+        - [x] Bison-3.5.2
+        - [x] Bzip2-1.0.8
+        - [x] Coreutils-8.31
+        - [x] Diffutils-3.7
+        - [x] File-5.38
+        - [x] Findutils-4.7.0
+        - [x] Gawk-5.0.1
+        - [x] Gettext-0.20.1
+        - [x] Grep-3.4
+        - [x] Gzip-1.10
+        - [x] Make-4.3
+        - [x] Patch-2.7.6
+        - [x] Perl-5.30.1
+        - [x] Python-3.8.1
+        - [x] Sed-4.8
+        - [x] Tar-1.32
+        - [x] Texinfo-6.7
+        - [x] Xz-5.2.4
+        - [x] Stripping
         - [ ] Changing Ownership
 
 - [ ] III. Building the LFS System

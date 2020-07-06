@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -41,33 +41,29 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Perl</title>
+    <title>Perl 설치</title>
 
-    <para>Prepare Perl for compilation:</para>
+    <para>Perl 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">sh Configure -des -Dprefix=/tools -Dlibs=-lm -Uloclibpth -Ulocincpth</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the Configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>-des</parameter></term>
         <listitem>
-          <para>This is a combination of three options: -d uses defaults for 
-          all items; -e ensures completion of all tasks; -s silences
-          non-essential output.</para>
+          <para>이것은 세 가지 옵션의 조합이다: -d는 모든 항목에 대해 기본값을 사용한다; -e는 모든 작업의 완료를 보장한다; -s는 필수가 아닌 항목들을 출력하지 않는다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term>
-          <parameter>-Uloclibpth</parameter> and
+          <parameter>-Uloclibpth</parameter>와
           <parameter>-Ulocincpth</parameter>
         </term>
         <listitem>
-          <para>These entries undefine variables that cause the configuration
-          to search for locally installed components that may exist on the
-          host system.</para>
+          <para>Configuration이 호스트 시스템에 존재할 수 있는 로컬 설치 구성 요소를 검색하도록 하는 변수의 정의를 해제한다.</para>
         </listitem>
       </varlistentry>
 
@@ -76,15 +72,13 @@
 
 
 
-    <para>Build the package:</para>
+    <para>패키지를 빌드한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Although Perl comes with a test suite, it would be better to wait
-    until it is installed in the next chapter.</para>
+    <para>Perl에 테스트 스위트도 있지만 다음 장에서 설치될 때까지 기다리는 것이 나을 것이다.</para>
 
-    <para>Only a few of the utilities and libraries need to be installed at this
-    time:</para>
+    <para>여기선 몇 개의 유틸리티와 라이브러리만 설치하면 된다:</para>
 
 <screen><userinput remap="install">cp -v perl cpan/podlators/scripts/pod2man /tools/bin
 mkdir -pv /tools/lib/perl5/&perl-version;
@@ -95,8 +89,8 @@ cp -Rv lib/* /tools/lib/perl5/&perl-version;</userinput></screen>
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-perl" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는
+    <xref linkend="contents-perl" role="."/>에서 찾을 수 있다.</para>
 
   </sect2>
 

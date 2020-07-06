@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -41,13 +41,13 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Ncurses</title>
+    <title>Ncurses 설치</title>
 
-    <para>First, ensure that <command>gawk</command> is found first during configuration:</para>
+    <para>우선 설정하는 동안 <command>gawk</command>가 발견되었는지 확인하라:</para>
 
 <screen><userinput remap="pre">sed -i s/mawk// configure</userinput></screen>
 
-    <para>Prepare Ncurses for compilation:</para>
+    <para>Ncurses 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/tools \
             --with-shared   \
@@ -57,55 +57,41 @@
             --enable-overwrite</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--without-ada</parameter></term>
         <listitem>
-          <para>This ensures that Ncurses does not build support for the Ada
-          compiler which may be present on the host but will not be available
-          once we enter the <command>chroot</command> environment.</para>
+          <para>Ncurses가 Ada 컴파일러를 지원하지 않도록 한다. Ada 컴파일러는 호스트에 있을 수 있지만 일단 <command>chroot</command> 환경에 들어가면 사용할 수 없다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-overwrite</parameter></term>
         <listitem>
-          <para>This tells Ncurses to install its header files into
-          <filename class="directory">/tools/include</filename>, instead of
-          <filename class="directory">/tools/include/ncurses</filename>, to
-          ensure that other packages can find the Ncurses headers
-          successfully.</para>
+          <para><filename class="directory">/tools/include/ncurses</filename> 대신 <filename class="directory">/tools/include</filename>에 헤더 파일들을 설치하도록 한다. 이를 통해 다른 패키지들도 Ncurses 헤더들을 성공적으로 찾을 수 있다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-widec</parameter></term>
         <listitem>
-          <para>This switch causes wide-character libraries (e.g., <filename
-          class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
-          to be built instead of normal ones (e.g., <filename
-          class="libraryfile">libncurses.so.&ncurses-version;</filename>).
-          These wide-character libraries are usable in both multibyte and
-          traditional 8-bit locales, while normal libraries work properly
-          only in 8-bit locales. Wide-character and normal libraries are
-          source-compatible, but not binary-compatible.</para>
+          <para>일반 문자 라이브러리(<filename
+          class="libraryfile">libncurses.so.&ncurses-version;</filename>) 대신 와이드 문자 라이브러리(<filename
+          class="libraryfile">libncursesw.so.&ncurses-version;</filename>)를 설치하도록 한다. 이런 와이드 문자 라이브러리는 멀티바이트 및 기존의 8비트 언어에서 모두 사용할 수 있지만, 일반 라이브러리는 8비트 언어에서만 제대로 작동한다. 와이드 문자와 일반 문자 라이브러리는 소스에서는 호환되지만 바이너리 호환은 되지 않는다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>This package has a test suite, but it can only be run after the
-    package has been installed.  The tests reside in the
-    <filename class="directory">test/</filename> directory.  See the
-    <filename>README</filename> file in that directory for further details.
+    <para>이 패키지는 테스트 스위트가 있지만, 패키지를 설치한 후에만 실행할 수 있다. 테스트들은 <filename class="directory">test/</filename> 디렉토리에 있다. 자세한 내용은 해당 디렉토리의 <filename>README</filename> 파일을 참조하라.
     </para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install
 ln -s libncursesw.so /tools/lib/libncurses.so</userinput></screen>
@@ -115,8 +101,8 @@ ln -s libncursesw.so /tools/lib/libncurses.so</userinput></screen>
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-ncurses" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는 <xref linkend="contents-ncurses" role="."/>에서 찾을 수 있다.
+    </para>
 
   </sect2>
 

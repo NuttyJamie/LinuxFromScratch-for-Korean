@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Tcl package contains the Tool Command Language.</para>
+    <para>Tcl 패키지는 도구 명령 언어(Tool Command Language)를 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,86 +38,67 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Tcl</title>
+    <title>Tcl 설치</title>
 
-    <para>This package and the next two (Expect and DejaGNU) are
-    installed to support running the test suites for GCC and Binutils and other
-    packages.  Installing three packages for testing purposes may seem
-    excessive, but it is very reassuring, if not essential, to know that the
-    most important tools are working properly. Even if the test suites are not
-    run in this chapter (they are not mandatory), these packages are required
-    to run the test suites in <xref linkend="chapter-building-system"/>.</para>
+    <para>이 패키지와 다음 2개(Expect와 DejaGNU)는 GCC, Binutils 그리고 다른 패키지의 테스트 스위트 실행을 지원하기 위해 설치된다. 테스트 목적으로 3개의 패키지를 설치하는 것은 과도해 보일 수 있지만, 가장 중요한 도구가 제대로 작동하고 있다는 것을 확인하는 것은 필수는 아니더라도 매우 안심할 수 있는 일이다. 이 장에서 테스트 스위트를 실행하지 않더라도(필수 사항이 아님), <xref linkend="chapter-building-system"/>의 테스트 스위트를 실행하기 위해 필요하다.</para>
 
-    <para>Note that the Tcl package used here is a minimal version needed
-    to run the LFS tests.  For the full package, see the  
-    <ulink url='&blfs-book;general/tcl.html'>BLFS Tcl procedures</ulink>.</para>
+    <para>여기서 사용되는 Tcl 패키지는 LFS 테스트를 실행하는 데 필요한 최소 버전이라는 점에 유의하라. 전체 패키지는 <ulink url='&blfs-book;general/tcl.html'>BLFS Tcl procedures</ulink>를 참조하라.</para>
 
-    <para>Prepare Tcl for compilation:</para>
+    <para>Tcl 컴파일을 준비한:</para>
 
 <screen><userinput remap="configure">cd unix
 ./configure --prefix=/tools</userinput></screen>
 
-    <para>Build the package:</para>
+    <para>패키지를 빌드한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Compilation is now complete. As discussed earlier, running the test
-    suite is not mandatory for the temporary tools here in this chapter. To run
-    the Tcl test suite anyway, issue the following command:</para>
+    <para>이제 컴파일이 끝났다. 앞에서 논의한 바와 같이, 이 장의 임시 도구에 대해 테스트 스위트를 반드시 실행해야 하는 것은 아니다. Tcl 테스트 스위트를 실행하려면 다음 명령을 실행하라:</para>
 
 <screen><userinput remap="test">TZ=UTC make test</userinput></screen>
 
-    <para>The Tcl test suite may experience failures under certain host
-    conditions that are not fully understood. Therefore, test suite failures
-    here are not surprising, and are not considered critical. The
-    <parameter>TZ=UTC</parameter> parameter sets the time zone to Coordinated
-    Universal Time (UTC), but only
-    for the duration of the test suite run. This ensures that the clock tests
-    are exercised correctly. Details on the <envar>TZ</envar> environment
-    variable are provided in <xref linkend="chapter-config"/>.</para>
+    <para>Tcl 테스트 스위트는 완전히 파악되지 않은 호스트 환경에서 실패할 수도 있다. 따라서 테스트 스위트가 실패해도 놀랄 일이 아니며, 중요하지도 않다. <parameter>TZ=UTC</parameter> 매개변수는 표준 시간대를 조정된 협정 세계표준시(UTC)로 설정하지만, 테스트 스위트를 실행하는 동안에만 적용된다. 이렇게 하면 시계 테스트가 올바르게 수행된다. <envar>TZ</envar> 환경변수에 대한 자세한 내용은 <xref linkend="chapter-config"/>에 수록되어 있다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Make the installed library writable so debugging symbols can
-    be removed later:</para>
+    <para>디버깅 기호를 나중에 지울 수 있도록 설치된 라이브러리를 쓰기 가능으로 설정하라:</para>
 
 <screen><userinput remap="install">chmod -v u+w /tools/lib/libtcl&tcl-major-version;.so</userinput></screen>
 
-    <para>Install Tcl's headers. The next package, Expect, requires them
-    to build.</para>
+    <para>Tcl의 헤더를 설치한다. 다음 패키지인 Expect를 빌드하는데 필요하다.</para>
 
 <screen><userinput remap="install">make install-private-headers</userinput></screen>
 
-    <para>Now make a necessary symbolic link:</para>
+    <para>이제 필요한 심볼릭 링크를 만든다:</para>
 
 <screen><userinput remap="install">ln -sv tclsh&tcl-major-version; /tools/bin/tclsh</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-tcl" role="content">
-    <title>Contents of Tcl</title>
+    <title>Tcl의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed library</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
 
       <seglistitem>
-        <seg>tclsh (link to tclsh&tcl-major-version;) and tclsh&tcl-major-version;</seg>
+        <seg>tclsh (tclsh&tcl-major-version;에 링크됨)와 tclsh&tcl-major-version;</seg>
         <seg>libtcl&tcl-major-version;.so, libtclstub&tcl-major-version;.a</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="tclsh&tcl-major-version;">
         <term><command>tclsh&tcl-major-version;</command></term>
         <listitem>
-          <para>The Tcl command shell</para>
+          <para>Tcl 명령 셸</para>
           <indexterm zone="ch-tools-tcl tclsh&tcl-major-version;">
             <primary sortas="b-tclsh&tcl-major-version;">tclsh&tcl-major-version;</primary>
           </indexterm>
@@ -127,7 +108,7 @@
       <varlistentry id="tclsh">
         <term><command>tclsh</command></term>
         <listitem>
-          <para>A link to tclsh&tcl-major-version;</para>
+          <para>&tcl-major-version;로의 링크</para>
           <indexterm zone="ch-tools-tcl tclsh">
             <primary sortas="b-tclsh">tclsh</primary>
           </indexterm>
@@ -137,7 +118,7 @@
       <varlistentry id="libtcl&tcl-major-version;.so">
         <term><filename class="libraryfile">libtcl&tcl-major-version;.so</filename></term>
         <listitem>
-          <para>The Tcl library</para>
+          <para>Tcl 라이브러리</para>
           <indexterm zone="ch-tools-tcl libtcl&tcl-major-version;.so">
             <primary sortas="c-libtcl&tcl-major-version;.so">libtcl&tcl-major-version;.so</primary>
           </indexterm>
@@ -147,7 +128,7 @@
       <varlistentry id="libtclstub&tcl-major-version;.a">
         <term><filename class="libraryfile">libtclstub&tcl-major-version;.a</filename></term>
         <listitem>
-          <para>The Tcl Stub library</para>
+          <para>Tcl Stub 라이브러리</para>
           <indexterm zone="ch-tools-tcl libtclstub&tcl-major-version;.a">
             <primary sortas="c-libtclstub&tcl-major-version;.a">libtclstub&tcl-major-version;.a</primary>
           </indexterm>

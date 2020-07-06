@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -41,15 +41,14 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Glibc</title>
+    <title>Glibc 설치</title>
 
-    <para>The Glibc documentation recommends building Glibc 
-    in a dedicated build directory:</para>
+    <para>Glibc 문서에서는 전용 빌드 디렉토리에 Glibc를 빌드할 것을 권장한다:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
-    <para>Next, prepare Glibc for compilation:</para>
+    <para>다음으로 Glibc 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">../configure                             \
       --prefix=/tools                    \
@@ -62,32 +61,26 @@ cd       build</userinput></screen>
       libc_cv_c_cleanup=yes</userinput></screen> -->
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--host=$LFS_TGT, --build=$(../scripts/config.guess)</parameter></term>
         <listitem>
-          <para>The combined effect of these switches is that Glibc's build system
-          configures itself to cross-compile, using the cross-linker and
-          cross-compiler in <filename class="directory">/tools</filename>.</para>
+          <para><filename class="directory">/tools</filename>의 크로스 링커와 크로스 컴파일러를 사용해서 Glibc의 빌드 시스템이 스스로를 크로스 컴파일하게 한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-kernel=&min-kernel;</parameter></term>
         <listitem>
-          <para>This tells Glibc to compile the library with support
-          for &min-kernel; and later Linux kernels.  Workarounds for older
-          kernels are not enabled.</para>
+          <para>Glibc가 &min-kernel; 이상 리눅스 커널을 지원하는 라이브러리를 컴파일하도록 한다. 이전 커널에 대한 라이브러리는 사용할 수 없다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-headers=/tools/include</parameter></term>
         <listitem>
-          <para>This tells Glibc to compile itself against the headers recently
-          installed to the tools directory, so that it knows exactly what
-          features the kernel has and can optimize itself accordingly.</para>
+          <para>앞서 tools 디렉토리에 설치된 헤더들을 가지고 컴파일하도록 한다. 커널이 어떤 기능들을 갖고 있는지 정확히 알고 그에 따른 최적화를 할 수 있다.</para>
         </listitem>
       </varlistentry>
 <!--
@@ -123,7 +116,7 @@ cd       build</userinput></screen>
 
     </variablelist>
 
-    <para>During this stage the following warning might appear:</para>
+    <para>이 단계에서 다음과 같은 경고가 나타날 수 있다:</para>
 
     <blockquote>
 <screen><computeroutput>configure: WARNING:
@@ -133,62 +126,47 @@ cd       build</userinput></screen>
 *** Check the INSTALL file for required versions.</computeroutput></screen>
     </blockquote>
 
-    <para>The missing or incompatible <command>msgfmt</command> program is
-    generally harmless. This <command>msgfmt</command> program is part of the
-    Gettext package which the host distribution should provide.</para>
+    <para>누락됐거나 호환되지 않는다는 <command>msgfmt</command> 프로그램은 보통 문제가 되지 않는다. 이 <command>msgfmt</command> 프로그램은 호스트 배포판이 제공하는 Gettext 패키지의 일부다. </para>
 
-    <note><para>There have been reports that this package may fail when 
-    building as a "parallel make".  If this occurs, rerun the make command
-    with a "-j1" option.</para></note>
+    <note><para>"병렬 make"로 빌드할 때 실패하는 경우가 있다는 보고가 있었다. 이럴 경우 "-j1" 옵션을 사용해서 make 명령을 다시 실행하라.</para></note>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   <caution>
-    <para>At this point, it is imperative to stop and ensure that the basic
-    functions (compiling and linking) of the new toolchain are working as
-    expected. To perform a sanity check, run the following commands:</para>
+    <para>여기서 잠깐 멈추고 새로운 툴체인의 기본 기능(컴파일 및 링크)이 기대한 대로 잘 작동하는지 확인하는 것이 우선이다. 다음 명령으로 온전성 검사를 수행하라:</para>
 
 <screen><userinput>echo 'int main(){}' &gt; dummy.c
 $LFS_TGT-gcc dummy.c
 readelf -l a.out | grep ': /tools'</userinput></screen>
 
-    <para>If everything is working correctly, there should be no errors,
-    and the output of the last command will be of the form:</para>
+    <para>모든 것이 제대로 작동한다면 오류가 없어야 하며 마지막 명령의 출력은 다음과 같을 것이다:</para>
 
 <screen><computeroutput>[Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]</computeroutput></screen>
 
-    <para>Note that for 32-bit machines, the interpreter name will be
-    <filename>/tools/lib/ld-linux.so.2</filename>.</para>
+    <para>32비트 시스템에서는 인터프리터 이름이 <filename>/tools/lib/ld-linux.so.2</filename>임을 참고하라.</para>
 
-    <para>If the output is not shown as above or there was no output at all,
-    then something is wrong. Investigate and retrace the steps to find out
-    where the problem is and correct it. This issue must be resolved before
-    continuing on.</para>
+    <para>만약 출력이 위와 같이 표시되지 않거나 출력이 전혀 없다면, 무언가 잘못된 것이다. 이전 단계로 돌아가 어디서 문제가 생겼는지 파악하고 수정하라. 이 문제는 계속 진행하기 전에 반드시 해결해야 한다.</para>
 
-    <para>Once all is well, clean up the test files:</para>
+    <para>모두 잘 됐다면, 테스트 파일을 정리하라:</para>
 
 <screen><userinput>rm -v dummy.c a.out</userinput></screen>
 
   </caution>
 
-  <note><para>Building Binutils in the section after next will serve as an
-  additional check that the toolchain has been built properly. If Binutils
-  fails to build, it is an indication that something has gone wrong with the
-  previous Binutils, GCC, or Glibc installations.</para></note>
+  <note><para>다음 절에서 Binutils를 빌드하면 툴체인이 올바르게 빌드되었는지 다시금 확인하는 기회가 될 것이다. Binutils 빌드에 실패하면, 이전 Binutils, GCC, 또는 Glibc 중 어딘가 문제가 생겼음을 보여주는 것이다.</para></note>
 
   </sect2>
 
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-glibc" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는 <xref linkend="contents-glibc" role="."/>에서 찾을 수 있다.</para>
 
   </sect2>
 

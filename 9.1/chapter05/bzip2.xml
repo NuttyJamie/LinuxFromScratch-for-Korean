@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -41,37 +41,30 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Bzip2</title>
+    <title>Bzip2 설치</title>
 
-    <para>The Bzip2 package does not contain a <command>configure</command>
-    script. There are two <filename>Makefile</filename>, one for the shared
-    library, and the other for the static library. Since we need both, We
-    do the compilation in two stages. First the shared library:</para>
+    <para>Bzip2 패키지에는 <command>configure</command> 스크립트가 포함되어 있지 않다. 공유 라이브러리를 위한 것과, 정적 라이브러리를 위한 <filename>Makefile</filename>이 두 개 있다. 둘 모두 필요하기 때문에 두 단계에 걸쳐 컴파일한다. 우선 공유 라이브러리이다:</para>
 
 <screen><userinput remap="make">make -f Makefile-libbz2_so
 make clean</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the make parameter:</title>
+      <title>Make 매개 변수의 의미:</title>
 
       <varlistentry>
         <term><parameter>-f Makefile-libbz2_so</parameter></term>
         <listitem>
-          <para>This will cause Bzip2 to be built using a different
-          <filename>Makefile</filename> file, in this case the
-          <filename>Makefile-libbz2_so</filename> file, which creates a dynamic
-          <filename class="libraryfile">libbz2.so</filename> library and links
-          the Bzip2 utilities against it.</para>
+          <para>Bzip2가 다른 <filename>Makefile</filename> 파일로 빌드되도록 한다. 이 경우엔 <filename class="libraryfile">libbz2.so</filename> 동적 라이브러리를 생성하고 Bzip2 유틸리티를 링크하는 <filename>Makefile-libbz2_so</filename> 파일을 사용한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile and test the package with:</para>
+    <para>패키지를 컴파일하고 테스트한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make PREFIX=/tools install
 cp -v bzip2-shared /tools/bin/bzip2
@@ -83,8 +76,8 @@ ln -sv libbz2.so.1.0 /tools/lib/libbz2.so</userinput></screen>
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-bzip2" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는
+    <xref linkend="contents-bzip2" role="."/>에서 찾을 수 있다.</para>
 
   </sect2>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -14,7 +14,7 @@
     <address>&gcc-url;</address>
   </sect1info>
 
-  <title>GCC-&gcc-version; - Pass 1</title>
+  <title>GCC-&gcc-version; - 1단계</title>
 
   <indexterm zone="ch-tools-gcc-pass1">
     <primary sortas="a-GCC">GCC</primary>
@@ -41,19 +41,13 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Cross GCC</title>
+    <title>Cross GCC 설치</title>
 
-    <para>GCC now requires the GMP, MPFR and MPC packages. As these packages may
-    not be included in your host distribution, they will be built with
-    GCC.  Unpack each package into the GCC source directory and rename the
-    resulting directories so the GCC build procedures will automatically
-    use them:</para>
+    <para>GCC는 이제 GMP, MPFR 그리고 MPC 패키지를 필요로 한다.
+이러한 패키지들은 호스트 배포판에 포함되어 있지 않을 수 있으므로 GCC로 구축될 것이다. GCC 빌드 과정에서 자동으로 쓰이도록 각 패키지를 GCC 소스 디렉토리에 압축을 풀고 생성된 디렉토리의 이름을 변경하라:</para>
 
-    <note><para>There are frequent misunderstandings about this chapter.  The
-    procedures are the same as every other chapter as explained earlier (<xref
-    linkend='buildinstr'/>).  First extract the gcc tarball from the sources
-    directory and then change to the directory created.  Only then should you
-    proceed with the instructions below.</para></note>
+    <note><para>이 장에 대해서 오해가 빈번하다. 이 절차들은 앞서 설명한 다른 모든 장과 동일하다(<xref linkend='buildinstr'/>). 
+먼저 원본 디렉토리에서 GCC tarball을 추출한 다음 생성된 디렉토리로 이동하라. 그래야만 아래 지침을 따를 수 있다.</para></note>
 
 <screen><userinput remap="pre">tar -xf ../mpfr-&mpfr-version;.tar.xz
 mv -v mpfr-&mpfr-version; mpfr
@@ -62,11 +56,9 @@ mv -v gmp-&gmp-version; gmp
 tar -xf ../mpc-&mpc-version;.tar.gz
 mv -v mpc-&mpc-version; mpc</userinput></screen>
 
-    <para>The following command will change the location of GCC's default
-    dynamic linker to use the one installed in <filename
-    class="directory">/tools</filename>. It also removes <filename
-    class="directory">/usr/include</filename> from GCC's include search path.
-    Issue:</para>
+    <para>다음 명령은 GCC의 기본 동적 링커 위치를 <filename
+    class="directory">/tools</filename>에 설치된 링커로 변경한다. GCC의 포함 검색 경로에서도 <filename
+    class="directory">/usr/include</filename>를 제거한다:</para>
 
 <screen><userinput remap="pre">for file in gcc/config/{linux,i386/linux{,64}}.h
 do
@@ -81,24 +73,12 @@ do
   touch $file.orig
 done</userinput></screen>
 
-    <para>In case the above seems hard to follow, let's break it down a bit.
-    First we copy the files <filename>gcc/config/linux.h</filename>,
-    <filename>gcc/config/i386/linux.h</filename>, and
-    <filename>gcc/config/i368/linux64.h</filename> to a file of
-    the same name but with an added suffix of <quote>.orig</quote>. Then the
-    first sed expression prepends <quote>/tools</quote> to every instance of
-    <quote>/lib/ld</quote>, <quote>/lib64/ld</quote> or
-    <quote>/lib32/ld</quote>, while the second one replaces hard-coded
-    instances of <quote>/usr</quote>. Next, we add our define statements which
-    alter the default startfile prefix to the end of the file. Note that the
-    trailing <quote>/</quote> in <quote>/tools/lib/</quote> is required.
-    Finally, we use <command>touch</command> to update the timestamp on the
-    copied files.  When used in conjunction with <command>cp -u</command>, this
-    prevents unexpected changes to the original files in case the commands are
-    inadvertently run twice.</para>
+    <para>위의 내용이 어려워 보이면 조금 더 살펴보자.
+    먼저 <filename>gcc/config/linux.h</filename>, <filename>gcc/config/i386/linux.h</filename> 그리고 <filename>gcc/config/i368/linux64.h</filename> 파일을 같은 이름의 접미사가 <quote>.orig</quote>인 파일로 복사한다. 
+그런 다음 첫 번째 sed 표현식은 <quote>/lib/ld</quote>, <quote>/lib64/ld</quote> 또는 <quote>/lib32/ld</quote>의 모든 인스턴스 앞에 <quote>/tools</quote>를 붙이고 두 번째 표현식은 <quote>/usr</quote>의 하드 코딩된 인스턴스를 대체한다. 그리고나서, 기본 시작파일 접두사를 파일 끝으로 변경하는 define 문을 추가한다.
+<quote>/tools/lib/</quote>의 끝에 <quote>/</quote>가 필요하다는 점에 유의하라. 마지막으로, <command>touch</command>를 사용하여, 복사된 파일의 타임 스탬프를 업데이트한다. <command>cp -u</command>와 함께 사용하면 명령이 실수로 두 번 실행되더라도 원본 파일이 예기치 않게 변경되지 않는다.</para>
 
-    <para>Finally, on x86_64 hosts, set the default directory name for
-    64-bit libraries to <quote>lib</quote>:</para>
+    <para>마지막으로, x86_64 호스트에서 64비트 라이브러리의 기본 디렉토리 이름을 <quote>lib</quote>로 설정한다:</para>
 
 <screen><userinput remap="pre">case $(uname -m) in
   x86_64)
@@ -120,13 +100,12 @@ esac</userinput></screen>
 
 <screen><userinput remap="pre">sed -i 's/if \((code.*))\)/if (\1 \&amp;\&amp; \!DEBUG_INSN_P (insn))/' gcc/sched-deps.c</userinput></screen>
 -->
-    <para>The GCC documentation recommends building GCC 
-    in a dedicated build directory:</para>
+    <para>GCC 문서는 전용 빌드 디렉토리에 GCC를 구축할 것을 권장한다:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
-    <para>Prepare GCC for compilation:</para>
+    <para>GCC 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">../configure                                       \
     --target=$LFS_TGT                              \
@@ -150,66 +129,49 @@ cd       build</userinput></screen>
     --disable-libstdcxx                            \
     --enable-languages=c,c++</userinput></screen>
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--with-glibc-version=2.11</parameter></term>
         <listitem>
-          <para>This option ensures the package will be compatible with the host's
-          version of glibc.  It is set to the minimum glibc requirement 
-          specified in the <xref linkend="ch-partitioning-hostreqs"/>.</para>
+          <para>패키지가 호스트의 Glibc 버전과 호환되도록 지정한다. <xref linkend="ch-partitioning-hostreqs"/>에 명시된 최소 Glibc 버전으로 지정한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-newlib</parameter></term>
         <listitem>
-          <para>Since a working C library is not yet available, this ensures
-          that the inhibit_libc constant is defined when building libgcc. This prevents
-          the compiling of any code that requires libc support.</para>
+          <para>아직 C 라이브러리를 사용할 수 없으므로 libgcc를 빌드할 때 
+inhibit_libc 상수가 정의되도록 한다. 이 상수는 libc가 필요한 어떤 코드도 컴파일되지 않게 한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--without-headers</parameter></term>
         <listitem>
-          <para>When creating a complete cross-compiler, GCC requires
-          standard headers compatible with the target system. For our
-          purposes these headers will not be needed. This switch prevents
-          GCC from looking for them.</para>
+          <para>완전한 크로스 컴파일러를 만들 때 GCC는 대상 시스템과 호환되는 표준 헤더가 필요하다. 우리의 목표를 위해선 이 헤더가 필요하지 않다. 이 옵션은 GCC가 그 헤더들을 찾지 않도록 한다. </para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-local-prefix=/tools</parameter></term>
         <listitem>
-          <para>The local prefix is the location in the system that GCC will search
-          for locally installed include files. The default is <filename>/usr/local</filename>.
-          Setting this to <filename>/tools</filename> helps keep the host location of
-          <filename>/usr/local</filename> out of this GCC's search path.</para>
+          <para>'local prefix'란 GCC가 로컬로 설치된 include 파일들을 검색하는 위치이다. 기본값은 <filename>/usr/local</filename>이다.
+이 위치를 <filename>/tools</filename>로 설정하면 <filename>/usr/local</filename>의 호스트 위치가 이 GCC의 검색 경로에 포함되지 않도록 한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-native-system-header-dir=/tools/include</parameter></term>
         <listitem>
-          <para>By default, GCC searches <filename>/usr/include</filename> for
-          system headers. In conjunction with the sysroot switch, this would
-          normally translate to <filename>$LFS/usr/include</filename>. However
-          the headers that will be installed in the next two sections will go
-          to <filename>$LFS/tools/include</filename>. This switch ensures that
-          gcc will find them correctly. In the second pass of GCC, this same
-          switch will ensure that no headers from the host system are
-          found.</para>
+          <para>기본적으로 GCC는 <filename>/usr/include</filename>에서 시스템 헤더를 검색한다. 보통 sysroot 변경과 함께 검색 위치가 <filename>$LFS/usr/include</filename>로 이동한다. 그러나 다음 두 절에서 설치될 헤더들은 <filename>$LFS/tools/include</filename>에 설치된다. 이 옵션은 GCC가 그들을 정확하게 찾을 수 있도록 한다. GCC의 두 번째 단계에서도 호스트 시스템의 헤더를 찾지 않도록 하기 위해 이 옵션이 그대로 쓰인다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-shared</parameter></term>
         <listitem>
-          <para>This switch forces GCC to link its internal libraries
-          statically. We do this to avoid possible issues with the host
-          system.</para>
+          <para>GCC가 내부 라이브러리를 정적으로 링크하도록 강제한다. 호스트 시스템에 발생할 수 있는 문제를 방지하고자 함이다.</para>
         </listitem>
       </varlistentry>
 
@@ -219,43 +181,33 @@ cd       build</userinput></screen>
         --disable-libquadmath, --disable-libssp, --disable-libvtv,
         --disable-libstdcxx</parameter></term>
         <listitem>
-          <para>These switches disable support for the decimal floating point
-          extension, threading, libatomic, libgomp, <!--libmpx, --> libquadmath, libssp,
-          libvtv, and the C++ standard library respectively. These features
-          will fail to compile when building a cross-compiler and are not
-          necessary for the task of cross-compiling the temporary libc.</para>
+          <para>이 옵션들은 각각 십진 부동소수점 확장, 스레딩, libatomic, libquadmath, libssp, libvtv 및 C++ 표준 라이브러리를 비활성화한다. 이러한 기능들은 크로스 컴파일러를 빌드할 때 컴파일에 실패하며 임시 libc를 크로스 컴파일하는 데에는 필요하지 않다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-multilib</parameter></term>
         <listitem>
-          <para>On x86_64, LFS does not yet support a multilib configuration.
-          This switch is harmless for x86.</para>
+          <para>x86_64에서 LFS는 아직 multilib 구성을 지원하지 않는다. 이 옵션은 x86에선 아무 영향이 없다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-languages=c,c++</parameter></term>
         <listitem>
-          <para>This option ensures that only the C and C++ compilers are built.
-          These are the only languages needed now.</para>
+          <para>C와 C++ 컴파일러만 빌드되도록 한다. 당장 필요한 언어는 이 둘 뿐이다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile GCC by running:</para>
+    <para>다음으로 GCC를 컴파일하라:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Compilation is now complete. At this point, the test suite would
-    normally be run, but, as mentioned before, the test suite framework is
-    not in place yet. The benefits of running the tests at this point
-    are minimal since the programs from this first pass will soon be
-    replaced.</para>
+    <para>이제 컴파일이 끝났다. 이 시점에서 보통 테스트 스위트를 실행하지만, 앞서 언급했듯 테스트 스위트 프레임워크는 아직 구현되어 있지 않다. 이 첫 단계의 프로그램은 곧 교체될 것이기 때문에 지금 테스트를 실행해봤자 얻을 수 있는 이점은 거의 없다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 <!--
@@ -274,8 +226,8 @@ cd       build</userinput></screen>
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-gcc" role="."/></para>
+    <para>이 패키지에 관한 자세한 정보는 <xref linkend="contents-gcc" role="."/>에서 찾을 수 있다.
+    </para>
 
   </sect2>
 

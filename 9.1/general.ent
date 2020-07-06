@@ -34,8 +34,8 @@
 
 <!ENTITY anduin-sources  "http://anduin.linuxfromscratch.org/LFS">
 
-<!ENTITY buildtime       "근사 빌드 시간">
-<!ENTITY diskspace       "디스크 공간 필요">
+<!ENTITY buildtime       "예상 빌드 시간">
+<!ENTITY diskspace       "필요 디스크 공간">
 <!ENTITY dependencies    "Installation depends on">
 <!ENTITY testsuites      "Test suite depends on">
 <!ENTITY before          "Must be installed before">

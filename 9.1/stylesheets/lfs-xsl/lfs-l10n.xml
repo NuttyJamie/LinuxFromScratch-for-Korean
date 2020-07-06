@@ -104,14 +104,12 @@ $Date: 2012-09-09 06:41:53 +0900 (Sun, 09 Sep 2012) $
 
   </l:l10n>
 
-</l:i18n>
-
     <!-- Korean -->
   <l:l10n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0"
           language="ko" english-language-name="Korean">
 
     <l:gentext key="description" text="설명"/>
-    <l:gentext key="Bootscripts" text="부트스크립트"/>
+    <l:gentext key="Bootscripts" text="부트스크립트들"/>
     <l:gentext key="Configuration Files" text="구성 파일들"/>
     <l:gentext key="Kernel Configuration" text="커널 구성"/>
     <l:gentext key="Libraries" text="라이브러리들"/>
@@ -121,3 +119,6 @@ $Date: 2012-09-09 06:41:53 +0900 (Sun, 09 Sep 2012) $
     <l:gentext key="Scripts" text="스크립트들"/>
 
   </l:l10n>
+
+</l:i18n>
+

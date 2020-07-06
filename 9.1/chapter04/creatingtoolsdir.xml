@@ -28,8 +28,9 @@ LFS 파티션에 새로 생성된 디렉토리를 가리킬 것이다. <systemit
 <screen><userinput>ln -sv $LFS/tools /</userinput></screen>
 
   <note>
-    <para>위의 명령은 정확하다. <command>ln</command> 명령은 여러가지 문법을 가지므로 오류라고 생각할 수 있는 내용
-을 보고하기 전에 <command>info coreutils ln</command>와 <filename>ln(1)</filename>을 반드시 확인하라.</para>
+    <para>위의 명령은 정확하다. <command>ln</command> 명령은 여러가지
+ 문법을 가지므로 오류라고 생각할 수 있는 내용을 보고하기 전에
+ <command>info coreutils ln</command>와 <filename>ln(1)</filename>을 반드시 확인하라.</para>
   </note>
 
   <para>생성된 symlink는 컴파일된 툴체인이 항상 <filename class="directory">/tools</filename>를 참조할 수 있게

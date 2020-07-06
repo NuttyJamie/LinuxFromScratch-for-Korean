@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -24,12 +24,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Libstdc++ is the standard C++ library. It is needed 
-    to compile C++ code
-    (part of GCC is written in C++), but we had to defer its installation
-    when we built <xref linkend="ch-tools-gcc-pass1"/>
-    because it depends on glibc, which was not yet available in /tools.
-    </para>
+    <para>Libstdc++은 표준 C++ 라이브러리이다. 이것은 C++ 코드를 컴파일할 때 필요하지만(GCC의 일부는 C++로 쓰여졌다), <xref linkend="ch-tools-gcc-pass1"/>를 빌드할 때는 설치를 미룰 수 밖에 없었다. 그 때는 아직 /tools에 없었던 glibc가 필요했기 때문이다.    </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -44,20 +39,19 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Target Libstdc++</title>
+    <title>Target Libstdc++ 설치</title>
 
     <note>
-      <para><application>Libstdc++</application> is part of the GCC sources.
-      You should first unpack the GCC tarball and change to the
-      <filename>gcc-&gcc-version;</filename> directory.</para>
+      <para><application>Libstdc++</application>는 GCC 소스의 일부이다. 
+GCC tarball을 먼저 풀고 <filename>gcc-&gcc-version;</filename> 디렉토리로 이동해야 한다.</para>
     </note>
 
-    <para>Create a separate build directory for Libstdc++ and enter it:</para>
+    <para>Libstdc++을 위한 별도의 디렉토리를 생성하고 이동하라:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
-    <para>Prepare Libstdc++ for compilation:</para>
+    <para>Libstdc++ 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">../libstdc++-v3/configure           \
     --host=$LFS_TGT                 \
@@ -69,50 +63,43 @@ cd       build</userinput></screen>
     --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/&gcc-version;</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--host=...</parameter></term>
         <listitem>
-          <para>Indicates to use the cross compiler we have just built
-          instead of the one in <filename>/usr/bin</filename>.</para>
+          <para><filename>/usr/bin</filename>에 있는 컴파일러 대신 방금 만든 크로스 컴파일러를 사용하도록 지시한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-libstdcxx-threads</parameter></term>
         <listitem>
-          <para>Since gcc-pass1 is built without thread support, the C++
-          thread library cannot be built either.</para>
+			<para>GCC 1단계가 스레드를 지원하지 않기 때문에 C++ 스레드 라이브러리도 지원되지 않는다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-libstdcxx-pch</parameter></term>
         <listitem>
-          <para>This switch prevents the installation of precompiled
-          include files, which are not needed at this stage.</para>
+          <para>이 단계에서 필요하지 않은 사전 컴파일된 include 파일의 설치를 방지한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-gxx-include-dir=/tools/$LFS_TGT/include/c++/&gcc-version;</parameter></term>
         <listitem>
-          <para>This is the location where the standard include files are
-          searched by the C++ compiler. In a normal build, this information
-          is automatically passed to the Libstdc++ <command>configure</command>
-          options from the top level directory. In our case, this information
-          must be explicitly given.</para>
+          <para>C++ 컴파일러가 표준 include 파일을 검색하는 위치이다. 일반적으로는 이 정보가 최상위 디렉토리로부터 Libstdc++ <command>configure</command> 옵션으로 자동 전달된다. 때문에 우리는 이 주소를 명시적으로 입력해야 한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile libstdc++ by running:</para>
+    <para>Libstdc++를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Install the library:</para>
+    <para>라이브러리를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
@@ -121,8 +108,7 @@ cd       build</userinput></screen>
   <sect2 role="content">
     <title/>
 
-    <para>Details on this package are located in
-    <xref linkend="contents-gcc" role="."/></para>
+    <para>이 패키지에 대한 자세한 정보는 <xref linkend="contents-gcc" role="."/>에서 찾을 수 있다.</para>
 
   </sect2>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,22 +8,20 @@
 <sect1 id="ch-tools-introduction">
   <?dbhtml filename="introduction.html"?>
 
-  <title>Introduction</title>
+  <title>도입</title>
 
-  <para>This chapter shows how to build a minimal Linux system.
-  This system will contain just enough tools to start constructing the final
-  LFS system in <xref linkend="chapter-building-system"/> and allow a working
-  environment with more user convenience than a minimum environment would.</para>
+  <para>이 장에서는 최소한의 리눅스 시스템을 구축하는 방법을 설명한다. 
+이 시스템은 <xref linkend="chapter-building-system"/>에서 최종 LFS 시스템을
+ 구축하기에 충분한 도구들을 포함해서 최소 환경보다 사용자 편의성이 좋은 
+작업 환경을 만들어 줄 것이다.</para>
 
-  <para>There are two steps in building this minimal system. The first step
-  is to build a new and host-independent toolchain (compiler, assembler,
-  linker, libraries, and a few useful utilities).  The second step uses this
-  toolchain to build the other essential tools.</para>
+  <para>이 최소한의 시스템을 구축하는 데는 두 단계가 있다. 첫 번째 단계는 
+호스트에 독립적인 새로운 툴체인(컴파일러, 어셈블러, 링커, 라이브러리 및 몇
+가지 유용한 유틸리티들)을 빌드하는 것이다. 두 번째 단계는 이 툴체인을 사용
+하여 다른 필수 도구들을 빌드한다.</para>
 
-  <para>The files compiled in this chapter will be installed under the
-  <filename class="directory">$LFS/tools</filename> directory to keep them
-  separate from the files installed in the next chapter and the host
-  production directories. Since the packages compiled here are temporary,
-  we do not want them to pollute the soon-to-be LFS system.</para>
+  <para>이 장에서 컴파일된 파일들은 다음 장에서 설치될 파일과 호스트 작업 
+디렉토리에서 분리하기 위해 <filename class="directory">$LFS/tools</filename> 디렉토리에 설치될 것이다. 
+여기서 컴파일된 패키지들은 잠깐 쓰일 것이기 때문에 곧이어 만들어질 LFS 시스템을 오염시키길 원치 않는다.</para>
 
 </sect1>
