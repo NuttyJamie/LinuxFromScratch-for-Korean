@@ -20,17 +20,10 @@
 
 <screen><userinput>chown -R root:root $LFS/tools</userinput></screen>
 
-  <para>Although the <filename class="directory">$LFS/tools</filename> directory
-  can be deleted once the LFS system has been finished, it can be retained to build
-  additional LFS systems <emphasis>of the same book version</emphasis>. How best
-  to backup <filename class="directory">$LFS/tools</filename> is a matter of
-  personal preference.</para>
+  <para>LFS 시스템이 완성되면 <filename class="directory">$LFS/tools</filename> 디렉토리를 삭제할 수 있지만, <emphasis>같은 버전의</emphasis> LFS 시스템을 추가로 더 만들기 위해 보관할 수도 있다. <filename class="directory">$LFS/tools</filename>를 가장 잘 백업하는 방법은 개인 취향에 달렸다. </para>
 
   <caution>
-    <para>If you intend to keep the temporary tools for use in building future LFS
-    systems, <emphasis>now</emphasis> is the time to back them up. Subsequent
-    commands in chapter 6 will alter the tools currently in place, rendering them
-    useless for future builds.</para>
+    <para>추후에 LFS 시스템을 빌드하는 데 사용할 임시 도구들을 보관하려면 <emphasis>지금</emphasis> 백업하라. 6장 이후의 명령들은 현재 그 도구들을 변경해서 향후 빌드에 사용할 수 없게 한다.</para>
   </caution>
 
 </sect1>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,7 +8,7 @@
 <sect1 id="ch-system-createfiles">
   <?dbhtml filename="createfiles.html"?>
 
-  <title>Creating Essential Files and Symlinks</title>
+  <title>필수 파일 및 Symlink 생성</title>
 
   <indexterm zone="ch-system-createfiles">
     <primary sortas="e-/etc/passwd">/etc/passwd</primary>
@@ -34,10 +34,7 @@
     <primary sortas="e-/var/log/wtmp">/var/log/wtmp</primary>
   </indexterm>
 
-  <para>Some programs use hard-wired paths to programs which do not exist yet.
-  In order to satisfy these programs, create a number of symbolic links which
-  will be replaced by real files throughout the course of this chapter after the
-  software has been installed:</para>
+  <para>일부 프로그램은 아직 존재하지 않는 프로그램에 대한 고정 경로를 사용한다. 이러한 프로그램들을 만족시키기 위해 소프트웨어를 설치한 후 이 장의 과정 내내 실제 파일로 대체되는 여러 심볼릭 링크를 만든다:</para>
 
 <screen><userinput>ln -sv /tools/bin/{bash,cat,chmod,dd,echo,ln,mkdir,pwd,rm,stty,touch} /bin
 ln -sv /tools/bin/{env,install,perl,printf}         /usr/bin
@@ -59,43 +56,41 @@ do
         > /usr/lib/pkgconfig/${pc}.pc
 done-->
   <variablelist>
-    <title>The purpose of each link:</title>
+    <title>각 링크의 목적:</title>
 
     <varlistentry>
       <term><parameter><filename>/bin/bash</filename></parameter></term>
       <listitem>
-        <para>Many <command>bash</command> scripts specify
-        <filename>/bin/bash</filename>.</para>
+        <para>많은 <command>bash</command> 스크립트가 
+        <filename>/bin/bash</filename>를 지정한다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/bin/cat</filename></parameter></term>
       <listitem>
-        <para>This pathname is hard-coded into Glibc's configure script.</para>
+        <para>이 경로명은 Glibc의 configure 스크립트에 하드 코딩되어 있다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/bin/dd</filename></parameter></term>
       <listitem>
-        <para>The path to <filename>dd</filename> will be hard-coded into the
-        <filename>/usr/bin/libtool</filename> utility.</para>
+        <para><filename>dd</filename>의 경로는 <filename>/usr/bin/libtool</filename> 유틸리티에 하드 코딩될 것이다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/bin/echo</filename></parameter></term>
       <listitem>
-        <para>This is to satisfy one of the tests in Glibc's test suite, which
-        expects <filename>/bin/echo</filename>.</para>
+        <para><filename>/bin/echo</filename>를 참조하는 Glibc의 테스트 스위트 내 테스트 중 하나를 만족시키기 위함이다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/usr/bin/env</filename></parameter></term>
       <listitem>
-        <para>This pathname is hard-coded into some packages build procedures.
+        <para>이 경로명은 일부 패키지 빌드 절차에 하드 코딩되어 있다.
         <!-- systemd  This may not be needed if we move sysd to the end--></para>
       </listitem>
     </varlistentry>
@@ -103,65 +98,56 @@ done-->
     <varlistentry>
       <term><parameter><filename>/usr/bin/install</filename></parameter></term>
       <listitem>
-        <para>The path to <filename>install</filename> will be hard-coded into
-        the <filename>/usr/lib/bash/Makefile.inc</filename> file.</para>
+        <para><filename>install</filename>의 경로가 <filename>/usr/lib/bash/Makefile.inc</filename> 파일로 하드 코딩될 것이다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/bin/ln</filename></parameter></term>
       <listitem>
-        <para>The path to <filename>ln</filename> will be hard-coded into the
-        <filename>/usr/lib/perl5/&perl-version;/&lt;target-triplet&gt;/Config_heavy.pl</filename>
-         file.</para>
+        <para><filename>ln</filename>의 경로는 <filename>/usr/lib/perl5/&perl-version;/&lt;target-triplet&gt;/Config_heavy.pl</filename> 파일에 하드 코딩된다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/bin/pwd</filename></parameter></term>
       <listitem>
-        <para>Some <command>configure</command> scripts, particularly Glibc's,
-        have this pathname hard-coded.</para>
+        <para>일부 <command>configure</command> 스크립트, 특히 Glibc의 것에는 이 경로명이 하드 코딩되어 있다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/bin/rm</filename></parameter></term>
       <listitem>
-        <para>The path to <filename>rm</filename> will be hard-coded into the
-        <filename>/usr/lib/perl5/&perl-version;/&lt;target-triplet&gt;/Config_heavy.pl</filename>
-         file.</para>
+        <para><filename>rm</filename>의 경로는 <filename>/usr/lib/perl5/&perl-version;/&lt;target-triplet&gt;/Config_heavy.pl</filename> 파일에 하드 코딩된다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/bin/stty</filename></parameter></term>
       <listitem>
-        <para>This pathname is hard-coded into Expect, therefore it is needed
-        for Binutils and GCC test suites to pass.</para>
+        <para>이 경로명은 Expect로 하드 코딩되어 있어서, Binutils와 GCC 테스트 스위트 통과에 필요하다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/usr/bin/perl</filename></parameter></term>
       <listitem>
-        <para>Many Perl scripts hard-code this path to the
-        <command>perl</command> program.</para>
+        <para>많은 Perl 스크립트가 <command>perl</command> 프로그램에 대해 이 경로를 하드 코딩한다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/usr/lib/libgcc_s.so{,.1}</filename></parameter></term>
       <listitem>
-        <para>Glibc needs this for the pthreads library to work.</para>
+        <para>Glibc의 pthreads 라이브러리가 작동하기 위해 필요하다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter><filename>/usr/lib/libstdc++{,.6}</filename></parameter></term>
       <listitem>
-        <para>This is needed by several tests in Glibc's test suite, as well as
-        for C++ support in GMP.</para>
+        <para>GMP의 C++ 지원과 더불어 Glibc의 테스트 스위트에서 몇 가지 테스트를 하기 위해 필요하다.</para>
       </listitem>
     </varlistentry>
 <!--
@@ -187,28 +173,19 @@ done-->
     <varlistentry>
       <term><parameter><filename>/bin/sh</filename></parameter></term>
       <listitem>
-        <para>Many shell scripts hard-code <filename>/bin/sh</filename>.</para>
+        <para>많은 셸 스크립트가 <filename>/bin/sh</filename>를 하드 코딩한다.</para>
       </listitem>
     </varlistentry>
 
   </variablelist>
 
-  <para>Historically, Linux maintains a list of the mounted file systems in the
-  file <filename>/etc/mtab</filename>. Modern kernels maintain this list
-  internally and exposes it to the user via the <filename
-  class="directory">/proc</filename> filesystem. To satisfy utilities that
-  expect the presence of <filename>/etc/mtab</filename>, create the following
-  symbolic link:</para>
+  <para>역사적으로 리눅스는 마운팅된 파일 시스템 목록을 <filename>/etc/mtab</filename> 파일로 관리한다. 최신 커널은 이 목록을 내부적으로 관리하며 <filename class="directory">/proc</filename> 파일 시스템을 통해 사용자에게 공개한다. <filename>/etc/mtab</filename>이 존재할 것으로 예상하는 유틸리티들을 만족시키기 위해, 다음 심볼릭 링크를 생성하라:</para>
 
 <screen><userinput>ln -sv /proc/self/mounts /etc/mtab</userinput></screen>
 
-  <para>In order for user <systemitem class="username">root</systemitem> to be
-  able to login and for the name <quote>root</quote> to be recognized, there
-  must be relevant entries in the <filename>/etc/passwd</filename> and
-  <filename>/etc/group</filename> files.</para>
+  <para><systemitem class="username">root</systemitem> 유저가 로그인할 수 있게 하고 <quote>root</quote> 이름이 인식되게 하려면 <filename>/etc/passwd</filename>와 <filename>/etc/group</filename> 파일에 관련 항목이 있어야 한다.</para>
 
-  <para>Create the <filename>/etc/passwd</filename> file by running the following
-  command:</para>
+  <para>다음 명령을 실행하여 <filename>/etc/passwd</filename> 파일을 생성하라:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/passwd &lt;&lt; "EOF"
 <literal>root:x:0:0:root:/root:/bin/bash
@@ -234,11 +211,9 @@ systemd-coredump:x:79:79:systemd Core Dumper:/:/bin/false
 nobody:x:99:99:Unprivileged User:/dev/null:/bin/false</literal>
 EOF</userinput></screen>
 
-  <para>The actual password for <systemitem class="username">root</systemitem>
-  (the <quote>x</quote> used here is just a placeholder) will be set later.</para>
+  <para><systemitem class="username">root</systemitem>에 대한 실제 암호(여기서 사용되는 <quote>x</quote>는 구문표시자일 뿐이다)는 나중에 설정된다.</para>
 
-  <para>Create the <filename>/etc/group</filename> file by running the following
-  command:</para>
+  <para>다음 명령을 실행하여 <filename>/etc/group</filename> 파일을 생성하라:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/group &lt;&lt; "EOF"
 <literal>root:x:0:
@@ -303,54 +278,24 @@ nogroup:x:99:
 users:x:999:</literal>
 EOF</userinput></screen>
 
-  <para>The created groups are not part of any standard&mdash;they are groups
-  decided on in part by the requirements of the Udev configuration in this
-  chapter, and in part by common convention employed by a number of existing
-  Linux distributions. In addition, some test suites rely on specific users
-  or groups.  The Linux Standard Base (LSB, available at <ulink
-  url="http://www.linuxbase.org"/>) recommends only that, besides the group
-  <systemitem class="groupname">root</systemitem> with a Group ID (GID) of 0,
-  a group <systemitem class="groupname">bin</systemitem> with a GID of 1 be
-  present. All other group names and GIDs can be chosen freely by the system
-  administrator since well-written programs do not depend on GID numbers, but
-  rather use the group's name.</para>
+  <para>생성된 그룹들은 어떤 표준에도 속하지 않는다&mdash;이 장의 Udev 구성의 요구사항에 의해, 한편으로는 기존 리눅스 배포판에 의해 채택된 공통 규약에 의해 만들어진 그룹이다. 게다가 일부 테스트 스위트들은 특정 유저나 그룹을 필요로 한다. 리눅스 표준 기반(Linux Standard Base, LSB, <ulink url="http://www.linuxbase.org"/>에서 참고)은 그룹 ID (GID) 0인 <systemitem class="groupname">root</systemitem> 그룹 외에, GID가 1인 <systemitem class="groupname">bin</systemitem> 그룹도 존재하게 둘 것을 권장한다. 다른 모든 그룹명과 GID는 잘 작성된 프로그램이라면 GID 번호에 의존하지 않고 그룹명을 사용하기 때문에 시스템 관리자가 자유롭게 정할 수 있다.</para>
 
-  <para>To remove the <quote>I have no name!</quote> prompt, start a new
-  shell. Since a full Glibc was installed in <xref
-  linkend="chapter-temporary-tools"/> and the
-  <filename>/etc/passwd</filename> and <filename>/etc/group</filename>
-  files have been created, user name and group name resolution will now
-  work:</para>
+  <para><quote>I have no name!</quote> 프롬프트를 지우려면 새 셸을 시작하라. <xref linkend="chapter-temporary-tools"/>에서 완전한 Glibc가 설치되었고 <filename>/etc/passwd</filename>와 <filename>/etc/group</filename> 파일이 생성되었으므로 이제 유저명과 그룹명을 잘 불러올 것이다:</para>
 
 <screen role="nodump"><userinput>exec /tools/bin/bash --login +h</userinput></screen>
 
-  <para>Note the use of the <parameter>+h</parameter> directive. This tells
-  <command>bash</command> not to use its internal path hashing. Without this
-  directive, <command>bash</command> would remember the paths to binaries it has
-  executed. To ensure the use of the newly compiled binaries as soon as they are
-  installed, the <parameter>+h</parameter> directive will be used for the duration
-  of this chapter.</para>
+  <para><parameter>+h</parameter> 지시문의 사용에 주목하라. 이것은 <command>bash</command>의 내부 경로 해싱을 비활성화 한다. 이 명령이 없으면 <command>bash</command>는 바이너리를 실행한 경로를 기억할 것이다. 새로 컴파일된 바이너리 파일이 설치되는 즉시 사용될 수 있도록 이 장에서는 <parameter>+h</parameter> 지시문을 사용할 것이다.</para>
 
-  <para>The <command>login</command>, <command>agetty</command>, and
-  <command>init</command> programs (and others) use a number of log
-  files to record information such as who was logged into the system and
-  when. However, these programs will not write to the log files if they
-  do not already exist. Initialize the log files and give them
-  proper permissions:</para>
+  <para><command>login</command>, <command>agetty</command> 및 
+  <command>init</command> 프로그램(및 기타)은 누가, 언제 시스템에 로그인했는지 같은 정보를 기록하기 위해 여러 로그 파일을 사용한다. 그러나 이런 프로그램들은 로그 파일이 이미 존재하지 않으면 로그를 남기지 않는다. 로그 파일을 초기화하고 적절한 권한을 부여하라:</para>
 
 <screen><userinput>touch /var/log/{btmp,lastlog,faillog,wtmp}
 chgrp -v utmp /var/log/lastlog
 chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp</userinput></screen>
 
-  <para>The <filename>/var/log/wtmp</filename> file records all logins and
-  logouts. The <filename>/var/log/lastlog</filename> file records when each
-  user last logged in. The <filename>/var/log/faillog</filename> file records
-  failed login attempts.  The <filename>/var/log/btmp</filename> file records
-  the bad login attempts.</para>
+  <para><filename>/var/log/wtmp</filename> 파일은 모든 로그인과 로그아웃을 기록한다. <filename>/var/log/lastlog</filename> 파일은 각 유저가 마지막으로 로그인한 시간을 기록한다. <filename>/var/log/faillog</filename> 파일은 유저의 로그인 실패 정보를 기록한다. <filename>/var/log/btmp</filename> 파일은 잘못된 로그인 시도를 기록한다.</para>
 
-  <note><para>The <filename>/run/utmp</filename> file records the users that
-  are currently logged in.  This file is created dynamically in the boot
-  scripts.</para></note>
+  <note><para><filename>/run/utmp</filename> 파일은 현재 로그인한 유저를 기록한다. 이 파일은 부팅 스크립트에서 동적으로 생성된다.</para></note>
 
 </sect1>

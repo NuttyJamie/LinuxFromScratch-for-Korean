@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,27 +8,18 @@
 <sect1 id="ch-system-adjusting">
   <?dbhtml filename="adjusting.html"?>
 
-  <title>Adjusting the Toolchain</title>
+  <title>툴체인 조정</title>
 
-  <para>Now that the final C libraries have been installed, it is time to adjust
-  the toolchain so that it will link any
-  newly compiled program against these new libraries.</para>
+  <para>이제 최종 C 라이브러리가 설치되었으므로, 새롭게 컴파일된 프로그램을 이들 새로운 라이브러리와 연결하도록 툴체인(toolchain)을 조정할 때가 되었다. </para>
 
-  <para>First, backup the <filename class="directory">/tools</filename> linker,
-  and replace it with the adjusted linker we made in chapter 5. We'll also create
-  a link to its counterpart in
-  <filename class="directory">/tools/$(uname -m)-pc-linux-gnu/bin</filename>:</para>
+  <para>먼저 <filename class="directory">/tools</filename> 링커를 백업하고 5장에서 만든 조정된 링커로 교체한다. 또 <filename class="directory">/tools/$(uname -m)-pc-linux-gnu/bin</filename>에 대한 링크도 만들 것이다:</para>
 
 <screen><userinput>mv -v /tools/bin/{ld,ld-old}
 mv -v /tools/$(uname -m)-pc-linux-gnu/bin/{ld,ld-old}
 mv -v /tools/bin/{ld-new,ld}
 ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</userinput></screen>
 
-  <para>Next, amend the GCC specs file so that it points to the new
-  dynamic linker. Simply deleting all instances of <quote>/tools</quote> should
-  leave us with the correct path to the dynamic linker. Also adjust the specs file
-  so that GCC knows where to find the correct headers and Glibc start files.
-  A <command>sed</command> command accomplishes this:</para>
+  <para>다음으로 GCC spec 파일이 새로운 동적 링커를 참조하도록 수정한다. 단순히 <quote>/tools</quote>의 모든 인스턴스를 삭제하면 동적 링커에 대한 올바른 경로가 남는다. 또한 GCC가 올바른 헤더를 찾을 수 있는 위치와 Glibc 시작 파일을 찾을 수 있도록 spec 파일을 조정한다. <command>sed</command>  command accomplishes this:</para>
 
 <screen><userinput>gcc -dumpspecs | sed -e 's@/tools@@g'                   \
     -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \

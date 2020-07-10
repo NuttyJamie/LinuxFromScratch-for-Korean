@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -386,7 +386,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
         <term><command>unicode_start</command></term>
         <listitem>
           <para>Puts the keyboard and console in UNICODE mode [Don't use this
-          program unless your keymap file is in the ISO-8859-1 encoding. For
+          program unless your keymap file is in the UTF-8 encoding. For
           other encodings, this utility produces incorrect results.]</para>
           <indexterm zone="ch-system-kbd unicode_start">
             <primary sortas="b-unicode_start">unicode_start</primary>

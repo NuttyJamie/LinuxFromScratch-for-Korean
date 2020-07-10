@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -174,109 +174,109 @@
         <tbody>
           <row>
             <entry>Danish (da)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Croatian (hr)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
             <entry>German (de)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Hungarian (hu)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
             <entry>English (en)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Japanese (ja)</entry>
             <entry>EUC-JP</entry>
           </row>
           <row>
             <entry>Spanish (es)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Korean (ko)</entry>
             <entry>EUC-KR</entry>
           </row>
           <row>
             <entry>Estonian (et)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Lithuanian (lt)</entry>
-            <entry>ISO-8859-13</entry>
+            <entry>UTF-83</entry>
           </row>
           <row>
             <entry>Finnish (fi)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Latvian (lv)</entry>
-            <entry>ISO-8859-13</entry>
+            <entry>UTF-83</entry>
           </row>
           <row>
             <entry>French (fr)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Macedonian (mk)</entry>
             <entry>ISO-8859-5</entry>
           </row>
           <row>
             <entry>Irish (ga)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Polish (pl)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
             <entry>Galician (gl)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Romanian (ro)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
             <entry>Indonesian (id)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Russian (ru)</entry>
             <entry>KOI8-R</entry>
           </row>
           <row>
             <entry>Icelandic (is)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Slovak (sk)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
             <entry>Italian (it)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Slovenian (sl)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
             <entry>Norwegian Bokmal (nb)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Serbian Latin (sr@latin)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
             <entry>Dutch (nl)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Serbian (sr)</entry>
             <entry>ISO-8859-5</entry>
           </row>
           <row>
             <entry>Norwegian Nynorsk (nn)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Turkish (tr)</entry>
             <entry>ISO-8859-9</entry>
           </row>
           <row>
             <entry>Norwegian (no)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Ukrainian (uk)</entry>
             <entry>KOI8-U</entry>
           </row>
           <row>
             <entry>Portuguese (pt)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Vietnamese (vi)</entry>
             <entry>TCVN5712-1</entry>
           </row>
           <row>
             <entry>Swedish (sv)</entry>
-            <entry>ISO-8859-1</entry>
+            <entry>UTF-8</entry>
             <entry>Simplified Chinese (zh_CN)</entry>
             <entry>GBK</entry>
           </row>

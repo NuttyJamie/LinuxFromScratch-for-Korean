@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,12 +8,9 @@
 <sect1 id="ch-system-chroot">
   <?dbhtml filename="chroot.html"?>
 
-  <title>Entering the Chroot Environment</title>
+  <title>Chroot 환경 진입</title>
 
-  <para>It is time to enter the chroot environment to begin building and
-  installing the final LFS system. As user <systemitem
-  class="username">root</systemitem>, run the following command to enter the
-  realm that is, at the moment, populated with only the temporary tools:</para>
+  <para>최종 LFS 시스템 빌드와 설치를 시작하기 위해서 chroot 환경으로 진입해야 할 시간이다. <systemitem class="username">root</systemitem> 유저로, 다음 명령을 사용해서 아직 임시 도구들로만 채워진 곳으로 들어간다:</para>
 
 <screen role="nodump"><userinput>chroot "$LFS" /tools/bin/env -i \
     HOME=/root                  \
@@ -22,42 +19,16 @@
     PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
     /tools/bin/bash --login +h</userinput></screen>
 
-  <para>The <parameter>-i</parameter> option given to the <command>env</command>
-  command will clear all variables of the chroot environment. After that, only
-  the <envar>HOME</envar>, <envar>TERM</envar>, <envar>PS1</envar>, and
-  <envar>PATH</envar> variables are set again. The
-  <parameter>TERM=$TERM</parameter> construct will set the <envar>TERM</envar>
-  variable inside chroot to the same value as outside chroot. This variable is
-  needed for programs like <command>vim</command> and <command>less</command>
-  to operate properly.  If other variables are needed, such as
-  <envar>CFLAGS</envar> or <envar>CXXFLAGS</envar>, this is a good place to set
-  them again.</para>
+  <para><command>env</command> 명령에 붙은 <parameter>-i</parameter> 옵션은 chroot 환경의 모든 변수를 지운다. 그 후에, <envar>HOME</envar>, <envar>TERM</envar>, <envar>PS1</envar>, 그리고 <envar>PATH</envar> 변수만 다시 설정된다. <parameter>TERM=$TERM</parameter> 구문은 root 내부의 <envar>TERM</envar> 변수를 root 외부와 동일한 값으로 설정한다. <command>vim</command>과 <command>less</command> 같은 프로그램이 제대로 작동하려면 이 변수가 필요하다. <envar>CFLAGS</envar>나 <envar>CXXFLAGS</envar>같은 다른 변수가 필요하다면, 여기서 다시 설정하면 된다.</para>
 
-  <para>From this point on, there is no need to use the
-  <envar>LFS</envar> variable anymore, because all work will be restricted
-  to the LFS file system.  This is because the Bash shell is told that
-  <filename class="directory">$LFS</filename> is now the root
-  (<filename class="directory">/</filename>) directory.</para>
+  <para>여기서부터는 모든 작업이 LFS 파일 시스템으로 제한되기 때문에 <envar>LFS</envar> 변수를 더 이상 사용할 필요가 없다. Bash 셸은 이제 <filename class="directory">$LFS</filename>를 root(<filename class="directory">/</filename>) 디렉토리로 여기기 때문이다.</para>
 
-  <para>Notice that <filename class="directory">/tools/bin</filename> comes last
-  in the <envar>PATH</envar>. This means that a temporary tool will no longer be
-  used once its final version is installed. This occurs when the shell does not
-  <quote>remember</quote> the locations of executed binaries&mdash;for this
-  reason, hashing is switched off by passing the <parameter>+h</parameter> option
-  to <command>bash</command>.</para>
+  <para><filename class="directory">/tools/bin</filename>이 <envar>PATH</envar>의 마지막에 있다는 점에 유의하라. 이는 일단 최종 버전이 설치되면 임시 도구는 더 이상 사용되지 않는다는 것을 의미한다. 이는 셸이 실행된 바이너리 파일의 위치를 <quote>기억</quote>하지 않게 해서 이뤄진다. 그러기 위해  <parameter>+h</parameter> 옵션을 <command>bash</command>로 전달해서 해싱을 비활성화한다.</para>
 
-  <para>Note that the <command>bash</command> prompt will say
-  <computeroutput>I have no name!</computeroutput> This is normal because the
-  <filename>/etc/passwd</filename> file has not been created yet.</para>
+  <para><command>bash</command> 프롬프트에서 <computeroutput>I have no name!</computeroutput>이라고 뜨는 것에 주목하라. 이것은 <filename>/etc/passwd</filename> 파일이 아직 생성되지 않았기 때문에 정상이다.</para>
 
   <note>
-    <para>It is important that all the commands throughout the remainder of this
-    chapter and the following chapters are run from within the chroot
-    environment. If you leave this environment for any reason (rebooting for
-    example), ensure that the virtual kernel filesystems are mounted as
-    explained in <xref linkend="ch-system-bindmount"/> and <xref
-    linkend="ch-system-kernfsmount"/> and enter chroot again before continuing
-    with the installation.</para>
+    <para>이 장의 나머지 부분과 다음 장의 모든 명령을 chroot 환경에서 실행하는 것이 중요하다. 어떤 이유로든(예: 재부팅) 이 환경을 떠나는 경우 설치를 계속하기 전에 <xref linkend="ch-system-bindmount"/>와 <xref linkend="ch-system-kernfsmount"/>에 설명된 대로 가상 커널 파일 시스템이 마운트되었는지 확인하고 chroot를 다시 입력한 후 설치를 계속하라.</para>
   </note>
 
 </sect1>

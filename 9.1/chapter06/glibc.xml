@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -23,10 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Glibc package contains the main C library. This library provides
-    the basic routines for allocating memory, searching directories, opening and
-    closing files, reading and writing files, string handling, pattern matching,
-    arithmetic, and so on.</para>
+    <para>Glibc 패키지는 메인 C 라이브러리를 포함하고 있다. 이 라이브러리는 메모리 할당, 디렉토리 검색, 파일 열기 및 닫기, 파일 읽기 및 쓰기, 문자열 처리, 패턴 대조, 산술 등의 기본 루틴을 제공한다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,19 +38,11 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Glibc</title>
+    <title>Glibc 설치</title>
 
-    <note><para>The Glibc build system is self-contained and will install
-    perfectly, even though the compiler specs file and linker are still
-    pointing to <filename class="directory">/tools</filename>. The specs
-    and linker cannot be adjusted before the Glibc install because the
-    Glibc autoconf tests would give false results and defeat the goal
-    of achieving a clean build.</para></note>
+    <note><para>Glibc 빌드 시스템은 컴파일러 설정 파일과 링커가 여전히 <filename class="directory">/tools</filename>를 가리키고 있더라도 독립적이며 완벽하게 설치될 것이다. 컴파일러 설정들과 링커는 Glibc가 설치되기 전에는 조정할 수 없다. Glibc autoconf 테스트가 실패해서 깔끔한 빌드라는 목표를 이룰 수 없기 때문이다.</para></note>
 
-    <para>Some of the Glibc programs use the non-FHS compliant
-    <filename class="directory">/var/db</filename> directory to store
-    their runtime data. Apply the following patch to make such programs
-    store their runtime data in the FHS-compliant locations:</para>
+    <para>어떤 Glibc 프로그램은 FHS를 준수하지 않는 <filename class="directory">/var/db</filename> 디렉토리를 사용하여 런타임 데이터를 저장한다. 다음 패치를 적용하여 그러한 프로그램이 런타임 데이터를 FHS 준수 위치에 저장하도록 하라:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-fhs-patch;</userinput></screen>
 <!--
@@ -67,9 +56,7 @@
 <screen><userinput remap="pre">sed -i '/asm.socket.h/a# include &lt;linux/sockios.h&gt;' \
    sysdeps/unix/sysv/linux/bits/socket.h</userinput></screen>
 -->
-    <para>Create a symlink for LSB
-    compliance. Additionally, for x86_64, create a compatibility symlink
-    required for the dynamic loader to function correctly:</para>
+    <para>LSB 준수를 위한 심볼릭 링크를 생성하라. 추가로, x86_64의 경우 동적 로더가 올바르게 작동하는 데 필요한 호환성 심볼릭 링크를 생성하라:</para>
 
 <screen><userinput remap="pre">case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 /lib/ld-lsb.so.3
@@ -84,13 +71,12 @@ esac</userinput></screen>
 
 <screen><userinput remap="pre">rm -f /usr/include/limits.h</userinput></screen>
 -->
-    <para>The Glibc documentation recommends building Glibc 
-    in a dedicated build directory:</para>
+    <para>Glibc 문서에서는 전용 빌드 디렉토리에서 Glibc를 빌드할 것을 권장핞다:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
-    <para>Prepare Glibc for compilation:</para>
+    <para>Glibc 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">CC="gcc -ffile-prefix-map=/tools=/usr" \
 ../configure --prefix=/usr                          \
@@ -101,64 +87,54 @@ cd       build</userinput></screen>
              libc_cv_slibdir=/lib</userinput></screen>
 
    <variablelist>
-      <title>The meaning of the options and new configure parameters:</title>
+      <title>옵션들과 새 Configure 매개변수들의 의미:</title>
 
       <varlistentry>
         <term><parameter>CC="gcc -ffile-prefix-map=/tools=/usr"</parameter></term>
         <listitem>
-          <para>Make GCC record any references to files in /tools in result
-          of the compilation as if the files resided in /usr.  This avoids
-          introduction of invalid paths in debugging symbols.</para>
+          <para>파일이 /usr에 있다고 간주된 컴파일 결과에서 /tools 내 파일에 대한 모든 참조를 GCC가 기록하도록 한다. 이는 디버깅 기호에 잘못된 경로가 들어가는 것을 방지한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-werror</parameter></term>
         <listitem>
-          <para>This option disables the -Werror option passed to 
-          GCC.  This is necessary for running the test suite.</para>
+          <para>GCC에 전달된 -Werror 옵션을 비활성화한다. 테스트 스위트를 실행하는데 필요하다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-stack-protector=strong</parameter></term>
         <listitem>
-          <para>This option increases system security by adding 
-          extra code to check for buffer overflows, such as stack
-          smashing attacks.</para>
+          <para>스택 스매싱 공격과 같은 버퍼 오버플로우를 점검하기 위해 코드를 추가해서 시스템 보안을 향상시킨다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-headers=/usr/include</parameter></term>
         <listitem>
-          <para>This option tells the build system where to find the
-          kernel API headers. By default, those headers are sought in
-          <filename class="directory">/tools/include</filename>.</para>
+          <para>커널 API 헤더를 찾을 위치를 빌드 시스템에 알려준다. 기본적으로 이들 헤더는 <filename class="directory">/tools/include</filename>에서 검색된다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>libc_cv_slibdir=/lib</parameter></term>
         <listitem>
-          <para>This variable sets the correct library for all
-          systems.  We do not want lib64 to be used.</para>
+          <para>모든 시스템에 대해 올바른 라이브러리를 설정한다. 우리는 lib64를 사용하지 않을 것이다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
     <important>
-      <para>In this section, the test suite for Glibc is considered critical.
-      Do not skip it under any circumstance.</para>
+      <para>이 절에서 Glibc에 대한 테스트 스위트는 매우 중요하다. 어떤 상황에서도 건너뛰지 않도록 하라.</para>
     </important>
 
-    <para>Generally a few tests do not pass. The test failures listed below
-    are usually safe to ignore.</para>
+    <para>일반적으로 몇 가지 테스트는 통과하지 못한다. 아래 나열된 테스트 실패는 보통 무시해도 무방하다.</para>
 
 <!-- Use remap="make" here to work around a jhalfs issue. -->
 <screen><userinput remap="make">case $(uname -m) in
@@ -166,51 +142,41 @@ cd       build</userinput></screen>
   x86_64) ln -sfnv $PWD/elf/ld-linux-x86-64.so.2 /lib ;;
 esac</userinput></screen>
 
-    <note><para>The symbolic link above is needed to run the tests at this
-    stage of building in the chroot environment.  It will be overwritten
-    in the install phase below.</para></note>
+    <note><para>위의 심볼릭 링크는 chroot 환경의 빌드 단계에서 테스트를 실행하기 위해 필요하다. 아래 과정에서 덮어쓰인다.</para></note>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>You may see some test failures.  The Glibc test suite is
-    somewhat dependent on the host system.  This is a list of the most common
-    issues seen for some versions of LFS:</para>
+    <para>몇 개의 테스트는 실패할 것이다. Glibc 테스트 스위트는 호스트 시스템에 다소 의존적이다. 다음은 일부 버전의 LFS에서 나타나는 가장 일반적인 문제들이다:</para>
 
     <itemizedlist>
 
       <listitem>
         <para><emphasis>misc/tst-ttyname</emphasis> 
-        is known to fail in the LFS chroot environment.</para>
+        은 LFS chroot 환경에서 실패한다고 알려져 있다.</para>
       </listitem>
 
       <listitem>
         <para><emphasis>inet/tst-idna_name_classify</emphasis> 
-        is known to fail in the LFS chroot environment.</para>
+        은 LFS chroot 환경에서 실패한다고 알려져 있다.</para>
       </listitem>
 
       <listitem>
-        <para><emphasis>posix/tst-getaddrinfo4</emphasis> and
-        <emphasis>posix/tst-getaddrinfo5</emphasis>
-        may fail on some architectures.</para>
+        <para><emphasis>posix/tst-getaddrinfo4</emphasis>와 
+       <emphasis>posix/tst-getaddrinfo5</emphasis>
+        는 일부 아키텍쳐에서 실패할 수도 있다.</para>
       </listitem>
 
       <listitem>
         <para>The <emphasis>nss/tst-nss-files-hosts-multi</emphasis>
-        test may fail for reasons that have not been determined.</para>
+         테스트는 알려지지 않은 이유로 실패할 수도 있다.</para>
       </listitem>
 
       <listitem>
-        <para>The <emphasis>rt/tst-cputimer{1,2,3}</emphasis> tests depend on
-        the host system kernel. Kernels 4.14.91&ndash;4.14.96,
-        4.19.13&ndash;4.19.18, and 4.20.0&ndash;4.20.5 are known to 
-        cause these tests to fail.
-        </para>
+        <para>The <emphasis>rt/tst-cputimer{1,2,3}</emphasis> 테스트는 호스트 시스템 커널에 달려있다. 커널 4.14.91&ndash;4.14.96, 4.19.13&ndash;4.19.18, 그리고 4.20.0&ndash;4.20.5는 이 테스트들에 실패한다고 알려져 있다.</para>
       </listitem>
 
       <listitem>
-        <para>The math tests sometimes fail when running on
-        systems where the CPU is not a relatively new Intel or
-        AMD processor.</para>
+        <para>CPU가 상대적으로 새로운 인텔 또는 AMD 프로세서가 아닌 시스템에서 실행할 때 산술 테스트가 실패하는 경우가 있다.</para>
       </listitem>
 <!--
       <listitem>
@@ -226,68 +192,51 @@ esac</userinput></screen>
 -->
     </itemizedlist>
 
-    <para>Though it is a harmless message, the install stage of Glibc will
-    complain about the absence of <filename>/etc/ld.so.conf</filename>.
-    Prevent this warning with:</para>
+    <para>문제되지는 않는 메시지지만, Glibc가 설치되는 도중 <filename>/etc/ld.so.conf</filename>를 찾을 수 없다는 경고가 출력될 것이다. 다음과 같이 방지하라:</para>
 
 <screen><userinput remap="install">touch /etc/ld.so.conf</userinput></screen>
 
-    <para>Fix the generated Makefile to skip an unneeded sanity check
-    that fails in the LFS partial environment:
+    <para>생성된 Makefile을 수정하여 불완전한 LFS 환경에서 실패하는 불필요한 온전성 검사를 건너뛴다:
     </para>
 
 <screen><userinput remap="install">sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Install the configuration file and runtime directory for
-    <command>nscd</command>:</para>
+    <para><command>nscd</command>를 위한 configuration 파일과 런타임 디렉토리를 설치한다:</para>
 
 <screen><userinput remap="install">cp -v ../nscd/nscd.conf /etc/nscd.conf
 mkdir -pv /var/cache/nscd</userinput></screen>
 
-    <para revision="systemd">Install the systemd support files for 
-    <command>nscd</command>:</para>
+    <para revision="systemd"><command>nscd</command>를 위한 systemd 지원 파일들을 설치한다:</para>
 
     <screen revision="systemd"><userinput remap="install">install -v -Dm644 ../nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf
 install -v -Dm644 ../nscd/nscd.service /lib/systemd/system/nscd.service</userinput></screen>
 
-    <para>Next, install the locales that can make the system respond in a
-    different language.  None of the locales are required, but if some of them
-    are missing, the test suites of future packages would skip important
-    testcases.</para>
+    <para>다음으로 시스템이 다른 언어로 응답할 수 있도록 로케일을 설치한다. 어떤 로케일도 필수는 아니지만, 이들 중 일부가 누락되면 추후에 패키지 테스트 스위트가 중요한 테스트 케이스를 생략할 수도 있다.</para>
 
-    <para>Individual locales can be installed using the
-    <command>localedef</command> program. E.g., the first
-    <command>localedef</command> command below combines the
-    <filename>/usr/share/i18n/locales/cs_CZ</filename>
-    charset-independent locale definition with the
-    <filename>/usr/share/i18n/charmaps/UTF-8.gz</filename>
-    charmap definition and appends the result to the
-    <filename>/usr/lib/locale/locale-archive</filename> file.
-    The following instructions will install the minimum set of
-    locales necessary for the optimal coverage of tests:</para>
+    <para>각각의 로케일은 <command>localedef</command> 프로그램을 사용하여 설치할 수 있다. 예를 들어, 아래 첫 번째 <command>localedef</command> 명령은 <filename>/usr/share/i18n/locales/cs_CZ</filename> charset-독립 로케일 정의와 <filename>/usr/share/i18n/charmaps/UTF-8.gz</filename> charmap 정의를 조합하고 결과를 <filename>/usr/lib/locale/locale-archive</filename> 파일에 추가한다. 다음 지침은 테스트에 필요한 최소 로케일 세트를 설치한다:</para>
 
 <screen role="nodump"><userinput remap="locale-test">mkdir -pv /usr/lib/locale
 localedef -i POSIX -f UTF-8 C.UTF-8 2> /dev/null || true
 localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
-localedef -i de_DE -f ISO-8859-1 de_DE
-localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+localedef -i de_DE -f UTF-8 de_DE
+localedef -i de_DE@euro -f UTF-85 de_DE@euro
 localedef -i de_DE -f UTF-8 de_DE.UTF-8
 localedef -i el_GR -f ISO-8859-7 el_GR
 localedef -i en_GB -f UTF-8 en_GB.UTF-8
-localedef -i en_HK -f ISO-8859-1 en_HK
-localedef -i en_PH -f ISO-8859-1 en_PH
-localedef -i en_US -f ISO-8859-1 en_US
+localedef -i en_HK -f UTF-8 en_HK
+localedef -i en_PH -f UTF-8 en_PH
+localedef -i en_US -f UTF-8 en_US
 localedef -i en_US -f UTF-8 en_US.UTF-8
-localedef -i es_MX -f ISO-8859-1 es_MX
+localedef -i es_MX -f UTF-8 es_MX
 localedef -i fa_IR -f UTF-8 fa_IR
-localedef -i fr_FR -f ISO-8859-1 fr_FR
-localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+localedef -i fr_FR -f UTF-8 fr_FR
+localedef -i fr_FR@euro -f UTF-85 fr_FR@euro
 localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
-localedef -i it_IT -f ISO-8859-1 it_IT
+localedef -i it_IT -f UTF-8 it_IT
 localedef -i it_IT -f UTF-8 it_IT.UTF-8
 localedef -i ja_JP -f EUC-JP ja_JP
 localedef -i ja_JP -f SHIFT_JIS ja_JP.SIJS 2> /dev/null || true
@@ -298,31 +247,21 @@ localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
 localedef -i zh_CN -f GB18030 zh_CN.GB18030
 localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS</userinput></screen>
 
-    <para>In addition, install the locale for your own country, language and
-    character set.</para>
+    <para>추가로, 당신의 국가, 언어 및 문자 세트에 대한 로케일을 설치하라.</para>
 
-    <para>Alternatively, install all locales listed in the
-    <filename>glibc-&glibc-version;/localedata/SUPPORTED</filename> file
-    (it includes every locale listed above and many more) at once with the
-    following time-consuming command:</para>
+    <para>아니면, <filename>glibc-&glibc-version;/localedata/SUPPORTED</filename> 파일에 나열된 모든 로케일(위에 나열된 모든 로케일 포함)을 이 시간 잡아먹는 명령으로 한 번에 설치하라:</para>
 
 <screen><userinput remap="locale-full">make localedata/install-locales</userinput></screen>
 
-    <para>Then use the <command>localedef</command> command to create and
-    install locales not listed in the
-    <filename>glibc-&glibc-version;/localedata/SUPPORTED</filename> file
-    in the unlikely case you need them.</para>
+    <para>그런 다음, 필요하다면 <command>localedef</command> 명령을 사용하여 <filename>glibc-&glibc-version;/localedata/SUPPORTED</filename> 파일에 나열되지 않은 로케일을 만들고 설치하라.</para>
 
-    <note><para>Glibc now uses libidn2 when resolving internationalized 
-    domain names.  This is a run time dependency.  If this capability
-    is needed, the instructions for installing libidn2 are in the 
-    <ulink url="&blfs-book;general/libidn2.html">BLFS libidn2 page</ulink>.
+    <note><para>Glibc는 이제 국제화된 도메인 이름을 확인할 때 libidn2를 사용한다. 이것은 런타임 의존성이다. 이 기능이 필요하다면 libidn2 설치 지침은 <ulink url="&blfs-book;general/libidn2.html">BLFS libidn2 페이지</ulink>에 있다.
     </para></note>
 
   </sect2>
 
   <sect2 id="conf-glibc" role="configuration">
-    <title>Configuring Glibc</title>
+    <title>Glibc 구성</title>
 
     <indexterm zone="conf-glibc">
       <primary sortas="e-/etc/nsswitch.conf">/etc/nsswitch.conf</primary>
@@ -333,14 +272,11 @@ localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS</userinput></screen>
     </indexterm>
 
   <sect3>
-  <title>Adding nsswitch.conf</title>
+  <title>nsswitch.conf 추가</title>
 
-    <para>The <filename>/etc/nsswitch.conf</filename> file needs to be created
-    because the Glibc defaults do not work well in a networked environment.
-    </para>
+    <para>Glibc 기본값은 네트워크 환경에서 잘 작동하지 않기 때문에 <filename>/etc/nsswitch.conf</filename> 파일을 생성해야 한다.</para>
 
-    <para>Create a new file <filename>/etc/nsswitch.conf</filename> by running the
-    following:</para>
+    <para>다음을 실행하여 <filename>/etc/nsswitch.conf</filename> 파일을 새로 생성하라:</para>
 
 <screen><userinput>cat &gt; /etc/nsswitch.conf &lt;&lt; "EOF"
 <literal># Begin /etc/nsswitch.conf
@@ -363,9 +299,9 @@ EOF</userinput></screen>
     </sect3>
 
     <sect3>
-    <title>Adding time zone data</title>
+    <title>표준 시간대 데이터 추가</title>
 
-    <para>Install and set up the time zone data with the following:</para>
+    <para>다음과 같이 표준 시간대 데이터를 설치하고 설정하라:</para>
 <screen><userinput>tar -xf ../../tzdata&tzdata-version;.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
@@ -383,91 +319,53 @@ zic -d $ZONEINFO -p America/New_York
 unset ZONEINFO</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the zic commands:</title>
+      <title>zic 명령들의 의미:</title>
 
       <varlistentry>
         <term><parameter>zic -L /dev/null ...</parameter></term>
         <listitem>
-          <para>This creates posix time zones, without any leap seconds.  It is
-          conventional to put these in both
-          <filename class="directory">zoneinfo</filename> and
-          <filename class="directory">zoneinfo/posix</filename>. It is
-          necessary to put the POSIX time zones in
-          <filename class="directory">zoneinfo</filename>, otherwise various
-          test-suites will report errors. On an embedded system, where space is
-          tight and you do not intend to ever update the time zones, you could save
-          1.9MB by not using the <filename class="directory">posix</filename>
-          directory, but some applications or test-suites might produce some
-          failures.</para>
+          <para>윤초 없이 posix 표준 시간대를 만든다. 이것들을 <filename class="directory">zoneinfo</filename>와 <filename class="directory">zoneinfo/posix</filename>에 모두 넣는 것이 일반적이다. POSIX 표준 시간대를 <filename class="directory">zoneinfo</filename>에 넣어야 한다. 그렇지 않으면 여러 테스트 스위트가 오류를 일으킨다. 디스크 공간이 작은 임베디드 시스템에서 표준 시간대를 업데이트할 의도가 없다면 <filename class="directory">posix</filename> 디렉토리를 사용하지 않음으로써 1.9 MB를 절약할 수 있지만, 일부 응용 프로그램이나 테스트 스위트는 오작동을 일으킬 수 있다.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term><parameter>zic -L leapseconds ...</parameter></term>
         <listitem>
-          <para>This creates right time zones, including leap seconds. On an
-          embedded system, where space is tight and you do not intend to
-          ever update the time zones, or care about the correct time, you could
-          save 1.9MB by omitting the <filename class="directory">right</filename>
+          <para>윤초를 포함한 적절한 표준 시간대를 만든다. 디스크 공간이 좁아 표준 시간대를 업데이트하지 않을 임베디드 시스템이나 정확한 시간이 필요없는 경우, <filename class="directory">올바른</filename> 디렉토리를 생략해서 1.9 MB를 절약할 수 있다. 
           directory.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term><parameter>zic ... -p ...</parameter></term>
         <listitem>
-          <para>This creates the <filename>posixrules</filename> file. We use
-          New York because POSIX requires the daylight savings time rules
-          to be in accordance with US rules.</para>
+          <para><filename>posixrules</filename> 파일을 생성한다. POSIX는 미국 규정에 따라 일광 절약 시간제(또는 섬머타임)가 필요하므로 우리는 뉴욕을 사용한다.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-
-    <para>One way to determine the local time zone is to run the following
-    script:</para>
+    <para>다음 스크립트를 실행하여 로컬 표준 시간대를 정할 수 있다:</para>
 
 <screen role="nodump"><userinput>tzselect</userinput></screen>
 
-    <para>After answering a few questions about the location, the script will
-    output the name of the time zone (e.g.,
-    <emphasis>America/Edmonton</emphasis>). There are also some other possible
-    time zones listed in <filename
-    class='directory'>/usr/share/zoneinfo</filename> such as
-    <emphasis>Canada/Eastern</emphasis> or <emphasis>EST5EDT</emphasis> that
-    are not identified by the script but can be used.</para>
+    <para>위치에 대한 몇 가지 질문에 답하면 스크립트는 표준 시간대의 이름(예: <emphasis>America/Edmonton</emphasis>). <emphasis>Canada/Eastern</emphasis>나 <emphasis>EST5EDT</emphasis> 같은 <filename class='directory'>/usr/share/zoneinfo</filename>에 나열된 다른 가능한 표준 시간대들도 스크립트로 식별되진 않지만 사용할 수 있다.</para>
 
-    <para>Then create the <filename>/etc/localtime</filename> file by
-    running:</para>
+    <para>그리고나서 다음을 실행하여 <filename>/etc/localtime</filename> 파일을 생성하라:</para>
 
 <screen><userinput>ln -sfv /usr/share/zoneinfo/<replaceable>&lt;xxx&gt;</replaceable> /etc/localtime</userinput></screen>
 
-    <para>Replace <replaceable>&lt;xxx&gt;</replaceable> with the name of the
-    time zone selected (e.g., Canada/Eastern).</para>
+    <para>선택한 표준 시간대의 이름으로 <replaceable>&lt;xxx&gt;</replaceable>를 대체하라(예: Canada/Eastern).</para>
 
   </sect3>
 
   <sect3 id="conf-ld" role="configuration">
-    <title>Configuring the Dynamic Loader</title>
+    <title>동적 로더 구성</title>
 
     <indexterm zone="conf-ld">
       <primary sortas="e-/etc/ld.so.conf">/etc/ld.so.conf</primary>
     </indexterm>
 
-    <para>By default, the dynamic loader (<filename
-    class="libraryfile">/lib/ld-linux.so.2</filename>) searches through
-    <filename class="directory">/lib</filename> and <filename
-    class="directory">/usr/lib</filename> for dynamic libraries that are
-    needed by programs as they are run. However, if there are libraries in
-    directories other than <filename class="directory">/lib</filename> and
-    <filename class="directory">/usr/lib</filename>, these need to be added
-    to the <filename>/etc/ld.so.conf</filename> file in order for the
-    dynamic loader to find them. Two directories that are commonly known
-    to contain additional libraries are <filename
-    class="directory">/usr/local/lib</filename> and <filename
-    class="directory">/opt/lib</filename>, so add those directories to the
-    dynamic loader's search path.</para>
+    <para>기본적으로 동적 로더(<filename class="libraryfile">/lib/ld-linux.so.2</filename>)는 프로그램이 실행될 때 필요한 동적 라이브러리를 <filename class="directory">/lib</filename>와 <filename class="directory">/usr/lib</filename>에서 검색한다. 그러나 <filename class="directory">/lib</filename>와 <filename class="directory">/usr/lib</filename> 이외의 디렉토리에 라이브러리가 있는 경우, 동적 로더가 찾을 수 있도록 <filename>/etc/ld.so.conf</filename> 파일에 라이브러리를 추가해야 한다. 보편적으로 추가 라이브러리를 포함하는 것으로 알려진 두 개의 디렉토리는 <filename class="directory">/usr/local/lib</filename> 및 <filename class="directory">/opt/lib</filename>이므로, 해당 디렉토리를 동적 로더의 검색 경로에 추가하라.</para>
 
-    <para>Create a new file <filename>/etc/ld.so.conf</filename> by running the
-    following:</para>
+    <para>다음 명령을 실행하여 새 <filename>/etc/ld.so.conf</filename> 파일을 생성하라:</para>
 
 <screen><userinput>cat &gt; /etc/ld.so.conf &lt;&lt; "EOF"
 <literal># Begin /etc/ld.so.conf
@@ -476,10 +374,7 @@ unset ZONEINFO</userinput></screen>
 </literal>
 EOF</userinput></screen>
 
-  <para>If desired, the dynamic loader can also search a directory and
-  include the contents of files found there.  Generally the files in
-  this include directory are one line specifying the desired library path.
-  To add this capability run the following commands:</para>
+  <para>원하는 경우, 동적 로더가 디렉토리를 검색하고 거기서 발견된 파일의 내용을 포함시키도록 할 수도 있다. 일반적으로 이 include 디렉토리의 파일은 원하는 라이브러리 경로를 지정하는 하나의 줄이다. 이 기능을 추가하려면 다음 명령을 실행하라:</para>
 
 <screen role="nodump"><userinput>cat &gt;&gt; /etc/ld.so.conf &lt;&lt; "EOF"
 <literal># Add an include directory
@@ -492,12 +387,12 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
   </sect2>
 
   <sect2 id="contents-glibc" role="content">
-    <title>Contents of Glibc</title>
+    <title>Glibc의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>catchsegv, gencat, getconf, getent, iconv, iconvconfig, ldconfig,
@@ -525,15 +420,14 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="catchsegv">
         <term><command>catchsegv</command></term>
         <listitem>
-          <para>Can be used to create a stack trace when a program
-          terminates with a segmentation fault</para>
+          <para>프로그램이 세그멘테이션 오류로 종료될 때 스택 기록을 만드는 데 사용</para>
           <indexterm zone="ch-system-glibc catchsegv">
             <primary sortas="b-catchsegv">catchsegv</primary>
           </indexterm>
@@ -543,7 +437,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="gencat">
         <term><command>gencat</command></term>
         <listitem>
-          <para>Generates message catalogues</para>
+          <para>메시지 카탈로그를 생성</para>
           <indexterm zone="ch-system-glibc gencat">
             <primary sortas="b-gencat">gencat</primary>
           </indexterm>
@@ -553,8 +447,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="getconf">
         <term><command>getconf</command></term>
         <listitem>
-          <para>Displays the system configuration values for file system
-          specific variables</para>
+          <para>파일 시스템 특정 변수에 대한 시스템 구성 값 표시</para>
           <indexterm zone="ch-system-glibc getconf">
             <primary sortas="b-getconf">getconf</primary>
           </indexterm>
@@ -564,7 +457,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="getent">
         <term><command>getent</command></term>
         <listitem>
-          <para>Gets entries from an administrative database</para>
+          <para>관리 데이터베이스로부터 항목을 가져온다</para>
           <indexterm zone="ch-system-glibc getent">
             <primary sortas="b-getent">getent</primary>
           </indexterm>
@@ -574,7 +467,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="iconv">
         <term><command>iconv</command></term>
         <listitem>
-          <para>Performs character set conversion</para>
+          <para>문자 집합 변환</para>
           <indexterm zone="ch-system-glibc iconv">
             <primary sortas="b-iconv">iconv</primary>
           </indexterm>
@@ -584,8 +477,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="iconvconfig">
         <term><command>iconvconfig</command></term>
         <listitem>
-          <para>Creates fastloading <command>iconv</command> module configuration
-          files</para>
+          <para>fastloading <command>iconv</command> 모듈 구성 파일 생성</para>
           <indexterm zone="ch-system-glibc iconvconfig">
             <primary sortas="b-iconvconfig">iconvconfig</primary>
           </indexterm>
@@ -595,7 +487,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="ldconfig">
         <term><command>ldconfig</command></term>
         <listitem>
-          <para>Configures the dynamic linker runtime bindings</para>
+          <para>동적 링커 런타임 바인딩 구성</para>
           <indexterm zone="ch-system-glibc ldconfig">
             <primary sortas="b-ldconfig">ldconfig</primary>
           </indexterm>
@@ -605,8 +497,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="ldd">
         <term><command>ldd</command></term>
         <listitem>
-          <para>Reports which shared libraries are required
-          by each given program or shared library</para>
+          <para>지정된 각각의 프로그램이나 공유 라이브러리에 필요한 공유 라이브러리를 출력</para>
           <indexterm zone="ch-system-glibc ldd">
             <primary sortas="b-ldd">ldd</primary>
           </indexterm>
@@ -616,7 +507,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="lddlibc4">
         <term><command>lddlibc4</command></term>
         <listitem>
-          <para>Assists <command>ldd</command> with object files</para>
+          <para>객체 파일을 사용하여 <command>ldd</command>를 보조</para>
           <indexterm zone="ch-system-glibc lddlibc4">
             <primary sortas="b-lddlibc4">lddlibc4</primary>
           </indexterm>
@@ -626,7 +517,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="locale">
         <term><command>locale</command></term>
         <listitem>
-          <para>Prints various information about the current locale</para>
+          <para>현재 로케일에 대한 다양한 정보 출력</para>
           <indexterm zone="ch-system-glibc locale">
             <primary sortas="b-locale">locale</primary>
           </indexterm>
@@ -636,7 +527,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="localedef">
         <term><command>localedef</command></term>
         <listitem>
-          <para>Compiles locale specifications</para>
+          <para>로케일 사양을 컴파일</para>
           <indexterm zone="ch-system-glibc localedef">
             <primary sortas="b-localedef">localedef</primary>
           </indexterm>
@@ -646,7 +537,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="makedb">
         <term><command>makedb</command></term>
         <listitem>
-          <para>Creates a simple database from textual input</para>
+          <para>텍스트 입력으로 단순 데이터베이스 작성</para>
           <indexterm zone="ch-system-glibc makedb">
             <primary sortas="b-makedb">makedb</primary>
           </indexterm>
@@ -656,8 +547,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="mtrace">
         <term><command>mtrace</command></term>
         <listitem>
-          <para>Reads and interprets a memory trace file and displays a summary
-          in human-readable format</para>
+          <para>메모리 추적 파일을 읽고 해석하며 사람이 읽을 수 있는 형식으로 표시</para>
           <indexterm zone="ch-system-glibc mtrace">
             <primary sortas="b-mtrace">mtrace</primary>
           </indexterm>
@@ -667,8 +557,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="nscd">
         <term><command>nscd</command></term>
         <listitem>
-          <para>A daemon that provides a cache for the most common name
-          service requests</para>
+          <para>대부분의 보편적인 서비스 요청에 대한 캐시를 제공하는 데몬</para>
           <indexterm zone="ch-system-glibc nscd">
             <primary sortas="b-nscd">nscd</primary>
           </indexterm>
@@ -678,7 +567,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="pcprofiledump">
         <term><command>pcprofiledump</command></term>
         <listitem>
-          <para>Dump information generated by PC profiling</para>
+          <para>PC 프로파일링에 의해 생성된 정보 덤프</para>
           <indexterm zone="ch-system-glibc pcprofiledump">
             <primary sortas="b-pcprofiledump">pcprofiledump</primary>
           </indexterm>
@@ -688,7 +577,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="pldd">
         <term><command>pldd</command></term>
         <listitem>
-          <para>Lists dynamic shared objects used by running processes</para>
+          <para>프로세스 실행 시 사용되는 동적 공유 개체 나열</para>
           <indexterm zone="ch-system-glibc pldd">
             <primary sortas="b-pldd">pldd</primary>
           </indexterm>
@@ -698,7 +587,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="sln">
         <term><command>sln</command></term>
         <listitem>
-          <para>A statically linked <command>ln</command> program</para>
+          <para>정적 링크된 <command>ln</command> 프로그램</para>
           <indexterm zone="ch-system-glibc sln">
             <primary sortas="b-sln">sln</primary>
           </indexterm>
@@ -708,7 +597,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="sotruss">
         <term><command>sotruss</command></term>
         <listitem>
-          <para>Traces shared library procedure calls of a specified command</para>
+          <para>지정된 명령의 공유 라이브러리 프로시저 호출 추적</para>
           <indexterm zone="ch-system-glibc sotruss">
             <primary sortas="b-sotruss">sotruss</primary>
           </indexterm>
@@ -718,7 +607,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="sprof">
         <term><command>sprof</command></term>
         <listitem>
-          <para>Reads and displays shared object profiling data</para>
+          <para>공유 개체 프로파일링 데이터 읽기 및 출력</para>
           <indexterm zone="ch-system-glibc sprof">
             <primary sortas="b-sprof">sprof</primary>
           </indexterm>
@@ -728,8 +617,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="tzselect">
         <term><command>tzselect</command></term>
         <listitem>
-          <para>Asks the user about the location of the system and reports
-          the corresponding time zone description</para>
+          <para>사용자에게 시스템 위치를 묻고 해당 표준 시간대 설명을 출력</para>
           <indexterm zone="ch-system-glibc tzselect">
             <primary sortas="b-tzselect">tzselect</primary>
           </indexterm>
@@ -739,8 +627,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="xtrace">
         <term><command>xtrace</command></term>
         <listitem>
-          <para>Traces the execution of a program by printing the currently
-          executed function</para>
+          <para>현재 실행 중인 함수를 출력하여 프로그램 실행 추적</para>
           <indexterm zone="ch-system-glibc xtrace">
             <primary sortas="b-xtrace">xtrace</primary>
           </indexterm>
@@ -750,7 +637,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="zdump">
         <term><command>zdump</command></term>
         <listitem>
-          <para>The time zone dumper</para>
+          <para>표준 시간대 덤퍼</para>
           <indexterm zone="ch-system-glibc zdump">
             <primary sortas="b-zdump">zdump</primary>
           </indexterm>
@@ -760,7 +647,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="zic">
         <term><command>zic</command></term>
         <listitem>
-          <para>The time zone compiler</para>
+          <para>표준 시간대 컴파일러</para>
           <indexterm zone="ch-system-glibc zic">
             <primary sortas="b-zic">zic</primary>
           </indexterm>
@@ -770,7 +657,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="ld.so">
         <term><filename class="libraryfile">ld-&glibc-version;.so</filename></term>
         <listitem>
-          <para>The helper program for shared library executables</para>
+          <para>공유 라이브러리 실행 파일용 헬퍼 프로그램</para>
           <indexterm zone="ch-system-glibc ld.so">
             <primary sortas="c-ld.so">ld-&glibc-version;.so</primary>
           </indexterm>
@@ -780,10 +667,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libBrokenLocale">
         <term><filename class="libraryfile">libBrokenLocale</filename></term>
         <listitem>
-          <para>Used internally by Glibc as a gross hack to get broken programs
-          (e.g., some Motif applications) running. See comments in
-          <filename>glibc-&glibc-version;/locale/broken_cur_max.c</filename>
-          for more information</para>
+          <para>Glibc가 내부적으로 고장난 프로그램(예: 일부 Motif 응용 프로그램들)을 실행하기 위해 사용. 자세한 내용은 <filename>glibc-&glibc-version;/locale/broken_cur_max.c</filename>의 설명을 참고하라</para>
           <indexterm zone="ch-system-glibc libBrokenLocale">
             <primary sortas="c-libBrokenLocale">libBrokenLocale</primary>
           </indexterm>
@@ -793,8 +677,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libSegFault">
         <term><filename class="libraryfile">libSegFault</filename></term>
         <listitem>
-          <para>The segmentation fault signal handler, used by
-          <command>catchsegv</command></para>
+          <para><command>catchsegv</command>에서 사용하는 세그멘테이션 오류 신호 처리기</para>
           <indexterm zone="ch-system-glibc libSegFault">
             <primary sortas="c-libSegFault">libSegFault</primary>
           </indexterm>
@@ -804,7 +687,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libanl">
         <term><filename class="libraryfile">libanl</filename></term>
         <listitem>
-          <para>An asynchronous name lookup library</para>
+          <para>비동기식 이름 검색 라이브러리</para>
           <indexterm zone="ch-system-glibc libanl">
             <primary sortas="c-libanl">libanl</primary>
           </indexterm>
@@ -814,7 +697,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libc">
         <term><filename class="libraryfile">libc</filename></term>
         <listitem>
-          <para>The main C library</para>
+          <para>메인 C 라이브러리</para>
           <indexterm zone="ch-system-glibc libc">
             <primary sortas="c-libc">libc</primary>
           </indexterm>
@@ -824,7 +707,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libcrypt">
         <term><filename class="libraryfile">libcrypt</filename></term>
         <listitem>
-          <para>The cryptography library</para>
+          <para>암호 라이브러리</para>
           <indexterm zone="ch-system-glibc libcrypt">
             <primary sortas="c-libcrypt">libcrypt</primary>
           </indexterm>
@@ -834,7 +717,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libdl">
         <term><filename class="libraryfile">libdl</filename></term>
         <listitem>
-          <para>The dynamic linking interface library</para>
+          <para>동적 링크 인터페이스 라이브러리</para>
           <indexterm zone="ch-system-glibc libdl">
             <primary sortas="c-libdl">libdl</primary>
           </indexterm>
@@ -844,8 +727,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libg">
         <term><filename class="libraryfile">libg</filename></term>
         <listitem>
-          <para>Dummy library containing no functions. Previously was a runtime
-          library for <command>g++</command></para>
+          <para>함수가 없는 더미 라이브러리. 예전엔 <command>g++</command>의 런타임 라이브러리였다</para>
           <indexterm zone="ch-system-glibc libg">
             <primary sortas="c-libg">libg</primary>
           </indexterm>
@@ -855,7 +737,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libm">
         <term><filename class="libraryfile">libm</filename></term>
         <listitem>
-          <para>The mathematical library</para>
+          <para>수학 라이브러리</para>
           <indexterm zone="ch-system-glibc libm">
             <primary sortas="c-libm">libm</primary>
           </indexterm>
@@ -865,7 +747,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libmcheck">
         <term><filename class="libraryfile">libmcheck</filename></term>
         <listitem>
-          <para>Turns on memory allocation checking when linked to</para>
+          <para>링크되었을 때 메모리 할당 확인 활성화</para>
           <indexterm zone="ch-system-glibc libmcheck">
             <primary sortas="c-libmcheck">libmcheck</primary>
           </indexterm>
@@ -875,8 +757,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libmemusage">
         <term><filename class="libraryfile">libmemusage</filename></term>
         <listitem>
-          <para>Used by <command>memusage</command> to help collect
-          information about the memory usage of a program</para>
+          <para><command>memusage</command>에서 프로그램의 메모리 사용에 대한 정보를 수집하는 데 사용</para>
           <indexterm zone="ch-system-glibc libmemusage">
             <primary sortas="c-libmemusage">libmemusage</primary>
           </indexterm>
@@ -886,7 +767,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libnsl">
         <term><filename class="libraryfile">libnsl</filename></term>
         <listitem>
-          <para>The network services library</para>
+          <para>네트워크 서비스 라이브러리</para>
           <indexterm zone="ch-system-glibc libnsl">
             <primary sortas="c-libnsl">libnsl</primary>
           </indexterm>
@@ -896,9 +777,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libnss">
         <term><filename class="libraryfile">libnss</filename></term>
         <listitem>
-          <para>The Name Service Switch libraries, containing functions for
-          resolving host names, user names, group names, aliases, services,
-          protocols, etc.</para>
+          <para>호스트 이름, 유저 이름, 그룹 이름, alias, 서비스, 프로토콜 등을 해결하기 위한 기능이 포함된 이름 서비스 스위치 라이브러리(The Name Service Switch libraries)</para>
           <indexterm zone="ch-system-glibc libnss">
             <primary sortas="c-libnss">libnss</primary>
           </indexterm>
@@ -908,7 +787,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libpcprofile">
         <term><filename class="libraryfile">libpcprofile</filename></term>
         <listitem>
-          <para>Can be preloaded to PC profile an executable</para>
+          <para>실행 파일을 PC 프로필에 사전 로드 가능</para>
           <indexterm zone="ch-system-glibc libpcprofile">
             <primary sortas="c-libpcprofile">libpcprofile</primary>
           </indexterm>
@@ -918,7 +797,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libpthread">
         <term><filename class="libraryfile">libpthread</filename></term>
         <listitem>
-          <para>The POSIX threads library</para>
+          <para>POSIX 스레드 라이브러리</para>
           <indexterm zone="ch-system-glibc libpthread">
             <primary sortas="c-libpthread">libpthread</primary>
           </indexterm>
@@ -928,8 +807,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libresolv">
         <term><filename class="libraryfile">libresolv</filename></term>
         <listitem>
-          <para>Contains functions for creating, sending, and interpreting
-          packets to the Internet domain name servers</para>
+          <para>패킷을 인터넷 도메인 네임 서버로 생성, 전송 및 해석하는 함수 포함</para>
           <indexterm zone="ch-system-glibc libresolv">
             <primary sortas="c-libresolv">libresolv</primary>
           </indexterm>
@@ -939,8 +817,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="librt">
         <term><filename class="libraryfile">librt</filename></term>
         <listitem>
-          <para>Contains functions providing most of the interfaces specified
-          by the POSIX.1b Realtime Extension</para>
+          <para>POSIX.1b Realtime Extension에서 지정한 대부분의 인터페이스를 제공하는 함수 포함</para>
           <indexterm zone="ch-system-glibc librt">
             <primary sortas="c-librt">librt</primary>
           </indexterm>
@@ -950,8 +827,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libthread_db">
         <term><filename class="libraryfile">libthread_db</filename></term>
         <listitem>
-          <para>Contains functions useful for building debuggers for
-          multi-threaded programs</para>
+          <para>다중 스레드 프로그램을 위한 디버거 구축에 유용한 함수 포함</para>
           <indexterm zone="ch-system-glibc libthread_db">
             <primary sortas="c-libthread_db">libthread_db</primary>
           </indexterm>
@@ -961,8 +837,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libutil">
         <term><filename class="libraryfile">libutil</filename></term>
         <listitem>
-          <para>Contains code for <quote>standard</quote> functions used in
-          many different Unix utilities</para>
+          <para>다양한 Unix 유틸리티에 사용되는 <quote>표준</quote> 함수에 대한 코드 포함</para>
           <indexterm zone="ch-system-glibc libutil">
             <primary sortas="c-libutil">libutil</primary>
           </indexterm>

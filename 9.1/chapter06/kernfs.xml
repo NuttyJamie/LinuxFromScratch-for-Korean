@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,33 +8,24 @@
 <sect1 id="ch-system-kernfs">
   <?dbhtml filename="kernfs.html"?>
 
-  <title>Preparing Virtual Kernel File Systems</title>
+  <title>가상 커널 파일 시스템 준비</title>
 
   <indexterm zone="ch-system-kernfs">
     <primary sortas="e-/dev/">/dev/*</primary>
   </indexterm>
 
-    <para>Various file systems exported by the kernel are used to communicate to
-    and from the kernel itself. These file systems are virtual in that no disk
-    space is used for them. The content of the file systems resides in
-    memory.</para>
+    <para>커널에 의해 내보내진 다양한 파일 시스템들은 커널 자체와 통신하는 데 사용된다. 이러한 파일 시스템은 디스크 공간이 사용되지 않는다는 점에서 가상적이라 할 수 있다. 파일 시스템의 내용들은 메모리에 상주한다.</para>
 
-    <para>Begin by creating directories onto which the file systems will be
-    mounted:</para>
+    <para>파일 시스템을 마운트할 디렉토리를 만드는 것부터 시작한다:</para>
 
 <screen><userinput>mkdir -pv $LFS/{dev,proc,sys,run}</userinput></screen>
 
   <sect2>
-    <title>Creating Initial Device Nodes</title>
+    <title>초기 장치 노드 생성</title>
 
-    <para>When the kernel boots the system, it requires the presence of a few
-    device nodes, in particular the <filename
-    class="devicefile">console</filename> and <filename
-    class="devicefile">null</filename> devices. The device nodes must be created
-    on the hard disk so that they are available before <command>udevd</command>
-    has been started, and additionally when Linux is started with
-    <parameter>init=/bin/bash</parameter>. Create the devices by running the
-    following commands:</para>
+    <para>커널이 시스템을 부팅할 때 몇 개의 장치 노드, 특히 <filename
+    class="devicefile">콘솔</filename>과 <filename
+    class="devicefile">null</filename> 장치가 있어야 한다. 장치 노드는 <command>udevd</command>가 시작되기 전에, 그리고 리눅스가 <parameter>init=/bin/bash</parameter>로 시작될 때 사용할 수 있도록 하드 디스크에 생성되어야 한다. 다음 명령을 실행하여 장치를 생성하라:</para>
 
 <screen><userinput>mknod -m 600 $LFS/dev/console c 5 1
 mknod -m 666 $LFS/dev/null c 1 3</userinput></screen>
@@ -42,31 +33,18 @@ mknod -m 666 $LFS/dev/null c 1 3</userinput></screen>
   </sect2>
 
   <sect2 id="ch-system-bindmount">
-    <title>Mounting and Populating /dev</title>
+    <title>/dev 마운팅과 설정</title>
 
-      <para>The recommended method of populating the <filename
-      class="directory">/dev</filename> directory with devices is to mount a
-      virtual filesystem (such as <systemitem
-      class="filesystem">tmpfs</systemitem>) on the <filename
-      class="directory">/dev</filename> directory, and allow the devices to be
-      created dynamically on that virtual filesystem as they are detected or
-      accessed. Device creation is generally done during the boot process
-      by Udev. Since this new system does not yet have Udev and has not yet
-      been booted, it is necessary to mount and populate <filename
-      class="directory">/dev</filename> manually. This is accomplished by bind
-      mounting the host system's <filename class="directory">/dev</filename>
-      directory. A bind mount is a special type of mount that allows you to
-      create a mirror of a directory or mount point to some other location. Use
-      the following command to achieve this:</para>
+      <para><filename class="directory">/dev</filename> 디렉토리에 장치를 들이는 권장되는 방법은 <filename class="directory">/dev</filename> 디렉토리에 가상 파일 시스템(예: <systemitem class="filesystem">tmpfs</systemitem>)을 마운트하고, 장치가 감지되거나 액세스될 때 해당 가상 파일 시스템에 동적으로 생성되도록 하는 것이다. 장치 생성은 일반적으로 부팅 절차 중 Udev에 의해 이뤄진다. 지금 이 새로운 시스템은 아직 Udev가 없고 부팅되지도 않았기 때문에 수동으로 마운트를 하고 <filename class="directory">/dev</filename>를 채워야 한다. 이를 위해 호스트 시스템의 <filename class="directory">/dev</filename> 디렉토리를 바인딩한다. 바인딩 마운트는 디렉토리나 마운트 지점의 미러를 다른 위치에 만들 수 있는 특별한 유형의 마운트를 뜻한다. 이 작업을 수행하려면 다음 명령을 사용하라:</para>
 
 <screen><userinput>mount -v --bind /dev $LFS/dev</userinput></screen>
 
   </sect2>
 
   <sect2 id="ch-system-kernfsmount">
-    <title>Mounting Virtual Kernel File Systems</title>
+    <title>가상 커널 파일 시스템 마운팅</title>
 
-      <para>Now mount the remaining virtual kernel filesystems:</para>
+      <para>이제 나머지 가상 커널 파일 시스템을 마운트한다:</para>
 
 <screen><userinput>mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620
 mount -vt proc proc $LFS/proc
@@ -74,37 +52,25 @@ mount -vt sysfs sysfs $LFS/sys
 mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the mount options for devpts:</title>
+      <title>devpts에 대한 마운트 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>gid=5</parameter></term>
         <listitem>
-          <para>This ensures that all devpts-created device nodes are owned by
-          group ID 5.  This is the ID we will use later on for the <systemitem
-          class="groupname">tty</systemitem> group.  We use the group ID instead
-          of a name, since the host system might use a different ID for its
-          <systemitem class="groupname">tty</systemitem> group.</para>
+          <para>devpts가 생성한 모드 장치 노드들을 그룹 ID 5가 소유한다. 이것은 우리가 나중에 <systemitem class="groupname">tty</systemitem> 그룹에 사용할 ID이다. 호스트 시스템이 그 <systemitem class="groupname">tty</systemitem> 그룹에 다른 ID를 사용할지도 모르기 때문에 이름 대신 그룹 ID를 사용한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>mode=0620</parameter></term>
         <listitem>
-          <para>This ensures that all devpts-created device nodes have mode 0620
-          (user readable and writable, group writable).  Together with the
-          option above, this ensures that devpts will create device nodes that
-          meet the requirements of grantpt(), meaning the Glibc
-          <command>pt_chown</command> helper binary (which is not installed by
-          default) is not necessary.</para>
+          <para>devpts가 생성한 모든 장치 노드가 0620 모드를 갖게한다. 위의 옵션과 함께, devpts가 grantpt()의 요구 사항을 만족하는 장치 노드를 생성하도록 한다. 이는 Glibc <command>pt_chown</command> helper 바이너리(기본적으로 설치되어 있지 않은)가 필요하지 않다는 의미이다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-      <para>In some host systems, <filename>/dev/shm</filename> is a
-      symbolic link to <filename class="directory">/run/shm</filename>.
-      The /run tmpfs was mounted above so in this case only a 
-      directory needs to be created.</para>
+      <para>어떤 호스트 시스템에서는, <filename>/dev/shm</filename>이 <filename class="directory">/run/shm</filename>에 대한 심볼릭 링크이다. /run tmpfs은 위에 마운트되었으므로 디렉토리만 작성하면 된다.</para>
 
 <screen><userinput>if [ -h $LFS/dev/shm ]; then
   mkdir -pv $LFS/$(readlink $LFS/dev/shm)

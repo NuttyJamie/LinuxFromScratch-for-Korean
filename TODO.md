@@ -84,21 +84,21 @@
         - [x] Texinfo-6.7
         - [x] Xz-5.2.4
         - [x] Stripping
-        - [ ] Changing Ownership
+        - [x] Changing Ownership
 
-- [ ] III. Building the LFS System
+- [x] III. Building the LFS System
 
-    - [ ] 6. Installing Basic System Software
-        - [ ] Introduction
-        - [ ] Preparing Virtual Kernel File Systems
-        - [ ] Package Management
-        - [ ] Entering the Chroot Environment
-        - [ ] Creating Directories
-        - [ ] Creating Essential Files and Symlinks
-        - [ ] Linux-5.5.3 API Headers
-        - [ ] Man-pages-5.05
-        - [ ] Glibc-2.31
-        - [ ] Adjusting the Toolchain
+    - [x] 6. Installing Basic System Software
+        - [x] Introduction
+        - [x] Preparing Virtual Kernel File Systems
+        - [x] Package Management
+        - [x] Entering the Chroot Environment
+        - [x] Creating Directories
+        - [x] Creating Essential Files and Symlinks
+        - [x] Linux-5.5.3 API Headers
+        - [x] Man-pages-5.05
+        - [x] Glibc-2.31
+        - [x] Adjusting the Toolchain
         - [ ] Zlib-1.2.11
         - [ ] Bzip2-1.0.8
         - [ ] Xz-5.2.4
