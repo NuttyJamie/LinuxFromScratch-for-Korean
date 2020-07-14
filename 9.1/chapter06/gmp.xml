@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The GMP package contains math libraries. These have useful functions
-    for arbitrary precision arithmetic.</para>
+    <para>GMP 패키지에는 수학 라이브러리가 포함되어 있다. 정밀 산술에 유용한 함수들을 가지고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,28 +38,21 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of GMP</title>
+    <title>GMP 설치</title>
 
     <note>
-      <para>If you are building for 32-bit x86, but you have a CPU which is
-      capable of running 64-bit code <emphasis>and</emphasis> you have specified
-      <envar>CFLAGS</envar> in the environment, the configure script will
-      attempt to configure for 64-bits and fail.
-      Avoid this by invoking the configure command below with
+      <para>64비트 CPU에서 32비트 x86으로 빌드하고 있고, <emphasis>그와 동시에</emphasis> <envar>CFLAGS</envar>를 지정했다면 configure 스크립트는 64비트로 구성하려 할 것이고 결국 실패할 것이다. 아래 configure 명령을 실행해서 이 문제를 방지하라:
 <screen role="nodump"><userinput><parameter>ABI=32</parameter> ./configure ...</userinput></screen></para>
     </note>
 
     <note>
-      <para>The default settings of GMP produce libraries optimized for
-      the host processor.  If libraries suitable for processors less
-      capable than the host's CPU are desired, generic libraries can be 
-      created by running the following:
+      <para>GMP의 기본 설정은 호스트 프로세서에 최적화된 라이브러리를 생성한다. 호스트의 CPU보다 성능이 떨어지는 프로세서에 적합한 라이브러리를 원하는 경우 다음을 실행하여 일반 라이브러리를 생성할 수 있다:
 
 <screen role="nodump"><userinput>cp -v configfsf.guess config.guess
 cp -v configfsf.sub   config.sub</userinput></screen></para>
     </note>
 
-    <para>Prepare GMP for compilation:</para>
+    <para>GMP 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
             --enable-cxx     \
@@ -68,52 +60,44 @@ cp -v configfsf.sub   config.sub</userinput></screen></para>
             --docdir=/usr/share/doc/gmp-&gmp-version;</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the new configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--enable-cxx</parameter></term>
         <listitem>
-          <para>This parameter enables C++ support</para>
+          <para>C++ 지원을 활성화한다</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--docdir=/usr/share/doc/gmp-&gmp-version;</parameter></term>
         <listitem>
-          <para>This variable specifies the correct place for the
-          documentation.</para>
+          <para>문서의 올바른 위치를 지정한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package and generate the HTML documentation:</para>
+    <para>패키지를 컴파일하고 HTML 문서를 생성한다:</para>
 
 <screen><userinput remap="make">make
 make html</userinput></screen>
 
     <important>
-      <para>The test suite for GMP in this section is considered critical.
-      Do not skip it under any circumstances.</para>
+      <para>이 절의 GMP 테스트 스위트는 매우 중요하다. 어떤 상황에서도 건너뛰지 않도록 하라.</para>
     </important>
 
-    <para>Test the results:</para>
+    <para>결과를 테스트하라:</para>
 
 <screen><userinput remap="test">make check 2>&amp;1 | tee gmp-check-log</userinput></screen>
  
-    <caution><para>The code in gmp is highly optimized for the processor where
-    it is built. Occasionally, the code that detects the processor misidentifies
-    the system capabilities and there will be errors in the tests or other
-    applications using the gmp libraries with the message "Illegal
-    instruction".  In this case, gmp should be reconfigured with the option
-    --build=x86_64-unknown-linux-gnu and rebuilt.</para></caution>
+    <caution><para>GMP의 코드는 구축된 프로세서에 대해 매우 최적화되어 있다. 드물게 프로세서를 감지하는 코드가 시스템 기능을 잘못 식별하여 테스트에 오류가 발생할 수도 있다.</para></caution>
 
-    <para>Ensure that all 190 tests in the test suite passed.
-    Check the results by issuing the following command:</para>
+    <para>테스트 스위트의 190개 테스트가 모두 통과했는지 확인하라. 다음 명령을 실행하여 결과를 확인하라:</para>
 
 <screen><userinput remap="test">awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log</userinput></screen>
 
-    <para>Install the package and its documentation:</para>
+    <para>문서와 패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install
 make install-html</userinput></screen>
@@ -121,27 +105,27 @@ make install-html</userinput></screen>
   </sect2>
 
   <sect2 id="contents-gmp" role="content">
-    <title>Contents of GMP</title>
+    <title>GMP의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed Libraries</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
-        <seg>libgmp.so and libgmpxx.so</seg>
+        <seg>libgmp.so와 libgmpxx.so</seg>
         <seg>/usr/share/doc/gmp-&gmp-version;</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="libgmp">
         <term><filename class="libraryfile">libgmp</filename></term>
         <listitem>
-          <para>Contains precision math functions</para>
+          <para>정밀 산술 함수 포함</para>
           <indexterm zone="ch-system-gmp libgmp">
             <primary sortas="c-libgmp">libgmp</primary>
           </indexterm>
@@ -151,7 +135,7 @@ make install-html</userinput></screen>
       <varlistentry id="libgmpxx">
         <term><filename class="libraryfile">libgmpxx</filename></term>
         <listitem>
-          <para>Contains C++ precision math functions</para>
+          <para>C++ 정밀 산술 함수 포함</para>
           <indexterm zone="ch-system-gmp libgmpxx">
             <primary sortas="c-libgmpxx">libgmpxx</primary>
           </indexterm>

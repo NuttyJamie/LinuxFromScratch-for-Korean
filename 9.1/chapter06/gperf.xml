@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Gperf generates a perfect hash function from a key set.</para>
+    <para>Gperf는 키 세트에서 완벽한 해시 함수를 생성한다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,34 +38,32 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Gperf</title>
+    <title>Gperf 설치</title>
 
-    <para>Prepare Gperf for compilation:</para>
+    <para>Gperf 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr --docdir=/usr/share/doc/gperf-&gperf-version;</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>The tests are known to fail if running multiple
-    simultaneous tests (-j option greater than 1). To test
-    the results, issue:</para>
+    <para>여러 테스트를 동시에 실행하면(-j 옵션이 1 이상인) 테스트가 실패하는 것으로 알려져 있다. 결과를 테스트하려면 다음을 실행하라:</para>
 
 <screen><userinput remap="test">make -j1 check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-gperf" role="content">
-    <title>Contents of Gperf</title>
+    <title>Gperf의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed program</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
         <seg>gperf</seg>
@@ -74,14 +72,14 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="gperf">
         <term><command>gperf</command></term>
         <listitem>
-          <para>Generates a perfect hash from a key set</para>
+          <para>키 세트로부터 완벽한 해시를 생성</para>
           <indexterm zone="ch-system-gperf gperf">
             <primary sortas="b-gperf">gperf</primary>
           </indexterm>

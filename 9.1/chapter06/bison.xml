@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Bison package contains a parser generator.</para>
+    <para>Bison 패키지에는 파서 생성기가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,13 +38,13 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Bison</title>
+    <title>Bison 설치</title>
 <!--
     <para>First, fix a build problem with the current version:</para>
 
 <screen><userinput remap="pre">sed -i '9327 s/mv/cp/' Makefile.in</userinput></screen>
 -->
-    <para>Prepare Bison for compilation:</para>
+    <para>Bison 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr --docdir=/usr/share/doc/bison-&bison-version;</userinput></screen>
 
@@ -54,7 +54,7 @@
 
 <screen><userinput remap="make">make -j1</userinput></screen>-->
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
@@ -64,43 +64,38 @@
 <screen><userinput remap="test">make check</userinput></screen>
 -->
 
-    <para>There is a circular dependency between bison and flex with regard to
-    the checks.  If desired, after installing flex in the next section, the
-    bison package can be rebuilt and the bison checks can be run with 
-    <command>make check</command>.</para>
+    <para>bison과 flex 사이에는 순환 의존성이 있다. 원한다면, 다음 절에서 flex를 설치한 후, bison 패키지를 재빌드하고 <command>make check</command>를 통해 bison 검사를 수행할 수 있다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-bison" role="content">
-    <title>Contents of Bison</title>
+    <title>Bison의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed library</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
-        <seg>bison and yacc</seg>
+        <seg>bison과 yacc</seg>
         <seg>liby.a</seg>
         <seg>/usr/share/bison</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="bison">
         <term><command>bison</command></term>
         <listitem>
-          <para>Generates, from a series of rules, a program for analyzing the
-          structure of text files; Bison is a replacement for Yacc (Yet Another
-          Compiler Compiler)</para>
+          <para>일련의 규칙으로부터 텍스트 파일의 구조를 분석하는 프로그램 생성, Bison은 Yacc(Yet Another Compiler Compiler)의 대체 프로그램</para>
           <indexterm zone="ch-system-bison bison">
             <primary sortas="b-bison">bison</primary>
           </indexterm>
@@ -110,10 +105,7 @@
       <varlistentry id="yacc">
         <term><command>yacc</command></term>
         <listitem>
-          <para>A wrapper for <command>bison</command>, meant for programs that
-          still call <command>yacc</command> instead of <command>bison</command>;
-          it calls <command>bison</command> with the <parameter>-y</parameter>
-          option</para>
+          <para><command>bison</command>의 래퍼, <command>bison</command> 대신 <command>yacc</command>를 호출하는 프로그램; <parameter>-y</parameter> 옵션과 함께 <command>bison</command>을 호출</para>
           <indexterm zone="ch-system-bison yacc">
             <primary sortas="b-yacc">yacc</primary>
           </indexterm>
@@ -123,9 +115,7 @@
       <varlistentry id="liby">
         <term><filename class="libraryfile">liby</filename></term>
         <listitem>
-          <para>The Yacc library containing implementations of Yacc-compatible
-          <function>yyerror</function> and <function>main</function> functions;
-          this library is normally not very useful, but POSIX requires it</para>
+          <para>Yacc 호환 <function>yyerror</function> 및 <function>main</function> 함수를 포함하는 Yacc 라이브러리; 이 라이브러리는 일반적으로 그다지 유용하지는 않지만, POSIX에 필요하다</para>
           <indexterm zone="ch-system-bison liby">
             <primary sortas="c-liby">liby</primary>
           </indexterm>

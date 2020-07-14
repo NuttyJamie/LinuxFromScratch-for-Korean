@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Flex package contains a utility for generating programs that
-    recognize patterns in text.</para>
+    <para>Flex 패키지에는 텍스트의 패턴을 인식하는 프로그램을 생성하는 유틸리티가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,25 +38,22 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Flex</title>
+    <title>Flex 설치</title>
 
-    <para>First, fix a problem introduced with glibc-2.26:</para>
+    <para>우선, Glibc-2.26에서 소개된 문제를 수정한다:</para>
 
 <screen><userinput remap="pre">sed -i "/math.h/a #include &lt;malloc.h&gt;" src/flexdef.h</userinput></screen>
 
-    <para>The build procedure assumes the <application>help2man</application>
-    program is available to create a man page from the executable --help option.
-    This is not present, so we use an environment variable to skip this process.
-    Now, prepare Flex for compilation:</para>
+    <para>이 빌드 절차는 <application>help2man</application> 프로그램이 실행 파일의 --help 옵션으로부터 man 페이지를 생성할 수 있다고 가정한다. 이것은 존재하지 않기 때문에, 우리는 환경 변수를 사용하여 이 과정을 생략한다. 이제 Flex 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">HELP2MAN=/tools/bin/true \
 ./configure --prefix=/usr --docdir=/usr/share/doc/flex-&flex-version;</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results (about 0.5 SBU), issue:</para>
+    <para>결과를 실행하려면(약 0.5 SBU) 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -65,42 +61,36 @@
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>A few programs do not know about <command>flex</command> yet and
-    try to run its predecessor, <command>lex</command>. To support those
-    programs, create a symbolic link named <filename>lex</filename> that
-    runs <filename>flex</filename> in <command>lex</command> emulation
-    mode:</para>
+    <para>몇몇 프로그램들은 아직 <command>flex</command>를 인식하지 못해서 이전 프로그램인 <command>lex</command>를 사용하려 할 것이다. 이러한 프로그램들을 지원하기 위해 <command>lex</command> 에뮬레이션 모드에서 <filename>flex</filename>를 실행하는 <filename>lex</filename>라는 심볼릭 링크를 생성한다:</para>
 
 <screen><userinput remap="install">ln -sv flex /usr/bin/lex</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-flex" role="content">
-    <title>Contents of Flex</title>
+    <title>Flex의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
-        <seg>flex, flex++ (link to flex), and lex (link to flex)</seg>
+        <seg>flex, flex++ (flex로 링크), and lex (flex로 링크)</seg>
         <seg>libfl.so</seg>
         <seg>/usr/share/doc/flex-&flex-version;</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="flex">
         <term><command>flex</command></term>
         <listitem>
-          <para>A tool for generating programs that recognize patterns in text;
-          it allows for the versatility to specify the rules for pattern-finding,
-          eradicating the need to develop a specialized program</para>
+          <para>텍스트 패턴 인식 프로그램 생성 도구; 융통성있게 패턴 검색 규칙을 지정하여, 전문 프로그램 개발의 필요성을 근절한다</para>
           <indexterm zone="ch-system-flex flex">
             <primary sortas="b-flex">flex</primary>
           </indexterm>
@@ -110,8 +100,7 @@
       <varlistentry id="flexpp">
         <term><command>flex++</command></term>
         <listitem>
-          <para>An extension of flex, is used for generating C++ code
-          and classes. It is a symbolic link to <command>flex</command></para>
+          <para>C++ 코드 및 클래스를 생성하는 데 사용되는 flex의 확장. <command>flex</command>로의 심볼릭 링크이다</para>
           <indexterm zone="ch-system-flex flexpp">
             <primary sortas="b-flex++">flex++</primary>
           </indexterm>
@@ -121,8 +110,7 @@
       <varlistentry id="lex">
         <term><command>lex</command></term>
         <listitem>
-          <para>A symbolic link that runs <command>flex</command> in
-          <command>lex</command> emulation mode</para>
+          <para><command>lex</command> 에뮬레이션 모드에서 <command>flex</command>를 실행하는 심볼릭 링크</para>
           <indexterm zone="ch-system-flex lex">
             <primary sortas="b-lex">lex</primary>
           </indexterm>
@@ -132,7 +120,7 @@
       <varlistentry id="libfl">
         <term><filename class="libraryfile">libfl</filename></term>
         <listitem>
-          <para>The <filename class="libraryfile">flex</filename> library</para>
+          <para><filename class="libraryfile">flex</filename> 라이브러리</para>
           <indexterm zone="ch-system-flex libfl">
             <primary sortas="c-libfl">libfl</primary>
           </indexterm>

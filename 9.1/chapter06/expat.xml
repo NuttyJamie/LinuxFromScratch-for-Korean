@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Expat package contains a stream oriented C library for
-    parsing XML.</para>
+    <para>Expat 패키지는 XML 구문을 위한 스트림 지향 C 라이브러리를 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,43 +38,43 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Expat</title>
+    <title>Expat 설치</title>
 
-    <para>First fix a problem with the regression tests in the LFS environment:</para>
+    <para>우선 LFS 환경에서 회귀 테스트 문제를 해결한다:</para>
 
 <screen><userinput remap="pre">sed -i 's|usr/bin/env |bin/|' run.sh.in</userinput></screen>
 
-    <para>Prepare Expat for compilation:</para>
+    <para>Expat 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/expat-&expat-version;</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>If desired, install the documentation:</para>
+    <para>필요하다면 문서를 설치하라:</para>
 
 <screen><userinput remap="install">install -v -m644 doc/*.{html,png,css} /usr/share/doc/expat-&expat-version;</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-expat" role="content">
-    <title>Contents of Expat</title>
+    <title>Expat의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed program</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
         <seg>xmlwf</seg>
@@ -85,15 +84,14 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="xmlwf">
         <term><command>xmlwf </command></term>
         <listitem>
-          <para>Is a non-validating utility to check whether or not
-          XML documents are well formed</para>
+          <para>XML 문서가 제대로 구성되었는지의 여부를 확인할 수 있는 비-인증 유틸리티</para>
           <indexterm zone="ch-system-expat xmlwf">
             <primary sortas="b-xmlwf">xmlwf</primary>
           </indexterm>

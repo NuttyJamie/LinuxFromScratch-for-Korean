@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Intltool is an internationalization tool used for extracting
-    translatable strings from source files.</para>
+    <para>Intltool은 소스 파일에서 번역 가능한 문자열을 추출하는 데 사용되는 다국어화 도구이다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,25 +38,25 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Intltool</title>
+    <title>Intltool 설치</title>
 
-    <para>First fix a warning that is caused by perl-5.22 and later:</para>
+    <para>먼저 perl-5.22 이후 버전에서 발생하는 경고를 수정한다:</para>
 
 <screen><userinput remap="pre">sed -i 's:\\\${:\\\$\\{:' intltool-update.in</userinput></screen>
 
-    <para>Prepare Intltool for compilation:</para>
+    <para>Intltool 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install
 install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-&intltool-version;/I18N-HOWTO</userinput></screen>
@@ -65,29 +64,29 @@ install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-&intltool-version;/I18N
   </sect2>
 
   <sect2 id="contents-intltool" role="content">
-    <title>Contents of Intltool</title>
+    <title>Intltool의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>intltool-extract, intltool-merge, intltool-prepare,
-        intltool-update, and intltoolize</seg>
-        <seg>/usr/share/doc/intltool-&intltool-version; and
+        intltool-update, intltoolize</seg>
+        <seg>/usr/share/doc/intltool-&intltool-version;,
         /usr/share/intltool</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="intltoolize">
         <term><command>intltoolize</command></term>
         <listitem>
-          <para>Prepares a package to use intltool</para>
+          <para>intltool을 사용하도록 패키지 준비</para>
           <indexterm zone="ch-system-intltool intltoolize">
             <primary sortas="b-intltoolize">intltoolize</primary>
           </indexterm>
@@ -97,7 +96,7 @@ install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-&intltool-version;/I18N
       <varlistentry id="intltool-extract">
         <term><command>intltool-extract</command></term>
         <listitem>
-          <para>Generates header files that can be read by <command>gettext</command></para>
+          <para><command>gettext</command>로 읽을 수 있는 헤더 파일 생성</para>
           <indexterm zone="ch-system-intltool intltool-extract">
             <primary sortas="b-intltool-extract">intltool-extract</primary>
           </indexterm>
@@ -107,7 +106,7 @@ install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-&intltool-version;/I18N
       <varlistentry id="intltool-merge">
         <term><command>intltool-merge</command></term>
         <listitem>
-          <para>Merges translated strings into various file types</para>
+          <para>번역된 문자열을 다양한 파일 형식으로 병합</para>
           <indexterm zone="ch-system-intltool intltool-merge">
             <primary sortas="b-intltool-merge">intltool-merge</primary>
           </indexterm>
@@ -117,7 +116,7 @@ install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-&intltool-version;/I18N
       <varlistentry id="intltool-prepare">
         <term><command>intltool-prepare</command></term>
         <listitem>
-          <para>Updates pot files and merges them with translation files</para>
+          <para>pot 파일을 업데이트하고 번역 파일과 병합</para>
           <indexterm zone="ch-system-intltool intltool-prepare">
             <primary sortas="b-intltool-prepare">intltool-prepare</primary>
           </indexterm>
@@ -127,7 +126,7 @@ install -v -Dm644 doc/I18N-HOWTO /usr/share/doc/intltool-&intltool-version;/I18N
       <varlistentry id="intltool-update">
         <term><command>intltool-update</command></term>
         <listitem>
-          <para>Updates the po template files and merges them with the translations</para>
+          <para>po 템플릿 파일을 업데이트하고 번역본과 병합</para>
           <indexterm zone="ch-system-intltool intltool-update">
             <primary sortas="b-intltool-update">intltool-update</primary>
           </indexterm>

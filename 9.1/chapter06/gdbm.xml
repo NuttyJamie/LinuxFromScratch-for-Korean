@@ -23,11 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The GDBM package contains the GNU Database Manager.  It is a library
-    of database functions that use extensible hashing and work similar to the
-    standard UNIX dbm.  The library provides primitives for storing key/data
-    pairs, searching and retrieving the data by its key and deleting a key
-    along with its data. </para>
+    <para>GDBM 패키지에는 GNU 데이터베이스 관리자가 포함되어 있다. 확장 가능한 해싱을 사용하고 표준 UNIX dbm과 유사하게 작동하는 데이터베이스 함수들의 라이브러리이다. 이 라이브러리는 키/데이터 쌍을 저장하고 키로 데이터를 검색하고 데이터와 함께 키를 삭제하기 위한 원시 요소들을 제공한다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,63 +38,61 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of GDBM</title>
+    <title>GDBM 설치</title>
 
-    <para>Prepare GDBM for compilation:</para>
+    <para>GDBM 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
             --disable-static \
             --enable-libgdbm-compat</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure option:</title>
+      <title>Configure 옵션의 의미:</title>
 
       <varlistentry>
         <term><envar>--enable-libgdbm-compat</envar></term>
         <listitem>
-          <para>This switch enables the libgdbm compatibility library to be
-          built, as some packages outside of LFS may require the older DBM
-          routines it provides.</para>
+          <para>LFS 외부의 일부 패키지에는 예전 DBM 루틴이 필요하기 때문에 이 옵션으로 libgdbm 호환 라이브러리를 빌드한다.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-gdbm" role="content">
-    <title>Contents of GDBM</title>
+    <title>GDBM의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
 
       <seglistitem>
-        <seg>gdbm_dump, gdbm_load, and gdbmtool</seg>
-        <seg>libgdbm.so and libgdbm_compat.so</seg>
+        <seg>gdbm_dump, gdbm_load, gdbmtool</seg>
+        <seg>libgdbm.so와 libgdbm_compat.so</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="gdbm_dump">
         <term><command>gdbm_dump</command></term>
         <listitem>
-          <para>Dumps a GDBM database to a file</para>
+          <para>GDBM 데이터베이스를 파일로 덤프</para>
           <indexterm zone="ch-system-gdbm gdbm_dump">
             <primary sortas="b-gdbm_dump">gdbm_dump</primary>
           </indexterm>
@@ -108,7 +102,7 @@
       <varlistentry id="gdbm_load">
         <term><command>gdbm_load</command></term>
         <listitem>
-          <para>Recreates a GDBM database from a dump file</para>
+          <para>덤프 파일에서 GDBM 데이터베이스 다시 생성</para>
           <indexterm zone="ch-system-gdbm gdbm_load">
             <primary sortas="b-gdbm_load">gdbm_load</primary>
           </indexterm>
@@ -118,7 +112,7 @@
       <varlistentry id="gdbmtool">
         <term><command>gdbmtool</command></term>
         <listitem>
-          <para>Tests and modifies a GDBM database</para>
+          <para>GDBM 데이터베이스를 테스트하고 수정</para>
           <indexterm zone="ch-system-gdbm gdbmtool">
             <primary sortas="b-gdbmtool">gdbmtool</primary>
           </indexterm>
@@ -128,7 +122,7 @@
       <varlistentry id="libgdbm">
         <term><filename class="libraryfile">libgdbm</filename></term>
         <listitem>
-          <para>Contains functions to manipulate a hashed database</para>
+          <para>해시 데이터베이스를 다루는 함수 포함</para>
           <indexterm zone="ch-system-gdbm libgdbm">
             <primary sortas="c-libgdbm">libgdbm</primary>
           </indexterm>
@@ -138,7 +132,7 @@
       <varlistentry id="libgdbm_compat">
         <term><filename class="libraryfile">libgdbm_compat</filename></term>
         <listitem>
-          <para>Compatibility library containing older DBM functions</para>
+          <para>이전 DBM 함수를 포함하는 호환성 라이브러리</para>
           <indexterm zone="ch-system-gdbm libgdbm_compat">
             <primary sortas="c-libgdbm_compat">libgdbm_compat</primary>
           </indexterm>

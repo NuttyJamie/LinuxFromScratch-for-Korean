@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Binutils package contains a linker, an assembler, and other
-    tools for handling object files.</para>
+    <para>Binutils 패키지는 링커, 어셈블러 및 객체 파일을 처리하기 위한 기타 도구를 포함한다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,36 +38,31 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Binutils</title>
+    <title>Binutils 설치</title>
 
-    <para>Verify that the PTYs are working properly inside the chroot
-    environment by performing a simple test:</para>
+    <para>단순 테스트를 수행하여 PTY가 chroot 환경 내에서 올바르게 작동하는지 확인하라:</para>
 
 <screen><userinput remap="test">expect -c "spawn ls"</userinput></screen>
 
-    <para>This command should output the following:</para>
+    <para>이 명령은 다음을 출력해야 한다:</para>
 
 <screen><computeroutput>spawn ls</computeroutput></screen>
 
-    <para>If, instead, the output includes the message below, then the environment
-    is not set up for proper PTY operation.  This issue needs to be resolved before
-    running the test suites for Binutils and GCC:</para>
+    <para>만약 출력에 위의 결과 대신 아래 메시지가 포함된 경우, PTY의 올바른 작동을 위한 환경이 설정되지 않은 것이다. 이 문제는 Binutils 및 GCC에 대한 테스트 스위트를 실행하기 전에 해결해야 한다:</para>
 
 <screen><computeroutput>The system has no more ptys.
 Ask your system administrator to create more.</computeroutput></screen>
 
-    <para>Now remove one test that prevents the tests from running
-    to completion:</para>
+    <para>이제 테스트를 완료하지 못하게 하는 한 테스트를 제거하라:</para>
 
 <screen><userinput remap="pre">sed -i '/@\tincremental_copy/d' gold/testsuite/Makefile.in</userinput></screen>
 
-    <para>The Binutils documentation recommends building Binutils 
-    in a dedicated build directory:</para>
+    <para>Binutils 문서에서는 전용 빌드 디렉토리에 Binutils를 빌드할 것을 권장한다:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
-    <para>Prepare Binutils for compilation:</para>
+    <para>Binutils 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">../configure --prefix=/usr       \
              --enable-gold       \
@@ -79,99 +73,84 @@ cd       build</userinput></screen>
              --enable-64-bit-bfd \
              --with-system-zlib</userinput></screen>
     <variablelist>
-      <title>The meaning of the configure parameters:</title>
+      <title>Configure 매개변수들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--enable-gold</parameter></term>
         <listitem>
-          <para>Build the gold linker and install it as ld.gold (along side the
-          default linker).</para>
+          <para>gold 링커를 빌드하고 ld.gold(기본 링커와 함께)로 설치한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-ld=default</parameter></term>
         <listitem>
-          <para>Build the original bfd linker and install it as both ld (the
-          default linker) and ld.bfd.</para>
+          <para>오리지널 bfd 링커를 빌드해서 ld(기본 링커)와 ld.bfd로 설치한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-plugins</parameter></term>
         <listitem>
-          <para>Enables plugin support for the linker.</para>
+          <para>링커에 대한 플러그인 지원 활성화.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-64-bit-bfd</parameter></term>
         <listitem>
-           <para>Enables 64-bit support (on hosts with narrower word sizes).
-           May not be needed on 64-bit systems, but does no harm.</para>
+           <para>64비트 지원(워드 사이즈가 더 작은 호스트에서) 활성화. 64비트 시스템에서는 필요하지 않을 수 있지만 해를 끼치진 않는다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-system-zlib</parameter></term>
         <listitem>
-          <para>Use the installed zlib library rather than building the
-          included version.</para>
+          <para>포함된 버전을 빌드하지 않고 설치된 zlib 라이브러리를 사용한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make tooldir=/usr</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the make parameter:</title>
+      <title>Make 매개변수의 의미:</title>
 
       <varlistentry>
         <term><parameter>tooldir=/usr</parameter></term>
         <listitem>
-          <para>Normally, the tooldir (the directory where the executables will
-          ultimately be located) is set to <filename
-          class="directory">$(exec_prefix)/$(target_alias)</filename>. For
-          example, x86_64 machines would expand that to <filename
-          class="directory">/usr/x86_64-unknown-linux-gnu</filename>. Because this is
-          a custom system, this target-specific directory in <filename
-          class="directory">/usr</filename> is not required. <filename
-          class="directory">$(exec_prefix)/$(target_alias)</filename> would be
-          used if the system was used to cross-compile (for example, compiling a
-          package on an Intel machine that generates code that can be executed
-          on PowerPC machines).</para>
+          <para>일반적으로 tooldir(실행 파일이 최종적으로 위치할 디렉토리)는<filename class="directory">$(exec_prefix)/$(target_alias)</filename>로 설정된다. 예를 들어 x86_64 시스템에서는 <filename class="directory">/usr/x86_64-unknown-linux-gnu</filename>로 나올 것이다. 이것은 커스텀 시스템이기 때문에<filename class="directory">/usr</filename>의 대상별 디렉토리는 필요하지 않다. 시스템이 크로스 컴파일(예를 들어, 파워PC 시스템에서 실행 가능한 코드를 생성하는 인텔 시스템에서 패키지를 컴파일)을 한다면 <filename class="directory">$(exec_prefix)/$(target_alias)</filename>가 쓰였을 것이다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
     <important>
-      <para>The test suite for Binutils in this section is considered critical.
-      Do not skip it under any circumstances.</para>
+      <para>이 절의 Binutils 테스트 스위트는 매우 중요하다. 어떤 상황에서도 건너뛰지 않도록 하라.</para>
     </important>
 
-    <para>Test the results:</para>
+    <para>결과를 테스트하라:</para>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
 
-    <para>The ver_test_pr16504.sh test is known to fail.</para>
+    <para>ver_test_pr16504.sh 테스트는 실패하는 것으로 알려져 있다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make tooldir=/usr install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-binutils" role="content">
-    <title>Contents of Binutils</title>
+    <title>Binutils의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
         <seg>addr2line, ar, as, c++filt, dwp, elfedit, gprof, ld, ld.bfd, ld.gold, nm,
@@ -182,17 +161,14 @@ cd       build</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="addr2line">
         <term><command>addr2line</command></term>
         <listitem>
-          <para>Translates program addresses to file names and line numbers;
-          given an address and the name of an executable, it uses the debugging
-          information in the executable to determine which source file and line
-          number are associated with the address</para>
+          <para>프로그램 주소를 파일 이름 및 줄 번호로 변환; 주소와 실행 파일의 이름을 지정하면 실행 파일의 디버깅 정보를 사용하여 주소와 연결된 원본 파일 및 줄 번호를 확인</para>
           <indexterm zone="ch-system-binutils addr2line">
             <primary sortas="b-addr2line">addr2line</primary>
           </indexterm>
@@ -202,7 +178,7 @@ cd       build</userinput></screen>
       <varlistentry id="ar">
         <term><command>ar</command></term>
         <listitem>
-          <para>Creates, modifies, and extracts from archives</para>
+          <para>아카이브에서 생성, 수정 및 추출</para>
           <indexterm zone="ch-system-binutils ar">
             <primary sortas="b-ar">ar</primary>
           </indexterm>
@@ -212,8 +188,7 @@ cd       build</userinput></screen>
       <varlistentry id="as">
         <term><command>as</command></term>
         <listitem>
-          <para>An assembler that assembles the output of <command>gcc</command>
-          into object files</para>
+          <para><command>gcc</command>의 출력을 오브젝트 파일로 조립하는 어셈블러</para>
           <indexterm zone="ch-system-binutils as">
             <primary sortas="b-as">as</primary>
           </indexterm>
@@ -223,8 +198,7 @@ cd       build</userinput></screen>
       <varlistentry id="c-filt">
         <term><command>c++filt</command></term>
         <listitem>
-          <para>Used by the linker to de-mangle C++ and Java symbols and to keep
-          overloaded functions from clashing</para>
+          <para>링커에서 C++와 자바 심볼을 복원하고 함수들이 충돌하지 않고 오버로드되도록 유지하기 위해 사용</para>
           <indexterm zone="ch-system-binutils c-filt">
             <primary sortas="b-c++filt">c++filt</primary>
           </indexterm>
@@ -234,7 +208,7 @@ cd       build</userinput></screen>
       <varlistentry id="dwp">
         <term><command>dwp</command></term>
         <listitem>
-          <para>The DWARF packaging utility</para>
+          <para>DWARF 패키징 유틸리티</para>
           <indexterm zone="ch-system-binutils dwp">
             <primary sortas="dwp">dwp</primary>
           </indexterm>
@@ -244,7 +218,7 @@ cd       build</userinput></screen>
       <varlistentry id="elfedit">
         <term><command>elfedit</command></term>
         <listitem>
-          <para>Updates the ELF header of ELF files</para>
+          <para>ELF 파일의 ELF 헤더 업데이트</para>
           <indexterm zone="ch-system-binutils elfedit">
             <primary sortas="b-elfedit">elfedit</primary>
           </indexterm>
@@ -254,7 +228,7 @@ cd       build</userinput></screen>
       <varlistentry id="gprof">
         <term><command>gprof</command></term>
         <listitem>
-          <para>Displays call graph profile data</para>
+          <para>호출 그래프 프로필 데이터 표시</para>
           <indexterm zone="ch-system-binutils gprof">
             <primary sortas="b-gprof">gprof</primary>
           </indexterm>
@@ -264,9 +238,7 @@ cd       build</userinput></screen>
       <varlistentry id="ld">
         <term><command>ld</command></term>
         <listitem>
-          <para>A linker that combines a number of object and archive files
-          into a single file, relocating their data and tying up symbol
-          references</para>
+          <para>여러 오브젝트 파일과 아카이브 파일을 단일 파일로 조합해서 데이터를 재배치하고 심볼 참조를 연결하는 링커</para>
           <indexterm zone="ch-system-binutils ld">
             <primary sortas="b-ld">ld</primary>
           </indexterm>
@@ -276,8 +248,7 @@ cd       build</userinput></screen>
       <varlistentry id="ld.gold">
         <term><command>ld.gold</command></term>
         <listitem>
-          <para>A cut down version of ld that only supports the 
-          elf object file format</para>
+          <para>elf 오브젝트 파일 포맷만 지원하는 ld의 축소 버전</para>
           <indexterm zone="ch-system-binutils ld.gold">
             <primary sortas="b-ld.gold">ld.gold</primary>
           </indexterm>
@@ -287,7 +258,7 @@ cd       build</userinput></screen>
       <varlistentry id="ld.bfd">
         <term><command>ld.bfd</command></term>
         <listitem>
-          <para>Hard link to <command>ld</command></para>
+          <para><command>ld</command>로의 하드 링크</para>
           <indexterm zone="ch-system-binutils ld.bfd">
             <primary sortas="b-ld.bfd">ld.bfd</primary>
           </indexterm>
@@ -297,7 +268,7 @@ cd       build</userinput></screen>
       <varlistentry id="nm">
         <term><command>nm</command></term>
         <listitem>
-          <para>Lists the symbols occurring in a given object file</para>
+          <para>지정된 오브젝트 파일에서 나오는 심볼들을 나열</para>
           <indexterm zone="ch-system-binutils nm">
             <primary sortas="b-nm">nm</primary>
           </indexterm>
@@ -307,7 +278,7 @@ cd       build</userinput></screen>
       <varlistentry id="objcopy">
         <term><command>objcopy</command></term>
         <listitem>
-          <para>Translates one type of object file into another</para>
+          <para>오브젝트 파일의 한 유형을 다른 형식으로 변환</para>
           <indexterm zone="ch-system-binutils objcopy">
             <primary sortas="b-objcopy">objcopy</primary>
           </indexterm>
@@ -317,10 +288,7 @@ cd       build</userinput></screen>
       <varlistentry id="objdump">
         <term><command>objdump</command></term>
         <listitem>
-          <para>Displays information about the given object file, with options
-          controlling the particular information to display; the information
-          shown is useful to programmers who are working on the compilation
-          tools</para>
+          <para>표시할 특정 정보를 제어하는 옵션과 함께, 지정된 오브젝트 파일에 대한 정보를 표시한다. 표시된 정보는 컴파일 도구를 사용하는 프로그래머에게 유용하다.</para>
           <indexterm zone="ch-system-binutils objdump">
             <primary sortas="b-objdump">objdump</primary>
           </indexterm>
@@ -330,9 +298,7 @@ cd       build</userinput></screen>
       <varlistentry id="ranlib">
         <term><command>ranlib</command></term>
         <listitem>
-          <para>Generates an index of the contents of an archive and stores it
-          in the archive; the index lists all of the symbols defined by archive
-          members that are relocatable object files</para>
+          <para>아카이브의 내용의 색인을 생성해서 아카이브에 저장; 색인은 재배치 가능한 오브젝트 파일들로 이뤄진 아카이브 멤버가 정의한 모든 심볼들을 나열한다.</para>
           <indexterm zone="ch-system-binutils ranlib">
             <primary sortas="b-ranlib">ranlib</primary>
           </indexterm>
@@ -342,7 +308,7 @@ cd       build</userinput></screen>
       <varlistentry id="readelf">
         <term><command>readelf</command></term>
         <listitem>
-          <para>Displays information about ELF type binaries</para>
+          <para>ELF 유형 바이너리 파일에 대한 정보 표시</para>
           <indexterm zone="ch-system-binutils readelf">
             <primary sortas="b-readelf">readelf</primary>
           </indexterm>
@@ -352,8 +318,7 @@ cd       build</userinput></screen>
       <varlistentry id="size">
         <term><command>size</command></term>
         <listitem>
-          <para>Lists the section sizes and the total size for the given
-          object files</para>
+          <para>지정된 오브젝트 파일들의 섹션 크기 및 총 크기 나열</para>
           <indexterm zone="ch-system-binutils size">
             <primary sortas="b-size">size</primary>
           </indexterm>
@@ -363,11 +328,7 @@ cd       build</userinput></screen>
       <varlistentry id="strings">
         <term><command>strings</command></term>
         <listitem>
-          <para>Outputs, for each given file, the sequences of printable
-          characters that are of at least the specified length (defaulting to
-          four); for object files, it prints, by default, only the strings from
-          the initializing and loading sections while for other types of files, it
-          scans the entire file</para>
+          <para>각 지정된 파일에 대해 지정된 길이(기본값은 4개) 이상의 인쇄 가능한 문자열을 출력한다; 오브젝트 파일의 경우 기본적으로 초기화 및 로드 섹션의 문자열만 출력하고, 다른 파일 형식은 전체 파일을 조사한다</para>
           <indexterm zone="ch-system-binutils strings">
             <primary sortas="b-strings">strings</primary>
           </indexterm>
@@ -377,7 +338,7 @@ cd       build</userinput></screen>
       <varlistentry id="strip">
         <term><command>strip</command></term>
         <listitem>
-          <para>Discards symbols from object files</para>
+          <para>오브젝트 파일에서 심볼 삭제</para>
           <indexterm zone="ch-system-binutils strip">
             <primary sortas="b-strip">strip</primary>
           </indexterm>
@@ -387,7 +348,7 @@ cd       build</userinput></screen>
       <varlistentry id="libbfd">
         <term><filename class="libraryfile">libbfd</filename></term>
         <listitem>
-          <para>The Binary File Descriptor library</para>
+          <para>바이너리 파일 디스크립터 라이브러리</para>
           <indexterm zone="ch-system-binutils libbfd">
             <primary sortas="c-libbfd">libbfd</primary>
           </indexterm>
@@ -397,7 +358,7 @@ cd       build</userinput></screen>
       <varlistentry id="libctf">
         <term><filename class="libraryfile">libctf</filename></term>
         <listitem>
-          <para>The Compat ANSI-C Type Format debugging support library</para>
+          <para>ANSI-C 유형 디버깅 지원 라이브러리</para>
           <indexterm zone="ch-system-binutils libctf">
             <primary sortas="c-libctf">libctf</primary>
           </indexterm>
@@ -407,7 +368,7 @@ cd       build</userinput></screen>
       <varlistentry id="libctf-nobfd">
         <term><filename class="libraryfile">libctf-nobfd</filename></term>
         <listitem>
-          <para>A libctf variant which does not use libbfd functionality</para>
+          <para>libbfd 기능을 사용하지 않는 libctf 변형</para>
           <indexterm zone="ch-system-binutils libctf-nobfd">
             <primary sortas="c-libctf-nobfd">libctf-nobfd</primary>
           </indexterm>
@@ -417,10 +378,7 @@ cd       build</userinput></screen>
       <varlistentry id="libopcodes">
         <term><filename class="libraryfile">libopcodes</filename></term>
         <listitem>
-          <para>A library for dealing with opcodes&mdash;the <quote>readable
-          text</quote> versions of instructions for the processor;
-          it is used for building utilities like
-          <command>objdump</command></para>
+          <para>opcode들을 처리하기 위한 라이브러리&mdash;프로세서 명령어의 <quote>읽을 수 있는 텍스트</quote> 버전; <command>objdump</command>와 같은 유틸리티 빌드에 사용된다</para>
           <indexterm zone="ch-system-binutils libopcodes">
             <primary sortas="c-libopcodes">libopcodes</primary>
           </indexterm>

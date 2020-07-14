@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Inetutils package contains programs for basic networking.</para>
+    <para>Inetutils 패키지는 기본적인 네트워킹을 위한 프로그램을 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,9 +38,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Inetutils</title>
+    <title>Inetutils 설치</title>
 
-    <para>Prepare Inetutils for compilation:</para>
+    <para>Inetutils 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr        \
             --localstatedir=/var \
@@ -53,69 +53,53 @@
             --disable-servers</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--disable-logger</parameter></term>
         <listitem>
-          <para>This option prevents Inetutils from installing the
-          <command>logger</command> program, which is used by scripts to
-          pass messages to the System Log Daemon. Do not install it because
-          Util-linux installs a more recent version.</para>
+          <para>시스템 로그 데몬에 메시지를 전달하는 스크립트가 사용하는 <command>logger</command> 프로그램을 설치하지 않도록 한다. Util-리눅스가 더 최신 버전을 설치하므로 이것을 설치하지 않도록 하라.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-whois</parameter></term>
         <listitem>
-          <para>This option disables the building of the Inetutils
-          <command>whois</command> client, which is out of date. Instructions for
-          a better <command>whois</command> client are in the BLFS book.</para>
+          <para>오래돼서 쓰이지 않는 <command>whois</command> 클라이언트 빌드를 비활성화한다. 더 나은 <command>whois</command> 클라이언트 설명은 BLFS 책에 있다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-r*</parameter></term>
         <listitem>
-          <para>These parameters disable building obsolete programs that should not
-          be used due to security issues. The functions provided by these
-          programs can be provided by the <application>openssh</application>
-          package in the BLFS book.</para>
+          <para>보안 문제로 인해 사용되어서는 안 되는 구식 프로그램을 빌드하지 않도록 한다. 이런 프로그램들이 제공하는 기능들은 BLFS 책에 있는 <application>openssh</application> 패키지로 대체할 수 있다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-servers</parameter></term>
         <listitem>
-          <para>This disables the installation of the various network servers
-          included as part of the Inetutils package. These servers are deemed not
-          appropriate in a basic LFS system. Some are insecure by nature and are
-          only considered safe on trusted networks. Note that
-          better replacements are available for many of these servers.</para>
+          <para> Inetutils 패키지의 일부로 포함된 다양한 네트워크 서버의 설치가 비활성화된다. 이런 서버들은 기본 LFS 시스템에서 적합하지 않다고 생각한다. 일부는 환경이 불안정해서 신뢰할 수 있는 네트워크에서만 안전하다고 판단할 수 있다. 이러한 서버 중 많은 곳에 더 나은 대안을 사용할 수 있다는 것을 참고하라.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <note><para>One test, libls.sh, may fail in the initial chroot
-    environment but will pass if the test is rerun after the LFS system
-    is complete. One test, ping-localhost.sh, will fail if the host
-    system does not have ipv6 capability.</para></note>
+    <note><para>테스트 중 하나인 libls.sh는, 초기 chroot 환경에서 실패할 수도 있지만 LFS 시스템이 완성된 후 테스트를 다시 실행하면 통과한다. 호스트 시스템에 ipv6 기능이 없는 경우 ping-localhost.sh 하나가 실패한다. </para></note>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Move some programs so they are available if <filename
-    class='directory'>/usr</filename> is not accessible:</para>
+    <para><filename class='directory'>/usr</filename>에 액세스할 수 없는 경우 사용할 수 있도록 일부 프로그램을 이동한다:</para>
 
 <screen><userinput remap="install">mv -v /usr/bin/{hostname,ping,ping6,traceroute} /bin
 mv -v /usr/bin/ifconfig /sbin</userinput></screen>
@@ -123,26 +107,26 @@ mv -v /usr/bin/ifconfig /sbin</userinput></screen>
   </sect2>
 
   <sect2 id="contents-inetutils" role="content">
-    <title>Contents of Inetutils</title>
+    <title>Inetutils의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
 
       <seglistitem>
         <seg>dnsdomainname, ftp, ifconfig, hostname, ping, ping6, 
-        talk, telnet, tftp, and traceroute</seg>
+        talk, telnet, tftp, traceroute</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="dnsdomainname">
         <term><command>dnsdomainname</command></term>
         <listitem>
-        <para>Show the system's DNS domain name</para>
+        <para>시스템의 DNS 도메인 네임 표시</para>
         <indexterm zone="ch-system-inetutils dnsdomainname">
           <primary sortas="b-dnsdomainname">dnsdomainname</primary>
         </indexterm>
@@ -152,7 +136,7 @@ mv -v /usr/bin/ifconfig /sbin</userinput></screen>
       <varlistentry id="ftp">
         <term><command>ftp</command></term>
         <listitem>
-        <para>Is the file transfer protocol program</para>
+        <para>파일 전송 프로토콜 프로그램</para>
         <indexterm zone="ch-system-inetutils ftp">
           <primary sortas="b-ftp">ftp</primary>
         </indexterm>
@@ -162,7 +146,7 @@ mv -v /usr/bin/ifconfig /sbin</userinput></screen>
       <varlistentry id="hostname">
         <term><command>hostname</command></term>
         <listitem>
-          <para>Reports or sets the name of the host</para>
+          <para>호스트 이름 보고 또는 설정</para>
           <indexterm zone="ch-system-inetutils hostname">
             <primary sortas="b-hostname">hostname</primary>
           </indexterm>
@@ -172,7 +156,7 @@ mv -v /usr/bin/ifconfig /sbin</userinput></screen>
       <varlistentry id="ifconfig">
         <term><command>ifconfig</command></term>
         <listitem>
-        <para>Manages network interfaces</para>
+        <para>네트워크 인터페이스 관리</para>
         <indexterm zone="ch-system-inetutils ifconfig">
           <primary sortas="b-ifconfig">ifconfig</primary>
         </indexterm>
@@ -182,8 +166,7 @@ mv -v /usr/bin/ifconfig /sbin</userinput></screen>
       <varlistentry id="ping">
         <term><command>ping</command></term>
         <listitem>
-          <para>Sends echo-request packets and reports how long the replies
-          take</para>
+          <para>응답 요청 패킷 전송 및 응답에 걸리는 시간 보고</para>
           <indexterm zone="ch-system-inetutils ping">
             <primary sortas="b-ping">ping</primary>
           </indexterm>
@@ -193,7 +176,7 @@ mv -v /usr/bin/ifconfig /sbin</userinput></screen>
       <varlistentry id="ping6">
         <term><command>ping6</command></term>
         <listitem>
-          <para>A version of <command>ping</command> for IPv6 networks</para>
+          <para>IPv6 네트워크 버전 <command>ping</command></para>
           <indexterm zone="ch-system-inetutils ping6">
             <primary sortas="b-ping6">ping6</primary>
           </indexterm>
@@ -203,7 +186,7 @@ mv -v /usr/bin/ifconfig /sbin</userinput></screen>
       <varlistentry id="talk">
         <term><command>talk</command></term>
         <listitem>
-          <para>Is used to chat with another user</para>
+          <para>다른 사용자와 대화하는 데 사용됨</para>
           <indexterm zone="ch-system-inetutils talk">
             <primary sortas="b-talk">talk</primary>
           </indexterm>
@@ -213,7 +196,7 @@ mv -v /usr/bin/ifconfig /sbin</userinput></screen>
       <varlistentry id="telnet">
         <term><command>telnet</command></term>
         <listitem>
-          <para>An interface to the TELNET protocol</para>
+          <para>TELNET 프로토콜 인터페이스</para>
           <indexterm zone="ch-system-inetutils telnet">
             <primary sortas="b-telnet">telnet</primary>
           </indexterm>
@@ -223,7 +206,7 @@ mv -v /usr/bin/ifconfig /sbin</userinput></screen>
       <varlistentry id="tftp">
         <term><command>tftp</command></term>
         <listitem>
-          <para>A trivial file transfer program</para>
+          <para>약식 파일 전송 프로그램</para>
           <indexterm zone="ch-system-inetutils tftp">
             <primary sortas="b-tftp">tftp</primary>
           </indexterm>
@@ -233,9 +216,7 @@ mv -v /usr/bin/ifconfig /sbin</userinput></screen>
       <varlistentry id="traceroute">
         <term><command>traceroute</command></term>
         <listitem>
-          <para>Traces the route your packets take from the host you are
-          working on to another host on a network, showing all the intermediate
-          hops (gateways) along the way</para>
+          <para>작업 중인 호스트에서 네트워크의 다른 호스트로 이동하는 패킷의 경로를 추적하여 도중의 모든 중간 경유지(게이트웨이)를 표시</para>
           <indexterm zone="ch-system-inetutils traceroute">
             <primary sortas="b-traceroute">traceroute</primary>
           </indexterm>

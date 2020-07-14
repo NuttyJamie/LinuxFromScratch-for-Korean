@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Sed package contains a stream editor.</para>
+    <para>Sed 패키지는 스트림 에디터를 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,14 +38,14 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Sed</title>
+    <title>Sed 설치</title>
 
-    <para>First fix an issue in the LFS environment and remove a failing test:</para>
+    <para>먼저 LFS 환경에서의 문제 하나를 해결하고 실패하는 테스트를 제거한다:</para>
 
 <screen><userinput remap="pre">sed -i 's/usr/tools/'                 build-aux/help2man
 sed -i 's/testsuite.panic-tests.sh//' Makefile.in</userinput></screen>
 
-    <para>Prepare Sed for compilation:</para>
+    <para>Sed 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr --bindir=/bin</userinput></screen>
 <!--
@@ -60,16 +60,16 @@ sed -i 's/testsuite.panic-tests.sh//' Makefile.in</userinput></screen>
       </varlistentry>
     </variablelist>
 -->
-    <para>Compile the package and generate the HTML documentation:</para>
+    <para>패키지를 컴파일 하고 HTML 문서를 생성한다:</para>
 
 <screen><userinput remap="make">make
 make html</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면, 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package and its documentation:</para>
+    <para>패키지와 문서를 설치한다:</para>
 
 <screen><userinput remap="install">make install
 install -d -m755           /usr/share/doc/sed-&sed-version;
@@ -78,11 +78,11 @@ install -m644 doc/sed.html /usr/share/doc/sed-&sed-version;</userinput></screen>
   </sect2>
 
   <sect2 id="contents-sed" role="content">
-    <title>Contents of Sed</title>
+    <title>Sed의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed program</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
         <seg>sed</seg>
@@ -91,14 +91,14 @@ install -m644 doc/sed.html /usr/share/doc/sed-&sed-version;</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="sed">
         <term><command>sed</command></term>
         <listitem>
-          <para>Filters and transforms text files in a single pass</para>
+          <para>텍스트 파일을 한번에 필터링 및 변환</para>
           <indexterm zone="ch-system-sed sed">
             <primary sortas="b-sed">sed</primary>
           </indexterm>

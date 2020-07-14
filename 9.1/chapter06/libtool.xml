@@ -23,9 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Libtool package contains the GNU generic library support script.
-    It wraps the complexity of using shared libraries in a consistent, portable
-    interface.</para>
+    <para>Libtool 패키지에는 GNU 일반 라이브러리 지원 스크립트가 포함되어 있다. 공유 라이브러리를 사용하는 복잡성을 일관적이고 포팅 가능한 인터페이스로 래핑한다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,31 +38,25 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Libtool</title>
+    <title>Libtool 설치</title>
 
-    <para>Prepare Libtool for compilation:</para>
+    <para>Libtool 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-<para>To test the results<!--(about 11.0 SBU)-->, issue:</para>
+<para>결과를 테스트하려면<!--(about 11.0 SBU)--> 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <note><para>The test time for libtool can be reduced significantly on a
-    system with multiple cores.  To do this, append
-    <command>TESTSUITEFLAGS=-j&lt;N&gt;</command> to the line above.  For
-    instance, using -j4 can reduce the test time by over 60
-    percent.</para></note>
+    <note><para>libtool의 테스트 시간은 멀티 코어 시스템에서 크게 단축될 수 있다. 이렇게 하려면 위의 라인에 <command>TESTSUITEFLAGS=-j&lt;N&gt;</command>을 추가하라. 예를 들어 -j4를 사용하면 테스트 시간을 60% 이상 줄일 수 있다.</para></note>
 
-    <para>Five tests are known to fail in the LFS build environment due
-    to a circular dependency, but all tests pass if rechecked after 
-    automake is installed.</para>
+    <para>LFS 빌드 환경에서는 순환 의존성 때문에 5가지 테스트가 실패하는 것으로 알려졌으나 automake가 설치된 이후에 다시 확인하면 모든 테스트가 통과된다. </para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
@@ -72,29 +64,29 @@
 
 
   <sect2 id="contents-libtool" role="content">
-    <title>Contents of Libtool</title>
+    <title>Libtool의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
-        <seg>libtool and libtoolize</seg>
+        <seg>libtool, libtoolize</seg>
         <seg>libltdl.so</seg>
-        <seg>/usr/include/libltdl and /usr/share/libtool</seg>
+        <seg>/usr/include/libltdl, /usr/share/libtool</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="libtool">
         <term><command>libtool</command></term>
         <listitem>
-          <para>Provides generalized library-building support services</para>
+          <para>일반화된 라이브러리 구축 지원 서비스 제공</para>
           <indexterm zone="ch-system-libtool libtool">
             <primary sortas="b-libtool">libtool</primary>
           </indexterm>
@@ -104,8 +96,7 @@
       <varlistentry id="libtoolize">
         <term><command>libtoolize</command></term>
         <listitem>
-          <para>Provides a standard way to add <command>libtool</command>
-          support to a package</para>
+          <para>패키지에 <command>libtool</command> 지원을 추가하는 표준적인 방법 제공</para>
           <indexterm zone="ch-system-libtool libtoolize">
             <primary sortas="b-libtoolize">libtoolize</primary>
           </indexterm>
@@ -115,7 +106,7 @@
       <varlistentry id="libltdl">
         <term><filename class="libraryfile">libltdl</filename></term>
         <listitem>
-          <para>Hides the various difficulties of dlopening libraries</para>
+          <para>dlopen 라이브러리의 다양한 애로 사항들을 감춤</para>
           <indexterm zone="ch-system-libtool libltdl">
             <primary sortas="c-libltdl">libltdl</primary>
           </indexterm>

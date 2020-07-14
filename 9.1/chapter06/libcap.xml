@@ -23,10 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Libcap package implements the user-space interfaces to the POSIX
-    1003.1e capabilities available in Linux kernels. These capabilities are a
-    partitioning of the all powerful root privilege into a set of distinct
-    privileges.</para>
+    <para>Libcap 패키지는 리눅스 커널에서 사용할 수 있는 POSIX 1003.1e 기능에 대한 사용자 공간 인터페이스를 구현한다. 이러한 기능들은 강력한 모든 root 권한을 별개의 권한 집합들로 분할한다. </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,35 +38,32 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Libcap</title>
+    <title>Libcap 설치</title>
 
-    <para>Prevent two static libraries from being installed:</para>
+    <para>두 정적 라이브러리들이 설치되지 않게 한다:</para>
 
 <screen><userinput remap="pre">sed -i '/install.*STA...LIBNAME/d' libcap/Makefile</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make lib=lib</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the make option:</title>
+      <title>make 옵션의 의미:</title>
 
       <varlistentry>
         <term><parameter>lib=lib</parameter></term>
         <listitem>
-          <para>This parameter sets the library directory to
-          <filename>/lib</filename> rather than
-          <filename>/lib64</filename> on x86_64. It has no effect on
-          x86.</para>
+          <para>x86_64에서 <filename>/lib64</filename>가 아닌 <filename>/lib</filename>로 라이브러리 디렉토리를 설정한다. x86에는 영향이 없다.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make lib=lib install
 chmod -v 755 /lib/libcap.so.&libcap-version;</userinput></screen>
@@ -77,27 +71,27 @@ chmod -v 755 /lib/libcap.so.&libcap-version;</userinput></screen>
   </sect2>
 
   <sect2 id="contents-libcap" role="content">
-    <title>Contents of Libcap</title>
+    <title>Libcap의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed library</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
 
       <seglistitem>
-        <seg>capsh, getcap, getpcaps, and setcap</seg>
-        <seg>libcap.so and libpsx.a</seg>
+        <seg>capsh, getcap, getpcaps, setcap</seg>
+        <seg>libcap.so, libpsx.a</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="capsh">
         <term><command>capsh</command></term>
         <listitem>
-          <para>A shell wrapper to explore and constrain capability support</para>
+          <para>기능 지원을 탐색하고 제한하는 셸 래퍼</para>
           <indexterm zone="ch-system-libcap capsh">
             <primary sortas="b-capsh">capsh</primary>
           </indexterm>
@@ -107,7 +101,7 @@ chmod -v 755 /lib/libcap.so.&libcap-version;</userinput></screen>
       <varlistentry id="getcap">
         <term><command>getcap</command></term>
         <listitem>
-          <para>Examines file capabilities</para>
+          <para>파일 기능 검사</para>
           <indexterm zone="ch-system-libcap getcap">
             <primary sortas="b-getcap">getcap</primary>
           </indexterm>
@@ -117,7 +111,7 @@ chmod -v 755 /lib/libcap.so.&libcap-version;</userinput></screen>
       <varlistentry id="getpcaps">
         <term><command>getpcaps</command></term>
         <listitem>
-          <para>Displays the capabilities on the queried process(es)</para>
+          <para>쿼리된 프로세스(들)의 기능 표시</para>
           <indexterm zone="ch-system-libcap getpcaps">
             <primary sortas="b-getpcaps">getpcaps</primary>
           </indexterm>
@@ -127,7 +121,7 @@ chmod -v 755 /lib/libcap.so.&libcap-version;</userinput></screen>
       <varlistentry id="setcap">
         <term><command>setcap</command></term>
         <listitem>
-          <para>Sets file capabilities</para>
+          <para>파일 기능 설정</para>
           <indexterm zone="ch-system-libcap setcap">
             <primary sortas="b-setcap">setcap</primary>
           </indexterm>
@@ -137,8 +131,8 @@ chmod -v 755 /lib/libcap.so.&libcap-version;</userinput></screen>
       <varlistentry id="libcap">
         <term><filename class="libraryfile">libcap</filename></term>
         <listitem>
-          <para>Contains the library functions for manipulating POSIX 1003.1e
-          capabilities</para>
+          <para>POSIX 1003.1e 기능을 조작하는 라이브러리 기능 포함
+          </para>
           <indexterm zone="ch-system-libcap libcap">
             <primary sortas="c-libcap">libcap</primary>
           </indexterm>
@@ -148,8 +142,7 @@ chmod -v 755 /lib/libcap.so.&libcap-version;</userinput></screen>
       <varlistentry id="libpsx">
         <term><filename class="libraryfile">libpsx</filename></term>
         <listitem>
-          <para>Contains functions to support POSIX semantics for syscalls
-          associated with the pthread library</para>
+          <para>pthread 라이브러리와 관련된 syscall에 대해 POSIX semantics를 지원하는 함수를 포함</para>
           <indexterm zone="ch-system-libcap libpsx">
             <primary sortas="c-libpsx">libpsx</primary>
           </indexterm>

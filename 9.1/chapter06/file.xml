@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The File package contains a utility for determining the type of a given
-    file or files.</para>
+    <para>File 패키지에는 지정된 파일 또는 파일의 유형을 파악하는 유틸리티가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,21 +38,21 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of File</title>
+    <title>File 설치</title>
 
-    <para>Prepare File for compilation:</para>
+    <para>File 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 다음을 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
@@ -61,11 +60,11 @@
 
 
   <sect2 id="contents-file" role="content">
-    <title>Contents of File</title>
+    <title>File의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed library</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
 
       <seglistitem>
         <seg>file</seg>
@@ -74,16 +73,14 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="file">
         <term><command>file</command></term>
         <listitem>
-          <para>Tries to classify each given file; it does this by performing
-          several tests&mdash;file system tests, magic number tests, and language
-          tests</para>
+          <para>여러 테스트를 수행해서 각 파일의 종류를 파악함&mdash;파일 시스템 테스트, 매직넘버 테스트, 언어 테스트 등</para>
           <indexterm zone="ch-system-file file">
             <primary sortas="b-file">file</primary>
           </indexterm>
@@ -93,8 +90,7 @@
       <varlistentry id="libmagic">
         <term><filename class="libraryfile">libmagic</filename></term>
         <listitem>
-          <para>Contains routines for magic number recognition, used by the
-          <command>file</command> program</para>
+          <para><command>file</command> 프로그램에서 사용하는 매직넘버 인식 루틴을 포함</para>
           <indexterm zone="ch-system-file libmagic">
             <primary sortas="c-libmagic">libmagic</primary>
           </indexterm>

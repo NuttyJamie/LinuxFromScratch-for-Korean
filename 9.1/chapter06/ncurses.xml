@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Ncurses package contains libraries for terminal-independent
-    handling of character screens.</para>
+    <para>Ncurses 패키지는 문자 화면의 터미널 독립적 처리를 위한 라이브러리를 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,13 +38,13 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Ncurses</title>
+    <title>Ncurses 설치</title>
 
-    <para>Don't install a static library that is not handled by configure:</para>
+    <para>Configure에 의해 처리되지 않는 정적 라이브러리를 설치하지 않는다:</para>
 
 <screen><userinput remap="pre">sed -i '/LIBTOOL_INSTALL/d' c++/Makefile.in</userinput></screen>
 
-    <para>Prepare Ncurses for compilation:</para>
+    <para>Ncurses 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr           \
             --mandir=/usr/share/man \
@@ -56,68 +55,52 @@
             --enable-widec</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the new configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--enable-widec</parameter></term>
         <listitem>
-          <para>This switch causes wide-character libraries (e.g., <filename
-          class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
-          to be built instead of normal ones (e.g., <filename
-          class="libraryfile">libncurses.so.&ncurses-version;</filename>).
-          These wide-character libraries are usable in both multibyte and
-          traditional 8-bit locales, while normal libraries work properly
-          only in 8-bit locales. Wide-character and normal libraries are
-          source-compatible, but not binary-compatible.</para>
+          <para>일반 라이브러리(예: <filename
+          class="libraryfile">libncurses.so.&ncurses-version;</filename>) 대신 와이드 문자 라이브러리(예: <filename
+          class="libraryfile">libncursesw.so.&ncurses-version;</filename>)가 빌드된다. 이러한 와이드 문자 라이브러리는 멀티바이트 및 기존의 8비트 로케일에서 모두 사용할 수 있으며, 일반 라이브러리는 8비트 로케일에서만 제대로 작동한다. 와이드 문자 및 일반 라이브러리는 소스끼리는 호환되지만 바이너리 호환은 되지 않는다. </para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-pc-files</parameter></term>
         <listitem>
-          <para>This switch generates and installs .pc files for pkg-config.
-          </para>
+          <para>pkg-config용 .pc 파일을 생성하고 설치한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--without-normal</parameter></term>
         <listitem>
-          <para>This switch disables building and installing most static libraries.
-          </para>
+          <para>대부분의 정적 라이브러리들의 빌드와 설치를 비활성화한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>This package has a test suite, but it can only be run after the
-    package has been installed.  The tests reside in the
-    <filename class="directory">test/</filename> directory.  See the
-    <filename>README</filename> file in that directory for further details.
-    </para>
+    <para>이 패키지는 테스트 스위트가 있지만, 패키지가 설치된 후에만 실행할 수 있다. 테스트들은 <filename class="directory">test/</filename> 디렉토리에 있다. 자세한 내용은 해당 디렉토리의 <filename>README</filename> 파일을 참고하라.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Move the shared libraries to the
-    <filename class="directory">/lib</filename> directory, where they are
-    expected to reside:</para>
+    <para>공유 라이브러리들을 원래 있어야 할 <filename class="directory">/lib</filename> 디렉토리로 이동한다:</para>
 
 <screen><userinput remap="install">mv -v /usr/lib/libncursesw.so.6* /lib</userinput></screen>
 
-    <para>Because the libraries have been moved, one symlink points to
-    a non-existent file. Recreate it:</para>
+    <para>라이브러리가 이동되었기 때문에 한 심볼릭 링크는 존재하지 않는 파일을 가리킨다. 이것을 다시 만든다:</para>
 
 <screen><userinput remap="install">ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) /usr/lib/libncursesw.so</userinput></screen>
 
-    <para>Many applications still expect the linker to be able to find
-    non-wide-character Ncurses libraries. Trick such applications into linking with
-    wide-character libraries by means of symlinks and linker scripts:</para>
+    <para>많은 응용 프로그램들은 여전히 링커가 비 와이드(일반) 문자 Ncurses 라이브러리를 찾을 수 있는 것처럼 작동할 것이다. 이러한 응용 프로그램들이 와이드 문자 라이브러리에 링크되도록 심볼릭 링크 및 링커 스크립트로 트릭을 쓴다:</para>
 
 <screen><userinput remap="install">for lib in ncurses form panel menu ; do
     rm -vf                    /usr/lib/lib${lib}.so
@@ -125,28 +108,20 @@
     ln -sfv ${lib}w.pc        /usr/lib/pkgconfig/${lib}.pc
 done</userinput></screen>
 
-    <para>Finally, make sure that old applications that look for
-    <filename class="libraryfile">-lcurses</filename> at build time are still
-    buildable:</para>
+    <para>마지막으로, 빌드 시 <filename class="libraryfile">-lcurses</filename>를 찾는 오래된 응용 프로그램들을 여전히 빌드할 수 있는지 확인하라:</para>
 
 <screen><userinput remap="install">rm -vf                     /usr/lib/libcursesw.so
 echo "INPUT(-lncursesw)" &gt; /usr/lib/libcursesw.so
 ln -sfv libncurses.so      /usr/lib/libcurses.so</userinput></screen>
 
-    <para>If desired, install the Ncurses documentation:</para>
+    <para>필요하다면, Ncurses 문서를 설치하라:</para>
 
 <screen><userinput remap="install">mkdir -v       /usr/share/doc/ncurses-&ncurses-version;
 cp -v -R doc/* /usr/share/doc/ncurses-&ncurses-version;</userinput></screen>
 
     <note>
 
-      <para>The instructions above don't create non-wide-character Ncurses
-      libraries since no package installed by compiling from sources would link
-      against them at runtime. However, the only known binary-only
-      applications that link against non-wide-character Ncurses libraries 
-      require version 5.  If you must have such libraries because of some binary-only
-      application or to be compliant with LSB, build the package again with the
-      following commands:</para>
+      <para>소스로부터 컴파일하여 설치한 패키지는 런타임 중에 비 와이드 문자 Ncurses 라이브러리에 링크되지 않으므로, 위의 설명은 비 와이드 문자 Ncurses 라이브러리를 생성하지 않는다. 그러나 비 와이드 문자 Ncurses 라이브러리에 대해서만 링크하는 것으로 알려진 바이너리 전용 응용 프로그램들은 라이브러리 버전 5가 필요하다. 일부 바이너리 전용 응용 프로그램 때문에, 또는 LSB를 준수하기 위해 이러한 라이브러리가 필요한 경우 다음 명령을 사용하여 패키지를 다시 빌드하라:</para>
 
 <screen role="nodump"><userinput>make distclean
 ./configure --prefix=/usr    \
@@ -162,52 +137,51 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
   </sect2>
 
   <sect2 id="contents-ncurses" role="content">
-    <title>Contents of Ncurses</title>
+    <title>Ncurses의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>
-           captoinfo (link to tic), 
+           captoinfo (tic로 링크), 
            clear, 
            infocmp, 
-           infotocap (link to tic),
+           infotocap (tic로 링크),
            ncursesw6-config, 
-           reset (link to tset), 
+           reset (tset로 링크), 
            tabs, 
            tic, 
            toe, 
-           tput, and 
+           tput, 
            tset
         </seg>
         <seg>
-           libcursesw.so (symlink and linker script to libncursesw.so),
+           libcursesw.so (libncursesw.so로 심볼릭 링크, 링커 스크립트),
            libformw.so, 
            libmenuw.so, 
            libncursesw.so,
            libncurses++w.a,
-           libpanelw.so, and their non-wide-character counterparts without "w"
-              in the library names.</seg>
+           libpanelw.so, 그리고 라이브러리 이름에 "w"가 없는 비-와이드-문자 대응 파일들.</seg>
         <seg>
            /usr/share/tabset, 
-           /usr/share/terminfo, and
+           /usr/share/terminfo,
            /usr/share/doc/ncurses-&ncurses-version;
         </seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="captoinfo">
         <term><command>captoinfo</command></term>
         <listitem>
-          <para>Converts a termcap description into a terminfo description</para>
+          <para>termcap 내용을 terminfo 내용으로 변환</para>
           <indexterm zone="ch-system-ncurses captoinfo">
             <primary sortas="b-captoinfo">captoinfo</primary>
           </indexterm>
@@ -217,7 +191,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="clear">
         <term><command>clear</command></term>
         <listitem>
-          <para>Clears the screen, if possible</para>
+          <para>화면을 지움(가능한 경우)</para>
           <indexterm zone="ch-system-ncurses clear">
             <primary sortas="b-clear">clear</primary>
           </indexterm>
@@ -227,7 +201,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="infocmp">
         <term><command>infocmp</command></term>
         <listitem>
-          <para>Compares or prints out terminfo descriptions</para>
+          <para>terminfo 내용 비교 또는 출력</para>
           <indexterm zone="ch-system-ncurses infocmp">
             <primary sortas="b-infocmp">infocmp</primary>
           </indexterm>
@@ -237,7 +211,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="infotocap">
         <term><command>infotocap</command></term>
         <listitem>
-          <para>Converts a terminfo description into a termcap description</para>
+          <para>terminfo 내용을 termcap 내용으로 변환</para>
           <indexterm zone="ch-system-ncurses infotocap">
             <primary sortas="b-infotocap">infotocap</primary>
           </indexterm>
@@ -247,7 +221,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="ncursesw6-config">
         <term><command>ncursesw6-config</command></term>
         <listitem>
-          <para>Provides configuration information for ncurses</para>
+          <para>ncurses에 대한 구성 정보 제공</para>
           <indexterm zone="ch-system-ncurses ncursesw6-config">
             <primary sortas="b-ncursesw6-config">ncursesw6-config</primary>
           </indexterm>
@@ -257,7 +231,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="reset">
         <term><command>reset</command></term>
         <listitem>
-          <para>Reinitializes a terminal to its default values</para>
+          <para>터미널을 기본값으로 다시 초기화</para>
           <indexterm zone="ch-system-ncurses reset">
             <primary sortas="b-reset">reset</primary>
           </indexterm>
@@ -267,7 +241,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="tabs">
         <term><command>tabs</command></term>
         <listitem>
-          <para>Clears and sets tab stops on a terminal</para>
+          <para>터미널의 탭 간격 초기화 및 설정</para>
           <indexterm zone="ch-system-ncurses tabs">
             <primary sortas="b-tabs">tabs</primary>
           </indexterm>
@@ -277,10 +251,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="tic">
         <term><command>tic</command></term>
         <listitem>
-          <para>The terminfo entry-description compiler that translates a
-          terminfo file from source format into the binary format needed for the
-          ncurses library routines [A terminfo file contains information on the
-          capabilities of a certain terminal.]</para>
+          <para>terminfo entry-description 컴파일러는 terminfo 파일을 소스 형식에서 ncurses 라이브러리 루틴에 필요한 바이너리 형식으로 변환한다[terminfo 파일에는 특정 터미널의 기능에 대한 정보가 포함되어 있다.]</para>
           <indexterm zone="ch-system-ncurses tic">
             <primary sortas="b-tic">tic</primary>
           </indexterm>
@@ -290,8 +261,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="toe">
         <term><command>toe</command></term>
         <listitem>
-          <para>Lists all available terminal types, giving the primary name and
-          description for each</para>
+          <para>사용 가능한 모든 터미널 유형을 나열하고 각 터미널에 대한 기본 이름과 설명을 제공</para>
           <indexterm zone="ch-system-ncurses toe">
             <primary sortas="b-toe">toe</primary>
           </indexterm>
@@ -301,9 +271,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="tput">
         <term><command>tput</command></term>
         <listitem>
-          <para>Makes the values of terminal-dependent capabilities available to
-          the shell; it can also be used to reset or initialize a terminal or
-          report its long name</para>
+          <para>셸에서 터미널 고유 기능들을 사용할 수 있게 한다; 터미널을 재설정 또는 초기화하거나 터미널 타입의 풀 네임을 보고하는 데도 사용할 수 있음</para>
           <indexterm zone="ch-system-ncurses tput">
             <primary sortas="b-tput">tput</primary>
           </indexterm>
@@ -313,7 +281,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="tset">
         <term><command>tset</command></term>
         <listitem>
-          <para>Can be used to initialize terminals</para>
+          <para>터미널을 초기화하는 데 사용</para>
           <indexterm zone="ch-system-ncurses tset">
             <primary sortas="b-tset">tset</primary>
           </indexterm>
@@ -323,7 +291,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libcursesw">
         <term><filename class="libraryfile">libcursesw</filename></term>
         <listitem>
-          <para>A link to <filename>libncursesw</filename></para>
+          <para><filename>libncursesw</filename>로 링크</para>
           <indexterm zone="ch-system-ncurses libcursesw">
             <primary sortas="c-libcursesw">libcursesw</primary>
           </indexterm>
@@ -333,10 +301,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libncursesw">
         <term><filename class="libraryfile">libncursesw</filename></term>
         <listitem>
-          <para>Contains functions to display text in many complex ways on a
-          terminal screen; a good example of the use of these functions is the
-          menu displayed during the kernel's <command>make
-          menuconfig</command></para>
+          <para>터미널 화면에 여러 가지 복잡한 방법으로 텍스트를 표시하는 기능을 포함. 이러한 기능을 사용하는 좋은 예는 커널의 <command>make menuconfig</command>동안 표시되는 메뉴이다.</para>
           <indexterm zone="ch-system-ncurses libncursesw">
             <primary sortas="c-libncursesw">libncursesw</primary>
           </indexterm>
@@ -346,7 +311,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libformw">
         <term><filename class="libraryfile">libformw</filename></term>
         <listitem>
-          <para>Contains functions to implement forms</para>
+          <para>양식 구현 기능 포함</para>
           <indexterm zone="ch-system-ncurses libformw">
             <primary sortas="c-libformw">libformw</primary>
           </indexterm>
@@ -356,7 +321,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libmenuw">
         <term><filename class="libraryfile">libmenuw</filename></term>
         <listitem>
-          <para>Contains functions to implement menus</para>
+          <para>메뉴 구현 기능 포함</para>
           <indexterm zone="ch-system-ncurses libmenuw">
             <primary sortas="c-libmenuw">libmenuw</primary>
           </indexterm>
@@ -366,7 +331,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libpanelw">
         <term><filename class="libraryfile">libpanelw</filename></term>
         <listitem>
-          <para>Contains functions to implement panels</para>
+          <para>패널 구현 기능 포함</para>
           <indexterm zone="ch-system-ncurses libpanelw">
             <primary sortas="c-libpanelw">libpanelw</primary>
           </indexterm>

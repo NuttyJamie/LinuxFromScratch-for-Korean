@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The attr package contains utilities to administer the extended
-    attributes on filesystem objects.</para>
+    <para>Attr 패키지에는 파일 시스템 개체의 확장 속성을 관리하는 유틸리티가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,9 +38,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Attr</title>
+    <title>Attr 설치</title>
 
-    <para>Prepare Attr for compilation:</para>
+    <para>Attr 컴파일을 준비한다:</para>
 
 <screen revision="sysv"><userinput remap="configure">./configure --prefix=/usr     \
             --bindir=/bin     \
@@ -54,24 +53,19 @@
             --sysconfdir=/etc \
             --docdir=/usr/share/doc/attr-&attr-version;</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>The tests need to be run on a filesystem that supports extended
-    attributes such as the ext2, ext3, or ext4 filesystems. 
-    To test the results, issue:</para>
+    <para>테스트는 ext2, ext3 또는 ext4 파일 시스템과 같은 확장 속성을 지원하는 파일 시스템에서 실행되어야 한다. 결과를 테스트하려면 다음을 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>The shared library needs to be moved to
-    <filename class="directory">/lib</filename>, and as a result the
-    <filename class="extension">.so</filename> file in
-    <filename class="directory">/usr/lib</filename> will need to be recreated:</para>
+    <para>공유 라이브러리를 <filename class="directory">/lib</filename>로 이동해야 하므로 <filename class="directory">/usr/lib</filename>의 <filename class="extension">.so</filename> 파일을 다시 만들어야 한다:</para>
 
 <screen><userinput remap="install">mv -v /usr/lib/libattr.so.* /lib
 ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so</userinput></screen>
@@ -79,29 +73,29 @@ ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so</userinput
   </sect2>
 
   <sect2 id="contents-attr" role="content">
-    <title>Contents of Attr</title>
+    <title>Attr의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed library</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
-        <seg>attr, getfattr, and setfattr</seg>
+        <seg>attr, getfattr과 setfattr</seg>
         <seg>libattr.so</seg>
-        <seg>/usr/include/attr and /usr/share/doc/attr-&attr-version;</seg>
+        <seg>/usr/include/attr과 /usr/share/doc/attr-&attr-version;</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="attr">
         <term><command>attr</command></term>
         <listitem>
-          <para>Extends attributes on filesystem objects</para>
+          <para>파일 시스템 개체에 대한 특성 확장</para>
           <indexterm zone="ch-system-attr attr">
             <primary sortas="b-attr">attr</primary>
           </indexterm>
@@ -111,7 +105,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so</userinput
       <varlistentry id="getfattr">
         <term><command>getfattr</command></term>
         <listitem>
-          <para>Gets the extended attributes of filesystem objects</para>
+          <para>파일 시스템 개체의 확장 특성을 가져옴</para>
           <indexterm zone="ch-system-attr getfattr">
             <primary sortas="b-getfattr">getfattr</primary>
           </indexterm>
@@ -121,7 +115,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so</userinput
       <varlistentry id="setfattr">
         <term><command>setfattr</command></term>
         <listitem>
-          <para>Sets the extended attributes of filesystem objects</para>
+          <para>파일 시스템 개체의 확장 특성 설정</para>
           <indexterm zone="ch-system-attr setfattr">
             <primary sortas="b-setfattr">setfattr</primary>
           </indexterm>
@@ -131,7 +125,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so</userinput
       <varlistentry id="libattr">
         <term><filename class="libraryfile">libattr</filename></term>
         <listitem>
-          <para>Contains the library functions for manipulating extended attributes</para>
+          <para>확장 속성을 조작하는 라이브러리 기능 포함</para>
           <indexterm zone="ch-system-attr libattr">
             <primary sortas="c-libattr">libattr</primary>
           </indexterm>

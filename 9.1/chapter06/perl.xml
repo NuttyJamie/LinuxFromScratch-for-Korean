@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Perl package contains the Practical Extraction and Report
-    Language.</para>
+    <para>Perl 패키지에는 Practical Extraction 및 Report Language가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,19 +38,13 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Perl</title>
+    <title>Perl 설치</title>
 
-    <para>First create a basic <filename>/etc/hosts</filename> file to be
-    referenced in one of Perl's configuration files as well as the optional
-    test suite:</para>
+    <para>우선 Perl의 configuration 파일 및 선택적 테스트 제품군 중 하나에서 참조할 기본 <filename>/etc/hosts</filename> 파일을 생성하라:</para>
 
 <screen><userinput remap="pre">echo "127.0.0.1 localhost $(hostname)" &gt; /etc/hosts</userinput></screen>
 
-    <para>This version of Perl now builds the Compress::Raw::Zlib and 
-    Compress::Raw::BZip2 modules. By
-    default Perl will use an internal copy of the sources for the build.
-    Issue the following command so that Perl will use the libraries
-    installed on the system:</para>
+    <para>이 버전의 Perl은 이제 Compress::Raw::Zlib 와 Compress::Raw::BZip2 모듈들을 빌드한다. 기본적으로 Perl은 소스의 내부 사본으로 빌드를 한다. 다음 명령을 실행해 Perl이 시스템에 설치된 라이브러리들을 사용하도록 하라:</para>
 
 <screen><userinput remap="pre">export BUILD_ZLIB=False
 export BUILD_BZIP2=0</userinput></screen>
@@ -62,10 +55,7 @@ export BUILD_BZIP2=0</userinput></screen>
 <screen><userinput remap="pre">patch -Np1 -i ../&perl-gcc5-fixes-patch;</userinput></screen>
 -->
 
-    <para>To have full control over the way Perl is set up, you can remove the
-    <quote>-des</quote> options from the following command and hand-pick the way
-    this package is built. Alternatively, use the command exactly as below to
-    use the defaults that Perl auto-detects:</para>
+    <para>Perl 설정을 완전히 수동으로 하려면, 다음 명령에서 <quote>-des</quote> 옵션을 지워서 패키지가 빌드되는 방식을 직접 선택하라. 그 대신에 Perl이 자동으로 감지하는 기본값을 사용하려면, 아래 명령을 그대로 실행하라:</para>
 
 <screen><userinput remap="configure">sh Configure -des -Dprefix=/usr                 \
                   -Dvendorprefix=/usr           \
@@ -76,21 +66,19 @@ export BUILD_BZIP2=0</userinput></screen>
                   -Dusethreads</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>-Dvendorprefix=/usr</parameter></term>
         <listitem>
-          <para>This ensures <command>perl</command> knows how to
-          tell packages where they should install their perl modules.</para>
+          <para>패키지들이 <command>perl</command> 모듈을 설치할 위치를 지정한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>-Dpager="/usr/bin/less -isR"</parameter></term>
         <listitem>
-          <para>This ensures that <userinput>less</userinput> is used instead 
-          of <userinput>more</userinput>.</para>
+          <para><userinput>more</userinput> 대신 <userinput>less</userinput>를 사용하도록 지정한다.</para>
         </listitem>
       </varlistentry>
 
@@ -98,40 +86,38 @@ export BUILD_BZIP2=0</userinput></screen>
         <term><parameter>-Dman1dir=/usr/share/man/man1
         -Dman3dir=/usr/share/man/man3</parameter></term>
         <listitem>
-          <para>Since Groff is not installed yet, <command>Configure</command>
-          thinks that we do not want man pages for Perl.  Issuing these
-          parameters overrides this decision.</para>
+          <para>Groff가 아직 설치되지 않았기 때문에, <command>Configure</command> 스크립트는 Perl에 대한 man 페이지를 설치하지 않는다. man 페이지를 설치하기 위해서는, 이 매개 변수를 전달함으로써 설치를 강제한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>-Duseshrplib</parameter></term>
         <listitem>
-          <para>Build a shared libperl needed by some perl modules.</para>
+          <para>일부 perl 모듈에 필요한 공유 libperl을 빌드한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>-Dusethreads</parameter></term>
         <listitem>
-          <para>Build perl with support for threads.</para>
+          <para>perl이 스레드를 지원하도록 빌드한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results (approximately 11 SBU), issue:</para>
+    <para>결과를 테스트하려면(대략 11 SBU), 실행하라:</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
 
     <!--note><para>One test fails due to using the most recent version of gdbm.
     </para></note-->
 
-    <para>Install the package and clean up:</para>
+    <para>패키지를 설치하고 정리하라:</para>
 
 <screen><userinput remap="install">make install
 unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
@@ -139,27 +125,27 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
   </sect2>
 
   <sect2 id="contents-perl" role="content">
-    <title>Contents of Perl</title>
+    <title>Perl의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
         <seg>corelist, cpan, enc2xs, encguess, h2ph, h2xs, instmodsh,
-        json_pp, libnetcfg, perl, perl&perl-version; (hard link to perl),
-        perlbug, perldoc, perlivp, perlthanks (hard link to perlbug), piconv,
+        json_pp, libnetcfg, perl, perl&perl-version; (perl로 하드링크),
+        perlbug, perldoc, perlivp, perlthanks (perlbug로 하드링크), piconv,
         pl2pm, pod2html, pod2man, pod2text, pod2usage, podchecker, podselect,
         prove, ptar, ptardiff, ptargrep, shasum,
-        splain, xsubpp, and zipdetails</seg>
-        <seg>Many which cannot all be listed here</seg>
+        splain, xsubpp, zipdetails</seg>
+        <seg>여기 모두 나열할 수 없는 수많은 항목</seg>
         <seg>/usr/lib/perl5</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 <!--
@@ -177,7 +163,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="corelist">
         <term><command>corelist</command></term>
         <listitem>
-          <para>A commandline frontend to Module::CoreList</para>
+          <para>Module::CoreList의 명령줄 프론트엔드</para>
           <indexterm zone="ch-system-perl corelist">
             <primary sortas="b-corelist">corelist</primary>
           </indexterm>
@@ -187,8 +173,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="cpan">
         <term><command>cpan</command></term>
         <listitem>
-          <para>Interact with the Comprehensive Perl Archive Network (CPAN)
-          from the command line</para>
+          <para>명령줄에서 Comprehensive Perl Archive Network (CPAN)와 상호 작용</para>
           <indexterm zone="ch-system-perl cpan">
             <primary sortas="b-cpan">cpan</primary>
           </indexterm>
@@ -198,8 +183,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="enc2xs">
         <term><command>enc2xs</command></term>
         <listitem>
-          <para>Builds a Perl extension for the Encode module from either
-          Unicode Character Mappings or Tcl Encoding Files</para>
+          <para>유니코드 문자 매핑 또는 Tcl 인코딩 파일로부터 인코드 모듈에 대한 Perl 확장을 빌드</para>
           <indexterm zone="ch-system-perl enc2xs">
             <primary sortas="b-enc2xs">enc2xs</primary>
           </indexterm>
@@ -209,7 +193,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="encguess">
         <term><command>encguess</command></term>
         <listitem>
-          <para>Guess the encoding type of one or several files</para>
+          <para>하나 또는 여러 파일의 인코딩 유형 추측</para>
           <indexterm zone="ch-system-perl encguess">
             <primary sortas="b-encguess">encguess</primary>
           </indexterm>
@@ -219,9 +203,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="h2ph">
         <term><command>h2ph</command></term>
         <listitem>
-          <para>Converts <filename class="extension">.h</filename> C header
-          files to <filename class="extension">.ph</filename> Perl header
-          files</para>
+          <para><filename class="extension">.h</filename> C 헤더 파일을 <filename class="extension">.ph</filename> Perl 헤더 파일로 변환</para>
           <indexterm zone="ch-system-perl h2ph">
             <primary sortas="b-h2ph">h2ph</primary>
           </indexterm>
@@ -231,8 +213,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="h2xs">
         <term><command>h2xs</command></term>
         <listitem>
-          <para>Converts <filename class="extension">.h</filename> C header
-          files to Perl extensions</para>
+          <para><filename class="extension">.h</filename> C 헤더 파일을 Perl 확장으로 변환</para>
           <indexterm zone="ch-system-perl h2xs">
             <primary sortas="b-h2xs">h2xs</primary>
           </indexterm>
@@ -242,8 +223,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="instmodsh">
         <term><command>instmodsh</command></term>
         <listitem>
-          <para>Shell script for examining installed Perl modules,
-          and can create a tarball from an installed module</para>
+          <para>설치된 Perl 모듈을 검사하기 위한 셸 스크립트. 설치된 모듈로부터 tarball을 만들 수 있음</para>
           <indexterm zone="ch-system-perl instmodsh">
             <primary sortas="b-instmodsh">instmodsh</primary>
           </indexterm>
@@ -253,7 +233,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="json_pp">
         <term><command>json_pp</command></term>
         <listitem>
-          <para>Converts data between certain input and output formats</para>
+          <para>특정 입력 및 출력 형식 간에 데이터 변환</para>
           <indexterm zone="ch-system-perl json_pp">
             <primary sortas="b-json_pp">json_pp</primary>
           </indexterm>
@@ -263,8 +243,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="libnetcfg">
         <term><command>libnetcfg</command></term>
         <listitem>
-          <para>Can be used to configure the
-          <filename class="libraryfile">libnet</filename> Perl module</para>
+          <para><filename class="libraryfile">libnet</filename> Perl 모듈을 구성하는데 사용할 수 있음</para>
           <indexterm zone="ch-system-perl libnetcfg">
             <primary sortas="b-libnetcfg">libnetcfg</primary>
           </indexterm>
@@ -274,9 +253,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="perl">
         <term><command>perl</command></term>
         <listitem>
-          <para>Combines some of the best features of C, <command>sed</command>,
-          <command>awk</command> and <command>sh</command> into a single
-          swiss-army language</para>
+          <para>C, <command>sed</command>, <command>awk</command>, <command>sh</command>의 가장 좋은 특징들을 하나의 다목적 언어로 조합</para>
           <indexterm zone="ch-system-perl perl">
             <primary sortas="b-perl">perl</primary>
           </indexterm>
@@ -286,7 +263,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="perl-version">
         <term><command>perl&perl-version;</command></term>
         <listitem>
-          <para>A hard link to <command>perl</command></para>
+          <para><command>perl</command>의 하드 링크</para>
           <indexterm zone="ch-system-perl perl-version">
             <primary sortas="b-perl&perl-version;">perl&perl-version;</primary>
           </indexterm>
@@ -296,8 +273,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="perlbug">
         <term><command>perlbug</command></term>
         <listitem>
-          <para>Used to generate bug reports about Perl, or the modules that come
-          with it, and mail them</para>
+          <para>Perl이나 그 모듈에 관련된 버그 리포트를 생성하고 메일로 보내는 데 사용</para>
           <indexterm zone="ch-system-perl perlbug">
             <primary sortas="b-perlbug">perlbug</primary>
           </indexterm>
@@ -307,8 +283,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="perldoc">
         <term><command>perldoc</command></term>
         <listitem>
-          <para>Displays a piece of documentation in pod format that is embedded
-          in the Perl installation tree or in a Perl script</para>
+          <para>Perl 설치 트리나 Perl 스크립트에 적힌 pod 형식으로 문서를 표시</para>
           <indexterm zone="ch-system-perl perldoc">
             <primary sortas="b-perldoc">perldoc</primary>
           </indexterm>
@@ -318,9 +293,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="perlivp">
         <term><command>perlivp</command></term>
         <listitem>
-          <para>The Perl Installation Verification Procedure; it can be used to
-          verify that Perl and its libraries have been installed
-          correctly</para>
+          <para>Perl 설치 검증 절차; Perl과 해당 라이브러리가 올바르게 설치되었는지 확인하는 데 사용할 수 있음</para>
           <indexterm zone="ch-system-perl perlivp">
             <primary sortas="b-perlivp">perlivp</primary>
           </indexterm>
@@ -330,8 +303,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="perlthanks">
         <term><command>perlthanks</command></term>
         <listitem>
-          <para>Used to generate thank you messages to mail to the Perl
-          developers</para>
+          <para>Perl 개발자들에게 보내는 감사 메시지를 생성하는 데 사용됨</para>
           <indexterm zone="ch-system-perl perlthanks">
             <primary sortas="b-perlthanks">perlthanks</primary>
           </indexterm>
@@ -341,8 +313,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="piconv">
         <term><command>piconv</command></term>
         <listitem>
-          <para>A Perl version of the character encoding converter
-          <command>iconv</command></para>
+          <para>문자 인코딩 변환기의 Perl 버전 <command>iconv</command></para>
           <indexterm zone="ch-system-perl piconv">
             <primary sortas="b-piconv">piconv</primary>
           </indexterm>
@@ -352,9 +323,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="pl2pm">
         <term><command>pl2pm</command></term>
         <listitem>
-          <para>A rough tool for converting Perl4
-          <filename class="extension">.pl</filename> files to Perl5
-          <filename class="extension">.pm</filename> modules</para>
+          <para>Perl4 <filename class="extension">.pl</filename> 파일을 Perl5 <filename class="extension">.pm</filename> 모듈로 변환하기 위한 간단한 도구</para>
           <indexterm zone="ch-system-perl pl2pm">
             <primary sortas="b-pl2pm">pl2pm</primary>
           </indexterm>
@@ -364,7 +333,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="pod2html">
         <term><command>pod2html</command></term>
         <listitem>
-          <para>Converts files from pod format to HTML format</para>
+          <para>pod 형식에서 HTML 형식으로 파일 변환</para>
           <indexterm zone="ch-system-perl pod2html">
             <primary sortas="b-pod2html">pod2html</primary>
           </indexterm>
@@ -374,7 +343,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="pod2man">
         <term><command>pod2man</command></term>
         <listitem>
-          <para>Converts pod data to formatted *roff input</para>
+          <para>pod 데이터를 formatted *roff 입력으로 변환</para>
           <indexterm zone="ch-system-perl pod2man">
             <primary sortas="b-pod2man">pod2man</primary>
           </indexterm>
@@ -384,7 +353,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="pod2text">
         <term><command>pod2text</command></term>
         <listitem>
-          <para>Converts pod data to formatted ASCII text</para>
+          <para>pod 데이터를 formatted ASCII 텍스트로 변환</para>
           <indexterm zone="ch-system-perl pod2text">
             <primary sortas="b-pod2text">pod2text</primary>
           </indexterm>
@@ -394,7 +363,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="pod2usage">
         <term><command>pod2usage</command></term>
         <listitem>
-          <para>Prints usage messages from embedded pod docs in files</para>
+          <para>파일에 포함된 pod 문서의 사용 메시지 출력</para>
           <indexterm zone="ch-system-perl pod2usage">
             <primary sortas="b-pod2usage">pod2usage</primary>
           </indexterm>
@@ -404,7 +373,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="podchecker">
         <term><command>podchecker</command></term>
         <listitem>
-          <para>Checks the syntax of pod format documentation files</para>
+          <para>pod 형식 문서 파일의 문법 확인</para>
           <indexterm zone="ch-system-perl podchecker">
             <primary sortas="b-podchecker">podchecker</primary>
           </indexterm>
@@ -414,7 +383,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="podselect">
         <term><command>podselect</command></term>
         <listitem>
-          <para>Displays selected sections of pod documentation</para>
+          <para>포드 문서의 선택된 섹션 표시</para>
           <indexterm zone="ch-system-perl podselect">
             <primary sortas="b-podselect">podselect</primary>
           </indexterm>
@@ -424,8 +393,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="prove">
         <term><command>prove</command></term>
         <listitem>
-          <para>Command line tool for running tests against the Test::Harness
-          module</para>
+          <para>Test::Harness 모듈에 대해 테스트를 실행하기 위한 명령줄 도구</para>
           <indexterm zone="ch-system-perl prove">
             <primary sortas="b-prove">prove</primary>
           </indexterm>
@@ -446,7 +414,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="ptar">
         <term><command>ptar</command></term>
         <listitem>
-          <para>A <command>tar</command>-like program written in Perl</para>
+          <para>Perl로 쓰여진 <command>tar</command>같은 프로그램</para>
           <indexterm zone="ch-system-perl ptar">
             <primary sortas="b-ptar">ptar</primary>
           </indexterm>
@@ -456,8 +424,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="ptardiff">
         <term><command>ptardiff</command></term>
         <listitem>
-          <para>A Perl program that compares an extracted archive with an
-          unextracted one</para>
+          <para>추출된 아카이브를 추출되지 않은 아카이브와 비교하는 Perl 프로그램</para>
           <indexterm zone="ch-system-perl ptardiff">
             <primary sortas="b-ptardiff">ptardiff</primary>
           </indexterm>
@@ -467,8 +434,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="ptargrep">
         <term><command>ptargrep</command></term>
         <listitem>
-          <para>A Perl program that applies pattern matching to the contents
-          of files in a tar archive</para>
+          <para>tar 아카이브의 파일 내용에 패턴 일치를 적용하는 Perl 프로그램</para>
           <indexterm zone="ch-system-perl ptargrep">
             <primary sortas="b-ptargrep">ptargrep</primary>
           </indexterm>
@@ -478,7 +444,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="shasum">
         <term><command>shasum</command></term>
         <listitem>
-          <para>Prints or checks SHA checksums</para>
+          <para>SHA 체크섬을 출력 및 확인</para>
           <indexterm zone="ch-system-perl shasum">
             <primary sortas="b-shasum">shasum</primary>
           </indexterm>
@@ -488,7 +454,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="splain">
         <term><command>splain</command></term>
         <listitem>
-          <para>Is used to force verbose warning diagnostics in Perl</para>
+          <para>Perl에서 상세한 경고 진단을 강제 적용하기 위해 사용</para>
           <indexterm zone="ch-system-perl splain">
             <primary sortas="b-splain">splain</primary>
           </indexterm>
@@ -498,7 +464,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="xsubpp">
         <term><command>xsubpp</command></term>
         <listitem>
-          <para>Converts Perl XS code into C code</para>
+          <para>Perl XS 코드를 C 코드로 변환</para>
           <indexterm zone="ch-system-perl xsubpp">
             <primary sortas="b-xsubpp">xsubpp</primary>
           </indexterm>
@@ -508,7 +474,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="zipdetails">
         <term><command>zipdetails</command></term>
         <listitem>
-          <para>Displays details about the internal structure of a Zip file</para>
+          <para>Zip 파일의 내부 구조에 대한 세부 정보 표시</para>
           <indexterm zone="ch-system-perl zipdetails">
             <primary sortas="b-zipdetails">zipdetails</primary>
           </indexterm>

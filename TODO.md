@@ -99,40 +99,40 @@
         - [x] Man-pages-5.05
         - [x] Glibc-2.31
         - [x] Adjusting the Toolchain
-        - [ ] Zlib-1.2.11
-        - [ ] Bzip2-1.0.8
-        - [ ] Xz-5.2.4
-        - [ ] File-5.38
-        - [ ] Readline-8.0
-        - [ ] M4-1.4.18
-        - [ ] Bc-2.5.3
-        - [ ] Binutils-2.34
-        - [ ] GMP-6.2.0
-        - [ ] MPFR-4.0.2
-        - [ ] MPC-1.1.0
-        - [ ] Attr-2.4.48
-        - [ ] Acl-2.2.53
-        - [ ] Shadow-4.8.1
-        - [ ] GCC-9.2.0
-        - [ ] Pkg-config-0.29.2
-        - [ ] Ncurses-6.2
-        - [ ] Libcap-2.31
-        - [ ] Sed-4.8
-        - [ ] Psmisc-23.2
-        - [ ] Iana-Etc-2.30
-        - [ ] Bison-3.5.2
-        - [ ] Flex-2.6.4
-        - [ ] Grep-3.4
-        - [ ] Bash-5.0
-        - [ ] Libtool-2.4.6
-        - [ ] GDBM-1.18.1
-        - [ ] Gperf-3.1
-        - [ ] Expat-2.2.9
-        - [ ] Inetutils-1.9.4
-        - [ ] Perl-5.30.1
-        - [ ] XML::Parser-2.46
-        - [ ] Intltool-0.51.0
-        - [ ] Autoconf-2.69
+        - [x] Zlib-1.2.11
+        - [x] Bzip2-1.0.8
+        - [x] Xz-5.2.4
+        - [x] File-5.38
+        - [x] Readline-8.0
+        - [x] M4-1.4.18
+        - [x] Bc-2.5.3
+        - [x] Binutils-2.34
+        - [x] GMP-6.2.0
+        - [x] MPFR-4.0.2
+        - [x] MPC-1.1.0
+        - [x] Attr-2.4.48
+        - [x] Acl-2.2.53
+        - [x] Shadow-4.8.1
+        - [x] GCC-9.2.0
+        - [x] Pkg-config-0.29.2
+        - [x] Ncurses-6.2
+        - [x] Libcap-2.31
+        - [x] Sed-4.8
+        - [x] Psmisc-23.2
+        - [x] Iana-Etc-2.30
+        - [x] Bison-3.5.2
+        - [x] Flex-2.6.4
+        - [x] Grep-3.4
+        - [x] Bash-5.0
+        - [x] Libtool-2.4.6
+        - [x] GDBM-1.18.1
+        - [x] Gperf-3.1
+        - [x] Expat-2.2.9
+        - [x] Inetutils-1.9.4
+        - [x] Perl-5.30.1
+        - [x] XML::Parser-2.46
+        - [x] Intltool-0.51.0
+        - [x] Autoconf-2.69
         - [ ] Automake-1.16.1
         - [ ] Kmod-26
         - [ ] Gettext-0.20.1

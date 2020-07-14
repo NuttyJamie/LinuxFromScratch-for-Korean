@@ -23,11 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Xz package contains programs for compressing and decompressing
-    files. It provides capabilities for the lzma and the newer xz compression
-    formats.  Compressing text files with <command>xz</command> yields a better
-    compression percentage than with the traditional <command>gzip</command> or
-    <command>bzip2</command> commands.</para>
+    <para>Xz 패키지는 파일을 압축하고 압축을 푸는 프로그램을 포함하고 있다. lzma와 새로운 xz 압축 포맷에 대한 기능을 제공한다. 텍스트 파일을 <command>xz</command>로 압축하면 기존의 <command>gzip</command>이나 <command>bzip2</command>보다 압축률이 더 높다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,24 +38,23 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Xz</title>
+    <title>Xz 설치</title>
 
-    <para>Prepare Xz for compilation with:</para>
+    <para>Xz 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/xz-&xz-version;</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 다음을 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-  <para>Install the package and make sure that all essential files are in the
-  correct directory:</para>
+  <para>패키지를 설치하고 모든 필수 파일이 올바른 디렉토리에 있는지 확인하라:</para>
 
 <screen><userinput remap="install">make install
 mv -v   /usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} /bin
@@ -69,35 +64,35 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
   </sect2>
 
   <sect2 id="contents-xz" role="content">
-    <title>Contents of Xz</title>
+    <title>Xz의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>
-          lzcat (link to xz), 
-          lzcmp (link to xzdiff), 
-          lzdiff (link to xzdiff), 
-          lzegrep (link to xzgrep), 
-          lzfgrep (link to xzgrep),
-          lzgrep (link to xzgrep), 
-          lzless (link to xzless), 
-          lzma (link to xz),
+          lzcat (xz에 대한 링크), 
+          lzcmp (xzdiff에 대한 링크), 
+          lzdiff (xzdiff에 대한 링크), 
+          lzegrep (xzgrep에 대한 링크), 
+          lzfgrep (xzgrep에 대한 링크),
+          lzgrep (xzgrep에 대한 링크), 
+          lzless (xzless에 대한 링크), 
+          lzma (xz에 대한 링크),
           lzmadec, 
           lzmainfo, 
-          lzmore (link to xzmore),
-          unlzma (link to xz), 
-          unxz (link to xz), 
+          lzmore (xzmore에 대한 링크),
+          unlzma (xz에 대한 링크), 
+          unxz (xz에 대한 링크), 
           xz, 
-          xzcat (link to xz),
-          xzcmp (link to xzdiff), 
+          xzcat (xz에 대한 링크),
+          xzcmp (xzdiff에 대한 링크), 
           xzdec, 
           xzdiff, 
-          xzegrep (link to xzgrep),
-          xzfgrep (link to xzgrep), 
+          xzegrep (xzgrep에 대한 링크),
+          xzfgrep (xzgrep에 대한 링크), 
           xzgrep, 
           xzless, and 
           xzmore</seg>
@@ -105,21 +100,21 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
           liblzma.so
         </seg>
         <seg>
-          /usr/include/lzma and 
+          /usr/include/lzma 와 
           /usr/share/doc/xz-&xz-version;
          </seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="lzcat">
         <term><command>lzcat</command></term>
         <listitem>
-          <para>Decompresses to standard output</para>
+          <para>표준 출력으로 압축 해제</para>
           <indexterm zone="ch-system-xz lzcat">
             <primary sortas="b-lzcat">lzcat</primary>
           </indexterm>
@@ -129,7 +124,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="lzcmp">
         <term><command>lzcmp</command></term>
         <listitem>
-          <para>Runs <command>cmp</command> on LZMA compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>cmp</command> 실행</para>
           <indexterm zone="ch-system-xz lzcmp">
             <primary sortas="b-lzcmp">lzcmp</primary>
           </indexterm>
@@ -139,7 +134,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="lzdiff">
         <term><command>lzdiff</command></term>
         <listitem>
-          <para>Runs <command>diff</command> on LZMA compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>diff</command> 실행</para>
           <indexterm zone="ch-system-xz lzdiff">
             <primary sortas="b-lzdiff">lzdiff</primary>
           </indexterm>
@@ -149,7 +144,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="lzegrep">
         <term><command>lzegrep</command></term>
         <listitem>
-          <para>Runs <command>egrep</command> on LZMA compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>egrep</command> 실행</para>
           <indexterm zone="ch-system-xz lzegrep">
             <primary sortas="b-lzegrep">lzegrep</primary>
           </indexterm>
@@ -159,7 +154,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="lzfgrep">
         <term><command>lzfgrep</command></term>
         <listitem>
-          <para>Runs <command>fgrep</command> on LZMA compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>fgrep</command> 실행</para>
           <indexterm zone="ch-system-xz lzfgrep">
             <primary sortas="b-lzfgrep">lzfgrep</primary>
           </indexterm>
@@ -169,7 +164,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="lzgrep">
         <term><command>lzgrep</command></term>
         <listitem>
-          <para>Runs <command>grep</command> on LZMA compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>grep</command> 실행</para>
           <indexterm zone="ch-system-xz lzgrep">
             <primary sortas="b-lzgrep">lzgrep</primary>
           </indexterm>
@@ -179,7 +174,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="lzless">
         <term><command>lzless</command></term>
         <listitem>
-          <para>Runs <command>less</command> on LZMA compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>less</command> 실행</para>
           <indexterm zone="ch-system-xz lzless">
             <primary sortas="b-lzless">lzless</primary>
           </indexterm>
@@ -189,7 +184,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="lzma">
         <term><command>lzma</command></term>
         <listitem>
-          <para>Compresses or decompresses files using the LZMA format</para>
+          <para>LZMA 포맷으로 파일을 압축 또는 압축 해제</para>
           <indexterm zone="ch-system-xz lzma">
             <primary sortas="b-lzma">lzma</primary>
           </indexterm>
@@ -199,7 +194,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="lzmadec">
         <term><command>lzmadec</command></term>
         <listitem>
-          <para>A small and fast decoder for LZMA compressed files</para>
+          <para>LZMA 압축 파일을 위한 작고 빠른 디코더</para>
           <indexterm zone="ch-system-xz lzmadec">
             <primary sortas="b-lzmadec">lzmadec</primary>
           </indexterm>
@@ -209,7 +204,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="lzmainfo">
         <term><command>lzmainfo</command></term>
         <listitem>
-          <para>Shows information stored in the LZMA compressed file header</para>
+          <para>LZMA 압축 파일 헤더에 저장된 정보를 출력</para>
           <indexterm zone="ch-system-xz lzmainfo">
             <primary sortas="b-lzmainfo">lzmainfo</primary>
           </indexterm>
@@ -219,7 +214,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="lzmore">
         <term><command>lzmore</command></term>
         <listitem>
-          <para>Runs <command>more</command> on LZMA compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>more</command> 실행</para>
           <indexterm zone="ch-system-xz lzmore">
             <primary sortas="b-lzmamore">lzmore</primary>
           </indexterm>
@@ -229,7 +224,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="unlzma">
         <term><command>unlzma</command></term>
         <listitem>
-          <para>Decompresses files using the LZMA format</para>
+          <para>LZMA 포맷을 사용하여 파일 압축 해제</para>
           <indexterm zone="ch-system-xz unlzma">
             <primary sortas="b-unlzma">unlzma</primary>
           </indexterm>
@@ -239,7 +234,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="unxz">
         <term><command>unxz</command></term>
         <listitem>
-          <para>Decompresses files using the XZ format</para>
+          <para>XZ 포맷을 사용하여 파일 압축 해제</para>
           <indexterm zone="ch-system-xz unxz">
             <primary sortas="b-unxz">unxz</primary>
           </indexterm>
@@ -249,7 +244,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="xz">
         <term><command>xz</command></term>
         <listitem>
-          <para>Compresses or decompresses files using the XZ format</para>
+          <para>XZ 포맷을 사용하여 파일 압축 또는 압축 해제</para>
           <indexterm zone="ch-system-xz xz">
             <primary sortas="b-xz">xz</primary>
           </indexterm>
@@ -259,7 +254,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="xzcat">
         <term><command>xzcat</command></term>
         <listitem>
-          <para>Decompresses to standard output</para>
+          <para>표준 출력으로 압축 해제</para>
           <indexterm zone="ch-system-xz xzcat">
             <primary sortas="b-xzcat">xzcat</primary>
           </indexterm>
@@ -269,7 +264,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="xzcmp">
         <term><command>xzcmp</command></term>
         <listitem>
-          <para>Runs <command>cmp</command> on XZ compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>cmp</command> 실행</para>
           <indexterm zone="ch-system-xz xzcmp">
             <primary sortas="b-xzcmp">xzcmp</primary>
           </indexterm>
@@ -279,7 +274,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="xzdec">
         <term><command>xzdec</command></term>
         <listitem>
-          <para>A small and fast decoder for XZ compressed files</para>
+          <para>XZ 압축 파일을 위한 작고 빠른 디코더</para>
           <indexterm zone="ch-system-xz xzdec">
             <primary sortas="b-xzdec">xzdec</primary>
           </indexterm>
@@ -289,7 +284,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="xzdiff">
         <term><command>xzdiff</command></term>
         <listitem>
-          <para>Runs <command>diff</command> on XZ compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>diff</command> 실행</para>
           <indexterm zone="ch-system-xz xzdiff">
             <primary sortas="b-xzdiff">xzdiff</primary>
           </indexterm>
@@ -299,7 +294,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="xzegrep">
         <term><command>xzegrep</command></term>
         <listitem>
-          <para>Runs <command>egrep</command> on XZ compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>egrep</command> 실행</para>
           <indexterm zone="ch-system-xz xzegrep">
             <primary sortas="b-xzegrep">xzegrep</primary>
           </indexterm>
@@ -309,7 +304,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="xzfgrep">
         <term><command>xzfgrep</command></term>
         <listitem>
-          <para>Runs <command>fgrep</command> on XZ compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>fgrep</command> 실행</para>
           <indexterm zone="ch-system-xz xzfgrep">
             <primary sortas="b-xzfgrep">xzfgrep</primary>
           </indexterm>
@@ -319,7 +314,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="xzgrep">
         <term><command>xzgrep</command></term>
         <listitem>
-          <para>Runs <command>grep</command> on XZ compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>grep</command> 실행</para>
           <indexterm zone="ch-system-xz xzgrep">
             <primary sortas="b-xzgrep">xzgrep</primary>
           </indexterm>
@@ -329,7 +324,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="xzless">
         <term><command>xzless</command></term>
         <listitem>
-          <para>Runs <command>less</command> on XZ compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>less</command> 실행</para>
           <indexterm zone="ch-system-xz xzless">
             <primary sortas="b-xzless">xzless</primary>
           </indexterm>
@@ -339,7 +334,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="xzmore">
         <term><command>xzmore</command></term>
         <listitem>
-          <para>Runs <command>more</command> on XZ compressed files</para>
+          <para>LZMA 압축 파일에 대해 <command>more</command> 실행</para>
           <indexterm zone="ch-system-xz xzmore">
             <primary sortas="b-xzmore">xzmore</primary>
           </indexterm>
@@ -349,8 +344,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
       <varlistentry id="liblzma">
         <term><filename class="libraryfile">liblzma</filename></term>
         <listitem>
-          <para>The library implementing lossless, block-sorting data
-          compression, using the Lempel-Ziv-Markov chain algorithm</para>
+          <para>Lempel-Ziv-Markov 체인 알고리즘을 사용하여 무손실 블록 정렬 데이터 압축을 구현하는 라이브러리</para>
           <indexterm zone="ch-system-xz liblzma">
             <primary sortas="c-liblzma">liblzma</primary>
           </indexterm>

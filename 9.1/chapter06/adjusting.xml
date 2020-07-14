@@ -19,91 +19,76 @@ mv -v /tools/$(uname -m)-pc-linux-gnu/bin/{ld,ld-old}
 mv -v /tools/bin/{ld-new,ld}
 ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</userinput></screen>
 
-  <para>다음으로 GCC spec 파일이 새로운 동적 링커를 참조하도록 수정한다. 단순히 <quote>/tools</quote>의 모든 인스턴스를 삭제하면 동적 링커에 대한 올바른 경로가 남는다. 또한 GCC가 올바른 헤더를 찾을 수 있는 위치와 Glibc 시작 파일을 찾을 수 있도록 spec 파일을 조정한다. <command>sed</command>  command accomplishes this:</para>
+  <para>다음으로 GCC spec 파일이 새로운 동적 링커를 참조하도록 수정한다. 단순히 <quote>/tools</quote>의 모든 인스턴스를 삭제하면 동적 링커에 대한 올바른 경로가 남는다. 또한 GCC가 올바른 헤더와 Glibc 시작 파일들을 찾을 수 있도록 spec 파일을 조정한다. 다음 <command>sed</command> 명령어로 수행한다:</para>
 
 <screen><userinput>gcc -dumpspecs | sed -e 's@/tools@@g'                   \
     -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
     -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' &gt;      \
     `dirname $(gcc --print-libgcc-file-name)`/specs</userinput></screen>
 
-  <para>It is a good idea to visually inspect the specs file to verify the
-  intended change was actually made.</para>
+  <para>Spec 파일이 실제로 의도한 대로 수정됐는지 직접 확인하는 것이 좋다.</para>
 
-  <para>It is imperative at this point to ensure that the basic
-  functions (compiling and linking) of the adjusted toolchain are working
-  as expected. To do this, perform the following sanity checks:</para>
+  <para>여기서 조정된 툴체인의 기본 기능(컴파일 및 링크)이 예상대로 작동하는지 확인하는 것이 필수이다. 다음 온전성 검사를 수행하라:</para>
 
 <screen os="a"><userinput>echo 'int main(){}' &gt; dummy.c
 cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep ': /lib'</userinput></screen>
 
-  <para os="b">There should be no errors,
-  and the output of the last command will be (allowing for
-  platform-specific differences in dynamic linker name):</para>
+  <para os="b">오류가 없어야 하며 마지막 명령의 출력은(플랫폼에 따른 동적 링커 이름의 차이는 무관):</para>
 
 <screen os="c"><computeroutput>[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</computeroutput></screen>
 
-  <para>Note that on 64-bit systems <filename class="directory">/lib</filename> is
-  the location of our dynamic linker, but is accessed via a symbolic link
-  in /lib64.</para>
+  <para>64비트 시스템 <filename class="directory">/lib</filename>는 동적 링커의 위치지만, /lib64의 심볼릭 링크를 통해 액세스 된다는 점을 참고하라.</para>
 
-  <note><para>On 32-bit systems the interpreter should be
-  /lib/ld-linux.so.2.</para></note>
+  <note><para>32비트 시스템에서 인터프리터는 /lib/ld-linux.so.2여야 한다.</para></note>
 
-  <para os="d">Now make sure that we're setup to use the correct start files:</para>
+  <para os="d">이제 올바른 시작 파일을 사용하도록 설정되었는지 확인하라:</para>
 
 <screen os="e"><userinput>grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</userinput></screen>
 
-  <para os="f">The output of the last command should be:</para>
+  <para os="f">마지막 명령의 출력은 다음과 같아야 한다:</para>
 
 <screen><computeroutput>/usr/lib/../lib/crt1.o succeeded
 /usr/lib/../lib/crti.o succeeded
 /usr/lib/../lib/crtn.o succeeded</computeroutput></screen>
 
-  <para os="g">Verify that the compiler is searching for the correct header
-  files:</para>
+  <para os="g">컴파일러가 올바른 헤더 파일을 검색하는지 확인하라:</para>
 
 <screen><userinput>grep -B1 '^ /usr/include' dummy.log</userinput></screen>
 
-  <para os="h">This command should return the following output:</para>
+  <para os="h">이 명령은 출력이 다음과 같아야 한다:</para>
 
 <screen><computeroutput>#include &lt;...&gt; search starts here:
  /usr/include</computeroutput></screen>
 
-  <para os="i">Next, verify that the new linker is being used with the correct search paths:</para>
+  <para os="i">그 다음, 새 링커가 올바른 검색 경로와 함께 사용되고 있는지 확인하라:</para>
 
 <screen os="j"><userinput>grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</userinput></screen>
 
-  <para os="k">References to paths that have components with '-linux-gnu' should
-  be ignored, but otherwise the output of the last command should be:</para>
+  <para os="k">'-linux-gnu' 요소가 있는 경로에 대한 참조는 무시되어야 하지만 그렇지 않은 경우 마지막 명령의 출력은 다음과 같아야 한다:</para>
 
 <screen><computeroutput>SEARCH_DIR("/usr/lib")
 SEARCH_DIR("/lib")</computeroutput></screen>
 
-  <para os="l">Next make sure that we're using the correct libc:</para>
+  <para os="l">다음으로 올바른 libc를 사용하고 있는지 확인하라:</para>
 
 <screen os="m"><userinput>grep "/lib.*/libc.so.6 " dummy.log</userinput></screen>
 
-  <para os="n">The output of the last command should be:</para>
+  <para os="n">마지막 명령의 출력은 다음과 같아야 한다:</para>
 
 <screen os="o"><computeroutput>attempt to open /lib/libc.so.6 succeeded</computeroutput></screen>
 
-  <para os="p">Lastly, make sure GCC is using the correct dynamic linker:</para>
+  <para os="p">마지막으로 GCC가 올바른 동적 링커를 사용하는지 확인하라:</para>
 
 <screen os="q"><userinput>grep found dummy.log</userinput></screen>
 
-  <para os="r">The output of the last command should be (allowing for
-  platform-specific differences in dynamic linker name):</para>
+  <para os="r">마지막 명령의 출력은 다음과 같아야 한다(플랫폼에 따른 동적 링커 이름의 차이는 무관):</para>
 
 <screen os="s"><computeroutput>found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2</computeroutput></screen>
 
-  <para os="t">If the output does not appear as shown above or is not received
-  at all, then something is seriously wrong. Investigate and retrace the
-  steps to find out where the problem is and correct it. The most likely
-  reason is that something went wrong with the specs file adjustment. Any
-  issues will need to be resolved before continuing with the process.</para>
+  <para os="t">만약 출력이 위와 같이 나타나지 않거나 출력이 전혀 없다면, 무언가 심각하게 잘못된 것이다. 이전 단계를 조사하고 추적해서 문제가 어디에 있는지 파악하고 수정하라. 가장 유력한 이유는 spec 파일 조정에 이상이 생겼기 때문이다. 어떤 문제든 계속 진행하기 전에 해결해야 할 것이다.</para>
 
-  <para os="u">Once everything is working correctly, clean up the test files:</para>
+  <para os="u">모든 것이 올바르게 작동하면 테스트 파일을 정리하라:</para>
 
 <screen os="v"><userinput>rm -v dummy.c a.out dummy.log</userinput></screen>
 

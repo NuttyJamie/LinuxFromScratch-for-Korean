@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Grep package contains programs for searching through files.</para>
+    <para>Grep 패키지는 파일 내용을 검색하는 프로그램을 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,46 +38,46 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Grep</title>
+    <title>Grep 설치</title>
 
-    <para>Prepare Grep for compilation:</para>
+    <para>Grep 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr --bindir=/bin</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-grep" role="content">
-    <title>Contents of Grep</title>
+    <title>Grep의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
 
       <seglistitem>
-        <seg>egrep, fgrep, and grep</seg>
+        <seg>egrep, fgrep, grep</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="egrep">
         <term><command>egrep</command></term>
         <listitem>
-          <para>Prints lines matching an extended regular expression</para>
+          <para>확장 정규 표현식으로 검색된 라인 출력</para>
           <indexterm zone="ch-system-grep egrep">
             <primary sortas="b-egrep">egrep</primary>
           </indexterm>
@@ -87,7 +87,7 @@
       <varlistentry id="fgrep">
         <term><command>fgrep</command></term>
         <listitem>
-          <para>Prints lines matching a list of fixed strings</para>
+          <para>고정 문자열 목록으로 검색된 라인 출력</para>
           <indexterm zone="ch-system-grep fgrep">
             <primary sortas="b-fgrep">fgrep</primary>
           </indexterm>
@@ -97,7 +97,7 @@
       <varlistentry id="grep">
         <term><command>grep</command></term>
         <listitem>
-          <para>Prints lines matching a basic regular expression</para>
+          <para>일반 정규 표현식으로 검색된 라인 출력</para>
           <indexterm zone="ch-system-grep grep">
             <primary sortas="b-grep">grep</primary>
           </indexterm>

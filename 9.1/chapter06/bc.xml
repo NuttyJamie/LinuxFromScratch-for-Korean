@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Bc package contains an arbitrary precision numeric processing 
-    language.</para>
+    <para>Bc 패키지는 임의의 정밀 숫자 처리 언어를 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,7 +38,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Bc</title>
+    <title>Bc 설치</title>
 <!--
     <para>First, change an internal script to use <command>sed</command> instead 
     of <command>ed</command>:</para>
@@ -70,7 +69,7 @@ ln -sfv libncursesw.so.6 /usr/lib/libncurses.so</userinput></screen>
 
 <screen><userinput remap="pre">sed -i -e '/flex/s/as_fn_error/: ;; # &amp;/' configure</userinput></screen>
 -->
-    <para>Prepare Bc for compilation:</para>
+    <para>Bc 컴파일을 준비한다:</para>
 <!--
 <screen><userinput remap="configure">./configure - -prefix=/usr           \
             - -with-readline         \
@@ -80,7 +79,7 @@ ln -sfv libncursesw.so.6 /usr/lib/libncurses.so</userinput></screen>
 <screen><userinput remap="configure">PREFIX=/usr CC=gcc CFLAGS="-std=c99" ./configure.sh -G -O3</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 <!--
       <varlistentry>
         <term><parameter>- -with-readline</parameter></term>
@@ -95,27 +94,26 @@ ln -sfv libncursesw.so.6 /usr/lib/libncurses.so</userinput></screen>
       <varlistentry>
         <term><parameter>CC=gcc CFLAGS="-std=c99"</parameter></term>
         <listitem>
-          <para>These parameters specify the compiler and C standard to use.</para>
+          <para>사용할 컴파일러 및 C 표준을 지정한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>-O3</parameter></term>
         <listitem>
-          <para>Specify the optimization to use.</para>
+          <para>사용할 최적화 단계를 지정한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>-G</parameter></term>
         <listitem>
-          <para>Omit  parts of the test suite that won't work
-          without a GNU bc present.</para>
+          <para>GNU bc가 없으면 작동하지 않는 테스트 스위트의 일부를 생략한다.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 <!--
@@ -127,22 +125,22 @@ ln -sfv libncursesw.so.6 /usr/lib/libncurses.so</userinput></screen>
 <screen><userinput remap="test">echo "quit" | ./bc/bc -l Test/checklib.b</userinput></screen>
 -->
 
-    <para>To test bc, run:</para>
+    <para>bc를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
 
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-bc" role="content">
-    <title>Contents of Bc</title>
+    <title>Bc의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
 
       <seglistitem>
         <seg>bc and dc</seg>
@@ -150,14 +148,14 @@ ln -sfv libncursesw.so.6 /usr/lib/libncurses.so</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="bc">
         <term><command>bc</command></term>
         <listitem>
-          <para>A command line calculator</para>
+          <para>명령줄 계산기</para>
           <indexterm zone="ch-system-bc bc">
             <primary sortas="b-bc">bc</primary>
           </indexterm>
@@ -167,7 +165,7 @@ ln -sfv libncursesw.so.6 /usr/lib/libncurses.so</userinput></screen>
       <varlistentry id="dc">
         <term><command>dc</command></term>
         <listitem>
-          <para>A reverse-polish command line calculator</para>
+          <para>후위 표기법 명령줄 계산기</para>
           <indexterm zone="ch-system-bc dc">
             <primary sortas="b-dc">dc</primary>
           </indexterm>

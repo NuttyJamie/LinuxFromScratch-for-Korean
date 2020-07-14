@@ -23,9 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Acl package contains utilities to administer Access Control Lists,
-    which are used to define more fine-grained discretionary access rights for
-    files and directories.</para>
+    <para>Acl 패키지에는 액세서 제어 목록을 관리하는 유틸리티가 포함되어 있다. 이 유틸리티는 파일 및 디렉토리에 대한 보다 세분화된 임의 액세스 권한을 정의하는 데 사용된다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,9 +38,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Acl</title>
+    <title>Acl 설치</title>
 
-    <para>Prepare Acl for compilation:</para>
+    <para>Acl 컴파일을 준비한다:</para>
 
 <screen revision="sysv"><userinput remap="configure">./configure --prefix=/usr         \
             --bindir=/bin         \
@@ -55,24 +53,17 @@
             --libexecdir=/usr/lib \
             --docdir=/usr/share/doc/acl-&acl-version;</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>The Acl tests need to be run on a filesystem that supports access
-    controls after <application>Coreutils</application> has been built with the
-    Acl libraries.  If desired, return to this package and run <command>make
-    check</command> after <application>Coreutils</application> has been built
-    later in this chapter.</para>
+    <para>Acl 테스트는 <application>Coreutils</application>가 Acl 라이브러리와 함께 빌드된 후, 액세스 관리를 지원하는 파일 시스템에서 실행되어야 한다. 원하는 경우 이 장 뒷부분에서 <application>Coreutils</application>를 빌드한 후 <command>make check</command>를 실행하라.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>The shared library needs to be moved to
-    <filename class="directory">/lib</filename>, and as a result the
-    <filename class="extension">.so</filename> file in
-    <filename class="directory">/usr/lib</filename> will need to be recreated:</para>
+    <para>공유 라이브러리를 <filename class="directory">/lib</filename>로 이동해야 하므로 <filename class="directory">/usr/lib</filename>의 <filename class="extension">.so</filename> 파일을 다시 만들어야 한다:</para>
 
 <screen><userinput remap="install">mv -v /usr/lib/libacl.so.* /lib
 ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so</userinput></screen>
@@ -80,30 +71,29 @@ ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so</userinput><
   </sect2>
 
   <sect2 id="contents-acl" role="content">
-    <title>Contents of Acl</title>
+    <title>Acl의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed library</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
-        <seg>chacl, getfacl, and setfacl</seg>
+        <seg>chacl, getfacl과  setfacl</seg>
         <seg>libacl.so</seg>
-        <seg>/usr/include/acl and /usr/share/doc/acl-&acl-version;</seg>
+        <seg>/usr/include/acl과 /usr/share/doc/acl-&acl-version;</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="chacl">
         <term><command>chacl</command></term>
         <listitem>
-          <para>Changes the access control list of a file
-          or directory</para>
+          <para>파일 또는 디렉토리의 액세스 제어 목록 변경</para>
           <indexterm zone="ch-system-acl chacl">
             <primary sortas="b-chacl">chacl</primary>
           </indexterm>
@@ -113,7 +103,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so</userinput><
       <varlistentry id="getfacl">
         <term><command>getfacl</command></term>
         <listitem>
-          <para>Gets file access control lists</para>
+          <para>파일 액세스 제어 목록을 가져옴</para>
           <indexterm zone="ch-system-acl getfacl">
             <primary sortas="b-getfacl">getfacl</primary>
           </indexterm>
@@ -123,7 +113,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so</userinput><
       <varlistentry id="setfacl">
         <term><command>setfacl</command></term>
         <listitem>
-          <para>Sets file access control lists</para>
+          <para>파일 액세스 제어 목록 설정</para>
           <indexterm zone="ch-system-acl setfacl">
             <primary sortas="b-setfacl">setfacl</primary>
           </indexterm>
@@ -133,7 +123,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so</userinput><
       <varlistentry id="libacl">
         <term><filename class="libraryfile">libacl</filename></term>
         <listitem>
-          <para>Contains the  library functions for manipulating Access Control Lists</para>
+          <para>액세스 제어 목록을 조작하는 라이브러리 함수 포함</para>
           <indexterm zone="ch-system-acl libacl">
             <primary sortas="c-libacl">libacl</primary>
           </indexterm>

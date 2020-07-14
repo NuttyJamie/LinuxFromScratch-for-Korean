@@ -23,9 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The MPC package contains a library for the arithmetic of complex
-    numbers with arbitrarily high precision and correct rounding of the
-    result.</para>
+    <para>MPC 패키지에는 임의의 높은 정밀도를 갖는 복잡한 숫자의 계산과 정확한 반올림을 위한 라이브러리를 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,24 +38,24 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of MPC</title>
+    <title>MPC 설치</title>
 
-    <para>Prepare MPC for compilation:</para>
+    <para>MPC 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/mpc-&mpc-version;</userinput></screen>
 
-    <para>Compile the package and generate the HTML documentation:</para>
+    <para>패키지를 컴파일하고 HTML 문서를 생성하라:</para>
 
 <screen><userinput remap="make">make
 make html</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면, 다음을 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package and its documentation:</para>
+    <para>패키지와 문서를 설치하라:</para>
 
 <screen><userinput remap="install">make install
 make install-html</userinput></screen>
@@ -66,11 +64,11 @@ make install-html</userinput></screen>
 
 
   <sect2 id="contents-mpc" role="content">
-    <title>Contents of MPC</title>
+    <title>MPC의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed Libraries</segtitle>
-      <segtitle>Installed Directory</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
         <seg>libmpc.so</seg>
@@ -79,14 +77,14 @@ make install-html</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="libmpc">
         <term><filename class="libraryfile">libmpc</filename></term>
         <listitem>
-          <para>Contains complex math functions</para>
+          <para>복잡한 연산 함수를 포함</para>
           <indexterm zone="ch-system-mpc libmpc">
             <primary sortas="c-libmpc">libmpc</primary>
           </indexterm>

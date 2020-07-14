@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Bash package contains the Bourne-Again SHell.</para>
+    <para>Bash 패키지에는 Bourne-Again SHell이 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,13 +38,13 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Bash</title>
+    <title>Bash 설치</title>
 
-    <para>Incorporate some upstream fixes:</para>
+    <para>일부 업스트림 픽스를 통합한다:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&bash-fixes-patch;</userinput></screen>
 
-    <para>Prepare Bash for compilation:</para>
+    <para>Bash 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr                    \
             --docdir=/usr/share/doc/bash-&bash-version; \
@@ -52,80 +52,69 @@
             --with-installed-readline</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the new configure option:</title>
+      <title>Configure 옵션의 의미:</title>
 
       <varlistentry>
         <term><parameter>--with-installed-readline</parameter></term>
         <listitem>
-          <para>This option tells Bash to use the <filename
-          class="libraryfile">readline</filename> library that is already
-          installed on the system rather than using its own readline
-          version.</para>
+          <para>Bash가 자체 버전 readline 대신 이미 시스템에 설치된 <filename class="libraryfile">readline</filename> 라이브러리를 사용하도록 지시한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Skip down to <quote>Install the
-    package</quote> if not running the test suite.</para>
+    <para>테스트 스위트를 실행하지 않을 경우 <quote>패키지 설치</quote>로 이동하라.</para>
 
-    <para>To prepare the tests, ensure that the <systemitem class="username">nobody</systemitem> user can write to the sources tree:</para>
+    <para>테스트를 준비하려면, <systemitem class="username">nobody</systemitem> 라는 이름의 유저가 소스 트리에 쓰기 가능하도록 하라:</para>
 
 <screen><userinput remap="test">chown -Rv nobody .</userinput></screen>
 
-    <para>Now, run the tests as the <systemitem
-    class="username">nobody</systemitem> user:</para>
+    <para>이제 <systemitem class="username">nobody</systemitem> 유저로 테스트를 실행하라:</para>
 
 <screen><userinput remap="test">su nobody -s /bin/bash -c "PATH=$PATH HOME=/home make tests"</userinput></screen>
 
-    <para>Install the package and move the main executable to
-    <filename class='directory'>/bin</filename>:</para>
+    <para>패키지를 설치하고 기본 실행 파일을 <filename class='directory'>/bin</filename>으로 이동하라:</para>
 
 <screen><userinput remap="install">make install
 mv -vf /usr/bin/bash /bin</userinput></screen>
 
-    <para>Run the newly compiled <command>bash</command> program (replacing the one that is
-    currently being executed):</para>
+    <para>새로 컴파일된 <command>bash</command> 프로그램을 실행한다(현재 실행 중인 프로그램 대체):</para>
 
 <screen role="nodump"><userinput>exec /bin/bash --login +h</userinput></screen>
 
     <note>
-      <para>The parameters used make the <command>bash</command>
-      process an interactive login shell and continue to disable hashing so
-      that new programs are found as they become available.</para>
+      <para>이 매개 변수는 <command>bash</command> 프로세스를 대화형 로그인 셸로 만들고 해싱을 비활성화한 채로 유지해서 새로운 프로그램이 사용 가능할 때 발견되도록 한다.</para>
     </note>
 
   </sect2>
 
   <sect2 id="contents-bash" role="content">
-    <title>Contents of Bash</title>
+    <title>Bash의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
-        <seg>bash, bashbug, and sh (link to bash)</seg>
-        <seg>/usr/include/bash, /usr/lib/bash, and
+        <seg>bash, bashbug, sh (bash로 링크)</seg>
+        <seg>/usr/include/bash, /usr/lib/bash, 
         /usr/share/doc/bash-&bash-version;</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="bash">
         <term><command>bash</command></term>
         <listitem>
-          <para>A widely-used command interpreter; it performs many types of
-          expansions and substitutions on a given command line before executing
-          it, thus making this interpreter a powerful tool</para>
+          <para>널리 사용되는 명령어 인터프리터; 명령줄을 실행하기 전에 주어진 명령에 대해 다양한 종류의 확장 및 대체 작업을 수행하는 강력한 해석 프로그램</para>
           <indexterm zone="ch-system-bash bash">
             <primary sortas="b-bash">bash</primary>
           </indexterm>
@@ -135,8 +124,7 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
       <varlistentry id="bashbug">
         <term><command>bashbug</command></term>
         <listitem>
-          <para>A shell script to help the user compose and mail standard
-          formatted bug reports concerning <command>bash</command></para>
+          <para>사용자가 <command>bash</command>에 관련된 표준 형식의 버그 리포트를 작성하고 메일로 보낼 수 있도록 지원하는 셸 스크립트</para>
           <indexterm zone="ch-system-bash bashbug">
             <primary sortas="b-bashbug">bashbug</primary>
           </indexterm>
@@ -146,11 +134,8 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
       <varlistentry id="sh">
         <term><command>sh</command></term>
         <listitem>
-          <para>A symlink to the <command>bash</command> program; when invoked
-          as <command>sh</command>, <command>bash</command> tries to mimic the
-          startup behavior of historical versions of <command>sh</command> as
-          closely as possible, while conforming to the POSIX standard as
-          well</para>
+          <para><command>bash</command> 프로그램에 대한 심볼릭 링크; 
+<command>sh</command>로 호출되면, <command>bash</command>는 POSIX 표준을 준수하면서 가능한 한 과거 버전의 <command>sh</command>의 시작 동작을 모방한다</para>
           <indexterm zone="ch-system-bash sh">
             <primary sortas="b-sh">sh</primary>
           </indexterm>

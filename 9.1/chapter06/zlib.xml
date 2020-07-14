@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Zlib package contains compression and decompression routines used by
-    some programs.</para>
+    <para>Zlib 패키지는 일부 프로그램에서 사용하는 압축 및 압축 해제 루틴을 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,28 +38,25 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Zlib</title>
+    <title>Zlib 설치</title>
 
-    <para>Prepare Zlib for compilation:</para>
+    <para>Zlib 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 다음을 수행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>The shared library needs to be moved to
-    <filename class="directory">/lib</filename>, and as a result the
-    <filename class="extension">.so</filename> file in
-    <filename class="directory">/usr/lib</filename> will need to be recreated:</para>
+    <para>공유 라이브러리를 <filename class="directory">/lib</filename>로 이동하고, <filename class="directory">/usr/lib</filename>의 <filename class="extension">.so</filename> 파일을 다시 생성해야 한다:</para>
 
 <screen><userinput remap="install">mv -v /usr/lib/libz.so.* /lib
 ln -sfv ../../lib/$(readlink /usr/lib/libz.so) /usr/lib/libz.so</userinput></screen>
@@ -68,10 +64,10 @@ ln -sfv ../../lib/$(readlink /usr/lib/libz.so) /usr/lib/libz.so</userinput></scr
   </sect2>
 
   <sect2 id="contents-zlib" role="content">
-    <title>Contents of Zlib</title>
+    <title>Zlib의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed libraries</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
 
       <seglistitem>
         <seg>libz.{a,so}</seg>
@@ -79,15 +75,14 @@ ln -sfv ../../lib/$(readlink /usr/lib/libz.so) /usr/lib/libz.so</userinput></scr
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="libz">
         <term><filename class="libraryfile">libz</filename></term>
         <listitem>
-          <para>Contains compression and decompression functions used by
-          some programs</para>
+          <para>일부 프로그램에서 사용하는 압축 및 압축 해제 기능 포함</para>
           <indexterm zone="ch-system-zlib libz">
             <primary sortas="c-libz">libz</primary>
           </indexterm>

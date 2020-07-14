@@ -23,9 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para> The pkg-config package contains a tool for passing the include path
-    and/or library paths to build tools during the configure and make file
-    execution.</para>
+    <para>pkg-config 패키지에는 configure와 make 파일 실행 중 도구를 빌드하기 위한 include 경로 및/또는 라이브러리 경로를 전달하는 도구가 포함되어 있다. </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,9 +38,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Pkg-config</title>
+    <title>Pkg-config 설치</title>
 
-    <para>Prepare Pkg-config for compilation:</para>
+    <para>Pkg-config 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr              \
             --with-internal-glib       \
@@ -50,46 +48,44 @@
             --docdir=/usr/share/doc/pkg-config-&pkgconfig-version;</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the new configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--with-internal-glib</parameter></term>
         <listitem>
-          <para>This will allow pkg-config to use its internal version of
-          Glib because an external version is not available in LFS.</para>
+          <para>LFS에서는 외부 버전을 사용할 수 없기 때문에 pkg-config가 Glib의 내부 버전을 사용하게 한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-host-tool</parameter></term>
         <listitem>
-          <para>This option disables the creation of an undesired hard link
-          to the pkg-config program.</para>
+          <para>pkg-config 프로그램에 대한 원치 않는 하드 링크를 생성하지 못하게 한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 다음을 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-pkgconfig" role="content">
-    <title>Contents of Pkg-config</title>
+    <title>Pkg-config의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed program</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
         <seg>pkg-config</seg>
@@ -98,7 +94,7 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -106,8 +102,7 @@
          <!-- Don't remove the extra space, it prevents a FOP warning. -->
         <term><command>pkg-config </command></term>
         <listitem>
-          <para>Returns meta information for the specified library or package
-          </para>
+          <para>지정된 라이브러리 또는 패키지에 대한 메타 정보 반환</para>
           <indexterm zone="ch-system-pkgconfig pkgconfig">
             <primary sortas="b-pkgconfig">pkg-config</primary>
           </indexterm>
