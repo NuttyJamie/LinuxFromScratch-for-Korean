@@ -23,10 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Gettext package contains utilities for internationalization and
-    localization. These allow programs to be compiled with NLS (Native Language
-    Support), enabling them to output messages in the user's native
-    language.</para>
+    <para>Gettext 패키지에는 다국어화와 현지화를 위한 유틸리티가 포함되어 있다. 이를 통해 프로그램을 현지 언어를 지원(Native Language Support, NLS)하도록 컴파일할 수 있어 사용자의 모국어로 메시지를 출력할 수 있다. </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,7 +38,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Gettext</title>
+    <title>Gettext 설치</title>
 
    <!-- This has been fixed in upstream gnulib, when a new version of
    gettext is released, please check #4055 to see if the change has been
@@ -68,22 +65,21 @@ sed -i 's/test-lock..EXEEXT.//' gettext-tools/gnulib-tests/Makefile.in</userinpu
 <screen><userinput remap="pre">sed -e '/AppData/{N;N;p;s/\.appdata\./.metainfo./}' \
     -i gettext-tools/its/appdata.loc</userinput></screen>
 -->
-    <para>Prepare Gettext for compilation:</para>
+    <para>Gettext 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/gettext-&gettext-version;</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results (this takes a long time, around 3 SBUs),
-    issue:</para>
+    <para>결과를 테스트하려면(이 작업은 시간이 오래 걸린다, 약 3 SBUs), 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install
 chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
@@ -91,35 +87,33 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
   </sect2>
 
   <sect2 id="contents-gettext" role="content">
-    <title>Contents of Gettext</title>
+    <title>Gettext의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>autopoint, envsubst, gettext, gettext.sh,
         gettextize, msgattrib, msgcat, msgcmp, msgcomm, msgconv, msgen,
-        msgexec, msgfilter, msgfmt, msggrep, msginit, msgmerge, msgunfmt, msguniq,
-        ngettext, recode-sr-latin, and xgettext</seg>
+        msgexec, msgfilter, msgfmt, msggrep, msginit, msgmerge, msgunfmt, msguniq, ngettext, recode-sr-latin, xgettext</seg>
         <seg>libasprintf.so, libgettextlib.so, libgettextpo.so,
-        libgettextsrc.so, libtextstyle.so, and preloadable_libintl.so</seg>
+        libgettextsrc.so, libtextstyle.so, preloadable_libintl.so</seg>
         <seg>/usr/lib/gettext, /usr/share/doc/gettext-&gettext-version;,
-        /usr/share/gettext, and /usr/share/gettext-0.19.8</seg>
+        /usr/share/gettext, /usr/share/gettext-0.19.8</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="autopoint">
         <term><command>autopoint</command></term>
         <listitem>
-          <para>Copies standard Gettext infrastructure files into a source
-          package</para>
+          <para>표준 Gettext 인프라 파일을 소스 패키지로 복사</para>
           <indexterm zone="ch-system-gettext autopoint">
             <primary sortas="b-autopoint">autopoint</primary>
           </indexterm>
@@ -129,7 +123,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="envsubst">
         <term><command>envsubst</command></term>
         <listitem>
-          <para>Substitutes environment variables in shell format strings</para>
+          <para>셸 형식 문자열에서 환경 변수 대체</para>
           <indexterm zone="ch-system-gettext envsubst">
             <primary sortas="b-envsubst">envsubst</primary>
           </indexterm>
@@ -139,8 +133,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="gettext">
         <term><command>gettext</command></term>
         <listitem>
-          <para>Translates a natural language message into the user's language
-          by looking up the translation in a message catalog</para>
+          <para>메시지 카탈로그에서 번역을 찾아 원본 언어의 메시지를 사용자의 언어로 번역</para>
           <indexterm zone="ch-system-gettext gettext">
             <primary sortas="b-gettext">gettext</primary>
           </indexterm>
@@ -150,7 +143,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="gettext.sh">
         <term><command>gettext.sh</command></term>
         <listitem>
-          <para>Primarily serves as a shell function library for gettext</para>
+          <para>주로 gettext의 셸 함수 라이브러리 역할</para>
           <indexterm zone="ch-system-gettext gettext.sh">
             <primary sortas="b-gettext.sh">gettext.sh</primary>
           </indexterm>
@@ -160,8 +153,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="gettextize">
         <term><command>gettextize</command></term>
         <listitem>
-          <para>Copies all standard Gettext files into the given top-level
-          directory of a package to begin internationalizing it</para>
+          <para>다국어화를 시작하기 위해 패키지의 지정된 최상위 디렉토리에 모든 표준 Gettext 파일들을 복사 </para>
           <indexterm zone="ch-system-gettext gettextize">
             <primary sortas="b-gettextize">gettextize</primary>
           </indexterm>
@@ -171,8 +163,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgattrib">
         <term><command>msgattrib</command></term>
         <listitem>
-          <para>Filters the messages of a translation catalog according to their
-          attributes and manipulates the attributes</para>
+          <para>속성에 따라 번역 카탈로그의 메시지들을 필터링하고 속성을 조작</para>
           <indexterm zone="ch-system-gettext msgattrib">
             <primary sortas="b-msgattrib">msgattrib</primary>
           </indexterm>
@@ -182,8 +173,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgcat">
         <term><command>msgcat</command></term>
         <listitem>
-          <para>Concatenates and merges the given
-          <filename class="extension">.po</filename> files</para>
+          <para>지정된 <filename class="extension">.po</filename> 파일 연결 및 병합</para>
           <indexterm zone="ch-system-gettext msgcat">
             <primary sortas="b-msgcat">msgcat</primary>
           </indexterm>
@@ -193,8 +183,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgcmp">
         <term><command>msgcmp</command></term>
         <listitem>
-          <para>Compares two <filename class="extension">.po</filename>
-          files to check that both contain the same set of msgid strings</para>
+          <para>두 <filename class="extension">.po</filename> 파일을 비교하여 두 파일이 모두 동일한 msgid 문자열을 포함하고 있는지 확인</para>
           <indexterm zone="ch-system-gettext msgcmp">
             <primary sortas="b-msgcmp">msgcmp</primary>
           </indexterm>
@@ -204,8 +193,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgcomm">
         <term><command>msgcomm</command></term>
         <listitem>
-          <para>Finds the messages that are common to the given
-          <filename class="extension">.po</filename> files</para>
+          <para>지정된 <filename class="extension">.po</filename> 파일들에서 공통적인 메시지를 찾음 </para>
           <indexterm zone="ch-system-gettext msgcomm">
             <primary sortas="b-msgcomm">msgcomm</primary>
           </indexterm>
@@ -215,8 +203,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgconv">
         <term><command>msgconv</command></term>
         <listitem>
-          <para>Converts a translation catalog to a different character
-          encoding</para>
+          <para>번역 카탈로그를 다른 문자 인코딩으로 변환</para>
           <indexterm zone="ch-system-gettext msgconv">
             <primary sortas="b-msgconv">msgconv</primary>
           </indexterm>
@@ -226,7 +213,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgen">
         <term><command>msgen</command></term>
         <listitem>
-          <para>Creates an English translation catalog</para>
+          <para>영어 번역 카탈로그 생성</para>
           <indexterm zone="ch-system-gettext msgen">
             <primary sortas="b-msgen">msgen</primary>
           </indexterm>
@@ -236,8 +223,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgexec">
         <term><command>msgexec</command></term>
         <listitem>
-          <para>Applies a command to all translations of a translation
-          catalog</para>
+          <para>번역 카탈로그의 모든 번역에 명령을 적용</para>
           <indexterm zone="ch-system-gettext msgexec">
             <primary sortas="b-msgexec">msgexec</primary>
           </indexterm>
@@ -247,8 +233,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgfilter">
         <term><command>msgfilter</command></term>
         <listitem>
-          <para>Applies a filter to all translations of a translation
-          catalog</para>
+          <para>번역 카탈로그의 모든 번역에 필터를 적용</para>
           <indexterm zone="ch-system-gettext msgfilter">
             <primary sortas="b-msgfilter">msgfilter</primary>
           </indexterm>
@@ -258,8 +243,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgfmt">
         <term><command>msgfmt</command></term>
         <listitem>
-          <para>Generates a binary message catalog from a translation
-          catalog</para>
+          <para>번역 카탈로그로부터 바이너리 메시지 카탈로그 생성</para>
           <indexterm zone="ch-system-gettext msgfmt">
             <primary sortas="b-msgfmt">msgfmt</primary>
           </indexterm>
@@ -269,8 +253,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msggrep">
         <term><command>msggrep</command></term>
         <listitem>
-          <para>Extracts all messages of a translation catalog that match a
-          given pattern or belong to some given source files</para>
+          <para>지정된 패턴과 일치하거나 지정된 원본 파일에 속하는 번역 카탈로그의 모든 메시지 추출</para>
           <indexterm zone="ch-system-gettext msggrep">
             <primary sortas="b-msggrep">msggrep</primary>
           </indexterm>
@@ -280,9 +263,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msginit">
         <term><command>msginit</command></term>
         <listitem>
-          <para>Creates a new <filename class="extension">.po</filename> file,
-          initializing the meta information with values from the user's
-          environment</para>
+          <para>사용자 환경의 값으로 메타데이터 정보를 초기화하는 새 <filename class="extension">.po</filename> 파일 생성</para>
           <indexterm zone="ch-system-gettext msginit">
             <primary sortas="b-msginit">msginit</primary>
           </indexterm>
@@ -292,7 +273,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgmerge">
         <term><command>msgmerge</command></term>
         <listitem>
-          <para>Combines two raw translations into a single file</para>
+          <para>두 원시 번역문을 하나의 파일로 결합</para>
           <indexterm zone="ch-system-gettext msgmerge">
             <primary sortas="b-msgmerge">msgmerge</primary>
           </indexterm>
@@ -302,8 +283,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgunfmt">
         <term><command>msgunfmt</command></term>
         <listitem>
-          <para>Decompiles a binary message catalog into raw translation
-          text</para>
+          <para>바이너리 메시지 카탈로그를 원시 번역 텍스트로 디컴파일</para>
           <indexterm zone="ch-system-gettext msgunfmt">
             <primary sortas="b-msgunfmt">msgunfmt</primary>
           </indexterm>
@@ -313,7 +293,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msguniq">
         <term><command>msguniq</command></term>
         <listitem>
-          <para>Unifies duplicate translations in a translation catalog</para>
+          <para>번역 카탈로그에서 중복 번역 통합</para>
           <indexterm zone="ch-system-gettext msguniq">
             <primary sortas="b-msguniq">msguniq</primary>
           </indexterm>
@@ -323,8 +303,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="ngettext">
         <term><command>ngettext</command></term>
         <listitem>
-          <para>Displays native language translations of a textual message whose
-          grammatical form depends on a number</para>
+          <para>문법 형식이 숫자에 따라 달라지는 텍스트 메시지의 기본 언어 번역 표시</para>
           <indexterm zone="ch-system-gettext ngettext">
             <primary sortas="b-ngettext">ngettext</primary>
           </indexterm>
@@ -334,7 +313,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="recode-sr-latin">
         <term><command>recode-sr-latin</command></term>
         <listitem>
-          <para>Recodes Serbian text from Cyrillic to Latin script</para>
+          <para>세르비안 텍스트를 키릴 문자에서 라틴 문자로 리코딩</para>
           <indexterm zone="ch-system-gettext recode-sr-latin">
             <primary sortas="b-recode-sr-latin">recode-sr-latin</primary>
           </indexterm>
@@ -344,8 +323,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="xgettext">
         <term><command>xgettext</command></term>
         <listitem>
-          <para>Extracts the translatable message lines from the given source
-          files to make the first translation template</para>
+          <para>첫 번째 번역 템플릿을 만들기 위해 지정된 원본 파일로부터 번역 가능한 메시지 라인을 추출</para>
           <indexterm zone="ch-system-gettext xgettext">
             <primary sortas="b-xgettext">xgettext</primary>
           </indexterm>
@@ -355,10 +333,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="libasprintf">
         <term><filename class="libraryfile">libasprintf</filename></term>
         <listitem>
-          <para>defines the <emphasis>autosprintf</emphasis> class, which makes
-          C formatted output routines usable in C++ programs, for use with the
-          <emphasis>&lt;string&gt;</emphasis> strings and the
-          <emphasis>&lt;iostream&gt;</emphasis> streams</para>
+          <para><emphasis>&lt;string&gt;</emphasis> 문자열 및 <emphasis>&lt;iostream&gt;</emphasis> 스트림과 함께 사용하기 위해 C 형식 출력 루틴을 C++ 프로그램에서 사용할 수 있도록 하는 <emphasis>autosprintf</emphasis> 클래스를 정의한다.</para>
           <indexterm zone="ch-system-gettext libasprintf">
             <primary sortas="c-libasprintf">libasprintf</primary>
           </indexterm>
@@ -368,8 +343,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="libgettextlib">
         <term><filename class="libraryfile">libgettextlib</filename></term>
         <listitem>
-          <para>a private library containing common routines used by the
-          various Gettext programs; these are not intended for general use</para>
+          <para>다양한 Gettext 프로그램들이 사용하는 공통 루틴을 포함하는 private 라이브러리; 이것들은 일반적인 용도로 사용되지 않는다</para>
           <indexterm zone="ch-system-gettext libgettextlib">
             <primary sortas="c-libgettextlib">libgettextlib</primary>
           </indexterm>
@@ -379,12 +353,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="libgettextpo">
         <term><filename class="libraryfile">libgettextpo</filename></term>
         <listitem>
-          <para>Used to write specialized programs that process
-          <filename class="extension">.po</filename> files; this library is
-          used when the standard applications shipped with Gettext (such as
-          <command>msgcomm</command>, <command>msgcmp</command>,
-          <command>msgattrib</command>, and <command>msgen</command>) will
-          not suffice</para>
+          <para><filename class="extension">.po</filename> 파일을 처리하는 특수 프로그램 작성에 사용됨; 이 라이브러리는 Gettext와 함께 제공된 표준 응용 프로그램들(<command>msgcomm</command>, <command>msgcmp</command>, <command>msgattrib</command>, <command>msgen</command>)만으로는 충분하지 않을 때 사용됨</para>
           <indexterm zone="ch-system-gettext libgettextpo">
             <primary sortas="c-libgettextpo">libgettextpo</primary>
           </indexterm>
@@ -394,8 +363,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="libgettextsrc">
         <term><filename class="libraryfile">libgettextsrc</filename></term>
         <listitem>
-          <para>A private library containing common routines used by the
-          various Gettext programs; these are not intended for general use</para>
+          <para>다양한 Gettext 프로그램에서 사용하는 일반적인 루틴을 포함하는 private 라이브러리; 이것들은 일반적인 용도로 사용되지 않음</para>
           <indexterm zone="ch-system-gettext libgettextsrc">
             <primary sortas="c-libgettextsrc">libgettextsrc</primary>
           </indexterm>
@@ -405,7 +373,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="libtextstyle">
         <term><filename class="libraryfile">libtextstyle</filename></term>
         <listitem>
-          <para>Text styling library</para>
+          <para>텍스트 스타일링 라이브러리</para>
           <indexterm zone="ch-system-gettext libtextstyle">
             <primary sortas="c-libtextstyle">libtextstyle</primary>
           </indexterm>
@@ -415,9 +383,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="preloadable_libintl">
         <term><filename class="libraryfile">preloadable_libintl</filename></term>
         <listitem>
-          <para>A library, intended to be used by LD_PRELOAD that assists
-          <filename class="libraryfile">libintl</filename> in logging
-          untranslated messages</para>
+          <para>번역되지 않은 메시지를 기록할 때 <filename class="libraryfile">libintl</filename>을 보조하는 LD_PRELOAD에서 사용할 라이브러리</para>
           <indexterm zone="ch-system-gettext preloadable_libintl">
             <primary sortas="c-preloadable_libintl">preloadable_libintl</primary>
           </indexterm>

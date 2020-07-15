@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Kmod package contains libraries and utilities for loading kernel
-    modules</para>
+    <para>Kmod 패키지에는 커녈 모듈을 로드하기 위한 라이브러리 및 유틸리티가 포함되어 있음</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,9 +38,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Kmod</title>
+    <title>Kmod 설치</title>
 
-    <para>Prepare Kmod for compilation:</para>
+    <para>Kmod 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr          \
             --bindir=/bin          \
@@ -51,41 +50,36 @@
             --with-zlib</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--with-xz, --with-zlib</parameter></term>
         <listitem>
-          <para>These options enable Kmod to handle compressed kernel modules.</para>
+          <para>Kmod가 압축된 커널 모듈을 처리할 수 있게 한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-rootlibdir=/lib</parameter></term>
         <listitem>
-          <para>This option ensures different library related files are placed 
-          in the correct directories.</para>
+          <para>서로 다른 라이브러리 관련 파일을 올바른 디렉토리에 배치하도록 한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>This package does not come with a test suite that can be run in the
-    LFS chroot environment.  At a minimum the git program is required and
-    several tests will not run outside of a git repository. </para>
+    <para>이 패키지는 LFS chroot 환경에서 실행할 수 있는 테스트 스위트가 없다. 적어도 git 프로그램이 필요하며 여러 테스트가 git 리포지토리 밖에선 실행되지 않는다.</para>
 
 <!--
     <para>To test the results, issue:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 -->
-    <para>Install the package, and create symlinks for
-    compatibility with Module-Init-Tools (the package that previously handled
-    Linux kernel modules):</para>
+    <para>패키지를 설치하고 Module-Init-Tools(이전에 리눅스 커널 모듈을 처리하던 패키지)와 호환되도록 심볼릭 링크 생성:</para>
 
 <screen><userinput remap="install">make install
 
@@ -98,32 +92,29 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
   </sect2>
 
   <sect2 id="contents-kmod" role="content">
-    <title>Contents of Kmod</title>
+    <title>Kmod의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed library</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
 
       <seglistitem>
-        <seg>depmod (link to kmod), insmod (link to kmod), kmod, 
-        lsmod (link to kmod), modinfo (link to kmod), modprobe (link to kmod),
-        and rmmod (link to kmod)</seg>
+        <seg>depmod (kmod로 링크), insmod (kmod로 링크), kmod, 
+        lsmod (kmod로 링크), modinfo (kmod로 링크), modprobe (kmod로 링크),
+        and rmmod (kmod로 링크)</seg>
         <seg>libkmod.so</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="depmod">
         <term><command>depmod</command></term>
         <listitem>
-          <para>Creates a dependency file based on the symbols it finds in the
-          existing set of modules; this dependency file is used by
-          <command>modprobe</command> to automatically load the required
-          modules</para>
+          <para>기존의 모듈 세트에서 찾은 심볼들을 기반으로 의존성 파일 생성; 이 의존성 파일은 <command>modprobe</command>에서 필요한 모듈을 자동으로 로드하는 데 사용된다</para>
           <indexterm zone="ch-system-kmod depmod">
             <primary sortas="b-depmod">depmod</primary>
           </indexterm>
@@ -133,7 +124,7 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="insmod">
         <term><command>insmod</command></term>
         <listitem>
-          <para>Installs a loadable module in the running kernel</para>
+          <para>실행 중인 커널에 로드 가능한 모듈을 설치</para>
           <indexterm zone="ch-system-kmod insmod">
             <primary sortas="b-insmod">insmod</primary>
           </indexterm>
@@ -143,7 +134,7 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="kmod">
         <term><command>kmod</command></term>
         <listitem>
-          <para>Loads and unloads kernel modules</para>
+          <para>커널 모듈 로드 및 언로드</para>
           <indexterm zone="ch-system-kmod kmod">
             <primary sortas="b-kmod">kmod</primary>
           </indexterm>
@@ -153,7 +144,7 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="lsmod">
         <term><command>lsmod</command></term>
         <listitem>
-          <para>Lists currently loaded modules</para>
+          <para>현재 로드된 모듈 나열</para>
           <indexterm zone="ch-system-kmod lsmod">
             <primary sortas="b-lsmod">lsmod</primary>
           </indexterm>
@@ -163,8 +154,7 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="modinfo">
         <term><command>modinfo</command></term>
         <listitem>
-          <para>Examines an object file associated with a kernel module and
-          displays any information that it can glean</para>
+          <para>커널 모듈과 연결된 오브젝트 파일을 검사하여 수집할 수 있는 모든 정보 표시</para>
           <indexterm zone="ch-system-kmod modinfo">
             <primary sortas="b-modinfo">modinfo</primary>
           </indexterm>
@@ -174,8 +164,7 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="modprobe">
         <term><command>modprobe</command></term>
         <listitem>
-          <para>Uses a dependency file, created by
-          <command>depmod</command>, to automatically load relevant modules</para>
+          <para><command>depmod</command>에 의해 생성된 의존성 파일을 사용하여, 관련 모듈을 자동으로 로드</para>
           <indexterm zone="ch-system-kmod modprobe">
             <primary sortas="b-modprobe">modprobe</primary>
           </indexterm>
@@ -185,7 +174,7 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="rmmod">
         <term><command>rmmod</command></term>
         <listitem>
-          <para>Unloads modules from the running kernel</para>
+          <para>실행 중인 커널에서 모듈 언로드</para>
           <indexterm zone="ch-system-kmod rmmod">
             <primary sortas="b-rmmod">rmmod</primary>
           </indexterm>
@@ -195,8 +184,7 @@ ln -sfv kmod /bin/lsmod</userinput></screen>
       <varlistentry id="libkmod">
         <term><filename class="libraryfile">libkmod</filename></term>
         <listitem>
-          <para>This library is used by other programs to load and unload kernel
-           modules</para>
+          <para>다른 프로그램에서 커널 모듈을 로드 및 언로드하는 데 사용되는 라이브러리</para>
           <indexterm zone="ch-system-kmod">
             <primary sortas="c-libkmod">libkmod</primary>
           </indexterm>

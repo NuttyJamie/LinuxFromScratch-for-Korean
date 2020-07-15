@@ -2,6 +2,7 @@
 ## 9.1판 2020년 3월 1일 발행
 ### 저자: Gerard Beekmans 
 ### 관리 편집자: Bruce Dubbs
+### 역자: Jong Min Kim
 저작권 ⓒ  1999-2020 Gerard Beekmans
 - - -
 
@@ -133,10 +134,10 @@
         - [x] XML::Parser-2.46
         - [x] Intltool-0.51.0
         - [x] Autoconf-2.69
-        - [ ] Automake-1.16.1
-        - [ ] Kmod-26
-        - [ ] Gettext-0.20.1
-        - [ ] Libelf from Elfutils-0.178
+        - [x] Automake-1.16.1
+        - [x] Kmod-26
+        - [x] Gettext-0.20.1
+        - [x] Libelf from Elfutils-0.178
         - [ ] Libffi-3.3
         - [ ] OpenSSL-1.1.1d
         - [ ] Python-3.8.1

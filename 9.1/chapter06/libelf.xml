@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Libelf is a library for handling ELF (Executable and Linkable Format)
-    files.</para>
+    <para>Libelf는 실행 가능하고 링크 가능한 포맷(Executable and Linkable Format, ELF) 파일들을 처리하기 위한 라이브러리이다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,26 +38,26 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Libelf</title>
+    <title>Libelf 설치</title>
 
-      <para>Libelf is part of elfutils-&elfutils-version; package. Use
-      the elfutils-&elfutils-version;.tar.bz2 as the source tarball.</para>
+      <para>Libelf는 elfutils-&elfutils-version; 패키지의 일부이다. 
+      소스 tarball로 elfutils-&elfutils-version;를 사용하라.</para>
 
-    <para>Prepare Libelf for compilation:</para>
+    <para>Libelf 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr --disable-debuginfod</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
     
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>One test, run-elfclassify.sh, is known to fail.</para>
+    <para>run-elfclassify.sh라는 테스트는 실패한다고 알려져 있다.</para>
 
-    <para>Install only Libelf:</para>
+    <para>Libelf만 설치한다:</para>
 
 <screen><userinput remap="install">make -C libelf install
 install -vm644 config/libelf.pc /usr/lib/pkgconfig
@@ -67,11 +66,11 @@ rm /usr/lib/libelf.a</userinput></screen>
   </sect2>
 
   <sect2 id="contents-elfutils" role="content">
-    <title>Contents of Libelf</title>
+    <title>Libelf의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed Library</segtitle>
-      <segtitle>Installed Directory</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
         <seg>

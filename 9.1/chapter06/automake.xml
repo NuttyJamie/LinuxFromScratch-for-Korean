@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Automake package contains programs for generating Makefiles for use
-    with Autoconf.</para>
+    <para>Automake 패키지에는 Autoconf와 함께 사용할 Makefiles를 생성하는 프로그램이 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,13 +38,13 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Automake</title>
+    <title>Automake 설치</title>
 
-    <para>Prepare Automake for compilation:</para>
+    <para>Automake 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr --docdir=/usr/share/doc/automake-&automake-version;</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
@@ -56,9 +55,7 @@
     tests.  To test the results, issue:</para>
  -->
 
-    <para> Using the -j4 make option speeds up the tests, even on systems with
-    only one processor, due to internal delays in individual tests.  To test
-    the results, issue:</para>
+    <para>각각의 테스트마다 내부 딜레이가 있기 때문에, 프로세서가 하나뿐인 시스템에서도 -j4 make 옵션을 사용해서 테스트 속도를 높일 수가 있다. 결과를 테스트하려면 실행하라:</para>
 
  <!--<screen><userinput remap="test">sed -i "s:./configure:LEXLIB=/usr/lib/libfl.a &amp;:" t/lex-{clean,depend}-cxx.sh
        make -j4 check</userinput></screen>-->
@@ -66,10 +63,9 @@
 <screen><userinput remap="test">make -j4 check</userinput></screen>
 
 
-    <para>One test is known to fail in the LFS environment:
-    subobj.sh.</para>
+    <para>LFS 환경에서 한 가지 테스트가 실패하는 것으로 알려져 있다: subobj.sh.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
@@ -77,30 +73,27 @@
 
 
   <sect2 id="contents-automake" role="content">
-    <title>Contents of Automake</title>
+    <title>Automake의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
-        <seg>aclocal, aclocal-&am-minor-version; (hard linked with aclocal), automake, and
-        automake-&am-minor-version; (hard linked with automake) </seg>
-        <seg>/usr/share/aclocal-&am-minor-version;, /usr/share/automake-&am-minor-version;, and
-        /usr/share/doc/automake-&automake-version;</seg>
+        <seg>aclocal, aclocal-&am-minor-version; (aclocal와 하드 링크), automake, automake-&am-minor-version; (automake와 하드 링크) </seg>
+        <seg>/usr/share/aclocal-&am-minor-version;, /usr/share/automake-&am-minor-version;, /usr/share/doc/automake-&automake-version;</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="aclocal">
         <term><command>aclocal</command></term>
         <listitem>
-          <para>Generates <filename>aclocal.m4</filename> files based on the
-          contents of <filename>configure.in</filename> files</para>
+          <para><filename>configure.in</filename> 파일의 내용에 따라 <filename>aclocal.m4</filename> 파일 생성</para>
           <indexterm zone="ch-system-automake aclocal">
             <primary sortas="b-aclocal">aclocal</primary>
           </indexterm>
@@ -110,7 +103,7 @@
       <varlistentry id="aclocalversion">
         <term><command>aclocal-&am-minor-version;</command></term>
         <listitem>
-          <para>A hard link to <command>aclocal</command></para>
+          <para><command>aclocal</command>로의 하드 링크</para>
           <indexterm zone="ch-system-automake aclocalversion">
             <primary sortas="b-aclocal-&am-minor-version;">aclocal-&am-minor-version;</primary>
           </indexterm>
@@ -120,14 +113,7 @@
       <varlistentry id="automake">
         <term><command>automake</command></term>
         <listitem>
-          <para>A tool for automatically generating
-          <filename>Makefile.in</filename> files from
-          <filename>Makefile.am</filename> files [To create all the
-          <filename>Makefile.in</filename> files for a package, run this program
-          in the top-level directory. By scanning the
-          <filename>configure.in</filename> file, it automatically finds each
-          appropriate <filename>Makefile.am</filename> file and generates the
-          corresponding <filename>Makefile.in</filename> file.]</para>
+          <para><filename>Makefile.am</filename> 파일로부터 <filename>Makefile.in</filename> 파일을 자동으로 생성하는 도구 [패키지에 대한 모든 <filename>Makefile.in</filename> 파일을 만들려면 최상위 디렉토리에서 이 프로그램을 실행하라. <filename>configure.in</filename> 파일을 스캔하면, <filename>Makefile.am</filename> 파일을 자동으로 찾아 해당 <filename>Makefile.in</filename> 파일을 생성한다.]</para>
           <indexterm zone="ch-system-automake automake">
             <primary sortas="b-automake">automake</primary>
           </indexterm>
@@ -137,7 +123,7 @@
       <varlistentry id="automake-version">
         <term><command>automake-&am-minor-version;</command></term>
         <listitem>
-          <para>A hard link to <command>automake</command></para>
+          <para><command>automake</command>로의 하드 링크</para>
           <indexterm zone="ch-system-automake automake-version">
             <primary sortas="b-automake-&am-minor-version;">automake-&am-minor-version;</primary>
           </indexterm>
