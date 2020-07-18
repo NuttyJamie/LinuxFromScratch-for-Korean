@@ -23,10 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The OpenSSL package contains  management tools and libraries relating
-    to cryptography. These are useful for providing cryptographic functions
-    to other packages, such as OpenSSH, email applications and web browsers
-    (for accessing HTTPS sites).  </para>
+    <para>OpenSSL 패키지에는 암호화와 관련된 관리 도구와 라이브러리가 포함되어 있다. 이는 OpenSSH, 이메일 애플리케이션 및 웹 브라우저(HTTPS 사이트 접근용)와 같은 다른 패키지에 암호화 기능을 제공하는 데 유용하다. </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,14 +38,14 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of OpenSSL</title>
+    <title>OpenSSL 설치</title>
 <!--
     <para>First, fix a problem identified upstream:</para>
 
 <screen><userinput remap="pre">sed -i '/\} data/s/ =.*$/;\n    memset(\&amp;data, 0, sizeof(data));/' \
   crypto/rand/rand_lib.c</userinput></screen>
 -->
-    <para>Prepare OpenSSL for compilation:</para>
+    <para>OpenSSL 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./config --prefix=/usr         \
          --openssldir=/etc/ssl \
@@ -56,22 +53,22 @@
          shared                \
          zlib-dynamic</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
 
-    <para>One subtest in the test 20-test_enc.t is known to fail.</para>
+    <para>20-test_enc.t의 테스트 한 개가 실패하는 것으로 알려져 있다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
 make MANSUFFIX=ssl install</userinput></screen>
 
-    <para>If desired, install the documentation:</para>
+    <para>필요하다면 문서를 설치하라:</para>
 
 <screen><userinput remap="install">mv -v /usr/share/doc/openssl /usr/share/doc/openssl-&openssl-version;
 cp -vfr doc/* /usr/share/doc/openssl-&openssl-version;</userinput></screen>
@@ -79,31 +76,31 @@ cp -vfr doc/* /usr/share/doc/openssl-&openssl-version;</userinput></screen>
   </sect2>
 
   <sect2 id="contents-openssl" role="content">
-    <title>Contents of OpenSSL</title>
+    <title>OpenSSL의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>
-          c_rehash and openssl
+          c_rehash와 openssl
         </seg>
         <seg>
-          libcrypto.{so,a} and libssl.{so,a}
+          libcrypto.{so,a}와 libssl.{so,a}
         </seg>
         <seg>
           /etc/ssl,
           /usr/include/openssl,
-          /usr/lib/engines and
+          /usr/lib/engines, 
           /usr/share/doc/openssl-&openssl-version;
         </seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -111,9 +108,7 @@ cp -vfr doc/* /usr/share/doc/openssl-&openssl-version;</userinput></screen>
         <term><command>c_rehash</command></term>
         <listitem>
           <para>
-            is a <application>Perl</application> script that scans all files in
-            a directory and adds symbolic links to their hash values.
-          </para>
+            디렉토리의 모든 파일을 검사하고 그 해시 값들에 심볼릭 링크를 추가하는 <application>Perl</application> 스크립트.</para>
           <indexterm zone="ch-system-openssl c_rehash">
             <primary sortas="b-c_rehash">c_rehash</primary>
           </indexterm>
@@ -124,10 +119,7 @@ cp -vfr doc/* /usr/share/doc/openssl-&openssl-version;</userinput></screen>
         <term><command>openssl</command></term>
         <listitem>
           <para>
-            is a command-line tool for using the various cryptography functions
-            of <application>OpenSSL</application>'s crypto library from the
-            shell. It can be used for various functions which are documented in
-            <command>man 1 openssl</command>.
+            셸에서 <application>OpenSSL</application>의 암호화 라이브러리의 다양한 암호화 기능을 사용하기 위한 명령줄 도구이다. <command>man 1 openssl</command>에 설명되어 있는 다양한 기능들에 사용된다.
           </para>
           <indexterm zone="ch-system-openssl openssl-prog">
             <primary sortas="b-openssl">openssl</primary>
@@ -139,14 +131,7 @@ cp -vfr doc/* /usr/share/doc/openssl-&openssl-version;</userinput></screen>
         <term><filename class="libraryfile">libcrypto.so</filename></term>
         <listitem>
           <para>
-            implements a wide range of cryptographic algorithms used in various
-            Internet standards. The services provided by  this library are used
-            by the <application>OpenSSL</application> implementations of SSL,
-            TLS and S/MIME, and they have also been used to implement
-            <application>OpenSSH</application>,
-            <application>OpenPGP</application>, and other cryptographic
-            standards.
-          </para>
+            다양한 인터넷 표준에 쓰이는 광범위한 암호 알고리즘을 구현한다. 이 라이브러리에서 제공하는 서비스들은 SSL, TLS, S/MIME의 <application>OpenSSL</application> 구현에 쓰이며 <application>OpenSSH</application>, <application>OpenPGP</application> 및 기타 암호 표준을 구현하는 데도 사용되었다.</para>
           <indexterm zone="ch-system-openssl libcrypto">
             <primary sortas="c-libcrypto">libcrypto.so</primary>
           </indexterm>
@@ -157,9 +142,8 @@ cp -vfr doc/* /usr/share/doc/openssl-&openssl-version;</userinput></screen>
         <term><filename class="libraryfile">libssl.so</filename></term>
         <listitem>
           <para>
-            implements the Transport Layer Security (TLS v1) protocol.
-            It provides a rich API, documentation
-            on which can be found by running <command>man 3 ssl</command>.
+            Transport Layer Security (TLS v1) 프로토콜 구현.
+            <command>man 3 ssl</command>를 실행해서 볼 수 있는 풍부한 API와 문서를 제공한다.
           </para>
           <indexterm zone="ch-system-openssl libssl">
             <primary sortas="c-libssl">libssl.so</primary>

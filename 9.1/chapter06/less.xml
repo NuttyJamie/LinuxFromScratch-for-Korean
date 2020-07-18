@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Less package contains a text file viewer.</para>
+    <para>Less 패키지에는 텍스트 파일 뷰어가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,59 +38,56 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Less</title>
+    <title>Less 설치</title>
 
-    <para>Prepare Less for compilation:</para>
+    <para>Less 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr --sysconfdir=/etc</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션의 의미:</title>
 
       <varlistentry>
         <term><parameter>--sysconfdir=/etc</parameter></term>
         <listitem>
-          <para>This option tells the programs created by the package to look
-          in <filename class="directory">/etc</filename> for the configuration
-          files.</para>
+          <para>패키지에 의해 생성된 프로그램이 <filename class="directory">/etc</filename>에서 구성 파일을 찾도록 지시한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>This package does not come with a test suite.</para>
+    <para>이 패키지에는 테스트 스위트가 포함되어 있지 않다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-less" role="content">
-    <title>Contents of Less</title>
+    <title>Less의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
 
       <seglistitem>
-        <seg>less, lessecho, and lesskey</seg>
+        <seg>less, lessecho, lesskey</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="less">
         <term><command>less</command></term>
         <listitem>
-          <para>A file viewer or pager; it displays the contents of the given
-          file, letting the user scroll, find strings, and jump to marks</para>
+          <para>파일 뷰어 또는 호출기; 지정된 파일의 내용을 출력하여 사용자가 스크롤하고 문자열을 찾고 표시한 곳으로 이동할 수 있음</para>
           <indexterm zone="ch-system-less less">
             <primary sortas="b-less">less</primary>
           </indexterm>
@@ -100,8 +97,7 @@
       <varlistentry id="lessecho">
         <term><command>lessecho</command></term>
         <listitem>
-          <para>Needed to expand meta-characters, such as <emphasis>*</emphasis>
-          and <emphasis>?</emphasis>, in filenames on Unix systems</para>
+          <para>유닉스 시스템의 파일 이름에서 <emphasis>*</emphasis> 및 <emphasis>?</emphasis>와 같은 메타 문자를 확장하는 데 필요</para>
           <indexterm zone="ch-system-less lessecho">
             <primary sortas="b-lessecho">lessecho</primary>
           </indexterm>
@@ -111,7 +107,7 @@
       <varlistentry id="lesskey">
         <term><command>lesskey</command></term>
         <listitem>
-          <para>Used to specify the key bindings for <command>less</command></para>
+          <para><command>less</command>의 키 바인딩을 지정하기 위해 사용</para>
           <indexterm zone="ch-system-less lesskey">
             <primary sortas="b-lesskey">lesskey</primary>
           </indexterm>

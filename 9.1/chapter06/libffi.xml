@@ -23,9 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Libffi library provides a portable, high level programming
-    interface to various calling conventions. This allows a programmer to call
-    any function specified by a call interface description at run time.</para>
+    <para>Libffi 라이브러리는 다양한 호출 규약에 대한 이식 가능한 고급 프로그래밍 인터페이스를 제공한다. 프로그래머가 런타임 중에 호출 인터페이스 설명에 적힌 어떤 함수든 호출할 수 있다. </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,14 +38,10 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Libffi</title>
+    <title>Libffi 설치</title>
 
     <note>
-      <para>Similar to GMP, libffi builds with optimizations specific
-      to the proccesor in use. If building for another system, export
-      CFLAGS and CXXFLAGS to specify a generic build for your architecture.
-      If this is not done, all applications that link to libffi will trigger
-      Illegal Operation Errors.</para>
+      <para>GMP와 유사하게, libffi는 사용 중인 프로세서에 최적화 되어 빌드된다. 다른 시스템 용으로 빌드하는 경우 CFLAGS와 CXXFLAGS를 내보내기해서 아키텍쳐에 대해 일반 빌드를 지정하라. 그러지 않으면 libffi에 연결된 모든 응용 프로그램에서 잘못된 작업 오류를 일으킨다.</para>
     </note>
 <!--
     <para>Modify the Makefile to install headers into the standard
@@ -61,50 +55,43 @@ sed -e '/^includedir/ s/=.*$/=@includedir@/' \
     -e 's/^Cflags: -I${includedir}/Cflags:/' \
     -i libffi.pc.in</userinput></screen>
 -->
-    <para>Prepare libffi for compilation:</para>
+    <para>libffi 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr --disable-static --with-gcc-arch=native</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure option:</title>
+      <title>Configure 옵션의 의미:</title>
 
       <varlistentry>
         <term><parameter>--with-gcc-arch=native</parameter></term>
         <listitem>
-          <para>Ensure gcc optimizes for the current system.  If this
-          is not specified, the system is guessed and the code generated
-          may not be correct for some systems.  If the generated code
-          will be copied from the native system to a less capable 
-          system, use the less capable system as a parameter. For details 
-          about alternative system types, see <ulink 
-          url='https://gcc.gnu.org/onlinedocs/gcc-&gcc-version;/gcc/x86-Options.html'>
-          the x86 options in the gcc manual</ulink>.</para>
+          <para>현재 시스템에 대해 gcc 최적화를 한다. 이것을 지정하지 않으면 대상 시스템을 추측해서 빌드되고 따라서 생성된 코드가 시스템에 대해 알맞지 않을 수가 있다. 생성된 코드를 네이티브 시스템에서 성능이 낮은 시스템으로 복사하려는 경우, 성능이 낮은 시스템을 매개 변수로 사용하라. 대체 시스템 유형에 대한 자세한 내용은 <ulink url='https://gcc.gnu.org/onlinedocs/gcc-&gcc-version;/gcc/x86-Options.html'>gcc 매뉴얼의 x86 옵션들</ulink>을 참고하라.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Six tests, all related to test-callback.c, are known to fail.</para>
+    <para>test-callback.c에 관련된 6개의 테스트가 실패한다고 알려져 있다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-libffi" role="content">
-    <title>Contents of Libffi</title>
+    <title>Libffi의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed library</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
 
       <seglistitem>
         <seg>libffi.so</seg>
@@ -112,14 +99,14 @@ sed -e '/^includedir/ s/=.*$/=@includedir@/' \
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="libffi">
         <term><filename class="libraryfile">libffi</filename></term>
         <listitem>
-          <para>contains the libffi API functions.</para>
+          <para>libffi API 함수들을 포함하고 있다.</para>
           <indexterm zone="ch-system-libffi">
             <primary sortas="c-libffi">libffi</primary>
           </indexterm>

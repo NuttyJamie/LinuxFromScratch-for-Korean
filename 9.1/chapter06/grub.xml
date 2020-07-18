@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The GRUB package contains the GRand Unified Bootloader.</para>
+    <para>GRUB 패키지에는 GRand Unified Bootloader가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,9 +38,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of GRUB</title>
+    <title>GRUB 설치</title>
 
-    <para>Prepare GRUB for compilation:</para>
+    <para>GRUB 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr          \
             --sbindir=/sbin        \
@@ -49,48 +49,45 @@
             --disable-werror</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the new configure options:</title>
+      <title>새 Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--disable-werror</parameter></term>
         <listitem>
-          <para>This allows the build to complete with warnings introduced
-          by more recent Flex versions.</para>
+          <para>보다 최신 버전의 Flex에서 알려진 경고 사항들을 기반으로 빌드를 완료할 수 있다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-efiemu</parameter></term>
         <listitem>
-          <para>This option minimizes what is built by disabling a feature and
-          testing programs not needed for LFS.</para>
+          <para>LFS에 필요하지 않은 기능 및 테스트 프로그램을 비활성화하여 빌드할 대상을 최소화한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>This package does not come with a test suite.</para>
+    <para>이 패키지에는 테스트 스위트가 포함되어 있지 않다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install
 mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userinput></screen>
 
-  <para>Using GRUB to make your LFS system bootable will be discussed in
-  <xref linkend="ch-bootable-grub"/>.</para>
+  <para>GRUB으로 LFS 시스템을 부팅하는 방법은 <xref linkend="ch-bootable-grub"/>에서 설명한다.</para>
 
   </sect2>
 
   <sect2 id="contents-gRUB" role="content">
-    <title>Contents of GRUB</title>
+    <title>GRUB의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
 
@@ -101,22 +98,21 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
             grub-mkpasswd-pbkdf2, grub-mkrelpath,  grub-mkrescue,    grub-mkstandalone,
             grub-ofpathname,      grub-probe,      grub-reboot,      grub-render-label, 
             grub-script-check,
-            grub-set-default,     grub-sparc64-setup, and grub-syslinux2cfg</seg>
+            grub-set-default,     grub-sparc64-setup, grub-syslinux2cfg</seg>
 
-        <seg>/usr/lib/grub, /etc/grub.d, /usr/share/grub, and /boot/grub (when grub-install
-        is first run)</seg>
+        <seg>/usr/lib/grub, /etc/grub.d, /usr/share/grub, /boot/grub (grub-install이 처음 실행될 때)</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="grub-bios-setup">
         <term><command>grub-bios-setup</command></term>
         <listitem>
-          <para>Is a helper program for grub-install</para>
+          <para>Grub-install을 위한 헬퍼 프로그램</para>
           <indexterm zone="ch-system-grub grub-bios-setup">
             <primary sortas="b-grub-bios-setup">grub-bios-setup</primary>
           </indexterm>
@@ -126,7 +122,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-editenv">
         <term><command>grub-editenv</command></term>
         <listitem>
-          <para>A tool to edit the environment block</para>
+          <para>환경 블록을 편집하는 도구</para>
           <indexterm zone="ch-system-grub grub-editenv">
             <primary sortas="b-grub-editenv">grub-editenv</primary>
           </indexterm>
@@ -136,7 +132,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-file">
         <term><command>grub-file</command></term>
         <listitem>
-          <para>Checks if FILE is of the specified type.</para>
+          <para>FILE이 지정된 유형인지 확인</para>
           <indexterm zone="ch-system-grub grub-file">
             <primary sortas="b-grub-file">grub-file</primary>
           </indexterm>
@@ -146,7 +142,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-fstest">
         <term><command>grub-fstest</command></term>
         <listitem>
-          <para>Tool to debug the filesystem driver</para>
+          <para>파일 시스템 드라이버를 디버그하는 도구</para>
           <indexterm zone="ch-system-grub grub-fstest">
             <primary sortas="b-grub-fstest">grub-fstest</primary>
           </indexterm>
@@ -156,8 +152,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-glue-efi">
         <term><command>grub-glue-efi</command></term>
         <listitem>
-          <para>Processes ia32 and amd64 EFI images and glues them
-          according to Apple format.</para>
+          <para>ia32 및 amd64 EFI 이미지를 처리하고 Apple 포맷에 따라 합침.</para>
           <indexterm zone="ch-system-grub grub-glue-efi">
             <primary sortas="b-grub-glue-efi">grub-glue-efi</primary>
           </indexterm>
@@ -167,7 +162,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-install">
         <term><command>grub-install</command></term>
         <listitem>
-          <para>Install GRUB on your drive</para>
+          <para>드라이브에 GRUB 설치</para>
           <indexterm zone="ch-system-grub grub-install">
             <primary sortas="b-grub-install">grub-install</primary>
           </indexterm>
@@ -177,8 +172,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-kbdcomp">
         <term><command>grub-kbdcomp</command></term>
         <listitem>
-          <para>Script that converts an xkb layout into one recognized by
-          GRUB</para>
+          <para>xkb 레이아웃을 GRUB에서 인식되는 레이아웃으로 변환하는 스크립트</para>
           <indexterm zone="ch-system-grub grub-kbdcomp">
             <primary sortas="b-grub-kbdcomp">grub-kbdcomp</primary>
           </indexterm>
@@ -188,7 +182,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-macbless">
         <term><command>grub-macbless</command></term>
         <listitem>
-          <para>Mac-style bless on HFS or HFS+ files</para>
+          <para>HFS나 HFS+ 파일에 대한 Mac 스타일 bless</para>
           <indexterm zone="ch-system-grub grub-macbless">
             <primary sortas="b-grub-macbless">grub-macbless</primary>
           </indexterm>
@@ -198,8 +192,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-menulst2cfg">
         <term><command>grub-menulst2cfg</command></term>
         <listitem>
-          <para>Converts a GRUB Legacy <filename>menu.lst</filename>
-          into a <filename>grub.cfg</filename> for use with GRUB 2</para>
+          <para>GRUB 2와 함께 사용할 GRUB 레거시 <filename>menu.lst</filename>를 <filename>grub.cfg</filename>로 변환</para>
           <indexterm zone="ch-system-grub grub-menulst2cfg">
             <primary sortas="b-grub-menulst2cfg">grub-menulst2cfg</primary>
           </indexterm>
@@ -209,7 +202,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-mkconfig">
         <term><command>grub-mkconfig</command></term>
         <listitem>
-          <para>Generate a grub config file</para>
+          <para>GRUB 구성 파일 생성</para>
           <indexterm zone="ch-system-grub grub-mkconfig">
             <primary sortas="b-grub-mkconfig">grub-mkconfig</primary>
           </indexterm>
@@ -219,7 +212,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-mkimage">
         <term><command>grub-mkimage</command></term>
         <listitem>
-          <para>Make a bootable image of GRUB</para>
+          <para>GRUB의 부트 이미지 제작</para>
           <indexterm zone="ch-system-grub grub-mkimage">
             <primary sortas="b-grub-mkimage">grub-mkimage</primary>
           </indexterm>
@@ -229,7 +222,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-mklayout">
         <term><command>grub-mklayout</command></term>
         <listitem>
-          <para>Generates a GRUB keyboard layout file</para>
+          <para>GRUB 키보드 레이아웃 파일 생성</para>
           <indexterm zone="ch-system-grub grub-mklayout">
             <primary sortas="b-grub-mklayout">grub-mklayout</primary>
           </indexterm>
@@ -239,7 +232,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-mknetdir">
         <term><command>grub-mknetdir</command></term>
         <listitem>
-          <para>Prepares a GRUB netboot directory</para>
+          <para>GRUB Netboot 디렉토리 준비</para>
           <indexterm zone="ch-system-grub grub-mknetdir">
             <primary sortas="b-grub-mknetdir">grub-mknetdir</primary>
           </indexterm>
@@ -249,8 +242,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-mkpasswd-pbkdf2">
         <term><command>grub-mkpasswd-pbkdf2</command></term>
         <listitem>
-          <para>Generates an encrypted PBKDF2 password for use in the boot
-          menu</para>
+          <para>부팅 메뉴에서 사용할 암호화된 PBKDF2 암호 생성</para>
           <indexterm zone="ch-system-grub grub-mkpasswd-pbkdf2">
             <primary sortas="b-grub-mkpasswd-pbkdf2">grub-mkpasswd-pbkdf2</primary>
           </indexterm>
@@ -260,7 +252,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-mkrelpath">
         <term><command>grub-mkrelpath</command></term>
         <listitem>
-          <para>Makes a system pathname relative to its root</para>
+          <para>root를 기준으로 시스템 경로명 생성</para>
           <indexterm zone="ch-system-grub grub-mkrelpath">
             <primary sortas="b-grub-mkrelpath">grub-mkrelpath</primary>
           </indexterm>
@@ -270,7 +262,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-mkrescue">
         <term><command>grub-mkrescue</command></term>
         <listitem>
-          <para>Make a bootable image of GRUB suitable for a floppy disk or CDROM/DVD</para>
+          <para>플로피 디스크 또는 CDROM/DVD에 적합한 GRUB의 부트 이미지 제작</para>
           <indexterm zone="ch-system-grub grub-mkrescue">
             <primary sortas="b-grub-mkrescue">grub-mkrescue</primary>
           </indexterm>
@@ -280,7 +272,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-mkstandalone">
         <term><command>grub-mkstandalone</command></term>
         <listitem>
-          <para>Generates a standalone image</para>
+          <para>독립 실행형 이미지 생성</para>
           <indexterm zone="ch-system-grub grub-mkstandalone">
             <primary sortas="b-grub-mkstandalone">grub-mkstandalone</primary>
           </indexterm>
@@ -290,7 +282,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-ofpathname">
         <term><command>grub-ofpathname</command></term>
         <listitem>
-          <para>Is a helper program that prints the path of a GRUB device</para>
+          <para>GRUB 장치의 경로를 출력하는 헬퍼 프로그램</para>
           <indexterm zone="ch-system-grub grub-ofpathname">
             <primary sortas="b-grub-ofpathname">grub-ofpathname</primary>
           </indexterm>
@@ -300,7 +292,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-probe">
         <term><command>grub-probe</command></term>
         <listitem>
-          <para>Probe device information for a given path or device</para>
+          <para>지정된 경로나 장치에 대한 장치 정보 조사</para>
           <indexterm zone="ch-system-grub grub-probe">
             <primary sortas="b-grub-probe">grub-probe</primary>
           </indexterm>
@@ -310,7 +302,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-reboot">
         <term><command>grub-reboot</command></term>
         <listitem>
-          <para>Sets the default boot entry for GRUB for the next boot only</para>
+          <para>다음 부팅에 대해서만 GRUB에 대한 기본 부팅 항목 설정</para>
           <indexterm zone="ch-system-grub grub-reboot">
             <primary sortas="b-grub-reboot">grub-reboot</primary>
           </indexterm>
@@ -320,7 +312,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-render-label">
         <term><command>grub-render-label</command></term>
         <listitem>
-          <para>Render Apple .disk_label for Apple Macs</para>
+          <para>Apple Mac용 Apple .disk_label 렌더링</para>
           <indexterm zone="ch-system-grub grub-render-label">
             <primary sortas="b-grub-render-label">grub-render-label</primary>
           </indexterm>
@@ -330,7 +322,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-script-check">
         <term><command>grub-script-check</command></term>
         <listitem>
-          <para>Checks GRUB configuration script for syntax errors</para>
+          <para>GRUB 구성 스크립트에서 구문 오류 확인</para>
           <indexterm zone="ch-system-grub grub-script-check">
             <primary sortas="b-grub-script-check">grub-script-check</primary>
           </indexterm>
@@ -340,7 +332,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-set-default">
         <term><command>grub-set-default</command></term>
         <listitem>
-          <para>Sets the default boot entry for GRUB</para>
+          <para>GRUB의 기본 부팅 항목 설정</para>
           <indexterm zone="ch-system-grub grub-set-default">
             <primary sortas="b-grub-set-default">grub-set-default</primary>
           </indexterm>
@@ -350,7 +342,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-sparc64-setup">
         <term><command>grub-sparc64-setup</command></term>
         <listitem>
-          <para>Is a helper program for grub-setup</para>
+          <para>grub-setup을 위한 헬퍼 프로그램</para>
           <indexterm zone="ch-system-grub grub-sparc64-setup">
             <primary sortas="b-grub-sparc64-setup">grub-setup</primary>
           </indexterm>
@@ -360,7 +352,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-syslinux2cfg">
         <term><command>grub-syslinux2cfg</command></term>
         <listitem>
-          <para>Transform a syslinux config file into grub.cfg format</para>
+          <para>syslinux 구성 파일을 grub.cfg 형식으로 변환</para>
           <indexterm zone="ch-system-grub grub-syslinux2cfg">
             <primary sortas="b-grub-syslinux2cfg">grub-syslinux2cfg</primary>
           </indexterm>

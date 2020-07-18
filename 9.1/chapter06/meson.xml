@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Meson is an open source build system meant to be both extremely fast,
-    and, even more importantly, as user friendly as possible.</para>
+    <para>Meson은 오픈 소스 빌드 시스템이다. 극단적으로 빠르고, 더욱 중요한 것은 매우 사용자 친화적인 것이다. </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,35 +37,30 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Meson</title>
+    <title>Meson 설치</title>
 <!--
     <para>Apply a fix from upstream to fix a regression:</para>
 
 <screen><userinput remap="pre">sed -i "s@isfile(a)@&amp; and not a.startswith('/dev')@" mesonbuild/interpreter.py</userinput></screen>
 -->
-    <para>Compile Meson with the following command:</para>
+    <para>다음 명령으로 Meson을 컴파일하라:</para>
 
 <screen><userinput remap="make">python3 setup.py build</userinput></screen>
 
-    <para>This package does not come with a test suite.</para>
+    <para>이 패키지에는 테스트 스위트가 포함되어 있지 않다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">python3 setup.py install --root=dest
 cp -rv dest/* /</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the install parameters:</title>
+      <title>설치 매개 변수들의 의미:</title>
       
       <varlistentry>
         <term><parameter>--root=dest</parameter></term>
         <listitem>
-          <para>By default <command>python3 setup.py install</command>
-          installs various files (such as man pages) into Python Eggs.
-          With a specified root location, <command>setup.py</command> installs
-          these files into a standard hierarchy.  Then we can just copy
-          the hierarchy so the files will be in the standard location.
-        </para>
+          <para>기본적으로 <command>python3 setup.py install</command>은 다양한 파일(예: man 페이지)들을 Python Eggs에 설치한다. 최상위 위치가 지정되면 <command>setup.py</command>는 이러한 파일들을 표준 계층 구조로 설치한다. 그러면 그 계층을 그대로 복사해서 파일들이 표준 위치에 있도록 할 수 있다. </para>
         </listitem>
       </varlistentry>
 
@@ -74,11 +68,11 @@ cp -rv dest/* /</userinput></screen>
   </sect2>
 
   <sect2 id="contents-meson" role="content">
-    <title>Contents of Meson</title>
+    <title>Meson의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
         <seg>meson</seg>
@@ -87,14 +81,14 @@ cp -rv dest/* /</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="meson">
 		<term><command>meson</command></term>
         <listitem>
-          <para>A high productivity build system</para>
+          <para>생산성이 높은 빌드 시스템</para>
           <indexterm zone="ch-system-meson meson">
             <primary sortas="b-meson">meson</primary>
           </indexterm>

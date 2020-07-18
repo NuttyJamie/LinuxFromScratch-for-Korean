@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Check is a unit testing framework for C.</para>
+    <para>Check는 C를 위한 유닛 테스트 프레임워크이다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,25 +38,23 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Check</title>
+    <title>Check 설치</title>
 
-    <para>Prepare Check for compilation:</para>
+    <para>Check 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
-    <para>Build the package:</para>
+    <para>패키지를 빌드한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Compilation is now complete.  To run the Check test suite, issue the
-    following command:</para>
+    <para>이제 컴파일이 끝났다. 테스트 스위트를 실행하려면, 다음 명령을 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Note that the Check test suite may take a relatively long
-    (up to 4 SBU) time.</para>
+    <para>Check 테스트 스위트는 비교적 긴 시간(최대 4 SBU)이 소요될 수 있다는 점을 참고하라.</para>
 
-    <para>Install the package and fix a script:</para>
+    <para>패키지를 설치하고 스크립트를 수정한다:</para>
 
     <screen><userinput remap="install">make docdir=/usr/share/doc/check-&check-version; install &amp;&amp;
 sed -i '1 s/tools/usr/' /usr/bin/checkmk</userinput></screen>
@@ -65,11 +63,11 @@ sed -i '1 s/tools/usr/' /usr/bin/checkmk</userinput></screen>
   </sect2>
 
   <sect2 id="contents-check" role="content">
-    <title>Contents of Check</title>
+    <title>Check의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed program</segtitle>
-      <segtitle>Installed library</segtitle>
+      <segtitle>설치된 프로그램</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
 
       <seglistitem>
         <seg>checkmk</seg>
@@ -78,15 +76,14 @@ sed -i '1 s/tools/usr/' /usr/bin/checkmk</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="checkmk">
         <term><command>checkmk</command></term>
         <listitem>
-          <para>Awk script for generating C unit tests for use with the Check
-          unit testing framework</para>
+          <para>Check 유닛 테스트 프레임워크에 사용하기 위한 C 유닛 테스트를 생성하는 Awk 스크립트</para>
           <indexterm zone="ch-system-check checkmk">
             <primary sortas="b-checmk">checkmk</primary>
           </indexterm>
@@ -96,8 +93,7 @@ sed -i '1 s/tools/usr/' /usr/bin/checkmk</userinput></screen>
       <varlistentry id="libcheck">
         <term><filename class="libraryfile">libcheck.{a,so}</filename></term>
         <listitem>
-          <para>Contains functions that allow Check to be called from a test
-          program</para>
+          <para>테스트 프로그램에서 Check를 호출할 수 있는 함수 포함</para>
           <indexterm zone="ch-system-check libcheck">
             <primary sortas="c-libcheck">libcheck</primary>
           </indexterm>

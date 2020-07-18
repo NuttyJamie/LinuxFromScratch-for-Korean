@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Kbd package contains key-table files, console fonts, and keyboard
-    utilities.</para>
+    <para>Kbd 패키지에는 키 테이블 파일, 콘솔 글꼴 및 키보드 유틸리티가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,31 +38,25 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Kbd</title>
+    <title>Kbd 설치</title>
 
-    <para>The behaviour of the Backspace and Delete keys is not consistent
-    across the keymaps in the Kbd package. The following patch fixes this
-    issue for i386 keymaps:</para>
+    <para>Backspace와 Delete 키의 동작은 Kbd 패키지의 키맵에서 일관되지 못하다. 다음 패치는 i386 키맵에 대해 이 문제를 수정한다:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&kbd-backspace-patch;</userinput></screen>
 
-    <para>After patching, the Backspace key generates the character with code 127,
-    and the Delete key generates a well-known escape sequence.</para>
+    <para>패치를 하고나면 Backspace 키는 코드 127로 문자를 생성하며 Delete 키는 잘 알려진 이스케이프 시퀀스(escape sequence)를 생성한다.</para>
 
-    <para>Remove the redundant <command>resizecons</command> program (it requires
-    the defunct svgalib to provide the video mode files - for normal use
-    <command>setfont</command> sizes the console appropriately) together with its
-    manpage.</para>
+    <para>man 페이지와 함께 불필요한 <command>resizecons</command> 프로그램을 삭제한다(이 프로그램은 비디오 모드 파일을 제공하기 위해 현존하지 않는 svgalib이 필요하다 - 보통 콘솔 사이즈를 적절히 바꾸기 위해서는 <command>setfont</command>를 사용).</para>
 
 <screen><userinput remap="pre">sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/g' configure
 sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>
 
-    <para>Prepare Kbd for compilation:</para>
+    <para>Kbd 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">PKG_CONFIG_PATH=/tools/lib/pkgconfig ./configure --prefix=/usr --disable-vlock</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션의 의미:</title>
 <!--
       <varlistentry>
         <term><parameter>- -datadir=/lib/kbd</parameter></term>
@@ -77,31 +70,26 @@ sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>
       <varlistentry>
         <term><parameter>--disable-vlock</parameter></term>
         <listitem>
-          <para>This option prevents the vlock utility from being built, as it
-          requires the PAM library, which isn't available in the chroot
-          environment.</para>
+          <para>chroot 환경에서 사용할 수 없는 PAM 라이브러리가 필요하므로, vlock 유틸리티가 빌드되지 않도록 한다.</para>
        </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실해하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
     <note>
-      <para>For some languages (e.g., Belarusian) the Kbd package doesn't
-      provide a useful keymap where the stock <quote>by</quote> keymap assumes
-      the ISO-8859-5 encoding, and the CP1251 keymap is normally used. Users of
-      such languages have to download working keymaps separately.</para>
+      <para>일부 언어(예: 벨로루시어)의 경우 Kbd 패키지에서는 ISO-8859-5 인코딩을 사용하는 유용한 키맵이 제공되지 않고, 보통 CP1251 키맵이 사용된다. 이러한 언어의 사용자는 별도로 키맵을 다운로드 받아야 한다.</para>
     </note>
 
 <!--
@@ -114,7 +102,7 @@ sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>
 
 <screen><userinput remap="install">mv -v /usr/bin/{kbd_mode,loadkeys,openvt,setfont} /bin</userinput></screen>
 -->
-    <para>If desired, install the documentation:</para>
+    <para>필요하다면 문서를 설치하라:</para>
 
 <screen><userinput remap="install">mkdir -v       /usr/share/doc/kbd-&kbd-version;
 cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
@@ -122,33 +110,33 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
   </sect2>
 
   <sect2 id="contents-kbd" role="content">
-    <title>Contents of Kbd</title>
+    <title>Kbd의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>chvt, deallocvt, dumpkeys, fgconsole, getkeycodes, kbdinfo,
         kbd_mode, kbdrate, loadkeys, loadunimap,
-        mapscrn, openvt, psfaddtable (link to psfxtable), psfgettable (link to
-        psfxtable), psfstriptable (link to psfxtable), psfxtable, <!--resizecons,-->
+        mapscrn, openvt, psfaddtable (psfxtable로 링크), psfgettable (
+        psfxtable로 링크), psfstriptable (psfxtable로 링크), psfxtable, <!--resizecons,-->
         setfont, setkeycodes, setleds, setmetamode, setvtrgb,
-        showconsolefont, showkey, unicode_start, and unicode_stop</seg>
+        showconsolefont, showkey, unicode_start, unicode_stop</seg>
         <seg>/usr/share/consolefonts, /usr/share/consoletrans, /usr/share/keymaps, 
-        /usr/share/doc/kbd-&kbd-version;,  and /usr/share/unimaps</seg>
+        /usr/share/doc/kbd-&kbd-version;,  /usr/share/unimaps</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="chvt">
         <term><command>chvt</command></term>
         <listitem>
-          <para>Changes the foreground virtual terminal</para>
+          <para>가상 터미널 변경</para>
           <indexterm zone="ch-system-kbd chvt">
             <primary sortas="b-chvt">chvt</primary>
           </indexterm>
@@ -158,7 +146,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="deallocvt">
         <term><command>deallocvt</command></term>
         <listitem>
-          <para>Deallocates unused virtual terminals</para>
+          <para>사용되지 않는 가상 터미널의 할당 해제</para>
           <indexterm zone="ch-system-kbd deallocvt">
             <primary sortas="b-deallocvt">deallocvt</primary>
           </indexterm>
@@ -168,7 +156,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="dumpkeys">
         <term><command>dumpkeys</command></term>
         <listitem>
-          <para>Dumps the keyboard translation tables</para>
+          <para>키보드 변환 테이블 덤프</para>
           <indexterm zone="ch-system-kbd dumpkeys">
             <primary sortas="b-dumpkeys">dumpkeys</primary>
           </indexterm>
@@ -178,7 +166,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="fgconsole">
         <term><command>fgconsole</command></term>
         <listitem>
-          <para>Prints the number of the active virtual terminal</para>
+          <para>활성 가상 터미널 수 출력</para>
           <indexterm zone="ch-system-kbd fgconsole">
             <primary sortas="b-fgconsole">fgconsole</primary>
           </indexterm>
@@ -188,7 +176,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="getkeycodes">
         <term><command>getkeycodes</command></term>
         <listitem>
-          <para>Prints the kernel scancode-to-keycode mapping table</para>
+          <para>커널 스캔코드-키코드 매핑 테이블 출력</para>
           <indexterm zone="ch-system-kbd getkeycodes">
             <primary sortas="b-getkeycodes">getkeycodes</primary>
           </indexterm>
@@ -198,7 +186,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="kbdinfo">
         <term><command>kbdinfo</command></term>
         <listitem>
-          <para>Obtains information about the status of a console</para>
+          <para>콘솔 상태에 대한 정보를 가져옴</para>
           <indexterm zone="ch-system-kbd kbdinfo">
             <primary sortas="b-kbdinfo">kbdinfo</primary>
           </indexterm>
@@ -208,7 +196,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="kbd_mode">
         <term><command>kbd_mode</command></term>
         <listitem>
-          <para>Reports or sets the keyboard mode</para>
+          <para>키보드 모드 출력 또는 설정</para>
           <indexterm zone="ch-system-kbd kbd_mode">
             <primary sortas="b-kbd_mode">kbd_mode</primary>
           </indexterm>
@@ -218,7 +206,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="kbdrate">
         <term><command>kbdrate</command></term>
         <listitem>
-          <para>Sets the keyboard repeat and delay rates</para>
+          <para>키보드 반복 및 지연 속도 설정</para>
           <indexterm zone="ch-system-kbd kbdrate">
             <primary sortas="b-kbdrate">kbdrate</primary>
           </indexterm>
@@ -228,7 +216,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="loadkeys">
         <term><command>loadkeys</command></term>
         <listitem>
-          <para>Loads the keyboard translation tables</para>
+          <para>키보드 변환 테이블 로드</para>
           <indexterm zone="ch-system-kbd loadkeys">
             <primary sortas="b-loadkeys">loadkeys</primary>
           </indexterm>
@@ -238,7 +226,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="loadunimap">
         <term><command>loadunimap</command></term>
         <listitem>
-          <para>Loads the kernel unicode-to-font mapping table</para>
+          <para>커널 유니코드-글꼴 매핑 테이블 로드</para>
           <indexterm zone="ch-system-kbd loadunimap">
             <primary sortas="b-loadunimap">loadunimap</primary>
           </indexterm>
@@ -248,9 +236,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="mapscrn">
         <term><command>mapscrn</command></term>
         <listitem>
-          <para>An obsolete program that used to load a user-defined output
-          character mapping table into the console driver; this is now done
-          by <command>setfont</command></para>
+          <para>사용자 정의 출력 문자 매핑 테이블을 콘솔 드라이버에 로드하는 데 사용된 오래된 프로그램; 이제 <command>setfont</command>가 대신함.</para>
           <indexterm zone="ch-system-kbd mapscrn">
             <primary sortas="b-mapscrn">mapscrn</primary>
           </indexterm>
@@ -260,7 +246,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="openvt">
         <term><command>openvt</command></term>
         <listitem>
-          <para>Starts a program on a new virtual terminal (VT)</para>
+          <para>새 가상 터미널(VT)에서 프로그램 시작</para>
           <indexterm zone="ch-system-kbd openvt">
             <primary sortas="b-openvt">openvt</primary>
           </indexterm>
@@ -270,7 +256,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="psfaddtable">
         <term><command>psfaddtable</command></term>
         <listitem>
-          <para>Adds a Unicode character table to a console font</para>
+          <para>콘솔 글꼴에 유니코드 문자 테이블 추가</para>
           <indexterm zone="ch-system-kbd psfaddtable">
             <primary sortas="b-psfaddtable">psfaddtable</primary>
           </indexterm>
@@ -280,8 +266,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="psfgettable">
         <term><command>psfgettable</command></term>
         <listitem>
-          <para>Extracts the embedded Unicode character table from a console
-          font</para>
+          <para>콘솔 글꼴에서 내장된 유니코드 문자 테이블 추출</para>
           <indexterm zone="ch-system-kbd psfgettable">
             <primary sortas="b-psfgettable">psfgettable</primary>
           </indexterm>
@@ -291,8 +276,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="psfstriptable">
         <term><command>psfstriptable</command></term>
         <listitem>
-          <para>Removes the embedded Unicode character table from a console
-          font</para>
+          <para>콘솔 글꼴에서 내장된 유니코드 문자 테이블 제거</para>
           <indexterm zone="ch-system-kbd psfstriptable">
             <primary sortas="b-psfstriptable">psfstriptable</primary>
           </indexterm>
@@ -302,7 +286,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="psfxtable">
         <term><command>psfxtable</command></term>
         <listitem>
-          <para>Handles Unicode character tables for console fonts</para>
+          <para>콘솔 글꼴에 대한 유니코드 문자 테이블 처리</para>
           <indexterm zone="ch-system-kbd psfxtable">
             <primary sortas="b-psfxtable">psfxtable</primary>
           </indexterm>
@@ -312,8 +296,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="setfont">
         <term><command>setfont</command></term>
         <listitem>
-          <para>Changes the Enhanced Graphic Adapter (EGA) and Video Graphics
-          Array (VGA) fonts on the console</para>
+          <para>콘솔에서 Enhanced Graphic Adapter (EGA) 및 Video Graphics Array (VGA) 글꼴 변경</para>
           <indexterm zone="ch-system-kbd setfont">
             <primary sortas="b-setfont">setfont</primary>
           </indexterm>
@@ -323,8 +306,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="setkeycodes">
         <term><command>setkeycodes</command></term>
         <listitem>
-          <para>Loads kernel scancode-to-keycode mapping table entries; this is
-          useful if there are unusual keys on the keyboard</para>
+          <para>커널 스캔코드-키코드 매핑 테이블 항목 로드; 키보드에 특이한 키가 있는 경우 유용함</para>
           <indexterm zone="ch-system-kbd setkeycodes">
             <primary sortas="b-setkeycodes">setkeycodes</primary>
           </indexterm>
@@ -334,7 +316,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="setleds">
         <term><command>setleds</command></term>
         <listitem>
-          <para>Sets the keyboard flags and Light Emitting Diodes (LEDs)</para>
+          <para>키보드 플래그 및 발광 다이오드(LED) 설정</para>
           <indexterm zone="ch-system-kbd setleds">
             <primary sortas="b-setleds">setleds</primary>
           </indexterm>
@@ -344,7 +326,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="setmetamode">
         <term><command>setmetamode</command></term>
         <listitem>
-          <para>Defines the keyboard meta-key handling</para>
+          <para>키보드 메타 키 처리 정의</para>
           <indexterm zone="ch-system-kbd setmetamode">
             <primary sortas="b-setmetamode">setmetamode</primary>
           </indexterm>
@@ -354,7 +336,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="setvtrgb">
         <term><command>setvtrgb</command></term>
         <listitem>
-          <para>Sets the console color map in all virtual terminals</para>
+          <para>모든 가상 터미널의 콘솔 컬러맵 설정</para>
           <indexterm zone="ch-system-kbd setvtrgb">
             <primary sortas="b-setvtrgb">setvtrgb</primary>
           </indexterm>
@@ -364,7 +346,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="showconsolefont">
         <term><command>showconsolefont</command></term>
         <listitem>
-          <para>Shows the current EGA/VGA console screen font</para>
+          <para>현재 EGA/VGA 콘솔 화면 글꼴 표시</para>
           <indexterm zone="ch-system-kbd showconsolefont">
             <primary sortas="b-showconsolefont">showconsolefont</primary>
           </indexterm>
@@ -374,8 +356,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="showkey">
         <term><command>showkey</command></term>
         <listitem>
-          <para>Reports the scancodes, keycodes, and ASCII codes of the keys
-          pressed on the keyboard</para>
+          <para>키보드에서 누른 키의 스캔 코드, 키 코드 및 ASCII 코드를 출력</para>
           <indexterm zone="ch-system-kbd showkey">
             <primary sortas="b-showkey">showkey</primary>
           </indexterm>
@@ -385,9 +366,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="unicode_start">
         <term><command>unicode_start</command></term>
         <listitem>
-          <para>Puts the keyboard and console in UNICODE mode [Don't use this
-          program unless your keymap file is in the UTF-8 encoding. For
-          other encodings, this utility produces incorrect results.]</para>
+          <para>키보드와 콘솔을 UNICODE 모드로 설정 [키맵 파일이 ISO-8859-1 인코딩이 아닌 이상 이 프로그램을 사용하지 않도록 하라. 다른 인코딩의 경우 이 유틸리티는 잘못된 결과를 낳는다.]</para>
           <indexterm zone="ch-system-kbd unicode_start">
             <primary sortas="b-unicode_start">unicode_start</primary>
           </indexterm>
@@ -397,7 +376,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="unicode_stop">
         <term><command>unicode_stop</command></term>
         <listitem>
-          <para>Reverts keyboard and console from UNICODE mode</para>
+          <para>키보드 및 콘솔의 UNICODE 모드 중지</para>
           <indexterm zone="ch-system-kbd unicode_stop">
             <primary sortas="b-unicode_stop">unicode_stop</primary>
           </indexterm>

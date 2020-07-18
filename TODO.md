@@ -138,23 +138,23 @@
         - [x] Kmod-26
         - [x] Gettext-0.20.1
         - [x] Libelf from Elfutils-0.178
-        - [ ] Libffi-3.3
-        - [ ] OpenSSL-1.1.1d
-        - [ ] Python-3.8.1
-        - [ ] Ninja-1.10.0
-        - [ ] Meson-0.53.1
-        - [ ] Coreutils-8.31
-        - [ ] Check-0.14.0
-        - [ ] Diffutils-3.7
-        - [ ] Gawk-5.0.1
-        - [ ] Findutils-4.7.0
-        - [ ] Groff-1.22.4
-        - [ ] GRUB-2.04
-        - [ ] Less-551
-        - [ ] Gzip-1.10
-        - [ ] Zstd-1.4.4
-        - [ ] IPRoute2-5.5.0
-        - [ ] Kbd-2.2.0
+        - [x] Libffi-3.3
+        - [x] OpenSSL-1.1.1d
+        - [x] Python-3.8.1
+        - [x] Ninja-1.10.0
+        - [x] Meson-0.53.1
+        - [x] Coreutils-8.31
+        - [x] Check-0.14.0
+        - [x] Diffutils-3.7
+        - [x] Gawk-5.0.1
+        - [x] Findutils-4.7.0
+        - [x] Groff-1.22.4
+        - [x] GRUB-2.04
+        - [x] Less-551
+        - [x] Gzip-1.10
+        - [x] Zstd-1.4.4
+        - [x] IPRoute2-5.5.0
+        - [x] Kbd-2.2.0
         - [ ] Libpipeline-1.5.2
         - [ ] Make-4.3
         - [ ] Patch-2.7.6

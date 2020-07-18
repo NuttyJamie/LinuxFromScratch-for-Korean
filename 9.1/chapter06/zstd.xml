@@ -23,9 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Zstandard is a real-time compression algorithm, providing high
-    compression ratios. It offers a very wide range of compression / speed
-    trade-offs, while being backed by a very fast decoder.</para>
+    <para>Zstandard는 실시간 압축 알고리즘으로 높은 압축률을 제공한다. 매우 빠른 디코더의 도움으로 매우 광범위한 압축/속도 절충 기능을 지원한다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,22 +38,19 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Zstd</title>
+    <title>Zstd 설치</title>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>This package does not come with a test suite.</para>
+    <para>이 패키지에는 테스트 스위트가 포함되어 있지 않다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make prefix=/usr install</userinput></screen>
 
-    <para>Remove the static library and move the shared library to
-    <filename class="directory">/lib</filename>. Also, the
-    <filename class="extension">.so</filename> file in
-    <filename class="directory">/usr/lib</filename> will need to be recreated:</para>
+    <para>정적 라이브러리를 제거하고 공유 라이브러리를 <filename class="directory">/lib</filename>로 이동하라. 또한 <filename class="directory">/usr/lib</filename>의 <filename class="extension">.so</filename> 파일을 재생성해야 한다:</para>
 
 <screen><userinput remap="install">rm -v /usr/lib/libzstd.a
 mv -v /usr/lib/libzstd.so.* /lib
@@ -64,19 +59,18 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
   </sect2>
 
   <sect2 id="contents-zstd" role="content">
-    <title>Contents of Zstd</title>
+    <title>Zstd의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed library</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
 
       <seglistitem>
         <seg>zstd, 
-             zstdcat (link to zstd), 
+             zstdcat (zstd로 링크), 
              zstdgrep, 
              zstdless, 
-             zstdmt (link to zstd), and
-             unzstd (link to zstd)
+             zstdmt (zstd로 링크), unzstd (zstd로 링크)
         </seg>
 
         <seg>libzstd.so</seg>
@@ -84,14 +78,14 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="zstd">
         <term><command>zstd</command></term>
         <listitem>
-          <para>Compresses or decompresses files using the ZSTD format</para>
+          <para>ZSTD 형식을 사용하여 파일 압축 또는 압축 해제</para>
           <indexterm zone="ch-system-zstd zstd">
             <primary sortas="b-zstd">zstd</primary>
           </indexterm>
@@ -101,7 +95,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
       <varlistentry id="zstdgrep">
         <term><command>zstdgrep</command></term>
         <listitem>
-          <para>Runs <command>grep</command> on ZSTD compressed files</para>
+          <para>ZSTD 압축 파일에서 <command>grep</command> 실행</para>
           <indexterm zone="ch-system-zstd zstdgrep">
             <primary sortas="b-zstdgrep">zstdgrep</primary>
           </indexterm>
@@ -111,7 +105,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
       <varlistentry id="zstdless">
         <term><command>zstdless</command></term>
         <listitem>
-          <para>Runs <command>less</command> on ZSTD compressed files</para>
+          <para>ZSTD 압축 파일에서 <command>less</command> 실행</para>
           <indexterm zone="ch-system-zstd zstdless">
             <primary sortas="b-zstdless">zstdless</primary>
           </indexterm>
@@ -121,8 +115,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libzstd.so) /usr/lib/libzstd.so</userinput
       <varlistentry id="libzstd">
         <term><filename class="libraryfile">libzstd</filename></term>
         <listitem>
-          <para>The library implementing lossless data
-          compression, using the ZSTD algorithm</para>
+          <para>ZSTD 알고리즘을 사용하여 무손실 데이터 압축을 구현하는 라이브러리</para>
           <indexterm zone="ch-system-zstd libzstd">
             <primary sortas="c-libzstd">libzstd</primary>
           </indexterm>

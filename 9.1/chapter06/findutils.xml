@@ -23,10 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Findutils package contains programs to find files. These programs
-    are provided to recursively search through a directory tree and to
-    create, maintain, and search a database (often faster than the recursive
-    find, but unreliable if the database has not been recently updated).</para>
+    <para>Findutils 패키지는 파일을 찾는 프로그램을 포함하고 있다. 디렉토리 트리를 재귀적으로 검색하고 데이터베이스를 작성, 유지관리 및 검색(보통은 재귀 검색보다 빠르지만 데이터베이스가 최근에 업데이트되지 않았다면 신뢰할 수 없다)하기 위한 프로그램이다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,47 +38,39 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Findutils</title>
+    <title>Findutils 설치</title>
 
-    <para>Prepare Findutils for compilation:</para>
+    <para>Findutils 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr --localstatedir=/var/lib/locate</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션의 의미:</title>
 
       <varlistentry>
         <term><parameter>--localstatedir</parameter></term>
         <listitem>
-          <para>This option changes the location of the <command>locate</command>
-          database to be in <filename class="directory">/var/lib/locate</filename>,
-          which is FHS-compliant.</para>
+          <para><command>locate</command> 데이터베이스의 위치를 FHS를 준수하는 <filename class="directory">/var/lib/locate</filename>로 변경한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Two tests are known to fail in the chroot environment:
-    sv-bug-54171.old-O3 and sv-bug-54171.new-O3.</para>
+    <para>chroot 환경에서 두 테스트들이 실패하는 것으로 알려져 있다: sv-bug-54171.old-O3과 sv-bug-54171.new-O3.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para revision="sysv">Some of the scripts in the LFS-Bootscripts package
-    depend on <command>find</command>.  As <filename
-    class="directory">/usr</filename> may not be available during the early
-    stages of booting, this program needs to be on the root partition.  The
-    <command>updatedb</command> script also needs to be modified to correct an
-    explicit path:</para>
+    <para revision="sysv">LFS-Bootscripts 패키지의 일부 스크립트는 <command>find</command>에 의존한다. 부팅 과정 초기에는 <filename class="directory">/usr</filename>을 사용할 수 없으므로 이 프로그램은 root 파티션에 있어야 한다. 또 올바른 명시적 경로를 위해 <command>updatedb</command> 스크립트도 수정해야 한다:</para>
 
     <para revision="systemd"> Some packages in BLFS and beyond expect the
     <command>find</command> program in <filename
@@ -93,29 +82,28 @@ sed -i 's|find:=${BINDIR}|find:=/bin|' /usr/bin/updatedb</userinput></screen>
   </sect2>
 
   <sect2 id="contents-findutils" role="content">
-    <title>Contents of Findutils</title>
+    <title>Findutils의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
-        <seg>find, locate, updatedb, and xargs</seg>
+        <seg>find, locate, updatedb, xargs</seg>
         <seg>/var/lib/locate</seg>
       </seglistitem>
 
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="find">
         <term><command>find</command></term>
         <listitem>
-          <para>Searches given directory trees for files matching the specified
-          criteria</para>
+          <para>지정된 디렉토리 트리에서 지정된 기준과 일치하는 파일을 검색</para>
           <indexterm zone="ch-system-findutils find">
             <primary sortas="b-find">find</primary>
           </indexterm>
@@ -125,8 +113,7 @@ sed -i 's|find:=${BINDIR}|find:=/bin|' /usr/bin/updatedb</userinput></screen>
       <varlistentry id="locate">
         <term><command>locate</command></term>
         <listitem>
-          <para>Searches through a database of file names and reports the names
-          that contain a given string or match a given pattern</para>
+          <para>파일 이름의 데이터베이스를 검색하여 주어진 문자열을 포함하거나 주어진 패턴에 일치하는 이름을 출력</para>
           <indexterm zone="ch-system-findutils locate">
             <primary sortas="b-locate">locate</primary>
           </indexterm>
@@ -136,10 +123,7 @@ sed -i 's|find:=${BINDIR}|find:=/bin|' /usr/bin/updatedb</userinput></screen>
       <varlistentry id="updatedb">
       <term><command>updatedb</command></term>
         <listitem>
-          <para>Updates the <command>locate</command> database; it scans the
-          entire file system (including other file systems that are currently
-          mounted, unless told not to) and puts every file name it finds into
-          the database</para>
+          <para><command>locate</command> 데이터베이스를 업데이트함; 전체 파일 시스템을 스캔하고 찾은 모든 파일 이름을 데이터베이스에 저장</para>
           <indexterm zone="ch-system-findutils updatedb">
             <primary sortas="b-updatedb">updatedb</primary>
           </indexterm>
@@ -149,7 +133,7 @@ sed -i 's|find:=${BINDIR}|find:=/bin|' /usr/bin/updatedb</userinput></screen>
       <varlistentry id="xargs">
         <term><command>xargs</command></term>
         <listitem>
-          <para>Can be used to apply a given command to a list of files</para>
+          <para>지정된 명령을 여러 파일들에 적용하는 데 사용</para>
           <indexterm zone="ch-system-findutils xargs">
             <primary sortas="b-xargs">xargs</primary>
           </indexterm>

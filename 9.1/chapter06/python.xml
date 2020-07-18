@@ -23,9 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Python 3 package contains the Python development environment. It
-    is useful for object-oriented programming, writing scripts, prototyping
-    large programs or developing entire applications.</para>
+    <para>Python 3 패키지는 Python 개발 환경을 포함하고 있다. 객체 지향 프로그래밍, 스크립트 작성, 대형 프로그램 프로토타입 제작 또는 응용 프로그램 자체를 개발하는 데 유용하다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,9 +38,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Python 3</title>
+    <title>Python 3 설치</title>
 
-    <para>Prepare Python for compilation:</para>
+    <para>Python 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr       \
             --enable-shared     \
@@ -51,45 +49,38 @@
             --with-ensurepip=yes</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
     <varlistentry>
       <term><parameter>--with-system-expat</parameter></term>
       <listitem>
-        <para>This switch enables linking against system version of
-        <application>Expat</application>.</para>
+        <para><application>Expat</application>의 시스템 버전과의 링크를 활성화 한다.</para>
        </listitem>
      </varlistentry>
 
     <varlistentry>
       <term><parameter>--with-system-ffi</parameter></term>
       <listitem>
-        <para>This switch enables linking against system version of
-        <application>libffi</application>.</para>
+        <para><application>libffi</application>의 시스템 버전과의 링크를 활성화 한다.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter>--with-ensurepip=yes</parameter></term>
       <listitem>
-        <para>This switch enables building <command>pip</command> and
-        <command>setuptools</command> packaging programs.</para>
+        <para><command>pip</command> 및 <command>setuptools</command> 패키징 프로그램을 빌드한다.</para>
       </listitem>
     </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue <command>make test</command>.
-    Some tests requiring network connection or additional packages are
-    skipped.  The test named test_normalization fails because network
-    configuration is not completed yet.  For more comprehensive results,
-    the test can be rerun when Python 3 is reinstalled in BLFS.</para>
+    <para>결과를 테스트하려면 <command>make test</command>를 실행하라. 네트워크 연결 또는 추가 패키지가 필요한 일부 테스트는 생략한다. 네트워크 구성이 아직 완료되지 않았기 때문에 test_normalization이라는 이름의 테스트가 실패한다. 전체적으로 보다 확실한 결과를 얻으려면 Python 3이 BLFS에서 재설치될 때 테스트를 다시 실행하면 된다. </para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install
 chmod -v 755 /usr/lib/libpython&python-minor;.so
@@ -97,19 +88,18 @@ chmod -v 755 /usr/lib/libpython3.so
 ln -sfv pip&python-minor; /usr/bin/pip3</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the install commands:</title>
+      <title>설치 명령들의 의미:</title>
 <!-- ======  Change 8m if Python minor version changes ======= -->
     <varlistentry>
       <term><command>chmod -v 755 /usr/lib/libpython3.{8.,}so</command></term>
       <listitem>
-        <para>Fix permissions for libraries to be consistent with other
-        libraries.</para>
+        <para>라이브러리가 다른 라이브러리와 같은 권한을 갖도록 수정한다.</para>
       </listitem>
     </varlistentry>
 
     </variablelist>
 
-    <para>If desired, install the preformatted documentation:</para>
+    <para>원한다면 사전 포맷된 설명서를 설치하라:</para>
 
 <screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html 
 
@@ -120,15 +110,12 @@ tar --strip-components=1  \
     -xvf ../python-&python-version;-docs-html.tar.bz2</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the documentation install commands:</title>
+      <title>문서 설치 명령들의 의미:</title>
 
     <varlistentry>
       <term><option>--no-same-owner</option> and <option>--no-same-permissions</option></term>
       <listitem>
-        <para>Ensure the installed files have the correct ownership and 
-        permissions.  Without these options, using <application>tar</application>
-        will install the package files with the upstream creator's values. 
-        </para>
+        <para>설치될 파일들의 소유권과 사용 권한을 올바르게 지정한다. 이러한 옵션이 없으면 <application>tar</application>를 사용할 때 그 유저의 값을 따라 패키지 파일들이 설치된다. </para>
       </listitem>
     </varlistentry>
 
@@ -137,30 +124,30 @@ tar --strip-components=1  \
   </sect2>
 
   <sect2 id="contents-python" role="content">
-    <title>Contents of Python 3</title>
+    <title>Python 3의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed Programs</segtitle>
-      <segtitle>Installed Library</segtitle>
-      <segtitle>Installed Directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>
-          2to3, idle3, pip3, pydoc3, python3, and python3-config
+          2to3, idle3, pip3, pydoc3, python3, python3-config
         </seg>
         <seg>
-          libpython&python-minor;.so and libpython3.so
+          libpython&python-minor;.so, libpython3.so
         </seg>
         <seg>
           /usr/include/python&python-minor;, 
-          /usr/lib/python3, and
+          /usr/lib/python3,
           /usr/share/doc/python-&python-version;
         </seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -168,11 +155,7 @@ tar --strip-components=1  \
         <term><command>2to3</command></term>
         <listitem>
           <para>
-            is a <application>Python</application> program that reads
-            <application>Python 2.x</application> source code and applies a
-            series of fixes to transform it into valid
-            <application>Python 3.x</application> code.
-          </para>
+            <application>Python 2.x</application> 소스 코드를 읽고 일련의 수정을 거쳐서 <application>Python 3.x</application> 코드로 변환하는 <application>Python</application> 프로그램이다.</para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-2to3">2to3</primary>
           </indexterm>
@@ -183,11 +166,7 @@ tar --strip-components=1  \
         <term><command>idle3</command></term>
         <listitem>
           <para>
-            is a wrapper script that opens a <application>Python</application>
-            aware GUI editor. For this script to run, you must have installed
-            <application>Tk</application> before Python so that the Tkinter
-            Python module is built.
-          </para>
+            <application>Python</application> 인식 GUI 편집기를 여는 래퍼 스크립트. 이 스크립트를 실행하려면 반드시 Python보다 먼저 <application>Tk</application>를 설치해서 Tkinter Python 모듈이 구축되도록 해야 한다.</para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-idle3">idle3</primary>
           </indexterm>
@@ -198,9 +177,7 @@ tar --strip-components=1  \
         <term><command>pip3</command></term>
         <listitem>
           <para>
-            The package installer for Python. You can use pip to install
-            packages from Python Package Index and other indexes.
-          </para>
+          Python용 패키지 설치 프로그램. pip를 사용하여 Python Package Index 및 기타 인덱스로부터 패키지를 설치할 수 있다.</para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-pip3">pip3</primary>
           </indexterm>
@@ -211,7 +188,7 @@ tar --strip-components=1  \
         <term><command>pydoc3</command></term>
         <listitem>
           <para>
-            is the <application>Python</application> documentation tool.
+            <application>Python</application> 문서 도구.
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-pydoc3">pydoc3</primary>
@@ -223,8 +200,7 @@ tar --strip-components=1  \
         <term><command>python3</command></term>
         <listitem>
           <para>
-            is an interpreted, interactive, object-oriented programming
-            language.
+            해석형, 대화형, 객체 지향 프로그래밍 언어.
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-python3">python3</primary>

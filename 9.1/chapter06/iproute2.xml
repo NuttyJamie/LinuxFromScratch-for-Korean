@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The IPRoute2 package contains programs for basic and advanced IPV4-based
-    networking.</para>
+    <para>IPRoute2 패키지에는 기본 및 고급 IPV4 기반 네트워킹 프로그램이 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,30 +38,23 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of IPRoute2</title>
+    <title>IPRoute2 설치</title>
 
-    <para>The <command>arpd</command> program included in this package will not
-    be built since it is dependent on Berkeley DB, which is not installed in
-    LFS. However, a directory for <command>arpd</command> and a man page will still 
-    be installed. Prevent this by running the commands below. 
-    If the <command>arpd</command> binary is needed,
-    instructions for compiling Berkeley DB can be found in the BLFS Book at
-    <ulink url="&blfs-book;server/databases.html#db"/>.
+    <para>이 패키지에 포함된 <command>arpd</command> 프로그램은 LFS에 설치되지 않은 버클리 DB가 필요하기 때문에 빌드되지 않는다. 그러나 <command>arpd</command>의 디렉토리와 man 페이지는 여전히 설치될 것이다. 아래 명령을 실행하여 설치를 방지하라. <command>arpd</command> 바이너리가 필요한 경우, 버클리 DB를 컴파일하기 위한 지침은 BLFS 책의 <ulink url="&blfs-book;server/databases.html#db"/>에서 확인할 수 있다.
     </para>
 
 <screen><userinput remap="pre">sed -i /ARPD/d Makefile
 rm -fv man/man8/arpd.8</userinput></screen>
 
-    <para>It is also necessary to disable building two modules that 
-    requires <ulink url="&blfs-book;postlfs/iptables.html"/>.</para>
+    <para><ulink url="&blfs-book;postlfs/iptables.html"/>이 필요한 두 모듈의 빌드도 비활성화해야 한다.</para>
 
 <screen><userinput remap="pre">sed -i 's/.m_ipt.o//' tc/Makefile</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>This package does not have a working test suite.</para>
+    <para>이 패키지에는 테스트 스위트가 포함되어 있지 않다.</para>
 <!-- currently not useful, no tests actually run
     <para>This package comes with a test suite, but due to assumptions it makes,
     it is not possible to reliably run these tests from within the chroot
@@ -73,37 +65,36 @@ rm -fv man/man8/arpd.8</userinput></screen>
     'make alltests' from the <filename class="directory">testsuite/</filename>
     subdirectory.</para>-->
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make DOCDIR=/usr/share/doc/iproute2-&iproute2-version; install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-iproute2" role="content">
-    <title>Contents of IPRoute2</title>
+    <title>IPRoute2의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
-        <seg>bridge, ctstat (link to lnstat), genl, ifcfg, ifstat, ip, lnstat,
-        nstat, routef, routel, rtacct, rtmon, rtpr, rtstat (link to lnstat), ss,
-        and tc</seg>
-        <seg>/etc/iproute2, /usr/lib/tc, and /usr/share/doc/iproute2-&iproute2-version;,
+        <seg>bridge, ctstat (lnstat로 링크), genl, ifcfg, ifstat, ip, lnstat,
+        nstat, routef, routel, rtacct, rtmon, rtpr, rtstat (lnstat로 링크), ss, tc</seg>
+        <seg>/etc/iproute2, /usr/lib/tc, /usr/share/doc/iproute2-&iproute2-version;,
         </seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="bridge">
         <term><command>bridge</command></term>
         <listitem>
-          <para>Configures network bridges</para>
+          <para>네트워크 브릿지 구성</para>
           <indexterm zone="ch-system-iproute2 bridge">
             <primary sortas="b-bridge">bridge</primary>
           </indexterm>
@@ -113,7 +104,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="ctstat">
         <term><command>ctstat</command></term>
         <listitem>
-          <para>Connection status utility</para>
+          <para>연결 상태 유틸리티</para>
           <indexterm zone="ch-system-iproute2 ctstat">
             <primary sortas="b-ctstat">ctstat</primary>
           </indexterm>
@@ -123,7 +114,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="genl">
         <term><command>genl</command></term>
         <listitem>
-          <para>Generic netlink utility frontend</para>
+          <para>일반 netlink 유틸리티 프론트엔드</para>
           <indexterm zone="ch-system-iproute2 genl">
             <primary sortas="b-genl">genl</primary>
           </indexterm>
@@ -133,10 +124,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="ifcfg">
         <term><command>ifcfg</command></term>
         <listitem>
-          <para>A shell script wrapper for the <command>ip</command> command
-          [Note that it requires the <command>arping</command> and
-          <command>rdisk</command> programs from the
-          iputils package found at <ulink url="http://www.skbuff.net/iputils/"/>.]</para>
+          <para><command>ip</command> 명령의 셸 스크립트 래퍼 [참고: <ulink url="http://www.skbuff.net/iputils/"/>에 있는 iputils 패키지의 <command>arping</command> 및 <command>rdisk</command> 프로그램이 필요함.]</para>
           <indexterm zone="ch-system-iproute2 ifcfg">
             <primary sortas="b-ifcfg">ifcfg</primary>
           </indexterm>
@@ -146,8 +134,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="ifstat">
         <term><command>ifstat</command></term>
         <listitem>
-          <para>Shows the interface statistics, including the amount of
-          transmitted and received packets by interface</para>
+          <para>인터페이스별 발신 및 수신 패킷 양을 포함한 인터페이스 통계 표시</para>
           <indexterm zone="ch-system-iproute2 ifstat">
             <primary sortas="b-ifstat">ifstat</primary>
           </indexterm>
@@ -157,35 +144,25 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="ip">
         <term><command>ip</command></term>
         <listitem>
-          <para>The main executable. It has several different functions:</para>
+          <para>주 실행 파일. 이것은 몇 가지 다른 기능을 갖고 있다:</para>
 
-          <para><command>ip link <replaceable>&lt;device&gt;</replaceable></command>
-          allows users to look at the state of devices and to make changes</para>
+          <para><command>ip link <replaceable>&lt;device&gt;</replaceable></command>는 사용자가 장치 상태를 보고 변경할 수 있다.</para>
 
-          <para><command>ip addr</command> allows users to look at addresses and
-          their properties, add new addresses, and delete old ones</para>
+          <para><command>ip addr</command>는 사용자가 주소와 그 속성을 보고, 새 주소를 추가하거나 이전 주소를 삭제할 수 있다.</para>
 
-          <para><command>ip neighbor</command> allows users to look at neighbor
-          bindings and their properties, add new neighbor entries, and delete
-          old ones</para>
+          <para><command>ip neighbor</command>는 사용자가 이웃 바인딩 및 해당 속성을 보고, 새 이웃 항목을 추가하거나 이전 항목을 삭제할 수 있다.</para>
 
-          <para><command>ip rule</command> allows users to look at the routing
-          policies and change them</para>
+          <para><command>ip rule</command>는 라우팅 정책을 보고 변경할 수 있다</para>
 
-          <para><command>ip route</command> allows users to look at the routing
-          table and change routing table rules</para>
+          <para><command>ip route</command>는 사용자가 라우팅 테이블을 보고 라우팅 테이블 규칙을 변경할 수 있다.</para>
 
-          <para><command>ip tunnel</command> allows users to look at the IP
-          tunnels and their properties, and change them</para>
+          <para><command>ip tunnel</command>은 사용자가 IP 터널과 해당 속성을 보고 변경할 수 있다.</para>
 
-          <para><command>ip maddr</command> allows users to look at the multicast
-          addresses and their properties, and change them</para>
+          <para><command>ip maddr</command>은 사용자가 멀티캐스트 주소와 그들의 속성을 보고 그것들을 변경할 수 있게 해준다.</para>
 
-          <para><command>ip mroute</command> allows users to set, change, or
-          delete the multicast routing</para>
+          <para><command>ip mroute</command>는 사용자가 멀티캐스트 라우팅을 설정, 변경 또는 삭제할 수 있다.</para>
 
-          <para><command>ip monitor</command> allows users to continuously monitor
-          the state of devices, addresses and routes</para>
+          <para><command>ip monitor</command>는 사용자가 기기, 주소 및 경로의 상태를 지속적으로 모니터링할 수 있다.</para>
           <indexterm zone="ch-system-iproute2 ip">
             <primary sortas="b-ip">ip</primary>
           </indexterm>
@@ -195,9 +172,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="lnstat">
         <term><command>lnstat</command></term>
         <listitem>
-          <para>Provides Linux network statistics; it is a generalized and more
-          feature-complete replacement for the old <command>rtstat</command>
-          program</para>
+          <para>리눅스 네트워크 통계 제공; 이전의 <command>rtstat</command> 프로그램보다 일반적이고 완전한 기능을 가진 대체품</para>
           <indexterm zone="ch-system-iproute2 lnstat">
             <primary sortas="b-lnstat">lnstat</primary>
           </indexterm>
@@ -207,7 +182,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="nstat">
         <term><command>nstat</command></term>
         <listitem>
-          <para>Shows network statistics</para>
+          <para>네트워크 통계 표시</para>
           <indexterm zone="ch-system-iproute2 nstat">
             <primary sortas="b-nstat">nstat</primary>
           </indexterm>
@@ -217,8 +192,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="routef">
         <term><command>routef</command></term>
         <listitem>
-          <para>A component of <command>ip route</command>. This is for flushing
-          the routing tables</para>
+          <para><command>ip route</command>의 구성 요소. 라우팅 테이블을 비우는 용도.</para>
           <indexterm zone="ch-system-iproute2 routef">
             <primary sortas="b-routef">routef</primary>
           </indexterm>
@@ -228,8 +202,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="routel">
         <term><command>routel</command></term>
         <listitem>
-          <para>A component of <command>ip route</command>. This is for listing
-          the routing tables</para>
+          <para><command>ip route</command>의 구성 요소. 라우팅 테이블을 나열하는 용도</para>
           <indexterm zone="ch-system-iproute2 routel">
             <primary sortas="b-routel">routel</primary>
           </indexterm>
@@ -239,8 +212,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="rtacct">
         <term><command>rtacct</command></term>
         <listitem>
-          <para>Displays the contents of
-          <filename>/proc/net/rt_acct</filename></para>
+          <para><filename>/proc/net/rt_acct</filename>의 내용 표시</para>
           <indexterm zone="ch-system-iproute2 rtacct">
             <primary sortas="b-rtacct">rtacct</primary>
           </indexterm>
@@ -250,7 +222,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="rtmon">
         <term><command>rtmon</command></term>
         <listitem>
-          <para>Route monitoring utility</para>
+          <para>경로(route) 모니터링 유틸리티</para>
           <indexterm zone="ch-system-iproute2 rtmon">
             <primary sortas="b-rtmon">rtmon</primary>
           </indexterm>
@@ -260,8 +232,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="rtpr">
         <term><command>rtpr</command></term>
         <listitem>
-          <para>Converts the output of <command>ip -o</command> back into a
-          readable form</para>
+          <para><command>ip -o</command> 출력을 다시 읽을 수 있는 형식으로 변환</para>
           <indexterm zone="ch-system-iproute2 rtpr">
             <primary sortas="b-rtpr">rtpr</primary>
           </indexterm>
@@ -271,7 +242,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="rtstat">
         <term><command>rtstat</command></term>
         <listitem>
-          <para>Route status utility</para>
+          <para>경로 상태 유틸리티</para>
           <indexterm zone="ch-system-iproute2 rtstat">
             <primary sortas="b-rtstat">rtstat</primary>
           </indexterm>
@@ -281,8 +252,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="ss">
         <term><command>ss</command></term>
         <listitem>
-          <para>Similar to the <command>netstat</command> command; shows active
-          connections</para>
+          <para><command>netstat</command> 명령어와 유사; 활성 상태인 연결을 표시</para>
           <indexterm zone="ch-system-iproute2 ss">
             <primary sortas="b-ss">ss</primary>
           </indexterm>
@@ -292,23 +262,17 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="tc">
         <term><command>tc</command></term>
         <listitem>
-          <para>Traffic Controlling Executable; this is for Quality Of Service
-          (QOS) and Class Of Service (COS) implementations</para>
+          <para>트래픽 제어 실행 파일; Quality Of Service (QOS)와 Class Of Service (COS) 구현용이다</para>
 
-          <para><command>tc qdisc</command> allows users to setup the queueing
-          discipline</para>
+          <para><command>tc qdisc</command>는 사용자가 대기열 규칙(queuing discipline)을 설정할 수 있다.</para>
 
-          <para><command>tc class</command> allows users to setup classes based
-          on the queuing discipline scheduling</para>
+          <para><command>tc class</command>는 사용자가 대기열 스케줄링(queuing discipline scheduling)에 따라 클래스를 설정할 수 있다.</para>
 
-          <para><command>tc estimator</command> allows users to estimate the
-          network flow into a network</para>
+          <para><command>tc estimator</command>는 사용자가 네트워크로의 네트워크 플로우를 추정할 수 있다.</para>
 
-          <para><command>tc filter</command> allows users to setup the QOS/COS
-          packet filtering</para>
+          <para><command>tc filter</command>는 사용자가 QOS/COS 패킷 필터링을 설정할 수 있다.</para>
 
-          <para><command>tc policy</command> allows users to setup the QOS/COS
-          policies</para>
+          <para><command>tc policy</command>는 사용자가 QOS/COS 정책을 설정할 수 있다.</para>
           <indexterm zone="ch-system-iproute2 ss">
             <primary sortas="b-tc">tc</primary>
           </indexterm>
