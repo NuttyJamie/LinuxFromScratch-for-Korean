@@ -23,9 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Patch package contains a program for modifying or creating files
-    by applying a <quote>patch</quote> file typically created by the
-    <command>diff</command> program.</para>
+    <para>Patch 패키지에는 일반적으로 <command>diff</command> 프로그램에서 만든 <quote>patch</quote> 파일을 적용하여 파일을 수정하거나 만드는 프로그램이 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,31 +38,31 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Patch</title>
+    <title>Patch 설치</title>
 
-    <para>Prepare Patch for compilation:</para>
+    <para>Patch 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To test the results, issue:</para>
+    <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-patch" role="content">
-    <title>Contents of Patch</title>
+    <title>Patch의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed program</segtitle>
+      <segtitle>설치된 프로그램</segtitle>
 
       <seglistitem>
         <seg>patch</seg>
@@ -72,17 +70,14 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="patch">
         <term><command>patch</command></term>
         <listitem>
-          <para>Modifies files according to a patch file [A patch file is
-          normally a difference listing created with the <command>diff</command>
-          program. By applying these differences to the original files,
-          <command>patch</command> creates the patched versions.]</para>
+          <para>패치 파일에 따라 파일 수정 [패치 파일은 보통 <command>diff</command> 프로그램으로 작성된 차이점 목록이다. 이러한 차이점을 원본 파일에 적용하면 <command>patch</command>가 패치된 버전을 생성한다.]</para>
           <indexterm zone="ch-system-patch patch">
             <primary sortas="b-patch">patch</primary>
           </indexterm>

@@ -23,9 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Util-linux package contains miscellaneous utility programs.
-    Among them are utilities for handling file systems, consoles, partitions,
-    and messages.</para>
+    <para>Util-linux 패키지는 다양한 유틸리티 프로그램을 포함하고 있다. 그 중에는 파일 시스템, 콘솔, 파티션 및 메시지를 처리하는 유틸리티들이 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,31 +38,27 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>FHS compliance notes</title>
+    <title>FHS 준수 사항</title>
 
-    <para>The FHS recommends using the <filename
-    class="directory">/var/lib/hwclock</filename> directory instead of the
-    usual <filename class="directory">/etc</filename> directory as the
-    location for the <filename>adjtime</filename> file.  First create a directory
-    to enable storage for the <command>hwclock</command> program:</para>
+    <para>FHS는 <filename>adjtime</filename> 파일을 일반적인 <filename class="directory">/etc</filename> 디렉토리 대신 <filename class="directory">/var/lib/hwclock</filename> 디렉토리에 둘 것을 권장한다. 먼저 <command>hwclock</command> 프로그램이 저장될 디렉토리를 생성한다:</para>
 
 <screen><userinput remap="pre">mkdir -pv /var/lib/hwclock</userinput></screen>
 
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Util-linux</title>
+    <title>Util-linux 설치</title>
 <!--
     <para>First, fix one of the regression tests:</para>
 
 <screen><userinput remap="pre">sed -e 's/2^64/(2^64/' -e 's/E &lt;/E) &lt;=/' -e 's/ne /eq /' \
     -i tests/ts/ipcs/limits2</userinput></screen>
 -->
-    <para revision="systemd">Remove the earlier created symlinks:</para>
+    <para revision="systemd">앞서 만들었던 심볼릭 링크를 삭제한다:</para>
 
 <screen revision="systemd"><userinput remap="pre">rm -vf /usr/include/{blkid,libmount,uuid}</userinput></screen>
 
-    <para>Prepare Util-linux for compilation:</para>
+    <para>Util-linux 컴파일을 준비한다:</para>
 
 <screen revision="sysv"><userinput remap="configure">./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
             --docdir=/usr/share/doc/util-linux-&util-linux-version; \
@@ -92,22 +86,15 @@
             --disable-static     \
             --without-python</userinput></screen>
 
-    <para>The --disable and --without options prevent warnings about
-    building components that require packages not in LFS or are 
-    inconsistent with programs installed by other packages.</para>
+    <para>--disable 및 --without 옵션은 LFS에 없는 패키지가 필요하거나, 다른 패키지에 의해 설치된 프로그램과 일치하지 않는 구성 요소의 빌드에 대한 경고를 무시한다.</para>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>If desired, run the test suite as a non-root user:</para>
+    <para>테스트를 원한다면 root가 아닌 유저로 실행하라:</para>
 
-    <warning><para>Running the test suite as the root user can be harmful to
-    your system.  To run it, the CONFIG_SCSI_DEBUG option for the kernel must
-    be available in the currently running system, and must be built as a
-    module.  Building it into the kernel will prevent booting.  For complete
-    coverage, other BLFS packages must be installed.  If desired, this test can
-    be run after rebooting into the completed LFS system and running:</para>
+    <warning><para>테스트 스위트를 root 유저로 실행하는 것은 시스템에 피해를 끼칠 수 있다. 이를 실행하려면, 커널에 대한 CONFIG_SCSI_DEBUG 옵션을 반드시 실행 중인 시스템에서 사용할 수 있어야 하며, 반드시 모듈로 빌드되어야 한다. 커널에 포함시켜서 빌드하면 부팅이 되지 않는다. 적용 범위를 넓히려면 다른 BLFS 패키지를 설치해야 한다. 원한다면 이 테스트는 완성된 LFS 시스템으로 재부팅해서 다음 명령으로 실행할 수 있다:</para>
 
     <screen role="nodump"><userinput>bash tests/run.sh --srcdir=$PWD --builddir=$PWD</userinput></screen> 
     </warning>
@@ -115,55 +102,53 @@
     <screen><userinput remap="test">chown -Rv nobody .
 su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-utillinux" role="content">
-    <title>Contents of Util-linux</title>
+    <title>Util-linux의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>addpart, agetty, blkdiscard, blkid, blkzone, blockdev, cal, cfdisk, chcpu,
         chmem, choom, chrt, col, colcrt, colrm, column, ctrlaltdel, delpart, dmesg,
         eject, fallocate, fdformat, fdisk, fincore, findfs, findmnt, flock, fsck,
         fsck.cramfs, fsck.minix, fsfreeze, fstrim, getopt, hexdump, hwclock,
-        i386, ionice, ipcmk, ipcrm, ipcs, isosize, kill, last, lastb (link to
-        last), ldattach, linux32, linux64, logger, look, losetup, lsblk, lscpu,
+        i386, ionice, ipcmk, ipcrm, ipcs, isosize, kill, last, lastb (last로 링크), ldattach, linux32, linux64, logger, look, losetup, lsblk, lscpu,
         lsipc, lslocks, lslogins, lsmem, lsns, mcookie, mesg, mkfs, mkfs.bfs, mkfs.cramfs, mkfs.minix, mkswap,
         more, mount, mountpoint, namei, nsenter, partx, pivot_root, prlimit, raw,
         readprofile, rename, renice, resizepart, rev, rfkill, rtcwake, script,
         scriptreplay, setarch, setsid, setterm, sfdisk, sulogin, swaplabel,
-        swapoff (link to swapon), swapon, switch_root, taskset, ul,
+        swapoff (swapon로 링크), swapon, switch_root, taskset, ul,
         umount, uname26, unshare, utmpdump, uuidd, uuidgen, uuidparse, wall, wdctl, whereis,
-        wipefs, x86_64, and zramctl</seg>
+        wipefs, x86_64, zramctl</seg>
         <seg>libblkid.so, libfdisk.so, libmount.so, 
-        libsmartcols.so, and libuuid.so</seg>
+        libsmartcols.so, libuuid.so</seg>
         <seg>/usr/include/blkid, 
              /usr/include/libfdisk, 
              /usr/include/libmount, 
              /usr/include/libsmartcols, 
              /usr/include/uuid, 
-             /usr/share/doc/util-linux-&util-linux-version;, 
-         and /var/lib/hwclock</seg>
+             /usr/share/doc/util-linux-&util-linux-version;, /var/lib/hwclock</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="addpart">
         <term><command>addpart</command></term>
         <listitem>
-          <para>Informs the Linux kernel of new partitions</para>
+          <para>리눅스 커널에 새 파티션 알림</para>
           <indexterm zone="ch-system-util-linux addpart">
             <primary sortas="b-addpart">addpart</primary>
           </indexterm>
@@ -173,8 +158,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="agetty">
         <term><command>agetty</command></term>
         <listitem>
-          <para>Opens a tty port, prompts for a login name,
-          and then invokes the <command>login</command> program</para>
+          <para>tty 포트를 열고, 로그인 이름을 입력하라는 메시지를 표시한 다음, <command>login</command> 프로그램을 호출</para>
           <indexterm zone="ch-system-util-linux agetty">
             <primary sortas="b-agetty">agetty</primary>
           </indexterm>
@@ -184,7 +168,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="blkdiscard">
         <term><command>blkdiscard</command></term>
         <listitem>
-          <para>Discards sectors on a device</para>
+          <para>장치의 섹터 무시</para>
           <indexterm zone="ch-system-util-linux blkdiscard">
             <primary sortas="b-blkdiscard">blkdiscard</primary>
           </indexterm>
@@ -194,8 +178,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="blkid">
         <term><command>blkid</command></term>
         <listitem>
-          <para>A command line utility to locate and print block device
-          attributes</para>
+          <para>블록 장치 속성을 찾아 출력하는 명령줄 유틸리티</para>
           <indexterm zone="ch-system-util-linux blkid">
             <primary sortas="b-blkid">blkid</primary>
           </indexterm>
@@ -205,7 +188,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="blkzone">
         <term><command>blkzone</command></term>
         <listitem>
-          <para>Runs zone command on the given block device</para>
+          <para>지정된 블록 장치에서 zone 명령 실행</para>
           <indexterm zone="ch-system-util-linux blkzone">
             <primary sortas="b-blkzone">blkzone</primary>
           </indexterm>
@@ -215,8 +198,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="blockdev">
         <term><command>blockdev</command></term>
         <listitem>
-          <para>Allows users to call block device ioctls from the command
-          line</para>
+          <para>명령줄에서 블록 장치 ioctl을 호출</para>
           <indexterm zone="ch-system-util-linux blockdev">
             <primary sortas="b-blockdev">blockdev</primary>
           </indexterm>
@@ -226,7 +208,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="cal">
         <term><command>cal</command></term>
         <listitem>
-          <para>Displays a simple calendar</para>
+          <para>간단한 달력을 표시</para>
           <indexterm zone="ch-system-util-linux cal">
             <primary sortas="b-cal">cal</primary>
           </indexterm>
@@ -236,7 +218,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="cfdisk">
         <term><command>cfdisk</command></term>
         <listitem>
-          <para>Manipulates the partition table of the given device</para>
+          <para>지정된 장치의 파티션 테이블 조작</para>
           <indexterm zone="ch-system-util-linux cfdisk">
             <primary sortas="b-cfdisk">cfdisk</primary>
           </indexterm>
@@ -246,7 +228,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="chcpu">
         <term><command>chcpu</command></term>
         <listitem>
-          <para>Modifies the state of CPUs</para>
+          <para>CPU 상태 수정</para>
           <indexterm zone="ch-system-util-linux chcpu">
             <primary sortas="b-chcpu">chcpu</primary>
           </indexterm>
@@ -256,7 +238,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="chmem">
         <term><command>chmem</command></term>
         <listitem>
-          <para>Configures memory</para>
+          <para>메모리 설정</para>
           <indexterm zone="ch-system-util-linux chmem">
             <primary sortas="b-chmem">chmem</primary>
           </indexterm>
@@ -266,7 +248,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="choom">
         <term><command>choom</command></term>
         <listitem>
-          <para>Displays and adjusts OOM-killer score</para>
+          <para>OOM-killer 점수를 표시하고 조정</para>
           <indexterm zone="ch-system-util-linux choom">
             <primary sortas="b-choom">choom</primary>
           </indexterm>
@@ -276,7 +258,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="chrt">
         <term><command>chrt</command></term>
         <listitem>
-          <para>Manipulates real-time attributes of a process</para>
+          <para>프로세스의 실시간 속성 조작</para>
           <indexterm zone="ch-system-util-linux chrt">
             <primary sortas="b-chrt">chrt</primary>
           </indexterm>
@@ -286,7 +268,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="col">
         <term><command>col</command></term>
         <listitem>
-          <para>Filters out reverse line feeds</para>
+          <para>Reverse line feeds를 필터링함</para>
           <indexterm zone="ch-system-util-linux col">
             <primary sortas="b-col">col</primary>
           </indexterm>
@@ -296,8 +278,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="colcrt">
         <term><command>colcrt</command></term>
         <listitem>
-          <para>Filters <command>nroff</command> output for terminals
-          that lack some capabilities, such as overstriking and half-lines</para>
+          <para>오버 스트라이킹(overstriking) 및 하프 라인(half-lines)과 같은 일부 기능이 없는 터미널에 대한 <command>nroff</command> 출력 필터링</para>
           <indexterm zone="ch-system-util-linux colcrt">
             <primary sortas="b-colcrt">colcrt</primary>
           </indexterm>
@@ -307,7 +288,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="colrm">
         <term><command>colrm</command></term>
         <listitem>
-          <para>Filters out the given columns</para>
+          <para>지정된 열 필터링</para>
           <indexterm zone="ch-system-util-linux colrm">
             <primary sortas="b-colrm">colrm</primary>
           </indexterm>
@@ -317,7 +298,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="column">
         <term><command>column</command></term>
         <listitem>
-          <para>Formats a given file into multiple columns</para>
+          <para>지정된 파일을 여러 열로 서식화</para>
           <indexterm zone="ch-system-util-linux column">
             <primary sortas="b-column">column</primary>
           </indexterm>
@@ -327,8 +308,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="ctrlaltdel">
         <term><command>ctrlaltdel</command></term>
         <listitem>
-          <para>Sets the function of the Ctrl+Alt+Del key combination to a
-          hard or a soft reset</para>
+          <para>Ctrl+Alt+Del 키 조합의 기능을 하드 또는 소프트 리셋으로 설정</para>
           <indexterm zone="ch-system-util-linux ctrlaltdel">
             <primary sortas="b-ctrlaltdel">ctrlaltdel</primary>
           </indexterm>
@@ -338,7 +318,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="delpart">
         <term><command>delpart</command></term>
         <listitem>
-          <para>Asks the Linux kernel to remove a partition</para>
+          <para>리눅스 커널에서 파티션을 제거하도록 요청</para>
           <indexterm zone="ch-system-util-linux delpart">
             <primary sortas="b-delpart">delpart</primary>
           </indexterm>
@@ -348,7 +328,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="dmesg">
         <term><command>dmesg</command></term>
         <listitem>
-          <para>Dumps the kernel boot messages</para>
+          <para>커널 부트 메시지 덤프</para>
           <indexterm zone="ch-system-util-linux dmesg">
             <primary sortas="b-dmesg">dmesg</primary>
           </indexterm>
@@ -358,7 +338,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="eject">
         <term><command>eject</command></term>
         <listitem>
-          <para>Ejects removable media</para>
+          <para>이동식 미디어 추출</para>
           <indexterm zone="ch-system-util-linux eject">
             <primary sortas="b-eject">eject</primary>
           </indexterm>
@@ -368,7 +348,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="fallocate">
         <term><command>fallocate</command></term>
         <listitem>
-          <para>Preallocates space to a file</para>
+          <para>파일의 공간을 사전 할당</para>
           <indexterm zone="ch-system-util-linux fallocate">
             <primary sortas="b-fallocate">fallocate</primary>
           </indexterm>
@@ -378,7 +358,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="fdformat">
         <term><command>fdformat</command></term>
         <listitem>
-          <para>Low-level formats a floppy disk</para>
+          <para>플로피 디스크를 로우 레벨로 포맷</para>
           <indexterm zone="ch-system-util-linux fdformat">
             <primary sortas="b-fdformat">fdformat</primary>
           </indexterm>
@@ -388,7 +368,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="fdisk">
         <term><command>fdisk</command></term>
         <listitem>
-          <para>Manipulates the partition table of the given device</para>
+          <para>지정된 장치의 파티션 테이블 조작</para>
           <indexterm zone="ch-system-util-linux fdisk">
             <primary sortas="b-fdisk">fdisk</primary>
           </indexterm>
@@ -398,7 +378,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="fincore">
         <term><command>fincore</command></term>
         <listitem>
-          <para>Counts pages of file contents in core</para>
+          <para>코어에 있는 파일 내용의 페이지 수를 계산</para>
           <indexterm zone="ch-system-util-linux fincore">
             <primary sortas="b-fincore">fincore</primary>
           </indexterm>
@@ -408,8 +388,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="findfs">
         <term><command>findfs</command></term>
         <listitem>
-          <para>Finds a file system by label or Universally Unique Identifier
-          (UUID)</para>
+          <para>레이블이나 Universally Unique Identifier (UUID)를 사용하여 파일 시스템 검색</para>
           <indexterm zone="ch-system-util-linux findfs">
             <primary sortas="b-findfs">findfs</primary>
           </indexterm>
@@ -419,8 +398,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="findmnt">
         <term><command>findmnt</command></term>
         <listitem>
-          <para>Is a command line interface to the libmount library
-          for work with mountinfo, fstab and mtab files</para>
+          <para>mountinfo, fstab 및 mtab 파일 작업을 위한 libmount 라이브러리에 대한 명령줄 인터페이스</para>
           <indexterm zone="ch-system-util-linux findmnt">
             <primary sortas="b-findmnt">findmnt</primary>
           </indexterm>
@@ -430,8 +408,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="flock">
         <term><command>flock</command></term>
         <listitem>
-          <para>Acquires a file lock and then executes a command with the lock
-          held</para>
+          <para>파일을 잠근 다음 잠금을 유지한 상태에서 명령 실행</para>
           <indexterm zone="ch-system-util-linux flock">
             <primary sortas="b-flock">flock</primary>
           </indexterm>
@@ -441,7 +418,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="fsck">
         <term><command>fsck</command></term>
         <listitem>
-          <para>Is used to check, and optionally repair, file systems</para>
+          <para>파일 시스템을 확인하고 복구하는 데 사용</para>
           <indexterm zone="ch-system-util-linux fsck">
             <primary sortas="b-fsck">fsck</primary>
           </indexterm>
@@ -451,8 +428,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="fsck.cramfs">
         <term><command>fsck.cramfs</command></term>
         <listitem>
-          <para>Performs a consistency check on the Cramfs file system on the
-          given device</para>
+          <para>지정된 장치의 Cramfs 파일 시스템에서 일관성 검사 수행</para>
           <indexterm zone="ch-system-util-linux fsck.cramfs">
             <primary sortas="b-fsck.cramfs">fsck.cramfs</primary>
           </indexterm>
@@ -462,8 +438,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="fsck.minix">
         <term><command>fsck.minix</command></term>
         <listitem>
-          <para>Performs a consistency check on the Minix file system on the
-          given device</para>
+          <para>지정된 장치의 Minix 파일 시스템에서 일관성 검사 수행</para>
           <indexterm zone="ch-system-util-linux fsck.minix">
             <primary sortas="b-fsck.minix">fsck.minix</primary>
           </indexterm>
@@ -473,8 +448,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="fsfreeze">
         <term><command>fsfreeze</command></term>
         <listitem>
-          <para>Is a very simple wrapper around FIFREEZE/FITHAW ioctl
-          kernel driver operations</para>
+          <para>FIFREEZE/FITHAW ioctl 커널 드라이버 작업에 대한 매우 간단한 래퍼</para>
           <indexterm zone="ch-system-util-linux fsfreeze">
             <primary sortas="b-fsfreeze">fsfreeze</primary>
           </indexterm>

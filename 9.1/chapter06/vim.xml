@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Vim package contains a powerful text editor.</para>
+    <para>Vim 패키지에는 강력한 텍스트 편집기가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -36,21 +36,18 @@
     </segmentedlist>
 
     <tip>
-      <title>Alternatives to Vim</title>
+      <title>Vim의 대체품</title>
 
-      <para>If you prefer another editor&mdash;such as Emacs, Joe, or
-      Nano&mdash;please refer to <ulink
-      url="&blfs-book;postlfs/editors.html"/> for suggested
-      installation instructions.</para>
+      <para>Emacs, Joe 또는 Nano와 같은 다른 편집기를 선호한다면 <ulink
+      url="&blfs-book;postlfs/editors.html"/>에서 제안된 설치 지침들을 참고하기 바란다.</para>
     </tip>
 
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Vim</title>
+    <title>Vim 설치</title>
 
-    <para>First, change the default location of the <filename>vimrc</filename>
-    configuration file to <filename class="directory">/etc</filename>:</para>
+    <para>먼저 <filename>vimrc</filename> 설정 파일의 기본 위치를 <filename class="directory">/etc</filename>로 변경하라:</para>
 
 <screen><userinput remap="pre">echo '#define SYS_VIMRC_FILE "/etc/vimrc"' &gt;&gt; src/feature.h</userinput></screen>
 
@@ -58,81 +55,53 @@
 
 <screen><userinput remap="pre">sed -i '/call/{s/split/xsplit/;s/303/492/}' src/testdir/test_recover.vim</userinput></screen>
 -->
-    <para>Prepare Vim for compilation:</para>
+    <para>Vim 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>To prepare the tests, ensure that the 
-    <systemitem class="username">nobody</systemitem> user can write 
-    to the sources tree:</para>
+    <para>테스트를 준비하기 위해 <systemitem class="username">nobody</systemitem> 유저가 소스 트리에 쓰기 가능하도록 설정한다:</para>
 
 <screen><userinput remap="test">chown -Rv nobody .</userinput></screen>
 
-    <para>Now run the tests as the <systemitem
-    class="username">nobody</systemitem> user:</para>
+    <para>이제 <systemitem class="username">nobody</systemitem> 유저로 테스트를 실행하라:</para>
 
 <screen><userinput remap="test">su nobody -s /bin/bash -c "LANG=en_US.UTF-8 make -j1 test" &amp;> vim-test.log</userinput></screen>
 
 <!--<screen><userinput remap="test">LANG=en_US.UTF-8 make -j1 test &amp;&gt; vim-test.log</userinput></screen>-->
 
-    <para>The test suite outputs a lot of binary data to the screen.  This can
-    cause issues with the settings of the current terminal.  The problem can be
-    avoided by redirecting the output to a log file as shown above.  A
-    successful test will result in the words "ALL DONE" in the log file
-    at completion.</para>
+    <para>테스트 스위트는 많은 바이너리 데이터를 화면에 출력한다. 이로 인해 현재 터미널의 설정에 문제가 발생할 수 있다. 이 문제는 위에서 보인 바와 같이 출력을 로그 파일로 리다이렉팅해서 방지할 수 있다. 테스트가 성공적으로 끝나면 로그 파일 "ALL DONE"이라는 문구가 표시된다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Many users are used to using <command>vi</command> instead of
-    <command>vim</command>. To allow execution of <command>vim</command>
-    when users habitually enter <command>vi</command>, create a
-    symlink for both the binary and the man page in the provided
-    languages:</para>
+    <para>많은 사람들이 <command>vim</command> 대신 <command>vi</command>을 입력한다. 사용자가 습관적으로 <command>vi</command>를 입력해도 <command>vim</command>이 실행되게 하려면, 실행 파일과 제공된 언어의 man 페이지에 심볼릭 링크를 생성하면 된다.:</para>
 
 <screen><userinput remap="install">ln -sv vim /usr/bin/vi
 for L in  /usr/share/man/{,*/}man1/vim.1; do
     ln -sv vim.1 $(dirname $L)/vi.1
 done</userinput></screen>
 
-    <para>By default, Vim's documentation is installed in <filename
-    class="directory">/usr/share/vim</filename>. The following symlink
-    allows the documentation to be accessed via <filename
-    class="directory">/usr/share/doc/vim-&vim-version;</filename>, making
-    it consistent with the location of documentation for other packages:</para>
+    <para>기본적으로 Vim의 문서들은 <filename class="directory">/usr/share/vim</filename>에 설치된다. 다음 심볼릭 링크로 다른 패키지들을 위한 문서들처럼 같은 위치에서 <filename class="directory">/usr/share/doc/vim-&vim-version;</filename>를 통해 문서들에 접근할 수 있다:</para>
 
 <screen><userinput remap="install">ln -sv ../&vim-docdir;/doc /usr/share/doc/vim-&vim-version;</userinput></screen>
 
-    <para>If an X Window System is going to be installed on the LFS
-    system, it may be necessary to recompile Vim after installing X. Vim
-    comes with a GUI version of the editor that requires X and some
-    additional libraries to be installed. For more information on this
-    process, refer to the Vim documentation and the Vim installation page
-    in the BLFS book at <ulink
-    url="&blfs-book;postlfs/vim.html"/>.</para>
+    <para>X 윈도우 시스템을 LFS 시스템에 설치하려는 경우, X 설치 후 Vim을 다시 컴파일해야 할 수도 있다. Vim은 X와 추가 라이브러리를 몇 개 설치해야 하는 GUI 버전이 같이 제공된다. 이 절차에 대한 자세한 내용은 Vim 설명서와 <ulink url="&blfs-book;postlfs/vim.html"/>에서 BLFS 책의 Vim 설치 페이지를 참고하라.</para>
 
   </sect2>
 
   <sect2 id="conf-vim" role="configuration">
-    <title>Configuring Vim</title>
+    <title>Vim 설정</title>
 
     <indexterm zone="conf-vim">
       <primary sortas="e-/etc/vimrc">/etc/vimrc</primary>
     </indexterm>
 
-    <para>By default, <command>vim</command> runs in vi-incompatible mode.
-    This may be new to users who have used other editors in the past. The
-    <quote>nocompatible</quote> setting is included below to highlight the
-    fact that a new behavior is being used. It also reminds those who would
-    change to <quote>compatible</quote> mode that it should be the first
-    setting in the configuration file. This is necessary because it changes
-    other settings, and overrides must come after this setting. Create a default
-    <command>vim</command> configuration file by running the following:</para>
+    <para>기본적으로 <command>vim</command>은 vi-비호환 모드로 실행된다. 이는 과거에 다른 편집기를 사용하던 사용자들에게는 낯설 것이다. 새롭게 동작하고 있다는 사실을 강조하기 위해 <quote>nocompatible(비호환)</quote> 설정이 아래에 포함되어 있다. 그리고 <quote>compatible(호환)</quote> 모드로 변경하려는 사용자들에게는 이 항목을 설정 파일의 첫 번째로 두어야 함을 상기시키고자 한다. 이것은 다른 설정들을 변경하기 때문에 다른 설정들을 사용자 정의하려면 반드시 이 설정 뒤에 이루어져야 한다. 다음을 실행하여 기본 <command>vim</command> 설정 파일을 생성하라:</para>
 
 <screen><userinput>cat &gt; /etc/vimrc &lt;&lt; "EOF"
 <literal>" Begin /etc/vimrc
@@ -152,73 +121,53 @@ endif
 " End /etc/vimrc</literal>
 EOF</userinput></screen>
 
-    <para>The <parameter>set nocompatible</parameter> setting makes
-    <command>vim</command> behave in a more useful way (the default) than the
-    vi-compatible manner. Remove the <quote>no</quote> to keep the old
-    <command>vi</command> behavior. The <parameter>set backspace=2</parameter>
-    setting allows backspacing over line breaks, autoindents, and the start of
-    insert. The <parameter>syntax on</parameter> parameter enables vim's syntax
-    highlighting.  The <parameter>set mouse=</parameter> setting enables
-    proper pasting of text with the mouse when working in chroot or over a
-    remote connection.  Finally, the <emphasis>if</emphasis> statement with the
-    <parameter>set background=dark</parameter> setting corrects
-    <command>vim</command>'s guess about the background color of some terminal
-    emulators. This gives the highlighting a better color scheme for use on the
-    black background of these programs.</para>
+    <para><parameter>set nocompatible</parameter> 설정은 <command>vim</command>을 vi-compatible 방식보다 더 유용한 방식으로(기본값) 동작하게 한다. <quote>no</quote>를 지우면 오래된 <command>vi</command> 방식을 고수한다. <parameter>set backspace=2</parameter> 설정은 줄 바꿈, 자동 들여쓰기, 삽입의 시작 부분에서도 Backspace로 글자를 지울 수 있게 한다. <parameter>syntax on</parameter> 매개 변수는 Vim의 문법 강조를 활성화한다. <parameter>set mouse=</parameter> 설정은 chroot나 원격 연결로 작업할 때 텍스트를 마우스로 적절히 붙여넣을 수 있다. 마지막으로, <emphasis>if</emphasis> 문의 <parameter>set background=dark</parameter> 설정은 일부 터미널 에뮬레이터의 배경색을 <command>vim</command>이 알맞게 인식하도록 한다. 이렇게 하면 저 프로그램들의 검정 배경에 쓰기 더 좋은 색 구성표를 적용한다.</para>
 <!--
     <para>Creating an empty <filename>~/.vimrc</filename> prevents vim from
     overriding settings in <filename>/etc/vimrc</filename> by using
     <filename>/usr/share/vim/vim80/defaults.vim</filename>.</para>
 -->
-    <para>Documentation for other available options can be obtained by
-    running the following command:</para>
+    <para>다른 사용 가능한 옵션에 대한 문서는 다음 명령을 통해 얻을 수 있다:</para>
 
 <screen role="nodump"><userinput>vim -c ':options'</userinput></screen>
 
     <note>
-      <para>By default, Vim only installs spell files for the English language.
-      To install spell files for your preferred language, download the
-      <filename>*.spl</filename> and optionally, the <filename>*.sug</filename>
-      files for your language and character encoding from <ulink
-      url="ftp://ftp.vim.org/pub/vim/runtime/spell/"/> and save them to
-      <filename class='directory'>/usr/share/&vim-docdir;/spell/</filename>.</para>
+      <para>기본적으로 Vim은 영어용 철자 파일만 설치한다. 원하는 언어의 철자 파일을 설치하려면 <ulink url="ftp://ftp.vim.org/pub/vim/runtime/spell/"/>에서 <filename>*.spl</filename>과 언어 및 문자 인코딩용 <filename>*.sug</filename> 파일(선택 사항)을 다운로드하여 <filename class='directory'>/usr/share/&vim-docdir;/spell/</filename>에 저장하라.</para>
 
-      <para>To use these spell files, some configuration in
-      <filename>/etc/vimrc</filename> is needed, e.g.:</para>
+      <para>이러한 철자 파일을 사용하려면 <filename>/etc/vimrc</filename>에서 일부 설정이 필요하다. 예:</para>
 
 <screen><literal>set spelllang=en,ru
 set spell</literal></screen>
 
-      <para>For more information, see the appropriate README file located
-      at the URL above.</para>
+      <para>더 많은 정보는 위의 URL에 있는 해당 README 파일을 참고하라.</para>
     </note>
 
   </sect2>
 
   <sect2 id="contents-vim" role="content">
-    <title>Contents of Vim</title>
+    <title>Vim의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed directory</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
-       <seg> ex (link to vim), rview (link to vim), rvim (link to vim), vi
-       (link to vim), view (link to vim), vim, vimdiff (link to vim), vimtutor,
-       and xxd</seg>
+       <seg> ex (vim으로 링크), rview (vim으로 링크), rvim (vim으로 링크), vi
+       (vim으로 링크), view (vim으로 링크), vim, vimdiff (vim으로 링크), vimtutor,
+       xxd</seg>
         <seg>/usr/share/vim</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="ex">
         <term><command>ex</command></term>
         <listitem>
-          <para>Starts <command>vim</command> in ex mode</para>
+          <para><command>Vim</command>을 ex 모드로 시작</para>
           <indexterm zone="ch-system-vim ex">
             <primary sortas="b-ex">ex</primary>
           </indexterm>
@@ -228,9 +177,7 @@ set spell</literal></screen>
       <varlistentry id="rview">
         <term><command>rview</command></term>
         <listitem>
-          <para>Is a restricted version of <command>view</command>; no shell
-          commands can be started and <command>view</command> cannot be
-          suspended</para>
+          <para><command>View</command>의 제한된 버전; 셸 명령을 시작할 수 없으며 <command>view</command>를 일시 중지할 수 없음</para>
           <indexterm zone="ch-system-vim rview">
             <primary sortas="b-rview">rview</primary>
           </indexterm>
@@ -240,9 +187,7 @@ set spell</literal></screen>
       <varlistentry id="rvim">
         <term><command>rvim</command></term>
         <listitem>
-          <para>Is a restricted version of <command>vim</command>; no shell
-          commands can be started and <command>vim</command> cannot be
-          suspended</para>
+          <para><command>Vim</command>의 제한된 버전; 셸 명령을 시작할 수 없으며 <command>vim</command>을 일시 중지할 수 없음</para>
           <indexterm zone="ch-system-vim rvim">
             <primary sortas="b-rvim">rvim</primary>
           </indexterm>
@@ -252,7 +197,7 @@ set spell</literal></screen>
       <varlistentry id="vi">
         <term><command>vi</command></term>
         <listitem>
-          <para>Link to <command>vim</command></para>
+          <para><command>Vim</command>으로의 링크</para>
           <indexterm zone="ch-system-vim vi">
             <primary sortas="b-vi">vi</primary>
           </indexterm>
@@ -262,7 +207,7 @@ set spell</literal></screen>
       <varlistentry id="view">
         <term><command>view</command></term>
         <listitem>
-          <para>Starts <command>vim</command> in read-only mode</para>
+          <para>읽기 전용 모드에서 <command>vim</command> 시작</para>
           <indexterm zone="ch-system-vim view">
             <primary sortas="b-view">view</primary>
           </indexterm>
@@ -272,7 +217,7 @@ set spell</literal></screen>
       <varlistentry id="vim">
         <term><command>vim</command></term>
         <listitem>
-          <para>Is the editor</para>
+          <para>편집기</para>
           <indexterm zone="ch-system-vim vim">
             <primary sortas="b-vim">vim</primary>
           </indexterm>
@@ -282,8 +227,7 @@ set spell</literal></screen>
       <varlistentry id="vimdiff">
         <term><command>vimdiff</command></term>
         <listitem>
-          <para>Edits two or three versions of a file with <command>vim</command>
-          and shows differences</para>
+          <para><command>Vim</command>을 사용하여 한 파일의 둘이나 세 가지 버전을 편집하고 차이점을 표시</para>
           <indexterm zone="ch-system-vim vimdiff">
             <primary sortas="b-vimdiff">vimdiff</primary>
           </indexterm>
@@ -293,8 +237,7 @@ set spell</literal></screen>
       <varlistentry id="vimtutor">
         <term><command>vimtutor</command></term>
         <listitem>
-          <para>Teaches the basic keys and commands of
-          <command>vim</command></para>
+          <para><command>Vim</command>의 기본적인 조작과 명령을 배울 수 있음</para>
           <indexterm zone="ch-system-vim vimtutor">
             <primary sortas="b-vimtutor">vimtutor</primary>
           </indexterm>
@@ -304,8 +247,7 @@ set spell</literal></screen>
       <varlistentry id="xxd">
         <term><command>xxd</command></term>
         <listitem>
-          <para>Creates a hex dump of the given file; it can
-          also do the reverse, so it can be used for binary patching</para>
+          <para>지정된 파일의 16진수 덤프 생성; 역으로도 가능하기 때문에 바이너리 패치에 사용할 수 있다</para>
           <indexterm zone="ch-system-vim xxd">
             <primary sortas="b-xxd">xxd</primary>
           </indexterm>

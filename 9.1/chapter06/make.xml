@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Make package contains a program for compiling packages.</para>
+    <para>Make 패키지는 패키지를 컴파일하기 위한 프로그램을 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,27 +38,25 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Make</title>
+    <title>Make 설치</title>
 <!--
     <para>Again, work around an error caused by glibc-2.27 and later:</para>
 
 <screen><userinput remap="pre">sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c</userinput></screen>
 -->
-    <para>Prepare Make for compilation:</para>
+    <para>Make 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>The test suite needs to know where supporting perl files are located.
-    We use an environment variable to accomplish this.  To test the 
-    results, issue:</para>
+    <para>테스트 스위트는 지원하는 Perl 파일들이 어디에 있는지 알아야 한다. 따라서 환경 변수를 사용해서 위치를 전달한다. 결과를 테스트하려면 다음을 실행하라:</para>
 
 <screen><userinput remap="test">make PERL5LIB=$PWD/tests/ check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
@@ -66,10 +64,10 @@
 
 
   <sect2 id="contents-make" role="content">
-    <title>Contents of Make</title>
+    <title>Make의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed program</segtitle>
+      <segtitle>설치된 프로그램</segtitle>
 
       <seglistitem>
         <seg>make</seg>
@@ -77,15 +75,14 @@
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="make">
         <term><command>make</command></term>
         <listitem>
-          <para>Automatically determines which pieces of a package need to
-          be (re)compiled and then issues the relevant commands</para>
+          <para>어떤 패키지를 (재)컴파일해야 하는지 자동으로 결정한 다음 관련 명령들을 실행</para>
           <indexterm zone="ch-system-make make">
             <primary sortas="b-make">make</primary>
           </indexterm>

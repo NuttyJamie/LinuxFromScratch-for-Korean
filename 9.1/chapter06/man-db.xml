@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Man-DB package contains programs for finding and viewing man
-    pages.</para>
+    <para>Man-DB 패키지에는 Man 페이지를 검색하고 읽을 수 있는 프로그램이 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,9 +38,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Man-DB</title>
+    <title>Man-DB 설치</title>
 
-    <para>Prepare Man-DB for compilation:</para>
+    <para>Man-DB 컴파일을 준비한다:</para>
 
 <screen revision="systemd"><userinput remap="configure">sed -i '/find/s@/usr@@' init/systemd/man-db.service.in
 
@@ -66,67 +65,56 @@
             --with-systemdsystemunitdir=</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry revision="systemd">
         <term><command>sed -i '/find/s@/usr@@' init/systemd/man-db.service.in</command></term>
         <listitem>
-          <para>This changes a harcoded path to the <command>find</command>
-          utility, which we install in
-          <filename class="directory">/bin</filename>.</para>
+          <para><filename class="directory">/bin</filename>에 설치한 <command>find</command> 유틸리티로 하드코딩된 경로를 수정한다. 
+          </para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-setuid</parameter></term>
         <listitem>
-          <para>This disables making the <command>man</command> program setuid
-          to user <systemitem class="username">man</systemitem>.</para>
+          <para><command>man</command> 프로그램 setuid를 <systemitem class="username">man</systemitem> 유저로 만들지 않도록 비활성화한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-cache-owner=bin</parameter></term>
         <listitem>
-          <para>This makes the system-wide cache files be owned by user
-          bin.</para>
+          <para>시스템 전체 캐시 파일의 소유권을 bin에게 부여한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-...</parameter></term>
         <listitem>
-          <para>These three parameters are used to set some default programs.
-          <command>lynx</command> is a text-based web browser (see
-          BLFS for installation instructions), <command>vgrind</command>
-          converts program sources to Groff input, and <command>grap</command>
-          is useful for typesetting graphs in Groff documents. The
-          <command>vgrind</command> and <command>grap</command> programs are
-          not normally needed for viewing manual pages. They are not part of
-          LFS or BLFS, but you should be able to install them yourself after
-          finishing LFS if you wish to do so.</para>
+          <para>이 세 매개 변수들은 몇 가지 기본 프로그램을 설정한다.
+          <command>lynx</command>는 텍스트 기반 웹 브라우저(설치 절차는 BLFS를 참고)이고, <command>vgrind</command>는 프로그램 소스를 Groff 입력으로 변환하며, <command>grap</command>은 Groff 문서에 그래프를 삽입하는 데에 유용하다. <command>vgrind</command>와 <command>grap</command> 프로그램은 보통은 매뉴얼 페이지를 보는 데 필요하지 않다. LFS나 BLFS에서 다루진 않지만, 원한다면 LFS를 완료하고 스스로 설치할 수 있을 것이다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry revision="sysv">
         <term><parameter>--with-systemd...</parameter></term>
         <listitem>
-          <para>These parameters prevent installing unneeded systemd 
-          directories and files.</para>
+          <para>불필요한 systemd 디렉토리 및 파일 설치를 방지한다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-   <para>To test the results, issue:</para>
+   <para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 <!--
@@ -142,17 +130,13 @@
   </sect2>
 
   <sect2>
-    <title>Non-English Manual Pages in LFS</title>
+    <title>LFS의 비-영어권 매뉴얼 페이지</title>
 
-    <para>The following table shows the character set that Man-DB assumes
-    manual pages installed under
-    <filename class="directory">/usr/share/man/&lt;ll&gt;</filename> will be
-    encoded with.  In addition to this, Man-DB correctly determines if manual
-    pages installed in that directory are UTF-8 encoded.</para>
+    <para>다음 표는 <filename class="directory">/usr/share/man/&lt;ll&gt;</filename>에 설치된 매뉴얼 페이지들이 인코딩 될 문자 세트를 보여준다. 이 외에도, Man-DB는 해당 디렉토리에 설치된 매뉴얼 페이지들이 UTF-8로 인코딩되어 있는지 정확하게 확인한다.</para>
 
     <!-- Origin: man-db-2.5.9/lib/encodings.c -->
     <table>
-<title>Expected character encoding of legacy 8-bit manual pages</title>
+<title>기존 8비트 매뉴얼 페이지의 문자 인코딩</title>
       <?dbfo table-width="6in" ?>
 
       <tgroup cols="4">
@@ -164,142 +148,142 @@
 
         <thead>
           <row>
-            <entry>Language (code)</entry>
-            <entry>Encoding</entry>
-            <entry>Language (code)</entry>
-            <entry>Encoding</entry>
+            <entry>언어 (코드)</entry>
+            <entry>인코딩</entry>
+            <entry>언어 (코드)</entry>
+            <entry>인코딩</entry>
           </row>
         </thead>
 
         <tbody>
           <row>
-            <entry>Danish (da)</entry>
-            <entry>UTF-8</entry>
-            <entry>Croatian (hr)</entry>
+            <entry>덴마크어 (da)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>크로아티아어 (hr)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>German (de)</entry>
-            <entry>UTF-8</entry>
-            <entry>Hungarian (hu)</entry>
+            <entry>독일어 (de)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>헝가리어 (hu)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>English (en)</entry>
-            <entry>UTF-8</entry>
-            <entry>Japanese (ja)</entry>
+            <entry>영어 (en)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>일본어 (ja)</entry>
             <entry>EUC-JP</entry>
           </row>
           <row>
-            <entry>Spanish (es)</entry>
-            <entry>UTF-8</entry>
-            <entry>Korean (ko)</entry>
+            <entry>스페인어 (es)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>한국어 (ko)</entry>
             <entry>EUC-KR</entry>
           </row>
           <row>
-            <entry>Estonian (et)</entry>
-            <entry>UTF-8</entry>
-            <entry>Lithuanian (lt)</entry>
-            <entry>UTF-83</entry>
+            <entry>에스토니아어 (et)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>리투아니아어 (lt)</entry>
+            <entry>ISO-8859-13</entry>
           </row>
           <row>
-            <entry>Finnish (fi)</entry>
-            <entry>UTF-8</entry>
-            <entry>Latvian (lv)</entry>
-            <entry>UTF-83</entry>
+            <entry>핀란드어 (fi)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>라트비아어 (lv)</entry>
+            <entry>ISO-8859-13</entry>
           </row>
           <row>
-            <entry>French (fr)</entry>
-            <entry>UTF-8</entry>
-            <entry>Macedonian (mk)</entry>
+            <entry>프랑스어 (fr)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>마케도니아어 (mk)</entry>
             <entry>ISO-8859-5</entry>
           </row>
           <row>
-            <entry>Irish (ga)</entry>
-            <entry>UTF-8</entry>
-            <entry>Polish (pl)</entry>
+            <entry>아일랜드어 (ga)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>폴란드어 (pl)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Galician (gl)</entry>
-            <entry>UTF-8</entry>
-            <entry>Romanian (ro)</entry>
+            <entry>갈리시아어 (gl)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>루마니아어 (ro)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Indonesian (id)</entry>
-            <entry>UTF-8</entry>
-            <entry>Russian (ru)</entry>
+            <entry>인도네시아어 (id)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>러시아어 (ru)</entry>
             <entry>KOI8-R</entry>
           </row>
           <row>
-            <entry>Icelandic (is)</entry>
-            <entry>UTF-8</entry>
-            <entry>Slovak (sk)</entry>
+            <entry>아이슬란드어 (is)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>슬로바키아어 (sk)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Italian (it)</entry>
-            <entry>UTF-8</entry>
-            <entry>Slovenian (sl)</entry>
+            <entry>이탈리아어 (it)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>슬로베니아어 (sl)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Norwegian Bokmal (nb)</entry>
-            <entry>UTF-8</entry>
-            <entry>Serbian Latin (sr@latin)</entry>
+            <entry>노르웨이어 보크몰 (nb)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>세르비아어 로마자 (sr@latin)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Dutch (nl)</entry>
-            <entry>UTF-8</entry>
-            <entry>Serbian (sr)</entry>
+            <entry>네덜란드어 (nl)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>세르비아어 (sr)</entry>
             <entry>ISO-8859-5</entry>
           </row>
           <row>
-            <entry>Norwegian Nynorsk (nn)</entry>
-            <entry>UTF-8</entry>
-            <entry>Turkish (tr)</entry>
+            <entry>노르웨이어 뉘노르스크 (nn)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>터키어 (tr)</entry>
             <entry>ISO-8859-9</entry>
           </row>
           <row>
-            <entry>Norwegian (no)</entry>
-            <entry>UTF-8</entry>
-            <entry>Ukrainian (uk)</entry>
+            <entry>노르웨이어 (no)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>우크라이나어 (uk)</entry>
             <entry>KOI8-U</entry>
           </row>
           <row>
-            <entry>Portuguese (pt)</entry>
-            <entry>UTF-8</entry>
-            <entry>Vietnamese (vi)</entry>
+            <entry>포르투갈어 (pt)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>베트남어 (vi)</entry>
             <entry>TCVN5712-1</entry>
           </row>
           <row>
-            <entry>Swedish (sv)</entry>
-            <entry>UTF-8</entry>
-            <entry>Simplified Chinese (zh_CN)</entry>
+            <entry>스웨덴어 (sv)</entry>
+            <entry>ISO-8859-1</entry>
+            <entry>중국어 간체 (zh_CN)</entry>
             <entry>GBK</entry>
           </row>
           <row>
-            <entry>Belarusian (be)</entry>
+            <entry>벨라루스어 (be)</entry>
             <entry>CP1251</entry>
-            <entry>Simplified Chinese, Singapore (zh_SG)</entry>
+            <entry>싱가폴, 중국어 간체 (zh_SG)</entry>
             <entry>GBK</entry>
           </row>
           <row>
-            <entry>Bulgarian (bg)</entry>
+            <entry>불가리아어 (bg)</entry>
             <entry>CP1251</entry>
-            <entry>Traditional Chinese, Hong Kong (zh_HK)</entry>
+            <entry>홍콩, 중국어 정체 (zh_HK)</entry>
             <entry>BIG5HKSCS</entry>
           </row>
           <row>
-            <entry>Czech (cs)</entry>
+            <entry>체코어 (cs)</entry>
             <entry>ISO-8859-2</entry>
-            <entry>Traditional Chinese (zh_TW)</entry>
+            <entry>중국어 정체 (zh_TW)</entry>
             <entry>BIG5</entry>
           </row>
           <row>
-            <entry>Greek (el)</entry>
+            <entry>그리스어 (el)</entry>
             <entry>ISO-8859-7</entry>
             <entry></entry>
             <entry></entry>
@@ -312,38 +296,36 @@
     </table>
 
     <note>
-      <para>Manual pages in languages not in the list are not supported.</para>
+      <para>목록에 없는 언어의 매뉴얼 페이지는 지원되지 않는다.</para>
     </note>
 
   </sect2>
 
   <sect2 id="contents-man-db" role="content">
-    <title>Contents of Man-DB</title>
+    <title>Man-DB의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
-        <seg>accessdb, apropos (link to whatis), catman, lexgrog, man, mandb,
-        manpath, and whatis</seg>
-        <seg>libman.so and libmandb.so (both in /usr/lib/man-db)</seg>
-        <seg>/usr/lib/man-db, /usr/libexec/man-db,
-        and /usr/share/doc/man-db-&man-db-version;</seg>
+        <seg>accessdb, apropos (whatis로 링크), catman, lexgrog, man, mandb,
+        manpath, whatis</seg>
+        <seg>libman.so와 libmandb.so (/usr/lib/man-db의 두 가지)</seg>
+        <seg>/usr/lib/man-db, /usr/libexec/man-db, /usr/share/doc/man-db-&man-db-version;</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="accessdb">
         <term><command>accessdb</command></term>
         <listitem>
-          <para>Dumps the <command>whatis</command> database contents in
-          human-readable form</para>
+          <para>사람이 읽을 수 있는 형식으로 <command>whatis</command> 데이터베이스 내용 덤프</para>
           <indexterm zone="ch-system-man-db accessdb">
             <primary sortas="b-accessdb">accessdb</primary>
           </indexterm>
@@ -353,9 +335,7 @@
       <varlistentry id="apropos">
         <term><command>apropos</command></term>
         <listitem>
-          <para>Searches the <command>whatis</command> database and displays
-          the short descriptions of system commands that contain a given
-          string</para>
+          <para><command>whatis</command> 데이터베이스를 검색해서 지정된 문자열을 포함하는 시스템 명령에 대한 간단한 설명 표시</para>
           <indexterm zone="ch-system-man-db apropos">
             <primary sortas="b-apropos">apropos</primary>
           </indexterm>
@@ -365,7 +345,7 @@
       <varlistentry id="catman">
         <term><command>catman</command></term>
         <listitem>
-          <para>Creates or updates the pre-formatted manual pages</para>
+          <para>사전 서식화(pre-formatted)된 매뉴얼 페이지 생성 또는 업데이트</para>
           <indexterm zone="ch-system-man-db catman">
             <primary sortas="b-catman">catman</primary>
           </indexterm>
@@ -375,8 +355,7 @@
       <varlistentry id="lexgrog">
         <term><command>lexgrog</command></term>
         <listitem>
-          <para>Displays one-line summary information about a given manual
-          page</para>
+          <para>지정된 매뉴얼 페이지에 대한 한 줄 요약 정보 출력</para>
           <indexterm zone="ch-system-man-db lexgrog">
             <primary sortas="b-lexgrog">lexgrog</primary>
           </indexterm>
@@ -386,7 +365,7 @@
       <varlistentry id="man">
         <term><command>man</command></term>
         <listitem>
-          <para>Formats and displays the requested manual page</para>
+          <para>요청된 매뉴얼 페이지 서식화 및 출력</para>
           <indexterm zone="ch-system-man-db man">
             <primary sortas="b-man">man</primary>
           </indexterm>
@@ -396,7 +375,7 @@
       <varlistentry id="mandb">
         <term><command>mandb</command></term>
         <listitem>
-          <para>Creates or updates the <command>whatis</command> database</para>
+          <para><command>whatis</command> 데이터베이스 작성 또는 업데이트</para>
           <indexterm zone="ch-system-man-db mandb">
             <primary sortas="b-mandb">mandb</primary>
           </indexterm>
@@ -406,9 +385,7 @@
       <varlistentry id="manpath">
         <term><command>manpath</command></term>
         <listitem>
-          <para>Displays the contents of $MANPATH or (if $MANPATH is not set)
-          a suitable search path based on the settings in man.conf and the
-          user's environment</para>
+          <para>man.conf와 유저의 설정을 기반으로 $MANPATH나 $MANPATH가 설정되지 않은 경우 적절한 검색 경로의 값을 표시</para>
           <indexterm zone="ch-system-man-db manpath">
             <primary sortas="b-manpath">manpath</primary>
           </indexterm>
@@ -418,9 +395,7 @@
       <varlistentry id="whatis">
         <term><command>whatis</command></term>
         <listitem>
-          <para>Searches the <command>whatis</command> database and displays
-          the short descriptions of system commands that contain the given
-          keyword as a separate word</para>
+          <para><command>whatis</command> 데이터베이스를 검색해서 지정된 키워드를 포함하는 시스템 명령에 대한 간단한 설명을 별도의 단어로 출력</para>
           <indexterm zone="ch-system-man-db whatis">
             <primary sortas="b-whatis">whatis</primary>
           </indexterm>
@@ -430,7 +405,7 @@
       <varlistentry id="libman">
         <term><filename class="libraryfile">libman</filename></term>
         <listitem>
-          <para>Contains run-time support for <command>man</command></para>
+          <para><command>man</command>에 대한 런타임 지원을 포함</para>
           <indexterm zone="ch-system-man-db libman">
             <primary sortas="c-libman">libman</primary>
           </indexterm>
@@ -440,7 +415,7 @@
       <varlistentry id="libmandb">
         <term><filename class="libraryfile">libmandb</filename></term>
         <listitem>
-          <para>Contains run-time support for <command>man</command></para>
+          <para><command>man</command>에 대한 런타임 지원을 포함</para>
           <indexterm zone="ch-system-man-db libmandb">
             <primary sortas="c-libmandb">libmandb</primary>
           </indexterm>

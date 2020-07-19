@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Procps-ng package contains programs for monitoring processes.</para>
+    <para>Procps-ng 패키지에는 프로세스 모니터링 프로그램이 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,9 +38,9 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Procps-ng</title>
+    <title>Procps-ng 설치</title>
 
-    <para>Prepare procps-ng for compilation:</para>
+    <para>procps-ng 컴파일을 준비한다:</para>
 
 <screen revision="sysv"><userinput remap="configure">./configure --prefix=/usr                            \
             --exec-prefix=                           \
@@ -58,37 +58,32 @@
             --with-systemd</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
+      <title>Configure 옵션들의 의미:</title>
 
       <varlistentry>
         <term><parameter>--disable-kill</parameter></term>
         <listitem>
-          <para>This switch disables building the <command>kill</command>
-          command that will be installed by the Util-linux package.</para>
+          <para>Util-linux 패키지에 의해 설치될 <command>kill</command> 명령어 빌드를 비활성화한다.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>The test suite needs some custom modifications for LFS.
-    Remove a test that fails when scripting does not use a tty device and
-    fix two others.
-    To run the test suite, run the following commands:</para>
+    <para>테스트 스위트는 LFS를 위한 몇 가지 사용자 정의에 따른 수정이 필요하다. 스크립트가 tty 장치를 사용하지 않을 때 실패하는 한 테스트를 삭제하고 다른 두 가지를 수정한다. 테스트 스위트를 실행하려면 다음 명령을 실행하라:</para>
 
 <screen><userinput remap="test">sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
 sed -i '/set tty/d' testsuite/pkill.test/pkill.exp
 rm testsuite/pgrep.test/pgrep.exp
 make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-<para>Finally, move essential libraries to a location that can be found if
-<filename class="directory">/usr</filename> is not mounted.</para>
+<para>마지막으로, 필수 라이브러리들을 <filename class="directory">/usr</filename>가 마운트되지 않았을 때에도 찾을 수 있는 위치로 이동한다.</para>
 
 <screen><userinput remap="install">mv -v /usr/lib/libprocps.so.* /lib
 ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</userinput></screen>
@@ -96,31 +91,30 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
   </sect2>
 
   <sect2 id="contents-procps" role="content">
-    <title>Contents of Procps-ng</title>
+    <title>Procps-ng의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed library</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>free, pgrep, pidof, pkill, pmap, ps, pwdx, slabtop,
-        sysctl, tload, top, uptime, vmstat, w, and watch</seg>
+        sysctl, tload, top, uptime, vmstat, w, watch</seg>
         <seg>libprocps.so</seg>
-        <seg>/usr/include/proc and /usr/share/doc/procps-ng-&procps-ng-version;</seg>
+        <seg>/usr/include/proc와 /usr/share/doc/procps-ng-&procps-ng-version;</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="free">
         <term><command>free</command></term>
         <listitem>
-          <para>Reports the amount of free and used memory (both physical and
-          swap memory) in the system</para>
+          <para>시스템에서 사용 가능한 메모리 및 사용된 메모리 양(물리적 메모리 및 스왑 메모리 모두) 출력</para>
           <indexterm zone="ch-system-procps free">
             <primary sortas="b-free">free</primary>
           </indexterm>
@@ -130,7 +124,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="pgrep">
         <term><command>pgrep</command></term>
         <listitem>
-          <para>Looks up processes based on their name and other attributes</para>
+          <para>이름과 다른 속성들을 기준으로 프로세스 검색</para>
           <indexterm zone="ch-system-procps pgrep">
             <primary sortas="b-pgrep">pgrep</primary>
           </indexterm>
@@ -140,7 +134,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="pidof">
         <term><command>pidof</command></term>
         <listitem>
-          <para>Reports the PIDs of the given programs</para>
+          <para>지정된 프로그램의 PID 출력</para>
           <indexterm zone="ch-system-procps pidof">
             <primary sortas="b-pidof">pidof</primary>
           </indexterm>
@@ -150,7 +144,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="pkill">
         <term><command>pkill</command></term>
         <listitem>
-          <para>Signals processes based on their name and other attributes</para>
+          <para>이름 및 기타 속성에 따라 프로세스 신호 전송</para>
           <indexterm zone="ch-system-procps pkill">
             <primary sortas="b-pkill">pkill</primary>
           </indexterm>
@@ -160,7 +154,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="pmap">
         <term><command>pmap</command></term>
         <listitem>
-          <para>Reports the memory map of the given process</para>
+          <para>지정된 프로세스의 메모리 맵 출력</para>
           <indexterm zone="ch-system-procps pmap">
             <primary sortas="b-pmap">pmap</primary>
           </indexterm>
@@ -170,7 +164,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="ps">
         <term><command>ps</command></term>
         <listitem>
-          <para>Lists the current running processes</para>
+          <para>현재 실행 중인 프로세스 나열</para>
           <indexterm zone="ch-system-procps ps">
             <primary sortas="b-ps">ps</primary>
           </indexterm>
@@ -180,7 +174,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="pwdx">
         <term><command>pwdx</command></term>
         <listitem>
-          <para>Reports the current working directory of a process</para>
+          <para>프로세스의 현재 작업 디렉토리 출력</para>
           <indexterm zone="ch-system-procps pwdx">
             <primary sortas="b-pwdx">pwdx</primary>
           </indexterm>
@@ -190,7 +184,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="slabtop">
         <term><command>slabtop</command></term>
         <listitem>
-          <para>Displays detailed kernel slab cache information in real time</para>
+          <para>상세 커널 슬랩(slab) 캐시 정보를 실시간으로 표시</para>
           <indexterm zone="ch-system-procps slabtop">
             <primary sortas="b-slabtop">slabtop</primary>
           </indexterm>
@@ -200,7 +194,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="sysctl">
         <term><command>sysctl</command></term>
         <listitem>
-          <para>Modifies kernel parameters at run time</para>
+          <para>런타임에 커널 매개 변수 수정</para>
           <indexterm zone="ch-system-procps sysctl">
             <primary sortas="b-sysctl">sysctl</primary>
           </indexterm>
@@ -210,7 +204,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="tload">
         <term><command>tload</command></term>
         <listitem>
-          <para>Prints a graph of the current system load average</para>
+          <para>현재 시스템 부하 평균 그래프 출력</para>
           <indexterm zone="ch-system-procps tload">
             <primary sortas="b-tload">tload</primary>
           </indexterm>
@@ -220,8 +214,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="top">
         <term><command>top</command></term>
         <listitem>
-          <para>Displays a list of the most CPU intensive processes; it
-          provides an ongoing look at processor activity in real time</para>
+          <para>가장 CPU 점유율이 높은 프로세스들의 목록을 출력; 프로세서 활동을 실시간으로 볼 수 있음</para>
           <indexterm zone="ch-system-procps top">
             <primary sortas="b-top">top</primary>
           </indexterm>
@@ -231,8 +224,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="uptime">
         <term><command>uptime</command></term>
         <listitem>
-          <para>Reports how long the system has been running, how many users are
-          logged on, and the system load averages</para>
+          <para>시스템 작동 시간, 로그온한 사용자 수 및 시스템 부하 평균 출력</para>
           <indexterm zone="ch-system-procps uptime">
             <primary sortas="b-uptime">uptime</primary>
           </indexterm>
@@ -242,9 +234,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="vmstat">
         <term><command>vmstat</command></term>
         <listitem>
-          <para>Reports virtual memory statistics, giving information about
-          processes, memory, paging, block Input/Output (IO), traps, and CPU
-          activity</para>
+          <para>프로세스, 메모리, 페이징, 블록 입/출력 (IO), 트랩 및 CPU 활동에 대한 정보를 제공하는 가상 메모리 통계 출력</para>
           <indexterm zone="ch-system-procps vmstat">
             <primary sortas="b-vmstat">vmstat</primary>
           </indexterm>
@@ -254,8 +244,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="w">
         <term><command>w</command></term>
         <listitem>
-          <para>Shows which users are currently logged on, where, and since
-          when</para>
+          <para>현재 로그온한 사용자와 로그온한 장치, 로그온 경과 시간들을 표시 </para>
           <indexterm zone="ch-system-procps w">
             <primary sortas="b-w">w</primary>
           </indexterm>
@@ -265,9 +254,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="watch">
         <term><command>watch</command></term>
         <listitem>
-          <para>Runs a given command repeatedly, displaying the first
-          screen-full of its output; this allows a user to watch the output
-          change over time</para>
+          <para>지정된 명령을 반복적으로 실행하여 출력이 가득 찬 첫 번째 화면을 표시; 이를 통해 사용자는 시간 경과에 따른 결과 출력의 변화를 볼 수 있음</para>
           <indexterm zone="ch-system-procps watch">
             <primary sortas="b-watch">watch</primary>
           </indexterm>
@@ -277,8 +264,7 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</useri
       <varlistentry id="libprocps">
         <term><filename class="libraryfile">libprocps</filename></term>
         <listitem>
-          <para>Contains the functions used by most programs in this
-          package</para>
+          <para>이 패키지의 대부분의 프로그램에서 사용하는 함수 포함</para>
           <indexterm zone="ch-system-procps libprocps">
             <primary sortas="c-libprocps">libprocps</primary>
           </indexterm>
