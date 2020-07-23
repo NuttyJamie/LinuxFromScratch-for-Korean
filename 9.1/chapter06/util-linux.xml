@@ -448,7 +448,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="fsfreeze">
         <term><command>fsfreeze</command></term>
         <listitem>
-          <para>FIFREEZE/FITHAW ioctl 커널 드라이버 작업에 대한 매우 간단한 래퍼</para>
+          <para>FIFREEZE/FITHAW ioctl 커널 드라이버 작업을 다루는 매우 간단한 래퍼</para>
           <indexterm zone="ch-system-util-linux fsfreeze">
             <primary sortas="b-fsfreeze">fsfreeze</primary>
           </indexterm>
@@ -458,7 +458,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="fstrim">
         <term><command>fstrim</command></term>
         <listitem>
-          <para>Discards unused blocks on a mounted filesystem</para>
+          <para>마운트된 파일 시스템에서 사용되지 않는 블록 삭제</para>
           <indexterm zone="ch-system-util-linux fstrim">
             <primary sortas="b-fstrim">fstrim</primary>
           </indexterm>
@@ -468,7 +468,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="getopt">
         <term><command>getopt</command></term>
         <listitem>
-          <para>Parses options in the given command line</para>
+          <para>지정된 명령줄의 옵션 구문 파싱</para>
           <indexterm zone="ch-system-util-linux getopt">
             <primary sortas="b-getopt">getopt</primary>
           </indexterm>
@@ -478,8 +478,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="hexdump">
         <term><command>hexdump</command></term>
         <listitem>
-          <para>Dumps the given file in hexadecimal or in another given
-          format</para>
+          <para>지정된 파일을 16진수 또는 다른 지정된 형식으로 덤프</para>
           <indexterm zone="ch-system-util-linux hexdump">
             <primary sortas="b-hexdump">hexdump</primary>
           </indexterm>
@@ -489,8 +488,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="hwclock">
         <term><command>hwclock</command></term>
         <listitem>
-          <para>Reads or sets the system's hardware clock, also called
-          the Real-Time Clock (RTC) or Basic Input-Output System (BIOS)
+          <para>Real-Time Clock (RTC) 또는 Basic Input-Output System (BIOS) 클럭이라고도 하는 시스템의 하드웨어 시계를 읽거나 설정
           clock</para>
           <indexterm zone="ch-system-util-linux hwclock">
             <primary sortas="b-hwclock">hwclock</primary>
@@ -501,7 +499,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="i386">
         <term><command>i386</command></term>
         <listitem>
-          <para>A symbolic link to setarch</para>
+          <para>setarch로의 심볼릭 링크</para>
           <indexterm zone="ch-system-util-linux i386">
             <primary sortas="b-i386">i386</primary>
           </indexterm>
@@ -511,7 +509,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="ionice">
         <term><command>ionice</command></term>
         <listitem>
-          <para>Gets or sets the io scheduling class and priority for a program</para>
+          <para>프로그램에 대한 io 스케줄링 클래스 및 우선 순위를 가져오거나 설정</para>
           <indexterm zone="ch-system-util-linux ionice">
             <primary sortas="b-ionice">ionice</primary>
           </indexterm>
@@ -521,7 +519,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="ipcmk">
         <term><command>ipcmk</command></term>
         <listitem>
-          <para>Creates various IPC resources</para>
+          <para>다양한 IPC 리소스 생성</para>
           <indexterm zone="ch-system-util-linux ipcmk">
             <primary sortas="b-ipcmk">ipcmk</primary>
           </indexterm>
@@ -531,7 +529,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="ipcrm">
         <term><command>ipcrm</command></term>
         <listitem>
-          <para>Removes the given Inter-Process Communication (IPC) resource</para>
+          <para>지정된 프로세스 간 통신(Inter-Process Communication, IPC) 리소스 제거</para>
           <indexterm zone="ch-system-util-linux ipcrm">
             <primary sortas="b-ipcrm">ipcrm</primary>
           </indexterm>
@@ -541,7 +539,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="ipcs">
         <term><command>ipcs</command></term>
         <listitem>
-          <para>Provides IPC status information</para>
+          <para>IPC 상태 정보 제공</para>
           <indexterm zone="ch-system-util-linux ipcs">
             <primary sortas="b-ipcs">ipcs</primary>
           </indexterm>
@@ -551,7 +549,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="isosize">
         <term><command>isosize</command></term>
         <listitem>
-          <para>Reports the size of an iso9660 file system</para>
+          <para>iso9660 파일 시스템의 크기를 출력</para>
           <indexterm zone="ch-system-util-linux isosize">
             <primary sortas="b-isosize">isosize</primary>
           </indexterm>
@@ -561,7 +559,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="kill">
         <term><command>kill</command></term>
         <listitem>
-          <para>Sends signals to processes</para>
+          <para>프로세스에 신호 전송</para>
           <indexterm zone="ch-system-util-linux kill">
             <primary sortas="b-kill">kill</primary>
           </indexterm>
@@ -571,9 +569,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="last">
         <term><command>last</command></term>
         <listitem>
-          <para>Shows which users last logged in (and out), searching back 
-          through the <filename>/var/log/wtmp</filename> file; it also shows 
-          system boots, shutdowns, and run-level changes</para>
+          <para><filename>/var/log/wtmp</filename> 파일을 검색하고 마지막으로 로그인(및 로그아웃)한 유저를 표시; 시스템 부팅, 종료 및 run-level 변경 사항도 표시</para>
           <indexterm zone="ch-system-util-linux last">
             <primary sortas="b-last">last</primary>
           </indexterm>
@@ -583,8 +579,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="lastb">
         <term><command>lastb</command></term>
         <listitem>
-          <para>Shows the failed login attempts, as logged in 
-          <filename>/var/log/btmp</filename></para>
+          <para><filename>/var/log/btmp</filename> 로그인 시 실패한 로그인 시도 표시</para>
           <indexterm zone="ch-system-util-linux lastb">
             <primary sortas="b-lastb">lastb</primary>
           </indexterm>
@@ -594,7 +589,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="ldattach">
         <term><command>ldattach</command></term>
         <listitem>
-          <para>Attaches a line discipline to a serial line</para>
+          <para>직렬 장치 파일에 송/수신 데이터를 처리하기 위한 회선을 첨부</para>
           <indexterm zone="ch-system-util-linux ldattach">
             <primary sortas="b-ldattach">ldattach</primary>
           </indexterm>
@@ -604,7 +599,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="linux32">
         <term><command>linux32</command></term>
         <listitem>
-          <para>A symbolic link to setarch</para>
+          <para>setarch로의 심볼릭 링크</para>
           <indexterm zone="ch-system-util-linux linux32">
             <primary sortas="b-linux32">linux32</primary>
           </indexterm>
@@ -614,7 +609,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="linux64">
         <term><command>linux64</command></term>
         <listitem>
-          <para>A symbolic link to setarch</para>
+          <para>setarch로의 심볼릭 링크</para>
           <indexterm zone="ch-system-util-linux linux64">
             <primary sortas="b-linux64">linux64</primary>
           </indexterm>
@@ -624,7 +619,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="logger">
         <term><command>logger</command></term>
         <listitem>
-          <para>Enters the given message into the system log</para>
+          <para>시스템 로그에 지정된 메시지 입력</para>
           <indexterm zone="ch-system-util-linux logger">
             <primary sortas="b-logger">logger</primary>
           </indexterm>
@@ -634,7 +629,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="look">
         <term><command>look</command></term>
         <listitem>
-          <para>Displays lines that begin with the given string</para>
+          <para>지정된 문자열로 시작하는 행 표시</para>
           <indexterm zone="ch-system-util-linux look">
             <primary sortas="b-look">look</primary>
           </indexterm>
@@ -644,7 +639,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="losetup">
         <term><command>losetup</command></term>
         <listitem>
-          <para>Sets up and controls loop devices</para>
+          <para>루프 장치 설정 및 제어</para>
           <indexterm zone="ch-system-util-linux losetup">
             <primary sortas="b-losetup">losetup</primary>
           </indexterm>
@@ -654,8 +649,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="lsblk">
         <term><command>lsblk</command></term>
         <listitem>
-          <para>Lists information about all or selected block devices in
-           a tree-like format</para>
+          <para>모든 또는 선택한 블록 장치에 대한 정보를 트리 형식으로 나열</para>
           <indexterm zone="ch-system-util-linux lsblk">
             <primary sortas="b-lsblk">lsblk</primary>
           </indexterm>
@@ -665,7 +659,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="lscpu">
         <term><command>lscpu</command></term>
         <listitem>
-          <para>Prints CPU architecture information</para>
+          <para>CPU 아키텍처 정보 출력</para>
           <indexterm zone="ch-system-util-linux lscpu">
             <primary sortas="b-lscpu">lscpu</primary>
           </indexterm>
@@ -675,8 +669,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="lsipc">
         <term><command>lsipc</command></term>
         <listitem>
-          <para>Prints information on IPC facilities currently employed
-          in the system</para>
+          <para>시스템에서 현재 사용 중인 IPC 설비에 대한 정보 출력</para>
           <indexterm zone="ch-system-util-linux lsipc">
             <primary sortas="b-lsipc">lsipc</primary>
           </indexterm>
@@ -686,7 +679,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="lslocks">
         <term><command>lslocks</command></term>
         <listitem>
-          <para>Lists local system locks</para>
+          <para>로컬 시스템 잠금(locks) 나열</para>
           <indexterm zone="ch-system-util-linux lslocks">
             <primary sortas="b-lslocks">lslocks</primary>
           </indexterm>
@@ -696,7 +689,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="lslogins">
         <term><command>lslogins</command></term>
         <listitem>
-          <para>Lists information about users, groups and system accounts</para>
+          <para>유저, 그룹 및 시스템 계정에 대한 정보 나열</para>
           <indexterm zone="ch-system-util-linux lslogins">
             <primary sortas="b-lslogins">lslogins</primary>
           </indexterm>
@@ -706,8 +699,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="lsmem">
         <term><command>lsmem</command></term>
         <listitem>
-          <para>Lists the ranges of available memory with their online
-          status</para>
+          <para>가용한 메모리의 범위와 작동 상태를 나열</para>
           <indexterm zone="ch-system-util-linux lsmem">
             <primary sortas="b-lsmem">lsmem</primary>
           </indexterm>
@@ -717,7 +709,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="lsns">
         <term><command>lsns</command></term>
         <listitem>
-          <para>Lists namespaces</para>
+          <para>네임스페이스 나열</para>
           <indexterm zone="ch-system-util-linux lsns">
             <primary sortas="b-lsns">lsns</primary>
           </indexterm>
@@ -727,8 +719,8 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="mcookie">
         <term><command>mcookie</command></term>
         <listitem>
-          <para>Generates magic cookies (128-bit random hexadecimal numbers) for
-          <command>xauth</command></para>
+          <para><command>xauth</command>용 매직 쿠키 생성 (128-bit 랜덤 16진수)
+          </para>
           <indexterm zone="ch-system-util-linux mcookie">
             <primary sortas="b-mcookie">mcookie</primary>
           </indexterm>
@@ -738,8 +730,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="mesg">
         <term><command>mesg</command></term>
         <listitem>
-          <para>Controls whether other users can send messages to the current 
-          user's terminal</para>
+          <para>다른 사용자가 현재 사용자의 터미널로 메시지를 보낼 수 있는지의 여부 제어</para>
           <indexterm zone="ch-system-util-linux mesg">
             <primary sortas="b-mesg">mesg</primary>
           </indexterm>
@@ -749,8 +740,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="mkfs">
         <term><command>mkfs</command></term>
         <listitem>
-          <para>Builds a file system on a device (usually a hard disk
-          partition)</para>
+          <para>장치에 파일 시스템 구축(대개 하드 디스크 파티션)</para>
           <indexterm zone="ch-system-util-linux mkfs">
             <primary sortas="b-mkfs">mkfs</primary>
           </indexterm>
@@ -760,7 +750,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="mkfs.bfs">
         <term><command>mkfs.bfs</command></term>
         <listitem>
-          <para>Creates a Santa Cruz Operations (SCO) bfs file system</para>
+          <para>Santa Cruz Operations (SCO) bfs 파일 시스템 생성</para>
           <indexterm zone="ch-system-util-linux mkfs.bfs">
             <primary sortas="b-mkfs.bfs">mkfs.bfs</primary>
           </indexterm>
@@ -770,7 +760,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="mkfs.cramfs">
         <term><command>mkfs.cramfs</command></term>
         <listitem>
-          <para>Creates a cramfs file system</para>
+          <para>Cramfs 파일 시스템 생성</para>
           <indexterm zone="ch-system-util-linux mkfs.cramfs">
             <primary sortas="b-mkfs.cramfs">mkfs.cramfs</primary>
           </indexterm>
@@ -780,7 +770,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="mkfs.minix">
         <term><command>mkfs.minix</command></term>
         <listitem>
-          <para>Creates a Minix file system</para>
+          <para>Minix 파일 시스템 생성</para>
           <indexterm zone="ch-system-util-linux mkfs.minix">
             <primary sortas="b-mkfs.minix">mkfs.minix</primary>
           </indexterm>
@@ -790,8 +780,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="mkswap">
         <term><command>mkswap</command></term>
         <listitem>
-          <para>Initializes the given device or file to be used as a swap
-          area</para>
+          <para>스왑 영역으로 사용될 지정된 장치나 파일을 초기화</para>
           <indexterm zone="ch-system-util-linux mkswap">
             <primary sortas="b-mkswap">mkswap</primary>
           </indexterm>
@@ -801,7 +790,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="more">
         <term><command>more</command></term>
         <listitem>
-          <para>A filter for paging through text one screen at a time</para>
+          <para>한 번에 한 화면씩 텍스트를 페이징하는 필터</para>
           <indexterm zone="ch-system-util-linux more">
             <primary sortas="b-more">more</primary>
           </indexterm>
@@ -811,8 +800,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="mount">
         <term><command>mount</command></term>
         <listitem>
-          <para>Attaches the file system on the given device to a specified
-          directory in the file-system tree</para>
+          <para>지정된 장치의 파일 시스템을 파일 시스템 트리의 지정된 디렉토리에 연결</para>
           <indexterm zone="ch-system-util-linux mount">
             <primary sortas="b-mount">mount</primary>
           </indexterm>
@@ -822,7 +810,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="mountpoint">
         <term><command>mountpoint</command></term>
         <listitem>
-          <para>Checks if the directory is a mountpoint</para>
+          <para>디렉토리가 마운트 지점인지 확인</para>
           <indexterm zone="ch-system-util-linux mountpoint">
             <primary sortas="b-mountpoint">mountpoint</primary>
           </indexterm>
@@ -832,7 +820,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="namei">
         <term><command>namei</command></term>
         <listitem>
-          <para>Shows the symbolic links in the given pathnames</para>
+          <para>지정된 경로 이름의 심볼릭 링크를 표시</para>
           <indexterm zone="ch-system-util-linux namei">
             <primary sortas="b-namei">namei</primary>
           </indexterm>
@@ -842,7 +830,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="nsenter">
         <term><command>nsenter</command></term>
         <listitem>
-          <para>Runs a program with namespaces of other processes</para>
+          <para>다른 프로세스의 네임스페이스로 프로그램 실행</para>
           <indexterm zone="ch-system-util-linux nsenter">
             <primary sortas="b-nsenter">nsenter</primary>
           </indexterm>
@@ -852,8 +840,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="partx">
         <term><command>partx</command></term>
         <listitem>
-          <para>Tells the kernel about the presence and numbering of on-disk
-          partitions</para>
+          <para>커널에 디스크 파티션의 존재와 순번을 인식시킴</para>
           <indexterm zone="ch-system-util-linux partx">
             <primary sortas="b-partx">partx</primary>
           </indexterm>
@@ -863,8 +850,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="pivot_root">
         <term><command>pivot_root</command></term>
         <listitem>
-          <para>Makes the given file system the new root file system of the
-          current process</para>
+          <para>지정된 파일 시스템을 현재 프로세스의 새 root 파일 시스템으로 만듬</para>
           <indexterm zone="ch-system-util-linux pivot_root">
             <primary sortas="b-pivot_root">pivot_root</primary>
           </indexterm>
@@ -874,7 +860,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="prlimit">
         <term><command>prlimit</command></term>
         <listitem>
-          <para>Get and set a process' resource limits</para>
+          <para>프로세스의 리소스 제한 설정</para>
           <indexterm zone="ch-system-util-linux prlimit">
             <primary sortas="b-prlimit">prlimit</primary>
           </indexterm>
@@ -884,7 +870,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="raw">
         <term><command>raw</command></term>
         <listitem>
-          <para>Bind a Linux raw character device to a block device</para>
+          <para>리눅스 raw 장치를 블록 장치에 바인딩</para>
           <indexterm zone="ch-system-util-linux raw">
             <primary sortas="b-raw">raw</primary>
           </indexterm>
@@ -894,7 +880,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="readprofile">
         <term><command>readprofile</command></term>
         <listitem>
-          <para>Reads kernel profiling information</para>
+          <para>커널 프로파일링 정보를 읽음</para>
           <indexterm zone="ch-system-util-linux readprofile">
             <primary sortas="b-readprofile">readprofile</primary>
           </indexterm>
@@ -904,8 +890,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="rename">
         <term><command>rename</command></term>
         <listitem>
-          <para>Renames the given files, replacing a given string with
-          another</para>
+          <para>지정된 파일의 이름을 변경하고 지정된 문자열을 다른 문자열로 대체</para>
           <indexterm zone="ch-system-util-linux rename">
             <primary sortas="b-rename">rename</primary>
           </indexterm>
@@ -915,7 +900,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="renice">
         <term><command>renice</command></term>
         <listitem>
-          <para>Alters the priority of running processes</para>
+          <para>프로세스 실행 우선순위 변경</para>
           <indexterm zone="ch-system-util-linux renice">
             <primary sortas="b-renice">renice</primary>
           </indexterm>
@@ -925,7 +910,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="resizepart">
         <term><command>resizepart</command></term>
         <listitem>
-          <para>Asks the Linux kernel to resize a partition</para>
+          <para>리눅스 커널에 파티션 크기 조정 요청</para>
           <indexterm zone="ch-system-util-linux resizepart">
             <primary sortas="b-resizepart">resizepart</primary>
           </indexterm>
@@ -935,7 +920,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="rev">
         <term><command>rev</command></term>
         <listitem>
-          <para>Reverses the lines of a given file</para>
+          <para>지정된 파일의 행 반전</para>
           <indexterm zone="ch-system-util-linux rev">
             <primary sortas="b-rev">rev</primary>
           </indexterm>
@@ -945,7 +930,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="rkfill">
         <term><command>rkfill</command></term>
         <listitem>
-          <para>Tool for enabling and disabling wireless devices</para>
+          <para>무선 장치 활성화 및 비활성화 도구</para>
           <indexterm zone="ch-system-util-linux rkfill">
             <primary sortas="b-rkfill">rkfill</primary>
           </indexterm>
@@ -955,8 +940,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="rtcwake">
         <term><command>rtcwake</command></term>
         <listitem>
-          <para>Used to enter a system sleep state until specified wakeup
-          time</para>
+          <para>지정된 절전 해제 시간까지 시스템 절전 상태로 들어가는 데 사용</para>
           <indexterm zone="ch-system-util-linux rtcwake">
             <primary sortas="b-rtcwake">rtcwake</primary>
           </indexterm>
@@ -966,7 +950,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="script">
         <term><command>script</command></term>
         <listitem>
-          <para>Makes a typescript of a terminal session</para>
+          <para>터미널 세션의 타입스크립트 생성</para>
           <indexterm zone="ch-system-util-linux script">
             <primary sortas="b-script">script</primary>
           </indexterm>
@@ -976,7 +960,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="scriptreplay">
         <term><command>scriptreplay</command></term>
         <listitem>
-          <para>Plays back typescripts using timing information</para>
+          <para>타이밍 정보를 사용해 타입스크립트 재생</para>
           <indexterm zone="ch-system-util-linux scriptreplay">
             <primary sortas="b-scriptreplay">scriptreplay</primary>
           </indexterm>
@@ -986,8 +970,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="setarch">
         <term><command>setarch</command></term>
         <listitem>
-          <para>Changes reported architecture in a new program environment and
-          sets personality flags</para>
+          <para>새로운 프로그램 환경에서 보고된 아키텍쳐 변경 및 특성 플래그 설정</para>
           <indexterm zone="ch-system-util-linux setarch">
             <primary sortas="b-setarch">setarch</primary>
           </indexterm>
@@ -997,7 +980,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="setsid">
         <term><command>setsid</command></term>
         <listitem>
-          <para>Runs the given program in a new session</para>
+          <para>지정된 프로그램을 새 세션에서 실행</para>
           <indexterm zone="ch-system-util-linux setsid">
             <primary sortas="b-setsid">setsid</primary>
           </indexterm>
@@ -1007,7 +990,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="setterm">
         <term><command>setterm</command></term>
         <listitem>
-          <para>Sets terminal attributes</para>
+          <para>터미널 특성 설정</para>
           <indexterm zone="ch-system-util-linux setterm">
             <primary sortas="b-setterm">setterm</primary>
           </indexterm>
@@ -1017,7 +1000,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="sfdisk">
         <term><command>sfdisk</command></term>
         <listitem>
-          <para>A disk partition table manipulator</para>
+          <para>디스크 파티션 테이블 설정 도구</para>
           <indexterm zone="ch-system-util-linux sfdisk">
             <primary sortas="b-sfdisk">sfdisk</primary>
           </indexterm>
@@ -1027,9 +1010,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="sulogin">
         <term><command>sulogin</command></term>
         <listitem>
-          <para>Allows <systemitem class="username">root</systemitem> to log in;
-          it is normally invoked by <command>init</command> when the system goes
-          into single user mode</para>
+          <para><systemitem class="username">root</systemitem>를 로그인할 수 있게 함; 일반적으로 시스템이 단일 사용자 모드로 전환될 때 <command>init</command>에 의해 호출됨</para>
           <indexterm zone="ch-system-util-linux sulogin">
             <primary sortas="b-sulogin">sulogin</primary>
           </indexterm>
@@ -1039,7 +1020,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="swaplabel">
         <term><command>swaplabel</command></term>
         <listitem>
-          <para>Allows to change swaparea UUID and label</para>
+          <para>스왑 영역 UUID 및 레이블 변경</para>
           <indexterm zone="ch-system-util-linux swaplabel">
             <primary sortas="b-swaplabel">swaplabel</primary>
           </indexterm>
@@ -1049,7 +1030,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="swapoff">
         <term><command>swapoff</command></term>
         <listitem>
-          <para>Disables devices and files for paging and swapping</para>
+          <para>페이징 및 스와핑을 위한 장치 및 파일 비활성화</para>
           <indexterm zone="ch-system-util-linux swapoff">
             <primary sortas="b-swapoff">swapoff</primary>
           </indexterm>
@@ -1059,8 +1040,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="swapon">
         <term><command>swapon</command></term>
         <listitem>
-          <para>Enables devices and files for paging and swapping and
-          lists the devices and files currently in use</para>
+          <para>페이징 및 스와핑을 위한 장치 및 파일 활성화, 현재 사용 중인 장치와 파일 나열</para>
           <indexterm zone="ch-system-util-linux swapon">
             <primary sortas="b-swapon">swapon</primary>
           </indexterm>
@@ -1070,7 +1050,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="switch_root">
         <term><command>switch_root</command></term>
         <listitem>
-          <para>Switches to another filesystem as the root of the mount tree</para>
+          <para>마운트 트리의 root로 다른 파일 시스템으로 전환</para>
           <indexterm zone="ch-system-util-linux switch_root">
             <primary sortas="b-switch_root">switch_root</primary>
           </indexterm>
@@ -1080,9 +1060,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="tailf">
         <term><command>tailf</command></term>
         <listitem>
-          <para>Tracks the growth of a log file; displays the last 10 lines
-          of a log file, then continues displaying any new entries in the
-          log file as they are created</para>
+          <para>로그 파일의 증가를 추적; 로그 파일의 마지막 10줄을 표시한 다음 로그 파일의 새 항목들을 계속 출력</para>
           <indexterm zone="ch-system-util-linux tailf">
             <primary sortas="b-tailf">tailf</primary>
           </indexterm>
@@ -1092,7 +1070,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="taskset">
         <term><command>taskset</command></term>
         <listitem>
-          <para>Retrieves or sets a process' CPU affinity</para>
+          <para>프로세스의 CPU 선호도 검색 또는 설정</para>
           <indexterm zone="ch-system-util-linux taskset">
             <primary sortas="b-taskset">taskset</primary>
           </indexterm>
@@ -1102,8 +1080,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="ul">
         <term><command>ul</command></term>
         <listitem>
-          <para>A filter for translating underscores into escape sequences
-          indicating underlining for the terminal in use</para>
+          <para>밑줄을 터미널에서 밑줄을 나타내는 이스케이프 시퀀스로 변환하는 필터</para>
           <indexterm zone="ch-system-util-linux ul">
             <primary sortas="b-ul">ul</primary>
           </indexterm>
@@ -1113,7 +1090,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="umount">
         <term><command>umount</command></term>
         <listitem>
-          <para>Disconnects a file system from the system's file tree</para>
+          <para>시스템의 파일 트리에서 파일 시스템 연결 해제</para>
           <indexterm zone="ch-system-util-linux umount">
             <primary sortas="b-umount">umount</primary>
           </indexterm>
@@ -1123,7 +1100,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="uname26">
         <term><command>uname26</command></term>
         <listitem>
-          <para>A symbolic link to setarch</para>
+          <para>setarch로의 심볼릭 링크</para>
           <indexterm zone="ch-system-util-linux uname26">
             <primary sortas="b-uname26">uname26</primary>
           </indexterm>
@@ -1133,7 +1110,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="unshare">
         <term><command>unshare</command></term>
         <listitem>
-          <para>Runs a program with some namespaces unshared from parent</para>
+          <para>상위 네임스페이스와 공유되지 않은 일부 네임스페이스로 프로그램 실행</para>
           <indexterm zone="ch-system-util-linux unshare">
             <primary sortas="b-unshare">unshare</primary>
           </indexterm>
@@ -1143,8 +1120,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="utmpdump">
         <term><command>utmpdump</command></term>
         <listitem>
-          <para>Displays the content of the given login file in a more
-          user-friendly format</para>
+          <para>지정된 로그인 파일의 내용을 보다 사용하기 쉬운 형식으로 표시</para>
           <indexterm zone="ch-system-util-linux utmpdump">
             <primary sortas="b-utmpdump">utmpdump</primary>
           </indexterm>
@@ -1154,8 +1130,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="uuidd">
         <term><command>uuidd</command></term>
         <listitem>
-          <para>A daemon used by the UUID library to generate time-based
-          UUIDs in a secure and guaranteed-unique fashion</para>
+          <para>UUID 라이브러리에서 안전하고 보장된 고유의 방식으로 시간 기반 UUID를 생성하기 위해 사용되는 데몬</para>
           <indexterm zone="ch-system-util-linux uuidd">
             <primary sortas="b-uuidd">uuidd</primary>
           </indexterm>
@@ -1165,9 +1140,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="uuidgen">
         <term><command>uuidgen</command></term>
         <listitem>
-          <para>Creates new UUIDs. Each new UUID can reasonably be considered
-          unique among all UUIDs created, on the local system and on other
-          systems, in the past and in the future</para>
+          <para>새 UUID 생성. 각각의 새 UUID는 과거나 미래에 로컬 시스템과 다른 시스템에서 생성된 모든 UUID 중 고유한 값을 가진다.</para>
           <indexterm zone="ch-system-util-linux uuidgen">
             <primary sortas="b-uuidgen">uuidgen</primary>
           </indexterm>
@@ -1177,7 +1150,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="uuidparse">
         <term><command>uuidparse</command></term>
         <listitem>
-          <para>An utility to parse unique identifiers</para>
+          <para>고유 식별자를 파싱하는 유틸리티</para>
           <indexterm zone="ch-system-util-linux uuidparse">
             <primary sortas="b-uuidparse">uuidparse</primary>
           </indexterm>
@@ -1187,8 +1160,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="wall">
         <term><command>wall</command></term>
         <listitem>
-          <para>Displays the contents of a file or, by default, its standard
-          input, on the terminals of all currently logged in users</para>
+          <para>파일 내용이나, 기본적으로는 표준 입력을 현재 로그인한 모든 유저의 터미널에 출력</para>
           <indexterm zone="ch-system-util-linux wall">
             <primary sortas="b-wall">wall</primary>
           </indexterm>
@@ -1198,7 +1170,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="wdctl">
         <term><command>wdctl</command></term>
         <listitem>
-          <para>Shows hardware watchdog status</para>
+          <para>하드웨어 watchdog 상태 표시</para>
           <indexterm zone="ch-system-util-linux wdctl">
             <primary sortas="b-wdctl">wdctl</primary>
           </indexterm>
@@ -1208,8 +1180,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="whereis">
         <term><command>whereis</command></term>
         <listitem>
-          <para>Reports the location of the binary, source, and man page
-          for the given command</para>
+          <para>지정된 명령에 대한 바이너리, 출처, man 페이지의 위치를 출력</para>
           <indexterm zone="ch-system-util-linux whereis">
             <primary sortas="b-whereis">whereis</primary>
           </indexterm>
@@ -1219,7 +1190,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="wipefs">
         <term><command>wipefs</command></term>
         <listitem>
-          <para>Wipes a filesystem signature from a device</para>
+          <para>장치에서 파일 시스템 서명 제거</para>
           <indexterm zone="ch-system-util-linux wipefs">
             <primary sortas="b-wipefs">wipefs</primary>
           </indexterm>
@@ -1229,7 +1200,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="x86_64">
         <term><command>x86_64</command></term>
         <listitem>
-          <para>A symbolic link to setarch</para>
+          <para>setarch로의 심볼릭 링크</para>
           <indexterm zone="ch-system-util-linux x86_64">
             <primary sortas="b-x86_64">x86_64</primary>
           </indexterm>
@@ -1239,8 +1210,8 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="zramctl">
         <term><command>zramctl</command></term>
         <listitem>
-          <para>A program to set up and control zram (compressed ram disk) 
-          devices</para>
+          <para>zram(압축된 램디스크) 장치를 설정하고 제어하는 프로그램 
+          </para>
           <indexterm zone="ch-system-util-linux zramctl">
             <primary sortas="b-zramctl">zramctl</primary>
           </indexterm>
@@ -1250,8 +1221,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="libblkid">
         <term><filename class="libraryfile">libblkid</filename></term>
         <listitem>
-          <para>Contains routines for device identification and token
-          extraction</para>
+          <para>장치 식별 및 토큰 추출 루틴 포함</para>
           <indexterm zone="ch-system-util-linux libblkid">
             <primary sortas="c-libblkid">libblkid</primary>
           </indexterm>
@@ -1261,7 +1231,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="libfdisk">
         <term><filename class="libraryfile">libfdisk</filename></term>
         <listitem>
-          <para>Contains routines for manipulating partition tables</para>
+          <para>파티션 테이블을 조작하는 루틴 포함</para>
           <indexterm zone="ch-system-util-linux libfdisk">
             <primary sortas="c-libfdisk">libfdisk</primary>
           </indexterm>
@@ -1271,8 +1241,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="libmount">
         <term><filename class="libraryfile">libmount</filename></term>
         <listitem>
-          <para>Contains routines for block device mounting and
-          unmounting</para>
+          <para>블록 장치 마운트 및 마운트 해제 루틴 포함</para>
           <indexterm zone="ch-system-util-linux libmount">
             <primary sortas="c-libmount">libmount</primary>
           </indexterm>
@@ -1282,7 +1251,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="libsmartcols">
         <term><filename class="libraryfile">libsmartcols</filename></term>
         <listitem>
-          <para>Contains routines for aiding screen output in tabular form</para>
+          <para>표 형식의 화면 출력 지원 루틴 포함</para>
           <indexterm zone="ch-system-util-linux libsmartcols">
             <primary sortas="c-libsmartcols">libsmartcols</primary>
           </indexterm>
@@ -1292,8 +1261,7 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
       <varlistentry id="libuuid">
         <term><filename class="libraryfile">libuuid</filename></term>
         <listitem>
-          <para>Contains routines for generating unique identifiers for objects
-          that may be accessible beyond the local system</para>
+          <para>로컬 시스템 외부에서 액세스할 수 있는 개체의 고유 식별자를 생성하는 루틴 포함</para>
           <indexterm zone="ch-system-util-linux libuuid">
             <primary sortas="c-libuuid">libuuid</primary>
           </indexterm>

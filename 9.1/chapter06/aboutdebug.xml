@@ -8,45 +8,31 @@
 <sect1 id="ch-system-aboutdebug">
   <?dbhtml filename="aboutdebug.html"?>
 
-  <title>About Debugging Symbols</title>
+  <title>디버깅 심볼에 관하여</title>
 
-  <para>Most programs and libraries are, by default, compiled with
-  debugging symbols included (with <command>gcc</command>'s
-  <parameter>-g</parameter> option). This means that when debugging a
-  program or library that was compiled with debugging information
-  included, the debugger can provide not only memory addresses, but also
-  the names of the routines and variables.</para>
+  <para>기본적으로, 대부분의 프로그램과 라이브러리들은 디버깅 심볼이 포함되어 컴파일(<command>gcc</command>의 <parameter>-g</parameter> 옵션과 함께)된다. 이는 디버깅 정보가 포함된 프로그램이나 라이브러리를 디버깅할 때, 디버거는 메모리 주소뿐만 아니라 루틴과 변수의 이름들까지도 제공할 수 있다는 뜻이다.</para>
 
-  <para>However, the inclusion of these debugging symbols enlarges a
-  program or library significantly. The following is an example of the
-  amount of space these symbols occupy:</para>
+  <para>그러나, 이런 디버깅 심볼을 포함하면 프로그램이나 라이브러리가 상당히 커지게 된다. 다음은 이러한 심볼들이 차지하는 공간에 대한 예시이다:</para>
 
   <itemizedlist>
     <listitem>
-      <para>A <command>bash</command> binary with debugging symbols:
+      <para>디버깅 심볼을 포함한 <command>bash</command> 바이너리:
       1200 KB</para>
     </listitem>
     <listitem>
-      <para>A <command>bash</command> binary without debugging symbols:
+      <para>디버깅 심볼을 제외한 <command>bash</command> 바이너리:
       480 KB</para>
     </listitem>
     <listitem>
-      <para>Glibc and GCC files (<filename class="directory">/lib</filename>
-      and <filename class="directory">/usr/lib</filename>) with debugging
-      symbols: 87 MB</para>
+      <para>디버깅 심볼을 포함한 Glibc와 GCC 파일들(<filename class="directory">/lib</filename> 및 <filename class="directory">/usr/lib</filename>): 87 MB</para>
     </listitem>
     <listitem>
-      <para>Glibc and GCC files without debugging symbols: 16 MB</para>
+      <para>디버깅 심볼을 제외한 Glibc와 GCC 파일들: 16 MB</para>
     </listitem>
   </itemizedlist>
 
-  <para>Sizes may vary depending on which compiler and C library were used,
-  but when comparing programs with and without debugging symbols, the
-  difference will usually be a factor between two and five.</para>
+  <para>어떤 컴파일러와 C 라이브러리를 사용했느냐에 따라 크기가 달라질 수 있지만, 디버깅 심볼이 있는 프로그램과 없는 프로그램을 비교할 때는 보통 2 ~ 5배가량 차이가 난다.</para>
 
-  <para>Because most users will never use a debugger on their system software,
-  a lot of disk space can be regained by removing these symbols. The next
-  section shows how to strip all debugging symbols from the programs and
-  libraries.</para>
+  <para>대부분의 사용자들은 그들의 시스템 소프트웨어에서 디버거를 사용할 일이 전혀 없을 것이기 때문에, 이러한 심볼을 제거함으로써 많은 디스크 공간을 되찾을 수 있다. 다음 절에서는 프로그램과 라이브러리에서 모든 디버깅 심볼을 제거하는 방법을 설명한다.</para>
 
 </sect1>

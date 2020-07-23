@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Sysvinit package contains programs for controlling the startup,
-    running, and shutdown of the system.</para>
+    <para>Sysvinit 패키지에는 시스템의 시작, 실행 및 종료를 제어하는 프로그램이 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,7 +38,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Sysvinit</title>
+    <title>Sysvinit 설치</title>
 
 <!--
     <para>When run-levels are changed (for example, when halting the
@@ -67,45 +66,44 @@
         -e '/mesg/d'       \
         -e 's/= sulogin(\.8)?/=/' src/Makefile</userinput></screen>
 -->
-    <para>First, apply a patch that removes several programs installed by other
-    packages, clarifies a message, and fixes a compiler warning:</para>
+    <para>먼저 다른 패키지에 의해 설치된 여러 프로그램을 제거하고, 메시지를 명확히 하고 컴파일러 경고를 수정하는 패치를 적용한다:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&sysvinit-consolidated-patch;</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>This package does not come with a test suite.</para>
+    <para>이 패키지에는 테스트 스위트가 포함되어 있지 않다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-sysvinit" role="content">
-    <title>Contents of Sysvinit</title>
+    <title>Sysvinit의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
 
       <seglistitem>
         <seg>bootlogd, fstab-decode, halt, init, killall5, 
-        poweroff (link to halt), reboot (link to halt), runlevel,
-        shutdown, and telinit (link to init)</seg>
+        poweroff (halt로 링크), reboot (halt로 링크), runlevel,
+        shutdown, telinit (init로 링크)</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="bootlogd">
         <term><command>bootlogd</command></term>
         <listitem>
-          <para>Logs boot messages to a log file</para>
+          <para>부팅 메시지를 로그 파일에 기록</para>
           <indexterm zone="ch-system-sysvinit bootlogd">
             <primary sortas="b-bootlogd">bootlogd</primary>
           </indexterm>
@@ -115,7 +113,7 @@
       <varlistentry id="fstab-decode">
         <term><command>fstab-decode</command></term>
         <listitem>
-          <para>Run a command with fstab-encoded arguments</para>
+          <para>fstab-인코딩 인수를 사용하여 명령 실행</para>
           <indexterm zone="ch-system-sysvinit fstab-decode">
             <primary sortas="b-fstab-decode">fstab-decode</primary>
           </indexterm>
@@ -125,11 +123,7 @@
       <varlistentry id="halt-sysv">
         <term><command>halt</command></term>
         <listitem>
-          <para>Normally invokes <command>shutdown</command> with the
-          <parameter>-h</parameter> option, except when already in run-level 0,
-          then it tells the kernel to halt the system; it notes in the
-          file <filename>/var/log/wtmp</filename> that the system is being
-          brought down</para>
+          <para>일반적으로 <parameter>-h</parameter> 옵션으로 <command>shutdown</command>을 호출하지만, 이미 run-level 0인 경우 커널에 시스템을 중지하도록 지시한다; <filename>/var/log/wtmp</filename> 파일에 시스템이 다운되고 있음을 기록함</para>
           <indexterm zone="ch-system-sysvinit halt-sysv">
             <primary sortas="b-halt">halt</primary>
           </indexterm>
@@ -139,9 +133,7 @@
       <varlistentry id="init-sysv">
         <term><command>init</command></term>
         <listitem>
-          <para>The first process to be started when the kernel has initialized
-          the hardware which takes over the boot process and starts all the
-          proceses specified in its configuration file</para>
+          <para>커널이 부팅 프로세스를 거치는 하드웨어들을 초기화할 때 시작하는 첫 번째 프로세스이자, 구성 파일에 지정된 모든 프로세스를 시작하는 프로세스</para>
           <indexterm zone="ch-system-sysvinit init-sysv">
             <primary sortas="b-init">init</primary>
           </indexterm>
@@ -151,8 +143,7 @@
       <varlistentry id="killall5">
         <term><command>killall5</command></term>
         <listitem>
-          <para>Sends a signal to all processes, except the processes in its own
-          session so it will not kill its parent shell</para>
+          <para>부모 셸을 죽이지 않도록 자체 세션의 프로세스를 제외한 모든 프로세스에 신호 전송</para>
           <indexterm zone="ch-system-sysvinit killall5">
             <primary sortas="b-killall5">killall5</primary>
           </indexterm>
@@ -162,8 +153,7 @@
       <varlistentry id="poweroff-sysv">
         <term><command>poweroff</command></term>
         <listitem>
-          <para>Tells the kernel to halt the system and switch off the computer
-          (see <command>halt</command>)</para>
+          <para>커널에 시스템을 중지하고 컴퓨터를 끄도록 지시(<command>halt</command> 참고)</para>
           <indexterm zone="ch-system-sysvinit poweroff-sysv">
             <primary sortas="b-poweroff">poweroff</primary>
           </indexterm>
@@ -173,8 +163,7 @@
       <varlistentry id="reboot-sysv">
         <term><command>reboot</command></term>
         <listitem>
-          <para>Tells the kernel to reboot the system (see
-          <command>halt</command>)</para>
+          <para>커널에 시스템 재부팅 지시 (<command>halt</command> 참고)</para>
           <indexterm zone="ch-system-sysvinit reboot-sysv">
             <primary sortas="b-reboot">reboot</primary>
           </indexterm>
@@ -184,8 +173,7 @@
       <varlistentry id="runlevel-sysv">
         <term><command>runlevel</command></term>
         <listitem>
-          <para>Reports the previous and the current run-level, as noted in the
-          last run-level record in <filename>/var/run/utmp</filename></para>
+          <para><filename>/var/run/utmp</filename>의 마지막 run-level 기록에 적힌 이전 및 현재 run-level 출력</para>
           <indexterm zone="ch-system-sysvinit runlevel-sysv">
             <primary sortas="b-runlevel">runlevel</primary>
           </indexterm>
@@ -195,8 +183,7 @@
       <varlistentry id="shutdown-sysv">
         <term><command>shutdown</command></term>
         <listitem>
-          <para>Brings the system down in a secure way, signaling all processes
-          and notifying all logged-in users</para>
+          <para>모든 프로세스에 신호를 보내고 로그인한 모든 유저에게 통지하는 안전한 방법으로 시스템 작동 중단</para>
           <indexterm zone="ch-system-sysvinit shutdown-sysv">
             <primary sortas="b-shutdown">shutdown</primary>
           </indexterm>
@@ -206,7 +193,7 @@
       <varlistentry id="telinit-sysv">
         <term><command>telinit</command></term>
         <listitem>
-          <para>Tells <command>init</command> which run-level to change to</para>
+          <para><command>init</command>에게 변경할 run-level을 지정</para>
           <indexterm zone="ch-system-sysvinit telinit-sysv">
             <primary sortas="b-telinit">telinit</primary>
           </indexterm>

@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Sysklogd package contains programs for logging system messages,
-    such as those given by the kernel when unusual things happen.</para>
+    <para>Sysklogd 패키지에는 특수한 상황이 발생했을 때 커널이 내보내는 것과 같은 시스템 메시지들을 기록하는 프로그램이 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,28 +38,27 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Sysklogd</title>
+    <title>Sysklogd 설치</title>
 
-    <para>First, fix problems that causes a segmentation fault under
-    some conditions in klogd and fix an obsolete program construct:</para>
+    <para>우선 klogd의 특정 조건에서 세그멘테이션 오류를 일으키는 문제를 해결하고, 오래된 프로그램 구조를 수정한다:</para>
 
 <screen><userinput remap="pre">sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
 sed -i 's/union wait/int/' syslogd.c</userinput></screen>
 
-    <para>Compile the package:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>This package does not come with a test suite.</para>
+    <para>이 패키지에는 테스트 스위트가 포함되어 있지 않다.</para>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make BINDIR=/sbin install</userinput></screen>
 
   </sect2>
 
   <sect2 id="conf-sysklogd" role="configuration">
-    <title>Configuring Sysklogd</title>
+    <title>Sysklogd 설정</title>
 
     <indexterm zone="conf-sysklogd">
       <primary sortas="a-Sysklogd">Sysklogd</primary>
@@ -71,8 +69,7 @@ sed -i 's/union wait/int/' syslogd.c</userinput></screen>
       <primary sortas="e-/etc/syslog.conf">/etc/syslog.conf</primary>
     </indexterm>
 
-    <para>Create a new <filename>/etc/syslog.conf</filename> file by running the
-    following:</para>
+    <para>다음을 실행하여 새 <filename>/etc/syslog.conf</filename> 파일을 생성하라:</para>
 
 <screen><userinput>cat &gt; /etc/syslog.conf &lt;&lt; "EOF"
 <literal># Begin /etc/syslog.conf
@@ -91,25 +88,25 @@ EOF</userinput></screen>
   </sect2>
 
   <sect2 id="contents-sysklogd" role="content">
-    <title>Contents of Sysklogd</title>
+    <title>Sysklogd의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
 
       <seglistitem>
-        <seg>klogd and syslogd</seg>
+        <seg>klogd와 syslogd</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="klogd">
         <term><command>klogd</command></term>
         <listitem>
-          <para>A system daemon for intercepting and logging kernel messages</para>
+          <para>커널 메시지 인터셉트 및 로깅을 위한 시스템 데몬</para>
           <indexterm zone="ch-system-sysklogd klogd">
             <primary sortas="b-klogd">klogd</primary>
           </indexterm>
@@ -119,10 +116,7 @@ EOF</userinput></screen>
       <varlistentry id="syslogd">
         <term><command>syslogd</command></term>
         <listitem>
-          <para>Logs the messages that system programs offer for logging [Every
-          logged message contains at least a date stamp and a hostname, and
-          normally the program's name too, but that depends on how trusting the
-          logging daemon is told to be.]</para>
+          <para>시스템 프로그램이 기록을 위해 제공하는 메시지 로깅[모든 로그 메시지에는 최소한 날짜와 호스트 이름이 포함되며, 일반적으로 프로그램 이름도 포함되지만, 로그 데몬을 얼마나 신뢰하는지에 따라 달라진다.]</para>
           <indexterm zone="ch-system-sysklogd syslogd">
             <primary sortas="b-syslogd">syslogd</primary>
           </indexterm>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,15 +8,9 @@
 <sect1 id="ch-config-introduction" revision="sysv">
   <?dbhtml filename="introduction.html"?>
 
-  <title>Introduction</title>
+  <title>도입</title>
 
-    <para>Booting a Linux system involves several tasks.  The process must
-    mount both virtual and real file systems, initialize devices, activate swap,
-    check file systems for integrity, mount any swap partitions or files, set
-    the system clock, bring up networking, start any daemons required by the
-    system, and accomplish any other custom tasks needed by the user.  This
-    process must be organized to ensure the tasks are performed in the correct
-    order but, at the same time, be executed as fast as possible.</para>
+    <para>리눅스 시스템 부팅은 여러 작업들을 수반한다. 그 과정들은 반드시 가상, 실제 파일 시스템을 모두 마운트하고, 장치를 초기화하며, 스왑을 활성화하고, 파일 시스템 무결성 확인, 스왑 파티션이나 파일 마운트, 시스템 시계 설정, 네트워크 시작, 시스템에 필요한 데몬 시작, 사용자가 필요로 하는 사용자 지정 작업들을 수행해야 한다. 이 절차는 작업들이 올바른 순서로 수행되도록 구성되어야 하지만 동시에 가능한 한 빨리 실행되어야 한다.</para>
 
 <!--    <para>In the packages that were installed in Chapter&nbsp;6, there were two
     different boot systems installed.  LFS provides the ability to easily
@@ -27,68 +21,53 @@
   <sect2 id='sysv-desc'>
     <title>System V</title>
 
-    <para>System V is the classic boot process that has been used in Unix and
-    Unix-like systems such as Linux since about 1983.  It consists of a small
-    program, <command>init</command>, that sets up basic programs such as
-    <command>login</command> (via getty) and runs a script.  This script,
-    usually named <command>rc</command>,  controls the execution of a set of
-    additional scripts that perform the tasks required to initialize the
-    system.</para>
+    <para>System V는 약 1983년부터 리눅스 등 유닉스와 유닉스 계열 시스템에서 사용되고 있는 고전적인 부팅 절차이다. <command>login</command>(getty를 통한)같은 기본 프로그램을 시작하고 스크립트를 실행하는, <command>init</command>이라는 작은 프로그램으로 구성되어 있다. 보통 <command>rc</command>라는 이름의 이 스크립트는 시스템 초기화에 필요한 작업을 수행하는 추가적인 스크립트들의 실행을 관리한다.</para>
 
-    <para>The <command>init</command> program is controlled by the 
-    <filename>/etc/inittab</filename> file and is organized into run levels that
-    can be run by the user:</para>
+    <para><command>init</command> 프로그램은 <filename>/etc/inittab</filename> 파일에 의해 제어되며 사용자가 실행할 수 있는 run level로 준비된다:</para>
 
 <literallayout>
-0 &mdash; halt
-1 &mdash; Single user mode
-2 &mdash; Multiuser, without networking
-3 &mdash; Full multiuser mode
-4 &mdash; User definable
-5 &mdash; Full multiuser mode with display manager
-6 &mdash; reboot
+0 &mdash; 시스템 종료(halt)
+1 &mdash; 단일 사용자 모드(Single user mode)
+2 &mdash; 네트워크 미지원 다중 사용자 모드(Multiuser, without networking)
+3 &mdash; 다중 사용자 모드(Full multiuser mode)
+4 &mdash; 사용자 정의 가능(User definable)
+5 &mdash; 디스플레이 관리자가 있는 다중 사용자 모드(Full multiuser mode with display manager)
+6 &mdash; 재부팅(reboot)
 </literallayout>
 
-    <para>The usual default run level is 3 or 5.</para>
+    <para>보통 기본 run level은 3이나 5이다.</para>
 
-    <bridgehead renderas="sect3">Advantages</bridgehead>
+    <bridgehead renderas="sect3">장점</bridgehead>
 
     <itemizedlist>
       <listitem>
-          <para>Established, well understood system.</para>
+          <para>철저히 분석되어 확고하게 자리잡은 검증된 시스템.</para>
       </listitem>
 
       <listitem>
-          <para>Easy to customize.</para>
+          <para>쉽게 사용자 정의 가능.</para>
       </listitem>
 
     </itemizedlist>
 
 
-    <bridgehead renderas="sect3">Disadvantages</bridgehead>
+    <bridgehead renderas="sect3">단점</bridgehead>
 
     <itemizedlist>
       <listitem>
-          <para>Slower to boot.  A medium speed base LFS system 
-          takes 8-12 seconds where the boot time is measured from the 
-          first kernel message to the login prompt.  Network 
-          connectivity is typically established about 2 seconds 
-          after the login prompt.</para>
+          <para>비교적 느린 부팅 속도. 평균적인 속도의 LFS 시스템은 첫 번째 커널 메시지에서 로그인 프롬프트까지 부팅 시간을 측정했을 때 8-12초가 걸린다. 네트워크 연결은 일반적으로 로그인 프롬프트 후 약 2초 후에 수립된다.</para>
       </listitem>
 
       <listitem>
-          <para>Serial processing of boot tasks. This is related to the previous
-          point.  A delay in any process such as a file system check, will
-          delay the entire boot process.</para>
+          <para>부팅 작업의 직렬 처리. 이것은 위에서 말한 바와 관련이 있다. 파일 시스템 확인과 같은 어떤 절차가 지연되면, 전체 부팅 절차가 지연된다.</para>
       </listitem>
 
       <listitem>
-          <para>Does not directly support advanced features like
-          control groups (cgroups), and per-user fair share scheduling.</para>
+          <para>제어 그룹(cgroups), 사용자별 공평 분배 스케줄링과 같은 고급 기능을 직접 지원하지 않는다.</para>
       </listitem>
 
       <listitem>
-          <para>Adding scripts requires manual, static sequencing decisions.</para>
+          <para>스크립트를 추가하려면 수동적이고 고정적인 순서대로 판단해야 한다.</para>
       </listitem>
 
     </itemizedlist>

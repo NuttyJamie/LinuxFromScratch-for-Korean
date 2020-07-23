@@ -155,25 +155,25 @@
         - [x] Zstd-1.4.4
         - [x] IPRoute2-5.5.0
         - [x] Kbd-2.2.0
-        - [ ] Libpipeline-1.5.2
-        - [ ] Make-4.3
-        - [ ] Patch-2.7.6
-        - [ ] Man-DB-2.9.0
-        - [ ] Tar-1.32
-        - [ ] Texinfo-6.7
-        - [ ] Vim-8.2.0190
-        - [ ] Procps-ng-3.3.15
-        - [ ] Util-linux-2.35.1
-        - [ ] E2fsprogs-1.45.5
-        - [ ] Sysklogd-1.5.1
-        - [ ] Sysvinit-2.96
-        - [ ] Eudev-3.2.9
-        - [ ] About Debugging Symbols
-        - [ ] Stripping Again
-        - [ ] Cleaning Up
-    - [ ] 7. System Configuration
-        - [ ] Introduction
-        - [ ] LFS-Bootscripts-20191031
+        - [x] Libpipeline-1.5.2
+        - [x] Make-4.3
+        - [x] Patch-2.7.6
+        - [x] Man-DB-2.9.0
+        - [x] Tar-1.32
+        - [x] Texinfo-6.7
+        - [x] Vim-8.2.0190
+        - [x] Procps-ng-3.3.15
+        - [x] Util-linux-2.35.1
+        - [x] E2fsprogs-1.45.5
+        - [x] Sysklogd-1.5.1
+        - [x] Sysvinit-2.96
+        - [x] Eudev-3.2.9
+        - [x] About Debugging Symbols
+        - [x] Stripping Again
+        - [x] Cleaning Up
+    - [x] 7. System Configuration
+        - [x] Introduction
+        - [x] LFS-Bootscripts-20191031
         - [ ] Overview of Device and Module Handling
         - [ ] Managing Devices
         - [ ] General Network Configuration

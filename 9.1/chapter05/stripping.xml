@@ -8,7 +8,7 @@
 <sect1 id="ch-tools-stripping">
   <?dbhtml filename="stripping.html"?>
 
-  <title>Stripping</title>
+  <title>스트리핑(Stripping)</title>
 
   <para>이 절의 단계는 선택 사항이지만 LFS 파티션이 다소 작을 경우, 불필요한 항목을 제거할 수 있다는 점을 배울 수 있다는 점에서 유익하다. 지금까지 빌드된 실행 파일과 라이브러리에는 약 70 MB의 불필요한 디버깅 심볼이 포함되어 있다. 다음 명령으로 이러한 심볼을 제거하라:</para>
 

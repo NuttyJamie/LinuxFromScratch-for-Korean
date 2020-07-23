@@ -8,27 +8,13 @@
 <sect1 id="ch-system-strippingagain">
   <?dbhtml filename="strippingagain.html"?>
 
-  <title>Stripping Again</title>
+  <title>한 번 더 스트리핑</title>
 
-  <para>This section is optional.  If the intended user is not a 
-  programmer and does not plan to do
-  any debugging on the system software, the system size can be decreased
-  by about 90 MB by removing the debugging symbols from binaries and
-  libraries. This causes no inconvenience other than not being able to
-  debug the software fully anymore.</para>
+  <para>이 절은 선택 사항이다. 사용자가 프로그래머가 아니고 시스템 소프트웨어에서 디버깅을 할 계획이 없다면, 바이너리와 라이브러리에서 디버깅 심볼을 제거해서 시스템 크기를 약 90 MB 줄일 수 있다. 이는 소프트웨어를 더 이상 완전히 디버깅할 수 없다는 점 외에는 다른 불편을 일으키지 않는다.</para>
 
-  <para>Most people who use the commands mentioned below do not
-  experience any difficulties. However, it is easy to make a typo and
-  render the new system unusable, so before running the
-  <command>strip</command> commands, it is a good idea to make a
-  backup of the LFS system in its current state.</para>
+  <para>아래에 언급된 명령어를 사용하는 대부분의 사람들은 어떠한 어려움도 겪지 않는다. 그러나, 오타를 쳐서 새 시스템이 사용할 수 없게 되버리는 일은 쉬우므로, <command>strip</command> 명령을 실행하기 전에 현재 상태에서 LFS 시스템을 백업하는 것이 좋다.</para>
 
-  <para>First place the debugging symbols for selected libraries 
-  in separate files.  This debugging information is needed if running 
-  regression tests that use <ulink 
-  url='&blfs-book;/general/valgrind.html'>valgrind</ulink> or <ulink 
-  url='&blfs-book;/general/gdb.html'>gdb</ulink> later in BLFS.
-  </para>
+  <para>먼저 선택한 라이브러리의 디버깅 심볼을 별도의 파일에 배치한다. 이 디버깅 정보는 나중에 BLFS에서 <ulink url='&blfs-book;/general/valgrind.html'>valgrind</ulink>나 <ulink url='&blfs-book;/general/gdb.html'>gdb</ulink>를 사용하는 회귀 테스트를 실행하는 경우에 필요하다.</para>
 
 <!-- also of interest are libgfortan, libgo, libgomp, and libobjc from gcc -->
 
@@ -56,8 +42,7 @@ done
 
 unset LIB save_lib save_usrlib</userinput></screen>
 
-  <para>Before performing the stripping, take special care to ensure that
-  none of the binaries that are about to be stripped are running:</para>
+  <para>스트리핑을 수행하기 전에, 스트리핑하려는 바이너리가 실행되지 않도록 각별히 주의하라:</para>
 
 <screen role="nodump"><userinput>exec /tools/bin/bash</userinput></screen>
   
@@ -78,7 +63,7 @@ unset LIB save_lib save_usrlib</userinput></screen>
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
     /tools/bin/bash - -login</userinput></screen>-->
 
-  <para>Now the binaries and libraries can be safely stripped:</para>
+  <para>이제 바이너리와 라이브러리는 안전하게 스트리핑될 수 있다:</para>
 
 <screen><userinput>/tools/bin/find /usr/lib -type f -name \*.a \
    -exec /tools/bin/strip --strip-debug {} ';'
@@ -89,9 +74,6 @@ unset LIB save_lib save_usrlib</userinput></screen>
 /tools/bin/find /{bin,sbin} /usr/{bin,sbin,libexec} -type f \
     -exec /tools/bin/strip --strip-all {} ';'</userinput></screen>
 
-  <para>A large number of files will be reported as having their file
-  format not recognized. These warnings can be safely ignored. These
-  warnings indicate that those files are scripts instead of
-  binaries.</para>
+  <para>많은 파일로부터 파일 형식을 인식하지 못했다고 보고받을 것이다. 이러한 경고는 무시해도 무방하다. 이는 해당 파일이 바이너리 파일이 아닌 스크립트라는 것을 의미한다.</para>
 
 </sect1>

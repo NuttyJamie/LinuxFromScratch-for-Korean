@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,88 +8,37 @@
 <sect1 id="ch-config-udev">
   <?dbhtml filename="udev.html"?>
 
-  <title>Overview of Device and Module Handling</title>
+  <title>장치 및 모듈 핸들링 개요</title>
 
   <indexterm zone="ch-config-udev">
     <primary sortas="a-Udev">Udev</primary>
     <secondary>usage</secondary>
   </indexterm>
 
-  <para>In <xref linkend="chapter-building-system"/>, we installed the Udev
-  package when <phrase revision="sysv">eudev</phrase>
-  <phrase revision="systemd">systemd</phrase> was built. Before we go into the
-  details regarding how this works, a brief history of previous methods of
-  handling devices is in order.</para>
+  <para><xref linkend="chapter-building-system"/>에서 우리는, <phrase revision="systemd">systemd</phrase><phrase revision="sysv">eudev</phrase>가 빌드될 때 Udev 패키지를 설치했다. 이들의 작동 방식에 대한 자세한 내용을 살펴보기 전에, 예전의 장치 핸들링 방법에 관한 간단한 역사에 대해 짚고 넘어가고자 한다.</para>
 
-  <para>Linux systems in general traditionally used a static device creation
-  method, whereby a great many device nodes were created under <filename
-  class="directory">/dev</filename> (sometimes literally thousands of nodes),
-  regardless of whether the corresponding hardware devices actually existed. This
-  was typically done via a <command>MAKEDEV</command> script, which contains a
-  number of calls to the <command>mknod</command> program with the relevant
-  major and minor device numbers for every possible device that might exist in
-  the world.</para>
+  <para>일반적인 리눅스 시스템은 전통적으로 정적인 장치 생성 방법을 사용해서, 해당 하드웨어 장치가 실제로 존재하는지 여부에 관계없이 <filename class="directory">/dev</filename> 아래에 매우 많은 장치 노드(때로는 문자 그대로 수천 개의 노드)가 만들어졌다. 이는 일반적으로 <command>MAKEDEV</command> 스크립트를 통해 이뤄졌는데, 이 스크립트는 세상에 존재할 수 있는 모든 장치에 대한 관련 주/부 장치 번호와 함께 <command>mknod</command> 프로그램에 대한 여러 호출들을 담고 있었다.</para>
 
-  <para>Using the Udev method, only those devices which are detected by the
-  kernel get device nodes created for them. Because these device nodes will be
-  created each time the system boots, they will be stored on a <systemitem
-  class="filesystem">devtmpfs</systemitem> file system (a virtual file system
-  that resides entirely in system memory). Device nodes do not require much
-  space, so the memory that is used is negligible.</para>
+  <para>Udev를 사용하면 커널에 의해 탐지된 장치만 해당 장치 노드가 생성된다. 이런 장치 노드는 시스템이 부팅될 때마다 생성되기 때문에 <systemitem class="filesystem">devtmpfs</systemitem> 파일 시스템(완전히 시스템 메모리에 상주하는 가상 파일 시스템)에 저장된다. 장치 노드는 공간이 많이 필요하지 않기 때문에 사용되는 메모리는 무시할 수 있다.</para>
 
   <sect2>
-    <title>History</title>
+    <title>역사</title>
 
-    <para>In February 2000, a new filesystem called <systemitem
-    class="filesystem">devfs</systemitem> was merged into the 2.3.46 kernel
-    and was made available during the 2.4 series of stable kernels. Although
-    it was present in the kernel source itself, this method of creating devices
-    dynamically never received overwhelming support from the core kernel
-    developers.</para>
+    <para>2000년 2월, <systemitem class="filesystem">devfs</systemitem>라는 새로운 파일 시스템이 2.3.46 커널에 병합되어 2.4 안정 버전 커널 동안 사용할 수 있게 되었다. 커널 소스에 존재함에도 불구하고, 동적으로 장치를 만드는 이 방법은 핵심 커널 개발자들로부터 결코 지지를 받지 못했다.</para>
 
-    <para>The main problem with the approach adopted by <systemitem
-    class="filesystem">devfs</systemitem> was the way it handled device
-    detection, creation, and naming. The latter issue, that of device node
-    naming, was perhaps the most critical. It is generally accepted that if
-    device names are allowed to be configurable, then the device naming policy
-    should be up to a system administrator, not imposed on them by any
-    particular developer(s). The <systemitem
-    class="filesystem">devfs</systemitem> file system also suffered from race
-    conditions that were inherent in its design and could not be fixed without a
-    substantial revision to the kernel. It was marked as deprecated for a long
-    period &ndash; due to a lack of maintenance &ndash; and was finally removed
-    from the kernel in June, 2006.</para>
+    <para><systemitem class="filesystem">devfs</systemitem>에서 채택된 접근 방식의 주요 문제는 장치 탐지, 생성 및 명명 처리 방식이었다. 장치 노드 명명 문제인 후자가 아마도 가장 중요한 사안이었을 것이다. 장치 이름을 설정할 수 있는 경우 장치 명명 정책은 특정 개발자가 정하는 것이 아니라 시스템 관리자의 몫이어야 한다는 것이 보편적인 생각이다. 더구나 <systemitem class="filesystem">devfs</systemitem> 파일 시스템은 설계에 내재되어 있어 커널에 대한 실질적인 수정 없이는 고칠 수 없는 경합 조건에 시달렸다. 그것은 유지보수의 부족으로 장기간 폐기된 것으로 표시되었고, 결국 2006년 6월 커널에서 제거되었다.</para>
 
-    <para>With the development of the unstable 2.5 kernel tree, later released
-    as the 2.6 series of stable kernels, a new virtual filesystem called
-    <systemitem class="filesystem">sysfs</systemitem> came to be. The job of
-    <systemitem class="filesystem">sysfs</systemitem> is to export a view of
-    the system's hardware configuration to userspace processes. With this
-    userspace-visible representation, the possibility of developing a userspace
-    replacement for <systemitem class="filesystem">devfs</systemitem> became
-    much more realistic.</para>
+    <para>나중에 안정된 2.6 버전으로 배포된 2.5 개발 버전 커널 트리가 개발되면서 <systemitem class="filesystem">sysfs</systemitem>라는 새로운 가상 파일 시스템이 생겼다. <systemitem class="filesystem">sysfs</systemitem>의 일은 시스템 하드웨어 구성보기를 사용자 공간프로세스로 내보내는 것이다. 이 사용자 공간에서 볼 수 있는 표현 방식으로 인해, <systemitem class="filesystem">devfs</systemitem>의 사용자 공간용 대체품 개발 가능성이 훨씬 더 현실로 다가왔다.</para>
 
   </sect2>
 
   <sect2>
-    <title>Udev Implementation</title>
+    <title>Udev 구현</title>
 
     <sect3>
       <title>Sysfs</title>
 
-      <para>The <systemitem class="filesystem">sysfs</systemitem> filesystem
-      was mentioned briefly above. One may wonder how <systemitem
-      class="filesystem">sysfs</systemitem> knows about the devices present on
-      a system and what device numbers should be used for them. Drivers that
-      have been compiled into the kernel directly register their objects with a
-      <systemitem class="filesystem">sysfs</systemitem> (devtmpfs internally)
-      as they are detected by the kernel. For drivers compiled as modules, this
-      registration will happen when the module is loaded. Once the <systemitem
-      class="filesystem">sysfs</systemitem> filesystem is mounted (on /sys),
-      data which the drivers register with <systemitem
-      class="filesystem">sysfs</systemitem> are available to userspace
-      processes and to udevd for processing (including modifications to device
-      nodes).</para>
+      <para><systemitem class="filesystem">sysfs</systemitem> 파일 시스템은 위에서 간략히 언급했다. <systemitem class="filesystem">sysfs</systemitem>가 시스템에 존재하는 장치와 어떤 장치 번호를 사용해야 하는지를 어떻게 아는지 궁금할 수 있다. 커널로 컴파일된 드라이버는 커널에 의해 감지되는 대로 자신의 개체를 <systemitem class="filesystem">sysfs</systemitem>(내부적으론 devtmpfs)에 직접 등록한다. 모듈로 컴파일된 드라이버의 경우 모듈이 로드될 때 이 등록이 이루어진다. <systemitem class="filesystem">sysfs</systemitem> 파일 시스템을 마운트하면(/sys에), 드라이버가 <systemitem class="filesystem">sysfs</systemitem>에 등록한 데이터를 사용자 공간 프로세스와 처리를 위한 udevd(장치 노드 수정 포함)에 사용할 수 있다.</para>
 
     </sect3>
 

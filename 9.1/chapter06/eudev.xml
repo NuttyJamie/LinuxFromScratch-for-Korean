@@ -23,8 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Eudev package contains programs for dynamic creation of device
-    nodes.</para> 
+    <para>Eudev 패키지에는 장치 노드의 동적 생성을 위한 프로그램이 포함되어 있다.</para> 
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,7 +37,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Eudev</title>
+    <title>Eudev 설치</title>
 <!--
     <para>First, fix a test script:</para>
 
@@ -59,7 +58,7 @@ BLKID_LIBS="-lblkid"
 BLKID_CFLAGS="-I/tools/include"
 EOF</userinput></screen>
 -->
-<para>Prepare Eudev for compilation:</para>
+<para>Eudev 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr           \
             --bindir=/sbin          \
@@ -73,7 +72,7 @@ EOF</userinput></screen>
             --disable-static</userinput></screen>
 <!--           - -config-cache</userinput></screen> -->
 
-<para>Compile the package:</para>
+<para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 <!--
@@ -85,24 +84,22 @@ but have not yet been installed in the main system.  LIBRARY_PATH is
 used to find libraries during the linking process.  LD_LIBRARY_PATH is
 used to find libraries during program execution.</para></note>
 -->
-<para>Create some directories now that are needed for tests, but
-will also be used as a part of installation:</para>
+<para>테스트와 설치 과정 모두에 쓰일 디렉토리들을 생성한다:</para>
 
 <screen><userinput remap="test">mkdir -pv /lib/udev/rules.d
 mkdir -pv /etc/udev/rules.d</userinput></screen>
 
-<para>To test the results, issue:</para>
+<para>결과를 테스트하려면 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 <!--<screen><userinput remap="test">make LD_LIBRARY_PATH=/tools/lib check</userinput></screen>-->
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 <!--<screen><userinput remap="install">make LD_LIBRARY_PATH=/tools/lib install</userinput></screen>-->
 
-    <para>Install some custom rules and support files useful in an LFS 
-    environment:</para>
+    <para>LFS 환경에서 유용한 몇 가지 사용자 지정 규칙 및 지원 파일 설치:</para>
 
 <screen><userinput remap="install">tar -xvf ../&udev-lfs-version;.tar.xz
 make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
@@ -110,7 +107,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
   </sect2>
 
   <sect2 id="conf-eudev" role="configuration">
-    <title>Configuring Eudev</title>
+    <title>Eudev 설정</title>
 
     <indexterm zone="conf-eudev">
       <primary sortas="a-Eudev">Eudev</primary>
@@ -121,51 +118,42 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
       <primary sortas="e-/etc/udev/hwdb.bin">/etc/udev/hwdb.bin</primary>
     </indexterm>
 
-    <para>Information about hardware devices is maintained in the
-    <filename class="directory">/etc/udev/hwdb.d</filename> and
-    <filename class="directory">/lib/udev/hwdb.d</filename> directories.
-    <application>Eudev</application> needs that information to be compiled
-    into a binary database <filename>/etc/udev/hwdb.bin</filename>. Create the
-    initial database:</para>
+    <para>하드웨어 장치에 대한 정보는 <filename class="directory">/etc/udev/hwdb.d</filename> 및 <filename class="directory">/lib/udev/hwdb.d</filename> 디렉토리에서 관리된다. <application>Eudev</application>는 그 정보를 바이너리 데이터베이스 <filename>/etc/udev/hwdb.bin</filename>으로 컴파일할 필요가 있다. 초기 데이터베이스를 생성하라:</para>
 
 <!--<screen><userinput>LD_LIBRARY_PATH=/tools/lib udevadm hwdb - -update</userinput></screen>-->
 <screen><userinput>udevadm hwdb --update</userinput></screen>
 
-    <para>This command needs to be run each time the hardware information is
-    updated.</para>
+    <para>하드웨어 정보가 업데이트될 때마다 이 명령을 실행해야 한다.</para>
 
   </sect2>
 
   <sect2 id="contents-eudev" role="content">
-    <title>Contents of Eudev</title>
+    <title>Eudev의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed programs</segtitle>
-      <segtitle>Installed libraries</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 프로그램들</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg><!-- These are in /lib/udev and not to be called by the user:
          accelerometer, ata_id, cdrom_id, collect, mtd_probe,
-         scsi_id, v4l_id,--> udevadm and udevd</seg>
+         scsi_id, v4l_id,--> udevadm, udevd</seg>
 
         <seg>libudev.so</seg>
 
-        <seg>/etc/udev, /lib/udev, and /usr/share/doc/udev-&udev-lfs-version;</seg>
+        <seg>/etc/udev, /lib/udev, /usr/share/doc/udev-&udev-lfs-version;</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
       <varlistentry id="udevadm" revision="sysv">
         <term><command>udevadm</command></term>
         <listitem>
-          <para>Generic udev administration tool: controls the udevd daemon,
-          provides info from the Udev database, monitors uevents, waits for
-          uevents to finish, tests Udev configuration, and triggers uevents
-          for a given device</para>
+          <para>일반 udev 관리 도구: udevd 데몬 제어, Udevd 데이터베이스 정보 제공, uevents 모니터링, uevents 종료 대기, Udev 구성 테스트 및 특정 장치에 대한 uevents 트리거</para>
           <indexterm zone="ch-system-eudev udevadm">
             <primary sortas="b-udevadm">udevadm</primary>
           </indexterm>
@@ -175,9 +163,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
       <varlistentry id="udevd">
         <term><command>udevd</command></term>
         <listitem>
-          <para>A daemon that listens for uevents on the netlink socket,
-          creates devices and runs the configured external programs in
-          response to these uevents</para>
+          <para>넷링크 소켓에서 uevents를 수신하고 장치를 생셩하며 이러한 uevents에 대응하여 구성된 외부 프로그램을 실행하는 데몬</para>
           <indexterm zone="ch-system-eudev udevd">
             <primary sortas="b-udevd">udevd</primary>
           </indexterm>
@@ -187,7 +173,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
       <varlistentry id="libudev">
         <term><filename class="libraryfile">libudev</filename></term>
         <listitem>
-          <para>A library interface to udev device information</para>
+          <para>udev 장치 정보에 대한 라이브러리 인터페이스</para>
           <indexterm zone="ch-system-eudev libudev">
             <primary sortas="c-libudev">libudev</primary>
           </indexterm>
@@ -197,8 +183,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
       <varlistentry id="etc-udev">
         <term><filename class="directory">/etc/udev</filename></term>
         <listitem>
-          <para>Contains Udev configuration files,
-          device permissions, and rules for device naming</para>
+          <para>Udev 구성 파일, 장치 권한 및 장치 이름 지정 규칙 포함</para>
           <indexterm zone="ch-system-eudev etc-udev">
             <primary sortas="e-/etc/udev">/etc/udev</primary>
           </indexterm>
