@@ -43,237 +43,126 @@
     </sect3>
 
     <sect3>
-      <title>Device Node Creation</title>
+      <title>장치 노드 생성</title>
 
-      <para>Device files are created by the kernel by the <systemitem
-      class="filesystem">devtmpfs</systemitem> filesystem.  Any driver that
-      wishes to register a device node will go through the <systemitem
-      class="filesystem">devtmpfs</systemitem> (via the driver core) to do it.
-      When a <systemitem class="filesystem">devtmpfs</systemitem> instance is
-      mounted on <filename class="directory">/dev</filename>, the device node
-      will initially be created with a fixed name, permissions, and
-      owner.</para>
+      <para>장치 파일은 커널에 의해 <systemitem class="filesystem">devtmpfs</systemitem> 파일 시스템으로 생성된다. 장치 노드를 등록하려는 모든 드라이버는 <systemitem class="filesystem">devtmpfs</systemitem>를 통해 (드라이버 코어에 의해) 작업을 수행한다. <systemitem class="filesystem">devtmpfs</systemitem> 인스턴스가 <filename class="directory">/dev</filename>에 마운트되면, 처음에 장치 노드가 고정된 이름과 권한, 소유자를 갖고 생성된다.</para>
 
-      <para>A short time later, the kernel will send a uevent to <command>
-      udevd</command>.  Based on the rules specified in the files within the
-      <filename class="directory">/etc/udev/rules.d</filename>, <filename
-      class="directory">/lib/udev/rules.d</filename>, and <filename
-      class="directory">/run/udev/rules.d</filename> directories, <command>
-      udevd</command> will create additional symlinks to the device node, or
-      change its permissions, owner, or group, or modify the internal
-      <command>udevd</command> database entry (name) for that object.</para>
+      <para>잠시 후, 커널은 uevent를 <command>udevd</command>로 보낼 것이다. <filename class="directory">/etc/udev/rules.d</filename>, <filename class="directory">/lib/udev/rules.d</filename>, 및 <filename class="directory">/run/udev/rules.d</filename> 디렉토리에 있는 파일들에 지정된 규칙에 따라, <command>udevd</command>는 장치 노드에 대한 추가 심볼릭 링크를 만들거나, 장치 노드 권한, 소유자 또는 그룹을 변경하거나, 해당 개체에 대한 내부 <command>udevd</command> 데이터베이스 항목(이름)을 수정한다.</para>
 
-      <para>The rules in these three directories are numbered and all three
-      directories are merged together. If <command>udevd</command> can't find a
-      rule for the device it is creating, it will leave the permissions and
-      ownership at whatever <systemitem
-      class="filesystem">devtmpfs</systemitem> used initially.</para> </sect3>
+      <para>이 세 디렉토리 안의 규칙들은 번호가 메겨지고 디렉토리들은 모두 병합된다. 만약 <command>udevd</command>가 생성 중인 장치에 대한 규칙을 찾지 못하면, 처음에 사용된 <systemitem class="filesystem">devtmpfs</systemitem>에 권한과 소유권을 남긴다.</para> </sect3>
       
     <sect3 id="module-loading">
-      <title>Module Loading</title>
+      <title>모듈 로딩</title>
 
-      <para>Device drivers compiled as modules may have aliases built into them.
-      Aliases are visible in the output of the <command>modinfo</command>
-      program and are usually related to the bus-specific identifiers of devices
-      supported by a module. For example, the <emphasis>snd-fm801</emphasis>
-      driver supports PCI devices with vendor ID 0x1319 and device ID 0x0801,
-      and has an alias of <quote>pci:v00001319d00000801sv*sd*bc04sc01i*</quote>.
-      For most devices, the bus driver exports the alias of the driver that
-      would handle the device via <systemitem
-      class="filesystem">sysfs</systemitem>. E.g., the
-      <filename>/sys/bus/pci/devices/0000:00:0d.0/modalias</filename> file
-      might contain the string
-      <quote>pci:v00001319d00000801sv00001319sd00001319bc04sc01i00</quote>.
-      The default rules provided with Udev will cause <command>udevd</command>
-      to call out to <command>/sbin/modprobe</command> with the contents of the
-      <envar>MODALIAS</envar> uevent environment variable (which should be the
-      same as the contents of the <filename>modalias</filename> file in sysfs),
-      thus loading all modules whose aliases match this string after wildcard
-      expansion.</para>
+      <para>모듈로 컴파일된 장치 드라이버에는 별칭(alias)이 내장되어 있을 수 있다. 별칭은 <command>modinfo</command> 프로그램의 출력에서 볼 수 있으며 일반적으로 모듈이 지원하는 장치의 버스 고유 식별자와 관련이 있다. 예를 들어, <emphasis>snd-fm801</emphasis> 드라이버는 벤더 ID가 0x1319이고 장치 ID가 0x0801인 PCI 장치를 지원하며, <quote>pci:v00001319d00000801sv*sd*bc04sc01i*</quote>라는 별칭을 갖고 있다. 대부분의 장치는, 버스 드라이버가 <systemitem class="filesystem">sysfs</systemitem>를 통해 장치를 처리할 드라이버의 별칭을 내보낸다. 다시 말해, <filename>/sys/bus/pci/devices/0000:00:0d.0/modalias</filename> 파일은 문자열 <quote>pci:v00001319d00000801sv00001319sd00001319bc04sc01i00</quote>을 담고 있다.
+      Udev와 함께 제공되는 기본 규칙은 <command>udevd</command>가 <envar>MODALIAS</envar> uevent 환경 변수의 내용(sysfs의 <filename>modalias</filename> 파일 내용과 같아야 함)으로 <command>/sbin/modprobe</command>를 호출하여, 와일드카드 확장 후 별칭이 이 문자열과 일치하는 모든 모듈을 로딩하게 한다.</para>
 
-      <para>In this example, this means that, in addition to
-      <emphasis>snd-fm801</emphasis>, the obsolete (and unwanted)
-      <emphasis>forte</emphasis> driver will be loaded if it is
-      available. See below for ways in which the loading of unwanted drivers can
-      be prevented.</para>
+      <para>이 예에서는, 구식(그리고 원치 않는) <emphasis>forte</emphasis> 드라이버가 사용 가능하다면, <emphasis>snd-fm801</emphasis> 외에도 추가적으로 로드된다는 것을 의미한다. 원치 않는 드라이버 로드를 방지하려면 아래를 참고하라.</para>
 
-      <para>The kernel itself is also able to load modules for network
-      protocols, filesystems and NLS support on demand.</para>
+      <para>커널 자체도 네트워크 프로토콜, 파일 시스템 및 NLS 지원을 위한 모듈을 필요에 따라 로드할 수 있다.</para>
 
     </sect3>
 
     <sect3>
-      <title>Handling Hotpluggable/Dynamic Devices</title>
+      <title>핫플러그/동적 장치 처리</title>
 
-      <para>When you plug in a device, such as a Universal Serial Bus (USB) MP3
-      player, the kernel recognizes that the device is now connected and
-      generates a uevent. This uevent is then handled by
-      <command>udevd</command> as described above.</para>
+      <para>USB MP3플레이어와 같은 장치를 플러그인할 때, 커널은 장치가 연결된 것을 인식하고 uevent를 생성한다. 이 uevent는 위에서 설명한 바와 같이 <command>udevd</command>에 의해 처리된다.</para>
 
     </sect3>
 
   </sect2>
 
   <sect2>
-    <title>Problems with Loading Modules and Creating Devices</title>
+    <title>모듈 로딩 및 장치 생성 관련 문제</title>
 
-    <para>There are a few possible problems when it comes to automatically
-    creating device nodes.</para>
+    <para>장치 노드를 자동으로 생성할 때는 몇 가지 문제가 발생할 수 있다.</para>
 
     <sect3>
-      <title>A kernel module is not loaded automatically</title>
+      <title>커널 모듈이 자동으로 로드되지 않음</title>
 
-      <para>Udev will only load a module if it has a bus-specific alias and the
-      bus driver properly exports the necessary aliases to <systemitem
-      class="filesystem">sysfs</systemitem>. In other cases, one should
-      arrange module loading by other means. With Linux-&linux-version;, Udev is
-      known to load properly-written drivers for INPUT, IDE, PCI, USB, SCSI,
-      SERIO, and FireWire devices.</para>
+      <para>Udev는 모듈이 버스 고유 별칭을 갖고 버스 드라이버가 필요한 별칭을 <systemitem class="filesystem">sysfs</systemitem>로 적절하게 내보내는 경우에만 모듈을 로드할 것이다. 다른 경우에는 다른 방법으로 모듈을 로드해야 한다. Linux-&linux-version;에서는, Udev가 제대로 작성된 INPUT, IDE, PCI, USB, SCSI, SERIO, FireWire 장치용 드라이버들을 로드하는 것으로 알려져 있다.</para>
 
-      <para>To determine if the device driver you require has the necessary
-      support for Udev, run <command>modinfo</command> with the module name as
-      the argument.  Now try locating the device directory under
-      <filename class="directory">/sys/bus</filename> and check whether there is
-      a <filename>modalias</filename> file there.</para>
+      <para>필요한 장치 드라이버에 Udev를 위한 지원 사항이 들어있는지 확인하려면, <command>modinfo</command>에 모듈 이름을 인수로 전달해 실행하라. 이제 <filename class="directory">/sys/bus</filename> 아래에서 장치 디렉토리를 찾고 <filename>modalias</filename> 파일이 있는지 확인하라.</para>
 
-      <para>If the <filename>modalias</filename> file exists in <systemitem
-      class="filesystem">sysfs</systemitem>, the driver supports the device and
-      can talk to it directly, but doesn't have the alias, it is a bug in the
-      driver. Load the driver without the help from Udev and expect the issue
-      to be fixed later.</para>
+      <para><filename>modalias</filename> 파일이 <systemitem class="filesystem">sysfs</systemitem>에 존재하면, 드라이버는 장치를 지원하고 직접 통신할 수 있지만, 별칭이 없는 것은 드라이버의 버그이다. Udev의 도움 없이 드라이버를 로드하고 나중에 문제가 해결되길 기대하라.</para>
 
-      <para>If there is no <filename>modalias</filename> file in the relevant
-      directory under <filename class="directory">/sys/bus</filename>, this
-      means that the kernel developers have not yet added modalias support to
-      this bus type. With Linux-&linux-version;, this is the case with ISA
-      busses. Expect this issue to be fixed in later kernel versions.</para>
+      <para><filename class="directory">/sys/bus</filename> 아래의 관련 디렉토리에 <filename>modalias</filename> 파일이 없는 경우, 이는 커널 개발자들이 아직 이 버스 유형에 modalias 지원을 추가하지 않았음을 의미한다. Linux-&linux-version;에서는, ISA 버스의 경우가 이에 해당한다. 이 문제는 이후 커널 버전에서 수정되기를 기대하라.</para>
 
-      <para>Udev is not intended to load <quote>wrapper</quote> drivers such as
-      <emphasis>snd-pcm-oss</emphasis> and non-hardware drivers such as
-      <emphasis>loop</emphasis> at all.</para>
+      <para>Udev는 <emphasis>snd-pcm-oss</emphasis>와 같은 <quote>wrapper</quote> 드라이버나 <emphasis>loop</emphasis>와 같은 비하드웨어 드라이버를 로드하기 위한 것이 전혀 아니다.</para>
 
     </sect3>
 
     <sect3>
-      <title>A kernel module is not loaded automatically, and Udev is not
-      intended to load it</title>
+      <title>커널 모듈이 자동으로 로드되지 않으며, Udev도 커널 모듈을 로드하지 않음</title>
 
-      <para>If the <quote>wrapper</quote> module only enhances the
-      functionality provided by some other module (e.g.,
-      <emphasis>snd-pcm-oss</emphasis> enhances the functionality of
-      <emphasis>snd-pcm</emphasis> by making the sound cards available to OSS
-      applications), configure <command>modprobe</command> to load the wrapper
-      after Udev loads the wrapped module. To do this, add a
-      <quote>softdep</quote> line to the corresponding
-      <filename>/etc/modprobe.d/<replaceable>&lt;filename&gt;</replaceable>.conf</filename>
-      file. For example:</para>
+      <para><quote>wrapper</quote> 모듈이 일부 다른 모듈에서 제공하는 기능만 향상시키는 경우(가령, <emphasis>snd-pcm-oss</emphasis>는 OSS 응용 프로그램에서 사운드 카드를 사용할 수 있게 하여 <emphasis>snd-pcm</emphasis>의 기능을 향상시킴), Udev가 래핑된 모듈을 로드한 후 래퍼를 로드하도록 <command>modprobe</command>를 구성하라. 이렇게 하려면 해당 <filename>/etc/modprobe.d/<replaceable>&lt;filename&gt;</replaceable>.conf</filename> 파일에 <quote>softdep</quote> 줄을 추가하라. 예를 들면:</para>
 
 <screen role="nodump"><literal>softdep snd-pcm post: snd-pcm-oss</literal></screen>
 
-      <para>Note that the <quote>softdep</quote> command also allows
-      <literal>pre:</literal> dependencies, or a mixture of both
-      <literal>pre:</literal> and <literal>post:</literal>.  See the
-      <filename>modprobe.d(5)</filename> manual page for more information
-      on <quote>softdep</quote> syntax and capabilities.</para>
+      <para><quote>softdep</quote> 명령은 <literal>pre:</literal> 구문이나 <literal>pre:</literal>와 <literal>post:</literal>의 혼용도 허용한다는 점을 참고하라. <quote>softdep</quote> 문법 및 기능에 대한 자세한 내용은 <filename>modprobe.d(5)</filename> 매뉴얼 페이지를 참고하라.</para>
 
-      <para>If the module in question is not a wrapper and is useful by itself,
-      configure the <command>modules</command> bootscript to load this
-      module on system boot. To do this, add the module name to the
-      <filename>/etc/sysconfig/modules</filename> file on a separate line.
-      This works for wrapper modules too, but is suboptimal in that case.</para>
+      <para>해당 모듈이 래퍼가 아니며 그 자체로 유용할 경우, 이 모듈을 시스템 부팅 중 로드하도록 <command>modules</command> 부트스크립트를 구성하라. 이렇게 하려면 모듈 이름을 <filename>/etc/sysconfig/modules</filename> 파일에 추가하라. 이것은 래퍼 모듈에도 적용되지만, 그 경우엔 차선책이다.</para>
 
     </sect3>
 
     <sect3>
-      <title>Udev loads some unwanted module</title>
+      <title>Udev가 일부 원치 않는 모듈을 로드함</title>
 
-      <para>Either don't build the module, or blacklist it in a
-      <filename>/etc/modprobe.d/blacklist.conf</filename> file as done with the
-      <emphasis>forte</emphasis> module in the example below:</para>
+      <para>모듈을 빌드하지 않도록 하거나, 아래 예제의 <emphasis>forte</emphasis> 모듈에서 수행한 것처럼 <filename>/etc/modprobe.d/blacklist.conf</filename> 파일에서 모듈을 블랙리스트에 추가하라:</para>
 
 <screen role="nodump"><literal>blacklist forte</literal></screen>
 
-      <para>Blacklisted modules can still be loaded manually with the
-      explicit <command>modprobe</command> command.</para>
+      <para>블랙리스트된 모듈은 명시적으로 <command>modprobe</command> 명령을 사용하여 수동으로 로드할 수 있다.</para>
 
     </sect3>
 
     <sect3>
-      <title>Udev creates a device incorrectly, or makes a wrong symlink</title>
+      <title>Udev가 장치를 잘못 생성하거나, 잘못된 심볼릭 링크를 생성함</title>
 
-      <para>This usually happens if a rule unexpectedly matches a device. For
-      example, a poorly-written rule can match both a SCSI disk (as desired)
-      and the corresponding SCSI generic device (incorrectly) by vendor.
-      Find the offending rule and make it more specific, with the help of the
-      <command>udevadm info</command> command.</para>
+      <para>일반적으로 규칙이 예기치 않게 장치와 일치할 경우 이러한 현상이 발생한다. 예를 들어, 잘못 작성된 규칙은 SCSI 디스크(의도한 장치)와 해당 벤더의 SCSI 일반 장치(잘못된)를 모두 연결할 수 있다. 
+      <command>udevadm info</command> 명령의 도움을 받아 위반되는 규칙을 찾고 보다 구체적으로 수정하라.</para>
 
     </sect3>
 
     <sect3>
-      <title>Udev rule works unreliably</title>
+      <title>Udev 규칙을 신뢰할 수 없음</title>
 
-      <para>This may be another manifestation of the previous problem. If not,
-      and your rule uses <systemitem class="filesystem">sysfs</systemitem>
-      attributes, it may be a kernel timing issue, to be fixed in later kernels.
-      For now, you can work around it by creating a rule that waits for the used
-      <systemitem class="filesystem">sysfs</systemitem> attribute and appending
-      it to the <filename>/etc/udev/rules.d/10-wait_for_sysfs.rules</filename>
-      file (create this file if it does not exist). Please notify the LFS
-      Development list if you do so and it helps.</para>
+      <para>이것은 이전 문제의 또다른 징후일 수 있다. 그렇지 않다면, 그리고 규칙이 <systemitem class="filesystem">sysfs</systemitem> 속성을 사용한다면, 이후 커널에서 수정된 커널 타이밍 문제일 수 있다. 당장은 사용된 <systemitem class="filesystem">sysfs</systemitem> 속성을 기다리는 규칙을 만들어 <filename>/etc/udev/rules.d/10-wait_for_sysfs.rules</filename> 파일에 추가(이 파일이 존재하지 않으면 생성하라)하면 된다. 이렇게 해서 도움이 되었다면 LFS 개발 리스트에 알려주기 바란다.</para>
 
     </sect3>
 
     <sect3>
-      <title>Udev does not create a device</title>
+      <title>Udev가 장치를 생성하지 않음</title>
 
-      <para>Further text assumes that the driver is built statically into the
-      kernel or already loaded as a module, and that you have already checked
-      that Udev doesn't create a misnamed device.</para>
+      <para>아래 문단은 드라이버가 커널에 정적으로 구축되었거나 이미 모듈로 로드되어 있으며, Udev가 잘못 명명된 장치를 생성하지 않는 것을 이미 확인했다고 가정한다.</para>
 
-      <para>Udev has no information needed to create a device node if a kernel
-      driver does not export its data to
-      <systemitem class="filesystem">sysfs</systemitem>. This is most common
-      with third party drivers from outside the kernel tree. Create a static
-      device node in <filename>/lib/udev/devices</filename> with the
-      appropriate major/minor numbers (see the file
-      <filename>devices.txt</filename> inside the kernel documentation or the
-      documentation provided by the third party driver vendor). The static
-      device node will be copied to <filename class="directory">/dev</filename>
-      by <command>udev</command>.</para>
+      <para>커널 드라이버가 데이터를 <systemitem class="filesystem">sysfs</systemitem>로 내보내지 않는 경우 Udev에는 장치 노드를 생성하는 데 필요한 정보가 없다. 이는 커널 트리 외부의 타사 드라이버에서 가장 흔하다. <filename>/lib/udev/devices</filename>에 적절한 주/부 번호로 정적 장치 노드를 생성하라(커널 문서 내의 <filename>devices.txt</filename> 파일이나 타사 드라이버 공급 업체가 제공한 문서를 참고). 정적 장치 노드는 <command>udev</command>에 의해 <filename class="directory">/dev</filename>에 복사될 것이다.</para>
 
     </sect3>
 
     <sect3>
-      <title>Device naming order changes randomly after rebooting</title>
+      <title>재부팅 후 장치 이름 지정 순서가 임의로 변경됨</title>
 
-      <para>This is due to the fact that Udev, by design, handles uevents and
-      loads modules in parallel, and thus in an unpredictable order. This will
-      never be <quote>fixed</quote>. You should not rely upon the kernel device
-      names being stable. Instead, create your own rules that make symlinks with
-      stable names based on some stable attributes of the device, such as a
-      serial number or the output of various *_id utilities installed by Udev.
-      See <xref linkend="ch-config-symlinks"/> and
-      <xref linkend="ch-config-network"/> for examples.</para>
+      <para>이는 Udev가 설계상 uevents와 모듈 로드를 병렬로 처리해, 예측 불가능한 순서로 처리하고 있기 때문이다. 이것은 결코 <quote>고정</quote>되지 않을 것이다. 커널 장치 이름들이 안정적일 것이라고 믿어선 안된다. 대신, Udev가 설치한 다양한 *_id 유틸리티의 출력이나 일련 번호와 같은 장치의 안정적인 속성을 기반으로 안정적인 이름을 가진 심볼릭 링크를 만드는 규칙을 직접 생성하라. 예시는 <xref linkend="ch-config-symlinks"/>와 <xref linkend="ch-config-network"/>를 참고하라.</para>
 
     </sect3>
 
   </sect2>
 
   <sect2>
-    <title>Useful Reading</title>
+    <title>유용한 읽을거리</title>
 
-    <para>Additional helpful documentation is available at the following
-    sites:</para>
+    <para>다음 사이트들에서 추가적으로 유용한 문서들을 읽을 수 있다:</para>
 
     <itemizedlist>
 
       <listitem>
-        <para>A Userspace Implementation of <systemitem class="filesystem">devfs</systemitem>
+        <para><systemitem class="filesystem">devfs</systemitem>의 유저 스페이스 구현
         <ulink url="http://www.kroah.com/linux/talks/ols_2003_udev_paper/Reprint-Kroah-Hartman-OLS2003.pdf"/></para>
       </listitem>
 
       <listitem>
-        <para>The <systemitem class="filesystem">sysfs</systemitem> Filesystem
+        <para><systemitem class="filesystem">sysfs</systemitem> 파일 시스템
         <ulink url="http://www.kernel.org/pub/linux/kernel/people/mochel/doc/papers/ols-2005/mochel.pdf"/></para>
       </listitem>
 

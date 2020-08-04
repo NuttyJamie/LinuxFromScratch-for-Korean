@@ -20,6 +20,10 @@
       <firstname>관리 편집자: Bruce</firstname>
       <surname>Dubbs</surname>
     </author>
+    <author>
+      <firstname>역자: Jong Min</firstname>
+      <surname>Kim</surname>
+    </author>
 
     <author revision="systemd">
       <firstname>편집자: Douglas R.</firstname>

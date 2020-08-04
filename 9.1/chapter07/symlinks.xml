@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,91 +8,51 @@
 <sect1 id="ch-config-symlinks">
   <?dbhtml filename="symlinks.html"?>
 
-  <title>Managing Devices</title>
+  <title>장치 관리</title>
 
   <sect2 revision="sysv">
 
-    <title>Network Devices</title>
+    <title>네트워크 장치</title>
 
-    <para>Udev, by default, names network devices according to Firmware/BIOS
-    data or physical characteristics like the bus, slot, or MAC address.  The
-    purpose of this naming convention is to ensure that network devices are
-    named consistently and not based on the time the network card was
-    discovered.  For example, on a computer having two network cards made by
-    Intel and Realtek, the network card manufactured by Intel may become eth0
-    and the Realtek card becomes eth1. In some cases, after a reboot the cards
-    get renumbered the other way around.</para>
+    <para>Udev는 기본적으로 펌웨어/BIOS 데이터 또는 버스, 슬롯, MAC 주소와 같은 물리적 특성을 따라 네트워크 장치를 명명한다. 이 명명 규칙의 목적은 네트워크 카드가 발견된 시간에 근거하지 않고 네트워크 장치 이름이 일관성 있게 명명되도록 하는 것이다. 예를 들어 인텔과 리얼텍이 만든 네트워크 카드가 두 장 있는 컴퓨터에서 인텔이 제작한 네트워크 카드는 eht0이 되고 리얼텍 카드는 eth1이 될 수 있다. 어떤 경우에는 재부팅 후에 카드 번호가 다시 반대로 매겨지기도 한다.</para>
     
-    <para>In the new naming scheme, typical network device names would then
-    be something like enp5s0 or wlp3s0.  If this naming convention is not
-    desired, the traditional naming scheme or a custom scheme can be
-    implemented.</para>
+    <para>새로운 명명 체계에서 일반적인 네트워크 장치 이름은 enp5s0 또는 wlp3s0과 같은 것이 될 것이다. 이 명명 규칙을 원하지 않는다면, 전통적인 명명 방식 또는 사용자 정의 방식을 구현할 수 있다.</para>
 
     <sect3>
-      <title>Disabling Persistent Naming on the Kernel Command Line</title>
+      <title>커널 명령줄에서 영구 명명 비활성화</title>
    
-      <para>The traditional naming scheme using eth0, eth1, etc can be
-      restored by adding <userinput>net.ifnames=0</userinput> on the 
-      kernel command line.  This is most appropriate for those systems
-      that have only one ethernet device of the same type.  Laptops
-      often have multiple ethernet connections that are named eth0 and 
-      wlan0 and are also candidates for this method.  The command line 
-      is passed in the GRUB configuration file. 
-      See <xref linkend="grub-cfg"/>.</para>
+      <para>eth0, eth1, 등을 사용한 전통적인 명명 방식은 커널 명령줄에 <userinput>net.ifnames=0</userinput>을 추가하여 복원할 수 있다. 이는 동일한 유형의 이더넷 장치가 하나만 있는 시스템에 가장 적합하다. 노트북은 eth0과 wlan0이라는 이름의 다중 이더넷 연결을 가지고 있으며 이 방법의 후보이기도 하다. 명령행은 GRUB 구성 파일에서 전달된다. <xref linkend="grub-cfg"/>를 참고하라.</para>
     </sect3>
 
     <sect3>
-      <title>Creating Custom Udev Rules</title>
+      <title>사용자 지정 Udev 규칙 생성</title>
    
-      <para>The naming scheme can be customized by creating custom Udev
-      rules.  A script has been included that generates the initial rules.
-      Generate these rules by running:</para>
+      <para>명명 방식은 사용자 지정 Udev 규칙을 생성하여 수정할 수 있다. 초기 규칙을 생성하는 스크립트가 포함되어있다. 다음을 실행하여 이러한 규칙들을 생성하라:</para>
 
 <screen role="install"><userinput>bash /lib/udev/init-net-rules.sh</userinput></screen>
 
-      <para> Now, inspect the
-      <filename>/etc/udev/rules.d/70-persistent-net.rules</filename> file, to
-      find out which name was assigned to which network device:</para>
+      <para>이제 <filename>/etc/udev/rules.d/70-persistent-net.rules</filename> 파일을 열어 어떤 네트워크 장치에 어떤 이름이 할당되었는지 확인하라:</para>
 
 <screen role="nodump"><userinput>cat /etc/udev/rules.d/70-persistent-net.rules</userinput></screen>
 
-      <note><para>In some cases such as when MAC addresses have been assigned to
-      a network card manually or in a virtual environment such as Qemu or Xen,
-      the network rules file may not have been generated because addresses
-      are not consistently assigned.  In these cases, this method cannot
-      be used.</para></note>
+      <note><para>MAC 주소가 수동으로 네트워크 카드에 할당되었거나 Qemu나 Xen과 같은 가상 환경에서 MAC 주소를 할당받는 등의 경우, 주소가 일관성있게 할당되지 않기 때문에 네트워크 규칙 파일이 생성되지 않았을 수 있다. 이런 경우엔 이 방법을 사용할 수 없다.</para></note>
   
-      <para>The file begins with a comment block followed by two lines for each
-      NIC. The first line for each NIC is a commented description showing its
-      hardware IDs (e.g. its PCI vendor and device IDs, if it's a PCI card),
-      along with its driver in parentheses, if the driver can be found. Neither
-      the hardware ID nor the driver is used to determine which name to give an
-      interface; this information is only for reference. The second line is the
-      Udev rule that matches this NIC and actually assigns it a name.</para>
+      <para>이 파일은 각 NIC에 대해 두 줄씩 이어지는 주석 블록으로 시작한다. 각 NIC의 첫 번째 줄은 하드웨어 ID(예를 들면 PCI 카드인 경우 PCI 공급 업체와 장치 ID)와 드라이버를 찾을 수 있는 경우 괄호 안에 표시하는 설명이다. 하드웨어 ID나 드라이버 모두 인터페이스를 제공할 이름을 명명하는 데 사용되지 않는다; 이 정보는 참조용일 뿐이다. 두 번째 줄은 이 NIC와 일치하고 실제로 이름을 할당하는 Udev 규칙이다.</para>
   
-      <para>All Udev rules are made up of several keys, separated by commas and
-      optional whitespace. This rule's keys and an explanation of each of them
-      are as follows:</para>
+      <para>모든 Udev 규칙은 쉼표와 선택적 공백으로 구분된 여러 개의 키로 구성된다. 이 규칙의 키와 각각의 설명은 다음과 같다:</para>
   
       <itemizedlist>
         <listitem>
-          <para><literal>SUBSYSTEM=="net"</literal> - This tells Udev to ignore
-          devices that are not network cards.</para>
+          <para><literal>SUBSYSTEM=="net"</literal> - Udev가 네트워크 카드가 아닌 장치들을 무시하도록 한다.</para>
         </listitem>
         <listitem>
-          <para><literal>ACTION=="add"</literal> - This tells Udev to ignore this
-          rule for a uevent that isn't an add ("remove" and "change" uevents also
-          happen, but don't need to rename network interfaces).</para>
+          <para><literal>ACTION=="add"</literal> - Udev가 추가가 아닌 uevent에 대해서는 이 규칙을 무시하도록 한다("삭제" 및 "변경" uevents도 발생하지만 네트워크 인터페이스의 이름을 바꿀 필요는 없다).</para>
         </listitem>
         <listitem>
-          <para><literal>DRIVERS=="?*"</literal> - This exists so that Udev will
-          ignore VLAN or bridge sub-interfaces (because these sub-interfaces do
-          not have drivers). These sub-interfaces are skipped because the name
-          that would be assigned would collide with their parent devices.</para>
+          <para><literal>DRIVERS=="?*"</literal> - Udev가 VLAN 또는 브릿지 하위 인터페이스를 무시하도록 한다(이들 하위 인터페이스들은 드라이버를 갖지 않기 때문). 이 하위 인터페이스들은 할당될 이름이 부모 장치들과 충돌하기 때문에 생략된다.</para>
         </listitem>
         <listitem>
-          <para><literal>ATTR{address}</literal> - The value of this key is the
-          NIC's MAC address.</para>
+          <para><literal>ATTR{address}</literal> - 이 키의 값은 NIC의 MAC 주소이다.</para>
         </listitem>
         <listitem>
           <para><literal>ATTR{type}=="1"</literal> - This ensures the rule only

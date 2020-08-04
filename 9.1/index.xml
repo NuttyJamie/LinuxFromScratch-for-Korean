@@ -11,13 +11,13 @@
 -->
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prologue/preface.xml"/>
 
-<part id="1부">
+<part id="part1">
 <title>소개</title>
 <?dbhtml filename="part1.html"?>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter01/chapter01.xml"/>
 </part>
 
-<part id="2부">
+<part id="part2">
 <title>빌드를 위한 준비</title>
 <?dbhtml filename="part2.html"?>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter02/chapter02.xml"/>
@@ -26,7 +26,7 @@
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter05/chapter05.xml"/>
 </part>
 
-<part id="3부">
+<part id="part3">
 <title>LFS 시스템 빌드</title>
 <?dbhtml filename="part3.html"?>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter06/chapter06.xml"/>
@@ -35,7 +35,7 @@
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter09/chapter09.xml"/>
 </part>
 
-<part id="4부">
+<part id="part4">
 <title>부록</title>
 <?dbhtml filename="part4.html"?>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="appendices/acronymlist.xml"/>
