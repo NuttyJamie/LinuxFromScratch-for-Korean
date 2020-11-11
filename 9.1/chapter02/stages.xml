@@ -21,7 +21,7 @@
   
     <itemizedlist>
       <listitem>
-         <para>섹션 2.4 이후 루트 사용자로 수행되는 절차는 <emphasis>루트 사용자에 대한</emphasis>LFS 환경 변수를
+         <para>섹션 2.4 이후 root 사용자로 수행되는 절차는 <emphasis>root 사용자에 대한</emphasis>LFS 환경 변수를
 설정해야 한다.</para>
       </listitem>
     </itemizedlist>
@@ -58,12 +58,12 @@
       </listitem>
 
       <listitem>
-         <para>chroot를 입력할 때는 반드시 루트에 대한 LFS 환경 변수를 설정해야 한다. LFS 변수는 달리 사용되지 않는다.</para>
+         <para>chroot를 입력할 때는 반드시 root에 대한 LFS 환경 변수를 설정해야 한다. LFS 변수는 달리 사용되지 않는다.</para>
       </listitem>
 
       <listitem>
          <para>가상 파일 시스템을 반드시 마운트해야 한다. 이는 호스트 가상 터미널로 변경하여 chroot를 입력하기 
-전 또는 후에 수행될 수 있으며, 루트로 <xref linkend='ch-system-bindmount'/> 및 <xref linkend='ch-system-kernfsmount'/>의 
+전 또는 후에 수행될 수 있으며, root로 <xref linkend='ch-system-bindmount'/> 및 <xref linkend='ch-system-kernfsmount'/>의 
 명령을 실행할 수 있다.</para>
       </listitem>
     </itemizedlist>

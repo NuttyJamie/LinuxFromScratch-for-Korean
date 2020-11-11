@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -9,33 +9,13 @@
   <?dbhtml dir="appendices"?>
   <?dbhtml filename="dependencies.html"?>
 
-  <title>Dependencies</title>
+  <title>의존성</title>
 
-  <para>Every package built in LFS relies on one or more other packages in
-  order to build and install properly. Some packages even participate in
-  circular dependencies, that is, the first package depends on the second which
-  in turn depends on the first. Because of these dependencies, the order in
-  which packages are built in LFS is very important. The purpose of this page
-  is to document the dependencies of each package built in LFS.</para>
+  <para>LFS에 빌드된 모든 패키지는 올바르게 빌드 및 설치되기 위해 하나 이상의 다른 패키지에 의존한다. 어떤 패키지는 순환 의존성에도 속한다. 즉, 첫 번째 패키지는 두 번째 패키지에 의존하고, 그 다음 패키지는 첫 번째 패키지에 의존한다. 이러한 의존성 때문에 LFS에 패키지가 빌드되는 순서는 매우 중요하다. 이 페이지의 목적은 LFS에 내장된 각 패키지의 의존성을 문서화하는 것이다.</para>
 
-  <para>For each package we build, we have listed three, and sometimes four,
-  types of dependencies.  The first lists what other packages need to be
-  available in order to compile and install the package in question. The second
-  lists what packages, in addition to those on the first list, need to be
-  available in order to run the test suites. The third list of dependencies are
-  packages that require this package to be built and installed in its final
-  location before they are built and installed. In most cases, this is because
-  these packages will hard code paths to binaries within their scripts. If not
-  built in a certain order, this could result in paths of /tools/bin/[binary]
-  being placed inside scripts installed to the final system. This is obviously
-  not desirable.</para>
+  <para>우리가 만드는 각각의 패키지에 대해 우리는 세 가지, 때로는 네 가지 유형의 의존성을 명시했다. 첫 번째 목록에는 해당 패키지를 컴파일하고 설치하기 위해 사용할 수 있는 다른 패키지가 명시되어 있다. 두 번째는 첫 번째 목록에 있는 패키지에 추가하여 테스트 스위트를 실행하기 위해 필요한 패키지가 명시되어 있다. 세 번째 의존성 목록은 이 패키지를 빌드 및 설치하기 전에 최종 위치에 빌드 및 설치해야 하는 패키지다. 대부분의 경우 이는 이러한 패키지가 스크립트 내의 바이너리 파일에 대한 경로를 하드 코드화하기 때문이다. 특정 순서로 빌드되지 않으면 /tools/bin/[binary] 경로가 최종 시스템에 설치된 스크립트 내부에 위치할 수 있다. 이는 분명히 바람직하지 않다.</para>
 
-  <para>The last list of dependencies are optional packages that are not
-  addressed in LFS, but could be useful to the user.  These packages may have
-  additional mandatory or optional dependencies of their own.  For these
-  dependencies, the recommended practice is to install them after completion of
-  the LFS book and then go back and rebuild the LFS package.  In several cases,
-  re-installation is addressed in BLFS.</para>
+  <para>마지막 의존성 목록은 LFS에서 다루지 않지만 사용자에게 유용할 수 있는 선택적 패키지다. 이러한 패키지에는 자체 필수 또는 선택적 의존성이 추가로 있을 수 있다. 이러한 의존성 패키지들은 LFS 책을 완료한 후 의존성 패키지를 설치한 다음, 다시 돌아가서 LFS 패키지를 다시 빌드하는 것이 권장되는 방법이다. 여러 경우에 재설치는 BLFS에서 다룬다.</para>
 
 <!-- Begin Acl dependency info -->
   <bridgehead renderas="sect2" id="acl-dep">Acl</bridgehead>
@@ -45,7 +25,7 @@
 
         <seglistitem>
           <seg>Attr, Bash, Binutils, Coreutils, GCC, Gettext, Grep, M4, Make,
-          Perl, Sed, and Texinfo</seg>
+          Perl, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -53,7 +33,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Automake, Diffutils, Findutils, and Libtool</seg>
+          <seg>Automake, Diffutils, Findutils, Libtool</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -61,7 +41,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>Coreutils, Sed, Tar, and Vim</seg>
+          <seg>Coreutils, Sed, Tar, Vim</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -69,7 +49,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -81,7 +61,7 @@
 
         <seglistitem>
           <seg>Bash, Binutils, Coreutils, GCC, Gettext, Grep, M4, Make,
-          Perl, Sed, and Texinfo</seg>
+          Perl, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -89,7 +69,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Automake, Diffutils, Findutils, and Libtool</seg>
+          <seg>Automake, Diffutils, Findutils, Libtool</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -97,7 +77,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>Acl and Libcap</seg>
+          <seg>Acl, Libcap</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -105,7 +85,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -116,7 +96,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-          <seg>Bash, Coreutils, Grep, M4, Make, Perl, Sed, and Texinfo</seg>
+          <seg>Bash, Coreutils, Grep, M4, Make, Perl, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -124,7 +104,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Automake, Diffutils, Findutils, GCC, and Libtool</seg>
+          <seg>Automake, Diffutils, Findutils, GCC, Libtool</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -152,7 +132,7 @@
 
         <seglistitem>
           <seg>Autoconf, Bash, Coreutils, Gettext, Grep, M4, Make, Perl,
-          Sed, and Texinfo</seg>
+          Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -161,7 +141,7 @@
 
         <seglistitem>
           <seg>Binutils, Bison, Bzip2, DejaGNU, Diffutils, Expect, Findutils,
-          Flex, GCC, Gettext, Gzip, Libtool, and Tar</seg>
+          Flex, GCC, Gettext, Gzip, Libtool, Tar</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -169,7 +149,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -177,7 +157,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -189,7 +169,7 @@
 
         <seglistitem>
           <seg>Bash, Binutils, Bison, Coreutils, Diffutils, Gawk, GCC, Glibc,
-          Grep, Make, Ncurses, Patch, Readline, Sed, and Texinfo</seg>
+          Grep, Make, Ncurses, Patch, Readline, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -205,7 +185,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -225,7 +205,7 @@
 
         <seglistitem>
           <seg>Bash, Binutils, Bison, Coreutils, GCC, Glibc,
-          Grep, Make, Perl, and Readline</seg>
+          Grep, Make, Perl, Readline</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -249,7 +229,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -261,7 +241,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, File, Gawk, GCC, Glibc,
-         Grep, Make, Perl, Sed, Texinfo and Zlib</seg>
+         Grep, Make, Perl, Sed, Texinfo, Zlib</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -269,7 +249,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>DejaGNU and Expect</seg>
+          <seg>DejaGNU, Expect</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -277,7 +257,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -285,7 +265,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -297,7 +277,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Gettext, Glibc,
-         Grep, M4, Make, Perl, and Sed</seg>
+         Grep, M4, Make, Perl, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -305,7 +285,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Diffutils, Findutils, and Flex</seg>
+          <seg>Diffutils, Findutils, Flex</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -313,7 +293,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>Kbd and Tar</seg>
+          <seg>Kbd, Tar</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -332,8 +312,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Binutils, Coreutils, Diffutils, GCC, Glibc, Make,
-         and Patch</seg>
+         <seg>Bash, Binutils, Coreutils, Diffutils, GCC, Glibc, Make, Patch</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -341,7 +320,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -357,7 +336,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -368,7 +347,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>GCC, Grep, Make, Sed, and Texinfo</seg>
+         <seg>GCC, Grep, Make, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -376,7 +355,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -384,7 +363,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -392,7 +371,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -404,7 +383,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Gettext, Glibc, GMP, Grep, Libcap,
-         Make, Patch, Perl, Sed, and Texinfo</seg>
+         Make, Patch, Perl, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -412,7 +391,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Diffutils, E2fsprogs, Findutils, Shadow, and Util-linux</seg>
+          <seg>Diffutils, E2fsprogs, Findutils, Shadow, Util-linux</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -420,7 +399,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>Bash, Diffutils, Eudev, Findutils, and Man-DB</seg>
+          <seg>Bash, Diffutils, Eudev, Findutils, Man-DB</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -428,7 +407,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>Perl Expect and IO:Tty modules (for test suite)</seg>
+          <seg>Perl Expect, IO:Tty modules (for test suite)</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -449,7 +428,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -457,7 +436,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -476,7 +455,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Coreutils, Diffutils, GCC, Grep, Make, and Sed</seg>
+         <seg>Bash, Coreutils, Diffutils, GCC, Grep, Make, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -484,7 +463,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -492,7 +471,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -500,7 +479,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -512,7 +491,7 @@
 
         <seglistitem>
           <seg>Bash, Binutils, Coreutils, Gawk, GCC, Gettext, Glibc, Grep,
-          Make, Sed, and Texinfo</seg>
+          Make, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -528,7 +507,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -536,7 +515,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -548,7 +527,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, Gawk, GCC, Glibc, Grep,
-         Gzip, Make, Sed, Texinfo, and Util-linux</seg>
+         Gzip, Make, Sed, Texinfo, Util-linux</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -556,7 +535,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Procps-ng and Psmisc</seg>
+          <seg>Procps-ng, Psmisc</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -564,7 +543,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -572,7 +551,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -584,7 +563,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Gawk, GCC, Glibc, Grep, Gperf,
-         Make, and Sed</seg>
+         Make, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -592,7 +571,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -600,7 +579,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -608,7 +587,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -620,7 +599,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Gawk, GCC, Glibc, Grep,
-         Make, and Sed</seg>
+         Make, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -628,7 +607,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -644,7 +623,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -656,7 +635,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, GCC, Glibc, Grep, Make,
-         Patch, Sed, and Tcl</seg>
+         Patch, Sed, Tcl</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -664,7 +643,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -672,7 +651,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -680,7 +659,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -692,7 +671,7 @@
 
         <seglistitem>
           <seg>Bash, Binutils, Bzip2, Coreutils, Diffutils, Gawk, GCC, Glibc,
-          Grep, Make, Sed, Xz, and Zlib</seg>
+          Grep, Make, Sed, Xz, Zlib</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -700,7 +679,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -708,7 +687,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -716,7 +695,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -728,7 +707,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Gettext, Glibc, Grep, Make,
-         Sed, and Texinfo</seg>
+         Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -736,7 +715,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>DejaGNU, Diffutils, and Expect</seg>
+          <seg>DejaGNU, Diffutils, Expect</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -744,7 +723,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -752,7 +731,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -764,7 +743,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Gettext, Glibc, Grep, M4, Make,
-         Patch, Sed, and Texinfo</seg>
+         Patch, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -772,7 +751,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Bison and Gawk</seg>
+          <seg>Bison, Gawk</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -780,7 +759,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>IPRoute2, Kbd, and Man-DB</seg>
+          <seg>IPRoute2, Kbd, Man-DB</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -788,7 +767,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -800,7 +779,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Gettext, Glibc, GMP, Grep, Make,
-         MPFR, Patch, Readline, Sed, and Texinfo</seg>
+         MPFR, Patch, Readline, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -816,7 +795,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -824,7 +803,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -837,7 +816,7 @@
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, Findutils, Gawk, GCC,
          Gettext, Glibc, GMP, Grep, M4, Make, MPC, MPFR, Patch, Perl, Sed, Tar,
-         and Texinfo</seg>
+        Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -845,7 +824,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>DejaGNU, Expect, and Shadow</seg>
+          <seg>DejaGNU, Expect, Shadow</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -853,7 +832,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -861,7 +840,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg><ulink url="http://gcc.gnu.org/wiki/GNAT">GNAT</ulink> and 
+          <seg><ulink url="http://gcc.gnu.org/wiki/GNAT">GNAT</ulink>, 
                <ulink url="https://repo.or.cz/isl.git">ISL</ulink> 
           </seg>
         </seglistitem>
@@ -875,7 +854,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, GCC, Grep, Make, 
-         and Sed</seg>
+         Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -883,7 +862,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -891,7 +870,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -899,7 +878,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -911,7 +890,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Gawk, GCC, Glibc, Grep, Make,
-         Sed, and Texinfo</seg>
+         Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -919,7 +898,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Diffutils, Perl, and Tcl</seg>
+          <seg>Diffutils, Perl, Tcl</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -935,7 +914,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -947,7 +926,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, Gawk, GCC, Gettext,
-         Grep, Gzip, Linux API Headers, Make, Perl, Python, Sed, and Texinfo</seg>
+         Grep, Gzip, Linux API Headers, Make, Perl, Python, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -963,7 +942,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -971,7 +950,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -983,7 +962,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, Gawk, GCC, Glibc, Grep,
-         M4, Make, Sed, and Texinfo</seg>
+         M4, Make, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -991,7 +970,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -999,7 +978,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>MPFR and GCC</seg>
+          <seg>MPFR, GCC</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1007,7 +986,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1018,7 +997,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Binutils, Coreutils, GCC, Glibc, and Make</seg>
+         <seg>Bash, Binutils, Coreutils, GCC, Glibc, Make</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1026,7 +1005,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Diffutils and Expect</seg>
+          <seg>Diffutils, Expect</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1034,7 +1013,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1042,7 +1021,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1054,7 +1033,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, GCC, Gettext, Glibc, Grep,
-         Make, Patch, Sed, and Texinfo</seg>
+         Make, Patch, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1090,7 +1069,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Bison, Coreutils,  Gawk, GCC, Glibc, Grep, Make,
-         Patch, Sed, and Texinfo</seg>
+         Patch, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1098,7 +1077,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1106,7 +1085,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>Man-DB and Perl</seg>
+          <seg>Man-DB, Perl</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1126,7 +1105,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Bison, Coreutils, Diffutils, GCC, Gettext, Glibc,
-         Grep, Make, Ncurses, Sed, Texinfo, and Xz</seg>
+         Grep, Make, Ncurses, Sed, Texinfo, Xz</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1134,7 +1113,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1142,7 +1121,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1150,7 +1129,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1162,7 +1141,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Glibc, Grep, Make,
-         Sed, and Texinfo</seg>
+         Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1170,7 +1149,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Diffutils and Less</seg>
+          <seg>Diffutils, Less</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1186,7 +1165,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1197,7 +1176,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Coreutils, Gawk, and Make</seg>
+         <seg>Coreutils, Gawk, Make</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1205,7 +1184,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1221,7 +1200,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1233,7 +1212,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Glibc, Grep, Make, Ncurses,
-         Patch, Sed, Texinfo, and Zlib</seg>
+         Patch, Sed, Texinfo, Zlib</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1241,7 +1220,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1257,7 +1236,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1268,7 +1247,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Gawk, Glibc, Make, Perl, Sed, and XML::Parser</seg>
+         <seg>Bash, Gawk, Glibc, Make, Perl, Sed, XML::Parser</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1284,7 +1263,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1292,7 +1271,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1304,7 +1283,7 @@
 
         <seglistitem>
          <seg>Bash, Bison, Coreutils, Flex, GCC, Glibc, Make,
-         and Linux API Headers</seg>
+         Linux API Headers</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1312,7 +1291,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1320,7 +1299,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1328,7 +1307,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1340,7 +1319,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Bison, Check, Coreutils, Flex, GCC, Gettext,
-         Glibc, Gzip, Make, Patch, and Sed</seg>
+         Glibc, Gzip, Make, Patch, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1348,7 +1327,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1356,7 +1335,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1364,7 +1343,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1376,7 +1355,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Bison, Coreutils, Flex, GCC, Gettext, Glibc,
-         Gzip, Make, Pkg-config, Sed, Xz-Utils, and Zlib</seg>
+         Gzip, Make, Pkg-config, Sed, Xz-Utils, Zlib</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1384,7 +1363,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1400,7 +1379,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1412,7 +1391,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, GCC, Glibc, Grep, Make,
-         Ncurses, and Sed</seg>
+         Ncurses, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1420,7 +1399,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1448,7 +1427,7 @@
 
         <seglistitem>
          <seg>Attr, Bash, Binutils, Coreutils, GCC, Glibc, Perl, Make,
-         and Sed</seg>
+         Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1456,7 +1435,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1464,7 +1443,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1483,7 +1462,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Binutils, Coreutils, GCC, Glibc, and Make</seg>
+         <seg>Bash, Binutils, Coreutils, GCC, Glibc, Make</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1491,7 +1470,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1507,7 +1486,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1518,7 +1497,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Binutils, Coreutils, GCC, Glibc, Make, and Sed</seg>
+         <seg>Bash, Binutils, Coreutils, GCC, Glibc, Make, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1542,7 +1521,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1554,7 +1533,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, Gawk, GCC, Glibc, Grep,
-         Make, Sed, and Texinfo</seg>
+         Make, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1578,7 +1557,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1590,7 +1569,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, Gawk, GCC, Glibc, Grep,
-         Make, Sed, and Texinfo</seg>
+         Make, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1598,7 +1577,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Autoconf, Automake, and Findutils</seg>
+          <seg>Autoconf, Automake, Findutils</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1606,7 +1585,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1614,7 +1593,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1626,7 +1605,7 @@
 
         <seglistitem>
          <seg>Bash, Bc, Binutils, Coreutils, Diffutils, Findutils, GCC, Glibc,
-         Grep, Gzip, Kmod, Libelf, Make, Ncurses, OpenSSL, Perl, and Sed</seg>
+         Grep, Gzip, Kmod, Libelf, Make, Ncurses, OpenSSL, Perl, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1634,7 +1613,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1642,7 +1621,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1650,7 +1629,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1678,7 +1657,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>Autoconf and Bison</seg>
+          <seg>Autoconf, Bison</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1698,7 +1677,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Gettext, Glibc, Grep,
-         Make, Sed, and Texinfo</seg>
+         Make, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1706,7 +1685,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Perl and Procps-ng</seg>
+          <seg>Perl, Procps-ng</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1714,7 +1693,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1722,7 +1701,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1734,7 +1713,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Bzip2, Coreutils, Flex, GCC, GDBM, Gettext,
-         Glibc, Grep, Groff, Gzip, Less, Libpipeline, Make, Sed, and Xz</seg>
+         Glibc, Grep, Groff, Gzip, Less, Libpipeline, Make, Sed, Xz</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1750,7 +1729,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1758,7 +1737,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1769,7 +1748,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Coreutils, and Make</seg>
+         <seg>Bash, Coreutils, Make</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1777,7 +1756,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1785,7 +1764,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1793,7 +1772,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1804,7 +1783,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Ninja and Python</seg>
+         <seg>Ninja, Python</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1812,7 +1791,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1828,7 +1807,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1840,7 +1819,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, Gawk, GCC, Glibc, Grep, GMP,
-         Make, MPFR, Sed, and Texinfo</seg>
+         Make, MPFR, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1848,7 +1827,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1864,7 +1843,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1876,7 +1855,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, Gawk, GCC, Glibc, Grep, GMP,
-         Make, Sed, and Texinfo</seg>
+         Make, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1884,7 +1863,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1892,7 +1871,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>Gawk and GCC</seg>
+          <seg>Gawk, GCC</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1900,7 +1879,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1912,7 +1891,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, Gawk, GCC, Glibc, Grep,
-         Make, Patch, and Sed</seg>
+         Make, Patch, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1920,7 +1899,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1929,7 +1908,7 @@
 
         <seglistitem>
           <seg>Bash, GRUB, Inetutils, Less, Procps-ng, Psmisc, Readline,
-          Texinfo, Util-linux, and Vim</seg>
+          Texinfo, Util-linux, Vim</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1937,7 +1916,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1948,7 +1927,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Binutils, Coreutils, Gcc, and Python</seg>
+         <seg>Binutils, Coreutils, Gcc, Python</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1956,7 +1935,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1972,7 +1951,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>Asciidoc, Doxygen, Emacs, and re2c</seg>
+          <seg>Asciidoc, Doxygen, Emacs, re2c</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1983,7 +1962,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Binutils, Coreutils, Gcc, Make, and Perl</seg>
+         <seg>Binutils, Coreutils, Gcc, Make, Perl</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1991,7 +1970,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2007,7 +1986,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2018,7 +1997,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Binutils, Coreutils, GCC, Glibc, Grep, Make, and Sed</seg>
+         <seg>Bash, Binutils, Coreutils, GCC, Glibc, Grep, Make, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2034,7 +2013,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2054,7 +2033,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Gawk, GCC, GDBM, Glibc, Grep,
-         Groff, Make, Sed, and Zlib</seg>
+         Groff, Make, Sed, Zlib</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2062,7 +2041,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Iana-Etc and Procps-ng</seg>
+          <seg>Iana-Etc, Procps-ng</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2078,7 +2057,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2090,7 +2069,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Gawk, GCC, Glibc, Grep, Make,
-         Popt, and Sed</seg>
+         Popt, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2098,7 +2077,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2114,7 +2093,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2125,7 +2104,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Binutils, Coreutils, Gawk, GCC, Glibc, Grep, and Make</seg>
+         <seg>Bash, Binutils, Coreutils, Gawk, GCC, Glibc, Grep, Make</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2133,7 +2112,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Diffutils and Sed</seg>
+          <seg>Diffutils, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2149,7 +2128,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2160,7 +2139,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Binutils, Coreutils, GCC, Glibc, Make, and Ncurses</seg>
+         <seg>Bash, Binutils, Coreutils, GCC, Glibc, Make, Ncurses</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2176,7 +2155,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2184,7 +2163,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2196,7 +2175,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Gettext, Glibc, Grep, Make,
-         Ncurses, and Sed</seg>
+         Ncurses, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2204,7 +2183,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2212,7 +2191,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2220,7 +2199,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2232,7 +2211,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Gdbm, Gettext, Glibc, Grep, 
-         Libffi, Make, Ncurses, and Sed</seg>
+         Libffi, Make, Ncurses, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2240,7 +2219,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>GDB and Valgrind</seg>
+          <seg>GDB, Valgrind</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2256,7 +2235,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>Berkeley DB, OpenSSL, SQLite, and Tk</seg>
+          <seg>Berkeley DB, OpenSSL, SQLite, Tk</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2268,7 +2247,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Gawk, GCC, Glibc, Grep, Make, Ncurses,
-         Patch, Sed, and Texinfo</seg>
+         Patch, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2276,7 +2255,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2284,7 +2263,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>Bash and Gawk</seg>
+          <seg>Bash, Gawk</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2292,7 +2271,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2304,7 +2283,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Gettext, Glibc, Grep, Make,
-         Sed, and Texinfo</seg>
+         Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2312,7 +2291,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Diffutils and Gawk</seg>
+          <seg>Diffutils, Gawk</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2320,7 +2299,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>E2fsprogs, File, Libtool, and Shadow</seg>
+          <seg>E2fsprogs, File, Libtool, Shadow</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2328,7 +2307,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2340,7 +2319,7 @@
 
         <seglistitem>
          <seg>Acl, Attr, Bash, Binutils, Coreutils, Diffutils, Findutils, Gawk, GCC,
-         Gettext, Glibc, Grep, Make, and Sed</seg>
+         Gettext, Glibc, Grep, Make, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2348,7 +2327,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2364,7 +2343,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>Cracklib, and PAM</seg>
+          <seg>Cracklib, PAM</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2375,7 +2354,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Binutils, Coreutils, GCC, Glibc, Make, and Patch</seg>
+         <seg>Binutils, Coreutils, GCC, Glibc, Make, Patch</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2383,7 +2362,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2391,7 +2370,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2399,7 +2378,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2412,7 +2391,7 @@
         <seglistitem>
          <seg>Acl, Attr, Bash, Binutils, Coreutils, Diffutils, Expat, Gawk,
          GCC, Glibc, Gperf, Grep, Intltool, Libcap,
-         Meson, Sed, and Util-linux</seg>
+         Meson, Sed, Util-linux</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2420,7 +2399,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2428,7 +2407,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2450,7 +2429,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Binutils, Coreutils, GCC, Glibc, Make, and Sed</seg>
+         <seg>Binutils, Coreutils, GCC, Glibc, Make, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2458,7 +2437,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>테스트 스위트 없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2466,7 +2445,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2474,7 +2453,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2486,7 +2465,7 @@
 
         <seglistitem>
          <seg>Acl, Attr, Bash, Binutils, Bison, Coreutils, GCC, Gettext, Glibc,
-         Grep, Inetutils, Make, Sed, and Texinfo</seg>
+         Grep, Inetutils, Make, Sed, Texinfo</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2494,7 +2473,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>Autoconf, Diffutils, Findutils, Gawk, and Gzip</seg>
+          <seg>Autoconf, Diffutils, Findutils, Gawk, Gzip</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2502,7 +2481,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2510,7 +2489,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2522,7 +2501,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, GCC, Glibc, Grep,
-         Make, and Sed</seg>
+         Make, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2530,7 +2509,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2538,7 +2517,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2546,7 +2525,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2558,7 +2537,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, GCC, Gettext, Glibc, Grep, Make,
-         Ncurses, Patch, and Sed</seg>
+         Ncurses, Patch, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2566,7 +2545,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2574,7 +2553,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2582,7 +2561,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2594,7 +2573,7 @@
 
         <seglistitem>
          <seg>Bash, Binutils, Coreutils, Diffutils, Eudev, Findutils, Gawk, GCC,
-         Gettext, Glibc, Grep, Make, Ncurses, Sed, and Zlib</seg>
+         Gettext, Glibc, Grep, Make, Ncurses, Sed, Zlib</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2602,7 +2581,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2610,7 +2589,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2630,7 +2609,7 @@
 
         <seglistitem>
          <seg>Acl, Attr, Bash, Binutils, Coreutils, Diffutils, GCC, Glibc,
-         Grep, Make, Ncurses, and Sed</seg>
+         Grep, Make, Ncurses, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2638,7 +2617,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2646,7 +2625,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2654,7 +2633,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>Xorg, GTK+2, LessTif, Python, Tcl, Ruby, and GPM</seg>
+          <seg>Xorg, GTK+2, LessTif, Python, Tcl, Ruby, GPM</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2665,7 +2644,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Binutils, Coreutils, Expat, GCC, Glibc, Make, and Perl</seg>
+         <seg>Bash, Binutils, Coreutils, Expat, GCC, Glibc, Make, Perl</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2689,7 +2668,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2700,7 +2679,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Binutils, Coreutils, Diffutils, GCC, Glibc, and Make</seg>
+         <seg>Bash, Binutils, Coreutils, Diffutils, GCC, Glibc, Make</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2708,7 +2687,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2716,7 +2695,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>Eudev, File, GRUB, Kmod, and Man-DB</seg>
+          <seg>Eudev, File, GRUB, Kmod, Man-DB</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2724,7 +2703,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2735,7 +2714,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Bash, Binutils, Coreutils, GCC, Glibc, Make, and Sed</seg>
+         <seg>Bash, Binutils, Coreutils, GCC, Glibc, Make, Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2743,7 +2722,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2751,7 +2730,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>File, Kmod, Perl, and Util-linux</seg>
+          <seg>File, Kmod, Perl, Util-linux</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2759,7 +2738,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2770,7 +2749,7 @@
         <segtitle>&dependencies;</segtitle>
 
         <seglistitem>
-         <seg>Binutils, Coreutils, GCC, Glibc, Gzip, Make, and Xz</seg>
+         <seg>Binutils, Coreutils, GCC, Glibc, Gzip, Make, Xz</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2778,7 +2757,7 @@
         <segtitle>&testsuites;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2786,7 +2765,7 @@
         <segtitle>&before;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2794,7 +2773,7 @@
         <segtitle>&external;</segtitle>
 
         <seglistitem>
-          <seg>None</seg>
+          <seg>없음</seg>
         </seglistitem>
       </segmentedlist>
 

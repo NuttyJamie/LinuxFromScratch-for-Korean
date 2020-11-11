@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE part PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -14,28 +14,17 @@
     <date>$Date: 2016-06-01 12:04:27 +0900 (Wed, 01 Jun 2016) $</date>
   </sect1info>
 -->
-  <title>Creating the /etc/shells File</title>
+  <title>/etc/shells 파일 생성</title>
 
   <indexterm zone="ch-config-shells">
     <primary sortas="e-etc-shells">/etc/shells</primary>
   </indexterm>
 
-  <para>The <filename>shells</filename> file contains a list of
-  login shells on the system. Applications use this file to determine
-  whether a shell is valid. For each shell a single line should be
-  present, consisting of the shell's path, relative to the root of the
-  directory structure (/).</para>
+  <para><filename>shells</filename> 파일에는 시스템의 로그인 셸 목록이 들어 있다. 응용 프로그램은 이 파일을 사용하여 셸의 유효한지 확인한다. 각 셸에 대해 디렉토리 구조의 루트(/)에 상대적인 셸 경로로 구성된 단일 행이 있어야 한다.</para>
 
-  <para>For example, this file is consulted by <command>chsh</command>
-  to determine whether an unprivileged user may change the login shell for her
-  own account. If the command name is not listed, the user will be denied of
-  change.</para>
+  <para>예를 들면, 권한 없는 사용자가 자신의 계정에 대한 로그인 셸을 변경할 수 있는지의 여부를 확인할 때 <command>chsh</command>가 이 파일을 참조한다. 명령어가 목록에 있지 않으면, 사용자의 변경 요청이 거부된다.</para>
 
-  <para>It is a requirement for applications such as
-  <application>GDM</application> which does not populate the
-  face browser if it can't find <filename>/etc/shells</filename>, or
-  FTP daemons which traditionally disallow access to users
-  with shells not included in this file.</para>
+  <para>이는 <filename>/etc/shells</filename>을 찾지 못하면 탐색기를 띄우지 않는 <application>GDM</application>이나, 기본적으로 이 파일에 포함되지 않은 셸로 접근하는 사용자는 차단하는 FTP 데몬과 같은 응용 프로그램들에 필요하다.</para>
 
 <screen role="root"><userinput>cat &gt; /etc/shells &lt;&lt; "EOF"
 <literal># Begin /etc/shells

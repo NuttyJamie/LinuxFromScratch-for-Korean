@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -9,13 +9,11 @@
   <?dbhtml dir="appendices"?>
   <?dbhtml filename="licenses.html"?>
 
-  <title>LFS Licenses</title>
+  <title>LFS 라이센스</title>
 
-  <para>This book is licensed under the Creative Commons
-  Attribution-NonCommercial-ShareAlike 2.0 License.</para>
+  <para>이 책은 Creative Commons Attribution-NonCommercial-ShareAlike 2.0 라이센스를 따른다.</para>
 
-  <para>Computer instructions may be extracted from the book under the MIT
-  License.</para>
+  <para>컴퓨터 명령들은 MIT 라이센스 하에 책에서 추출될 수 있음.</para>
 
 
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="creat-comm.xml"/>

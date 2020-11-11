@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,7 +8,7 @@
 <sect1 id="ch-finish-theend">
   <?dbhtml filename="theend.html"?>
 
-  <title>The End</title>
+  <title>결론</title>
 
   <indexterm zone="ch-finish-theend">
     <primary sortas="e-/etc/lfs-release">/etc/lfs-release</primary>
@@ -22,26 +22,17 @@
     <primary sortas="e-/etc/os-release">/etc/os-release</primary>
   </indexterm>
 
-  <para>Well done! The new LFS system is installed! We wish you much
-  success with your shiny new custom-built Linux system.</para>
+  <para>축하한다! 새로운 LFS 시스템이 설치되었다! 우리는 당신의 빛나는 새 맞춤 제작 리눅스 시스템으로 많은 성공을 거두길 기원한다.</para>
 
-  <para>It may be a good idea to create an
-  <filename>/etc/lfs-release</filename> file. By having this file, it is very
-  easy for you (and for us if you need to ask for help at some point) to find
-  out which LFS version is installed on the system. Create this file by
-  running:</para>
+  <para><filename>/etc/lfs-release</filename> 파일을 생성하는 것이 좋다. 이 파일이 있으면 시스템에 어떤 LFS 버전이 설치되어 있는지 쉽게 확인할 수 있다(또 언젠가 당신에게 도움이 필요할 때 우리에게도 유용하다). 다음을 실행하여 이 파일을 생성하라:</para>
 
 <screen revision="sysv"><userinput>echo &version; &gt; /etc/lfs-release</userinput></screen>
 
 <screen revision="systemd"><userinput>echo &versiond; &gt; /etc/lfs-release</userinput></screen>
 
-  <para>Two files describing the installed system may be used by packages
-  that will be installed on the system, either in binary form or by building
-  them.</para>
+  <para>설치된 시스템을 설명하는 두 개의 파일은 바이너리 형식으로 또는 빌드하여, 시스템에 설치될 패키지에서 사용할 수 있다.</para>
 
-  <para>The first one shows the status of your
-  new system with respect to the Linux Standards Base (LSB).  To create
-  this file, run:</para>
+  <para>첫 번째는 Linux Standards Base(LSB)와 관련된 새 시스템의 상태를 보여준다. 이 파일을 작성하려면 다음을 실행하라:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/lsb-release &lt;&lt; "EOF"
 DISTRIB_ID="Linux From Scratch"
@@ -57,9 +48,7 @@ DISTRIB_CODENAME="&lt;your name here&gt;"
 DISTRIB_DESCRIPTION="Linux From Scratch"
 EOF</userinput></screen>
 
-  <para>The second one contains roughly the same information, and is used
-  by systemd and some graphical desktop environments.  To create
-  this file, run:</para>
+  <para>두 번째 것은 거의 동일한 정보를 담고 있으며, systemd와 일부 그래픽 데스크톱 환경에서 사용된다. 이 파일을 만드려면 실행하라:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/os-release &lt;&lt; "EOF"
 NAME="Linux From Scratch"
@@ -77,8 +66,6 @@ PRETTY_NAME="Linux From Scratch &versiond;"
 VERSION_CODENAME="&lt;your name here&gt;"
 EOF</userinput></screen>
 
-  <para>Be sure to put some sort of customization for the fields
-  'DISTRIB_CODENAME' and 'VERSION_CODENAME' to make the system uniquely
-  yours.</para>
+  <para>시스템을 당신 고유의 것으로 만드려면 'DISTRIB_CODENAME'과 'VERSION_CODENAME' 필드를 취향껏 작성하라.</para>
 
 </sect1>

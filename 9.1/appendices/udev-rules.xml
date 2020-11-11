@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,10 +10,9 @@
   <?dbhtml dir="scripts"?>
   <?dbhtml filename="eudev-rules.html"?>
 
-  <title>Udev configuration rules</title>
+  <title>Udev 구성 규칙</title>
 
-  <para>The rules in this appendix are listed for convenience.  Installation is
-  normally done via instructions in <xref linkend='ch-system-eudev'/>.  </para>
+  <para>이 부록의 규칙은 편의를 위해 열거되어 있다. 일반적으로 설치는 <xref linkend='ch-system-eudev'/>의 지침을 통해 이루어진다.  </para>
 
   <sect1 id="lfsrules" role="wrap">
     <title>55-lfs.rules</title>

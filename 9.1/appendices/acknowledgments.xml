@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -9,112 +9,104 @@
   <?dbhtml dir="appendices"?>
   <?dbhtml filename="acknowledgments.html"?>
 
-  <title>Acknowledgments</title>
+  <title>감사의 말</title>
 
-  <para>We would like to thank the following people and organizations
-  for their contributions to the Linux From Scratch Project.</para>
+  <para>우리는 Linux From Scratch 프로젝트에 기여한 다음의 사람들과 단체들에게 감사를 표하고 싶다.</para>
 
   <itemizedlist>
 
     <listitem>
       <para><ulink url="mailto:gerard@linuxfromscratch.org">Gerard
       Beekmans</ulink> &lt;gerard@linuxfromscratch.org&gt; &ndash;
-      LFS Creator</para>
+      LFS 창립자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:bdubbs@linuxfromscratch.org">Bruce
-      Dubbs</ulink> &lt;bdubbs@linuxfromscratch.org&gt; &ndash; LFS Managing
-      Editor</para>
+      Dubbs</ulink> &lt;bdubbs@linuxfromscratch.org&gt; &ndash; LFS 관리 편집자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:jim@linuxfromscratch.org">Jim
-      Gifford</ulink> &lt;jim@linuxfromscratch.org&gt; &ndash; CLFS Project
-      Co-Leader</para>
+      Gifford</ulink> &lt;jim@linuxfromscratch.org&gt; &ndash; CLFS 프로젝트 공동 리더</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:pierre@linuxfromscratch.org">Pierre Labastie</ulink>
-      &lt;pierre@linuxfromscratch.org&gt; &ndash; BLFS Editor and ALFS Lead</para>
+      &lt;pierre@linuxfromscratch.org&gt; &ndash; BLFS 편집자 겸 ALFS 리더</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:dj@linuxfromscratch.org">DJ Lucas</ulink>
-      &lt;dj@linuxfromscratch.org&gt; &ndash; LFS and BLFS Editor</para>
+      &lt;dj@linuxfromscratch.org&gt; &ndash; LFS 및 BLFS 편집자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:ken@linuxfromscratch.org">Ken Moffat</ulink>
-      &lt;ken@linuxfromscratch.org&gt; &ndash; BLFS Editor</para>
+      &lt;ken@linuxfromscratch.org&gt; &ndash; BLFS 편집자</para>
     </listitem>
 
     <listitem>
-      <para>Countless other people on the various LFS and BLFS mailing lists
-      who helped make this book possible by giving their suggestions, testing
-      the book, and submitting bug reports, instructions, and their
-      experiences with installing various packages.</para>
+      <para>다양한 LFS와 BLFS 메일링 리스트에 있는 수많은 다른 사람들이 그들의 제안, 책 테스트, 버그 리포트, 실험, 그리고 다양한 패키지 설치 경험들을 기부함으로써 이 책을 가능하게 했다.</para>
     </listitem>
 
   </itemizedlist>
 
-  <bridgehead renderas="sect2">Translators</bridgehead>
+  <bridgehead renderas="sect2">번역자</bridgehead>
 
   <itemizedlist>
 
     <listitem>
       <para><ulink url="mailto:macana@macana-es.com">Manuel Canales
-      Esparcia</ulink> &lt;macana@macana-es.com&gt; &ndash; Spanish
-      LFS translation project</para>
+      Esparcia</ulink> &lt;macana@macana-es.com&gt; &ndash; 스페인어
+      LFS 번역 프로젝트</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:johan@linuxfromscratch.org">Johan
-      Lenglet</ulink> &lt;johan@linuxfromscratch.org&gt; &ndash; French LFS
-      translation project until 2008</para>
+      Lenglet</ulink> &lt;johan@linuxfromscratch.org&gt; &ndash; 프랑스어 LFS 번역 프로젝트, 2008년까지 
+      </para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:jmengual@linuxfromscratch.org">Jean-Philippe 
-      Mengual </ulink> &lt;jmengual@linuxfromscratch.org&gt; &ndash; French LFS
-      translation project 2008-2016</para>
+      Mengual </ulink> &lt;jmengual@linuxfromscratch.org&gt; &ndash; 프랑스어 LFS 번역 프로젝트 2008-2016</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:jlepiller@linuxfromscratch.org">Julien 
-      Lepiller </ulink> &lt;jlepiller@linuxfromscratch.org&gt; &ndash; French LFS
-      translation project 2017-present</para>
+      Lepiller </ulink> &lt;jlepiller@linuxfromscratch.org&gt; &ndash; 프랑스어 LFS 번역 프로젝트 2017-현재</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:lizardo@linuxfromscratch.org">Anderson
       Lizardo</ulink> &lt;lizardo@linuxfromscratch.org&gt; &ndash;
-      Portuguese LFS translation project</para>
+      포르투갈어 LFS 번역 프로젝트</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:tr@erdfunkstelle.de">Thomas
-      Reitelbach </ulink> &lt;tr@erdfunkstelle.de&gt; &ndash; German LFS
-      translation project</para>
+      Reitelbach </ulink> &lt;tr@erdfunkstelle.de&gt; &ndash; 독일어 LFS
+      번역 프로젝트</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:info@linuxfromscratch.org.ru">Anton Maisak</ulink> 
-      &lt;info@linuxfromscratch.org.ru&gt; &ndash; Russian LFS
-      translation project</para>
+      &lt;info@linuxfromscratch.org.ru&gt; &ndash; 러시아어 LFS
+      번역 프로젝트</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:helen@linuxfromscratch.org.ru">Elena Shevcova</ulink> 
-      &lt;helen@linuxfromscratch.org.ru&gt; &ndash; Russian LFS
-      translation project</para>
+      &lt;helen@linuxfromscratch.org.ru&gt; &ndash; 러시아어 LFS
+      번역 프로젝트</para>
     </listitem>
 
   </itemizedlist>
 
-  <bridgehead renderas="sect2">Mirror Maintainers</bridgehead>
+  <bridgehead renderas="sect2">미러 관리자들</bridgehead>
 
-  <bridgehead renderas="sect3">North American Mirrors</bridgehead>
+  <bridgehead renderas="sect3">북미 미러</bridgehead>
 
   <itemizedlist>
 
@@ -140,7 +132,7 @@
 
   </itemizedlist>
 
-  <bridgehead renderas="sect3">South American Mirrors</bridgehead>
+  <bridgehead renderas="sect3">남미 미러</bridgehead>
 
   <itemizedlist>
 
@@ -157,7 +149,7 @@
 
   </itemizedlist>
 
-  <bridgehead renderas="sect3">European Mirrors</bridgehead>
+  <bridgehead renderas="sect3">유럽 미러</bridgehead>
 
   <itemizedlist>
 
@@ -234,7 +226,7 @@
 
   </itemizedlist>
 
-  <bridgehead renderas="sect3">Asian Mirrors</bridgehead>
+  <bridgehead renderas="sect3">아시아 미러</bridgehead>
 
   <itemizedlist>
 
@@ -255,7 +247,7 @@
 
   </itemizedlist>
 
-  <bridgehead renderas="sect3">Australian Mirrors</bridgehead>
+  <bridgehead renderas="sect3">호주 미러</bridgehead>
 
   <itemizedlist>
 
@@ -266,33 +258,32 @@
 
   </itemizedlist>
 
-  <bridgehead renderas="sect2">Former Project Team Members</bridgehead>
+  <bridgehead renderas="sect2">이전 프로젝트 팀 구성원</bridgehead>
 
   <itemizedlist>
 
     <listitem>
       <para><ulink url="mailto:theladyskye@linuxfromscratch.org">Christine
       Barczak</ulink> &lt;theladyskye@linuxfromscratch.org&gt; &ndash; LFS
-      Book Editor</para>
+      책 편집자</para>
     </listitem>
 
     <listitem>
       <para>Archaic
-      &lt;archaic@linuxfromscratch.org&gt; &ndash; LFS Technical Writer/Editor,
-      HLFS Project Leader, BLFS Editor, Hints and Patches Project
-      Maintainer</para>
+      &lt;archaic@linuxfromscratch.org&gt; &ndash; LFS 기술 작가/편집자,
+      HLFS 프로젝트 리더, BLFS 편집자, Hints and Patches 프로젝트 관리자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:matthew@linuxfromscratch.org">Matthew
       Burgess</ulink> &lt;matthew@linuxfromscratch.org&gt; &ndash;
-      LFS Project Leader, LFS Technical Writer/Editor</para>
+      LFS 프로젝트 리더, LFS 기술 작가/편집자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:nathan@linuxfromscratch.org">Nathan
       Coulson</ulink> &lt;nathan@linuxfromscratch.org&gt; &ndash;
-      LFS-Bootscripts Maintainer</para>
+      LFS-부트스크립트 관리자</para>
     </listitem>
 
     <listitem>
@@ -309,18 +300,17 @@
 
     <listitem>
       <para><ulink url="mailto:jeroen@linuxfromscratch.org">Jeroen
-      Coumans</ulink> &lt;jeroen@linuxfromscratch.org&gt; &ndash; Website
-      Developer, FAQ Maintainer</para>
+      Coumans</ulink> &lt;jeroen@linuxfromscratch.org&gt; &ndash; 웹사이트 개발자, FAQ 관리자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:manuel@linuxfromscratch.org">Manuel
       Canales Esparcia</ulink> &lt;manuel@linuxfromscratch.org&gt; &ndash;
-      LFS/BLFS/HLFS XML and XSL Maintainer</para>
+      LFS/BLFS/HLFS XML 및 XSL 관리자</para>
     </listitem>
 
     <listitem>
-      <para>Alex Groenewoud &ndash; LFS Technical Writer</para>
+      <para>Alex Groenewoud &ndash; LFS 기술 작가</para>
     </listitem>
 
     <listitem>
@@ -330,50 +320,46 @@
     <listitem>
       <para><ulink url="mailto:jhuntwork@linuxfromscratch.org">Jeremy
       Huntwork</ulink> &lt;jhuntwork@linuxfromscratch.org&gt; &ndash; LFS
-      Technical Writer, LFS LiveCD Maintainer</para>
+      기술 작가, LFS LiveCD 관리자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:bryan@linuxfromscratch.org">Bryan
       Kadzban</ulink> &lt;bryan@linuxfromscratch.org&gt; &ndash; LFS
-      Technical Writer</para>
+      기술 작가</para>
     </listitem>
 
     <listitem>
       <para>Mark Hymers</para>
     </listitem>
 
-    <listitem><para>Seth W. Klein &ndash; FAQ maintainer</para></listitem>
+    <listitem><para>Seth W. Klein &ndash; FAQ 관리자</para></listitem>
 
     <listitem>
       <para><ulink url="mailto:nicholas@linuxfromscratch.org">Nicholas
-      Leippe</ulink> &lt;nicholas@linuxfromscratch.org&gt; &ndash; Wiki
-      Maintainer</para>
+      Leippe</ulink> &lt;nicholas@linuxfromscratch.org&gt; &ndash; 위키 관리자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:lizardo@linuxfromscratch.org">Anderson
-      Lizardo</ulink> &lt;lizardo@linuxfromscratch.org&gt; &ndash; Website
-      Backend-Scripts Maintainer</para>
+      Lizardo</ulink> &lt;lizardo@linuxfromscratch.org&gt; &ndash; 웹사이트 백엔드-스크립트 관리자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:randy@linuxfromscratch.org">Randy
       McMurchy</ulink> &lt;randy@linuxfromscratch.org&gt; &ndash; BLFS
-      Project Leader, LFS Editor</para>
+      프로젝트 리더, LFS 편집자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:dnicholson@linuxfromscratch.org">Dan
-      Nicholson</ulink> &lt;dnicholson@linuxfromscratch.org&gt; &ndash; LFS and
-      BLFS Editor</para>
+      Nicholson</ulink> &lt;dnicholson@linuxfromscratch.org&gt; &ndash; LFS 및 BLFS 편집자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:alexander@linuxfromscratch.org">Alexander
       E. Patrakov</ulink> &lt;alexander@linuxfromscratch.org&gt; &ndash; LFS
-      Technical Writer, LFS Internationalization Editor,
-      LFS Live CD Maintainer</para>
+      기술 작가, LFS 다국어화 작가, LFS Live CD 관리자</para>
     </listitem>
 
     <listitem>
@@ -383,51 +369,47 @@
     <listitem>
       <para><ulink url="mailto:scot@linuxfromscratch.org">Scot Mc
       Pherson</ulink> &lt;scot@linuxfromscratch.org&gt; &ndash; LFS NNTP
-      Gateway Maintainer</para>
+      게이트웨이 관리자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:renodr@linuxfromscratch.org">Douglas R. Reno</ulink>
-      &lt;renodr@linuxfromscratch.org&gt; &ndash; Systemd Editor</para>
+      &lt;renodr@linuxfromscratch.org&gt; &ndash; Systemd 편집자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:ryan@linuxfromscratch.org">Ryan
-      Oliver</ulink> &lt;ryan@linuxfromscratch.org&gt; &ndash; CLFS Project
-      Co-Leader</para>
+      Oliver</ulink> &lt;ryan@linuxfromscratch.org&gt; &ndash; CLFS 프로젝트
+      공동 리더</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:gschafer@zip.com.au">Greg Schafer</ulink>
-      &lt;gschafer@zip.com.au&gt; &ndash; LFS Technical Writer and
-      Architect of the Next Generation 64-bit-enabling Build Method</para>
+      &lt;gschafer@zip.com.au&gt; &ndash; LFS 기술 작가 겸 차세대 64비트 지원 빌드 방법 설계자</para>
     </listitem>
 
     <listitem>
-      <para>Jesse Tie-Ten-Quee &ndash; LFS Technical Writer</para>
+      <para>Jesse Tie-Ten-Quee &ndash; LFS 기술 작가</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:jwrober@linuxfromscratch.org">James
-      Robertson</ulink> &lt;jwrober@linuxfromscratch.org&gt; &ndash; Bugzilla
-      Maintainer</para>
+      Robertson</ulink> &lt;jwrober@linuxfromscratch.org&gt; &ndash; Bugzilla 관리자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:tushar@linuxfromscratch.org">Tushar
-      Teredesai</ulink> &lt;tushar@linuxfromscratch.org&gt; &ndash; BLFS Book
-      Editor, Hints and Patches Project Leader</para>
+      Teredesai</ulink> &lt;tushar@linuxfromscratch.org&gt; &ndash; BLFS 책 편집자, Hints and Patches 프로젝트 리더</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:jeremy@linuxfromscratch.org">Jeremy
-      Utley</ulink> &lt;jeremy@linuxfromscratch.org&gt; &ndash; LFS Technical
-      Writer, Bugzilla Maintainer, LFS-Bootscripts Maintainer</para>
+      Utley</ulink> &lt;jeremy@linuxfromscratch.org&gt; &ndash; LFS 기술 작가, Bugzilla 관리자, LFS-부트스크립트 관리자</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:zwinkles@gmail.com">Zack Winkles</ulink>
-      &lt;zwinkles@gmail.com&gt; &ndash; LFS Technical Writer</para>
+      &lt;zwinkles@gmail.com&gt; &ndash; LFS 기술 작가</para>
     </listitem>
 
   </itemizedlist>

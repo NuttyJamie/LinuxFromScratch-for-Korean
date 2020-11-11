@@ -9,7 +9,7 @@
   <?dbhtml dir="chapter08"?>
   <?dbhtml filename="chapter08.html"?>
 
-  <title>Making the LFS System Bootable</title>
+  <title>LFS 시스템 부팅 가능하게 만들기</title>
 
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="introduction.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fstab.xml"/>

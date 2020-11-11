@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,25 +8,18 @@
 <sect1 id="ch-finish-whatnow">
   <?dbhtml filename="whatnow.html"?>
 
-  <title>What Now?</title>
+  <title>이젠 뭘 할까?</title>
 
-  <para>Thank you for reading this LFS book. We hope that you have
-  found this book helpful and have learned more about the system
-  creation process.</para>
+  <para>이 LFS 책을 읽어줘서 감사하다. 이 책이 도움이 되었기를, 시스템 구축 과정에 대해 더 많이 배웠기를 바란다.</para>
 
-  <para>Now that the LFS system is installed, you may be wondering
-  <quote>What next?</quote> To answer that question, we have compiled a
-  list of resources for you.</para>
+  <para>이제 LFS 시스템이 설치되었으니, 여러분은 <quote>다음은 무엇인가?</quote>하고 궁금해 할 것이다. 그 질문에 답하기 위해, 우리는 당신에게 도움이 될만한 리스트를 작성했다.</para>
 
   <itemizedlist>
 
     <listitem>
-      <para>Maintenance</para>
+      <para>유지 보수</para>
 
-      <para>Bugs and security notices are reported regularly for all software.
-      Since an LFS system is compiled from source, it is up to you to keep
-      abreast of such reports.  There are several online resources that track
-      such reports, some of which are shown below:</para>
+      <para>버그와 보안 문제는 모든 소프트웨어에서 자주 보고된다. LFS 시스템은 소스에서 컴파일되므로, 이러한 보고들을 따라 관리하는 것은 당신에게 달려 있다. 이러한 보고서를 추적하는 몇 가지 온라인 출처가 있으며, 그 중 일부를 아래에 소개한다:</para>
 
       <itemizedlist>
 
@@ -34,19 +27,13 @@
           <para><ulink url="http://www.cert.org/">CERT</ulink> (Computer
           Emergency Response Team)</para>
 
-          <para>CERT has a mailing list that publishes security alerts concerning
-          various operating systems and applications. Subscription information is
-          available at <ulink
-          url="http://www.us-cert.gov/cas/signup.html"/>.</para>
+          <para>CERT에는 다양한 운영 체제 및 응용 프로그램에 대한 보안 경고를 게시하는 메일링 리스트가 있다. 구독 정보는 <ulink url="http://www.us-cert.gov/cas/signup.html"/>에서 확인할 수 있다.</para>
         </listitem>
 
         <listitem>
           <para>Bugtraq</para>
 
-          <para>Bugtraq is a full-disclosure computer security mailing list. It
-          publishes newly discovered security issues, and occasionally potential
-          fixes for them. Subscription information is available at <ulink
-          url="http://www.securityfocus.com/archive"/>.</para>
+          <para>Bugtraq은 완전한 공개 컴퓨터 보안 메일링 리스트이다. 이 곳은 새롭게 발견된 보안 문제를 게시하고 가끔씩 이를 해결할 수 있는 방법들을 발표한다. 구독 정보는 <ulink url="http://www.securityfocus.com/archive"/>에서 확인할 수 있다.</para>
         </listitem>
 
       </itemizedlist>
@@ -55,36 +42,23 @@
     <listitem>
       <para>Beyond Linux From Scratch</para>
 
-      <para>The Beyond Linux From Scratch book covers installation
-      procedures for a wide range of software beyond the scope of the LFS
-      Book. The BLFS project is located at <ulink url="&blfs-root;"/>.</para>
-    </listitem>
+      <para>The Beyond Linux From Scratch 책은 LFS 책의 범위를 넘어 광범위한 소프트웨어 설치 절차를 다룬다. 이 BLFS 프로젝트는 <ulink url="&blfs-root;"/>에 있다.</para> </listitem>
 
     <listitem>
       <para>LFS Hints</para>
 
-      <para>The LFS Hints are a collection of educational documents
-      submitted by volunteers in the LFS community. The hints are available
-      at <ulink url="&hints-index;"/>.</para>
-    </listitem>
+      <para>LFS 힌트는 LFS 커뮤니티의 자원봉사자들이 작성한 교육 문서 모음이다. 이 사이트는 <ulink url="&hints-index;"/>에서 이용할 수 있다.</para> </listitem>
 
     <listitem>
       <para>Mailing lists</para>
 
-      <para>There are several LFS mailing lists you may subscribe to if you
-      are in need of help, want to stay current with the latest developments,
-      want to contribute to the project, and more. See <xref
-      linkend="ch-intro-maillists"/> for more
-      information.</para>
+      <para>도움이 필요하거나, 최신 개발 버전으로 유지하고 싶거나, 프로젝트에 공헌하고 싶다면 구독할 수 있는 여러 LFS 메일링 리스트가 있다. 자세한 내용은 <xref linkend="ch-intro-maillists"/>을 참고하라.</para>
     </listitem>
 
     <listitem>
       <para>The Linux Documentation Project</para>
 
-      <para>The goal of The Linux Documentation Project (TLDP) is to
-      collaborate on all of the issues of Linux documentation. The TLDP features
-      a large collection of HOWTOs, guides, and man pages.  It is located at
-      <ulink url="http://www.tldp.org/"/>.</para>
+      <para>The Linux Documentation Project (TLDP)의 목표는 리눅스 문서의 모든 문제에 대해 협업하는 것이다. TLDP엔 많은 HOWTO, 가이드, man 페이지가 있다. <ulink url="http://www.tldp.org/"/>에서 찾을 수 있다.</para>
     </listitem>
 
   </itemizedlist>

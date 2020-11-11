@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,16 +8,13 @@
 <sect1 id="ch-bootable-fstab">
   <?dbhtml filename="fstab.html"?>
 
-  <title>Creating the /etc/fstab File</title>
+  <title>/etc/fstab 파일 생성</title>
 
   <indexterm zone="ch-bootable-fstab">
     <primary sortas="e-/etc/fstab">/etc/fstab</primary>
   </indexterm>
 
-  <para>The <filename>/etc/fstab</filename> file is used by some programs to
-  determine where file systems are to be mounted by default, in which order, and
-  which must be checked (for integrity errors) prior to mounting. Create a new
-  file systems table like this:</para>
+  <para><filename>/etc/fstab</filename> 파일은 일부 프로그램에서 파일 시스템이 기본적으로 마운트될 위치와 순서, 마운트되기 전에 어떤 파일 시스템을 검사할 지(오류 무결성) 결정하는 데 사용된다. 다음과 같은 새 파일 시스템 테이블을 생성하라:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/fstab &lt;&lt; "EOF"
 <literal># Begin /etc/fstab
@@ -48,43 +45,18 @@ EOF</userinput></screen>
 # End /etc/fstab</literal>
 EOF</userinput></screen>
 
-  <para>Replace <replaceable>&lt;xxx&gt;</replaceable>,
-  <replaceable>&lt;yyy&gt;</replaceable>, and <replaceable>&lt;fff&gt;</replaceable>
-  with the values appropriate for the system, for example, <filename
-  class="partition">sda2</filename>, <filename
-  class="partition">sda5</filename>, and <systemitem
-  class="filesystem">ext4</systemitem>. For details on the six
-  fields in this file, see <command>man 5 fstab</command>.</para>
+  <para><replaceable>&lt;xxx&gt;</replaceable>, <replaceable>&lt;yyy&gt;</replaceable>, <replaceable>&lt;fff&gt;</replaceable>를 <filename class="partition">sda2</filename>, <filename class="partition">sda5</filename>, <systemitem class="filesystem">ext4</systemitem>와 같이 해당 시스템에 적합한 값으로 대체하라. 이 파일의 여섯 항목에 대한 자세한 사항은 <command>man 5 fstab</command>를 참고하라.</para>
 
-  <para>Filesystems with MS-DOS or Windows origin (i.e. vfat, ntfs, smbfs,
-  cifs, iso9660, udf) need a special option, utf8, in order for non-ASCII
-  characters in file names to be interpreted properly. For non-UTF-8 locales,
-  the value of <option>iocharset</option> should be set to be the same as the
-  character set of the locale, adjusted in such a way that the kernel
-  understands it.  This works if the relevant character set definition (found
-  under File systems -&gt; Native Language Support when configuring the kernel)
-  has been compiled into the kernel or built as a module. However, if the
-  character set of the locale is UTF-8, the corresponding option
-  <option>iocharset=utf8</option> would make the file system case sensitive. To
-  fix this, use the special option <option>utf8</option> instead of
-  <option>iocharset=utf8</option>, for UTF-8 locales. The
-  <quote>codepage</quote> option is also needed for vfat and smbfs filesystems.
-  It should be set to the codepage number used under MS-DOS in your country.
-  For example, in order to mount USB flash drives, a ru_RU.KOI8-R user would
-  need the following in the options portion of its mount line in
-  <filename>/etc/fstab</filename>:</para>
+  <para>MS-DOS나 Windows 원본을 사용하는 파일 시스템(예: vfat, ntfs, smbfs,
+  cifs, iso9660, udf)에서는 파일 이름의 비 ASCII 문자가 올바르게 해석되도록 따로 utf8 옵션이 필요하다. 비-UTF-8 로케일의 경우 <option>iocharset</option>의 값은 로케일의 문자 집합과 동일하게 설정되어야 하며 커널이 이해할 수 있도록 조정되어야 한다. 이는 관련 문자 집합 정의(커널 구성 시 파일 시스템 -&gt; 기본 언어 지원 아래에 있음)가 커널로 컴파일되거나 모듈로 빌드된 경우 문제가 없다. 하지만 로케일의 문자 집합이 UTF-8이라면, 해당 옵션 <option>iocharset=utf8</option>은 파일 시스템의 대/소문자를 구분한다. 이 문제를 해결하려면 UTF-8 로케일에서 <option>iocharset=utf8</option> 대신 특수 옵션 <option>utf8</option>을 사용하라. vfat 및 smbfs 파일 시스템에는 <quote>codepage</quote> 옵션이 필요하다. 해당 국가의 MS-DOS에서 사용되는 코드 페이지 번호로 설정해야 한다. 예를 들어 USB 플래시 드라이브를 마운트한다면, ru_RU.KOI8-R 사용자는 <filename>/etc/fstab</filename>에 있는 마운트 행의 옵션 부분에서 다음 사항이 필요할 것이다:</para>
 
 <screen><literal>noauto,user,quiet,showexec,codepage=866,iocharset=koi8r</literal></screen>
 
-  <para>The corresponding options fragment for ru_RU.UTF-8 users is:</para>
+  <para>ru_RU.UTF-8 사용자에 대한 해당 옵션 부분은 다음과 같다:</para>
 
 <screen><literal>noauto,user,quiet,showexec,codepage=866,utf8</literal></screen>
 
-  <para>Note that using <option>iocharset</option> is the default for
-  <literal>iso8859-1</literal> (which keeps the file system case
-  insensitive), and the <option>utf8</option> option tells
-  the kernel to convert the file names using UTF-8 so they can be
-  interpreted in the UTF-8 locale.</para>
+  <para><option>iocharset</option>은 <literal>iso8859-1</literal>을 위한 기본값이며(파일 시스템이 대/소문자를 구분하지 않게끔 한다), <option>utf8</option> 옵션은 커널에 UTF-8을 사용하여 파일 이름을 변환하도록 지시하여 UTF-8 로케일에서 해석할 수 있도록 한다.</para>
 
   <!--note>
     <para>In the latter case, the kernel emits the following message:</para>
@@ -97,29 +69,17 @@ EOF</userinput></screen>
     UTF-8 locales.</para>
   </note-->
 
-  <para>It is also possible to specify default codepage and iocharset values for
-  some filesystems during kernel configuration. The relevant parameters
-  are named
-  <quote>Default NLS Option</quote> (<option>CONFIG_NLS_DEFAULT)</option>,
-  <quote>Default Remote NLS Option</quote> (<option>CONFIG_SMB_NLS_DEFAULT</option>),
-  <quote>Default codepage for FAT</quote> (<option>CONFIG_FAT_DEFAULT_CODEPAGE</option>), and
-  <quote>Default iocharset for FAT</quote> (<option>CONFIG_FAT_DEFAULT_IOCHARSET</option>).
-  There is no way to specify these settings for the
-  ntfs filesystem at kernel compilation time.</para>
+  <para>커널 구성 중에 일부 파일 시스템에 대해 기본 코드 페이지 및 iocharset 값을 지정할 수도 있다. 관련 매개 변수의 이름은 <quote>기본 NLS 옵션</quote> (<option>CONFIG_NLS_DEFAULT</option>),
+  <quote>기본 원격 NLS 옵션</quote> (<option>CONFIG_SMB_NLS_DEFAULT</option>),
+  <quote>FAT을 위한 기본 코드페이지</quote> (<option>CONFIG_FAT_DEFAULT_CODEPAGE</option>), 그리고 <quote>FAT을 위한 기본 iocharset</quote> (<option>CONFIG_FAT_DEFAULT_IOCHARSET</option>).
+  커널 컴파일 타임에는 ntfs 파일 시스템에 대한 이러한 설정을 할 수 있는 방법이 없다.</para>
 
-  <para>It is possible to make the ext3 filesystem reliable across power
-  failures for some hard disk types.  To do this, add the
-  <option>barrier=1</option> mount option to the appropriate entry in
-  <filename>/etc/fstab</filename>.  To check if the disk drive supports
-  this option, run
-  <ulink url="&blfs-book;general/hdparm.html">hdparm</ulink>
-  on the applicable disk drive.  For example, if:</para>
+  <para>일부 하드 디스크들은 정전 시에도 ext3 파일 시스템을 안정적으로 만들 수 있다. 이렇게 하려면 <filename>/etc/fstab</filename>의 해당 항목에 <option>barrier=1</option> 마운트 옵션을 추가하라. 디스크 드라이브가 이 옵션을 지원하는지 확인하려면 해당 디스크 드라이브에서 <ulink url="&blfs-book;general/hdparm.html">hdparm</ulink>을 실행하라. 예를 들어:</para>
 
 <screen role="nodump"><userinput>hdparm -I /dev/sda | grep NCQ</userinput></screen>
 
-  <para>returns non-empty output, the option is supported.</para>
+  <para>위 명령이 비어 있지 않은 결과를 출력한다면 옵션이 지원되는 것이다.</para>
 
-  <para>Note: Logical Volume Management (LVM) based partitions cannot use the
-  <option>barrier</option> option.</para>
+  <para>참고: 논리적 볼륨 관리 기반 파티션(Logical Volume Management, LVM)은 <option>barrier</option> 옵션을 지원하지 않는다.</para>
 
 </sect1>

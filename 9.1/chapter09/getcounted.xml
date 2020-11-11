@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,13 +8,10 @@
 <sect1 id="ch-finish-getcounted">
   <?dbhtml filename="getcounted.html"?>
 
-  <title>Get Counted</title>
+  <title>통계 등록</title>
 
-  <para>Now that you have finished the book, do you want to be counted as an
-  LFS user? Head over to <ulink url="&lfs-root;cgi-bin/lfscounter.php"/> and
-  register as an LFS user by entering your name and the first LFS version you
-  have used.</para>
+  <para>이제 이 책을 모두 끝마쳤으니 LFS 사용자로 등록하는 것이 어떤가? <ulink url="&lfs-root;cgi-bin/lfscounter.php"/> 이 곳으로 이동하여 사용자 이름과 사용했던 첫 번째 LFS 버전을 입력해서 LFS 사용자로 등록하라.</para>
 
-  <para>Let's reboot into LFS now.</para>
+  <para>이제 LFS로 재부팅해보자.</para>
 
 </sect1>

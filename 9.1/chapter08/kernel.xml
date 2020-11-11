@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -14,7 +14,7 @@
     <address>&linux-url;</address>
   </sect1info>
 
-  <title>Linux-&linux-version;</title>
+  <title>리눅스-&linux-version;</title>
 
   <indexterm zone="ch-bootable-kernel">
     <primary sortas="a-Linux">Linux</primary>
@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>The Linux package contains the Linux kernel.</para>
+    <para>이 리눅스 패키지는 리눅스 커널을 포함하고 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,42 +38,25 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of the kernel</title>
+    <title>커널의 설치</title>
 
-    <para>Building the kernel involves a few steps&mdash;configuration,
-    compilation, and installation. Read the <filename>README</filename> file
-    in the kernel source tree for alternative methods to the way this book
-    configures the kernel.</para>
+    <para>커널 빌드는 설정, 컴파일, 설치 등 몇 단계를 거쳐야 한다. 이 책이 커널을 구성하는 다른 방법은 커널 소스 트리의 <filename>README</filename> 파일을 참고하라.</para>
 
-    <para>Prepare for compilation by running the following command:</para>
+    <para>다음 명령을 실행하여 컴파일을 준비한다:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
-    <para>This ensures that the kernel tree is absolutely clean. The
-    kernel team recommends that this command be issued prior to each
-    kernel compilation. Do not rely on the source tree being clean after
-    un-tarring.</para>
+    <para>이는 커널 트리를 완전히 깨끗하게 한다. 커널 팀은 각 커널 컴파일 전에 이 명령을 실행할 것을 권장한다. tar 아카이브를 해제한 후에 소스 트리가 깨끗할 것으로 기대해선 안 된다.</para>
 
     <!-- Support for compiling a keymap into the kernel is deliberately removed -->
 
-    <para>Configure the kernel via a menu-driven interface. For general
-    information on kernel configuration see <ulink
-    url="&hints-root;kernel-configuration.txt"/>.  BLFS has some information
-    regarding particular kernel configuration requirements of packages outside
-    of LFS at <ulink
-    url="&blfs-book;longindex.html#kernel-config-index"/>.  Additional
-    information about configuring and building the kernel can be found at
-    <ulink url="http://www.kroah.com/lkn/"/> </para>
+    <para>메뉴 기반 인터페이스를 통해 커널을 구성하라. 커널 구성에 대한 일반적인 정보는 <ulink url="&hints-root;kernel-configuration.txt"/>를 참고하라. BLFS는 <ulink url="&blfs-book;longindex.html#kernel-config-index"/>에서 LFS 외부 패키지의 특정 커널 구성 요구 사항에 대한 정보를 제공한다. 커널 구성 및 빌드에 대한 추가 정보는 <ulink url="http://www.kroah.com/lkn/"/>에서 찾을 수 있다.</para>
 
     <note>
     
-      <para>A good starting place for setting up the kernel configuration is to
-      run <command>make defconfig</command>. This will set the base
-      configuration to a good state that takes your current system architecture
-      into account.</para>
+      <para><command>make defconfig</command>를 실행하여 커널 구성을 시작한다. 이렇게 하면 기본 구성이 현재 시스템 아키텍쳐를 고려하게 된다.</para>
 
-      <para>Be sure to enable/disable/set the following features or the system might
-      not work correctly or boot at all:</para>
+      <para>다음 기능을 활성화/비활성화/설정하라. 그렇지 않으면 시스템이 제대로 작동하지 않거나 전혀 부팅되지 않을 수 있다:</para>
 
       <screen role="nodump" revision="sysv">
 Device Drivers  ---&gt;
@@ -120,49 +103,34 @@ Kernel hacking  ---&gt;
       required, it is highly recommended by the systemd developers.</para>
     </note>
 
-    <para revision="sysv">There are several other options that may be desired
-    depending on the requirements for the system. For a list of options needed
-    for BLFS packages, see the <ulink
-    url="&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index">BLFS
-    Index of Kernel Settings</ulink>
-    (&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index).</para>
+    <para revision="sysv">시스템 요건에 따라 몇 가지 다른 옵션이 필요할 수도 있다. BLFS 패키지에 필요한 옵션 목록은 <ulink url="&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index">BLFS Index of Kernel Settings</ulink> (&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index)를 참고하라.</para>
 
     <note>
-      <para>If your host hardware is using UEFI, then the 'make defconfig'
-      above should automatically add in some EFI-related kernel options.</para>
+      <para>호스트 컴퓨터가 UEFI를 사용 중이라면, 위의 'make defconfig'은 일부 EFI 관련 커널 옵션에 자동으로 추가될 것이다.</para>
 
-      <para>In order to allow your LFS kernel to be booted from within your
-      host's UEFI boot environment, your kernel must have this option
-      selected:</para>
+      <para>호스트의 UEFI 부팅 환경 내에서 LFS 커널을 부팅하려면 커널에 다음 옵션이 선택되어 있어야 한다:</para>
 
 <screen role="nodump">Processor type and features  ---&gt;
    [*]   EFI stub support  [CONFIG_EFI_STUB]</screen>
 
-      <para>A fuller description of managing UEFI environments from within LFS
-      is covered by the lfs-uefi.txt hint at
-      <ulink 
-        url="http://www.linuxfromscratch.org/hints/downloads/files/lfs-uefi.txt"/>.
+      <para>LFS 내에서 UEFI 환경 관리에 대한 보다 자세한 설명은 <ulink url="http://www.linuxfromscratch.org/hints/downloads/files/lfs-uefi.txt"/>의 lfs-uefi.txt에서 다룬다.
       </para>
     </note>
 
     <variablelist>
-      <title>The rationale for the above configuration items:</title>
+      <title>위 설정 항목에 대한 해석:</title>
 
       <varlistentry>
-        <term><parameter>Support for uevent helper</parameter></term>
+        <term><parameter>support for uevent helper</parameter></term>
         <listitem>
-          <para>Having this option set may interfere with device
-          management when using Udev/Eudev. </para>
+          <para>Udev/Eudev을 사용할 때 이 옵션을 설정하면 장치 관리에 방해가 될 수 있다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>Maintain a devtmpfs</parameter></term>
         <listitem>
-          <para>This will create automated device nodes which are populated by the
-          kernel, even without Udev running.  Udev then runs on top of this,
-          managing permissions and adding symlinks.  This configuration
-          item is required for all users of Udev/Eudev.</para>
+          <para>이렇게 하면 Udev가 실행되지 않더라도 커널에 의해 설정되는 자동화된 장치 노드가 생성된다. 그러면 Udev는 이 위에서 실행되어 권한을 관리하고 심볼릭 링크를 추가한다. 이 설정은 모든 Udev/Eudev 사용자에게 필요하다.</para>
         </listitem>
       </varlistentry>
 
@@ -171,162 +139,88 @@ Kernel hacking  ---&gt;
 <screen role="nodump"><userinput>make menuconfig</userinput></screen>
 
     <variablelist>
-      <title>The meaning of optional make environment variables:</title>
+      <title>선택적 make 환경 변수들의 의미:</title>
 
       <varlistentry>
         <term><parameter>LANG=&lt;host_LANG_value&gt; LC_ALL=</parameter></term>
         <listitem>
-          <para>This establishes the locale setting to the one used on the
-          host.  This may be needed for a proper menuconfig ncurses interface
-          line drawing on a UTF-8 linux text console.</para>
+          <para>호스트에서 사용되는 로케일을 따라 설정한다. 이는 UTF-8 리눅스 텍스트 콘솔에서 적절한 menuconfig ncurses 인터페이스 행을 출력하는 데에 필요할 수 있다.</para>
 
-          <para>If used, be sure to replace
-          <replaceable>&lt;host_LANG_value&gt;</replaceable> by the value of
-          the <envar>$LANG</envar> variable from your host.  You can
-          alternatively use instead the host's value of <envar>$LC_ALL</envar>
-          or <envar>$LC_CTYPE</envar>.</para>
+          <para>사용할 경우, 반드시 <replaceable>&lt;host_LANG_value&gt;</replaceable>를 호스트의 <envar>$LANG</envar> 변수의 값으로 대체하라. 또는 호스트의 <envar>$LC_ALL</envar>이나 <envar>$LC_CTYPE</envar> 값을 대신 사용할 수도 있다.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Alternatively, <command>make oldconfig</command> may be more
-    appropriate in some situations. See the <filename>README</filename>
-    file for more information.</para>
+    <para>또 어떤 상황에서는 <command>make oldconfig</command>가 더 적절할 수 있다. 자세한 정보는 <filename>README</filename> 파일을 참고하라.</para>
 
-    <para>If desired, skip kernel configuration by copying the kernel
-    config file, <filename>.config</filename>, from the host system
-    (assuming it is available) to the unpacked <filename
-    class="directory">linux-&linux-version;</filename> directory. However,
-    we do not recommend this option. It is often better to explore all the
-    configuration menus and create the kernel configuration from
-    scratch.</para>
+    <para>원한다면 커널 구성 파일인 <filename>.config</filename>를 호스트 시스템(사용 가능한 것으로 가정)에서 압축 해제된 <filename class="directory">linux-&linux-version;</filename> 디렉토리로 복사하여 커널 설정을 건너 뛰어도 좋다. 그러나 이 옵션은 권장하지는 않는다. 모든 설정 메뉴를 탐색하고 처음부터 커널 구성을 만드는 것이 더 좋다.</para>
 
-    <para>Compile the kernel image and modules:</para>
+    <para>커널 이미지와 모듈들을 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>If using kernel modules, module configuration in <filename
-    class="directory">/etc/modprobe.d</filename> may be required.
-    Information pertaining to modules and kernel configuration is
-    located in <xref linkend="ch-config-udev"/> and in the kernel
-    documentation in the <filename
-    class="directory">linux-&linux-version;/Documentation</filename> directory.
-    Also, <filename>modprobe.d(5)</filename> may be of interest.</para>
+    <para>커널 모듈을 사용한다면, <filename class="directory">/etc/modprobe.d</filename>의 모듈 설정이 필요하다. 모듈 및 커널 설정에 관련된 정보는 <xref linkend="ch-config-udev"/>와 <filename class="directory">linux-&linux-version;/Documentation</filename> 디렉토리의 커널 문서에 수록되어 있다. 또 <filename>modprobe.d(5)</filename>도 유용할 것이다.</para>
 
-    <para>Unless module support has been disabled in the kernel configuration,
-    install the modules with:</para>
+    <para>커널 설정에서 모듈 지원이 비활성화되지 않았다면 다음과 같이 모듈을 설치하라:</para>
 
 <screen><userinput remap="install">make modules_install</userinput></screen>
 
-    <para>After kernel compilation is complete, additional steps are
-    required to complete the installation. Some files need to be copied to
-    the <filename class="directory">/boot</filename> directory.</para>
+    <para>커널 컴파일이 완료된 후, 설치를 완료하기 위해선 추가 절차가 필요하다. 일부 파일을 <filename class="directory">/boot</filename> 디렉토리에 복사해야 한다.</para>
 
     <caution>
-      <para>If the host system has a separate /boot partition, the files copied
-      below should go there. The easiest way to do that is to bind /boot on the
-      host (outside chroot) to /mnt/lfs/boot before proceeding.  As the root
-      user in the <emphasis>host system</emphasis>:</para>
+      <para>호스트 시스템에 별도의 /boot 파티션이 있다면 아래에서 복사하는 파일을 그 곳에 넣어야 한다. 가장 쉬운 방법은 호스트(chroot 외부)에서 /boot를 /mnt/lfs/boot에 바인딩하는 것이다. <emphasis>호스트 시스템</emphasis>에서 root 유저로 다음을 실행하라:</para>
 
 <screen role="nodump"><userinput>mount --bind /boot /mnt/lfs/boot</userinput></screen>
     </caution>
 
-    <para>The path to the kernel image may vary depending on the platform being
-    used. The filename below can be changed to suit your taste, but the stem of
-    the filename should be <emphasis>vmlinuz</emphasis> to be compatible with
-    the automatic setup of the boot process described in the next section.  The
-    following command assumes an x86 architecture:</para>
+    <para>커널 이미지의 경로는 사용 중인 플랫폼에 따라 달라질 수 있다. 아래 파일 이름은 취향껏 변경할 수 있지만, 파일 이름의 어간은 다음 절에서 설명할 부팅 절차의 자동 설정과 호환되도록 <emphasis>vmlinuz</emphasis>여야 한다. 다음 명령은 x86 아키텍쳐를 가정한다:</para>
 
 <screen revision="sysv"><userinput remap="install">cp -iv arch/x86/boot/bzImage /boot/vmlinuz-&linux-version;-lfs-&version;</userinput></screen>
 
 <screen revision="systemd"><userinput remap="install">cp -iv arch/x86/boot/bzImage /boot/vmlinuz-&linux-version;-lfs-&versiond;</userinput></screen>
 
-    <para><filename>System.map</filename> is a symbol file for the kernel.
-    It maps the function entry points of every function in the kernel API,
-    as well as the addresses of the kernel data structures for the running
-    kernel.  It is used as a resource when investigating kernel problems.
-    Issue the following command to install the map file:</para>
+    <para><filename>System.map</filename>은 커널 심볼 파일이다. 실행 중인 커널에 대한 커널 데이터 구조의 주소뿐만 아니라 커널 API에 있는 모든 함수의 진입점을 매핑한다. 커널 문제를 조사할 때 자료로 사용된다. 다음 명령을 실행하여 맵 파일을 설치하라:</para>
 
 <screen><userinput remap="install">cp -iv System.map /boot/System.map-&linux-version;</userinput></screen>
 
-    <para>The kernel configuration file <filename>.config</filename>
-    produced by the <command>make menuconfig</command> step
-    above contains all the configuration selections for the kernel
-    that was just compiled. It is a good idea to keep this file for future
-    reference:</para>
+    <para>위의 <command>make menuconfig</command> 단계에서 생성된 커널 설정 파일 <filename>.config</filename>에는 방금 컴파일된 커널에 대한 모든 설정 사항이 포함되어 있다. 나중에 참고할 수 있도록 이 파일을 보관하는 것이 좋다:</para>
 
 <screen><userinput remap="install">cp -iv .config /boot/config-&linux-version;</userinput></screen>
 
-    <para>Install the documentation for the Linux kernel:</para>
+    <para>리눅스 커널에 대한 문서를 설치한다:</para>
 
 <screen><userinput remap="install">install -d /usr/share/doc/linux-&linux-version;
 cp -r Documentation/* /usr/share/doc/linux-&linux-version;</userinput></screen>
 
-    <para>It is important to note that the files in the kernel source
-    directory are not owned by <emphasis>root</emphasis>. Whenever a
-    package is unpacked as user <emphasis>root</emphasis> (like we did
-    inside chroot), the files have the user and group IDs of whatever
-    they were on the packager's computer. This is usually not a problem
-    for any other package to be installed because the source tree is
-    removed after the installation. However, the Linux source tree is
-    often retained for a long time.  Because of this, there is a chance
-    that whatever user ID the packager used will be assigned to somebody
-    on the machine. That person would then have write access to the kernel
-    source.</para>
+    <para>커널 소스 디렉토리의 파일은 <emphasis>root</emphasis>에 의해 소유되지 않는다는 점에 주의해야 한다. 패키지가 <emphasis>root</emphasis> 유저에 의해 압축 해제될 때는(우리가 chroot 안에서 그랬듯이), 그 파일들은 패키지를 압축한 사람의 컴퓨터에 있던 사용자 및 그룹 ID를 갖는다. 이는 다른 모든 패키지들에 대해선 설치 후 소스 트리가 제거되기 때문에 문제가 되지 않지만, 리눅스 소스 트리는 보통 오랫동안 보존한다. 때문에 패키징을 한 사용자의 ID 번호가 시스템의 누군가에게 할당 될 가능성이 있다. 그러면 그 사람은 커널 소스에 대한 쓰기 권한을 갖게 된다.</para>
 
     <note>
-      <para>In many cases, the configuration of the kernel will need to be 
-      updated for packages that will be installed later in BLFS.  Unlike
-      other packages, it is not necessary to remove the kernel source tree
-      after the newly built kernel is installed.</para>  
+      <para>대부분의 경우 나중에 BLFS에서 설치될 패키지에 맞게 커널 구성을 업데이트해야 한다. 다른 패키지와 달리 새로 빌드된 커널을 설치한 후에는 커널 소스 트리를 제거할 필요가 없다.</para>  
     
-      <para>If the kernel source tree is going to be retained, run
-      <command>chown -R 0:0</command> on the <filename
-      class="directory">linux-&linux-version;</filename> directory to ensure
-      all files are owned by user <emphasis>root</emphasis>.</para>
+      <para>커널 소스 트리를 보존하려면 <filename class="directory">linux-&linux-version;</filename> 디렉토리에서 <command>chown -R 0:0</command>을 실행하여 모든 파일이 <emphasis>root</emphasis> 유저에 의해 소유되는지 확인하라.</para>
     </note>
 
     <warning>
-      <para>Some kernel documentation recommends creating a symlink from
-      <filename class="symlink">/usr/src/linux</filename> pointing to the kernel
-      source directory.  This is specific to kernels prior to the 2.6 series and
-      <emphasis>must not</emphasis> be created on an LFS system as it can cause
-      problems for packages you may wish to build once your base LFS system is
-      complete.</para>
+      <para>일부 커널 문서에서는 커널 소스 디렉토리를 가리키는 <filename class="symlink">/usr/src/linux</filename>에서 심볼릭 링크를 생성할 것을 권장한다. 이는 2.6 버전 이전의 커널에 한정되며, 기본 LFS 시스템이 완성되면 구축하고자 하는 패키지에 문제를 일으킬 수 있으므로 LFS 시스템에서 생성해서는 <emphasis>안 된다</emphasis>.</para>
     </warning>
 
     <warning>
-      <para>The headers in the system's <filename
-      class="directory">include</filename> directory (<filename
-      class="directory">/usr/include</filename>) should
-      <emphasis>always</emphasis> be the ones against which Glibc was compiled,
-      that is, the sanitised headers installed in <xref
-      linkend="ch-system-linux-headers"/>.  Therefore, they should
-      <emphasis>never</emphasis> be replaced by either the raw kernel headers
-      or any other kernel sanitized headers.</para>
+      <para>시스템의 <filename class="directory">include</filename> 디렉토리(<filename class="directory">/usr/include</filename>)의 헤더들은 <emphasis>항상</emphasis> Glibc가 컴파일된 헤더, 즉 <xref linkend="ch-system-linux-headers"/>에서 설치된 검증된 헤더여야 한다. 따라서 <emphasis>절대</emphasis> 원시 커널 헤더나 다른 커널 검증 헤더로 대체해서는 <emphasis>안 된다</emphasis>.</para>
     </warning>
 
   </sect2>
 
   <sect2 id="conf-modprobe" role="configuration">
-    <title>Configuring Linux Module Load Order</title>
+    <title>리눅스 모듈 로드 순서 설정</title>
 
     <indexterm zone="conf-modprobe">
       <primary sortas="e-/etc/modprobe.d/usb.conf">/etc/modprobe.d/usb.conf</primary>
     </indexterm>
 
-    <para>Most of the time Linux modules are loaded automatically, but
-    sometimes it needs some specific direction.  The program that loads
-    modules, <command>modprobe</command> or <command>insmod</command>, uses
-    <filename>/etc/modprobe.d/usb.conf</filename> for this purpose.  This file
-    needs to be created so that if the USB drivers (ehci_hcd, ohci_hcd and
-    uhci_hcd) have been built as modules, they will be loaded in the correct
-    order; ehci_hcd needs to be loaded prior to ohci_hcd and uhci_hcd in order
-    to avoid a warning being output at boot time.</para>
+    <para>리눅스 모듈은 대부분 자동으로 로드되지만, 때로는 특별한 방법이 필요할 때도 있다. <command>modprobe</command>나 <command>insmod</command>와 같이 모듈을 로드하는 프로그램들은 <filename>/etc/modprobe.d/usb.conf</filename>를 이러한 목적으로 사용한다. 이 파일은 USB 드라이버 (ehci_hcd, ohci_hcd 및 uhci_hcd)가 모듈로 빌드된 경우 올바른 순서로 로드되도록 하기 위해 생성되어야 한다; ehci_hcd는 부팅 시 경고 출력을 피하기 위해 ohci_hcd와 uhci_hcd보다 먼저 로드되어야 한다.</para>
 
-    <para>Create a new file <filename>/etc/modprobe.d/usb.conf</filename> by running
-    the following:</para>
+    <para>다음을 실행하여 새 <filename>/etc/modprobe.d/usb.conf</filename> 파일을 생성하라:</para>
 
 <screen><userinput>install -v -m755 -d /etc/modprobe.d
 cat &gt; /etc/modprobe.d/usb.conf &lt;&lt; "EOF"
@@ -341,30 +235,30 @@ EOF</userinput></screen>
   </sect2>
 
   <sect2 id="contents-kernel" role="content">
-    <title>Contents of Linux</title>
+    <title>리눅스의 내용</title>
 
     <segmentedlist>
-      <segtitle>Installed files</segtitle>
-      <segtitle>Installed directories</segtitle>
+      <segtitle>설치된 파일들</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>config-&linux-version;,
         <phrase revision="sysv">vmlinuz-&linux-version;-lfs-&version;,</phrase>
         <phrase revision="systemd">vmlinuz-&linux-version;-lfs-&versiond;,</phrase>
-        and System.map-&linux-version;</seg>
+        System.map-&linux-version;</seg>
         <seg>/lib/modules, /usr/share/doc/linux-&linux-version;</seg>
       </seglistitem>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry id="config">
         <term><filename>config-&linux-version;</filename></term>
         <listitem>
-          <para>Contains all the configuration selections for the kernel</para>
+          <para>커널에 대한 모든 구성 선택 사항 포함</para>
           <indexterm zone="ch-bootable-kernel config">
             <primary sortas="e-/boot/config">/boot/config-&linux-version;</primary>
           </indexterm>
@@ -375,12 +269,7 @@ EOF</userinput></screen>
         <term revision="sysv"><filename>vmlinuz-&linux-version;-lfs-&version;</filename></term>
         <term revision="systemd"><filename>vmlinuz-&linux-version;-lfs-&versiond;</filename></term>
         <listitem>
-          <para>The engine of the Linux system. When turning on the computer,
-          the kernel is the first part of the operating system that gets loaded.
-          It detects and initializes all components of the computer's hardware,
-          then makes these components available as a tree of files to the
-          software and turns a single CPU into a multitasking machine capable
-          of running scores of programs seemingly at the same time</para>
+          <para>리눅스 시스템의 엔진. 컴퓨터를 켤 때, 로딩되는 운영 체제의 첫 번째 부분이 이 커널이다. 컴퓨터 하드웨어의 모든 요소를 감지하고 초기화한 다음, 이러한 부품들을 소프트웨어의 파일 트리로 사용할 수 있게 하며 단일 CPU로 하여금 겉보기에 동시에 여러 프로그램을 실행하는 멀티 태스킹이 가능하도록 한다.</para>
           <indexterm zone="ch-bootable-kernel lfskernel">
             <primary sortas="b-lfskernel">lfskernel-&linux-version;</primary>
           </indexterm>
@@ -390,9 +279,7 @@ EOF</userinput></screen>
       <varlistentry id="System.map">
         <term><filename>System.map-&linux-version;</filename></term>
         <listitem>
-          <para>A list of addresses and symbols; it maps the entry points and
-          addresses of all the functions and data structures in the
-          kernel</para>
+          <para>주소 및 심볼 목록. 커널에 있는 모든 함수와 데이터 구조의 진입점과 주소를 매핑한다.</para>
           <indexterm zone="ch-bootable-kernel System.map">
             <primary sortas="e-/boot/System.map">/boot/System.map-&linux-version;</primary>
           </indexterm>

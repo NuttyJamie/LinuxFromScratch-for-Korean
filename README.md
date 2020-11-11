@@ -53,6 +53,6 @@ Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계 별로 �
 - Slackware14.2 in VirtualBox 
 
 ## TODO
-- [x] [LFS - 현재 진행 중](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
+- [x] [LFS - 초안 완성](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
 - [ ] BLFS
 - [ ] ALFS

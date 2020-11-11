@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,57 +8,30 @@
 <sect1 id="ch-finish-reboot">
   <?dbhtml filename="reboot.html"?>
 
-  <title>Rebooting the System</title>
+  <title>시스템 재부팅</title>
 
-  <para>Now that all of the software has been installed, it is time to reboot
-  your computer. However, you should be aware of a few things. The system you
-  have created in this book is quite minimal, and most likely will not have
-  the functionality you would need to be able to continue forward. By installing
-  a few extra packages from the BLFS book while still in our current chroot
-  environment, you can leave yourself in a much better position to continue on
-  once you reboot into your new LFS installation. Here are some suggestions:</para>
+  <para>이제 몯느 소프트웨어가 설치되었으니 컴퓨터를 다시 부팅할 시간이다. 그러나 몇 가지 알아야 할 것이 있다. 이 책에서 만든 시스템은 아주 최소한의 것이며 앞으로 계속 사용하는 데 필요한 기능이 없을 가능성이 크다. 현재 chroot 환경에 있는 동안 BLFS 책에서 몇 가지 추가 패키지를 설치하면 새 LFS 시스템으로 재부팅한 후에도 계속 사용할 수 있는 훨씬 더 좋은 환경을 만들 수 있다. 다음은 몇 가지 제안 사항이다:</para>
 
   <itemizedlist>
 
-    <listitem><para>A text mode browser such as <ulink
-    url='&blfs-book;basicnet/lynx.html'>Lynx</ulink>
-    will allow you to easily view the BLFS book in one virtual terminal, while
-    building packages in another.</para></listitem>
+    <listitem><para><ulink url='&blfs-book;basicnet/lynx.html'>Lynx</ulink>와 같은 텍스트 모드 브라우저를 사용하면 한 가상 터미널에서 BLFS 책을 쉽게 보면서 다른 가상 터미널에서 패키지를 빌드할 수 있다.</para></listitem>
 
-    <listitem><para>The <ulink
-    url='&blfs-book;general/gpm.html'>GPM</ulink> package will allow
-    you to perform copy/paste actions in your virtual
-    terminals.</para></listitem>
+    <listitem><para><ulink url='&blfs-book;general/gpm.html'>GPM</ulink> 패키지를 통해 가상 터미널에서 복사/붙여넣기 작업을 수행할 수 있다.</para></listitem>
 
-    <listitem><para>If you are in a situation where static IP configuration
-    does not meet your networking requirements, installing a package
-    such as <ulink url='&blfs-book;basicnet/dhcpcd.html'>dhcpcd</ulink>
-    or the client portion of <ulink
-    url='&blfs-book;basicnet/dhcp.html'>dhcp</ulink> may be
-    useful.</para></listitem>
+    <listitem><para>정적 IP 구성이 네트워킹 요구 사항을 충족하지 못하는 상황이라면, <ulink url='&blfs-book;basicnet/dhcpcd.html'>dhcpcd</ulink>나 <ulink url='&blfs-book;basicnet/dhcp.html'>dhcp</ulink>의 클라이언트 부분을 설치하는 것이 유용할 수 있다.</para></listitem>
 
-    <listitem><para>Installing <ulink
-    url='&blfs-book;postlfs/sudo.html'>sudo</ulink> may be useful for
-    building packages as a non-root user and easily installing the resulting
-    packages in your new system.  </para></listitem>
+    <listitem><para><ulink url='&blfs-book;postlfs/sudo.html'>sudo</ulink>를 설치하면 root 사용자가 아닌 사용자로써 패키지를 빌드하고 새 시스템에 결과물을 쉽게 설치하는 데 유용하다.  </para></listitem>
 
-    <listitem><para>If you want to access your new system from a remote system
-    within a comfortable GUI environment, install <ulink
-    url='&blfs-book;postlfs/openssh.html'>openssh</ulink>. 
+    <listitem><para>편안한 GUI 환경의 원격 시스템에서 새 시스템에 접속하려면 <ulink url='&blfs-book;postlfs/openssh.html'>openssh</ulink>를 설치하라. 
     </para></listitem>
 
-    <listitem><para>To make fetching files over the internet easier, install
-    <ulink url='&blfs-book;basicnet/wget.html'>wget</ulink>.
+    <listitem><para>인터넷을 통해 파일을 쉽게 받으려면 <ulink url='&blfs-book;basicnet/wget.html'>wget</ulink>를 설치하라.
     </para></listitem>
 
-    <listitem><para>If one or more of your disk drives have a GUID partition
-    table (GPT), either <ulink
-    url='&blfs-book;postlfs/gptfdisk.html'>gptfdisk</ulink> or <ulink
-    url='&blfs-book;postlfs/parted.html'>parted</ulink> will be useful.
+    <listitem><para>하나 이상의 디스크 드라이브에 GUID 파티션 테이블(GPT)이 있다면 <ulink url='&blfs-book;postlfs/gptfdisk.html'>gptfdisk</ulink>나 <ulink url='&blfs-book;postlfs/parted.html'>parted</ulink>가 유용할 것이다.
     </para></listitem>
 
-    <listitem><para>Finally, a review of the following configuration files
-    is also appropriate at this point.  </para>
+    <listitem><para>마지막으로, 이 시점에서는 다음과 같은 설정 파일들을 검토하는 것도 좋다.</para>
 
       <itemizedlist>
         <listitem><para>/etc/bashrc                  </para></listitem>
@@ -76,12 +49,11 @@
     </listitem>
   </itemizedlist>
 
-  <para>Now that we have said that, let's move on to booting our shiny new LFS
-  installation for the first time! First exit from the chroot environment:</para>
+  <para>이제 충분한 것 같으니, 멋진 새 LFS 시스템을 처음으로 부팅해보자! 우선 chroot 환경에서 빠져나간다:</para>
 
 <screen><userinput>logout</userinput></screen>
 
-  <para>Then unmount the virtual file systems:</para>
+  <para>그리고 가상 파일 시스템들을 마운트 해제한다:</para>
 
 <screen><userinput>umount -v $LFS/dev/pts
 umount -v $LFS/dev
@@ -89,25 +61,22 @@ umount -v $LFS/run
 umount -v $LFS/proc
 umount -v $LFS/sys</userinput></screen>
 
-  <para>Unmount the LFS file system itself:</para>
+  <para>LFS 파일 시스템 자체를 마운트 해제한다:</para>
 
 <screen><userinput>umount -v $LFS</userinput></screen>
 
-  <para>If multiple partitions were created, unmount the other
-  partitions before unmounting the main one, like this:</para>
+  <para>여러 파티션이 생성된 경우 다음과 같이 기본 파티션을 마운트 해제하기 전에 다른 파티션을 먼저 마운트 해제하라:</para>
 
 <screen role="nodump"><userinput>umount -v $LFS/usr
 umount -v $LFS/home
 umount -v $LFS</userinput></screen>
 
-  <para>Now, reboot the system with:</para>
+  <para>이제, 시스템을 재부팅한다:</para>
 
 <screen role="nodump"><userinput>shutdown -r now</userinput></screen>
 
-  <para>Assuming the GRUB boot loader was set up as outlined earlier, the menu
-  is set to boot <emphasis>LFS &version;</emphasis> automatically.</para>
+  <para>앞서 설명한 대로 GRUB 부트 로더가 설정되었다고 가정하면 메뉴는 <emphasis>LFS &version;</emphasis>을 자동으로 부팅하도록 설정된다.</para>
 
-  <para>When the reboot is complete, the LFS system is ready for use and
-  more software may be added to suit your needs.</para>
+  <para>재부팅이 완료되면 LFS 시스템을 사용할 수 있으며 사용자의 필요에 맞게 소프트웨어를 추가할 수 있다.</para>
 
 </sect1>
