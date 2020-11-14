@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.7. &#47532;&#45573;&#49828;-5.5.3 API &#54756;&#45908;
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="createfiles.html" title=
+          "&#54596;&#49688; &#54028;&#51068; &#48143; Symlink &#49373;&#49457;">
+          &#51060;&#51204;</a>
+          <p>
+            &#54596;&#49688; &#54028;&#51068; &#48143; Symlink
+            &#49373;&#49457;
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="man-pages.html" title=
+          "Man-pages-5.05">&#45796;&#51020;</a>
+          <p>
+            Man-pages-5.05
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-linux-headers" name=
+        "ch-system-linux-headers"></a>6.7. &#47532;&#45573;&#49828;-5.5.3 API
+        &#54756;&#45908;
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          &#47532;&#45573;&#49828; API
+          &#54756;&#45908;(&#47532;&#45573;&#49828;-5.5.3.tar.xz&#51032;)&#45716;
+          Glibc&#50640; &#50416;&#51060;&#45716; &#52964;&#45328; API&#47484;
+          &#44277;&#44060;&#54620;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.1 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">1 GB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.7.1. &#47532;&#45573;&#49828; API &#54756;&#45908;
+          &#49444;&#52824;
+        </h2>
+        <p>
+          &#47532;&#45573;&#49828; &#52964;&#45328;&#51008;
+          &#49884;&#49828;&#53596;&#51032; C
+          &#46972;&#51060;&#48652;&#47084;&#47532;(LFS&#51032; Glibc)&#44032;
+          &#49324;&#50857;&#54624; &#49688; &#51080;&#46020;&#47197;
+          API(&#51025;&#50857;&#54532;&#47196;&#44536;&#47016;
+          &#51064;&#53552;&#54168;&#51060;&#49828;)&#47484;
+          &#44277;&#44060;&#54644;&#50556; &#54620;&#45796;.
+          &#51060;&#44163;&#51008; &#47532;&#45573;&#49828; &#52964;&#45328;
+          &#49548;&#49828; tarball&#47196; &#48176;&#54252;&#46104;&#45716;
+          &#45796;&#50577;&#54620; C &#54756;&#45908;
+          &#54028;&#51068;&#51012; &#44160;&#49324;&#54616;&#45716;
+          &#44163;&#51004;&#47196; &#51060;&#47364;&#51652;&#45796;.
+        </p>
+        <p>
+          &#51060;&#51204; &#51089;&#50629;&#51004;&#47196; &#51064;&#54644;
+          &#50724;&#47000;&#46108; &#54028;&#51068;&#51060;&#45208;
+          &#51032;&#51316;&#49457;&#51060;
+          &#45224;&#50500;&#51080;&#51648;&#45716; &#50506;&#51008;&#51648;
+          &#54869;&#51064;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make mrproper</kbd>
+</pre>
+        <p>
+          &#51060;&#51228; &#49548;&#49828;&#50640;&#49436;
+          &#49324;&#50857;&#51088;&#44032; &#48380; &#49688; &#51080;&#45716;
+          &#52964;&#45328; &#54756;&#45908;&#47484;
+          &#52628;&#52636;&#54616;&#46972;. &#44428;&#51109;&#46104;&#45716;
+          make &#45824;&#49345; <span class="quote">&ldquo;<span class=
+          "quote">headers_install</span>&rdquo;</span>&#51008; <code class=
+          "filename">/tools</code>&#50640;&#49436; &#49324;&#50857;&#54624;
+          &#49688; &#50630;&#45716; <span class=
+          "application">rsync</span>&#44032; &#54596;&#50836;&#54616;&#44592;
+          &#46412;&#47928;&#50640; &#49324;&#50857;&#54624; &#49688;
+          &#50630;&#45796;. &#54756;&#45908;&#47484; &#47676;&#51200;
+          <code class="filename">./usr</code>&#50640;
+          &#48176;&#52824;&#54620; &#45796;&#51020;, &#52964;&#45328;
+          &#44060;&#48156;&#51088;&#44032; &#49324;&#50857;&#54616;&#45716;
+          &#51068;&#48512; &#54028;&#51068;&#51012;
+          &#51228;&#44144;&#54616;&#44256; &#54028;&#51068;&#51012;
+          &#52572;&#51333; &#50948;&#52824;&#47196;
+          &#48373;&#49324;&#54620;&#45796;.
+        </p>
+        <pre class="userinput">
+<kbd class="command">make headers
+find usr/include -name '.*' -delete
+rm usr/include/Makefile
+</kbd><kbd class="command">cp -rv usr/include/* /usr/include</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-linux-headers" name=
+          "contents-linux-headers"></a>6.7.2. &#47532;&#45573;&#49828; API
+          &#54756;&#45908;&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54756;&#45908;&#46308;:</strong> <span class=
+              "segbody">/usr/include/asm/*.h, /usr/include/asm-generic/*.h,
+              /usr/include/drm/*.h, /usr/include/linux/*.h,
+              /usr/include/misc/*.h, /usr/include/mtd/*.h,
+              /usr/include/rdma/*.h, /usr/include/scsi/*.h,
+              /usr/include/sound/*.h, /usr/include/video/*.h, and
+              /usr/include/xen/*.h</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;&#46308;:</strong> <span class=
+              "segbody">/usr/include/asm, /usr/include/asm-generic,
+              /usr/include/drm, /usr/include/linux, /usr/include/misc,
+              /usr/include/mtd, /usr/include/rdma, /usr/include/scsi,
+              /usr/include/sound, /usr/include/video, and
+              /usr/include/xen</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="asm" name="asm"></a><span class=
+                    "term"><code class="filename">/usr/include/asm/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API ASM &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="asm-generic" name="asm-generic"></a><span class=
+                    "term"><code class=
+                    "filename">/usr/include/asm-generic/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API ASM &#48276;&#50857;
+                    &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="drm" name="drm"></a><span class=
+                    "term"><code class="filename">/usr/include/drm/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API DRM &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="linux" name="linux"></a><span class=
+                    "term"><code class=
+                    "filename">/usr/include/linux/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API &#47532;&#45573;&#49828;
+                    &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="misc" name="misc"></a><span class=
+                    "term"><code class=
+                    "filename">/usr/include/misc/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API &#44592;&#53440;
+                    &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mtd" name="mtd"></a><span class=
+                    "term"><code class="filename">/usr/include/mtd/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API MTD &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rdma" name="rdma"></a><span class=
+                    "term"><code class=
+                    "filename">/usr/include/rdma/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API RDMA &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="scsi" name="scsi"></a><span class=
+                    "term"><code class=
+                    "filename">/usr/include/scsi/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API SCSI &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="sound" name="sound"></a><span class=
+                    "term"><code class=
+                    "filename">/usr/include/sound/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API &#49324;&#50868;&#46300;
+                    &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="video" name="video"></a><span class=
+                    "term"><code class=
+                    "filename">/usr/include/video/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API &#48708;&#46356;&#50724;
+                    &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xen" name="xen"></a><span class=
+                    "term"><code class="filename">/usr/include/xen/*.h</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; API Xen &#54756;&#45908;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="createfiles.html" title=
+          "&#54596;&#49688; &#54028;&#51068; &#48143; Symlink &#49373;&#49457;">
+          &#51060;&#51204;</a>
+          <p>
+            &#54596;&#49688; &#54028;&#51068; &#48143; Symlink
+            &#49373;&#49457;
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="man-pages.html" title=
+          "Man-pages-5.05">&#45796;&#51020;</a>
+          <p>
+            Man-pages-5.05
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

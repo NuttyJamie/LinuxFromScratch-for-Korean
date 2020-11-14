@@ -1,0 +1,1042 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.59. Groff-1.22.4
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="findutils.html" title=
+          "Findutils-4.7.0">&#51060;&#51204;</a>
+          <p>
+            Findutils-4.7.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="grub.html" title=
+          "GRUB-2.04">&#45796;&#51020;</a>
+          <p>
+            GRUB-2.04
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-groff" name="ch-system-groff"></a>6.59. Groff-1.22.4
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Groff &#54056;&#53412;&#51648;&#45716;
+          &#53581;&#49828;&#53944;&#47484; &#52376;&#47532;&#54616;&#44256;
+          &#49436;&#49885;&#51012; &#51648;&#51221;&#54616;&#45716;
+          &#54532;&#47196;&#44536;&#47016;&#51060;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.5 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">95 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.59.1. Groff &#49444;&#52824;
+        </h2>
+        <p>
+          Groff&#45716; &#54872;&#44221; &#48320;&#49688; <code class=
+          "envar">PAGE</code>&#51032; &#44050;&#51060; &#44592;&#48376;
+          &#50857;&#51648; &#53356;&#44592;&#50668;&#50556; &#54620;&#45796;.
+          &#48120;&#44397;&#51032;
+          &#49324;&#50857;&#51088;&#50640;&#44172;&#45716; <em class=
+          "parameter"><code>PAGE=letter</code></em>&#44032;
+          &#51201;&#45817;&#54616;&#45796;. &#45796;&#47480;
+          &#44275;&#50640;&#49436;&#45716; <em class=
+          "parameter"><code>PAGE=A4</code></em>&#44032; &#45908;
+          &#51201;&#54633;&#54624; &#44163;&#51060;&#45796;.
+          &#52980;&#54028;&#51068; &#51473;&#50640; &#44592;&#48376;
+          &#50857;&#51648; &#53356;&#44592;&#44032;
+          &#49444;&#51221;&#46104;&#51648;&#47564; &#45208;&#51473;&#50640;
+          <code class="filename">/etc/papersize</code>
+          &#54028;&#51068;&#50640;&#49436; <span class=
+          "quote">&ldquo;<span class="quote">A4</span>&rdquo;</span>&#45208;
+          <span class="quote">&ldquo;<span class=
+          "quote">letter</span>&rdquo;</span>&#47196;
+          &#45934;&#50612;&#50424; &#49688; &#51080;&#45796;.
+        </p>
+        <p>
+          Groff &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">PAGE=<em class=
+"replaceable"><code>&lt;paper_size&gt;</code></em> ./configure --prefix=/usr</kbd>
+</pre>
+        <p>
+          &#51060; &#54056;&#53412;&#51648;&#45716; &#48337;&#47148;
+          &#48716;&#46300;&#47484; &#51648;&#50896;&#54616;&#51648;
+          &#50506;&#45716;&#45796;. &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make -j1</kbd>
+</pre>
+        <p>
+          &#51060; &#54056;&#53412;&#51648;&#50640;&#45716;
+          &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#44032;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#51648; &#50506;&#45796;.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-groff" name="contents-groff"></a>6.59.2.
+          Groff&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">addftinfo, afmtodit, chem, eqn, eqn2graph, gdiffmk,
+              glilypond, gperl, gpinyin, grap2graph, grn, grodvi, groff,
+              groffer, grog, grolbp, grolj4, gropdf, grops, grotty, hpftodit,
+              indxbib, lkbib, lookbib, mmroff, neqn, nroff, pdfmom, pdfroff,
+              pfbtops, pic, pic2graph, post-grohtml, preconv, pre-grohtml,
+              refer, roff2dvi, roff2html, roff2pdf, roff2ps, roff2text,
+              roff2x, soelim, tbl, tfmtodit, troff</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;&#46308;:</strong> <span class=
+              "segbody">/usr/lib/groff&#50752; /usr/share/doc/groff-1.22.4,
+              /usr/share/groff</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="addftinfo" name="addftinfo"></a><span class=
+                    "term"><span class=
+                    "command"><strong>addftinfo</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Troff &#44544;&#44852; &#54028;&#51068;&#51012;
+                    &#51069;&#44256; <span class=
+                    "command"><strong>groff</strong></span>
+                    &#49884;&#49828;&#53596;&#50640;
+                    &#49324;&#50857;&#46104;&#45716; &#51068;&#48512;
+                    &#52628;&#44032; &#44544;&#44852;
+                    &#47700;&#53944;&#47533; &#51221;&#48372;&#47484;
+                    &#52628;&#44032;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="afmtodit" name="afmtodit"></a><span class=
+                    "term"><span class=
+                    "command"><strong>afmtodit</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class=
+                    "command"><strong>groff</strong></span>&#50752;
+                    <span class=
+                    "command"><strong>grops</strong></span>&#50640;
+                    &#49324;&#50857;&#54624; &#44544;&#44852;
+                    &#54028;&#51068; &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="chem" name="chem"></a><span class=
+                    "term"><span class=
+                    "command"><strong>chem</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54868;&#54617; &#44396;&#51312;
+                    &#45796;&#51060;&#50612;&#44536;&#47016;
+                    &#49373;&#49457;&#51012; &#50948;&#54620; Groff
+                    &#51204;&#52376;&#47532;&#44592;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="eqn" name="eqn"></a><span class=
+                    "term"><span class="command"><strong>eqn</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Troff &#51077;&#47141; &#54028;&#51068;&#50640;
+                    &#54252;&#54632;&#46108; &#48169;&#51221;&#49885;&#50640;
+                    &#44288;&#54620; &#49444;&#47749;&#51012; <span class=
+                    "command"><strong>troff</strong></span>&#44032;
+                    &#51064;&#49885;&#54624; &#49688; &#51080;&#45716;
+                    &#47749;&#47161;&#51004;&#47196; &#52980;&#54028;&#51068;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="eqn2graph" name="eqn2graph"></a><span class=
+                    "term"><span class=
+                    "command"><strong>eqn2graph</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Troff EQN(&#48169;&#51221;&#49885;, equation)&#51012;
+                    &#51096;&#46972;&#45240; &#51060;&#48120;&#51648;&#47196;
+                    &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gdiffmk" name="gdiffmk"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gdiffmk</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Groff/nroff/troff &#54028;&#51068; &#44036;&#51032;
+                    &#52264;&#51060; &#54364;&#49884;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="glilypond" name="glilypond"></a><span class=
+                    "term"><span class=
+                    "command"><strong>glilypond</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Lilypond &#50616;&#50612;&#47196; &#50416;&#51064;
+                    &#50501;&#48372;&#47484; groff &#50616;&#50612;&#47196;
+                    &#48320;&#54805;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gperl" name="gperl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gperl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Groff &#54028;&#51068;&#50640; perl
+                    &#53076;&#46300;&#47484; &#52628;&#44032;&#54624;
+                    &#49688; &#51080;&#45716; groff&#50857;
+                    &#51204;&#52376;&#47532;&#44592;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gpinyin" name="gpinyin"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gpinyin</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54620;&#50612; &#48337;&#51020; Pinyin&#51012; groff
+                    &#54028;&#51068;&#50640; &#52628;&#44032;&#54624;
+                    &#49688; &#51080;&#45716; groff
+                    &#51204;&#52376;&#47532;&#44592;.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grap2graph" name="grap2graph"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grap2graph</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    grap &#45796;&#51060;&#50612;&#44536;&#47016;&#51012;
+                    &#51096;&#46972;&#45240; &#48708;&#53944;&#47605;
+                    &#51060;&#48120;&#51648;&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grn" name="grn"></a><span class=
+                    "term"><span class="command"><strong>grn</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Gremlin &#54028;&#51068;&#51012; &#50948;&#54620;
+                    <span class="command"><strong>groff</strong></span>
+                    &#51204;&#52376;&#47532;&#44592;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grodvi" name="grodvi"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grodvi</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    TeX dvi &#54252;&#47607;&#51012; &#47564;&#46300;&#45716;
+                    <span class=
+                    "command"><strong>groff</strong></span>&#50857;
+                    &#46300;&#46972;&#51060;&#48260;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="groff" name="groff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>groff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Groff &#47928;&#49436; &#49436;&#49885; &#54200;&#51665;
+                    &#54532;&#47196;&#44536;&#47016;&#51032;
+                    &#54532;&#47200;&#53944; &#50644;&#46300;;
+                    &#51068;&#48152;&#51201;&#51004;&#47196; <span class=
+                    "command"><strong>troff</strong></span>
+                    &#54532;&#47196;&#44536;&#47016;&#44284;
+                    &#49440;&#53469;&#46108; &#51109;&#52824;&#50640;
+                    &#51201;&#54633;&#54620;
+                    &#54980;&#52376;&#47532;&#44592;&#47484; &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="groffer" name="groffer"></a><span class=
+                    "term"><span class=
+                    "command"><strong>groffer</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    X&#50752; tty &#53552;&#48120;&#45328;&#50640; groff
+                    &#54028;&#51068;&#44284; man &#54168;&#51060;&#51648;
+                    &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grog" name="grog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grog</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068;&#51012; &#51069;&#44256;
+                    &#51064;&#49604;&#50640; &#54596;&#50836;&#54620;
+                    <span class="command"><strong>groff</strong></span>
+                    &#50741;&#49496;(<code class="option">-e</code>,
+                    <code class="option">-man</code>, <code class=
+                    "option">-me</code>, <code class="option">-mm</code>,
+                    <code class="option">-ms</code>, <code class=
+                    "option">-p</code>, <code class="option">-s</code>,
+                    <code class="option">-t</code>)&#51012;
+                    &#52628;&#52769;&#54644;&#49436; &#54644;&#45817;
+                    &#50741;&#49496;&#46308;&#51012; &#54252;&#54632;&#54620;
+                    <span class="command"><strong>groff</strong></span>
+                    &#47749;&#47161;&#51012; &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grolbp" name="grolbp"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grolbp</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#52880;&#45436; CAPSL &#54532;&#47536;&#53552;&#50857;
+                    <span class="command"><strong>groff</strong></span>
+                    &#46300;&#46972;&#51060;&#48260;(LBP-4&#48143; LBP-8
+                    &#49884;&#47532;&#51592; &#47112;&#51060;&#51200;
+                    &#54532;&#47536;&#53552;)
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grolj4" name="grolj4"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grolj4</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    HP LaserJet 4 &#54532;&#47536;&#53552;&#50640;
+                    &#51201;&#54633;&#54620; PCL5 &#54805;&#49885;&#51032;
+                    &#52636;&#47141;&#51012; &#49373;&#49457;&#54616;&#45716;
+                    <span class=
+                    "command"><strong>groff</strong></span>&#50857;
+                    &#46300;&#46972;&#51060;&#48260;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gropdf" name="gropdf"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gropdf</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GNU <span class=
+                    "command"><strong>troff</strong></span>&#51032;
+                    &#52636;&#47141;&#51012; PDF&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grops" name="grops"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grops</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GNU <span class=
+                    "command"><strong>troff</strong></span>&#51032;
+                    &#52636;&#47141;&#51012; PostScript&#47196;
+                    &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grotty" name="grotty"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grotty</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GNU <span class=
+                    "command"><strong>troff</strong></span>&#51032;
+                    &#52636;&#47141;&#51012; &#53440;&#51088;&#44592;&#50752;
+                    &#44057;&#51008; &#51109;&#52824;&#50640;
+                    &#51201;&#54633;&#54620; &#54805;&#53468;&#47196;
+                    &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="hpftodit" name="hpftodit"></a><span class=
+                    "term"><span class=
+                    "command"><strong>hpftodit</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    HP &#53468;&#44536; &#44544;&#44852;
+                    &#47700;&#53944;&#47533;
+                    &#54028;&#51068;&#47196;&#48512;&#53552; <span class=
+                    "command"><strong>groff -Tlj4</strong></span>&#50752;
+                    &#54632;&#44760; &#49324;&#50857;&#54624;
+                    &#44544;&#44852; &#54028;&#51068; &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="indxbib" name="indxbib"></a><span class=
+                    "term"><span class=
+                    "command"><strong>indxbib</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class="command"><strong>refer</strong></span>,
+                    <span class="command"><strong>lookbib</strong></span>,
+                    <span class=
+                    "command"><strong>lkbib</strong></span>&#50640;
+                    &#49324;&#50857;&#54616;&#44592; &#50948;&#54644;,
+                    &#51648;&#51221;&#46108; &#54028;&#51068;&#51012;
+                    &#49324;&#50857;&#54616;&#50668; &#49436;&#51648;
+                    &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#50640;
+                    &#45824;&#54620; &#48152;&#51204;&#46108;
+                    &#49353;&#51064;&#51012; &#51089;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lkbib" name="lkbib"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lkbib</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49436;&#51648;
+                    &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#50640;&#49436;
+                    &#51648;&#51221;&#46108; &#53412;&#44032;
+                    &#54252;&#54632;&#46108; &#52280;&#44256;
+                    &#47928;&#54732;&#51012; &#52286;&#44256;
+                    &#44160;&#49353;&#46108; &#47784;&#46304;
+                    &#52280;&#44256; &#47928;&#54732;&#51012;
+                    &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lookbib" name="lookbib"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lookbib</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54364;&#51456; &#50724;&#47448;&#50640;
+                    &#54532;&#47212;&#54532;&#53944;&#47484;
+                    &#52636;&#47141;(&#54364;&#51456;
+                    &#51077;&#47141;&#51060; &#53552;&#48120;&#45328;&#51060;
+                    &#50500;&#45772; &#44221;&#50864;)&#54616;&#44256;,
+                    &#54364;&#51456;
+                    &#51077;&#47141;&#51004;&#47196;&#48512;&#53552;
+                    &#53412;&#50892;&#46300;&#46308;&#51012;
+                    &#51069;&#50612;&#46308;&#51064; &#45796;&#51020;,
+                    &#51648;&#51221;&#46108; &#54028;&#51068;&#50640;&#49436;
+                    &#54644;&#45817; &#53412;&#50892;&#46300;&#47484;
+                    &#54252;&#54632;&#54616;&#45716;
+                    &#52280;&#51312;&#47928;&#51012;
+                    &#44160;&#49353;&#54644;&#49436; &#54364;&#51456;
+                    &#52636;&#47141;&#51004;&#47196;
+                    &#52636;&#47141;&#54620;&#45796;.
+                    &#51077;&#47141;&#51060; &#45149;&#45216;
+                    &#46412;&#44620;&#51648; &#51060;
+                    &#44284;&#51221;&#51012; &#48152;&#48373;&#54632;.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mmroff" name="mmroff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mmroff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class=
+                    "command"><strong>groff</strong></span>&#47484;
+                    &#50948;&#54620; &#44036;&#45800;&#54620;
+                    &#51204;&#52376;&#47532;&#44592;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="neqn" name="neqn"></a><span class=
+                    "term"><span class=
+                    "command"><strong>neqn</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48120;&#44397; &#51221;&#48372; &#44368;&#54872;
+                    &#54364;&#51456; &#48512;&#54840;(American Standard Code
+                    for Information Interchange, ASCII)
+                    &#52636;&#47141;&#51004;&#47196; &#48169;&#51221;&#49885;
+                    &#49436;&#49885;&#54868;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="nroff" name="nroff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>nroff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class=
+                    "command"><strong>groff</strong></span>&#47484;
+                    &#49324;&#50857;&#54616;&#50668; <span class=
+                    "command"><strong>nroff</strong></span>
+                    &#47749;&#47161;&#51012;
+                    &#50640;&#48044;&#47112;&#51060;&#53944;&#54616;&#45716;
+                    &#49828;&#53356;&#47549;&#53944;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pdfmom" name="pdfmom"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pdfmom</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    mom &#47588;&#53356;&#47196;&#47196;
+                    &#49436;&#49885;&#54868;&#46108;
+                    &#54028;&#51068;&#47196;&#48512;&#53552; PDF
+                    &#47928;&#49436;&#47484; &#49789;&#44172;
+                    &#47564;&#46308; &#49688; &#51080;&#45716; groff&#50857;
+                    &#47000;&#54140;.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pdfroff" name="pdfroff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pdfroff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Groff&#47484; &#49324;&#50857;&#54616;&#50668; pdf
+                    &#47928;&#49436; &#51089;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pfbtops" name="pfbtops"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pfbtops</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <code class="filename">.pfb</code>
+                    &#54805;&#49885;&#51032; PostScript
+                    &#44544;&#44852;&#51012; ASCII&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pic" name="pic"></a><span class=
+                    "term"><span class="command"><strong>pic</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class="command"><strong>troff</strong></span>
+                    &#46608;&#45716; TeX &#51077;&#47141;
+                    &#54028;&#51068;&#50640; &#54252;&#54632;&#46108;
+                    &#49324;&#51652;&#50640; &#45824;&#54620;
+                    &#49444;&#47749;&#51012; TeX&#45208; troff&#44032;
+                    &#51064;&#49885; &#44032;&#45733;&#54620;
+                    &#47749;&#47161;&#51004;&#47196; &#52980;&#54028;&#51068;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pic2graph" name="pic2graph"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pic2graph</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    PIC &#45796;&#51060;&#50612;&#44536;&#47016;&#51012;
+                    &#51096;&#46972;&#45240; &#51060;&#48120;&#51648;&#47196;
+                    &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="post-grohtml" name="post-grohtml"></a><span class=
+                    "term"><span class=
+                    "command"><strong>post-grohtml</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GNU <span class=
+                    "command"><strong>troff</strong></span>&#51032;
+                    &#52636;&#47141;&#51012; HTML&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="preconv" name="preconv"></a><span class=
+                    "term"><span class=
+                    "command"><strong>preconv</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51077;&#47141; &#54028;&#51068;&#51032;
+                    &#51064;&#53076;&#46377;&#51012; GNU <span class=
+                    "command"><strong>troff</strong></span>&#44032;
+                    &#51064;&#49885;&#54616;&#45716; &#44163;&#51004;&#47196;
+                    &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pre-grohtml" name="pre-grohtml"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pre-grohtml</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GNU <span class=
+                    "command"><strong>troff</strong></span>&#51032;
+                    &#52636;&#47141;&#51012; HTML&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="refer" name="refer"></a><span class=
+                    "term"><span class=
+                    "command"><strong>refer</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51064;&#50857;&#47928;&#51004;&#47196;
+                    &#54644;&#49437;&#46104;&#45716; <span class=
+                    "emphasis"><em>.[</em></span>&#50752; <span class=
+                    "emphasis"><em>.]</em></span> &#49324;&#51060;&#51032;
+                    &#54665;&#44284;, &#51064;&#50857;&#47928;&#51012;
+                    &#50612;&#46523;&#44172;
+                    &#52376;&#47532;&#54624;&#51648;&#50640; &#45824;&#54620;
+                    &#47749;&#47161;&#51004;&#47196;
+                    &#54644;&#49437;&#46104;&#45716; <span class=
+                    "emphasis"><em>.R1</em></span>&#44284; <span class=
+                    "emphasis"><em>.R2</em></span> &#49324;&#51060;&#51032;
+                    &#54665;&#51012; &#51228;&#50808;&#54616;&#44256;,
+                    &#54028;&#51068;&#51032; &#45236;&#50857;&#51012;
+                    &#54364;&#51456; &#52636;&#47141;&#50640;
+                    &#48373;&#49324;&#54620;&#45796;.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="roff2dvi" name="roff2dvi"></a><span class=
+                    "term"><span class=
+                    "command"><strong>roff2dvi</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Roff &#54028;&#51068;&#51012; DVI
+                    &#54805;&#49885;&#51004;&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="roff2html" name="roff2html"></a><span class=
+                    "term"><span class=
+                    "command"><strong>roff2html</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Roff &#54028;&#51068;&#51012; html
+                    &#54805;&#49885;&#51004;&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="roff2pdf" name="roff2pdf"></a><span class=
+                    "term"><span class=
+                    "command"><strong>roff2pdf</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Roff &#54028;&#51068;&#51012; pdf
+                    &#54805;&#49885;&#51004;&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="roff2ps" name="roff2ps"></a><span class=
+                    "term"><span class=
+                    "command"><strong>roff2ps</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Roff &#54028;&#51068;&#51012; ps
+                    &#54805;&#49885;&#51004;&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="roff2text" name="roff2text"></a><span class=
+                    "term"><span class=
+                    "command"><strong>roff2text</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Roff &#54028;&#51068;&#51012; &#53581;&#49828;&#53944;
+                    &#54805;&#49885;&#51004;&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="roff2x" name="roff2x"></a><span class=
+                    "term"><span class=
+                    "command"><strong>roff2x</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Roff &#54028;&#51068;&#51012; &#45796;&#47480;
+                    &#54805;&#49885;&#51004;&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="soelim" name="soelim"></a><span class=
+                    "term"><span class=
+                    "command"><strong>soelim</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068;&#51012;
+                    &#51069;&#50612;&#46308;&#50668;&#49436;
+                    &#50616;&#44553;&#46108; <span class=
+                    "emphasis"><em>file</em></span>&#51032;
+                    &#45236;&#50857;&#51004;&#47196; <span class=
+                    "emphasis"><em>.so file</em></span>
+                    &#54805;&#49885;&#51032; &#54665;&#51012;
+                    &#45824;&#52404;&#54632;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="tbl" name="tbl"></a><span class=
+                    "term"><span class="command"><strong>tbl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Troff &#51077;&#47141; &#54028;&#51068;&#50640;
+                    &#54252;&#54632;&#46108; &#53580;&#51060;&#48660;&#50640;
+                    &#45824;&#54620; &#49444;&#47749;&#51012; <span class=
+                    "command"><strong>troff</strong></span>&#44032;
+                    &#51064;&#49885;&#54616;&#45716;
+                    &#47749;&#47161;&#51004;&#47196; &#52980;&#54028;&#51068;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="tfmtodit" name="tfmtodit"></a><span class=
+                    "term"><span class=
+                    "command"><strong>tfmtodit</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class="command"><strong>groff
+                    -Tdvi</strong></span>&#50752; &#54632;&#44760;
+                    &#49324;&#50857;&#54624; &#44544;&#44852;
+                    &#54028;&#51068; &#51089;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="troff" name="troff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>troff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#50976;&#45769;&#49828; <span class=
+                    "command"><strong>troff</strong></span>&#50752;
+                    &#47588;&#50864; &#51096; &#54840;&#54872;&#46120;;
+                    &#51068;&#48152;&#51201;&#51004;&#47196;<span class=
+                    "command"><strong>groff</strong></span>
+                    &#47749;&#47161;&#51012; &#49324;&#50857;&#54644;&#49436;
+                    &#54840;&#52636;&#46104;&#50612;&#50556;
+                    &#54620;&#45796;. &#51060; &#47749;&#47161;&#51008;
+                    &#51201;&#51208;&#54620; &#49692;&#49436;&#50752;
+                    &#51201;&#51208;&#54620; &#50741;&#49496;&#51004;&#47196;
+                    &#51204;&#52376;&#47532;&#44592;&#50752;
+                    &#54980;&#52376;&#47532;&#44592;&#47484;
+                    &#49892;&#54665;&#54620;&#45796;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="findutils.html" title=
+          "Findutils-4.7.0">&#51060;&#51204;</a>
+          <p>
+            Findutils-4.7.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="grub.html" title=
+          "GRUB-2.04">&#45796;&#51020;</a>
+          <p>
+            GRUB-2.04
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

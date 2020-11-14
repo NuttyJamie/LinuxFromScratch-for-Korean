@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      5.12. Expect-5.45.4
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        5&#51109;. &#51076;&#49884; &#49884;&#49828;&#53596; &#44396;&#52629;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="tcl.html" title=
+          "Tcl-8.6.10">&#51060;&#51204;</a>
+          <p>
+            Tcl-8.6.10
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dejagnu.html" title=
+          "DejaGNU-1.6.2">&#45796;&#51020;</a>
+          <p>
+            DejaGNU-1.6.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter05.html" title=
+          "5&#51109;. &#51076;&#49884; &#49884;&#49828;&#53596; &#44396;&#52629;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-tools-expect" name="ch-tools-expect"></a>5.12.
+        Expect-5.45.4
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Expect &#54056;&#53412;&#51648;&#50640;&#45716; &#45796;&#47480;
+          &#45824;&#54868;&#54805; &#54532;&#47196;&#44536;&#47016;&#44284;
+          &#49828;&#53356;&#47549;&#53944; &#45824;&#54868;&#47484;
+          &#49688;&#54665;&#54616;&#44592; &#50948;&#54620;
+          &#54532;&#47196;&#44536;&#47016;&#51060;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.1 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">4.0 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          5.12.1. Expect &#49444;&#52824;
+        </h2>
+        <p>
+          &#47676;&#51200; Expect&#51032; configure
+          &#49828;&#53356;&#47549;&#53944;&#44032; &#54840;&#49828;&#53944;
+          &#49884;&#49828;&#53596;&#50640;&#49436; &#52286;&#51012; &#49688;
+          &#51080;&#45716; <code class="filename">/usr/local/bin/stty</code>
+          &#45824;&#49888; <code class="filename">/bin/stty</code>&#47484;
+          &#49324;&#50857;&#54616;&#46020;&#47197; &#44053;&#51228;
+          &#49444;&#51221;&#54620;&#45796;. &#51060;&#47484; &#53685;&#54644;
+          &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;
+          &#46020;&#44396;&#45716; &#53812;&#52404;&#51064;&#51032;
+          &#52572;&#51333; &#48716;&#46300;&#47484; &#50948;&#54620;
+          &#50728;&#51204;&#54620; &#49345;&#53468;&#47484;
+          &#50976;&#51648;&#54624; &#49688; &#51080;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cp -v configure{,.orig}
+sed 's:/usr/local/bin:/bin:' configure.orig &gt; configure</kbd>
+</pre>
+        <p>
+          &#51060;&#51228; Expect &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/tools       \
+            --with-tcl=/tools/lib \
+            --with-tclinclude=/tools/include</kbd>
+</pre>
+        <div class="variablelist">
+          <p class="title">
+            <strong>Configure &#50741;&#49496;&#46308;&#51032;
+            &#51032;&#48120;:</strong>
+          </p>
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--with-tcl=/tools/lib</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                &#51060; &#50741;&#49496;&#51012; &#53685;&#54644; configure
+                &#49828;&#53356;&#47549;&#53944;&#44032;
+                &#54840;&#49828;&#53944;
+                &#49884;&#49828;&#53596;&#50640;&#49436; &#44592;&#51316;
+                &#44163;&#51012; &#52286;&#45716; &#45824;&#49888;
+                &#51076;&#49884; &#46020;&#44396;
+                &#50948;&#52824;&#50640;&#49436; Tcl &#49444;&#52824;&#47484;
+                &#52286;&#51012; &#49688; &#51080;&#45796;.
+              </p>
+            </dd>
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--with-tclinclude=/tools/include</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                Expect&#44032; Tcl&#51032; &#45236;&#48512;
+                &#54756;&#45908;&#47484; &#50612;&#46356;&#49436;
+                &#52286;&#51012;&#51648; &#54869;&#49892;&#54616;&#44172;
+                &#51648;&#51221;&#54620;&#45796;. &#51060;
+                &#50741;&#49496;&#51012; &#49324;&#50857;&#54616;&#47732;
+                Tcl&#51032; &#54756;&#45908; &#50948;&#52824;&#47484;
+                &#51088;&#46041;&#51004;&#47196;
+                &#44160;&#49353;&#54616;&#51648;
+                &#50506;&#51004;&#48064;&#47196; <span class=
+                "command"><strong>configure</strong></span>&#50640;
+                &#49892;&#54056;&#54616;&#45716; &#49345;&#54889;&#51012;
+                &#48169;&#51648;&#54624; &#49688; &#51080;&#45796;.
+              </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#48716;&#46300;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#51060;&#51228; &#52980;&#54028;&#51068;&#51060;
+          &#45149;&#45228;&#45796;. &#50526;&#50640;&#49436;
+          &#45436;&#51032;&#54620; &#48148;&#50752; &#44057;&#51060;,
+          &#51060; &#51109;&#51032; &#51076;&#49884; &#46020;&#44396;&#50640;
+          &#45824;&#54644; &#53580;&#49828;&#53944;
+          &#49828;&#50948;&#53944;&#47484; &#48152;&#46300;&#49884;
+          &#49892;&#54665;&#54644;&#50556; &#54616;&#45716; &#44163;&#51008;
+          &#50500;&#45768;&#45796;. &#44536;&#47000;&#46020;
+          &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#47484;
+          &#49892;&#54665;&#54616;&#47140;&#47732; &#45796;&#51020;
+          &#47749;&#47161;&#51012; &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make test</kbd>
+</pre>
+        <p>
+          &#50864;&#47532; &#53685;&#51228; &#54616;&#50640; &#51080;&#51648;
+          &#50506;&#51008; &#54840;&#49828;&#53944;
+          &#49345;&#54889;&#50640;&#49436;&#45716; Expect
+          &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#44032;
+          &#49892;&#54056;&#54624; &#49688; &#51080;&#51020;&#51012;
+          &#52280;&#44256;&#54616;&#46972;. &#46384;&#46972;&#49436; &#51060;
+          &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#44032;
+          &#49892;&#54056;&#54616;&#45908;&#46972;&#46020; &#45440;&#46980;
+          &#51068;&#51060; &#50500;&#45768;&#47728;
+          &#51473;&#50836;&#54616;&#51648;&#46020; &#50506;&#45796;.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make SCRIPTS="" install</kbd>
+</pre>
+        <div class="variablelist">
+          <p class="title">
+            <strong>Make &#47588;&#44060; &#48320;&#49688;&#51032;
+            &#51032;&#48120;:</strong>
+          </p>
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>SCRIPTS=""</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                &#54596;&#50836;&#54616;&#51648; &#50506;&#51008;
+                &#52628;&#44032;&#51201;&#51064; Expect
+                &#49828;&#53356;&#47549;&#53944;&#46308;&#51032;
+                &#49444;&#52824;&#47484; &#48169;&#51648;&#54620;&#45796;.
+              </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-expect" name="contents-expect"></a>5.12.2.
+          Expect&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">expect</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46972;&#51060;&#48652;&#47084;&#47532;:</strong> <span class=
+              "segbody">libexpect-5.45.so</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="expect" name="expect"></a><span class=
+                    "term"><span class=
+                    "command"><strong>expect</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49828;&#53356;&#47549;&#53944;&#47484; &#53685;&#54644;
+                    &#45796;&#47480; &#45824;&#54868;&#54805;
+                    &#54532;&#47196;&#44536;&#47016;&#44284; &#53685;&#49888;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libexpect" name="libexpect"></a><span class=
+                    "term"><code class=
+                    "filename">libexpect-5.45.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Expect&#47484; Tcl &#54869;&#51109;&#51060;&#45208; C,
+                    C++&#47196;&#48512;&#53552; Tcl&#50630;&#51060;
+                    &#51649;&#51217; &#49324;&#50857;&#54624; &#49688;
+                    &#51080;&#45716; &#54632;&#49688;&#46308;
+                    &#54252;&#54632;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="tcl.html" title=
+          "Tcl-8.6.10">&#51060;&#51204;</a>
+          <p>
+            Tcl-8.6.10
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dejagnu.html" title=
+          "DejaGNU-1.6.2">&#45796;&#51020;</a>
+          <p>
+            DejaGNU-1.6.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter05.html" title=
+          "5&#51109;. &#51076;&#49884; &#49884;&#49828;&#53596; &#44396;&#52629;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

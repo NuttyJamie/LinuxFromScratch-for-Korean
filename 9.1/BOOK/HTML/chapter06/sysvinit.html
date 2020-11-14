@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.77. Sysvinit-2.96
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="sysklogd.html" title=
+          "Sysklogd-1.5.1">&#51060;&#51204;</a>
+          <p>
+            Sysklogd-1.5.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="eudev.html" title=
+          "Eudev-3.2.9">&#45796;&#51020;</a>
+          <p>
+            Eudev-3.2.9
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-sysvinit" name="ch-system-sysvinit"></a>6.77.
+        Sysvinit-2.96
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Sysvinit &#54056;&#53412;&#51648;&#50640;&#45716;
+          &#49884;&#49828;&#53596;&#51032; &#49884;&#51089;, &#49892;&#54665;
+          &#48143; &#51333;&#47308;&#47484; &#51228;&#50612;&#54616;&#45716;
+          &#54532;&#47196;&#44536;&#47016;&#51060;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">less than 0.1
+              SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">1.4 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.77.1. Sysvinit &#49444;&#52824;
+        </h2>
+        <p>
+          &#47676;&#51200; &#45796;&#47480; &#54056;&#53412;&#51648;&#50640;
+          &#51032;&#54644; &#49444;&#52824;&#46108; &#50668;&#47084;
+          &#54532;&#47196;&#44536;&#47016;&#51012;
+          &#51228;&#44144;&#54616;&#44256;, &#47700;&#49884;&#51648;&#47484;
+          &#47749;&#54869;&#55176; &#54616;&#44256;
+          &#52980;&#54028;&#51068;&#47084; &#44221;&#44256;&#47484;
+          &#49688;&#51221;&#54616;&#45716; &#54056;&#52824;&#47484;
+          &#51201;&#50857;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">patch -Np1 -i ../sysvinit-2.96-consolidated-1.patch</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#51060; &#54056;&#53412;&#51648;&#50640;&#45716;
+          &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#44032;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#51648; &#50506;&#45796;.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-sysvinit" name="contents-sysvinit"></a>6.77.2.
+          Sysvinit&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">bootlogd, fstab-decode, halt, init, killall5,
+              poweroff (halt&#47196; &#47553;&#53356;), reboot (halt&#47196;
+              &#47553;&#53356;), runlevel, shutdown, telinit (init&#47196;
+              &#47553;&#53356;)</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="bootlogd" name="bootlogd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>bootlogd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48512;&#54021; &#47700;&#49884;&#51648;&#47484;
+                    &#47196;&#44536; &#54028;&#51068;&#50640;
+                    &#44592;&#47197;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fstab-decode" name="fstab-decode"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fstab-decode</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    fstab-&#51064;&#53076;&#46377; &#51064;&#49688;&#47484;
+                    &#49324;&#50857;&#54616;&#50668; &#47749;&#47161;
+                    &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="halt-sysv" name="halt-sysv"></a><span class=
+                    "term"><span class=
+                    "command"><strong>halt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51068;&#48152;&#51201;&#51004;&#47196; <em class=
+                    "parameter"><code>-h</code></em>
+                    &#50741;&#49496;&#51004;&#47196; <span class=
+                    "command"><strong>shutdown</strong></span>&#51012;
+                    &#54840;&#52636;&#54616;&#51648;&#47564;,
+                    &#51060;&#48120; run-level 0&#51064; &#44221;&#50864;
+                    &#52964;&#45328;&#50640; &#49884;&#49828;&#53596;&#51012;
+                    &#51473;&#51648;&#54616;&#46020;&#47197;
+                    &#51648;&#49884;&#54620;&#45796;; <code class=
+                    "filename">/var/log/wtmp</code> &#54028;&#51068;&#50640;
+                    &#49884;&#49828;&#53596;&#51060;
+                    &#45796;&#50868;&#46104;&#44256; &#51080;&#51020;&#51012;
+                    &#44592;&#47197;&#54632;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="init-sysv" name="init-sysv"></a><span class=
+                    "term"><span class=
+                    "command"><strong>init</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#52964;&#45328;&#51060; &#48512;&#54021;
+                    &#54532;&#47196;&#49464;&#49828;&#47484;
+                    &#44144;&#52824;&#45716;
+                    &#54616;&#46300;&#50920;&#50612;&#46308;&#51012;
+                    &#52488;&#44592;&#54868;&#54624; &#46412;
+                    &#49884;&#51089;&#54616;&#45716; &#52395;
+                    &#48264;&#51704;
+                    &#54532;&#47196;&#49464;&#49828;&#51060;&#51088;,
+                    &#44396;&#49457; &#54028;&#51068;&#50640;
+                    &#51648;&#51221;&#46108; &#47784;&#46304;
+                    &#54532;&#47196;&#49464;&#49828;&#47484;
+                    &#49884;&#51089;&#54616;&#45716;
+                    &#54532;&#47196;&#49464;&#49828;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="killall5" name="killall5"></a><span class=
+                    "term"><span class=
+                    "command"><strong>killall5</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48512;&#47784; &#49528;&#51012;
+                    &#51453;&#51060;&#51648; &#50506;&#46020;&#47197;
+                    &#51088;&#52404; &#49464;&#49496;&#51032;
+                    &#54532;&#47196;&#49464;&#49828;&#47484;
+                    &#51228;&#50808;&#54620; &#47784;&#46304;
+                    &#54532;&#47196;&#49464;&#49828;&#50640; &#49888;&#54840;
+                    &#51204;&#49569;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="poweroff-sysv" name=
+                    "poweroff-sysv"></a><span class="term"><span class=
+                    "command"><strong>poweroff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#52964;&#45328;&#50640; &#49884;&#49828;&#53596;&#51012;
+                    &#51473;&#51648;&#54616;&#44256;
+                    &#52980;&#54504;&#53552;&#47484; &#45124;&#46020;&#47197;
+                    &#51648;&#49884;(<span class=
+                    "command"><strong>halt</strong></span> &#52280;&#44256;)
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="reboot-sysv" name="reboot-sysv"></a><span class=
+                    "term"><span class=
+                    "command"><strong>reboot</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#52964;&#45328;&#50640; &#49884;&#49828;&#53596;
+                    &#51116;&#48512;&#54021; &#51648;&#49884; (<span class=
+                    "command"><strong>halt</strong></span> &#52280;&#44256;)
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="runlevel-sysv" name=
+                    "runlevel-sysv"></a><span class="term"><span class=
+                    "command"><strong>runlevel</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <code class="filename">/var/run/utmp</code>&#51032;
+                    &#47560;&#51648;&#47561; run-level
+                    &#44592;&#47197;&#50640; &#51201;&#55180;
+                    &#51060;&#51204; &#48143; &#54788;&#51116; run-level
+                    &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="shutdown-sysv" name=
+                    "shutdown-sysv"></a><span class="term"><span class=
+                    "command"><strong>shutdown</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47784;&#46304; &#54532;&#47196;&#49464;&#49828;&#50640;
+                    &#49888;&#54840;&#47484; &#48372;&#45236;&#44256;
+                    &#47196;&#44536;&#51064;&#54620; &#47784;&#46304;
+                    &#50976;&#51200;&#50640;&#44172;
+                    &#53685;&#51648;&#54616;&#45716; &#50504;&#51204;&#54620;
+                    &#48169;&#48277;&#51004;&#47196; &#49884;&#49828;&#53596;
+                    &#51089;&#46041; &#51473;&#45800;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="telinit-sysv" name="telinit-sysv"></a><span class=
+                    "term"><span class=
+                    "command"><strong>telinit</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class=
+                    "command"><strong>init</strong></span>&#50640;&#44172;
+                    &#48320;&#44221;&#54624; run-level&#51012;
+                    &#51648;&#51221;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="sysklogd.html" title=
+          "Sysklogd-1.5.1">&#51060;&#51204;</a>
+          <p>
+            Sysklogd-1.5.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="eudev.html" title=
+          "Eudev-3.2.9">&#45796;&#51020;</a>
+          <p>
+            Eudev-3.2.9
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

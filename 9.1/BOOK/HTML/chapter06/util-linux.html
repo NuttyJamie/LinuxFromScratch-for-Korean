@@ -1,0 +1,2126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.74. Util-linux-2.35.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="procps-ng.html" title=
+          "Procps-ng-3.3.15">&#51060;&#51204;</a>
+          <p>
+            Procps-ng-3.3.15
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="e2fsprogs.html" title=
+          "E2fsprogs-1.45.5">&#45796;&#51020;</a>
+          <p>
+            E2fsprogs-1.45.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-util-linux" name="ch-system-util-linux"></a>6.74.
+        Util-linux-2.35.1
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Util-linux &#54056;&#53412;&#51648;&#45716;
+          &#45796;&#50577;&#54620; &#50976;&#54008;&#47532;&#54000;
+          &#54532;&#47196;&#44536;&#47016;&#51012;
+          &#54252;&#54632;&#54616;&#44256; &#51080;&#45796;. &#44536;
+          &#51473;&#50640;&#45716; &#54028;&#51068; &#49884;&#49828;&#53596;,
+          &#53080;&#49556;, &#54028;&#54000;&#49496; &#48143;
+          &#47700;&#49884;&#51648;&#47484; &#52376;&#47532;&#54616;&#45716;
+          &#50976;&#54008;&#47532;&#54000;&#46308;&#51060; &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">1.1 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">289 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.74.1. FHS &#51456;&#49688; &#49324;&#54637;
+        </h2>
+        <p>
+          FHS&#45716; <code class="filename">adjtime</code>
+          &#54028;&#51068;&#51012; &#51068;&#48152;&#51201;&#51064;
+          <code class="filename">/etc</code> &#46356;&#47113;&#53664;&#47532;
+          &#45824;&#49888; <code class="filename">/var/lib/hwclock</code>
+          &#46356;&#47113;&#53664;&#47532;&#50640; &#46168; &#44163;&#51012;
+          &#44428;&#51109;&#54620;&#45796;. &#47676;&#51200; <span class=
+          "command"><strong>hwclock</strong></span>
+          &#54532;&#47196;&#44536;&#47016;&#51060; &#51200;&#51109;&#46112;
+          &#46356;&#47113;&#53664;&#47532;&#47484;
+          &#49373;&#49457;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">mkdir -pv /var/lib/hwclock</kbd>
+</pre>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.74.2. Util-linux &#49444;&#52824;
+        </h2>
+        <p>
+          Util-linux &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+            --docdir=/usr/share/doc/util-linux-2.35.1 \
+            --disable-chfn-chsh  \
+            --disable-login      \
+            --disable-nologin    \
+            --disable-su         \
+            --disable-setpriv    \
+            --disable-runuser    \
+            --disable-pylibmount \
+            --disable-static     \
+            --without-python     \
+            --without-systemd    \
+            --without-systemdsystemunitdir</kbd>
+</pre>
+        <p>
+          --disable &#48143; --without &#50741;&#49496;&#51008; LFS&#50640;
+          &#50630;&#45716; &#54056;&#53412;&#51648;&#44032;
+          &#54596;&#50836;&#54616;&#44144;&#45208;, &#45796;&#47480;
+          &#54056;&#53412;&#51648;&#50640; &#51032;&#54644;
+          &#49444;&#52824;&#46108; &#54532;&#47196;&#44536;&#47016;&#44284;
+          &#51068;&#52824;&#54616;&#51648; &#50506;&#45716; &#44396;&#49457;
+          &#50836;&#49548;&#51032; &#48716;&#46300;&#50640; &#45824;&#54620;
+          &#44221;&#44256;&#47484; &#47924;&#49884;&#54620;&#45796;.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#53580;&#49828;&#53944;&#47484; &#50896;&#54620;&#45796;&#47732;
+          root&#44032; &#50500;&#45772; &#50976;&#51200;&#47196;
+          &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <div class="admon warning">
+          <img alt="[&#51452;&#51032;]" src="../images/warning.png" />
+          <h3>
+            &#51452;&#51032;
+          </h3>
+          <p>
+            &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#47484; root
+            &#50976;&#51200;&#47196; &#49892;&#54665;&#54616;&#45716;
+            &#44163;&#51008; &#49884;&#49828;&#53596;&#50640;
+            &#54588;&#54644;&#47484; &#45180;&#52832; &#49688;
+            &#51080;&#45796;. &#51060;&#47484;
+            &#49892;&#54665;&#54616;&#47140;&#47732;,
+            &#52964;&#45328;&#50640; &#45824;&#54620; CONFIG_SCSI_DEBUG
+            &#50741;&#49496;&#51012; &#48152;&#46300;&#49884;
+            &#49892;&#54665; &#51473;&#51064;
+            &#49884;&#49828;&#53596;&#50640;&#49436; &#49324;&#50857;&#54624;
+            &#49688; &#51080;&#50612;&#50556; &#54616;&#47728;,
+            &#48152;&#46300;&#49884; &#47784;&#46280;&#47196;
+            &#48716;&#46300;&#46104;&#50612;&#50556; &#54620;&#45796;.
+            &#52964;&#45328;&#50640; &#54252;&#54632;&#49884;&#53020;&#49436;
+            &#48716;&#46300;&#54616;&#47732; &#48512;&#54021;&#51060;
+            &#46104;&#51648; &#50506;&#45716;&#45796;. &#51201;&#50857;
+            &#48276;&#50948;&#47484; &#45331;&#55176;&#47140;&#47732;
+            &#45796;&#47480; BLFS &#54056;&#53412;&#51648;&#47484;
+            &#49444;&#52824;&#54644;&#50556; &#54620;&#45796;.
+            &#50896;&#54620;&#45796;&#47732; &#51060;
+            &#53580;&#49828;&#53944;&#45716; &#50756;&#49457;&#46108; LFS
+            &#49884;&#49828;&#53596;&#51004;&#47196;
+            &#51116;&#48512;&#54021;&#54644;&#49436; &#45796;&#51020;
+            &#47749;&#47161;&#51004;&#47196; &#49892;&#54665;&#54624;
+            &#49688; &#51080;&#45796;:
+          </p>
+          <pre class="userinput">
+<kbd class="command">bash tests/run.sh --srcdir=$PWD --builddir=$PWD</kbd>
+</pre>
+        </div>
+        <pre class="userinput">
+<kbd class="command">chown -Rv nobody .
+su nobody -s /bin/bash -c "PATH=$PATH make -k check"</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-utillinux" name="contents-utillinux"></a>6.74.3.
+          Util-linux&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">addpart, agetty, blkdiscard, blkid, blkzone,
+              blockdev, cal, cfdisk, chcpu, chmem, choom, chrt, col, colcrt,
+              colrm, column, ctrlaltdel, delpart, dmesg, eject, fallocate,
+              fdformat, fdisk, fincore, findfs, findmnt, flock, fsck,
+              fsck.cramfs, fsck.minix, fsfreeze, fstrim, getopt, hexdump,
+              hwclock, i386, ionice, ipcmk, ipcrm, ipcs, isosize, kill, last,
+              lastb (last&#47196; &#47553;&#53356;), ldattach, linux32,
+              linux64, logger, look, losetup, lsblk, lscpu, lsipc, lslocks,
+              lslogins, lsmem, lsns, mcookie, mesg, mkfs, mkfs.bfs,
+              mkfs.cramfs, mkfs.minix, mkswap, more, mount, mountpoint,
+              namei, nsenter, partx, pivot_root, prlimit, raw, readprofile,
+              rename, renice, resizepart, rev, rfkill, rtcwake, script,
+              scriptreplay, setarch, setsid, setterm, sfdisk, sulogin,
+              swaplabel, swapoff (swapon&#47196; &#47553;&#53356;), swapon,
+              switch_root, taskset, ul, umount, uname26, unshare, utmpdump,
+              uuidd, uuidgen, uuidparse, wall, wdctl, whereis, wipefs,
+              x86_64, zramctl</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46972;&#51060;&#48652;&#47084;&#47532;&#46308;:</strong>
+              <span class="segbody">libblkid.so, libfdisk.so, libmount.so,
+              libsmartcols.so, libuuid.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;&#46308;:</strong> <span class=
+              "segbody">/usr/include/blkid, /usr/include/libfdisk,
+              /usr/include/libmount, /usr/include/libsmartcols,
+              /usr/include/uuid, /usr/share/doc/util-linux-2.35.1,
+              /var/lib/hwclock</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="addpart" name="addpart"></a><span class=
+                    "term"><span class=
+                    "command"><strong>addpart</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; &#52964;&#45328;&#50640;
+                    &#49352; &#54028;&#54000;&#49496; &#50508;&#47548;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="agetty" name="agetty"></a><span class=
+                    "term"><span class=
+                    "command"><strong>agetty</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    tty &#54252;&#53944;&#47484; &#50676;&#44256;,
+                    &#47196;&#44536;&#51064; &#51060;&#47492;&#51012;
+                    &#51077;&#47141;&#54616;&#46972;&#45716;
+                    &#47700;&#49884;&#51648;&#47484; &#54364;&#49884;&#54620;
+                    &#45796;&#51020;, <span class=
+                    "command"><strong>login</strong></span>
+                    &#54532;&#47196;&#44536;&#47016;&#51012; &#54840;&#52636;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="blkdiscard" name="blkdiscard"></a><span class=
+                    "term"><span class=
+                    "command"><strong>blkdiscard</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51109;&#52824;&#51032; &#49465;&#53552;
+                    &#47924;&#49884;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="blkid" name="blkid"></a><span class=
+                    "term"><span class=
+                    "command"><strong>blkid</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48660;&#47197; &#51109;&#52824;
+                    &#49549;&#49457;&#51012; &#52286;&#50500;
+                    &#52636;&#47141;&#54616;&#45716; &#47749;&#47161;&#51460;
+                    &#50976;&#54008;&#47532;&#54000;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="blkzone" name="blkzone"></a><span class=
+                    "term"><span class=
+                    "command"><strong>blkzone</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#48660;&#47197;
+                    &#51109;&#52824;&#50640;&#49436; zone &#47749;&#47161;
+                    &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="blockdev" name="blockdev"></a><span class=
+                    "term"><span class=
+                    "command"><strong>blockdev</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47749;&#47161;&#51460;&#50640;&#49436; &#48660;&#47197;
+                    &#51109;&#52824; ioctl&#51012; &#54840;&#52636;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cal" name="cal"></a><span class=
+                    "term"><span class="command"><strong>cal</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#44036;&#45800;&#54620; &#45804;&#47141;&#51012;
+                    &#54364;&#49884;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="cfdisk" name="cfdisk"></a><span class=
+                    "term"><span class=
+                    "command"><strong>cfdisk</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#51109;&#52824;&#51032;
+                    &#54028;&#54000;&#49496; &#53580;&#51060;&#48660;
+                    &#51312;&#51089;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="chcpu" name="chcpu"></a><span class=
+                    "term"><span class=
+                    "command"><strong>chcpu</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    CPU &#49345;&#53468; &#49688;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="chmem" name="chmem"></a><span class=
+                    "term"><span class=
+                    "command"><strong>chmem</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47700;&#47784;&#47532; &#49444;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="choom" name="choom"></a><span class=
+                    "term"><span class=
+                    "command"><strong>choom</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    OOM-killer &#51216;&#49688;&#47484;
+                    &#54364;&#49884;&#54616;&#44256; &#51312;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="chrt" name="chrt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>chrt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54532;&#47196;&#49464;&#49828;&#51032;
+                    &#49892;&#49884;&#44036; &#49549;&#49457;
+                    &#51312;&#51089;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="col" name="col"></a><span class=
+                    "term"><span class="command"><strong>col</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Reverse line feeds&#47484;
+                    &#54596;&#53552;&#47553;&#54632;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="colcrt" name="colcrt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>colcrt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#50724;&#48260;
+                    &#49828;&#53944;&#46972;&#51060;&#53433;(overstriking)
+                    &#48143; &#54616;&#54532;
+                    &#46972;&#51064;(half-lines)&#44284; &#44057;&#51008;
+                    &#51068;&#48512; &#44592;&#45733;&#51060;
+                    &#50630;&#45716; &#53552;&#48120;&#45328;&#50640;
+                    &#45824;&#54620; <span class=
+                    "command"><strong>nroff</strong></span> &#52636;&#47141;
+                    &#54596;&#53552;&#47553;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="colrm" name="colrm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>colrm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#50676;
+                    &#54596;&#53552;&#47553;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="column" name="column"></a><span class=
+                    "term"><span class=
+                    "command"><strong>column</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#54028;&#51068;&#51012;
+                    &#50668;&#47084; &#50676;&#47196;
+                    &#49436;&#49885;&#54868;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ctrlaltdel" name="ctrlaltdel"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ctrlaltdel</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Ctrl+Alt+Del &#53412; &#51312;&#54633;&#51032;
+                    &#44592;&#45733;&#51012; &#54616;&#46300;
+                    &#46608;&#45716; &#49548;&#54532;&#53944;
+                    &#47532;&#49483;&#51004;&#47196; &#49444;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="delpart" name="delpart"></a><span class=
+                    "term"><span class=
+                    "command"><strong>delpart</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; &#52964;&#45328;&#50640;&#49436;
+                    &#54028;&#54000;&#49496;&#51012;
+                    &#51228;&#44144;&#54616;&#46020;&#47197; &#50836;&#52397;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="dmesg" name="dmesg"></a><span class=
+                    "term"><span class=
+                    "command"><strong>dmesg</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#52964;&#45328; &#48512;&#53944;
+                    &#47700;&#49884;&#51648; &#45924;&#54532;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="eject" name="eject"></a><span class=
+                    "term"><span class=
+                    "command"><strong>eject</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51060;&#46041;&#49885; &#48120;&#46356;&#50612;
+                    &#52628;&#52636;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fallocate" name="fallocate"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fallocate</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068;&#51032; &#44277;&#44036;&#51012;
+                    &#49324;&#51204; &#54624;&#45817;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fdformat" name="fdformat"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fdformat</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54540;&#47196;&#54588; &#46356;&#49828;&#53356;&#47484;
+                    &#47196;&#50864; &#47112;&#48296;&#47196;
+                    &#54252;&#47607;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fdisk" name="fdisk"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fdisk</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#51109;&#52824;&#51032;
+                    &#54028;&#54000;&#49496; &#53580;&#51060;&#48660;
+                    &#51312;&#51089;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fincore" name="fincore"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fincore</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#53076;&#50612;&#50640; &#51080;&#45716;
+                    &#54028;&#51068; &#45236;&#50857;&#51032;
+                    &#54168;&#51060;&#51648; &#49688;&#47484;
+                    &#44228;&#49328;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="findfs" name="findfs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>findfs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47112;&#51060;&#48660;&#51060;&#45208; Universally
+                    Unique Identifier (UUID)&#47484;
+                    &#49324;&#50857;&#54616;&#50668; &#54028;&#51068;
+                    &#49884;&#49828;&#53596; &#44160;&#49353;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="findmnt" name="findmnt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>findmnt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    mountinfo, fstab &#48143; mtab &#54028;&#51068;
+                    &#51089;&#50629;&#51012; &#50948;&#54620; libmount
+                    &#46972;&#51060;&#48652;&#47084;&#47532;&#50640;
+                    &#45824;&#54620; &#47749;&#47161;&#51460;
+                    &#51064;&#53552;&#54168;&#51060;&#49828;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="flock" name="flock"></a><span class=
+                    "term"><span class=
+                    "command"><strong>flock</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068;&#51012; &#51104;&#44540;
+                    &#45796;&#51020; &#51104;&#44552;&#51012;
+                    &#50976;&#51648;&#54620; &#49345;&#53468;&#50640;&#49436;
+                    &#47749;&#47161; &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fsck" name="fsck"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fsck</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068; &#49884;&#49828;&#53596;&#51012;
+                    &#54869;&#51064;&#54616;&#44256;
+                    &#48373;&#44396;&#54616;&#45716; &#45936;
+                    &#49324;&#50857;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fsck.cramfs" name="fsck.cramfs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fsck.cramfs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#51109;&#52824;&#51032; Cramfs
+                    &#54028;&#51068; &#49884;&#49828;&#53596;&#50640;&#49436;
+                    &#51068;&#44288;&#49457; &#44160;&#49324;
+                    &#49688;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fsck.minix" name="fsck.minix"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fsck.minix</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#51109;&#52824;&#51032; Minix
+                    &#54028;&#51068; &#49884;&#49828;&#53596;&#50640;&#49436;
+                    &#51068;&#44288;&#49457; &#44160;&#49324;
+                    &#49688;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fsfreeze" name="fsfreeze"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fsfreeze</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    FIFREEZE/FITHAW ioctl &#52964;&#45328;
+                    &#46300;&#46972;&#51060;&#48260; &#51089;&#50629;&#51012;
+                    &#45796;&#47336;&#45716; &#47588;&#50864;
+                    &#44036;&#45800;&#54620; &#47000;&#54140;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fstrim" name="fstrim"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fstrim</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47560;&#50868;&#53944;&#46108; &#54028;&#51068;
+                    &#49884;&#49828;&#53596;&#50640;&#49436;
+                    &#49324;&#50857;&#46104;&#51648; &#50506;&#45716;
+                    &#48660;&#47197; &#49325;&#51228;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="getopt" name="getopt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>getopt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#47749;&#47161;&#51460;&#51032;
+                    &#50741;&#49496; &#44396;&#47928; &#54028;&#49905;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="hexdump" name="hexdump"></a><span class=
+                    "term"><span class=
+                    "command"><strong>hexdump</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#54028;&#51068;&#51012;
+                    16&#51652;&#49688; &#46608;&#45716; &#45796;&#47480;
+                    &#51648;&#51221;&#46108; &#54805;&#49885;&#51004;&#47196;
+                    &#45924;&#54532;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="hwclock" name="hwclock"></a><span class=
+                    "term"><span class=
+                    "command"><strong>hwclock</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Real-Time Clock (RTC) &#46608;&#45716; Basic Input-Output
+                    System (BIOS)
+                    &#53364;&#47085;&#51060;&#46972;&#44256;&#46020;
+                    &#54616;&#45716; &#49884;&#49828;&#53596;&#51032;
+                    &#54616;&#46300;&#50920;&#50612; &#49884;&#44228;&#47484;
+                    &#51069;&#44144;&#45208; &#49444;&#51221; clock
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="i386" name="i386"></a><span class=
+                    "term"><span class=
+                    "command"><strong>i386</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    setarch&#47196;&#51032; &#49900;&#48380;&#47533;
+                    &#47553;&#53356;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ionice" name="ionice"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ionice</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54532;&#47196;&#44536;&#47016;&#50640; &#45824;&#54620;
+                    io &#49828;&#52992;&#51460;&#47553;
+                    &#53364;&#47000;&#49828; &#48143; &#50864;&#49440;
+                    &#49692;&#50948;&#47484;
+                    &#44032;&#51256;&#50724;&#44144;&#45208; &#49444;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ipcmk" name="ipcmk"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ipcmk</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#45796;&#50577;&#54620; IPC &#47532;&#49548;&#49828;
+                    &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ipcrm" name="ipcrm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ipcrm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#54532;&#47196;&#49464;&#49828;
+                    &#44036; &#53685;&#49888;(Inter-Process Communication,
+                    IPC) &#47532;&#49548;&#49828; &#51228;&#44144;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ipcs" name="ipcs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ipcs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    IPC &#49345;&#53468; &#51221;&#48372; &#51228;&#44277;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="isosize" name="isosize"></a><span class=
+                    "term"><span class=
+                    "command"><strong>isosize</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    iso9660 &#54028;&#51068; &#49884;&#49828;&#53596;&#51032;
+                    &#53356;&#44592;&#47484; &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="kill" name="kill"></a><span class=
+                    "term"><span class=
+                    "command"><strong>kill</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54532;&#47196;&#49464;&#49828;&#50640; &#49888;&#54840;
+                    &#51204;&#49569;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="last" name="last"></a><span class=
+                    "term"><span class=
+                    "command"><strong>last</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <code class="filename">/var/log/wtmp</code>
+                    &#54028;&#51068;&#51012; &#44160;&#49353;&#54616;&#44256;
+                    &#47560;&#51648;&#47561;&#51004;&#47196;
+                    &#47196;&#44536;&#51064;(&#48143;
+                    &#47196;&#44536;&#50500;&#50883;)&#54620;
+                    &#50976;&#51200;&#47484; &#54364;&#49884;;
+                    &#49884;&#49828;&#53596; &#48512;&#54021;,
+                    &#51333;&#47308; &#48143; run-level &#48320;&#44221;
+                    &#49324;&#54637;&#46020; &#54364;&#49884;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lastb" name="lastb"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lastb</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <code class="filename">/var/log/btmp</code>
+                    &#47196;&#44536;&#51064; &#49884;
+                    &#49892;&#54056;&#54620; &#47196;&#44536;&#51064;
+                    &#49884;&#46020; &#54364;&#49884;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ldattach" name="ldattach"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ldattach</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51649;&#47148; &#51109;&#52824;
+                    &#54028;&#51068;&#50640; &#49569;/&#49688;&#49888;
+                    &#45936;&#51060;&#53552;&#47484;
+                    &#52376;&#47532;&#54616;&#44592; &#50948;&#54620;
+                    &#54924;&#49440;&#51012; &#52392;&#48512;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="linux32" name="linux32"></a><span class=
+                    "term"><span class=
+                    "command"><strong>linux32</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    setarch&#47196;&#51032; &#49900;&#48380;&#47533;
+                    &#47553;&#53356;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="linux64" name="linux64"></a><span class=
+                    "term"><span class=
+                    "command"><strong>linux64</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    setarch&#47196;&#51032; &#49900;&#48380;&#47533;
+                    &#47553;&#53356;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="logger" name="logger"></a><span class=
+                    "term"><span class=
+                    "command"><strong>logger</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49884;&#49828;&#53596; &#47196;&#44536;&#50640;
+                    &#51648;&#51221;&#46108; &#47700;&#49884;&#51648;
+                    &#51077;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="look" name="look"></a><span class=
+                    "term"><span class=
+                    "command"><strong>look</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#47928;&#51088;&#50676;&#47196;
+                    &#49884;&#51089;&#54616;&#45716; &#54665;
+                    &#54364;&#49884;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="losetup" name="losetup"></a><span class=
+                    "term"><span class=
+                    "command"><strong>losetup</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47336;&#54532; &#51109;&#52824; &#49444;&#51221;
+                    &#48143; &#51228;&#50612;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lsblk" name="lsblk"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lsblk</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47784;&#46304; &#46608;&#45716;
+                    &#49440;&#53469;&#54620; &#48660;&#47197;
+                    &#51109;&#52824;&#50640; &#45824;&#54620;
+                    &#51221;&#48372;&#47484; &#53944;&#47532;
+                    &#54805;&#49885;&#51004;&#47196; &#45208;&#50676;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lscpu" name="lscpu"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lscpu</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    CPU &#50500;&#53412;&#53581;&#52376; &#51221;&#48372;
+                    &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lsipc" name="lsipc"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lsipc</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49884;&#49828;&#53596;&#50640;&#49436; &#54788;&#51116;
+                    &#49324;&#50857; &#51473;&#51064; IPC
+                    &#49444;&#48708;&#50640; &#45824;&#54620;
+                    &#51221;&#48372; &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lslocks" name="lslocks"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lslocks</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47196;&#52972; &#49884;&#49828;&#53596;
+                    &#51104;&#44552;(locks) &#45208;&#50676;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lslogins" name="lslogins"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lslogins</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#50976;&#51200;, &#44536;&#47353; &#48143;
+                    &#49884;&#49828;&#53596; &#44228;&#51221;&#50640;
+                    &#45824;&#54620; &#51221;&#48372; &#45208;&#50676;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lsmem" name="lsmem"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lsmem</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#44032;&#50857;&#54620; &#47700;&#47784;&#47532;&#51032;
+                    &#48276;&#50948;&#50752; &#51089;&#46041;
+                    &#49345;&#53468;&#47484; &#45208;&#50676;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="lsns" name="lsns"></a><span class=
+                    "term"><span class=
+                    "command"><strong>lsns</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#45348;&#51076;&#49828;&#54168;&#51060;&#49828;
+                    &#45208;&#50676;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mcookie" name="mcookie"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mcookie</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class=
+                    "command"><strong>xauth</strong></span>&#50857;
+                    &#47588;&#51649; &#53216;&#53412; &#49373;&#49457;
+                    (128-bit &#47004;&#45924; 16&#51652;&#49688;)
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mesg" name="mesg"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mesg</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#45796;&#47480; &#49324;&#50857;&#51088;&#44032;
+                    &#54788;&#51116; &#49324;&#50857;&#51088;&#51032;
+                    &#53552;&#48120;&#45328;&#47196;
+                    &#47700;&#49884;&#51648;&#47484; &#48372;&#45244;
+                    &#49688; &#51080;&#45716;&#51648;&#51032;
+                    &#50668;&#48512; &#51228;&#50612;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mkfs" name="mkfs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mkfs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51109;&#52824;&#50640; &#54028;&#51068;
+                    &#49884;&#49828;&#53596;
+                    &#44396;&#52629;(&#45824;&#44060; &#54616;&#46300;
+                    &#46356;&#49828;&#53356; &#54028;&#54000;&#49496;)
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mkfs.bfs" name="mkfs.bfs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mkfs.bfs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Santa Cruz Operations (SCO) bfs &#54028;&#51068;
+                    &#49884;&#49828;&#53596; &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mkfs.cramfs" name="mkfs.cramfs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mkfs.cramfs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Cramfs &#54028;&#51068; &#49884;&#49828;&#53596;
+                    &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mkfs.minix" name="mkfs.minix"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mkfs.minix</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Minix &#54028;&#51068; &#49884;&#49828;&#53596;
+                    &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mkswap" name="mkswap"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mkswap</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49828;&#50769; &#50689;&#50669;&#51004;&#47196;
+                    &#49324;&#50857;&#46112; &#51648;&#51221;&#46108;
+                    &#51109;&#52824;&#45208; &#54028;&#51068;&#51012;
+                    &#52488;&#44592;&#54868;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="more" name="more"></a><span class=
+                    "term"><span class=
+                    "command"><strong>more</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54620; &#48264;&#50640; &#54620;
+                    &#54868;&#47732;&#50473; &#53581;&#49828;&#53944;&#47484;
+                    &#54168;&#51060;&#51669;&#54616;&#45716; &#54596;&#53552;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mount" name="mount"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mount</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#51109;&#52824;&#51032;
+                    &#54028;&#51068; &#49884;&#49828;&#53596;&#51012;
+                    &#54028;&#51068; &#49884;&#49828;&#53596;
+                    &#53944;&#47532;&#51032; &#51648;&#51221;&#46108;
+                    &#46356;&#47113;&#53664;&#47532;&#50640; &#50672;&#44208;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="mountpoint" name="mountpoint"></a><span class=
+                    "term"><span class=
+                    "command"><strong>mountpoint</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#46356;&#47113;&#53664;&#47532;&#44032;
+                    &#47560;&#50868;&#53944; &#51648;&#51216;&#51064;&#51648;
+                    &#54869;&#51064;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="namei" name="namei"></a><span class=
+                    "term"><span class=
+                    "command"><strong>namei</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#44221;&#47196;
+                    &#51060;&#47492;&#51032; &#49900;&#48380;&#47533;
+                    &#47553;&#53356;&#47484; &#54364;&#49884;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="nsenter" name="nsenter"></a><span class=
+                    "term"><span class=
+                    "command"><strong>nsenter</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#45796;&#47480; &#54532;&#47196;&#49464;&#49828;&#51032;
+                    &#45348;&#51076;&#49828;&#54168;&#51060;&#49828;&#47196;
+                    &#54532;&#47196;&#44536;&#47016; &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="partx" name="partx"></a><span class=
+                    "term"><span class=
+                    "command"><strong>partx</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#52964;&#45328;&#50640; &#46356;&#49828;&#53356;
+                    &#54028;&#54000;&#49496;&#51032; &#51316;&#51116;&#50752;
+                    &#49692;&#48264;&#51012; &#51064;&#49885;&#49884;&#53428;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pivot_root" name="pivot_root"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pivot_root</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#54028;&#51068;
+                    &#49884;&#49828;&#53596;&#51012; &#54788;&#51116;
+                    &#54532;&#47196;&#49464;&#49828;&#51032; &#49352; root
+                    &#54028;&#51068; &#49884;&#49828;&#53596;&#51004;&#47196;
+                    &#47564;&#46316;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="prlimit" name="prlimit"></a><span class=
+                    "term"><span class=
+                    "command"><strong>prlimit</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54532;&#47196;&#49464;&#49828;&#51032;
+                    &#47532;&#49548;&#49828; &#51228;&#54620;
+                    &#49444;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="raw" name="raw"></a><span class=
+                    "term"><span class="command"><strong>raw</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; raw &#51109;&#52824;&#47484;
+                    &#48660;&#47197; &#51109;&#52824;&#50640;
+                    &#48148;&#51064;&#46377;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="readprofile" name="readprofile"></a><span class=
+                    "term"><span class=
+                    "command"><strong>readprofile</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#52964;&#45328; &#54532;&#47196;&#54028;&#51068;&#47553;
+                    &#51221;&#48372;&#47484; &#51069;&#51020;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rename" name="rename"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rename</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#54028;&#51068;&#51032;
+                    &#51060;&#47492;&#51012; &#48320;&#44221;&#54616;&#44256;
+                    &#51648;&#51221;&#46108; &#47928;&#51088;&#50676;&#51012;
+                    &#45796;&#47480; &#47928;&#51088;&#50676;&#47196;
+                    &#45824;&#52404;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="renice" name="renice"></a><span class=
+                    "term"><span class=
+                    "command"><strong>renice</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54532;&#47196;&#49464;&#49828; &#49892;&#54665;
+                    &#50864;&#49440;&#49692;&#50948; &#48320;&#44221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="resizepart" name="resizepart"></a><span class=
+                    "term"><span class=
+                    "command"><strong>resizepart</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47532;&#45573;&#49828; &#52964;&#45328;&#50640;
+                    &#54028;&#54000;&#49496; &#53356;&#44592;
+                    &#51312;&#51221; &#50836;&#52397;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rev" name="rev"></a><span class=
+                    "term"><span class="command"><strong>rev</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#54028;&#51068;&#51032;
+                    &#54665; &#48152;&#51204;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rkfill" name="rkfill"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rkfill</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47924;&#49440; &#51109;&#52824;
+                    &#54876;&#49457;&#54868; &#48143;
+                    &#48708;&#54876;&#49457;&#54868; &#46020;&#44396;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="rtcwake" name="rtcwake"></a><span class=
+                    "term"><span class=
+                    "command"><strong>rtcwake</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#51208;&#51204;
+                    &#54644;&#51228; &#49884;&#44036;&#44620;&#51648;
+                    &#49884;&#49828;&#53596; &#51208;&#51204;
+                    &#49345;&#53468;&#47196; &#46308;&#50612;&#44032;&#45716;
+                    &#45936; &#49324;&#50857;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="script" name="script"></a><span class=
+                    "term"><span class=
+                    "command"><strong>script</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#53552;&#48120;&#45328; &#49464;&#49496;&#51032;
+                    &#53440;&#51077;&#49828;&#53356;&#47549;&#53944;
+                    &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="scriptreplay" name="scriptreplay"></a><span class=
+                    "term"><span class=
+                    "command"><strong>scriptreplay</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#53440;&#51060;&#48141; &#51221;&#48372;&#47484;
+                    &#49324;&#50857;&#54644;
+                    &#53440;&#51077;&#49828;&#53356;&#47549;&#53944;
+                    &#51116;&#49373;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="setarch" name="setarch"></a><span class=
+                    "term"><span class=
+                    "command"><strong>setarch</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49352;&#47196;&#50868; &#54532;&#47196;&#44536;&#47016;
+                    &#54872;&#44221;&#50640;&#49436; &#48372;&#44256;&#46108;
+                    &#50500;&#53412;&#53581;&#52432; &#48320;&#44221;
+                    &#48143; &#53945;&#49457; &#54540;&#47000;&#44536;
+                    &#49444;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="setsid" name="setsid"></a><span class=
+                    "term"><span class=
+                    "command"><strong>setsid</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108;
+                    &#54532;&#47196;&#44536;&#47016;&#51012; &#49352;
+                    &#49464;&#49496;&#50640;&#49436; &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="setterm" name="setterm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>setterm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#53552;&#48120;&#45328; &#53945;&#49457;
+                    &#49444;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="sfdisk" name="sfdisk"></a><span class=
+                    "term"><span class=
+                    "command"><strong>sfdisk</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#46356;&#49828;&#53356; &#54028;&#54000;&#49496;
+                    &#53580;&#51060;&#48660; &#49444;&#51221;
+                    &#46020;&#44396;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="sulogin" name="sulogin"></a><span class=
+                    "term"><span class=
+                    "command"><strong>sulogin</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <code class="systemitem">root</code>&#47484;
+                    &#47196;&#44536;&#51064;&#54624; &#49688;
+                    &#51080;&#44172; &#54632;;
+                    &#51068;&#48152;&#51201;&#51004;&#47196;
+                    &#49884;&#49828;&#53596;&#51060; &#45800;&#51068;
+                    &#49324;&#50857;&#51088; &#47784;&#46300;&#47196;
+                    &#51204;&#54872;&#46112; &#46412; <span class=
+                    "command"><strong>init</strong></span>&#50640;
+                    &#51032;&#54644; &#54840;&#52636;&#46120;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="swaplabel" name="swaplabel"></a><span class=
+                    "term"><span class=
+                    "command"><strong>swaplabel</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49828;&#50769; &#50689;&#50669; UUID &#48143;
+                    &#47112;&#51060;&#48660; &#48320;&#44221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="swapoff" name="swapoff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>swapoff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54168;&#51060;&#51669; &#48143;
+                    &#49828;&#50752;&#54609;&#51012; &#50948;&#54620;
+                    &#51109;&#52824; &#48143; &#54028;&#51068;
+                    &#48708;&#54876;&#49457;&#54868;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="swapon" name="swapon"></a><span class=
+                    "term"><span class=
+                    "command"><strong>swapon</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54168;&#51060;&#51669; &#48143;
+                    &#49828;&#50752;&#54609;&#51012; &#50948;&#54620;
+                    &#51109;&#52824; &#48143; &#54028;&#51068;
+                    &#54876;&#49457;&#54868;, &#54788;&#51116;
+                    &#49324;&#50857; &#51473;&#51064;
+                    &#51109;&#52824;&#50752; &#54028;&#51068;
+                    &#45208;&#50676;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="switch_root" name="switch_root"></a><span class=
+                    "term"><span class=
+                    "command"><strong>switch_root</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47560;&#50868;&#53944; &#53944;&#47532;&#51032;
+                    root&#47196; &#45796;&#47480; &#54028;&#51068;
+                    &#49884;&#49828;&#53596;&#51004;&#47196; &#51204;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="tailf" name="tailf"></a><span class=
+                    "term"><span class=
+                    "command"><strong>tailf</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47196;&#44536; &#54028;&#51068;&#51032;
+                    &#51613;&#44032;&#47484; &#52628;&#51201;;
+                    &#47196;&#44536; &#54028;&#51068;&#51032;
+                    &#47560;&#51648;&#47561; 10&#51460;&#51012;
+                    &#54364;&#49884;&#54620; &#45796;&#51020;
+                    &#47196;&#44536; &#54028;&#51068;&#51032; &#49352;
+                    &#54637;&#47785;&#46308;&#51012; &#44228;&#49549;
+                    &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="taskset" name="taskset"></a><span class=
+                    "term"><span class=
+                    "command"><strong>taskset</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54532;&#47196;&#49464;&#49828;&#51032; CPU
+                    &#49440;&#54840;&#46020; &#44160;&#49353;
+                    &#46608;&#45716; &#49444;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ul" name="ul"></a><span class="term"><span class=
+                    "command"><strong>ul</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48145;&#51460;&#51012;
+                    &#53552;&#48120;&#45328;&#50640;&#49436;
+                    &#48145;&#51460;&#51012; &#45208;&#53440;&#45236;&#45716;
+                    &#51060;&#49828;&#52992;&#51060;&#54532;
+                    &#49884;&#53248;&#49828;&#47196;
+                    &#48320;&#54872;&#54616;&#45716; &#54596;&#53552;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="umount" name="umount"></a><span class=
+                    "term"><span class=
+                    "command"><strong>umount</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49884;&#49828;&#53596;&#51032; &#54028;&#51068;
+                    &#53944;&#47532;&#50640;&#49436; &#54028;&#51068;
+                    &#49884;&#49828;&#53596; &#50672;&#44208;
+                    &#54644;&#51228;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="uname26" name="uname26"></a><span class=
+                    "term"><span class=
+                    "command"><strong>uname26</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    setarch&#47196;&#51032; &#49900;&#48380;&#47533;
+                    &#47553;&#53356;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="unshare" name="unshare"></a><span class=
+                    "term"><span class=
+                    "command"><strong>unshare</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49345;&#50948;
+                    &#45348;&#51076;&#49828;&#54168;&#51060;&#49828;&#50752;
+                    &#44277;&#50976;&#46104;&#51648; &#50506;&#51008;
+                    &#51068;&#48512;
+                    &#45348;&#51076;&#49828;&#54168;&#51060;&#49828;&#47196;
+                    &#54532;&#47196;&#44536;&#47016; &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="utmpdump" name="utmpdump"></a><span class=
+                    "term"><span class=
+                    "command"><strong>utmpdump</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#47196;&#44536;&#51064;
+                    &#54028;&#51068;&#51032; &#45236;&#50857;&#51012;
+                    &#48372;&#45796; &#49324;&#50857;&#54616;&#44592;
+                    &#49772;&#50868; &#54805;&#49885;&#51004;&#47196;
+                    &#54364;&#49884;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="uuidd" name="uuidd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>uuidd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    UUID
+                    &#46972;&#51060;&#48652;&#47084;&#47532;&#50640;&#49436;
+                    &#50504;&#51204;&#54616;&#44256; &#48372;&#51109;&#46108;
+                    &#44256;&#50976;&#51032; &#48169;&#49885;&#51004;&#47196;
+                    &#49884;&#44036; &#44592;&#48152; UUID&#47484;
+                    &#49373;&#49457;&#54616;&#44592; &#50948;&#54644;
+                    &#49324;&#50857;&#46104;&#45716; &#45936;&#47788;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="uuidgen" name="uuidgen"></a><span class=
+                    "term"><span class=
+                    "command"><strong>uuidgen</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49352; UUID &#49373;&#49457;. &#44033;&#44033;&#51032;
+                    &#49352; UUID&#45716; &#44284;&#44144;&#45208;
+                    &#48120;&#47000;&#50640; &#47196;&#52972;
+                    &#49884;&#49828;&#53596;&#44284; &#45796;&#47480;
+                    &#49884;&#49828;&#53596;&#50640;&#49436;
+                    &#49373;&#49457;&#46108; &#47784;&#46304; UUID &#51473;
+                    &#44256;&#50976;&#54620; &#44050;&#51012;
+                    &#44032;&#51652;&#45796;.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="uuidparse" name="uuidparse"></a><span class=
+                    "term"><span class=
+                    "command"><strong>uuidparse</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#44256;&#50976; &#49885;&#48324;&#51088;&#47484;
+                    &#54028;&#49905;&#54616;&#45716;
+                    &#50976;&#54008;&#47532;&#54000;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wall" name="wall"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wall</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068; &#45236;&#50857;&#51060;&#45208;,
+                    &#44592;&#48376;&#51201;&#51004;&#47196;&#45716;
+                    &#54364;&#51456; &#51077;&#47141;&#51012;
+                    &#54788;&#51116; &#47196;&#44536;&#51064;&#54620;
+                    &#47784;&#46304; &#50976;&#51200;&#51032;
+                    &#53552;&#48120;&#45328;&#50640; &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wdctl" name="wdctl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wdctl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54616;&#46300;&#50920;&#50612; watchdog
+                    &#49345;&#53468; &#54364;&#49884;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="whereis" name="whereis"></a><span class=
+                    "term"><span class=
+                    "command"><strong>whereis</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#47749;&#47161;&#50640;
+                    &#45824;&#54620; &#48148;&#51060;&#45320;&#47532;,
+                    &#52636;&#52376;, man &#54168;&#51060;&#51648;&#51032;
+                    &#50948;&#52824;&#47484; &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="wipefs" name="wipefs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>wipefs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51109;&#52824;&#50640;&#49436; &#54028;&#51068;
+                    &#49884;&#49828;&#53596; &#49436;&#47749;
+                    &#51228;&#44144;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="x86_64" name="x86_64"></a><span class=
+                    "term"><span class=
+                    "command"><strong>x86_64</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    setarch&#47196;&#51032; &#49900;&#48380;&#47533;
+                    &#47553;&#53356;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zramctl" name="zramctl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zramctl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    zram(&#50517;&#52629;&#46108;
+                    &#47016;&#46356;&#49828;&#53356;)
+                    &#51109;&#52824;&#47484; &#49444;&#51221;&#54616;&#44256;
+                    &#51228;&#50612;&#54616;&#45716;
+                    &#54532;&#47196;&#44536;&#47016;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libblkid" name="libblkid"></a><span class=
+                    "term"><code class="filename">libblkid</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51109;&#52824; &#49885;&#48324; &#48143;
+                    &#53664;&#53360; &#52628;&#52636; &#47336;&#54004;
+                    &#54252;&#54632;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libfdisk" name="libfdisk"></a><span class=
+                    "term"><code class="filename">libfdisk</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#54000;&#49496; &#53580;&#51060;&#48660;&#51012;
+                    &#51312;&#51089;&#54616;&#45716; &#47336;&#54004;
+                    &#54252;&#54632;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libmount" name="libmount"></a><span class=
+                    "term"><code class="filename">libmount</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48660;&#47197; &#51109;&#52824;
+                    &#47560;&#50868;&#53944; &#48143;
+                    &#47560;&#50868;&#53944; &#54644;&#51228;
+                    &#47336;&#54004; &#54252;&#54632;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libsmartcols" name="libsmartcols"></a><span class=
+                    "term"><code class="filename">libsmartcols</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54364; &#54805;&#49885;&#51032; &#54868;&#47732;
+                    &#52636;&#47141; &#51648;&#50896; &#47336;&#54004;
+                    &#54252;&#54632;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libuuid" name="libuuid"></a><span class=
+                    "term"><code class="filename">libuuid</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47196;&#52972; &#49884;&#49828;&#53596;
+                    &#50808;&#48512;&#50640;&#49436;
+                    &#50529;&#49464;&#49828;&#54624; &#49688;
+                    &#51080;&#45716; &#44060;&#52404;&#51032;
+                    &#44256;&#50976; &#49885;&#48324;&#51088;&#47484;
+                    &#49373;&#49457;&#54616;&#45716; &#47336;&#54004;
+                    &#54252;&#54632;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="procps-ng.html" title=
+          "Procps-ng-3.3.15">&#51060;&#51204;</a>
+          <p>
+            Procps-ng-3.3.15
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="e2fsprogs.html" title=
+          "E2fsprogs-1.45.5">&#45796;&#51020;</a>
+          <p>
+            E2fsprogs-1.45.5
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.76. Sysklogd-1.5.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="e2fsprogs.html" title=
+          "E2fsprogs-1.45.5">&#51060;&#51204;</a>
+          <p>
+            E2fsprogs-1.45.5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="sysvinit.html" title=
+          "Sysvinit-2.96">&#45796;&#51020;</a>
+          <p>
+            Sysvinit-2.96
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-sysklogd" name="ch-system-sysklogd"></a>6.76.
+        Sysklogd-1.5.1
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Sysklogd &#54056;&#53412;&#51648;&#50640;&#45716;
+          &#53945;&#49688;&#54620; &#49345;&#54889;&#51060;
+          &#48156;&#49373;&#54664;&#51012; &#46412; &#52964;&#45328;&#51060;
+          &#45236;&#48372;&#45236;&#45716; &#44163;&#44284; &#44057;&#51008;
+          &#49884;&#49828;&#53596; &#47700;&#49884;&#51648;&#46308;&#51012;
+          &#44592;&#47197;&#54616;&#45716;
+          &#54532;&#47196;&#44536;&#47016;&#51060;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">less than 0.1
+              SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">0.6 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.76.1. Sysklogd &#49444;&#52824;
+        </h2>
+        <p>
+          &#50864;&#49440; klogd&#51032; &#53945;&#51221;
+          &#51312;&#44148;&#50640;&#49436;
+          &#49464;&#44536;&#47704;&#53580;&#51060;&#49496;
+          &#50724;&#47448;&#47484; &#51068;&#51004;&#53412;&#45716;
+          &#47928;&#51228;&#47484; &#54644;&#44208;&#54616;&#44256;,
+          &#50724;&#47000;&#46108; &#54532;&#47196;&#44536;&#47016;
+          &#44396;&#51312;&#47484; &#49688;&#51221;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
+sed -i 's/union wait/int/' syslogd.c</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#51060; &#54056;&#53412;&#51648;&#50640;&#45716;
+          &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#44032;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#51648; &#50506;&#45796;.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make BINDIR=/sbin install</kbd>
+</pre>
+      </div>
+      <div class="configuration" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="conf-sysklogd" name="conf-sysklogd"></a>6.76.2. Sysklogd
+          &#49444;&#51221;
+        </h2>
+        <p>
+          &#45796;&#51020;&#51012; &#49892;&#54665;&#54616;&#50668; &#49352;
+          <code class="filename">/etc/syslog.conf</code>
+          &#54028;&#51068;&#51012; &#49373;&#49457;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">cat &gt; /etc/syslog.conf &lt;&lt; "EOF"
+<code class="literal"># Begin /etc/syslog.conf
+
+auth,authpriv.* -/var/log/auth.log
+*.*;auth,authpriv.none -/var/log/sys.log
+daemon.* -/var/log/daemon.log
+kern.* -/var/log/kern.log
+mail.* -/var/log/mail.log
+user.* -/var/log/user.log
+*.emerg *
+
+# End /etc/syslog.conf</code>
+EOF</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-sysklogd" name="contents-sysklogd"></a>6.76.3.
+          Sysklogd&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">klogd&#50752; syslogd</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="klogd" name="klogd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>klogd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#52964;&#45328; &#47700;&#49884;&#51648;
+                    &#51064;&#53552;&#49481;&#53944; &#48143;
+                    &#47196;&#44613;&#51012; &#50948;&#54620;
+                    &#49884;&#49828;&#53596; &#45936;&#47788;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="syslogd" name="syslogd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>syslogd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49884;&#49828;&#53596;
+                    &#54532;&#47196;&#44536;&#47016;&#51060;
+                    &#44592;&#47197;&#51012; &#50948;&#54644;
+                    &#51228;&#44277;&#54616;&#45716; &#47700;&#49884;&#51648;
+                    &#47196;&#44613;[&#47784;&#46304; &#47196;&#44536;
+                    &#47700;&#49884;&#51648;&#50640;&#45716;
+                    &#52572;&#49548;&#54620; &#45216;&#51676;&#50752;
+                    &#54840;&#49828;&#53944; &#51060;&#47492;&#51060;
+                    &#54252;&#54632;&#46104;&#47728;,
+                    &#51068;&#48152;&#51201;&#51004;&#47196;
+                    &#54532;&#47196;&#44536;&#47016; &#51060;&#47492;&#46020;
+                    &#54252;&#54632;&#46104;&#51648;&#47564;,
+                    &#47196;&#44536; &#45936;&#47788;&#51012;
+                    &#50620;&#47560;&#45208;
+                    &#49888;&#47280;&#54616;&#45716;&#51648;&#50640;
+                    &#46384;&#46972; &#45804;&#46972;&#51652;&#45796;.]
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="e2fsprogs.html" title=
+          "E2fsprogs-1.45.5">&#51060;&#51204;</a>
+          <p>
+            E2fsprogs-1.45.5
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="sysvinit.html" title=
+          "Sysvinit-2.96">&#45796;&#51020;</a>
+          <p>
+            Sysvinit-2.96
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

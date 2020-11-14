@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.58. Findutils-4.7.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gawk.html" title=
+          "Gawk-5.0.1">&#51060;&#51204;</a>
+          <p>
+            Gawk-5.0.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="groff.html" title=
+          "Groff-1.22.4">&#45796;&#51020;</a>
+          <p>
+            Groff-1.22.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-findutils" name="ch-system-findutils"></a>6.58.
+        Findutils-4.7.0
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Findutils &#54056;&#53412;&#51648;&#45716; &#54028;&#51068;&#51012;
+          &#52286;&#45716; &#54532;&#47196;&#44536;&#47016;&#51012;
+          &#54252;&#54632;&#54616;&#44256; &#51080;&#45796;.
+          &#46356;&#47113;&#53664;&#47532; &#53944;&#47532;&#47484;
+          &#51116;&#44480;&#51201;&#51004;&#47196;
+          &#44160;&#49353;&#54616;&#44256;
+          &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#47484;
+          &#51089;&#49457;, &#50976;&#51648;&#44288;&#47532; &#48143;
+          &#44160;&#49353;(&#48372;&#53685;&#51008; &#51116;&#44480;
+          &#44160;&#49353;&#48372;&#45796; &#48736;&#47476;&#51648;&#47564;
+          &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#44032;
+          &#52572;&#44540;&#50640;
+          &#50629;&#45936;&#51060;&#53944;&#46104;&#51648;
+          &#50506;&#50520;&#45796;&#47732; &#49888;&#47280;&#54624; &#49688;
+          &#50630;&#45796;)&#54616;&#44592; &#50948;&#54620;
+          &#54532;&#47196;&#44536;&#47016;&#51060;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.7 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">57 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.58.1. Findutils &#49444;&#52824;
+        </h2>
+        <p>
+          Findutils &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">./configure --prefix=/usr --localstatedir=/var/lib/locate</kbd>
+</pre>
+        <div class="variablelist">
+          <p class="title">
+            <strong>Configure &#50741;&#49496;&#51032;
+            &#51032;&#48120;:</strong>
+          </p>
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--localstatedir</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                <span class="command"><strong>locate</strong></span>
+                &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#51032;
+                &#50948;&#52824;&#47484; FHS&#47484;
+                &#51456;&#49688;&#54616;&#45716; <code class=
+                "filename">/var/lib/locate</code>&#47196;
+                &#48320;&#44221;&#54620;&#45796;.
+              </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#44208;&#44284;&#47484;
+          &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;
+          &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make check</kbd>
+</pre>
+        <p>
+          chroot &#54872;&#44221;&#50640;&#49436; &#46160;
+          &#53580;&#49828;&#53944;&#46308;&#51060;
+          &#49892;&#54056;&#54616;&#45716; &#44163;&#51004;&#47196;
+          &#50508;&#47140;&#51256; &#51080;&#45796;:
+          sv-bug-54171.old-O3&#44284; sv-bug-54171.new-O3.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+        <p>
+          LFS-Bootscripts &#54056;&#53412;&#51648;&#51032; &#51068;&#48512;
+          &#49828;&#53356;&#47549;&#53944;&#45716; <span class=
+          "command"><strong>find</strong></span>&#50640;
+          &#51032;&#51316;&#54620;&#45796;. &#48512;&#54021; &#44284;&#51221;
+          &#52488;&#44592;&#50640;&#45716; <code class=
+          "filename">/usr</code>&#51012; &#49324;&#50857;&#54624; &#49688;
+          &#50630;&#51004;&#48064;&#47196; &#51060;
+          &#54532;&#47196;&#44536;&#47016;&#51008; root
+          &#54028;&#54000;&#49496;&#50640; &#51080;&#50612;&#50556;
+          &#54620;&#45796;. &#46608; &#50732;&#48148;&#47480;
+          &#47749;&#49884;&#51201; &#44221;&#47196;&#47484; &#50948;&#54644;
+          <span class="command"><strong>updatedb</strong></span>
+          &#49828;&#53356;&#47549;&#53944;&#46020;
+          &#49688;&#51221;&#54644;&#50556; &#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">mv -v /usr/bin/find /bin
+sed -i 's|find:=${BINDIR}|find:=/bin|' /usr/bin/updatedb</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-findutils" name="contents-findutils"></a>6.58.2.
+          Findutils&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">find, locate, updatedb, xargs</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;:</strong> <span class=
+              "segbody">/var/lib/locate</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="find" name="find"></a><span class=
+                    "term"><span class=
+                    "command"><strong>find</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#46356;&#47113;&#53664;&#47532;
+                    &#53944;&#47532;&#50640;&#49436; &#51648;&#51221;&#46108;
+                    &#44592;&#51456;&#44284; &#51068;&#52824;&#54616;&#45716;
+                    &#54028;&#51068;&#51012; &#44160;&#49353;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="locate" name="locate"></a><span class=
+                    "term"><span class=
+                    "command"><strong>locate</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068; &#51060;&#47492;&#51032;
+                    &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#47484;
+                    &#44160;&#49353;&#54616;&#50668; &#51452;&#50612;&#51652;
+                    &#47928;&#51088;&#50676;&#51012;
+                    &#54252;&#54632;&#54616;&#44144;&#45208;
+                    &#51452;&#50612;&#51652; &#54056;&#53556;&#50640;
+                    &#51068;&#52824;&#54616;&#45716; &#51060;&#47492;&#51012;
+                    &#52636;&#47141;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="updatedb" name="updatedb"></a><span class=
+                    "term"><span class=
+                    "command"><strong>updatedb</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class="command"><strong>locate</strong></span>
+                    &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#47484;
+                    &#50629;&#45936;&#51060;&#53944;&#54632;;
+                    &#51204;&#52404; &#54028;&#51068;
+                    &#49884;&#49828;&#53596;&#51012;
+                    &#49828;&#52884;&#54616;&#44256; &#52286;&#51008;
+                    &#47784;&#46304; &#54028;&#51068;
+                    &#51060;&#47492;&#51012;
+                    &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#50640;
+                    &#51200;&#51109;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xargs" name="xargs"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xargs</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#47749;&#47161;&#51012;
+                    &#50668;&#47084; &#54028;&#51068;&#46308;&#50640;
+                    &#51201;&#50857;&#54616;&#45716; &#45936;
+                    &#49324;&#50857;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gawk.html" title=
+          "Gawk-5.0.1">&#51060;&#51204;</a>
+          <p>
+            Gawk-5.0.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="groff.html" title=
+          "Groff-1.22.4">&#45796;&#51020;</a>
+          <p>
+            Groff-1.22.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

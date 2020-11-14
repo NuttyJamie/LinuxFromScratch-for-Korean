@@ -1,0 +1,707 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.47. Gettext-0.20.1
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="kmod.html" title=
+          "Kmod-26">&#51060;&#51204;</a>
+          <p>
+            Kmod-26
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libelf.html" title=
+          "Libelf from Elfutils-0.178">&#45796;&#51020;</a>
+          <p>
+            Libelf from Elfutils-0.178
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-gettext" name="ch-system-gettext"></a>6.47.
+        Gettext-0.20.1
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Gettext &#54056;&#53412;&#51648;&#50640;&#45716;
+          &#45796;&#44397;&#50612;&#54868;&#50752;
+          &#54788;&#51648;&#54868;&#47484; &#50948;&#54620;
+          &#50976;&#54008;&#47532;&#54000;&#44032;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#45796;. &#51060;&#47484;
+          &#53685;&#54644; &#54532;&#47196;&#44536;&#47016;&#51012;
+          &#54788;&#51648; &#50616;&#50612;&#47484; &#51648;&#50896;(Native
+          Language Support, NLS)&#54616;&#46020;&#47197;
+          &#52980;&#54028;&#51068;&#54624; &#49688; &#51080;&#50612;
+          &#49324;&#50857;&#51088;&#51032; &#47784;&#44397;&#50612;&#47196;
+          &#47700;&#49884;&#51648;&#47484; &#52636;&#47141;&#54624; &#49688;
+          &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">2.7 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">249 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.47.1. Gettext &#49444;&#52824;
+        </h2>
+        <p>
+          Gettext &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/gettext-0.20.1</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#44208;&#44284;&#47484;
+          &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;(&#51060;
+          &#51089;&#50629;&#51008; &#49884;&#44036;&#51060; &#50724;&#47000;
+          &#44152;&#47536;&#45796;, &#50557; 3 SBUs),
+          &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make check</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install
+chmod -v 0755 /usr/lib/preloadable_libintl.so</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-gettext" name="contents-gettext"></a>6.47.2.
+          Gettext&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">autopoint, envsubst, gettext, gettext.sh, gettextize,
+              msgattrib, msgcat, msgcmp, msgcomm, msgconv, msgen, msgexec,
+              msgfilter, msgfmt, msggrep, msginit, msgmerge, msgunfmt,
+              msguniq, ngettext, recode-sr-latin, xgettext</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46972;&#51060;&#48652;&#47084;&#47532;&#46308;:</strong>
+              <span class="segbody">libasprintf.so, libgettextlib.so,
+              libgettextpo.so, libgettextsrc.so, libtextstyle.so,
+              preloadable_libintl.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;&#46308;:</strong> <span class=
+              "segbody">/usr/lib/gettext, /usr/share/doc/gettext-0.20.1,
+              /usr/share/gettext, /usr/share/gettext-0.19.8</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="autopoint" name="autopoint"></a><span class=
+                    "term"><span class=
+                    "command"><strong>autopoint</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54364;&#51456; Gettext &#51064;&#54532;&#46972;
+                    &#54028;&#51068;&#51012; &#49548;&#49828;
+                    &#54056;&#53412;&#51648;&#47196; &#48373;&#49324;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="envsubst" name="envsubst"></a><span class=
+                    "term"><span class=
+                    "command"><strong>envsubst</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49528; &#54805;&#49885;
+                    &#47928;&#51088;&#50676;&#50640;&#49436; &#54872;&#44221;
+                    &#48320;&#49688; &#45824;&#52404;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gettext" name="gettext"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gettext</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47700;&#49884;&#51648;
+                    &#52852;&#53448;&#47196;&#44536;&#50640;&#49436;
+                    &#48264;&#50669;&#51012; &#52286;&#50500;
+                    &#50896;&#48376; &#50616;&#50612;&#51032;
+                    &#47700;&#49884;&#51648;&#47484;
+                    &#49324;&#50857;&#51088;&#51032; &#50616;&#50612;&#47196;
+                    &#48264;&#50669;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gettext.sh" name="gettext.sh"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gettext.sh</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51452;&#47196; gettext&#51032; &#49528;
+                    &#54632;&#49688; &#46972;&#51060;&#48652;&#47084;&#47532;
+                    &#50669;&#54624;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gettextize" name="gettextize"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gettextize</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#45796;&#44397;&#50612;&#54868;&#47484;
+                    &#49884;&#51089;&#54616;&#44592; &#50948;&#54644;
+                    &#54056;&#53412;&#51648;&#51032; &#51648;&#51221;&#46108;
+                    &#52572;&#49345;&#50948;
+                    &#46356;&#47113;&#53664;&#47532;&#50640; &#47784;&#46304;
+                    &#54364;&#51456; Gettext &#54028;&#51068;&#46308;&#51012;
+                    &#48373;&#49324;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgattrib" name="msgattrib"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgattrib</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49549;&#49457;&#50640; &#46384;&#46972;
+                    &#48264;&#50669; &#52852;&#53448;&#47196;&#44536;&#51032;
+                    &#47700;&#49884;&#51648;&#46308;&#51012;
+                    &#54596;&#53552;&#47553;&#54616;&#44256;
+                    &#49549;&#49457;&#51012; &#51312;&#51089;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgcat" name="msgcat"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgcat</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; <code class=
+                    "filename">.po</code> &#54028;&#51068; &#50672;&#44208;
+                    &#48143; &#48337;&#54633;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgcmp" name="msgcmp"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgcmp</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#46160; <code class="filename">.po</code>
+                    &#54028;&#51068;&#51012; &#48708;&#44368;&#54616;&#50668;
+                    &#46160; &#54028;&#51068;&#51060; &#47784;&#46160;
+                    &#46041;&#51068;&#54620; msgid
+                    &#47928;&#51088;&#50676;&#51012;
+                    &#54252;&#54632;&#54616;&#44256; &#51080;&#45716;&#51648;
+                    &#54869;&#51064;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgcomm" name="msgcomm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgcomm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; <code class=
+                    "filename">.po</code>
+                    &#54028;&#51068;&#46308;&#50640;&#49436;
+                    &#44277;&#53685;&#51201;&#51064;
+                    &#47700;&#49884;&#51648;&#47484; &#52286;&#51020;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgconv" name="msgconv"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgconv</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48264;&#50669; &#52852;&#53448;&#47196;&#44536;&#47484;
+                    &#45796;&#47480; &#47928;&#51088;
+                    &#51064;&#53076;&#46377;&#51004;&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgen" name="msgen"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgen</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#50689;&#50612; &#48264;&#50669;
+                    &#52852;&#53448;&#47196;&#44536; &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgexec" name="msgexec"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgexec</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48264;&#50669; &#52852;&#53448;&#47196;&#44536;&#51032;
+                    &#47784;&#46304; &#48264;&#50669;&#50640;
+                    &#47749;&#47161;&#51012; &#51201;&#50857;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgfilter" name="msgfilter"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgfilter</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48264;&#50669; &#52852;&#53448;&#47196;&#44536;&#51032;
+                    &#47784;&#46304; &#48264;&#50669;&#50640;
+                    &#54596;&#53552;&#47484; &#51201;&#50857;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgfmt" name="msgfmt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgfmt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48264;&#50669;
+                    &#52852;&#53448;&#47196;&#44536;&#47196;&#48512;&#53552;
+                    &#48148;&#51060;&#45320;&#47532; &#47700;&#49884;&#51648;
+                    &#52852;&#53448;&#47196;&#44536; &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msggrep" name="msggrep"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msggrep</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#54056;&#53556;&#44284;
+                    &#51068;&#52824;&#54616;&#44144;&#45208;
+                    &#51648;&#51221;&#46108; &#50896;&#48376;
+                    &#54028;&#51068;&#50640; &#49549;&#54616;&#45716;
+                    &#48264;&#50669; &#52852;&#53448;&#47196;&#44536;&#51032;
+                    &#47784;&#46304; &#47700;&#49884;&#51648;
+                    &#52628;&#52636;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msginit" name="msginit"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msginit</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49324;&#50857;&#51088; &#54872;&#44221;&#51032;
+                    &#44050;&#51004;&#47196;
+                    &#47700;&#53440;&#45936;&#51060;&#53552;
+                    &#51221;&#48372;&#47484;
+                    &#52488;&#44592;&#54868;&#54616;&#45716; &#49352;
+                    <code class="filename">.po</code> &#54028;&#51068;
+                    &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgmerge" name="msgmerge"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgmerge</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#46160; &#50896;&#49884;
+                    &#48264;&#50669;&#47928;&#51012; &#54616;&#45208;&#51032;
+                    &#54028;&#51068;&#47196; &#44208;&#54633;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msgunfmt" name="msgunfmt"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msgunfmt</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48148;&#51060;&#45320;&#47532; &#47700;&#49884;&#51648;
+                    &#52852;&#53448;&#47196;&#44536;&#47484; &#50896;&#49884;
+                    &#48264;&#50669; &#53581;&#49828;&#53944;&#47196;
+                    &#46356;&#52980;&#54028;&#51068;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="msguniq" name="msguniq"></a><span class=
+                    "term"><span class=
+                    "command"><strong>msguniq</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48264;&#50669;
+                    &#52852;&#53448;&#47196;&#44536;&#50640;&#49436;
+                    &#51473;&#48373; &#48264;&#50669; &#53685;&#54633;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ngettext" name="ngettext"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ngettext</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#47928;&#48277; &#54805;&#49885;&#51060;
+                    &#49707;&#51088;&#50640; &#46384;&#46972;
+                    &#45804;&#46972;&#51648;&#45716; &#53581;&#49828;&#53944;
+                    &#47700;&#49884;&#51648;&#51032; &#44592;&#48376;
+                    &#50616;&#50612; &#48264;&#50669; &#54364;&#49884;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="recode-sr-latin" name=
+                    "recode-sr-latin"></a><span class="term"><span class=
+                    "command"><strong>recode-sr-latin</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49464;&#47476;&#48708;&#50504;
+                    &#53581;&#49828;&#53944;&#47484; &#53412;&#47540;
+                    &#47928;&#51088;&#50640;&#49436; &#46972;&#54004;
+                    &#47928;&#51088;&#47196; &#47532;&#53076;&#46377;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xgettext" name="xgettext"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xgettext</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#52395; &#48264;&#51704; &#48264;&#50669;
+                    &#53596;&#54540;&#47551;&#51012; &#47564;&#46308;&#44592;
+                    &#50948;&#54644; &#51648;&#51221;&#46108;
+                    &#50896;&#48376; &#54028;&#51068;&#47196;&#48512;&#53552;
+                    &#48264;&#50669; &#44032;&#45733;&#54620;
+                    &#47700;&#49884;&#51648; &#46972;&#51064;&#51012;
+                    &#52628;&#52636;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libasprintf" name="libasprintf"></a><span class=
+                    "term"><code class="filename">libasprintf</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class="emphasis"><em>&lt;string&gt;</em></span>
+                    &#47928;&#51088;&#50676; &#48143; <span class=
+                    "emphasis"><em>&lt;iostream&gt;</em></span>
+                    &#49828;&#53944;&#47548;&#44284; &#54632;&#44760;
+                    &#49324;&#50857;&#54616;&#44592; &#50948;&#54644; C
+                    &#54805;&#49885; &#52636;&#47141;
+                    &#47336;&#54004;&#51012; C++
+                    &#54532;&#47196;&#44536;&#47016;&#50640;&#49436;
+                    &#49324;&#50857;&#54624; &#49688;
+                    &#51080;&#46020;&#47197; &#54616;&#45716; <span class=
+                    "emphasis"><em>autosprintf</em></span>
+                    &#53364;&#47000;&#49828;&#47484;
+                    &#51221;&#51032;&#54620;&#45796;.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libgettextlib" name=
+                    "libgettextlib"></a><span class="term"><code class=
+                    "filename">libgettextlib</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#45796;&#50577;&#54620; Gettext
+                    &#54532;&#47196;&#44536;&#47016;&#46308;&#51060;
+                    &#49324;&#50857;&#54616;&#45716; &#44277;&#53685;
+                    &#47336;&#54004;&#51012; &#54252;&#54632;&#54616;&#45716;
+                    private &#46972;&#51060;&#48652;&#47084;&#47532;;
+                    &#51060;&#44163;&#46308;&#51008;
+                    &#51068;&#48152;&#51201;&#51064; &#50857;&#46020;&#47196;
+                    &#49324;&#50857;&#46104;&#51648; &#50506;&#45716;&#45796;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libgettextpo" name="libgettextpo"></a><span class=
+                    "term"><code class="filename">libgettextpo</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <code class="filename">.po</code>
+                    &#54028;&#51068;&#51012; &#52376;&#47532;&#54616;&#45716;
+                    &#53945;&#49688; &#54532;&#47196;&#44536;&#47016;
+                    &#51089;&#49457;&#50640; &#49324;&#50857;&#46120;;
+                    &#51060; &#46972;&#51060;&#48652;&#47084;&#47532;&#45716;
+                    Gettext&#50752; &#54632;&#44760; &#51228;&#44277;&#46108;
+                    &#54364;&#51456; &#51025;&#50857;
+                    &#54532;&#47196;&#44536;&#47016;&#46308;(<span class=
+                    "command"><strong>msgcomm</strong></span>, <span class=
+                    "command"><strong>msgcmp</strong></span>, <span class=
+                    "command"><strong>msgattrib</strong></span>, <span class=
+                    "command"><strong>msgen</strong></span>)&#47564;&#51004;&#47196;&#45716;
+                    &#52649;&#48516;&#54616;&#51648; &#50506;&#51012;
+                    &#46412; &#49324;&#50857;&#46120;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libgettextsrc" name=
+                    "libgettextsrc"></a><span class="term"><code class=
+                    "filename">libgettextsrc</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#45796;&#50577;&#54620; Gettext
+                    &#54532;&#47196;&#44536;&#47016;&#50640;&#49436;
+                    &#49324;&#50857;&#54616;&#45716;
+                    &#51068;&#48152;&#51201;&#51064; &#47336;&#54004;&#51012;
+                    &#54252;&#54632;&#54616;&#45716; private
+                    &#46972;&#51060;&#48652;&#47084;&#47532;;
+                    &#51060;&#44163;&#46308;&#51008;
+                    &#51068;&#48152;&#51201;&#51064; &#50857;&#46020;&#47196;
+                    &#49324;&#50857;&#46104;&#51648; &#50506;&#51020;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libtextstyle" name="libtextstyle"></a><span class=
+                    "term"><code class="filename">libtextstyle</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#53581;&#49828;&#53944; &#49828;&#53440;&#51068;&#47553;
+                    &#46972;&#51060;&#48652;&#47084;&#47532;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="preloadable_libintl" name=
+                    "preloadable_libintl"></a><span class="term"><code class=
+                    "filename">preloadable_libintl</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48264;&#50669;&#46104;&#51648; &#50506;&#51008;
+                    &#47700;&#49884;&#51648;&#47484; &#44592;&#47197;&#54624;
+                    &#46412; <code class="filename">libintl</code>&#51012;
+                    &#48372;&#51312;&#54616;&#45716;
+                    LD_PRELOAD&#50640;&#49436; &#49324;&#50857;&#54624;
+                    &#46972;&#51060;&#48652;&#47084;&#47532;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="kmod.html" title=
+          "Kmod-26">&#51060;&#51204;</a>
+          <p>
+            Kmod-26
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libelf.html" title=
+          "Libelf from Elfutils-0.178">&#45796;&#51020;</a>
+          <p>
+            Libelf from Elfutils-0.178
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

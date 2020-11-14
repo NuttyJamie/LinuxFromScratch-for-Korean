@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.60. GRUB-2.04
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="groff.html" title=
+          "Groff-1.22.4">&#51060;&#51204;</a>
+          <p>
+            Groff-1.22.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="less.html" title=
+          "Less-551">&#45796;&#51020;</a>
+          <p>
+            Less-551
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-grub" name="ch-system-grub"></a>6.60. GRUB-2.04
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          GRUB &#54056;&#53412;&#51648;&#50640;&#45716; GRand Unified
+          Bootloader&#44032; &#54252;&#54632;&#46104;&#50612;
+          &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.8 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">161 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.60.1. GRUB &#49444;&#52824;
+        </h2>
+        <p>
+          GRUB &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr          \
+            --sbindir=/sbin        \
+            --sysconfdir=/etc      \
+            --disable-efiemu       \
+            --disable-werror</kbd>
+</pre>
+        <div class="variablelist">
+          <p class="title">
+            <strong>&#49352; Configure &#50741;&#49496;&#46308;&#51032;
+            &#51032;&#48120;:</strong>
+          </p>
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--disable-werror</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                &#48372;&#45796; &#52572;&#49888; &#48260;&#51204;&#51032;
+                Flex&#50640;&#49436; &#50508;&#47140;&#51652;
+                &#44221;&#44256; &#49324;&#54637;&#46308;&#51012;
+                &#44592;&#48152;&#51004;&#47196; &#48716;&#46300;&#47484;
+                &#50756;&#47308;&#54624; &#49688; &#51080;&#45796;.
+              </p>
+            </dd>
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--disable-efiemu</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                LFS&#50640; &#54596;&#50836;&#54616;&#51648; &#50506;&#51008;
+                &#44592;&#45733; &#48143; &#53580;&#49828;&#53944;
+                &#54532;&#47196;&#44536;&#47016;&#51012;
+                &#48708;&#54876;&#49457;&#54868;&#54616;&#50668;
+                &#48716;&#46300;&#54624; &#45824;&#49345;&#51012;
+                &#52572;&#49548;&#54868;&#54620;&#45796;.
+              </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#51060; &#54056;&#53412;&#51648;&#50640;&#45716;
+          &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#44032;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#51648; &#50506;&#45796;.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install
+mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</kbd>
+</pre>
+        <p>
+          GRUB&#51004;&#47196; LFS &#49884;&#49828;&#53596;&#51012;
+          &#48512;&#54021;&#54616;&#45716; &#48169;&#48277;&#51008; <a class=
+          "xref" href="../chapter08/grub.html" title=
+          "8.4. GRUB&#51012; &#49324;&#50857;&#54616;&#50668; &#48512;&#54021; &#54532;&#47196;&#49464;&#49828; &#49444;&#51221;">
+          8.4&#51208;. &ldquo;GRUB&#51012; &#49324;&#50857;&#54616;&#50668;
+          &#48512;&#54021; &#54532;&#47196;&#49464;&#49828;
+          &#49444;&#51221;&rdquo;</a>&#50640;&#49436;
+          &#49444;&#47749;&#54620;&#45796;.
+        </p>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-gRUB" name="contents-gRUB"></a>6.60.2. GRUB&#51032;
+          &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">grub-bios-setup, grub-editenv, grub-file,
+              grub-fstest, grub-glue-efi, grub-install, grub-kbdcomp,
+              grub-macbless, grub-menulst2cfg, grub-mkconfig, grub-mkimage,
+              grub-mklayout, grub-mknetdir, grub-mkpasswd-pbkdf2,
+              grub-mkrelpath, grub-mkrescue, grub-mkstandalone,
+              grub-ofpathname, grub-probe, grub-reboot, grub-render-label,
+              grub-script-check, grub-set-default, grub-sparc64-setup,
+              grub-syslinux2cfg</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;&#46308;:</strong> <span class=
+              "segbody">/usr/lib/grub, /etc/grub.d, /usr/share/grub,
+              /boot/grub (grub-install&#51060; &#52376;&#51020;
+              &#49892;&#54665;&#46112; &#46412;)</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-bios-setup" name=
+                    "grub-bios-setup"></a><span class="term"><span class=
+                    "command"><strong>grub-bios-setup</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Grub-install&#51012; &#50948;&#54620; &#54764;&#54140;
+                    &#54532;&#47196;&#44536;&#47016;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-editenv" name="grub-editenv"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grub-editenv</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54872;&#44221; &#48660;&#47197;&#51012;
+                    &#54200;&#51665;&#54616;&#45716; &#46020;&#44396;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-file" name="grub-file"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grub-file</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    FILE&#51060; &#51648;&#51221;&#46108;
+                    &#50976;&#54805;&#51064;&#51648; &#54869;&#51064;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-fstest" name="grub-fstest"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grub-fstest</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068; &#49884;&#49828;&#53596;
+                    &#46300;&#46972;&#51060;&#48260;&#47484;
+                    &#46356;&#48260;&#44536;&#54616;&#45716; &#46020;&#44396;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-glue-efi" name=
+                    "grub-glue-efi"></a><span class="term"><span class=
+                    "command"><strong>grub-glue-efi</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    ia32 &#48143; amd64 EFI &#51060;&#48120;&#51648;&#47484;
+                    &#52376;&#47532;&#54616;&#44256; Apple
+                    &#54252;&#47607;&#50640; &#46384;&#46972;
+                    &#54633;&#52840;.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-install" name="grub-install"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grub-install</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#46300;&#46972;&#51060;&#48652;&#50640; GRUB
+                    &#49444;&#52824;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-kbdcomp" name="grub-kbdcomp"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grub-kbdcomp</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    xkb &#47112;&#51060;&#50500;&#50883;&#51012;
+                    GRUB&#50640;&#49436; &#51064;&#49885;&#46104;&#45716;
+                    &#47112;&#51060;&#50500;&#50883;&#51004;&#47196;
+                    &#48320;&#54872;&#54616;&#45716;
+                    &#49828;&#53356;&#47549;&#53944;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-macbless" name=
+                    "grub-macbless"></a><span class="term"><span class=
+                    "command"><strong>grub-macbless</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    HFS&#45208; HFS+ &#54028;&#51068;&#50640;
+                    &#45824;&#54620; Mac &#49828;&#53440;&#51068; bless
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-menulst2cfg" name=
+                    "grub-menulst2cfg"></a><span class="term"><span class=
+                    "command"><strong>grub-menulst2cfg</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GRUB 2&#50752; &#54632;&#44760; &#49324;&#50857;&#54624;
+                    GRUB &#47112;&#44144;&#49884; <code class=
+                    "filename">menu.lst</code>&#47484; <code class=
+                    "filename">grub.cfg</code>&#47196; &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-mkconfig" name=
+                    "grub-mkconfig"></a><span class="term"><span class=
+                    "command"><strong>grub-mkconfig</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GRUB &#44396;&#49457; &#54028;&#51068; &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-mkimage" name="grub-mkimage"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grub-mkimage</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GRUB&#51032; &#48512;&#53944; &#51060;&#48120;&#51648;
+                    &#51228;&#51089;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-mklayout" name=
+                    "grub-mklayout"></a><span class="term"><span class=
+                    "command"><strong>grub-mklayout</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GRUB &#53412;&#48372;&#46300;
+                    &#47112;&#51060;&#50500;&#50883; &#54028;&#51068;
+                    &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-mknetdir" name=
+                    "grub-mknetdir"></a><span class="term"><span class=
+                    "command"><strong>grub-mknetdir</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GRUB Netboot &#46356;&#47113;&#53664;&#47532;
+                    &#51456;&#48708;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-mkpasswd-pbkdf2" name=
+                    "grub-mkpasswd-pbkdf2"></a><span class=
+                    "term"><span class="command"><strong>grub-mkpasswd-pbkdf2</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#48512;&#54021; &#47700;&#45684;&#50640;&#49436;
+                    &#49324;&#50857;&#54624; &#50516;&#54840;&#54868;&#46108;
+                    PBKDF2 &#50516;&#54840; &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-mkrelpath" name=
+                    "grub-mkrelpath"></a><span class="term"><span class=
+                    "command"><strong>grub-mkrelpath</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    root&#47484; &#44592;&#51456;&#51004;&#47196;
+                    &#49884;&#49828;&#53596; &#44221;&#47196;&#47749;
+                    &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-mkrescue" name=
+                    "grub-mkrescue"></a><span class="term"><span class=
+                    "command"><strong>grub-mkrescue</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54540;&#47196;&#54588; &#46356;&#49828;&#53356;
+                    &#46608;&#45716; CDROM/DVD&#50640;
+                    &#51201;&#54633;&#54620; GRUB&#51032; &#48512;&#53944;
+                    &#51060;&#48120;&#51648; &#51228;&#51089;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-mkstandalone" name=
+                    "grub-mkstandalone"></a><span class="term"><span class=
+                    "command"><strong>grub-mkstandalone</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#46021;&#47549; &#49892;&#54665;&#54805;
+                    &#51060;&#48120;&#51648; &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-ofpathname" name=
+                    "grub-ofpathname"></a><span class="term"><span class=
+                    "command"><strong>grub-ofpathname</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GRUB &#51109;&#52824;&#51032; &#44221;&#47196;&#47484;
+                    &#52636;&#47141;&#54616;&#45716; &#54764;&#54140;
+                    &#54532;&#47196;&#44536;&#47016;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-probe" name="grub-probe"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grub-probe</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; &#44221;&#47196;&#45208;
+                    &#51109;&#52824;&#50640; &#45824;&#54620;
+                    &#51109;&#52824; &#51221;&#48372; &#51312;&#49324;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-reboot" name="grub-reboot"></a><span class=
+                    "term"><span class=
+                    "command"><strong>grub-reboot</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#45796;&#51020; &#48512;&#54021;&#50640;
+                    &#45824;&#54644;&#49436;&#47564; GRUB&#50640;
+                    &#45824;&#54620; &#44592;&#48376; &#48512;&#54021;
+                    &#54637;&#47785; &#49444;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-render-label" name=
+                    "grub-render-label"></a><span class="term"><span class=
+                    "command"><strong>grub-render-label</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Apple Mac&#50857; Apple .disk_label
+                    &#47116;&#45908;&#47553;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-script-check" name=
+                    "grub-script-check"></a><span class="term"><span class=
+                    "command"><strong>grub-script-check</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GRUB &#44396;&#49457;
+                    &#49828;&#53356;&#47549;&#53944;&#50640;&#49436;
+                    &#44396;&#47928; &#50724;&#47448; &#54869;&#51064;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-set-default" name=
+                    "grub-set-default"></a><span class="term"><span class=
+                    "command"><strong>grub-set-default</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    GRUB&#51032; &#44592;&#48376; &#48512;&#54021;
+                    &#54637;&#47785; &#49444;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-sparc64-setup" name=
+                    "grub-sparc64-setup"></a><span class="term"><span class=
+                    "command"><strong>grub-sparc64-setup</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    grub-setup&#51012; &#50948;&#54620; &#54764;&#54140;
+                    &#54532;&#47196;&#44536;&#47016;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="grub-syslinux2cfg" name=
+                    "grub-syslinux2cfg"></a><span class="term"><span class=
+                    "command"><strong>grub-syslinux2cfg</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    syslinux &#44396;&#49457; &#54028;&#51068;&#51012;
+                    grub.cfg &#54805;&#49885;&#51004;&#47196;
+                    &#48320;&#54872;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="groff.html" title=
+          "Groff-1.22.4">&#51060;&#51204;</a>
+          <p>
+            Groff-1.22.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="less.html" title=
+          "Less-551">&#45796;&#51020;</a>
+          <p>
+            Less-551
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

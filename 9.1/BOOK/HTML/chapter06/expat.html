@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.39. Expat-2.2.9
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gperf.html" title=
+          "Gperf-3.1">&#51060;&#51204;</a>
+          <p>
+            Gperf-3.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="inetutils.html" title=
+          "Inetutils-1.9.4">&#45796;&#51020;</a>
+          <p>
+            Inetutils-1.9.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-expat" name="ch-system-expat"></a>6.39. Expat-2.2.9
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Expat &#54056;&#53412;&#51648;&#45716; XML &#44396;&#47928;&#51012;
+          &#50948;&#54620; &#49828;&#53944;&#47548; &#51648;&#54693; C
+          &#46972;&#51060;&#48652;&#47084;&#47532;&#47484;
+          &#54252;&#54632;&#54616;&#44256; &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.1 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">11 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.39.1. Expat &#49444;&#52824;
+        </h2>
+        <p>
+          &#50864;&#49440; LFS &#54872;&#44221;&#50640;&#49436;
+          &#54924;&#44480; &#53580;&#49828;&#53944; &#47928;&#51228;&#47484;
+          &#54644;&#44208;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i 's|usr/bin/env |bin/|' run.sh.in</kbd>
+</pre>
+        <p>
+          Expat &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/expat-2.2.9</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#44208;&#44284;&#47484;
+          &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;
+          &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make check</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+        <p>
+          &#54596;&#50836;&#54616;&#45796;&#47732; &#47928;&#49436;&#47484;
+          &#49444;&#52824;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">install -v -m644 doc/*.{html,png,css} /usr/share/doc/expat-2.2.9</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-expat" name="contents-expat"></a>6.39.2.
+          Expat&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;:</strong> <span class=
+              "segbody">xmlwf</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46972;&#51060;&#48652;&#47084;&#47532;:</strong> <span class=
+              "segbody">libexpat.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;:</strong> <span class=
+              "segbody">/usr/share/doc/expat-2.2.9</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="xmlwf" name="xmlwf"></a><span class=
+                    "term"><span class=
+                    "command"><strong>xmlwf</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    XML &#47928;&#49436;&#44032; &#51228;&#45824;&#47196;
+                    &#44396;&#49457;&#46104;&#50632;&#45716;&#51648;&#51032;
+                    &#50668;&#48512;&#47484; &#54869;&#51064;&#54624;
+                    &#49688; &#51080;&#45716; &#48708;-&#51064;&#51613;
+                    &#50976;&#54008;&#47532;&#54000;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libexpat" name="libexpat"></a><span class=
+                    "term"><code class="filename">libexpat</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Contains API functions for parsing XML
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gperf.html" title=
+          "Gperf-3.1">&#51060;&#51204;</a>
+          <p>
+            Gperf-3.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="inetutils.html" title=
+          "Inetutils-1.9.4">&#45796;&#51020;</a>
+          <p>
+            Inetutils-1.9.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -31,6 +31,7 @@ $Date: 2013-10-17 03:55:24 +0900 (Thu, 17 Oct 2013) $
   <xsl:include href="pdf/lfs-mixed.xsl"/>
   <xsl:include href="pdf/lfs-pagesetup.xsl"/>
   <xsl:include href="pdf/lfs-xref.xsl"/>
+  <xsl:include href="pdf/ko_KR-fonts.xsl"/>
 
   <!-- Activate FOP-1 extensions. We use FOP-0.93 as the FO procesor. -->
   <xsl:param name="fop1.extensions" select="1"/>

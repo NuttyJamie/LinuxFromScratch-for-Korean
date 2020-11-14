@@ -1,0 +1,668 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      &#48512;&#47197; B. &#44048;&#49324;&#51032; &#47568;
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        &#48512;&nbsp;IV.&nbsp;&#48512;&#47197;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="acronymlist.html" title=
+          "&#51460;&#51076;&#47568;&#44284; &#50857;&#50612;">&#51060;&#51204;</a>
+          <p>
+            &#51460;&#51076;&#47568;&#44284; &#50857;&#50612;
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dependencies.html" title=
+          "&#51032;&#51316;&#49457;">&#45796;&#51020;</a>
+          <p>
+            &#51032;&#51316;&#49457;
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="../part4.html" title=
+          "&#48512;&nbsp;IV.&nbsp;&#48512;&#47197;">&#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="appendix">
+      <h1 class="appendix">
+        <a id="appendixb" name="appendixb"></a>B. &#44048;&#49324;&#51032;
+        &#47568;
+      </h1>
+      <p>
+        &#50864;&#47532;&#45716; Linux From Scratch
+        &#54532;&#47196;&#51229;&#53944;&#50640; &#44592;&#50668;&#54620;
+        &#45796;&#51020;&#51032; &#49324;&#46988;&#46308;&#44284;
+        &#45800;&#52404;&#46308;&#50640;&#44172; &#44048;&#49324;&#47484;
+        &#54364;&#54616;&#44256; &#49910;&#45796;.
+      </p>
+      <div class="itemizedlist">
+        <ul>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#103;&#101;&#114;&#97;&#114;&#100;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Gerard Beekmans</a>
+              &lt;gerard AT linuxfromscratch D0T org&gt; &ndash; LFS
+              &#52285;&#47549;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#98;&#100;&#117;&#98;&#98;&#115;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Bruce Dubbs</a>
+              &lt;bdubbs AT linuxfromscratch D0T org&gt; &ndash; LFS
+              &#44288;&#47532; &#54200;&#51665;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#106;&#105;&#109;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Jim
+              Gifford</a> &lt;jim AT linuxfromscratch D0T org&gt; &ndash; CLFS
+              &#54532;&#47196;&#51229;&#53944; &#44277;&#46041;
+              &#47532;&#45908;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#112;&#105;&#101;&#114;&#114;&#101;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Pierre Labastie</a>
+              &lt;pierre AT linuxfromscratch D0T org&gt; &ndash; BLFS
+              &#54200;&#51665;&#51088; &#44216; ALFS &#47532;&#45908;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#100;&#106;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">DJ
+              Lucas</a> &lt;dj AT linuxfromscratch D0T org&gt; &ndash; LFS &#48143;
+              BLFS &#54200;&#51665;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#107;&#101;&#110;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Ken
+              Moffat</a> &lt;ken AT linuxfromscratch D0T org&gt; &ndash; BLFS
+              &#54200;&#51665;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              &#45796;&#50577;&#54620; LFS&#50752; BLFS
+              &#47700;&#51068;&#47553; &#47532;&#49828;&#53944;&#50640;
+              &#51080;&#45716; &#49688;&#47566;&#51008; &#45796;&#47480;
+              &#49324;&#46988;&#46308;&#51060; &#44536;&#46308;&#51032;
+              &#51228;&#50504;, &#52293; &#53580;&#49828;&#53944;,
+              &#48260;&#44536; &#47532;&#54252;&#53944;, &#49892;&#54744;,
+              &#44536;&#47532;&#44256; &#45796;&#50577;&#54620;
+              &#54056;&#53412;&#51648; &#49444;&#52824;
+              &#44221;&#54744;&#46308;&#51012;
+              &#44592;&#48512;&#54632;&#51004;&#47196;&#50024; &#51060;
+              &#52293;&#51012; &#44032;&#45733;&#54616;&#44172;
+              &#54664;&#45796;.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <h2>
+        &#48264;&#50669;&#51088;
+      </h2>
+      <div class="itemizedlist">
+        <ul>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#109;&#97;&#99;&#97;&#110;&#97;&#64;&#109;&#97;&#99;&#97;&#110;&#97;&#45;&#101;&#115;&#46;&#99;&#111;&#109;">Manuel
+              Canales Esparcia</a> &lt;macana AT macana-es D0T com&gt; &ndash;
+              &#49828;&#54168;&#51064;&#50612; LFS &#48264;&#50669;
+              &#54532;&#47196;&#51229;&#53944;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#106;&#111;&#104;&#97;&#110;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Johan
+              Lenglet</a> &lt;johan AT linuxfromscratch D0T org&gt; &ndash;
+              &#54532;&#46993;&#49828;&#50612; LFS &#48264;&#50669;
+              &#54532;&#47196;&#51229;&#53944;, 2008&#45380;&#44620;&#51648;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#106;&#109;&#101;&#110;&#103;&#117;&#97;&#108;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Jean-Philippe
+              Mengual</a> &lt;jmengual AT linuxfromscratch D0T org&gt; &ndash;
+              &#54532;&#46993;&#49828;&#50612; LFS &#48264;&#50669;
+              &#54532;&#47196;&#51229;&#53944; 2008-2016
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#106;&#108;&#101;&#112;&#105;&#108;&#108;&#101;&#114;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Julien Lepiller</a>
+              &lt;jlepiller AT linuxfromscratch D0T org&gt; &ndash;
+              &#54532;&#46993;&#49828;&#50612; LFS &#48264;&#50669;
+              &#54532;&#47196;&#51229;&#53944; 2017-&#54788;&#51116;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#108;&#105;&#122;&#97;&#114;&#100;&#111;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Anderson Lizardo</a>
+              &lt;lizardo AT linuxfromscratch D0T org&gt; &ndash;
+              &#54252;&#47476;&#53804;&#44040;&#50612; LFS &#48264;&#50669;
+              &#54532;&#47196;&#51229;&#53944;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#116;&#114;&#64;&#101;&#114;&#100;&#102;&#117;&#110;&#107;&#115;&#116;&#101;&#108;&#108;&#101;&#46;&#100;&#101;">Thomas
+              Reitelbach</a> &lt;tr AT erdfunkstelle D0T de&gt; &ndash;
+              &#46021;&#51068;&#50612; LFS &#48264;&#50669;
+              &#54532;&#47196;&#51229;&#53944;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#105;&#110;&#102;&#111;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;&#46;&#114;&#117;">Anton Maisak</a>
+              &lt;info AT linuxfromscratch D0T org D0T ru&gt; &ndash;
+              &#47084;&#49884;&#50500;&#50612; LFS &#48264;&#50669;
+              &#54532;&#47196;&#51229;&#53944;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#104;&#101;&#108;&#101;&#110;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;&#46;&#114;&#117;">Elena Shevcova</a>
+              &lt;helen AT linuxfromscratch D0T org D0T ru&gt; &ndash;
+              &#47084;&#49884;&#50500;&#50612; LFS &#48264;&#50669;
+              &#54532;&#47196;&#51229;&#53944;
+            </p>
+          </li>
+        </ul>
+      </div>
+      <h2>
+        &#48120;&#47084; &#44288;&#47532;&#51088;&#46308;
+      </h2>
+      <h3>
+        &#48513;&#48120; &#48120;&#47084;
+      </h3>
+      <div class="itemizedlist">
+        <ul>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#115;&#99;&#111;&#116;&#116;&#64;&#111;&#115;&#117;&#111;&#115;&#108;&#46;&#111;&#114;&#103;">Scott
+              Kveton</a> &lt;scott AT osuosl D0T org&gt; &ndash; lfs.oregonstate.edu
+              mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#108;&#111;&#115;&#116;&#64;&#108;&#45;&#119;&#46;&#110;&#101;&#116;">William Astle</a>
+              &lt;lost AT l-w D0T net&gt; &ndash; ca.linuxfromscratch.org mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#101;&#117;&#106;&#111;&#110;&#46;&#115;&#101;&#108;&#108;&#101;&#114;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">Eujon
+              Sellers</a> &lt;jpolen@rackspace.com&gt; &ndash;
+              lfs.introspeed.com mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#106;&#117;&#115;&#116;&#105;&#110;&#64;&#107;&#110;&#105;&#101;&#114;&#105;&#109;&#46;&#111;&#114;&#103;">Justin
+              Knierim</a> &lt;tim@idge.net&gt; &ndash; lfs-matrix.net mirror
+            </p>
+          </li>
+        </ul>
+      </div>
+      <h3>
+        &#45224;&#48120; &#48120;&#47084;
+      </h3>
+      <div class="itemizedlist">
+        <ul>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#109;&#97;&#110;&#117;&#101;&#108;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Manuel Canales
+              Esparcia</a> &lt;manuel AT linuxfromscratch D0T org&gt; &ndash;
+              lfsmirror.lfs-es.info mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#108;&#102;&#97;&#108;&#99;&#111;&#110;&#64;&#116;&#104;&#121;&#109;&#98;&#114;&#97;&#46;&#99;&#111;&#109;">Luis
+              Falcon</a> &lt;Luis Falcon&gt; &ndash; torredehanoi.org mirror
+            </p>
+          </li>
+        </ul>
+      </div>
+      <h3>
+        &#50976;&#47101; &#48120;&#47084;
+      </h3>
+      <div class="itemizedlist">
+        <ul>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#103;&#117;&#105;&#100;&#111;&#64;&#112;&#114;&#105;&#109;&#101;&#114;&#101;&#108;&#97;&#121;&#46;&#110;&#101;&#116;">Guido
+              Passet</a> &lt;guido AT primerelay D0T net&gt; &ndash;
+              nl.linuxfromscratch.org mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#98;&#97;&#97;&#102;&#105;&#101;&#64;&#112;&#108;&#97;&#110;&#101;&#116;&#46;&#110;&#108;">Bastiaan
+              Jacques</a> &lt;baafie AT planet D0T nl&gt; &ndash; lfs.pagefault.net
+              mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#115;&#118;&#101;&#110;&#46;&#99;&#114;&#97;&#110;&#115;&#104;&#111;&#102;&#102;&#64;&#108;&#105;&#110;&#101;&#111;&#46;&#98;&#101;">Sven
+              Cranshoff</a> &lt;sven D0T cranshoff AT lineo D0T be&gt; &ndash;
+              lfs.lineo.be mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Scarlet Belgium &ndash; lfs.scarlet.be mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#105;&#110;&#102;&#111;&#64;&#97;&#108;&#105;&#101;&#110;&#115;&#111;&#102;&#116;&#46;&#111;&#114;&#103;">Sebastian
+              Faulborn</a> &lt;info AT aliensoft D0T org&gt; &ndash;
+              lfs.aliensoft.org mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#115;&#116;&#117;&#97;&#114;&#116;&#64;&#100;&#111;&#110;&#116;&#117;&#115;&#101;&#46;&#109;&#115;">Stuart Fox</a>
+              &lt;stuart AT dontuse D0T ms&gt; &ndash; lfs.dontuse.ms mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#97;&#100;&#109;&#105;&#110;&#64;&#114;&#101;&#97;&#108;&#104;&#111;&#115;&#116;&#46;&#100;&#101;">Ralf
+              Uhlemann</a> &lt;admin AT realhost D0T de&gt; &ndash;
+              lfs.oss-mirror.org mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#65;&#110;&#116;&#111;&#110;&#105;&#110;&#46;&#83;&#112;&#114;&#105;&#110;&#122;&#108;&#64;&#116;&#117;&#119;&#105;&#101;&#110;&#46;&#97;&#99;&#46;&#97;&#116;">Antonin Sprinzl</a>
+              &lt;Antonin D0T Sprinzl AT tuwien D0T ac D0T at&gt; &ndash;
+              at.linuxfromscratch.org mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#102;&#114;&#101;&#100;&#97;&#110;&#45;&#108;&#102;&#115;&#64;&#102;&#114;&#101;&#100;&#97;&#110;&#46;&#111;&#114;&#103;">Fredrik
+              Danerklint</a> &lt;fredan-lfs AT fredan D0T org&gt; &ndash;
+              se.linuxfromscratch.org mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#102;&#114;&#97;&#110;&#99;&#107;&#64;&#108;&#105;&#110;&#117;&#120;&#112;&#111;&#117;&#114;&#116;&#111;&#117;&#115;&#46;&#99;&#111;&#109;">Franck</a>
+              &lt;franck AT linuxpourtous D0T com&gt; &ndash; lfs.linuxpourtous.com
+              mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#98;&#97;&#113;&#117;&#101;&#64;&#99;&#105;&#99;&#116;&#46;&#102;&#114;">Philippe Baque</a>
+              &lt;baque AT cict D0T fr&gt; &ndash; lfs.cict.fr mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#103;&#121;&#111;&#117;&#106;&#97;&#64;&#112;&#105;&#108;&#103;&#114;&#105;&#109;&#115;&#46;&#114;&#117;">Vitaly
+              Chekasin</a> &lt;gyouja AT pilgrims D0T ru&gt; &ndash; lfs.pilgrims.ru
+              mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#119;&#97;&#110;&#107;&#111;&#111;&#46;&#111;&#114;&#103;">Benjamin
+              Heil</a> &lt;kontakt AT wankoo D0T org&gt; &ndash; lfs.wankoo.org
+              mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#105;&#110;&#102;&#111;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;&#46;&#114;&#117;">Anton Maisak</a>
+              &lt;info AT linuxfromscratch D0T org D0T ru&gt; &ndash;
+              linuxfromscratch.org.ru mirror
+            </p>
+          </li>
+        </ul>
+      </div>
+      <h3>
+        &#50500;&#49884;&#50500; &#48120;&#47084;
+      </h3>
+      <div class="itemizedlist">
+        <ul>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#115;&#97;&#116;&#105;&#116;&#64;&#119;&#98;&#97;&#99;&#46;&#97;&#99;&#46;&#116;&#104;">Satit
+              Phermsawang</a> &lt;satit AT wbac D0T ac D0T th&gt; &ndash;
+              lfs.phayoune.org mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#105;&#110;&#102;&#111;&#64;&#115;&#104;&#105;&#122;&#117;&#45;&#110;&#101;&#116;&#46;&#106;&#112;">Shizunet
+              Co.,Ltd.</a> &lt;info AT shizu-net D0T jp&gt; &ndash;
+              lfs.mirror.shizu-net.jp mirror
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="http://www.initworld.com/">Init
+              World</a> &lt;http://www.initworld.com/&gt; &ndash;
+              lfs.initworld.com mirror
+            </p>
+          </li>
+        </ul>
+      </div>
+      <h3>
+        &#54840;&#51452; &#48120;&#47084;
+      </h3>
+      <div class="itemizedlist">
+        <ul>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#106;&#97;&#115;&#111;&#110;&#64;&#100;&#115;&#116;&#99;&#46;&#101;&#100;&#117;&#46;&#97;&#117;">Jason
+              Andrade</a> &lt;jason AT dstc D0T edu D0T au&gt; &ndash;
+              au.linuxfromscratch.org mirror
+            </p>
+          </li>
+        </ul>
+      </div>
+      <h2>
+        &#51060;&#51204; &#54532;&#47196;&#51229;&#53944; &#54016;
+        &#44396;&#49457;&#50896;
+      </h2>
+      <div class="itemizedlist">
+        <ul>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#116;&#104;&#101;&#108;&#97;&#100;&#121;&#115;&#107;&#121;&#101;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Christine Barczak</a>
+              &lt;theladyskye AT linuxfromscratch D0T org&gt; &ndash; LFS &#52293;
+              &#54200;&#51665;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Archaic &lt;archaic@linuxfromscratch.org&gt; &ndash; LFS
+              &#44592;&#49696; &#51089;&#44032;/&#54200;&#51665;&#51088;,
+              HLFS &#54532;&#47196;&#51229;&#53944; &#47532;&#45908;, BLFS
+              &#54200;&#51665;&#51088;, Hints and Patches
+              &#54532;&#47196;&#51229;&#53944; &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#109;&#97;&#116;&#116;&#104;&#101;&#119;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Matthew Burgess</a>
+              &lt;matthew AT linuxfromscratch D0T org&gt; &ndash; LFS
+              &#54532;&#47196;&#51229;&#53944; &#47532;&#45908;, LFS
+              &#44592;&#49696; &#51089;&#44032;/&#54200;&#51665;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#110;&#97;&#116;&#104;&#97;&#110;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Nathan Coulson</a>
+              &lt;nathan AT linuxfromscratch D0T org&gt; &ndash;
+              LFS-&#48512;&#53944;&#49828;&#53356;&#47549;&#53944;
+              &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Timothy Bauscher
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Robert Briggs
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Ian Chilton
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#106;&#101;&#114;&#111;&#101;&#110;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Jeroen Coumans</a>
+              &lt;jeroen AT linuxfromscratch D0T org&gt; &ndash;
+              &#50937;&#49324;&#51060;&#53944; &#44060;&#48156;&#51088;, FAQ
+              &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#109;&#97;&#110;&#117;&#101;&#108;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Manuel Canales
+              Esparcia</a> &lt;manuel AT linuxfromscratch D0T org&gt; &ndash;
+              LFS/BLFS/HLFS XML &#48143; XSL &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Alex Groenewoud &ndash; LFS &#44592;&#49696; &#51089;&#44032;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Marc Heerdink
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#106;&#104;&#117;&#110;&#116;&#119;&#111;&#114;&#107;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Jeremy Huntwork</a>
+              &lt;jhuntwork AT linuxfromscratch D0T org&gt; &ndash; LFS
+              &#44592;&#49696; &#51089;&#44032;, LFS LiveCD
+              &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#98;&#114;&#121;&#97;&#110;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Bryan
+              Kadzban</a> &lt;bryan AT linuxfromscratch D0T org&gt; &ndash; LFS
+              &#44592;&#49696; &#51089;&#44032;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Mark Hymers
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Seth W. Klein &ndash; FAQ &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#110;&#105;&#99;&#104;&#111;&#108;&#97;&#115;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Nicholas Leippe</a>
+              &lt;nicholas AT linuxfromscratch D0T org&gt; &ndash; &#50948;&#53412;
+              &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#108;&#105;&#122;&#97;&#114;&#100;&#111;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Anderson Lizardo</a>
+              &lt;lizardo AT linuxfromscratch D0T org&gt; &ndash;
+              &#50937;&#49324;&#51060;&#53944;
+              &#48177;&#50644;&#46300;-&#49828;&#53356;&#47549;&#53944;
+              &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#114;&#97;&#110;&#100;&#121;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Randy
+              McMurchy</a> &lt;randy AT linuxfromscratch D0T org&gt; &ndash; BLFS
+              &#54532;&#47196;&#51229;&#53944; &#47532;&#45908;, LFS
+              &#54200;&#51665;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#100;&#110;&#105;&#99;&#104;&#111;&#108;&#115;&#111;&#110;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Dan Nicholson</a>
+              &lt;dnicholson AT linuxfromscratch D0T org&gt; &ndash; LFS &#48143;
+              BLFS &#54200;&#51665;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#97;&#108;&#101;&#120;&#97;&#110;&#100;&#101;&#114;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Alexander E.
+              Patrakov</a> &lt;alexander AT linuxfromscratch D0T org&gt; &ndash; LFS
+              &#44592;&#49696; &#51089;&#44032;, LFS
+              &#45796;&#44397;&#50612;&#54868; &#51089;&#44032;, LFS Live CD
+              &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Simon Perreault
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#115;&#99;&#111;&#116;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Scot
+              Mc Pherson</a> &lt;scot AT linuxfromscratch D0T org&gt; &ndash; LFS
+              NNTP &#44172;&#51060;&#53944;&#50920;&#51060;
+              &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#114;&#101;&#110;&#111;&#100;&#114;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Douglas R. Reno</a>
+              &lt;renodr AT linuxfromscratch D0T org&gt; &ndash; Systemd
+              &#54200;&#51665;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#114;&#121;&#97;&#110;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Ryan
+              Oliver</a> &lt;ryan AT linuxfromscratch D0T org&gt; &ndash; CLFS
+              &#54532;&#47196;&#51229;&#53944; &#44277;&#46041;
+              &#47532;&#45908;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#103;&#115;&#99;&#104;&#97;&#102;&#101;&#114;&#64;&#122;&#105;&#112;&#46;&#99;&#111;&#109;&#46;&#97;&#117;">Greg
+              Schafer</a> &lt;gschafer AT zip D0T com D0T au&gt; &ndash; LFS
+              &#44592;&#49696; &#51089;&#44032; &#44216;
+              &#52264;&#49464;&#45824; 64&#48708;&#53944; &#51648;&#50896;
+              &#48716;&#46300; &#48169;&#48277; &#49444;&#44228;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              Jesse Tie-Ten-Quee &ndash; LFS &#44592;&#49696;
+              &#51089;&#44032;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#106;&#119;&#114;&#111;&#98;&#101;&#114;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">James Robertson</a>
+              &lt;jwrober AT linuxfromscratch D0T org&gt; &ndash; Bugzilla
+              &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#116;&#117;&#115;&#104;&#97;&#114;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Tushar Teredesai</a>
+              &lt;tushar AT linuxfromscratch D0T org&gt; &ndash; BLFS &#52293;
+              &#54200;&#51665;&#51088;, Hints and Patches
+              &#54532;&#47196;&#51229;&#53944; &#47532;&#45908;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href=
+              "mailto:&#106;&#101;&#114;&#101;&#109;&#121;&#64;&#108;&#105;&#110;&#117;&#120;&#102;&#114;&#111;&#109;&#115;&#99;&#114;&#97;&#116;&#99;&#104;&#46;&#111;&#114;&#103;">Jeremy Utley</a>
+              &lt;jeremy AT linuxfromscratch D0T org&gt; &ndash; LFS
+              &#44592;&#49696; &#51089;&#44032;, Bugzilla
+              &#44288;&#47532;&#51088;,
+              LFS-&#48512;&#53944;&#49828;&#53356;&#47549;&#53944;
+              &#44288;&#47532;&#51088;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <a class="ulink" href="mailto:&#122;&#119;&#105;&#110;&#107;&#108;&#101;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">Zack
+              Winkles</a> &lt;zwinkles AT gmail D0T com&gt; &ndash; LFS
+              &#44592;&#49696; &#51089;&#44032;
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="acronymlist.html" title=
+          "&#51460;&#51076;&#47568;&#44284; &#50857;&#50612;">&#51060;&#51204;</a>
+          <p>
+            &#51460;&#51076;&#47568;&#44284; &#50857;&#50612;
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="dependencies.html" title=
+          "&#51032;&#51316;&#49457;">&#45796;&#51020;</a>
+          <p>
+            &#51032;&#51316;&#49457;
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="../part4.html" title=
+          "&#48512;&nbsp;IV.&nbsp;&#48512;&#47197;">&#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.15. Readline-8.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="file.html" title=
+          "File-5.38">&#51060;&#51204;</a>
+          <p>
+            File-5.38
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="m4.html" title=
+          "M4-1.4.18">&#45796;&#51020;</a>
+          <p>
+            M4-1.4.18
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-readline" name="ch-system-readline"></a>6.15.
+        Readline-8.0
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Readline &#54056;&#53412;&#51648;&#45716; &#47749;&#47161;&#51460;
+          &#54200;&#51665; &#48143; &#44592;&#47197; &#44592;&#45733;&#51012;
+          &#51228;&#44277;&#54616;&#45716;
+          &#46972;&#51060;&#48652;&#47084;&#47532;
+          &#47784;&#51020;&#51060;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.1 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">15 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.15.1. Readline &#49444;&#52824;
+        </h2>
+        <p>
+          Readline&#51012; &#51116;&#49444;&#52824;&#54616;&#47732;
+          &#51060;&#51204; &#46972;&#51060;&#48652;&#47084;&#47532;&#44032;
+          &lt;libraryname&gt;.old&#47196; &#48320;&#44221;&#46108;&#45796;.
+          &#51068;&#48152;&#51201;&#51004;&#47196;&#45716;
+          &#47928;&#51228;&#44032; &#46104;&#51648; &#50506;&#51648;&#47564;,
+          &#44221;&#50864;&#50640; &#46384;&#46972; <span class=
+          "command"><strong>ldconfig</strong></span>&#51032; &#47553;&#53356;
+          &#48260;&#44536;&#47484; &#50976;&#48156;&#54624; &#49688;
+          &#51080;&#45796;. &#51060;&#45716; &#45796;&#51020; &#46160;
+          &#44060;&#51032; sed &#47749;&#47161;&#51012;
+          &#49892;&#54665;&#54644;&#49436; &#48169;&#51648;&#54624; &#49688;
+          &#51080;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i '/MV.*old/d' Makefile.in
+sed -i '/{OLDSUFF}/c:' support/shlib-install</kbd>
+</pre>
+        <p>
+          Readline &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/readline-8.0</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make SHLIB_LIBS="-L/tools/lib -lncursesw"</kbd>
+</pre>
+        <div class="variablelist">
+          <p class="title">
+            <strong>Make &#50741;&#49496;&#51032; &#51032;&#48120;:</strong>
+          </p>
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>SHLIB_LIBS="-L/tools/lib
+              -lncursesw"</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                Readline&#51012; <code class="filename">libncursesw</code>
+                &#46972;&#51060;&#48652;&#47084;&#47532;&#50640;
+                &#47553;&#53356;&#54616;&#46020;&#47197;
+                &#44053;&#51228;&#54620;&#45796;.
+              </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+          &#51060; &#54056;&#53412;&#51648;&#45716; &#53580;&#49828;&#53944;
+          &#49828;&#50948;&#53944;&#44032;
+          &#54252;&#54632;&#46104;&#50612;&#51080;&#51648; &#50506;&#45796;.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make SHLIB_LIBS="-L/tools/lib -lncursesw" install</kbd>
+</pre>
+        <p>
+          &#51060;&#51228; &#46041;&#51201;
+          &#46972;&#51060;&#48652;&#47084;&#47532;&#47484; &#48372;&#45796;
+          &#51201;&#51208;&#54620; &#50948;&#52824;&#47196;
+          &#51060;&#46041;&#54616;&#44256; &#51068;&#48512; &#44428;&#54620;
+          &#48143; &#49900;&#48380;&#47533; &#47553;&#53356;&#47484;
+          &#49688;&#51221;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">mv -v /usr/lib/lib{readline,history}.so.* /lib
+chmod -v u+w /lib/lib{readline,history}.so.*
+ln -sfv ../../lib/$(readlink /usr/lib/libreadline.so) /usr/lib/libreadline.so
+ln -sfv ../../lib/$(readlink /usr/lib/libhistory.so ) /usr/lib/libhistory.so</kbd>
+</pre>
+        <p>
+          &#50896;&#54620;&#45796;&#47732; &#47928;&#49436;&#47484;
+          &#49444;&#52824;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">install -v -m644 doc/*.{ps,pdf,html,dvi} /usr/share/doc/readline-8.0</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-readline" name="contents-readline"></a>6.15.2.
+          Readline&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46972;&#51060;&#48652;&#47084;&#47532;&#46308;:</strong>
+              <span class="segbody">libhistory.so&#50752;
+              libreadline.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;&#46308;:</strong> <span class=
+              "segbody">/usr/include/readline&#44284;
+              /usr/share/doc/readline-8.0</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libhistory" name="libhistory"></a><span class=
+                    "term"><code class="filename">libhistory</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    history&#51032; &#44592;&#47197;&#51012;
+                    &#48520;&#47084;&#50724;&#44592; &#50948;&#54620;
+                    &#51068;&#44288;&#46108; &#50976;&#51200;
+                    &#51064;&#53552;&#54168;&#51060;&#49828; &#51228;&#44277;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libreadline" name="libreadline"></a><span class=
+                    "term"><code class="filename">libreadline</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54532;&#47196;&#44536;&#47016;&#51032;
+                    &#45824;&#54868;&#54805; &#49464;&#49496;&#50640;
+                    &#51077;&#47141;&#46108; &#53581;&#49828;&#53944;&#47484;
+                    &#51312;&#51089;&#54616;&#44592; &#50948;&#54620;
+                    &#47749;&#47161;&#50612; &#49464;&#53944;&#47484;
+                    &#51228;&#44277;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="file.html" title=
+          "File-5.38">&#51060;&#51204;</a>
+          <p>
+            File-5.38
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="m4.html" title=
+          "M4-1.4.18">&#45796;&#51020;</a>
+          <p>
+            M4-1.4.18
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

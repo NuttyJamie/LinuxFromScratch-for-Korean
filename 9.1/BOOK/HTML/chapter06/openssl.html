@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.50. OpenSSL-1.1.1d
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libffi.html" title=
+          "Libffi-3.3">&#51060;&#51204;</a>
+          <p>
+            Libffi-3.3
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="Python.html" title=
+          "Python-3.8.1">&#45796;&#51020;</a>
+          <p>
+            Python-3.8.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-openssl" name="ch-system-openssl"></a>6.50.
+        OpenSSL-1.1.1d
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          OpenSSL &#54056;&#53412;&#51648;&#50640;&#45716;
+          &#50516;&#54840;&#54868;&#50752; &#44288;&#47144;&#46108;
+          &#44288;&#47532; &#46020;&#44396;&#50752;
+          &#46972;&#51060;&#48652;&#47084;&#47532;&#44032;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#45796;. &#51060;&#45716;
+          OpenSSH, &#51060;&#47700;&#51068;
+          &#50528;&#54540;&#47532;&#52992;&#51060;&#49496; &#48143; &#50937;
+          &#48652;&#46972;&#50864;&#51200;(HTTPS &#49324;&#51060;&#53944;
+          &#51217;&#44540;&#50857;)&#50752; &#44057;&#51008; &#45796;&#47480;
+          &#54056;&#53412;&#51648;&#50640; &#50516;&#54840;&#54868;
+          &#44592;&#45733;&#51012; &#51228;&#44277;&#54616;&#45716; &#45936;
+          &#50976;&#50857;&#54616;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">2.1 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">146 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.50.1. OpenSSL &#49444;&#52824;
+        </h2>
+        <p>
+          OpenSSL &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./config --prefix=/usr         \
+         --openssldir=/etc/ssl \
+         --libdir=lib          \
+         shared                \
+         zlib-dynamic</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#44208;&#44284;&#47484;
+          &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;
+          &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make test</kbd>
+</pre>
+        <p>
+          20-test_enc.t&#51032; &#53580;&#49828;&#53944; &#54620;
+          &#44060;&#44032; &#49892;&#54056;&#54616;&#45716;
+          &#44163;&#51004;&#47196; &#50508;&#47140;&#51256; &#51080;&#45796;.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
+make MANSUFFIX=ssl install</kbd>
+</pre>
+        <p>
+          &#54596;&#50836;&#54616;&#45796;&#47732; &#47928;&#49436;&#47484;
+          &#49444;&#52824;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class=
+"command">mv -v /usr/share/doc/openssl /usr/share/doc/openssl-1.1.1d
+cp -vfr doc/* /usr/share/doc/openssl-1.1.1d</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-openssl" name="contents-openssl"></a>6.50.2.
+          OpenSSL&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">c_rehash&#50752; openssl</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46972;&#51060;&#48652;&#47084;&#47532;&#46308;:</strong>
+              <span class="segbody">libcrypto.{so,a}&#50752;
+              libssl.{so,a}</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;&#46308;:</strong> <span class=
+              "segbody">/etc/ssl, /usr/include/openssl, /usr/lib/engines,
+              /usr/share/doc/openssl-1.1.1d</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="c_rehash" name="c_rehash"></a><span class=
+                    "term"><span class=
+                    "command"><strong>c_rehash</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#46356;&#47113;&#53664;&#47532;&#51032; &#47784;&#46304;
+                    &#54028;&#51068;&#51012; &#44160;&#49324;&#54616;&#44256;
+                    &#44536; &#54644;&#49884; &#44050;&#46308;&#50640;
+                    &#49900;&#48380;&#47533; &#47553;&#53356;&#47484;
+                    &#52628;&#44032;&#54616;&#45716; <span class=
+                    "application">Perl</span>
+                    &#49828;&#53356;&#47549;&#53944;.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="openssl-prog" name="openssl-prog"></a><span class=
+                    "term"><span class=
+                    "command"><strong>openssl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#49528;&#50640;&#49436; <span class=
+                    "application">OpenSSL</span>&#51032;
+                    &#50516;&#54840;&#54868;
+                    &#46972;&#51060;&#48652;&#47084;&#47532;&#51032;
+                    &#45796;&#50577;&#54620; &#50516;&#54840;&#54868;
+                    &#44592;&#45733;&#51012; &#49324;&#50857;&#54616;&#44592;
+                    &#50948;&#54620; &#47749;&#47161;&#51460;
+                    &#46020;&#44396;&#51060;&#45796;. <span class=
+                    "command"><strong>man 1 openssl</strong></span>&#50640;
+                    &#49444;&#47749;&#46104;&#50612; &#51080;&#45716;
+                    &#45796;&#50577;&#54620; &#44592;&#45733;&#46308;&#50640;
+                    &#49324;&#50857;&#46108;&#45796;.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libcrypto" name="libcrypto"></a><span class=
+                    "term"><code class="filename">libcrypto.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#45796;&#50577;&#54620; &#51064;&#53552;&#45367;
+                    &#54364;&#51456;&#50640; &#50416;&#51060;&#45716;
+                    &#44305;&#48276;&#50948;&#54620; &#50516;&#54840;
+                    &#50508;&#44256;&#47532;&#51608;&#51012;
+                    &#44396;&#54788;&#54620;&#45796;. &#51060;
+                    &#46972;&#51060;&#48652;&#47084;&#47532;&#50640;&#49436;
+                    &#51228;&#44277;&#54616;&#45716;
+                    &#49436;&#48708;&#49828;&#46308;&#51008; SSL, TLS,
+                    S/MIME&#51032; <span class="application">OpenSSL</span>
+                    &#44396;&#54788;&#50640; &#50416;&#51060;&#47728;
+                    <span class="application">OpenSSH</span>, <span class=
+                    "application">OpenPGP</span> &#48143; &#44592;&#53440;
+                    &#50516;&#54840; &#54364;&#51456;&#51012;
+                    &#44396;&#54788;&#54616;&#45716; &#45936;&#46020;
+                    &#49324;&#50857;&#46104;&#50632;&#45796;.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libssl" name="libssl"></a><span class=
+                    "term"><code class="filename">libssl.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Transport Layer Security (TLS v1)
+                    &#54532;&#47196;&#53664;&#53084; &#44396;&#54788;.
+                    <span class="command"><strong>man 3
+                    ssl</strong></span>&#47484;
+                    &#49892;&#54665;&#54644;&#49436; &#48380; &#49688;
+                    &#51080;&#45716; &#54413;&#48512;&#54620; API&#50752;
+                    &#47928;&#49436;&#47484;
+                    &#51228;&#44277;&#54620;&#45796;.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="libffi.html" title=
+          "Libffi-3.3">&#51060;&#51204;</a>
+          <p>
+            Libffi-3.3
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="Python.html" title=
+          "Python-3.8.1">&#45796;&#51020;</a>
+          <p>
+            Python-3.8.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.26. Pkg-config-0.29.2
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gcc.html" title=
+          "GCC-9.2.0">&#51060;&#51204;</a>
+          <p>
+            GCC-9.2.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="ncurses.html" title=
+          "Ncurses-6.2">&#45796;&#51020;</a>
+          <p>
+            Ncurses-6.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-pkgconfig" name="ch-system-pkgconfig"></a>6.26.
+        Pkg-config-0.29.2
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          pkg-config &#54056;&#53412;&#51648;&#50640;&#45716;
+          configure&#50752; make &#54028;&#51068; &#49892;&#54665; &#51473;
+          &#46020;&#44396;&#47484; &#48716;&#46300;&#54616;&#44592;
+          &#50948;&#54620; include &#44221;&#47196; &#48143;/&#46608;&#45716;
+          &#46972;&#51060;&#48652;&#47084;&#47532; &#44221;&#47196;&#47484;
+          &#51204;&#45804;&#54616;&#45716; &#46020;&#44396;&#44032;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.3 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">30 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.26.1. Pkg-config &#49444;&#52824;
+        </h2>
+        <p>
+          Pkg-config &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr              \
+            --with-internal-glib       \
+            --disable-host-tool        \
+            --docdir=/usr/share/doc/pkg-config-0.29.2</kbd>
+</pre>
+        <div class="variablelist">
+          <p class="title">
+            <strong>Configure &#50741;&#49496;&#46308;&#51032;
+            &#51032;&#48120;:</strong>
+          </p>
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--with-internal-glib</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                LFS&#50640;&#49436;&#45716; &#50808;&#48512;
+                &#48260;&#51204;&#51012; &#49324;&#50857;&#54624; &#49688;
+                &#50630;&#44592; &#46412;&#47928;&#50640; pkg-config&#44032;
+                Glib&#51032; &#45236;&#48512; &#48260;&#51204;&#51012;
+                &#49324;&#50857;&#54616;&#44172; &#54620;&#45796;.
+              </p>
+            </dd>
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--disable-host-tool</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                pkg-config &#54532;&#47196;&#44536;&#47016;&#50640;
+                &#45824;&#54620; &#50896;&#52824; &#50506;&#45716;
+                &#54616;&#46300; &#47553;&#53356;&#47484;
+                &#49373;&#49457;&#54616;&#51648; &#47803;&#54616;&#44172;
+                &#54620;&#45796;.
+              </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#44208;&#44284;&#47484;
+          &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;
+          &#45796;&#51020;&#51012; &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make check</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-pkgconfig" name="contents-pkgconfig"></a>6.26.2.
+          Pkg-config&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;:</strong> <span class=
+              "segbody">pkg-config</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;:</strong> <span class=
+              "segbody">/usr/share/doc/pkg-config-0.29.2</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="pkgconfig" name="pkgconfig"></a><span class=
+                    "term"><span class=
+                    "command"><strong>pkg-config</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108;
+                    &#46972;&#51060;&#48652;&#47084;&#47532; &#46608;&#45716;
+                    &#54056;&#53412;&#51648;&#50640; &#45824;&#54620;
+                    &#47700;&#53440; &#51221;&#48372; &#48152;&#54872;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gcc.html" title=
+          "GCC-9.2.0">&#51060;&#51204;</a>
+          <p>
+            GCC-9.2.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="ncurses.html" title=
+          "Ncurses-6.2">&#45796;&#51020;</a>
+          <p>
+            Ncurses-6.2
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.52. Ninja-1.10.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="Python.html" title=
+          "Python-3.8.1">&#51060;&#51204;</a>
+          <p>
+            Python-3.8.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="meson.html" title=
+          "Meson-0.53.1">&#45796;&#51020;</a>
+          <p>
+            Meson-0.53.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-ninja" name="ch-system-ninja"></a>6.52. Ninja-1.10.0
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Ninja&#45716; &#49549;&#46020;&#50640; &#52488;&#51216;&#51012;
+          &#47582;&#52632; &#51089;&#51008; &#48716;&#46300;
+          &#49884;&#49828;&#53596;&#51060;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.3 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">89 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.52.1. Ninja &#49444;&#52824;
+        </h2>
+        <p>
+          &#49892;&#54665;&#54624; &#46412;, ninja&#45716;
+          &#51068;&#48152;&#51201;&#51004;&#47196; &#52572;&#45824;
+          &#49688;&#51032; &#54532;&#47196;&#49464;&#49828;&#47484;
+          &#48337;&#47148;&#47196; &#49892;&#54665;&#54620;&#45796;.
+          &#44592;&#48376;&#44050;&#51008; &#49884;&#49828;&#53596;&#51032;
+          &#53076;&#50612; &#49688; +2&#51060;&#45796;.
+          &#44221;&#50864;&#50640; &#46384;&#46972; CPU&#47484;
+          &#44284;&#50676;&#49884;&#53412;&#44144;&#45208;
+          &#49884;&#49828;&#53596; &#47700;&#47784;&#47532;&#44032;
+          &#48512;&#51313;&#54644;&#51656; &#49688; &#51080;&#45796;.
+          &#47749;&#47161;&#51460;&#50640;&#49436; &#49892;&#54665;&#54624;
+          &#44221;&#50864; -jN &#47588;&#44060; &#48320;&#49688;&#47484;
+          &#51204;&#45804;&#54616;&#47732; &#48337;&#47148;
+          &#54532;&#47196;&#49464;&#49828; &#49688;&#44032;
+          &#51228;&#54620;&#46104;&#51648;&#47564; &#51068;&#48512;
+          &#54056;&#53412;&#51648;&#45716; ninja&#47484;
+          &#45236;&#48512;&#51201;&#51004;&#47196;
+          &#49892;&#54665;&#54644;&#49436; -j &#47588;&#44060;
+          &#48320;&#49688;&#47484; &#51204;&#45804;&#54616;&#51648;
+          &#50506;&#45716;&#45796;.
+        </p>
+        <p>
+          &#50500;&#47000;&#51032; <span class=
+          "emphasis"><em>&#49440;&#53469;&#51201;</em></span>
+          &#51208;&#52264;&#47484; &#46384;&#47476;&#47732;
+          &#49324;&#50857;&#51088;&#44032; &#54872;&#44221;
+          &#48320;&#49688;&#51064; NINJAJOBS&#47484; &#53685;&#54644;
+          &#48337;&#47148; &#54532;&#47196;&#49464;&#49828; &#49688;&#47484;
+          &#51228;&#54620;&#54624; &#49688; &#51080;&#45796;. <span class=
+          "command"><strong>&#50696;&#47484;
+          &#46308;&#47732;</strong></span>:
+        </p>
+        <pre class="screen">
+export NINJAJOBS=4
+</pre>
+        <p>
+          &#47749;&#47161;&#51008; &#48337;&#47148;
+          &#54532;&#47196;&#49464;&#49828;&#47484; 4&#44060;&#47196;
+          &#51228;&#54620;&#54620;&#45796;.
+        </p>
+        <p>
+          &#50896;&#54620;&#45796;&#47732; &#45796;&#51020;&#51012;
+          &#49892;&#54665;&#54616;&#50668; &#54872;&#44221; &#48320;&#49688;
+          NINJAJOBS&#47484; &#49324;&#50857;&#54616;&#45716;
+          &#44592;&#45733;&#51012; &#52628;&#44032;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">sed -i '/int Guess/a \
+  int   j = 0;\
+  char* jobs = getenv( "NINJAJOBS" );\
+  if ( jobs != NULL ) j = atoi( jobs );\
+  if ( j &gt; 0 ) return j;\
+' src/ninja.cc</kbd>
+</pre>
+        <p>
+          &#45796;&#51020; &#47749;&#47161;&#51004;&#47196; Ninja&#47484;
+          &#48716;&#46300;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">python3 configure.py --bootstrap</kbd>
+</pre>
+        <div class="variablelist">
+          <p class="title">
+            <strong>&#48716;&#46300; &#50741;&#49496;&#51032;
+            &#51032;&#48120;:</strong>
+          </p>
+          <dl class="variablelist">
+            <dt>
+              <span class="term"><em class=
+              "parameter"><code>--bootstrap</code></em></span>
+            </dt>
+            <dd>
+              <p>
+                ninja&#44032; &#54788;&#51116;
+                &#49884;&#49828;&#53596;&#50640; &#45824;&#54644;
+                &#51116;&#48716;&#46300;&#46104;&#46020;&#47197;
+                &#44053;&#51228;&#54620;&#45796;.
+              </p>
+            </dd>
+          </dl>
+        </div>
+        <p>
+          &#44208;&#44284;&#47484;
+          &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;
+          &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./ninja ninja_test
+./ninja_test --gtest_filter=-SubprocessTest.SetWithLots</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">install -vm755 ninja /usr/bin/
+install -vDm644 misc/bash-completion /usr/share/bash-completion/completions/ninja
+install -vDm644 misc/zsh-completion  /usr/share/zsh/site-functions/_ninja</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-ninja" name="contents-ninja"></a>6.52.2.
+          Ninja&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">ninja</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ninja" name="ninja"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ninja</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Ninja &#48716;&#46300; &#49884;&#49828;&#53596;.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="Python.html" title=
+          "Python-3.8.1">&#51060;&#51204;</a>
+          <p>
+            Python-3.8.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="meson.html" title=
+          "Meson-0.53.1">&#45796;&#51020;</a>
+          <p>
+            Meson-0.53.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

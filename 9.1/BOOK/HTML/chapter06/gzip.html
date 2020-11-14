@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.62. Gzip-1.10
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="less.html" title=
+          "Less-551">&#51060;&#51204;</a>
+          <p>
+            Less-551
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="zstd.html" title=
+          "Zstd-1.4.4">&#45796;&#51020;</a>
+          <p>
+            Zstd-1.4.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-gzip" name="ch-system-gzip"></a>6.62. Gzip-1.10
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Gzip &#54056;&#53412;&#51648;&#50640;&#45716;
+          &#54028;&#51068;&#51012; &#50517;&#52629;&#54616;&#44256;
+          &#54644;&#51228;&#54616;&#45716;
+          &#54532;&#47196;&#44536;&#47016;&#51060;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.1 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">20 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.62.1. Gzip &#49444;&#52824;
+        </h2>
+        <p>
+          Gzip &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#44208;&#44284;&#47484;
+          &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;
+          &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make check</kbd>
+</pre>
+        <p>
+          LFS &#54872;&#44221;&#50640;&#49436; &#46160;
+          &#53580;&#49828;&#53944;&#44032; &#49892;&#54056;&#54616;&#45716;
+          &#44163;&#51004;&#47196; &#50508;&#47140;&#51256; &#51080;&#45796;:
+          help-version, zmore.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+        <p>
+          root &#54028;&#51068; &#49884;&#49828;&#53596;&#50640;
+          &#51080;&#50612;&#50556; &#54616;&#45716;
+          &#54532;&#47196;&#44536;&#47016;&#51012;
+          &#51060;&#46041;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">mv -v /usr/bin/gzip /bin</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-gzip" name="contents-gzip"></a>6.62.2. Gzip&#51032;
+          &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">gunzip, gzexe, gzip, uncompress (gunzip&#44284;
+              &#54616;&#46300; &#47553;&#53356;), zcat, zcmp, zdiff, zegrep,
+              zfgrep, zforce, zgrep, zless, zmore, and znew</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gunzip" name="gunzip"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gunzip</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    gzip&#51004;&#47196; &#50517;&#52629;&#46108;
+                    &#54028;&#51068;&#51012; &#50517;&#52629;
+                    &#54644;&#51228;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gzexe" name="gzexe"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gzexe</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51088;&#52404; &#50517;&#52629; &#54644;&#51228;
+                    &#49892;&#54665; &#54028;&#51068; &#49373;&#49457;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gzip" name="gzip"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gzip</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Lempel-Ziv (LZ77) &#53076;&#46377;&#51012;
+                    &#49324;&#50857;&#54616;&#50668; &#51648;&#51221;&#46108;
+                    &#54028;&#51068; &#50517;&#52629;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="uncompress" name="uncompress"></a><span class=
+                    "term"><span class=
+                    "command"><strong>uncompress</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#50517;&#52629;&#46108; &#54028;&#51068;&#51032;
+                    &#50517;&#52629; &#54644;&#51228;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zcat" name="zcat"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zcat</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51648;&#51221;&#46108; gzip &#50517;&#52629;
+                    &#54028;&#51068;&#51012; &#54364;&#51456;
+                    &#52636;&#47141;&#51004;&#47196; &#50517;&#52629;
+                    &#54644;&#51228;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zcmp" name="zcmp"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zcmp</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    gzip &#50517;&#52629; &#54028;&#51068;&#50640;&#49436;
+                    <span class="command"><strong>cmp</strong></span>
+                    &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zdiff" name="zdiff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zdiff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    gzip &#50517;&#52629; &#54028;&#51068;&#50640;&#49436;
+                    <span class="command"><strong>diff</strong></span>
+                    &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zegrep" name="zegrep"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zegrep</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    gzip &#50517;&#52629; &#54028;&#51068;&#50640;&#49436;
+                    <span class="command"><strong>egrep</strong></span>
+                    &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zfgrep" name="zfgrep"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zfgrep</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    gzip &#50517;&#52629; &#54028;&#51068;&#50640;&#49436;
+                    <span class="command"><strong>fgrep</strong></span>
+                    &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zforce" name="zforce"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zforce</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    gzip&#51004;&#47196; &#50517;&#52629;&#46108;
+                    &#47784;&#46304; &#54028;&#51068;&#50640; <code class=
+                    "filename">.gz</code> &#54869;&#51109;&#51088;&#47484;
+                    &#44053;&#51228;&#47196; &#48537;&#50668; <span class=
+                    "command"><strong>gzip</strong></span>&#51060;
+                    &#45796;&#49884; &#50517;&#52629;&#54616;&#51648;
+                    &#50506;&#46020;&#47197; &#54632;; &#54028;&#51068;
+                    &#51204;&#49569; &#51473;&#50640; &#54028;&#51068;
+                    &#51060;&#47492;&#51060; &#51096;&#47532;&#45716;
+                    &#44221;&#50864; &#50976;&#50857;&#54632;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zgrep" name="zgrep"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zgrep</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    gzip &#50517;&#52629; &#54028;&#51068;&#50640;&#49436;
+                    <span class="command"><strong>grep</strong></span>
+                    &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zless" name="zless"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zless</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    gzip &#50517;&#52629; &#54028;&#51068;&#50640;&#49436;
+                    <span class="command"><strong>less</strong></span>
+                    &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="zmore" name="zmore"></a><span class=
+                    "term"><span class=
+                    "command"><strong>zmore</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    gzip &#50517;&#52629; &#54028;&#51068;&#50640;&#49436;
+                    <span class="command"><strong>more</strong></span>
+                    &#49892;&#54665;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="znew" name="znew"></a><span class=
+                    "term"><span class=
+                    "command"><strong>znew</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <span class="command"><strong>compress</strong></span>
+                    &#54805;&#49885;&#50640;&#49436; <span class=
+                    "command"><strong>gzip</strong></span>
+                    &#54805;&#49885;&#51004;&#47196; &#54028;&#51068;&#51012;
+                    &#45796;&#49884; &#50517;&#52629;&mdash;<code class=
+                    "filename">.Z</code>&#50640;&#49436; <code class=
+                    "filename">.gz</code>&#47196;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="less.html" title=
+          "Less-551">&#51060;&#51204;</a>
+          <p>
+            Less-551
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="zstd.html" title=
+          "Zstd-1.4.4">&#45796;&#51020;</a>
+          <p>
+            Zstd-1.4.4
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

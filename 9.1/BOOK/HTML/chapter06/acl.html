@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.23. Acl-2.2.53
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="attr.html" title=
+          "Attr-2.4.48">&#51060;&#51204;</a>
+          <p>
+            Attr-2.4.48
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="shadow.html" title=
+          "Shadow-4.8.1">&#45796;&#51020;</a>
+          <p>
+            Shadow-4.8.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-acl" name="ch-system-acl"></a>6.23. Acl-2.2.53
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Acl &#54056;&#53412;&#51648;&#50640;&#45716;
+          &#50529;&#49464;&#49436; &#51228;&#50612; &#47785;&#47197;&#51012;
+          &#44288;&#47532;&#54616;&#45716;
+          &#50976;&#54008;&#47532;&#54000;&#44032;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#45796;. &#51060;
+          &#50976;&#54008;&#47532;&#54000;&#45716; &#54028;&#51068; &#48143;
+          &#46356;&#47113;&#53664;&#47532;&#50640; &#45824;&#54620;
+          &#48372;&#45796; &#49464;&#48516;&#54868;&#46108; &#51076;&#51032;
+          &#50529;&#49464;&#49828; &#44428;&#54620;&#51012;
+          &#51221;&#51032;&#54616;&#45716; &#45936;
+          &#49324;&#50857;&#46108;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.1 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">6.4 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.23.1. Acl &#49444;&#52824;
+        </h2>
+        <p>
+          Acl &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr         \
+            --bindir=/bin         \
+            --disable-static      \
+            --libexecdir=/usr/lib \
+            --docdir=/usr/share/doc/acl-2.2.53</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          Acl &#53580;&#49828;&#53944;&#45716; <span class=
+          "application">Coreutils</span>&#44032; Acl
+          &#46972;&#51060;&#48652;&#47084;&#47532;&#50752; &#54632;&#44760;
+          &#48716;&#46300;&#46108; &#54980;, &#50529;&#49464;&#49828;
+          &#44288;&#47532;&#47484; &#51648;&#50896;&#54616;&#45716;
+          &#54028;&#51068; &#49884;&#49828;&#53596;&#50640;&#49436;
+          &#49892;&#54665;&#46104;&#50612;&#50556; &#54620;&#45796;.
+          &#50896;&#54616;&#45716; &#44221;&#50864; &#51060; &#51109;
+          &#46263;&#48512;&#48516;&#50640;&#49436; <span class=
+          "application">Coreutils</span>&#47484; &#48716;&#46300;&#54620;
+          &#54980; <span class="command"><strong>make
+          check</strong></span>&#47484; &#49892;&#54665;&#54616;&#46972;.
+        </p>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+        <p>
+          &#44277;&#50976; &#46972;&#51060;&#48652;&#47084;&#47532;&#47484;
+          <code class="filename">/lib</code>&#47196;
+          &#51060;&#46041;&#54644;&#50556; &#54616;&#48064;&#47196;
+          <code class="filename">/usr/lib</code>&#51032; <code class=
+          "filename">.so</code> &#54028;&#51068;&#51012; &#45796;&#49884;
+          &#47564;&#46308;&#50612;&#50556; &#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">mv -v /usr/lib/libacl.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-acl" name="contents-acl"></a>6.23.2. Acl&#51032;
+          &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">chacl, getfacl&#44284; setfacl</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46972;&#51060;&#48652;&#47084;&#47532;:</strong> <span class=
+              "segbody">libacl.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;&#46308;:</strong> <span class=
+              "segbody">/usr/include/acl&#44284;
+              /usr/share/doc/acl-2.2.53</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="chacl" name="chacl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>chacl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068; &#46608;&#45716;
+                    &#46356;&#47113;&#53664;&#47532;&#51032;
+                    &#50529;&#49464;&#49828; &#51228;&#50612;
+                    &#47785;&#47197; &#48320;&#44221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="getfacl" name="getfacl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>getfacl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068; &#50529;&#49464;&#49828;
+                    &#51228;&#50612; &#47785;&#47197;&#51012;
+                    &#44032;&#51256;&#50740;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="setfacl" name="setfacl"></a><span class=
+                    "term"><span class=
+                    "command"><strong>setfacl</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#54028;&#51068; &#50529;&#49464;&#49828;
+                    &#51228;&#50612; &#47785;&#47197; &#49444;&#51221;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libacl" name="libacl"></a><span class=
+                    "term"><code class="filename">libacl</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#50529;&#49464;&#49828; &#51228;&#50612;
+                    &#47785;&#47197;&#51012; &#51312;&#51089;&#54616;&#45716;
+                    &#46972;&#51060;&#48652;&#47084;&#47532; &#54632;&#49688;
+                    &#54252;&#54632;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="attr.html" title=
+          "Attr-2.4.48">&#51060;&#51204;</a>
+          <p>
+            Attr-2.4.48
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="shadow.html" title=
+          "Shadow-4.8.1">&#45796;&#51020;</a>
+          <p>
+            Shadow-4.8.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

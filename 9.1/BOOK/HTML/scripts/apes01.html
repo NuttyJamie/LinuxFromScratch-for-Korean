@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      E.1. 55-lfs.rules
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        &#48512;&#47197; E. Udev &#44396;&#49457; &#44508;&#52825;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="eudev-rules.html" title=
+          "Udev &#44396;&#49457; &#44508;&#52825;">&#51060;&#51204;</a>
+          <p>
+            Udev &#44396;&#49457; &#44508;&#52825;
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../appendices/licenses.html" title=
+          "LFS &#46972;&#51060;&#49468;&#49828;">&#45796;&#51020;</a>
+          <p>
+            LFS &#46972;&#51060;&#49468;&#49828;
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="eudev-rules.html" title=
+          "&#48512;&#47197; E. Udev &#44396;&#49457; &#44508;&#52825;">&#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="lfsrules" name="lfsrules"></a>E.1. 55-lfs.rules
+      </h1>
+      <pre class="screen">
+# /etc/udev/rules.d/55-lfs.rules: Rule definitions for LFS.
+
+# Core kernel devices
+
+# This causes the system clock to be set as soon as /dev/rtc becomes available.
+SUBSYSTEM=="rtc", ACTION=="add", MODE="0644", RUN+="/etc/rc.d/init.d/setclock start"
+KERNEL=="rtc", ACTION=="add", MODE="0644", RUN+="/etc/rc.d/init.d/setclock start"
+
+# Comms devices
+
+KERNEL=="ippp[0-9]*",       GROUP="dialout"
+KERNEL=="isdn[0-9]*",       GROUP="dialout"
+KERNEL=="isdnctrl[0-9]*",   GROUP="dialout"
+KERNEL=="dcbri[0-9]*",      GROUP="dialout"
+</pre>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="eudev-rules.html" title=
+          "Udev &#44396;&#49457; &#44508;&#52825;">&#51060;&#51204;</a>
+          <p>
+            Udev &#44396;&#49457; &#44508;&#52825;
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../appendices/licenses.html" title=
+          "LFS &#46972;&#51060;&#49468;&#49828;">&#45796;&#51020;</a>
+          <p>
+            LFS &#46972;&#51060;&#49468;&#49828;
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="eudev-rules.html" title=
+          "&#48512;&#47197; E. Udev &#44396;&#49457; &#44508;&#52825;">&#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

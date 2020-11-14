@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      5.13. DejaGNU-1.6.2
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        5&#51109;. &#51076;&#49884; &#49884;&#49828;&#53596; &#44396;&#52629;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="expect.html" title=
+          "Expect-5.45.4">&#51060;&#51204;</a>
+          <p>
+            Expect-5.45.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="m4.html" title=
+          "M4-1.4.18">&#45796;&#51020;</a>
+          <p>
+            M4-1.4.18
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter05.html" title=
+          "5&#51109;. &#51076;&#49884; &#49884;&#49828;&#53596; &#44396;&#52629;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-tools-dejagnu" name="ch-tools-dejagnu"></a>5.13.
+        DejaGNU-1.6.2
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          DejaGNU &#54056;&#53412;&#51648;&#45716; &#45796;&#47480;
+          &#54532;&#47196;&#44536;&#47016;&#46308;&#51012;
+          &#53580;&#49828;&#53944;&#54616;&#44592; &#50948;&#54620;
+          &#54532;&#47112;&#51076;&#50892;&#53356;&#47484; &#45812;&#44256;
+          &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">less than 0.1
+              SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">3.2 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          5.13.1. DejaGNU &#49444;&#52824;
+        </h2>
+        <p>
+          DejaGNU &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/tools</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#48716;&#46300;&#54616;&#44256;
+          &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+        <p>
+          &#45796;&#51020;&#51004;&#47196; &#44208;&#44284;&#47484;
+          &#53580;&#49828;&#53944;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make check</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-dejagnu" name="contents-dejagnu"></a>5.13.2.
+          DejaGNU&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;:</strong> <span class=
+              "segbody">runtest</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="runtest" name="runtest"></a><span class=
+                    "term"><span class=
+                    "command"><strong>runtest</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51201;&#54633;&#54620; <span class=
+                    "command"><strong>expect</strong></span> &#49528;&#51012;
+                    &#52286;&#50500;&#49436; DejaGNU&#51012;
+                    &#49892;&#54665;&#54616;&#45716;
+                    &#47000;&#54140;(wrapper)
+                    &#49828;&#53356;&#47549;&#53944;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="expect.html" title=
+          "Expect-5.45.4">&#51060;&#51204;</a>
+          <p>
+            Expect-5.45.4
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="m4.html" title=
+          "M4-1.4.18">&#45796;&#51020;</a>
+          <p>
+            M4-1.4.18
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter05.html" title=
+          "5&#51109;. &#51076;&#49884; &#49884;&#49828;&#53596; &#44396;&#52629;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

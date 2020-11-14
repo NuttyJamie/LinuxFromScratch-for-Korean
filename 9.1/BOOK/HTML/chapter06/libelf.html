@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.48. Libelf from Elfutils-0.178
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gettext.html" title=
+          "Gettext-0.20.1">&#51060;&#51204;</a>
+          <p>
+            Gettext-0.20.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libffi.html" title=
+          "Libffi-3.3">&#45796;&#51020;</a>
+          <p>
+            Libffi-3.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-libelf" name="ch-system-libelf"></a>6.48. Libelf
+        from Elfutils-0.178
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Libelf&#45716; &#49892;&#54665; &#44032;&#45733;&#54616;&#44256;
+          &#47553;&#53356; &#44032;&#45733;&#54620;
+          &#54252;&#47607;(Executable and Linkable Format, ELF)
+          &#54028;&#51068;&#46308;&#51012; &#52376;&#47532;&#54616;&#44592;
+          &#50948;&#54620;
+          &#46972;&#51060;&#48652;&#47084;&#47532;&#51060;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.9 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">124 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.48.1. Libelf &#49444;&#52824;
+        </h2>
+        <p>
+          Libelf&#45716; elfutils-0.178 &#54056;&#53412;&#51648;&#51032;
+          &#51068;&#48512;&#51060;&#45796;. &#49548;&#49828; tarball&#47196;
+          elfutils-0.178&#47484; &#49324;&#50857;&#54616;&#46972;.
+        </p>
+        <p>
+          Libelf &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr --disable-debuginfod</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#44208;&#44284;&#47484;
+          &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;
+          &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make check</kbd>
+</pre>
+        <p>
+          run-elfclassify.sh&#46972;&#45716; &#53580;&#49828;&#53944;&#45716;
+          &#49892;&#54056;&#54620;&#45796;&#44256; &#50508;&#47140;&#51256;
+          &#51080;&#45796;.
+        </p>
+        <p>
+          Libelf&#47564; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make -C libelf install
+install -vm644 config/libelf.pc /usr/lib/pkgconfig
+rm /usr/lib/libelf.a</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-elfutils" name="contents-elfutils"></a>6.48.2.
+          Libelf&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46972;&#51060;&#48652;&#47084;&#47532;:</strong> <span class=
+              "segbody">libelf.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;:</strong> <span class=
+              "segbody">/usr/include/elfutils</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="gettext.html" title=
+          "Gettext-0.20.1">&#51060;&#51204;</a>
+          <p>
+            Gettext-0.20.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libffi.html" title=
+          "Libffi-3.3">&#45796;&#51020;</a>
+          <p>
+            Libffi-3.3
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

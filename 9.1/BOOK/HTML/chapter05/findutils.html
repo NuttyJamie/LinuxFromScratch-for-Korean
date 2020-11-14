@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      5.22. Findutils-4.7.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        5&#51109;. &#51076;&#49884; &#49884;&#49828;&#53596; &#44396;&#52629;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="file.html" title=
+          "File-5.38">&#51060;&#51204;</a>
+          <p>
+            File-5.38
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gawk.html" title=
+          "Gawk-5.0.1">&#45796;&#51020;</a>
+          <p>
+            Gawk-5.0.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter05.html" title=
+          "5&#51109;. &#51076;&#49884; &#49884;&#49828;&#53596; &#44396;&#52629;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-tools-findutils" name="ch-tools-findutils"></a>5.22.
+        Findutils-4.7.0
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Findutils &#54056;&#53412;&#51648;&#45716; &#54028;&#51068;&#51012;
+          &#52286;&#45716; &#54532;&#47196;&#44536;&#47016;&#51012;
+          &#54252;&#54632;&#54616;&#44256; &#51080;&#45796;.
+          &#46356;&#47113;&#53664;&#47532; &#53944;&#47532;&#47484;
+          &#51116;&#44480;&#51201;&#51004;&#47196;
+          &#44160;&#49353;&#54616;&#44256;
+          &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#47484;
+          &#51089;&#49457;, &#50976;&#51648;&#44288;&#47532; &#48143;
+          &#44160;&#49353;(&#48372;&#53685;&#51008; &#51116;&#44480;
+          &#44160;&#49353;&#48372;&#45796; &#48736;&#47476;&#51648;&#47564;
+          &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#44032;
+          &#52572;&#44540;&#50640;
+          &#50629;&#45936;&#51060;&#53944;&#46104;&#51648;
+          &#50506;&#50520;&#45796;&#47732; &#49888;&#47280;&#54624; &#49688;
+          &#50630;&#45796;)&#54616;&#44592; &#50948;&#54620;
+          &#54532;&#47196;&#44536;&#47016;&#51060;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.3 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">39 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          5.22.1. Findutils &#49444;&#52824;
+        </h2>
+        <p>
+          Findutils &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/tools</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#51060;&#51228; &#52980;&#54028;&#51068;&#51060;
+          &#45149;&#45228;&#45796;. &#50526;&#50640;&#49436;
+          &#45436;&#51032;&#54620; &#48148;&#50752; &#44057;&#51060;,
+          &#51060; &#51109;&#51032; &#51076;&#49884; &#46020;&#44396;&#50640;
+          &#45824;&#54644; &#53580;&#49828;&#53944;
+          &#49828;&#50948;&#53944;&#47484; &#48152;&#46300;&#49884;
+          &#49892;&#54665;&#54644;&#50556; &#54616;&#45716; &#44163;&#51008;
+          &#50500;&#45768;&#45796;. &#44536;&#47000;&#46020; Findutils
+          &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#47484;
+          &#49892;&#54665;&#54616;&#47140;&#47732; &#45796;&#51020;
+          &#47749;&#47161;&#51012; &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make check</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          &#51060; &#54056;&#53412;&#51648;&#50640; &#45824;&#54620;
+          &#51088;&#49464;&#54620; &#51221;&#48372;&#45716; <a class="xref"
+          href="../chapter06/findutils.html#contents-findutils" title=
+          "6.58.2. Findutils&#51032; &#45236;&#50857;">6.58.2&#51208;.
+          &ldquo;Findutils&#51032;
+          &#45236;&#50857;.&rdquo;</a>&#50640;&#49436; &#52286;&#51012;
+          &#49688; &#51080;&#45796;.
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="file.html" title=
+          "File-5.38">&#51060;&#51204;</a>
+          <p>
+            File-5.38
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="gawk.html" title=
+          "Gawk-5.0.1">&#45796;&#51020;</a>
+          <p>
+            Gawk-5.0.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter05.html" title=
+          "5&#51109;. &#51076;&#49884; &#49884;&#49828;&#53596; &#44396;&#52629;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

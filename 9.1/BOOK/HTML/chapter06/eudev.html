@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      6.78. Eudev-3.2.9
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="sysvinit.html" title=
+          "Sysvinit-2.96">&#51060;&#51204;</a>
+          <p>
+            Sysvinit-2.96
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="aboutdebug.html" title=
+          "&#46356;&#48260;&#44613; &#49900;&#48380;&#50640; &#44288;&#54616;&#50668;">
+          &#45796;&#51020;</a>
+          <p>
+            &#46356;&#48260;&#44613; &#49900;&#48380;&#50640;
+            &#44288;&#54616;&#50668;
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-system-eudev" name="ch-system-eudev"></a>6.78. Eudev-3.2.9
+      </h1>
+      <div class="package" lang="ko-KR" xml:lang="ko-KR">
+        <p>
+          Eudev &#54056;&#53412;&#51648;&#50640;&#45716; &#51109;&#52824;
+          &#45432;&#46300;&#51032; &#46041;&#51201; &#49373;&#49457;&#51012;
+          &#50948;&#54620; &#54532;&#47196;&#44536;&#47016;&#51060;
+          &#54252;&#54632;&#46104;&#50612; &#51080;&#45796;.
+        </p>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
+              &#49884;&#44036;:</strong> <span class="segbody">0.2 SBU</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#54596;&#50836;
+              &#46356;&#49828;&#53356; &#44277;&#44036;:</strong>
+              <span class="segbody">83 MB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="installation" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          6.78.1. Eudev &#49444;&#52824;
+        </h2>
+        <p>
+          Eudev &#52980;&#54028;&#51068;&#51012;
+          &#51456;&#48708;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">./configure --prefix=/usr           \
+            --bindir=/sbin          \
+            --sbindir=/sbin         \
+            --libdir=/usr/lib       \
+            --sysconfdir=/etc       \
+            --libexecdir=/lib       \
+            --with-rootprefix=      \
+            --with-rootlibdir=/lib  \
+            --enable-manpages       \
+            --disable-static</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484;
+          &#52980;&#54028;&#51068;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make</kbd>
+</pre>
+        <p>
+          &#53580;&#49828;&#53944;&#50752; &#49444;&#52824; &#44284;&#51221;
+          &#47784;&#46160;&#50640; &#50416;&#51068;
+          &#46356;&#47113;&#53664;&#47532;&#46308;&#51012;
+          &#49373;&#49457;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">mkdir -pv /lib/udev/rules.d
+mkdir -pv /etc/udev/rules.d</kbd>
+</pre>
+        <p>
+          &#44208;&#44284;&#47484;
+          &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;
+          &#49892;&#54665;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make check</kbd>
+</pre>
+        <p>
+          &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">make install</kbd>
+</pre>
+        <p>
+          LFS &#54872;&#44221;&#50640;&#49436; &#50976;&#50857;&#54620;
+          &#47751; &#44032;&#51648; &#49324;&#50857;&#51088; &#51648;&#51221;
+          &#44508;&#52825; &#48143; &#51648;&#50896; &#54028;&#51068;
+          &#49444;&#52824;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">tar -xvf ../udev-lfs-20171102.tar.xz
+make -f udev-lfs-20171102/Makefile.lfs install</kbd>
+</pre>
+      </div>
+      <div class="configuration" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="conf-eudev" name="conf-eudev"></a>6.78.2. Eudev
+          &#49444;&#51221;
+        </h2>
+        <p>
+          &#54616;&#46300;&#50920;&#50612; &#51109;&#52824;&#50640;
+          &#45824;&#54620; &#51221;&#48372;&#45716; <code class=
+          "filename">/etc/udev/hwdb.d</code> &#48143; <code class=
+          "filename">/lib/udev/hwdb.d</code>
+          &#46356;&#47113;&#53664;&#47532;&#50640;&#49436;
+          &#44288;&#47532;&#46108;&#45796;. <span class=
+          "application">Eudev</span>&#45716; &#44536;
+          &#51221;&#48372;&#47484; &#48148;&#51060;&#45320;&#47532;
+          &#45936;&#51060;&#53552;&#48288;&#51060;&#49828; <code class=
+          "filename">/etc/udev/hwdb.bin</code>&#51004;&#47196;
+          &#52980;&#54028;&#51068;&#54624; &#54596;&#50836;&#44032;
+          &#51080;&#45796;. &#52488;&#44592;
+          &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;&#47484;
+          &#49373;&#49457;&#54616;&#46972;:
+        </p>
+        <pre class="userinput">
+<kbd class="command">udevadm hwdb --update</kbd>
+</pre>
+        <p>
+          &#54616;&#46300;&#50920;&#50612; &#51221;&#48372;&#44032;
+          &#50629;&#45936;&#51060;&#53944;&#46112; &#46412;&#47560;&#45796;
+          &#51060; &#47749;&#47161;&#51012; &#49892;&#54665;&#54644;&#50556;
+          &#54620;&#45796;.
+        </p>
+      </div>
+      <div class="content" lang="ko-KR" xml:lang="ko-KR">
+        <h2 class="sect2">
+          <a id="contents-eudev" name="contents-eudev"></a>6.78.3.
+          Eudev&#51032; &#45236;&#50857;
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#54532;&#47196;&#44536;&#47016;&#46308;:</strong> <span class=
+              "segbody">udevadm, udevd</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46972;&#51060;&#48652;&#47084;&#47532;&#46308;:</strong>
+              <span class="segbody">libudev.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">&#49444;&#52824;&#46108;
+              &#46356;&#47113;&#53664;&#47532;&#46308;:</strong> <span class=
+              "segbody">/etc/udev, /lib/udev,
+              /usr/share/doc/udev-udev-lfs-20171102</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            &#50836;&#50557;
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="udevadm" name="udevadm"></a><span class=
+                    "term"><span class=
+                    "command"><strong>udevadm</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#51068;&#48152; udev &#44288;&#47532; &#46020;&#44396;:
+                    udevd &#45936;&#47788; &#51228;&#50612;, Udevd
+                    &#45936;&#51060;&#53552;&#48288;&#51060;&#49828;
+                    &#51221;&#48372; &#51228;&#44277;, uevents
+                    &#47784;&#45768;&#53552;&#47553;, uevents
+                    &#51333;&#47308; &#45824;&#44592;, Udev &#44396;&#49457;
+                    &#53580;&#49828;&#53944; &#48143; &#53945;&#51221;
+                    &#51109;&#52824;&#50640; &#45824;&#54620; uevents
+                    &#53944;&#47532;&#44144;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="udevd" name="udevd"></a><span class=
+                    "term"><span class=
+                    "command"><strong>udevd</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    &#45367;&#47553;&#53356; &#49548;&#53011;&#50640;&#49436;
+                    uevents&#47484; &#49688;&#49888;&#54616;&#44256;
+                    &#51109;&#52824;&#47484; &#49373;&#49513;&#54616;&#47728;
+                    &#51060;&#47084;&#54620; uevents&#50640;
+                    &#45824;&#51025;&#54616;&#50668; &#44396;&#49457;&#46108;
+                    &#50808;&#48512; &#54532;&#47196;&#44536;&#47016;&#51012;
+                    &#49892;&#54665;&#54616;&#45716; &#45936;&#47788;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libudev" name="libudev"></a><span class=
+                    "term"><code class="filename">libudev</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    udev &#51109;&#52824; &#51221;&#48372;&#50640;
+                    &#45824;&#54620; &#46972;&#51060;&#48652;&#47084;&#47532;
+                    &#51064;&#53552;&#54168;&#51060;&#49828;
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="etc-udev" name="etc-udev"></a><span class=
+                    "term"><code class="filename">/etc/udev</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    Udev &#44396;&#49457; &#54028;&#51068;, &#51109;&#52824;
+                    &#44428;&#54620; &#48143; &#51109;&#52824;
+                    &#51060;&#47492; &#51648;&#51221; &#44508;&#52825;
+                    &#54252;&#54632;
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="sysvinit.html" title=
+          "Sysvinit-2.96">&#51060;&#51204;</a>
+          <p>
+            Sysvinit-2.96
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="aboutdebug.html" title=
+          "&#46356;&#48260;&#44613; &#49900;&#48380;&#50640; &#44288;&#54616;&#50668;">
+          &#45796;&#51020;</a>
+          <p>
+            &#46356;&#48260;&#44613; &#49900;&#48380;&#50640;
+            &#44288;&#54616;&#50668;
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter06.html" title=
+          "6&#51109;. &#44592;&#48376; &#49884;&#49828;&#53596; &#49548;&#54532;&#53944;&#50920;&#50612; &#49444;&#52824;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

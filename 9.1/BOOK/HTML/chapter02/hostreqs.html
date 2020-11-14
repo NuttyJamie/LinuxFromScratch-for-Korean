@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" />
+    <title>
+      2.2. &#54840;&#49828;&#53944; &#49884;&#49828;&#53596;
+      &#50836;&#44396;&#49324;&#54637;
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lfs" id="lfs-9.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 9.1
+      </h4>
+      <h3>
+        2&#51109;. &#54840;&#49828;&#53944; &#49884;&#49828;&#53596;
+        &#51456;&#48708;
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="introduction.html" title=
+          "&#46020;&#51077;">&#51060;&#51204;</a>
+          <p>
+            &#46020;&#51077;
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="stages.html" title=
+          "LFS &#48716;&#46300; &#45800;&#44228;">&#45796;&#51020;</a>
+          <p>
+            LFS &#48716;&#46300; &#45800;&#44228;
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "2&#51109;. &#54840;&#49828;&#53944; &#49884;&#49828;&#53596; &#51456;&#48708;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" lang="ko-KR" xml:lang="ko-KR">
+      <h1 class="sect1">
+        <a id="ch-partitioning-hostreqs" name=
+        "ch-partitioning-hostreqs"></a>2.2. &#54840;&#49828;&#53944;
+        &#49884;&#49828;&#53596; &#50836;&#44396;&#49324;&#54637;
+      </h1>
+      <p>
+        &#54840;&#49828;&#53944; &#49884;&#49828;&#53596;&#50640;&#45716;
+        &#48260;&#51204;&#51060; &#45796;&#51020;&#48372;&#45796;
+        &#53356;&#44144;&#45208; &#44057;&#51008;
+        &#49548;&#54532;&#53944;&#50920;&#50612;&#44032;
+        &#51080;&#50612;&#50556; &#54620;&#45796;.
+        &#45824;&#48512;&#48516;&#51032; &#54788;&#45824;
+        &#47532;&#45573;&#49828;
+        &#48176;&#54252;&#54032;&#50640;&#49436;&#45716;
+        &#47928;&#51228;&#44032; &#46104;&#51648; &#50506;&#45716;&#45796;.
+        &#46608;&#54620; &#47566;&#51008;
+        &#48176;&#54252;&#54032;&#50640;&#49436;
+        &#49548;&#54532;&#53944;&#50920;&#50612; &#54756;&#45908;&#47484;
+        &#51333;&#51333; <span class="quote">&ldquo;<span class=
+        "quote">&lt;&#54056;&#53412;&#51648;-&#51060;&#47492;&gt;-devel</span>&rdquo;</span>&#45208;
+        <span class="quote">&ldquo;<span class=
+        "quote">&lt;&#54056;&#53412;&#51648;-&#51060;&#47492;&gt;-dev</span>&rdquo;</span>
+        &#54805;&#49885;&#51004;&#47196; &#48324;&#46020;&#51032;
+        &#54056;&#53412;&#51648;&#50640; &#54364;&#49884;&#54620;&#45796;.
+        &#48176;&#54252;&#54032;&#50640;&#49436; &#44536;&#47111;&#44172;
+        &#51228;&#44277;&#54616;&#45716; &#44221;&#50864;
+        &#48152;&#46300;&#49884; &#49444;&#52824;&#54620;&#45796;.
+      </p>
+      <p>
+        &#45208;&#50676;&#46108; &#49548;&#54532;&#53944;&#50920;&#50612;
+        &#54056;&#53412;&#51648; &#48260;&#51204;&#51032; &#51060;&#51204;
+        &#48260;&#51204;&#46020; &#51089;&#46041;&#54624; &#49688;&#45716;
+        &#51080;&#51648;&#47564;,
+        &#53580;&#49828;&#53944;&#46104;&#51648;&#45716;
+        &#50506;&#50520;&#45796;.
+      </p>
+      <div class="itemizedlist">
+        <ul class="compact">
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Bash-3.2</strong></span> (/bin/sh
+              &#44032; Bash&#47196; &#49900;&#48380;&#47533; &#46608;&#45716;
+              &#54616;&#46300;&#47553;&#53356; &#46104;&#50612;&#50556;
+              &#54620;&#45796;)
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Binutils-2.25</strong></span>
+              (2.34 &#51060;&#54980;&#51032; &#48260;&#51204;&#51008;
+              &#53580;&#49828;&#53944;&#46104;&#51648;
+              &#50506;&#50520;&#44592; &#46412;&#47928;&#50640;
+              &#44428;&#51109;&#46104;&#51648; &#50506;&#51020;)
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Bison-2.7</strong></span>
+              (/usr/bin/yacc&#44032; bison&#51060;&#45208; bison&#51012;
+              &#49892;&#54665;&#54616;&#45716; &#51089;&#51008;
+              &#49828;&#53356;&#47549;&#53944;&#50640;
+              &#47553;&#53356;&#46104;&#50612;&#50556; &#54632;)
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Bzip2-1.0.4</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Coreutils-6.9</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Diffutils-2.8.1</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Findutils-4.2.31</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Gawk-4.0.1</strong></span>
+              (/usr/bin/awk&#44032; gawk&#50640;
+              &#47553;&#53356;&#46104;&#50612;&#50556; &#54632;
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>GCC-6.2</strong></span>
+              C++&#52980;&#54028;&#51068;&#47084;&#51064; <span class=
+              "command"><strong>g++</strong></span>&#47484; &#54252;&#54632;
+              (9.2.0 &#51060;&#54980;&#51032; &#48260;&#51204;&#51008;
+              &#53580;&#49828;&#53944;&#46104;&#51648;
+              &#50506;&#50520;&#44592; &#46412;&#47928;&#50640;
+              &#44428;&#51109;&#46104;&#51648; &#50506;&#51020;)
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Glibc-2.11</strong></span> (2.31
+              &#51060;&#54980;&#51032; &#48260;&#51204;&#51008;
+              &#53580;&#49828;&#53944;&#46104;&#51648;
+              &#50506;&#50520;&#44592; &#46412;&#47928;&#50640;
+              &#44428;&#51109;&#46104;&#51648; &#50506;&#51020;)
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Grep-2.5.1a</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Gzip-1.3.12</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Linux Kernel-3.2</strong></span>
+            </p>
+            <p>
+              &#51060; &#52964;&#45328; &#48260;&#51204;&#51060;
+              &#54596;&#50836;&#54620; &#51060;&#50976;&#45716;
+              &#44060;&#48156;&#51088;&#51032; &#44428;&#50976;&#47196;
+              6&#51109;&#50640;&#49436; <span class=
+              "application">glibc</span>&#47484; &#48716;&#46300;&#54624;
+              &#46412; &#44536; &#48260;&#51204;&#51012;
+              &#47749;&#49884;&#54616;&#44592;
+              &#46412;&#47928;&#51060;&#45796;. &#46608; udev&#50640;&#46020;
+              &#54596;&#50836;&#54616;&#45796;.
+            </p>
+            <p>
+              &#54840;&#49828;&#53944; &#52964;&#45328;&#51060; 3.2
+              &#51060;&#51204;&#51064; &#44221;&#50864;
+              &#52964;&#45328;&#51012; &#52572;&#49888;
+              &#48260;&#51204;&#51004;&#47196;
+              &#44368;&#52404;&#54644;&#50556; &#54620;&#45796;.
+              &#51060;&#44163;&#51012; &#54624; &#49688; &#51080;&#45716;
+              &#48169;&#48277;&#51008; &#46160; &#44032;&#51648;&#44032;
+              &#51080;&#45796;. &#47676;&#51200; &#47532;&#45573;&#49828;
+              &#48292;&#45908;&#44032; 3.2 &#51060;&#49345;&#51032;
+              &#52964;&#45328; &#54056;&#53412;&#51648;&#47484;
+              &#51228;&#44277;&#54616;&#45716;&#51648;
+              &#54869;&#51064;&#54616;&#46972;. &#47564;&#50557;
+              &#44536;&#47111;&#45796;&#47732;, &#44536;&#44152;
+              &#49444;&#52824; &#54616;&#46972;. &#48292;&#45908;&#44032;
+              &#49688;&#50857; &#44032;&#45733;&#54620; &#52964;&#45328;
+              &#54056;&#53412;&#51648;&#47484;
+              &#51228;&#44277;&#54616;&#51648; &#50506;&#44144;&#45208;
+              &#45817;&#49888;&#51060; &#49444;&#52824;&#54616;&#44256;
+              &#49910;&#51648; &#50506;&#51008; &#44221;&#50864;
+              &#51649;&#51217; &#52964;&#45328;&#51012;
+              &#52980;&#54028;&#51068;&#54624; &#49688; &#51080;&#45796;.
+              &#52964;&#45328;&#51012; &#52980;&#54028;&#51068;
+              &#54616;&#44256; &#48512;&#54021; &#47196;&#45908;&#47484;
+              &#44396;&#49457;&#54616;&#45716;
+              &#48169;&#48277;(&#54840;&#49828;&#53944;&#50640;&#49436;
+              GRUB&#47484; &#49324;&#50857;&#54616;&#45716;
+              &#44163;&#51004;&#47196; &#44036;&#51452;)&#51008; <a class=
+              "xref" href="../chapter08/chapter08.html" title=
+              "8&#51109;. LFS &#49884;&#49828;&#53596; &#48512;&#54021; &#44032;&#45733;&#54616;&#44172; &#47564;&#46308;&#44592;">
+              8&#51109;</a>&#50640; &#49688;&#47197;&#46104;&#50612;
+              &#51080;&#45796;.
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>M4-1.4.10</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Make-4.0</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Patch-2.5.4</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Perl-5.8.8</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Python-3.4</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Sed-4.1.5</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Tar-1.22</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Texinfo-4.7</strong></span>
+            </p>
+          </li>
+          <li class="listitem">
+            <p>
+              <span class="strong"><strong>Xz-5.0.0</strong></span>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="admon important">
+        <img alt="[&#51473;&#50836;]" src="../images/important.png" />
+        <h3>
+          &#51473;&#50836;
+        </h3>
+        <p>
+          &#50948;&#50640; &#50616;&#44553;&#46108;
+          &#49900;&#48380;&#47553;&#53356;&#45716; &#51060; &#52293;&#50640;
+          &#54252;&#54632;&#46108; &#51648;&#52840;&#51012; &#46384;&#46972;
+          LFS &#49884;&#49828;&#53596;&#51012;
+          &#44396;&#52629;&#54616;&#44592; &#50948;&#54644;
+          &#54596;&#50836;&#54616;&#45796;. dash&#45208; mawk&#44057;&#51008;
+          &#45796;&#47480; &#49548;&#54532;&#53944;&#50920;&#50612;&#47484;
+          &#44032;&#47532;&#53412;&#45716; Symlink&#46020;
+          &#51089;&#46041;&#54616;&#44192;&#51648;&#47564; LFS
+          &#44060;&#48156;&#54016;&#50640;&#49436;
+          &#53580;&#49828;&#53944;&#54616;&#44144;&#45208;
+          &#45796;&#47364;&#51648;&#51648;&#45716;
+          &#50506;&#50520;&#51004;&#47728;, &#52293;&#51032;
+          &#51648;&#52840;&#51012; &#48279;&#50612;&#45208;&#50556;
+          &#54616;&#44144;&#45208; &#51068;&#48512;
+          &#54056;&#53412;&#51648;&#50640; &#52628;&#44032;
+          &#54056;&#52824;&#44032; &#54596;&#50836;&#54624; &#49688;
+          &#51080;&#45796;.
+        </p>
+      </div>
+      <h2>
+        <a id="version-check" name="version-check"></a>
+      </h2>
+      <p>
+        &#54840;&#49828;&#53944; &#49884;&#49828;&#53596;&#50640;
+        &#51201;&#51208;&#54620; &#48260;&#51204;&#51060; &#47784;&#46160;
+        &#51080;&#45716;&#51648;, &#54532;&#47196;&#44536;&#47016;&#51012;
+        &#52980;&#54028;&#51068;&#54624; &#49688; &#51080;&#45716;&#51648;
+        &#54869;&#51064;&#54616;&#47140;&#47732; &#45796;&#51020;&#51012;
+        &#49892;&#54665;&#54616;&#46972;.:
+      </p>
+      <pre class="userinput">
+<kbd class="command">cat &gt; version-check.sh &lt;&lt; "EOF"
+<code class="literal">#!/bin/bash
+# Simple script to list version numbers of critical development tools
+export LC_ALL=C
+bash --version | head -n1 | cut -d" " -f2-4
+MYSH=$(readlink -f /bin/sh)
+echo "/bin/sh -&gt; $MYSH"
+echo $MYSH | grep -q bash || echo "ERROR: /bin/sh does not point to bash"
+unset MYSH
+
+echo -n "Binutils: "; ld --version | head -n1 | cut -d" " -f3-
+bison --version | head -n1
+
+if [ -h /usr/bin/yacc ]; then
+  echo "/usr/bin/yacc -&gt; `readlink -f /usr/bin/yacc`";
+elif [ -x /usr/bin/yacc ]; then
+  echo yacc is `/usr/bin/yacc --version | head -n1`
+else
+  echo "yacc not found" 
+fi
+
+bzip2 --version 2&gt;&amp;1 &lt; /dev/null | head -n1 | cut -d" " -f1,6-
+echo -n "Coreutils: "; chown --version | head -n1 | cut -d")" -f2
+diff --version | head -n1
+find --version | head -n1
+gawk --version | head -n1
+
+if [ -h /usr/bin/awk ]; then
+  echo "/usr/bin/awk -&gt; `readlink -f /usr/bin/awk`";
+elif [ -x /usr/bin/awk ]; then
+  echo awk is `/usr/bin/awk --version | head -n1`
+else 
+  echo "awk not found" 
+fi
+
+gcc --version | head -n1
+g++ --version | head -n1
+ldd --version | head -n1 | cut -d" " -f2-  # glibc version
+grep --version | head -n1
+gzip --version | head -n1
+cat /proc/version
+m4 --version | head -n1
+make --version | head -n1
+patch --version | head -n1
+echo Perl `perl -V:version`
+python3 --version
+sed --version | head -n1
+tar --version | head -n1
+makeinfo --version | head -n1  # texinfo version
+xz --version | head -n1
+
+echo 'int main(){}' &gt; dummy.c &amp;&amp; g++ -o dummy dummy.c
+if [ -x dummy ]
+  then echo "g++ compilation OK";
+  else echo "g++ compilation failed"; fi
+rm -f dummy.c dummy</code>
+EOF
+
+bash version-check.sh</kbd>
+</pre>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="introduction.html" title=
+          "&#46020;&#51077;">&#51060;&#51204;</a>
+          <p>
+            &#46020;&#51077;
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="stages.html" title=
+          "LFS &#48716;&#46300; &#45800;&#44228;">&#45796;&#51020;</a>
+          <p>
+            LFS &#48716;&#46300; &#45800;&#44228;
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "2&#51109;. &#54840;&#49828;&#53944; &#49884;&#49828;&#53596; &#51456;&#48708;">
+          &#50948;&#47196;</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Linux From Scratch - Version 9.1 ">&#52376;&#51020;&#51004;&#47196;</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
