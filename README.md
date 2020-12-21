@@ -3,7 +3,9 @@
 [**LinuxFromScratch**](http://linuxfromscratch.org) 프로젝트 가이드 한국어 번역판.
 
 **다운로드:**
-[**HTML**](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/raw/master/9.1/BOOK/HTML-nochunks/LFS-BOOK.html) or [**PDF**](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/raw/master/9.1/BOOK/PDF/LFS-BOOK.pdf)
+[**HTML-nochunk**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/b0210a3947032bd3d8701ec7b644f8679c8ea7c2/9.1/BOOK/HTML-nochunks/LFS-BOOK.html) or 
+[**HTML**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/b0210a3947032bd3d8701ec7b644f8679c8ea7c2/9.1/BOOK/HTML/index.html) or 
+[**PDF**](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/raw/master/9.1/BOOK/PDF/LFS-BOOK.pdf)
 
 ## 목차 
 - [LinuxFromScratch 프로젝트 소개](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#linux-from-scratch%EB%8A%94)
