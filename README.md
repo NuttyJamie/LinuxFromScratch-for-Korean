@@ -2,6 +2,9 @@
 # LinuxFromScratch-for-Korean
 [**LinuxFromScratch**](http://linuxfromscratch.org) 프로젝트 가이드 한국어 번역판.
 
+**다운로드:**
+[**HTML**](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/raw/master/9.1/BOOK/HTML-nochunks/LFS-BOOK.html) or [**PDF**](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/raw/master/9.1/BOOK/PDF/LFS-BOOK.pdf)
+
 ## 목차 
 - [LinuxFromScratch 프로젝트 소개](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#linux-from-scratch%EB%8A%94)
 - [번역 일러두기](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#%EB%B2%88%EC%97%AD-%EC%9D%BC%EB%9F%AC%EB%91%90%EA%B8%B0)
@@ -49,8 +52,7 @@ Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계 별로 �
 - DDR4 32Gb RAM
 - ASUS B450M Mainboard
 - NVIDIA GTX 1050 2G
-- Windows 10 Home 64bit
-- Slackware14.2 in VirtualBox 
+- Slackware64-14.2 
 
 ## TODO
 - [x] [LFS - 초안 완성](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)

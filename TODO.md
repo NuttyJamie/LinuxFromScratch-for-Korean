@@ -2,7 +2,7 @@
 ## 9.1판 2020년 3월 1일 발행
 ### 저자: Gerard Beekmans 
 ### 관리 편집자: Bruce Dubbs
-### 역자: Jong Min Kim
+### 역자: Jongmin Kim
 저작권 ⓒ  1999-2020 Gerard Beekmans
 - - -
 
