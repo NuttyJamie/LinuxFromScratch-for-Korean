@@ -14,7 +14,7 @@
     <title/> -->
 
      <para>LFS의 구조는 가능한 한 리눅스 표준을 따른다. 
-주요 표준은 다음과 같다:</para>
+주요 표준들은 다음과 같다:</para>
 
     <itemizedlist>
       <listitem>
@@ -31,13 +31,13 @@
         <para><ulink url="http://refspecs.linuxfoundation.org/lsb.shtml">Linux
         Standard Base (LSB) Version 5.0 (2015)</ulink></para>
 
-        <para>LSB에는 코어, 데스크톱, 런타임 언어 및 이미징의 4가지 별도의
+        <para>LSB에는 코어, 데스크탑, 런타임 언어 및 이미징의 4가지 별도의
 표준이 있다. 일반적인 조건 외에 아키텍쳐별 요구 사항도 있다. 
 또한 시험적으로 적용할 수 있는 영역은 Gtk3와 그래픽스 두 가지가 있다.
-LFS는 가능한 한 이전 섹션에서 언급한 아키텍쳐에 부합할 것이다.</para>
+LFS는 가능한 한 이전 절에서 언급한 아키텍쳐에 부합할 것이다.</para>
 
         <note><para>LSB의 요구사항에 동의하지 않는 사람들도 많다. 
-그것을 정의하는 주된 목적은 독점 소프트웨어가 다양한 시스템에서 제대로 
+이를 정의하는 주된 목적은 독점 소프트웨어가 호환 시스템에서 제대로 
 설치되고 실행될 수 있도록 하는 것이다. LFS는 소스 기반이기 때문에 
 사용자는 원하는 패키지를 완전히 제어할 수 있으며 많은 사용자가 LSB에 
 의해 지정된 일부 패키지를 설치하지 않기도 한다.</para></note>
@@ -56,7 +56,7 @@ LFS는 가능한 한 이전 섹션에서 언급한 아키텍쳐에 부합할 것
       <?dbhtml list-presentation="table"?>
 
       <varlistentry>
-        <term><emphasis>LSB Core:</emphasis></term>
+        <term><emphasis>LSB 코어:</emphasis></term>
         <listitem>
           <para>Bash, Bc, Binutils, Coreutils, Diffutils, File, Findutils, Gawk,
                 Grep, Gzip, M4, Man-DB, Ncurses, Procps, Psmisc, Sed,
@@ -65,28 +65,28 @@ LFS는 가능한 한 이전 섹션에서 언급한 아키텍쳐에 부합할 것
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Desktop:</emphasis></term>
+        <term><emphasis>LSB 데스크탑:</emphasis></term>
         <listitem>
           <para>없음</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Runtime Languages:</emphasis></term>
+        <term><emphasis>LSB 런타임 언어:</emphasis></term>
         <listitem>
           <para>Perl</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Imaging:</emphasis></term>
+        <term><emphasis>LSB 이미징:</emphasis></term>
         <listitem>
           <para>없음</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Gtk3 and LSB Graphics (시범 적용):</emphasis></term>
+        <term><emphasis>LSB Gtk3와 LSB 그래픽스 (시범 적용):</emphasis></term>
         <listitem>
           <para>없음</para>
         </listitem>
@@ -101,7 +101,7 @@ LFS는 가능한 한 이전 섹션에서 언급한 아키텍쳐에 부합할 것
       <?dbhtml list-presentation="table"?>
 
       <varlistentry>
-        <term><emphasis>LSB Core:</emphasis></term>
+        <term><emphasis>LSB 코어:</emphasis></term>
         <listitem>
           <para>At, Batch (At의 일부), Cpio, Ed, Fcrontab, LSB-Tools, NSPR,
           NSS, PAM, Pax, Sendmail (또는 Postfix나 Exim), time
@@ -110,7 +110,7 @@ LFS는 가능한 한 이전 섹션에서 언급한 아키텍쳐에 부합할 것
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Desktop:</emphasis></term>
+        <term><emphasis>LSB 데스크탑:</emphasis></term>
         <listitem>
           <para>Alsa, ATK, Cairo, Desktop-file-utils, Freetype, Fontconfig,
           Gdk-pixbuf, Glib2, GTK+2, Icon-naming-utils, Libjpeg-turbo, Libpng, Libtiff,
@@ -119,21 +119,21 @@ LFS는 가능한 한 이전 섹션에서 언급한 아키텍쳐에 부합할 것
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Runtime Languages:</emphasis></term>
+        <term><emphasis>LSB 런타임 언어:</emphasis></term>
         <listitem>
           <para>Python, Libxml2, Libxslt </para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Imaging:</emphasis></term>
+        <term><emphasis>LSB 이미징:</emphasis></term>
         <listitem>
           <para>CUPS, Cups-filters, Ghostscript, SANE</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Gtk3 and LSB Graphics (시범 적용):</emphasis></term>
+        <term><emphasis>LSB Gtk3와 LSB 그래픽스 (시범 적용):</emphasis></term>
         <listitem>
           <para>GTK+3</para>
         </listitem>
@@ -148,35 +148,35 @@ LFS는 가능한 한 이전 섹션에서 언급한 아키텍쳐에 부합할 것
       <?dbhtml list-presentation="table"?>
 
       <varlistentry>
-        <term><emphasis>LSB Core:</emphasis></term>
+        <term><emphasis>LSB 코어:</emphasis></term>
         <listitem>
           <para>없음</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Desktop:</emphasis></term>
+        <term><emphasis>LSB 데스크탑:</emphasis></term>
         <listitem>
           <para>Qt4 (단 Qt5는 제공됨)</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Runtime Languages:</emphasis></term>
+        <term><emphasis>LSB 런타임 언어:</emphasis></term>
         <listitem>
           <para>없음</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Imaging:</emphasis></term>
+        <term><emphasis>LSB 이미징:</emphasis></term>
         <listitem>
           <para>없음</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Gtk3 and LSB Graphics (Trial Use):</emphasis></term>
+        <term><emphasis>LSB Gtk3와 LSB 그래픽스 (시범 적용):</emphasis></term>
         <listitem>
           <para>없음</para>
         </listitem>

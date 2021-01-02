@@ -87,7 +87,7 @@ pdf: validate
 	$(Q)mkdir -p $(BASEDIR)
 	$(Q)mkdir -pv $(RENDERTMP)/fonts; cp -v fonts/* $(RENDERTMP)/fonts
 
-	$(Q)fop -c /home/jamie/Projects/LinuxFromScratch/linuxfromscratch-for-korean/9.1/fop.xml \
+	$(Q)fop -c /home/jamie/Projects/LinuxFromScratch-for-Korean/9.1/fop.xml \
 		-q $(RENDERTMP)/lfs-pdf.fo $(BASEDIR)/$(PDF_OUTPUT) \
 			 2>fop.log
 	@echo "$(BASEDIR)/$(PDF_OUTPUT) created"

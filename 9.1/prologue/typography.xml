@@ -11,13 +11,13 @@
   <title>타이포그래피</title>
 
   <para>따르기 쉽도록 하기 위해, 이 책 전반에 걸쳐 사용되는 몇 가지 활자
-규칙이 있다. 이 절에는 Linux From Scratch에서 찾을 수 있는 인쇄 형식의 몇 
+규칙이 있다. 이 절에는 Linux From Scratch에서 찾을 수 있는 활자 형식의 몇 
 가지 예가 수록되어 있다.</para>
 
 <screen role="nodump"><userinput>./configure --prefix=/usr</userinput></screen>
 
   <para>이 형태의 텍스트는 옆에 달리 명시되지 않는 한 보이는 대로 정확하게
- 입력하라. 또한 설명 섹션에서는 어떤 명령어를 참조하고 있는지 식별하기 위해
+ 입력하라. 또한 설명하는 부분에서는 어떤 명령어를 설명하고 있는지 가르키기 위해
  사용된다.</para>
 
   <para>어떤 경우에는 한 논리적 명령이 두 줄 이상으로 길어져 행 끝에 
@@ -26,17 +26,19 @@
 <screen role="nodump"><userinput>CC="gcc -B/usr/bin/" ../binutils-2.18/configure \
   --prefix=/tools --disable-nls --disable-werror</userinput></screen>
 
-  <para>백슬래시 뒤에 바로 이어적어야 한다는 점을 유의하라. 스페이스나 탭 
+  <para>백슬래시 뒤에 바로 줄바꿈 후 이어적어야 한다는 점을 유의하라. 스페이스나 탭 
 문자와 같은 공백 문자는 잘못된 결과를 낳을 것이다.</para>
 
 <screen><computeroutput>install-info: unknown option '--dir-file=/mnt/lfs/usr/info/dir'</computeroutput></screen>
 
-  <para>이 형식의 텍스트(고정 너비 텍스트)는 일반적으로 실행된 명령의 
-결과로 화면 출력을 보여준다. 이 형식은 파일 이름(예: <filename>/etc/ld.so.conf</filename>)을 표시하는 데도 사용된다.</para>
+<para>이 형식의 텍스트(고정폭 텍스트)는 화면 출력, 일반적으로 실행된 
+	명령의 결과를 보여준다. 
+	이 형식은 <filename>/etc/ld.so.conf</filename>와 같이 파일 이름을 표시하는 데도 사용된다.</para>
 
   <para><emphasis>Emphasis</emphasis></para>
 
-  <para>이 형태의 텍스트는 이 책에서 여러 가지 용도로 사용된다. 중요한 포인트나 아이템을 강조하는 것이 주요 목적이다.</para>
+  <para>이 형식의 텍스트는 이 책에서 여러 가지 용도로 사용된다. 중요한
+	 부분이나 항목을 강조하는 것이 주요 목적이다.</para>
 
   <para><ulink url="&lfs-root;"/></para>
 
@@ -53,12 +55,12 @@ EOF</userinput></screen>
 	첫 번째 명령은 다음 줄에 무엇이 입력되든 EOF(End Of File) 시퀀스를 마주 
 할 때까지 입력된 내용으로 <filename>$LFS/etc/group</filename> 파일을 
 생성하도록 시스템에 지시한다. 
-따라서 일반적으로 이 섹션 전체가 보이는 대로 입력된다.</para>
+따라서 일반적으로 이 부분 전체를 보이는 대로 입력하면 된다.</para>
 
   <para><replaceable>&lt;REPLACED TEXT&gt;</replaceable></para>
 
-  <para>이 형식은 그대로 입력하지 않는 텍스트를 묶거나 복사하여 붙여넣기 
-작업을 위해 사용된다.</para>
+  <para>이 형식은 그대로 입력하지 않는 텍스트나 복사/붙여넣기 
+작업을 위한 텍스트를 묶는 데 사용된다.</para>
 
   <para><replaceable>[OPTIONAL TEXT]</replaceable></para>
 
@@ -66,18 +68,18 @@ EOF</userinput></screen>
 
   <para><filename>passwd(5)</filename></para>
 
-  <para>이 형식은 특정 매뉴얼(man) 페이지를 참조하는 데 사용된다. 
+  <para>이 형식은 특정 매뉴얼(man) 페이지를 가르키는 데 사용된다. 
 괄호 안의 숫자는 설명서 내부의 특정 섹션을 나타낸다. 
 예를 들어, <command>passwd</command>는 두 개의 Man 페이지를 가지고 있다. 
-LFS 설치 지침에 따라 이 두 개의 Man 페이지는 <filename>/usr/share/man/man1/passwd.1</filename> 와 
+LFS 설치 지침에 따라 이 두 개의 Man 페이지는 <filename>/usr/share/man/man1/passwd.1</filename> 과 
 <filename>/usr/share/man/man5/passwd.5</filename>에 위치한다. 
 이 책에서 <filename>passwd(5)</filename>라 하면,
- 그것은 정확히 <filename>/usr/share/man/man5/passwd.5</filename>를 참조한다.
+ 그것은 <filename>/usr/share/man/man5/passwd.5</filename>를 가르킨다.
  <command>man passwd</command>는 <quote>passwd</quote>와 일치하는 첫 번째 
 Man 페이지, <filename>/usr/share/man/man1/passwd.1</filename>를 출력한다. 
- 이 예시의 경우, 참조되는 특정 페이지를 읽으려면 
-<command>man 5 passwd</command>를 실행해야 한다. 대부분의 맨 페이지에는 
-서로 다른 섹션에 중복된 페이지 이름이 없다는 점에 유의해야 한다. 
+ 이 예시에서는, 가르켜진 특정 페이지를 읽으려면 
+<command>man 5 passwd</command>를 실행해야 한다. 대부분의 man 페이지에는 
+서로 다른 섹션에 중복된 페이지 이름이 없다는 점을 참고하라. 
 따라서 일반적으론 <command>man <replaceable>&lt;program name&gt;</replaceable></command>으로 충분하다.</para>
 
 </sect1>

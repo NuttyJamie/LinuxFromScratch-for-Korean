@@ -6,13 +6,13 @@
 	exclude-result-prefixes="xlink"
 	version="1.0">
 
-	<xsl:param name="body.font.family">Malgun Gothic</xsl:param>
-	<xsl:param name="dingbat.font.family">Malgun Gothic</xsl:param>
-	<xsl:param name="sans.font.family">Malgun Gothic</xsl:param>
-	<xsl:param name="slide.font.family">Malgun Gothic</xsl:param>
-	<xsl:param name="slide.title.font.family">Malgun Gothic</xsl:param>
-	<xsl:param name="title.font.family">Malgun Gothic</xsl:param>
-	<xsl:param name="monospace.font.family">Malgun Gothic</xsl:param>
+	<xsl:param name="body.font.family">NanumGothic</xsl:param>
+	<xsl:param name="dingbat.font.family">NanumGothic</xsl:param>
+	<xsl:param name="sans.font.family">NanumGothic</xsl:param>
+	<xsl:param name="slide.font.family">NanumGothic</xsl:param>
+	<xsl:param name="slide.title.font.family">NanumGothic</xsl:param>
+	<xsl:param name="title.font.family">NanumGothic</xsl:param>
+	<xsl:param name="monospace.font.family">NanumGothic</xsl:param>
 
 </xsl:stylesheet>
 

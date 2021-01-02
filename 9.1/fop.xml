@@ -2,11 +2,11 @@
 	<renderers>
 		<renderer mime="application/pdf">
 			<fonts>
-				<font kerning="yes" embed-url="fonts/malgun.ttf" sub-font="Malgun Gothic">
-					<font-triplet name="Malgun Gothic" style="normal" weight="normal"/>
+				<font kerning="yes" embed-url="fonts/NanumGothic.ttf" sub-font="NanumGothic">
+					<font-triplet name="NanumGothic" style="normal" weight="normal"/>
 				</font>
-				<font kerning="yes" embed-url="fonts/malgunbd.ttf" sub-font="Malgun Gothic Bold">
-					<font-triplet name="Malgun Gothic Bold" style="normal" weight="bold"/>
+				<font kerning="yes" embed-url="fonts/NanumGothicBold.ttf" sub-font="NanumGothicBold">
+					<font-triplet name="NanumGothicBold" style="normal" weight="bold"/>
 				</font>
 			</fonts>
 		</renderer>
