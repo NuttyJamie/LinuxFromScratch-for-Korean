@@ -36,10 +36,10 @@
 
 <!ENTITY buildtime       "예상 빌드 시간">
 <!ENTITY diskspace       "필요 디스크 공간">
-<!ENTITY dependencies    "Installation depends on">
-<!ENTITY testsuites      "Test suite depends on">
-<!ENTITY before          "Must be installed before">
-<!ENTITY external        "선택적 의존성">
+<!ENTITY dependencies    "먼저 설치되어야 하는 패키지">
+<!ENTITY testsuites      "테스트 스위트에 필요한 패키지">
+<!ENTITY before          "이 패키지를 필요로 하는 패키지">
+<!ENTITY external        "선택적 의존성 패키지">
                          
 <!ENTITY gnu             "http://ftp.gnu.org/gnu/">
 <!ENTITY gnu-software    "http://www.gnu.org/software/">
