@@ -3,8 +3,8 @@
 [**LinuxFromScratch**](http://linuxfromscratch.org) 프로젝트 가이드 한국어 번역판.
 
 **다운로드:**
-[**HTML-nochunk**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/b0210a3947032bd3d8701ec7b644f8679c8ea7c2/9.1/BOOK/HTML-nochunks/LFS-BOOK.html) or 
-[**HTML**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/b0210a3947032bd3d8701ec7b644f8679c8ea7c2/9.1/BOOK/HTML/index.html) or 
+[**HTML-nochunk**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/dc69b7e479c49bde226118880803d321bf86c9ad/9.1/BOOK/HTML-nochunks/LFS-BOOK.html) or 
+[**HTML**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/dc69b7e479c49bde226118880803d321bf86c9ad/9.1/BOOK/HTML/index.html) or 
 [**PDF**](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/raw/master/9.1/BOOK/PDF/LFS-BOOK.pdf)
 
 ## 목차 
@@ -58,7 +58,7 @@ Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계 별로 �
 - Slackware64-14.2 
 
 ## TODO
-- [x] [LFS](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
+- [x] [LFS 번역 검수 진행 중 (2021-01-01~)](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
 - [ ] BLFS
 - [ ] ALFS
 
