@@ -11,6 +11,7 @@
 - [LinuxFromScratch 프로젝트 소개](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#linux-from-scratch%EB%8A%94)
 - [번역 일러두기](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#%EB%B2%88%EC%97%AD-%EC%9D%BC%EB%9F%AC%EB%91%90%EA%B8%B0)
 - [작업 현황](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#todo)
+- [변경 사항](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#Changelog)
 
 ## Linux From Scratch는..
 Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계 별로 빌드하여 자신만의 커스텀 리눅스 시스템을 만드는 프로젝트입니다.
@@ -57,6 +58,10 @@ Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계 별로 �
 - Slackware64-14.2 
 
 ## TODO
-- [x] [LFS - 초안 완성](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
+- [x] [LFS](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
 - [ ] BLFS
 - [ ] ALFS
+
+## Changelog
+- 2020-11-12    초안 완성
+- 2020-12-27    프로젝트 라이센스 정정 (MIT -> CC-BY-NC-SA 2.0)
