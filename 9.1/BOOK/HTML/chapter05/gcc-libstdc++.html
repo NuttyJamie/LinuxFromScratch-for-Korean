@@ -62,7 +62,7 @@
           &#51068;&#48512;&#45716; C++&#47196;
           &#50416;&#50668;&#51276;&#45796;), <a class="xref" href=
           "gcc-pass1.html" title=
-          "5.5. GCC-9.2.0 - 1&#45800;&#44228;">gcc-pass1</a>&#47484;
+          "5.5. GCC-9.2.0 - 1&#45800;&#44228;">gcc-1&#45800;&#44228;</a>&#47484;
           &#48716;&#46300;&#54624; &#46412;&#45716; &#49444;&#52824;&#47484;
           &#48120;&#47344; &#49688; &#48150;&#50640;
           &#50630;&#50632;&#45796;. &#44536; &#46412;&#45716;
@@ -86,7 +86,7 @@
       </div>
       <div class="installation" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">
-          5.8.1. Target Libstdc++ &#49444;&#52824;
+          5.8.1. &#45824;&#49345; Libstdc++ &#49444;&#52824;
         </h2>
         <div class="admon note">
           <img alt="[&#52280;&#44256;]" src="../images/note.png" />
@@ -107,24 +107,21 @@
           &#46356;&#47113;&#53664;&#47532;&#47484;
           &#49373;&#49457;&#54616;&#44256; &#51060;&#46041;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mkdir -v build
-cd       build</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">mkdir -v build
+cd       build</kbd></pre>
         <p>
           Libstdc++ &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">../libstdc++-v3/configure           \
+        <pre class="userinput"><kbd class=
+        "command">../libstdc++-v3/configure           \
     --host=$LFS_TGT                 \
     --prefix=/tools                 \
     --disable-multilib              \
     --disable-nls                   \
     --disable-libstdcxx-threads     \
     --disable-libstdcxx-pch         \
-    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/9.2.0</kbd>
-</pre>
+    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/9.2.0</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Configure &#50741;&#49496;&#46308;&#51032;
@@ -200,16 +197,12 @@ cd       build</kbd>
         <p>
           Libstdc++&#47484; &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#46972;&#51060;&#48652;&#47084;&#47532;&#47484;
           &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <p>

@@ -15,11 +15,11 @@
   <itemizedlist>
 
   <listitem>
-    <para>몇몇 패키지는 컴파일 전에 패치를 적용하겠지만, 문제를 일으키지 않기 위해 필요할 때만 패치를 적용한다. 패치는 이 장과 다음 장 모두에서 자주 필요하지만, 때로는 단 한 개만 필요할 때도 있다. 따라서 다운로드한 패치에 대한 지침이 누락된 것 같아도 걱정하지 마라. 패치를 적용할 때 <emphasis>offset</emphasis>이나 <emphasis>fuzz</emphasis>에 관한 경고 메시지가 나타날 수도 있다. 그래도 패치가 성공적으로 적용될테니 이러한 경고에 대해서는 걱정할 필요 없다.</para>
+    <para>몇몇 패키지는 컴파일 전에 패치를 적용하겠지만, 문제를 일으키지 않기 위해 필요할 때만 패치를 적용한다. 패치들은 보통 이 장과 다음 장 모두에서 필요하지만, 때로는 한 부분에서만 필요할 때도 있다. 따라서 다운로드한 패치에 대한 지침이 누락된 것 같아도 걱정하지 마라. 패치를 적용할 때 <emphasis>offset</emphasis>이나 <emphasis>fuzz</emphasis>에 관한 경고 메시지가 나타날 수도 있다. 그래도 패치가 성공적으로 적용될테니 이러한 경고에 대해서는 걱정할 필요 없다.</para>
   </listitem>
 
   <listitem>
-    <para>대부분의 패키지를 컴파일하는 동안, 화면을 뒤덮는 여러 경고가 있을 것이다. 이것들은 정상적인 것이며 무시해도 좋다. 이런 경고들은 말하자면&mdash;더 이상 사용되지 않음에도 무시되지 않는 C/C++ 문법에 대한 경고이다. C 표준은 상당히 자주 바뀌는데 일부 패키지는 여전히 예전 표준을 사용하기 때문에 일어나는 일이다. 경고는 출력되겠지만, 문제가 생기진 않는다.</para>
+    <para>대부분의 패키지를 컴파일하는 동안, 화면을 뒤덮는 여러 경고가 있을 것이다. 이것들은 정상적인 것이며 무시해도 좋다. 이런 경고들은 말하자면&mdash;더 이상 사용되지 않지만 잘못되지는 않은 C/C++ 문법에 대한 경고이다. C 표준은 상당히 자주 바뀌는데 일부 패키지는 여전히 예전 표준을 사용하기 때문에 일어나는 일이다. 경고는 출력되겠지만, 문제가 생기진 않는다.</para>
   </listitem>
 
   <listitem>
@@ -37,7 +37,7 @@
     <important>
 
       <para>이 빌드 절차는 심볼릭 링크를 포함한 <xref
-      linkend='ch-partitioning-hostreqs'/>이 올바르게 설정되었다고 간주한다:</para>
+      linkend='ch-partitioning-hostreqs'/>이 다음과 같이 올바르게 설정되었다고 간주한다:</para>
 
       <itemizedlist role='important'>
 
@@ -57,28 +57,28 @@
 
       <orderedlist numeration="arabic" spacing="compact">
         <listitem>
-          <para>모든 소스들과 패치들을 <filename class="directory">/mnt/lfs/sources/</filename>같은 chroot 환경에서 접근할 수 있는 디렉토리에 두어라. 소스를 <filename class="directory">/mnt/lfs/tools/</filename>에 넣지 <emphasis>마라</emphasis>.</para>
+          <para>모든 소스들과 패치들을 <filename class="directory">/mnt/lfs/sources/</filename>같은 chroot 환경에서 접근할 수 있는 디렉토리에 두어라. 소스를 <filename class="directory">/mnt/lfs/tools/</filename>에 넣지 <emphasis>않도록 하라</emphasis>.</para>
         </listitem>
         <listitem>
           <para>소스들이 있는 디렉토리로 이동한다.</para>
         </listitem>
-        <listitem id='buildinstr' xreflabel='Package build instructions'>
-          <para>각 패키지에 따라선:</para>
+        <listitem id='buildinstr' xreflabel='패키지 빌드 절차'>
+          <para>각 패키지에 대해:</para>
           <orderedlist numeration="loweralpha" spacing="compact">
             <listitem>
-              <para><command>tar</command> 프로그램을 사용해서 빌드될 패키지를 추출하라. 5장에서는, 패키지를 추출할 때 <emphasis>lfs</emphasis> 유저로 로그인하라.</para>
+              <para><command>tar</command> 프로그램을 사용해서 빌드될 패키지를 추출한다. 5장에서는, 패키지를 추출할 때 <emphasis>lfs</emphasis> 유저로 로그인하라.</para>
             </listitem>
             <listitem>
-              <para>패키지를 추출할 때 생성된 디렉토리로 이동하라.</para>
+              <para>패키지를 추출해서 생성된 디렉토리로 이동한다.</para>
             </listitem>
             <listitem>
-              <para>패키지를 빌드하기 위해 책의 절차를 따르라.</para>
+              <para>패키지를 빌드하기 위해 책의 절차를 따른다.</para>
             </listitem>
             <listitem>
-              <para>소스들이 있는 디렉토리로 돌아가라.</para>
+              <para>소스들이 있는 디렉토리로 돌아간다.</para>
             </listitem>
             <listitem>
-              <para>달리 지시되지 않은 경우 추출된 소스 디렉토리를 삭제하라.</para>
+              <para>달리 지시되지 않는 한 추출하고 난 원본 디렉토리를 삭제한다.</para>
             </listitem>
           </orderedlist>
         </listitem>

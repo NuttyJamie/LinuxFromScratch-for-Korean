@@ -16,17 +16,17 @@
 
   <para><xref linkend="chapter-temporary-tools"/>의 전반적인 목표는 앞서 
 언급한 호스트 시스템으로부터 분리할 수 있는 도구들을 포함하는 임시 공간을 
-구축하는 것이다. <command>chroot</command>를 사용해서 나머지 장에 있는 명령들이 이 환경에 포함되어 대상 LFS 시스템을 깨끗하고 문제없이 구축할 수 있다.
+구축하는 것이다. <command>chroot</command>를 사용함으로써, 나머지 장에 있는 명령들이 이 환경에 포함되어 대상 LFS 시스템을 깨끗하고 문제없이 구축할 수 있다.
 빌드 절차는 새로운 독자를 위해 위험을 최소화하고 동시에 가장 교육적인 가치들을 제공하도록 설계되었다.</para>
 
   <note>
-    <para>계속 하기전에, 흔히 대상 트리플렛이라 불리는 작업 중인 플랫폼의 이름을 알고 있어야 한다. 대상 트리플렛의 이름을 구하는 간단한 방법은 많은 패키지의 소스와 함께 제공되는 <command>config.guess</command> 스크립트를 실행하는 것이다. 
-Binutils 소스를 압축 해제하고 이 스크립트를 실행하라: <userinput>./config.guess</userinput> 그리고 출력 결과를 기록하라. 예를 들어 32비트 인텔 프로세서의 경우 출력은 <emphasis>i686-pc-linux-gnu</emphasis>가 된다. 64비트 시스템에서는 <emphasis>x86_64-pc-linux-gnu</emphasis>가 될 것이다.</para>
+    <para>계속 진행하기 전에, 작업 중인 플랫폼의 명칭, 흔히 대상 트리플렛(target triplet)이라 칭하는 것을 알고 있어야 한다. 대상 트리플렛의 명칭을 구하는 간단한 방법은 많은 패키지의 소스와 함께 제공되는 <command>config.guess</command> 스크립트를 실행하는 것이다. 
+Binutils 소스를 압축 해제하고 이 스크립트를 실행하라: <userinput>./config.guess</userinput> 그리고 출력 결과를 기록하라. 예를 들어 32비트 인텔 프로세서의 경우 출력은 <emphasis>i686-pc-linux-gnu</emphasis>가 된다. 64비트 시스템에서는 <emphasis>x86_64-pc-linux-gnu</emphasis>일 것이다.</para>
 
     <para>추가로 흔히 동적 로더(Binutils의 일부인 표준 링커 <command>ld</command>와 혼동하지 말라)라 불리는, 플랫폼의 동적 링커의 이름도 알고 있어야 한다. Glibc가 제공하는 동적 링커는 프로그램이 필요로 하는 공유 라이브러리를 찾아 불러오고, 실행할 프로그램을 준비한 후 실행한다. 32비트 인텔 시스템의 동적 링커 이름은 <filename
-    class="libraryfile">ld-linux.so.2</filename> (64비트 시스템의 경우 <filename
-    class="libraryfile">ld-linux-x86-64.so.2</filename>)가 될 것이다. 동적 링커의 이름을 알아내는 확실한 방법은 호스트 시스템에서 아무 바이너리나 검사하는 것이다: <userinput>readelf -l
-    &lt;바이너리의 이름&gt; | grep interpreter</userinput> 을 실행하고 출력 결과를 기록하라. 모든 플랫폼을 다루는 공신력있는 레퍼런스는 Glibc 소스 트리의 최상위에 있는 <filename>shlib-versions</filename> 파일에 있다.</para>
+    class="libraryfile">ld-linux.so.2</filename>(64비트 시스템의 경우 <filename
+    class="libraryfile">ld-linux-x86-64.so.2</filename>)일 것이다. 동적 링커의 이름을 알아내는 확실한 방법은 호스트 시스템에서 아무 바이너리나 검사하는 것이다: <userinput>readelf -l
+    &lt;바이너리의 이름&gt; | grep interpreter</userinput> 을 실행하고 출력 결과를 기록하라. 모든 플랫폼을 다루는 신뢰할만한 레퍼런스는 Glibc 소스 트리의 최상위에 있는 <filename>shlib-versions</filename> 파일에 있다.</para>
   </note>
 
   <para><xref
@@ -37,7 +37,7 @@ Binutils 소스를 압축 해제하고 이 스크립트를 실행하라: <userin
       <para><envar>LFS_TGT</envar> 변수를 통해 대상 트리플렛의 &quot;벤더&quot; 항을 변경하여 작업 플랫폼의 이름을 약간 조정하면, Binutils 및 GCC의 첫 번째 빌드가 호환 가능한 크로스 링커와 크로스 컴파일러를 생성한다. 다른 아키텍쳐에 대한 바이너리들을 만드는 대신 크로스 링커와 크로스 컴파일러로 현재 하드웨어와 호환되는 바이너리를 생성할 것이다.</para>
     </listitem>
     <listitem>
-      <para>임시 라이브러리들은 크로스 컴파일된다. 크로스 컴파일러는 본질적으로 호스트 시스템의 어떤 것에 의존할 수 없기 때문에, 이 방법은 호스트의 헤더나 라이브러리가 새 도구에 합쳐질 가능성을 줄임으로써 대상 시스템과 뒤섞일 위험을 제거한다. 
+      <para>임시 라이브러리들은 크로스 컴파일된다. 크로스 컴파일러는 본질적으로 호스트 시스템의 어떤 것에도 의존할 수 없기 때문에, 이 방법은 호스트의 헤더나 라이브러리가 새 도구에 합쳐질 가능성을 줄임으로써 대상 시스템과 뒤섞일 위험을 제거한다. 
 또 크로스 컴파일을 하면 32비트 및 64비트 라이브러리를 64비트 하드웨어에 모두 빌드할 수 있다.</para>
     </listitem>
     <listitem>
@@ -45,32 +45,32 @@ Binutils 소스를 압축 해제하고 이 스크립트를 실행하라: <userin
     </listitem>
   </itemizedlist>
 
-  <para>Binutils는 GCC와 Glibc의 <command>configure</command> 실행이 어셈블러 및 링커에서 다양한 기능 테스트를 거쳐 소프트웨어 기능 활성화 여부를 결정하기 때문에 먼저 설치된다. 이것은 보기보다 중요하다. 잘못 설정된 GCC나 Glibc는 툴체인의 미묘한 고장으로 이어질 수 있으며, 이러면 그 영향이 전체 시스템 빌드가 끝날 때까지 나타나지 않을 수 있다. 보통 테스트 스위트 실패는 너무 많은 작업을 수행해서 늦기 전에 이 오류를 알려준다.
+  <para>GCC와 Glibc의 <command>configure</command>를 실행하면 어셈블러와 링커에서 다양한 기능 테스트를 거쳐 어떤 소프트웨어 기능을 활성화할지 결정하기 때문에 (어셈블러와 링커들이 포함된) Binutils를 먼저 설치한다. 이것은 보기보다 중요하다. 잘못 설정된 GCC나 Glibc는 툴체인의 미묘한 고장으로 이어질 수 있으며, 이러면 그 영향이 전체 시스템 빌드가 끝날 때까지 나타나지 않을 수 있다. 보통 테스트 스위트 실패는 이미 너무 많은 작업을 수행한 채로 뒤늦게 알아채기 전에 이 오류를 알려준다.
   </para>
 
   <para>Binutils는 어셈블러와 링커를 <filename class="directory">/tools/bin</filename>과 <filename
-  class="directory">/tools/$LFS_TGT/bin</filename> 두 위치에 설치한다. 한 위치의 도구는 다른 위치에 있는 도구로의 하드링크이다. 링커에게 중요한 점은 라이브러리 검색 순서이다. 
-자세한 정보는 <command>ld</command>에 <parameter>--verbose</parameter> 플래그를 전달하면 얻을 수 있다. 예를 들어 <userinput>ld --verbose | grep SEARCH</userinput>는 현재 검색 경로와 그 순서를 보여준다. 더미 프로그램을 컴파일하고 링커에 <parameter>--verbose</parameter> 옵션을 전달하면 어떤 파일들이 <command>ld</command>에 의해 링크되었는지 알 수 있다. 예를 들어 <userinput>gcc dummy.c -Wl,--verbose 2&gt;&amp;1 | grep succeeded</userinput>은 링크 중에 성공적으로 열린 모든 파일들을 보여줄 것이다.</para>
+  class="directory">/tools/$LFS_TGT/bin</filename> 두 위치에 설치한다. 한 위치의 도구는 다른 위치에 있는 도구로의 하드링크이다. 링커는 라이브러리 검색 순서가 중요하다. 
+자세한 정보는 <command>ld</command>에 <parameter>--verbose</parameter> 플래그를 붙여 실행하면 얻을 수 있다. 예를 들어 <userinput>ld --verbose | grep SEARCH</userinput>는 현재 검색 경로와 그 순서를 보여준다. 더미 프로그램을 컴파일하고 링커에 <parameter>--verbose</parameter> 옵션을 전달하면 어떤 파일들이 <command>ld</command>에 의해 링크되었는지 알 수 있다. 예를 들어 <userinput>gcc dummy.c -Wl,--verbose 2&gt;&amp;1 | grep succeeded</userinput>은 링크 중에 성공적으로 열린 모든 파일들을 보여줄 것이다.</para>
 
   <para>다음으로 설치될 패키지는 GCC이다. <command>configure</command> 실행 중에 볼 수 있는 예시이다:</para>
 
 <screen><computeroutput>checking what assembler to use... /tools/i686-lfs-linux-gnu/bin/as
 checking what linker to use... /tools/i686-lfs-linux-gnu/bin/ld</computeroutput></screen>
 
-  <para>이것은 위에 언급한 이유때문에 중요하다. 또한 GCC의 configure 스크립트가 어떤 도구를 사용할지 찾기 위해 PATH 디렉토리를 검색하지 않는다는 것을 보여준다. 단, <command>gcc</command> 자체의 실제 작동 중에는 반드시 동일한 검색 경로가 사용되는 것은 아니다. <command>gcc</command>가 어떤 표준 링커를 사용할지 알아보려면 <userinput>gcc -print-prog-name=ld</userinput>를 실행하라.</para>
+  <para>이것은 위에 언급한 이유때문에 중요하다. 이는 또한 GCC의 configure 스크립트가 어떤 도구를 사용할지 찾느라 PATH 디렉토리를 검색하지 않는다는 것을 알 수 있다. 단, <command>gcc</command> 자체의 실제 작동 중에는 반드시 동일한 검색 경로가 사용되는 것은 아니다. <command>gcc</command>가 어떤 표준 링커를 사용할지 알아보려면 <userinput>gcc -print-prog-name=ld</userinput>를 실행하라.</para>
 
   <para>더미 프로그램을 컴파일하면서 <command>gcc</command>에 <parameter>-v</parameter> 명령줄 옵션을 전달하면 자세한 정보를 얻을 수 있다. 예를 들어 <userinput>gcc -v dummy.c</userinput>는 <command>gcc</command>에 포함된 검색 경로 및 순서, 전처리기, 검파일, 어셈블리 단계에 대한 자세한 정보를 표시한다.</para>
 
-  <para>다음으로 설치될 것은 순수한 리눅스 API 헤더이다. 이를 통해 표준 C 라이브러리(Glibc)가 리눅스 커널에서 지원하는 기능들과 통신할 수 있다.</para>
+  <para>다음으로 설치될 것은 순수한 리눅스 API 헤더이다. 이를 통해 표준 C 라이브러리(Glibc)가 리눅스 커널에서 제공할 기능들과 상호 작용할 수 있다.</para>
 
-  <para>다음으로 설치될 패키지는 Glibc이다. Glibc 빌드에 있어 가장 중요한 것은 컴파일러, 바이너리 도구, 커널 헤더들이다. Glibc는 항상 configure 스크립트에 전달된 <parameter>--host</parameter> 매개 변수와 관련된 컴파일러를 사용하기 때문에,  컴파일러는 대게 문제가 되지 않는다; 이 책의 컴파일러는 <command>i686-lfs-linux-gnu-gcc</command>이다. 바이너리 도구와 커널 헤더들의 경우는 조금 더 복잡하다. 그러니 위험을 무릅쓰지 말고 올바른 선택을 하려면 사용 가능한 configure 설정을 사용하라. <command>configure</command> 실행을 마친 뒤, <filename class="directory">glibc-build</filename> 디렉토리에서 <filename>config.make</filename> 파일을 열어 모든 중요한 세부사항을 확인하라. 
-<parameter>CC="i686-lfs-gnu-gcc"</parameter>로 어떤 바이너리 도구들을 사용할지 지정하고 <parameter>-nostdinc</parameter>와 <parameter>-isystem</parameter> 플래그로 컴파일러의 include 탐색 경로를 정한다. 이 항목들로부터 Glibc 패키지의 중요한 부분을 알 수 있다. Glibc 패키지는 빌드 환경에 있어서 매우 독립적이고 일반적으로 툴체인 기본값에 의존하지 않는다.</para>
+  <para>다음으로 설치될 패키지는 Glibc이다. Glibc 빌드에 있어 가장 중요한 것은 컴파일러, 바이너리 도구, 커널 헤더들이다. Glibc는 항상 configure 스크립트에 전달되는 <parameter>--host</parameter> 매개 변수에 관련된 컴파일러를 사용하기 때문에,  컴파일러는 대게 문제가 되지 않는다; 이 책의 컴파일러는 <command>i686-lfs-linux-gnu-gcc</command>이다. 바이너리 도구와 커널 헤더들의 경우는 조금 더 복잡하다. 그러니 위험을 무릅쓰지 말고 올바른 선택을 하려면 사용 가능한 configure 설정을 사용하라. <command>configure</command> 실행을 마친 뒤, <filename class="directory">glibc-build</filename> 디렉토리에서 <filename>config.make</filename> 파일을 열어 모든 중요한 세부사항을 확인하라. 
+<parameter>CC="i686-lfs-gnu-gcc"</parameter>로 어떤 바이너리 도구들을 사용할지 지정하고 <parameter>-nostdinc</parameter>와 <parameter>-isystem</parameter> 플래그로 컴파일러의 include 탐색 경로를 정한다. 이 항목들로부터 Glibc 패키지의 중요한 점을 알 수 있다. Glibc 패키지는 빌드 환경에 있어서 매우 독립적이고 일반적으로 툴체인 기본값에 의존하지 않는다.</para>
 
-  <para>새로 재구축된 Binutils에서는 <parameter>--with-lib-path</parameter> configure 옵션을 활용하여 <command>ld</command>의 라이브러리 탐색 경로를 지정할 수 있다.</para>
+  <para>새로 빌드된 Binutils 2단계에서는 <parameter>--with-lib-path</parameter> configure 옵션을 활용하여 <command>ld</command>의 라이브러리 탐색 경로를 지정할 수 있다.</para>
 
-  <para>GCC의 재구축을 위해서는 새로운 동적 링커를 사용하도록 소스도 수정해야 한다. 그렇게 하지 않으면 GCC 프로그램 안에 호스트 시스템의 <filename class="directory">/lib</filename> 디렉토리에 있는 동적 링커의 이름이 포함되어 호스트에서 독립하고 하는 목표를 달성할 수 없다. 이 때부터 핵심 툴체인은 자급자족할 수 있게 된다. 나머지 <xref linkend="chapter-temporary-tools"/> 패키지는 모두 <filename class="directory">/tools</filename>의 새로운 Glibc를 기반으로 한다.</para>
+  <para>GCC의 재구축을 위해서는 새로운 동적 링커를 사용하도록 소스도 수정해야 한다. 그렇게 하지 않으면 GCC 프로그램 안에 호스트 시스템의 <filename class="directory">/lib</filename> 디렉토리에 있는 동적 링커의 이름이 포함되어 호스트에서 독립하려는 목표를 달성할 수 없다. 이 때부터 핵심 툴체인은 독립적으로 작동할 수 있게 된다. 나머지 <xref linkend="chapter-temporary-tools"/> 패키지는 모두 <filename class="directory">/tools</filename>의 새로운 Glibc를 기반으로 구축된다.</para>
 
-  <para><xref linkend="chapter-building-system"/>에서 chroot 환경에 들어가면, 위에서 언급한 자급자족할 수 있는 성질 덕에 Glibc 패키지가 가장 먼저 설치된다. 이 Glibc가 <filename
-  class="directory">/usr</filename>에 설치되면 툴체인 기본값을 신속히 바꾸고 나머지 목표 LFS 시스템 구축을 진행할 것이다.</para>
+  <para><xref linkend="chapter-building-system"/>에서 chroot 환경에 들어가면, 위에서 언급한대로 독립적으로 작동할 수 있는 덕에 Glibc 패키지가 가장 먼저 설치된다. 이 Glibc가 <filename
+  class="directory">/usr</filename>에 설치되고 나면 툴체인 기본값을 신속히 바꾸고 나머지 목표 LFS 시스템 구축을 진행할 것이다.</para>
 
 </sect1>

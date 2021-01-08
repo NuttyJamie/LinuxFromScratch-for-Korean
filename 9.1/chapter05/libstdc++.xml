@@ -39,7 +39,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Target Libstdc++ 설치</title>
+    <title>대상 Libstdc++ 설치</title>
 
     <note>
       <para><application>Libstdc++</application>는 GCC 소스의 일부이다. 

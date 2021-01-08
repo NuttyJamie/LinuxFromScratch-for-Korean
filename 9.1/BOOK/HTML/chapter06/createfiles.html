@@ -69,15 +69,13 @@
         &#50668;&#47084; &#49900;&#48380;&#47533; &#47553;&#53356;&#47484;
         &#47564;&#46304;&#45796;:
       </p>
-      <pre class="userinput">
-<kbd class=
-"command">ln -sv /tools/bin/{bash,cat,chmod,dd,echo,ln,mkdir,pwd,rm,stty,touch} /bin
+      <pre class="userinput"><kbd class=
+      "command">ln -sv /tools/bin/{bash,cat,chmod,dd,echo,ln,mkdir,pwd,rm,stty,touch} /bin
 ln -sv /tools/bin/{env,install,perl,printf}         /usr/bin
 ln -sv /tools/lib/libgcc_s.so{,.1}                  /usr/lib
 ln -sv /tools/lib/libstdc++.{a,so{,.6}}             /usr/lib
 
-ln -sv bash /bin/sh</kbd>
-</pre>
+ln -sv bash /bin/sh</kbd></pre>
       <div class="variablelist">
         <p class="title">
           <strong>&#44033; &#47553;&#53356;&#51032;
@@ -286,9 +284,8 @@ ln -sv bash /bin/sh</kbd>
         &#45796;&#51020; &#49900;&#48380;&#47533; &#47553;&#53356;&#47484;
         &#49373;&#49457;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">ln -sv /proc/self/mounts /etc/mtab</kbd>
-</pre>
+      <pre class="userinput"><kbd class=
+      "command">ln -sv /proc/self/mounts /etc/mtab</kbd></pre>
       <p>
         <code class="systemitem">root</code> &#50976;&#51200;&#44032;
         &#47196;&#44536;&#51064;&#54624; &#49688; &#51080;&#44172;
@@ -306,15 +303,14 @@ ln -sv bash /bin/sh</kbd>
         "filename">/etc/passwd</code> &#54028;&#51068;&#51012;
         &#49373;&#49457;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">cat &gt; /etc/passwd &lt;&lt; "EOF"
+      <pre class="userinput"><kbd class=
+      "command">cat &gt; /etc/passwd &lt;&lt; "EOF"
 <code class="literal">root:x:0:0:root:/root:/bin/bash
 bin:x:1:1:bin:/dev/null:/bin/false
 daemon:x:6:6:Daemon User:/dev/null:/bin/false
 messagebus:x:18:18:D-Bus Message Daemon User:/var/run/dbus:/bin/false
 nobody:x:99:99:Unprivileged User:/dev/null:/bin/false</code>
-EOF</kbd>
-</pre>
+EOF</kbd></pre>
       <p>
         <code class="systemitem">root</code>&#50640; &#45824;&#54620;
         &#49892;&#51228; &#50516;&#54840;(&#50668;&#44592;&#49436;
@@ -330,8 +326,8 @@ EOF</kbd>
         "filename">/etc/group</code> &#54028;&#51068;&#51012;
         &#49373;&#49457;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">cat &gt; /etc/group &lt;&lt; "EOF"
+      <pre class="userinput"><kbd class=
+      "command">cat &gt; /etc/group &lt;&lt; "EOF"
 <code class="literal">root:x:0:
 bin:x:1:daemon
 sys:x:2:
@@ -356,8 +352,7 @@ kvm:x:61:
 wheel:x:97:
 nogroup:x:99:
 users:x:999:</code>
-EOF</kbd>
-</pre>
+EOF</kbd></pre>
       <p>
         &#49373;&#49457;&#46108; &#44536;&#47353;&#46308;&#51008;
         &#50612;&#46500; &#54364;&#51456;&#50640;&#46020;
@@ -408,9 +403,8 @@ EOF</kbd>
         &#44536;&#47353;&#47749;&#51012; &#51096; &#48520;&#47084;&#50732;
         &#44163;&#51060;&#45796;:
       </p>
-      <pre class="userinput">
-<kbd class="command">exec /tools/bin/bash --login +h</kbd>
-</pre>
+      <pre class="userinput"><kbd class=
+      "command">exec /tools/bin/bash --login +h</kbd></pre>
       <p>
         <em class="parameter"><code>+h</code></em>
         &#51648;&#49884;&#47928;&#51032; &#49324;&#50857;&#50640;
@@ -450,12 +444,11 @@ EOF</kbd>
         &#52488;&#44592;&#54868;&#54616;&#44256; &#51201;&#51208;&#54620;
         &#44428;&#54620;&#51012; &#48512;&#50668;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">touch /var/log/{btmp,lastlog,faillog,wtmp}
+      <pre class="userinput"><kbd class=
+      "command">touch /var/log/{btmp,lastlog,faillog,wtmp}
 chgrp -v utmp /var/log/lastlog
 chmod -v 664  /var/log/lastlog
-chmod -v 600  /var/log/btmp</kbd>
-</pre>
+chmod -v 600  /var/log/btmp</kbd></pre>
       <p>
         <code class="filename">/var/log/wtmp</code> &#54028;&#51068;&#51008;
         &#47784;&#46304; &#47196;&#44536;&#51064;&#44284;

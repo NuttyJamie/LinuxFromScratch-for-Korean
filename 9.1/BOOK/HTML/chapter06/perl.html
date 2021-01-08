@@ -84,10 +84,8 @@
           "filename">/etc/hosts</code> &#54028;&#51068;&#51012;
           &#49373;&#49457;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">echo "127.0.0.1 localhost $(hostname)" &gt; /etc/hosts</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">echo "127.0.0.1 localhost $(hostname)" &gt; /etc/hosts</kbd></pre>
         <p>
           &#51060; &#48260;&#51204;&#51032; Perl&#51008; &#51060;&#51228;
           Compress::Raw::Zlib &#50752; Compress::Raw::BZip2
@@ -101,10 +99,8 @@
           &#46972;&#51060;&#48652;&#47084;&#47532;&#46308;&#51012;
           &#49324;&#50857;&#54616;&#46020;&#47197; &#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">export BUILD_ZLIB=False
-export BUILD_BZIP2=0</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">export BUILD_ZLIB=False
+export BUILD_BZIP2=0</kbd></pre>
         <p>
           Perl &#49444;&#51221;&#51012; &#50756;&#51204;&#55176;
           &#49688;&#46041;&#51004;&#47196; &#54616;&#47140;&#47732;,
@@ -120,15 +116,14 @@ export BUILD_BZIP2=0</kbd>
           &#47749;&#47161;&#51012; &#44536;&#45824;&#47196;
           &#49892;&#54665;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">sh Configure -des -Dprefix=/usr                 \
+        <pre class="userinput"><kbd class=
+        "command">sh Configure -des -Dprefix=/usr                 \
                   -Dvendorprefix=/usr           \
                   -Dman1dir=/usr/share/man/man1 \
                   -Dman3dir=/usr/share/man/man3 \
                   -Dpager="/usr/bin/less -isR"  \
                   -Duseshrplib                  \
-                  -Dusethreads</kbd>
-</pre>
+                  -Dusethreads</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Configure &#50741;&#49496;&#46308;&#51032;
@@ -211,25 +206,19 @@ export BUILD_BZIP2=0</kbd>
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#44208;&#44284;&#47484;
           &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;(&#45824;&#47029;
           11 SBU), &#49892;&#54665;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make test</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make test</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54616;&#44256;
           &#51221;&#47532;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install
-unset BUILD_ZLIB BUILD_BZIP2</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install
+unset BUILD_ZLIB BUILD_BZIP2</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

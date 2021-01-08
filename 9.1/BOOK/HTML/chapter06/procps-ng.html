@@ -82,14 +82,13 @@
           procps-ng &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr                            \
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr                            \
             --exec-prefix=                           \
             --libdir=/usr/lib                        \
             --docdir=/usr/share/doc/procps-ng-3.3.15 \
             --disable-static                         \
-            --disable-kill</kbd>
-</pre>
+            --disable-kill</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Configure &#50741;&#49496;&#46308;&#51032;
@@ -115,9 +114,7 @@
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#45716;
           LFS&#47484; &#50948;&#54620; &#47751; &#44032;&#51648;
@@ -133,19 +130,15 @@
           &#49892;&#54665;&#54616;&#47140;&#47732; &#45796;&#51020;
           &#47749;&#47161;&#51012; &#49892;&#54665;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
+        <pre class="userinput"><kbd class=
+        "command">sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
 sed -i '/set tty/d' testsuite/pkill.test/pkill.exp
 rm testsuite/pgrep.test/pgrep.exp
-make check</kbd>
-</pre>
+make check</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
         <p>
           &#47560;&#51648;&#47561;&#51004;&#47196;, &#54596;&#49688;
           &#46972;&#51060;&#48652;&#47084;&#47532;&#46308;&#51012;
@@ -154,10 +147,9 @@ make check</kbd>
           &#46412;&#50640;&#46020; &#52286;&#51012; &#49688; &#51080;&#45716;
           &#50948;&#52824;&#47196; &#51060;&#46041;&#54620;&#45796;.
         </p>
-        <pre class="userinput">
-<kbd class="command">mv -v /usr/lib/libprocps.so.* /lib
-ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">mv -v /usr/lib/libprocps.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

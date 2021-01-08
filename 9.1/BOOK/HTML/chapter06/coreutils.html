@@ -93,9 +93,8 @@
           &#45796;&#44397;&#50612;&#54868; &#44288;&#47144;
           &#48260;&#44536;&#47484; &#49688;&#51221;&#54620;&#45796;.
         </p>
-        <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../coreutils-8.31-i18n-1.patch</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">patch -Np1 -i ../coreutils-8.31-i18n-1.patch</kbd></pre>
         <div class="admon note">
           <img alt="[&#52280;&#44256;]" src="../images/note.png" />
           <h3>
@@ -121,19 +120,16 @@
           &#51080;&#45716; &#54620; &#53580;&#49828;&#53944;&#47484;
           &#49704;&#44596;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">sed -i '/test.lock/s/^/#/' gnulib-tests/gnulib.mk</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">sed -i '/test.lock/s/^/#/' gnulib-tests/gnulib.mk</kbd></pre>
         <p>
           &#51060;&#51228; Coreutils &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">autoreconf -fiv
+        <pre class="userinput"><kbd class="command">autoreconf -fiv
 FORCE_UNSAFE_CONFIGURE=1 ./configure \
             --prefix=/usr            \
-            --enable-no-install-program=kill,uptime</kbd>
-</pre>
+            --enable-no-install-program=kill,uptime</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Configure &#50741;&#49496;&#46308;&#51032;
@@ -183,9 +179,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#47484;
           &#49892;&#54665;&#54616;&#51648; &#50506;&#51004;&#47140;&#47732;
@@ -202,9 +196,8 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
           &#49892;&#54665;&#54644;&#50556; &#54616;&#45716;
           &#53580;&#49828;&#53944;&#47484; &#49892;&#54665;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make NON_ROOT_USERNAME=nobody check-root</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">make NON_ROOT_USERNAME=nobody check-root</kbd></pre>
         <p>
           &#45208;&#47672;&#51648; &#53580;&#49828;&#53944;&#45716;
           <code class="systemitem">nobody</code> &#50976;&#51200;&#47196;
@@ -221,9 +214,8 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
           &#54644;&#45817; &#44536;&#47353;&#50640;
           &#49549;&#54616;&#46020;&#47197; &#47564;&#46304;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">echo "dummy:x:1000:nobody" &gt;&gt; /etc/group</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">echo "dummy:x:1000:nobody" &gt;&gt; /etc/group</kbd></pre>
         <p>
           root &#49324;&#50857;&#51088;&#44032; &#50500;&#45772;
           &#50976;&#51200;&#46020; &#45796;&#51020;
@@ -232,9 +224,8 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
           &#49688; &#51080;&#46020;&#47197; &#51068;&#48512;
           &#44428;&#54620;&#51012; &#49688;&#51221;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">chown -Rv nobody . </kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">chown -Rv nobody . </kbd></pre>
         <p>
           &#51060;&#51228; &#44160;&#49324;&#47484;
           &#49892;&#54665;&#54620;&#45796;. <strong class=
@@ -242,10 +233,8 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
           PATH&#50640; /tools/bin&#51060; &#54252;&#54632;&#46104;&#50612;
           &#51080;&#45716;&#51648; &#54869;&#51064;&#54616;&#46972;.
         </p>
-        <pre class="userinput">
-<kbd class="command">su nobody -s /bin/bash \
-          -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">su nobody -s /bin/bash \
+          -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"</kbd></pre>
         <p>
           &#53580;&#49828;&#53944; &#54532;&#47196;&#44536;&#47016;&#51064;
           test-getlogin&#51008; chroot &#54872;&#44221;&#52376;&#47100;
@@ -263,29 +252,24 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
           &#51076;&#49884; &#44536;&#47353;&#51012;
           &#49325;&#51228;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">sed -i '/dummy/d' /etc/group</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">sed -i '/dummy/d' /etc/group</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
         <p>
           &#54532;&#47196;&#44536;&#47016;&#51012; FHS&#50640;&#49436;
           &#51648;&#51221;&#54620; &#50948;&#52824;&#47196;
           &#51060;&#46041;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">mv -v /usr/bin/{cat,chgrp,chmod,chown,cp,date,dd,df,echo} /bin
+        <pre class="userinput"><kbd class=
+        "command">mv -v /usr/bin/{cat,chgrp,chmod,chown,cp,date,dd,df,echo} /bin
 mv -v /usr/bin/{false,ln,ls,mkdir,mknod,mv,pwd,rm} /bin
 mv -v /usr/bin/{rmdir,stty,sync,true,uname} /bin
 mv -v /usr/bin/chroot /usr/sbin
 mv -v /usr/share/man/man1/chroot.1 /usr/share/man/man8/chroot.8
-sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
-</pre>
+sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd></pre>
         <p>
           LFS-&#48512;&#53944;&#49828;&#53356;&#47549;&#53944;
           &#54056;&#53412;&#51648;&#51032; &#47751;&#47751;
@@ -303,9 +287,8 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</kbd>
           &#54028;&#54000;&#49496;&#50640; &#51080;&#50612;&#50556;
           &#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mv -v /usr/bin/{head,nice,sleep,touch} /bin</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">mv -v /usr/bin/{head,nice,sleep,touch} /bin</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

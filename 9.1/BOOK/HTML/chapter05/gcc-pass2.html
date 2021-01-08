@@ -80,28 +80,27 @@
         </h2>
         <p>
           &#50864;&#47532;&#51032; &#52395; &#48264;&#51704; GCC
-          &#48716;&#46300;&#50640;&#49436;&#45716; &#45236;&#48512;
-          &#49884;&#49828;&#53596; &#54756;&#45908; &#47751; &#44060;&#47484;
-          &#49444;&#52824;&#54664;&#45796;. &#44536; &#51473;
+          &#48716;&#46300;&#45716; &#45236;&#48512; &#49884;&#49828;&#53596;
+          &#54756;&#45908; &#47751; &#44060;
+          &#49444;&#52824;&#54664;&#45796;. &#51060; &#51473;
           &#54616;&#45208;&#51064; <code class=
-          "filename">limits.h</code>&#45716;, &#48372;&#53685;
+          "filename">limits.h</code>&#50640;&#45716;, &#48372;&#53685;
           &#54644;&#45817; &#49884;&#49828;&#53596;&#51032; <code class=
-          "filename">limits.h</code> &#54756;&#45908;(&#51060;
-          &#44221;&#50864; <code class=
-          "filename">/tools/include/limits.h</code>)&#47484;
-          &#49444;&#52824;&#54620;&#45796;. &#44536;&#47084;&#45208;
+          "filename">limits.h</code> &#54756;&#45908;, &#51593; <code class=
+          "filename">/tools/include/limits.h</code>&#44032;
+          &#54252;&#54632;&#46108;&#45796;. &#44536;&#47084;&#45208;
           GCC&#51032; &#52395; &#48716;&#46300; &#46412;&#45716; <code class=
           "filename">/tools/include/limits.h</code>&#44032;
           &#51316;&#51116;&#54616;&#51648;
           &#50506;&#50520;&#51004;&#48064;&#47196;, GCC&#44032;
           &#49444;&#52824;&#54620; &#45236;&#48512; &#54756;&#45908;&#45716;
-          &#51068;&#48512;&#50640; &#48520;&#44284;&#54620; &#51088;&#52404;
-          &#54028;&#51068;&#51060;&#44256; &#49884;&#49828;&#53596;
-          &#54756;&#45908;&#51032; &#54869;&#51109; &#44592;&#45733;&#51012;
-          &#54252;&#54632;&#54616;&#51648; &#50506;&#45716;&#45796;.
-          &#51060;&#44163;&#51008; &#51076;&#49884; libc&#47484;
+          &#51068;&#48512;&#50640; &#48520;&#44284;&#54620;
+          &#46021;&#47549;&#51201; &#54028;&#51068;&#51060;&#47728;
+          &#49884;&#49828;&#53596; &#54756;&#45908;&#51032; &#54869;&#51109;
+          &#44592;&#45733;&#51060; &#46308;&#50612;&#51080;&#51648;
+          &#50506;&#45796;. &#51060;&#45716; &#51076;&#49884; libc&#47484;
           &#48716;&#46300;&#54616;&#45716; &#45936;&#45716;
-          &#51201;&#54633;&#54664;&#51648;&#47564;, &#51060;&#51228;
+          &#51201;&#54633;&#54664;&#51648;&#47564;, &#51648;&#44552;
           GCC&#47484; &#48716;&#46300;&#54616;&#45716; &#45936;&#45716;
           &#51204;&#52404; &#45236;&#48512; &#54756;&#45908;&#44032;
           &#54596;&#50836;&#54616;&#45796;. &#51068;&#48152;&#51201;&#51064;
@@ -112,10 +111,9 @@
           &#54756;&#45908;&#51032; &#51204;&#52404; &#48260;&#51204;&#51012;
           &#47564;&#46304;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">cat gcc/limitx.h gcc/glimits.h gcc/limity.h &gt; \
-  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">cat gcc/limitx.h gcc/glimits.h gcc/limity.h &gt; \
+  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h</kbd></pre>
         <p>
           &#45796;&#49884; &#54620; &#48264;, <code class=
           "filename">/tools</code>&#50640; &#49444;&#52824;&#46108;
@@ -123,8 +121,8 @@
           GCC&#51032; &#44592;&#48376; &#46041;&#51201; &#47553;&#52964;
           &#50948;&#52824;&#47484; &#48320;&#44221;&#54616;&#46972;.
         </p>
-        <pre class="userinput">
-<kbd class="command">for file in gcc/config/{linux,i386/linux{,64}}.h
+        <pre class="userinput"><kbd class=
+        "command">for file in gcc/config/{linux,i386/linux{,64}}.h
 do
   cp -uv $file{,.orig}
   sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&amp;@g' \
@@ -135,8 +133,7 @@ do
 #define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"
 #define STANDARD_STARTFILE_PREFIX_2 ""' &gt;&gt; $file
   touch $file.orig
-done</kbd>
-</pre>
+done</kbd></pre>
         <p>
           x86_64&#50640;&#49436; &#48716;&#46300;&#54616;&#45716;
           &#44221;&#50864;, 64&#48708;&#53944;
@@ -146,14 +143,12 @@ done</kbd>
           "quote">lib</span>&rdquo;</span>&#47196;
           &#48320;&#44221;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">case $(uname -m) in
+        <pre class="userinput"><kbd class="command">case $(uname -m) in
   x86_64)
     sed -e '/m64=/s/lib64/lib/' \
         -i.orig gcc/config/i386/t-linux64
   ;;
-esac</kbd>
-</pre>
+esac</kbd></pre>
         <p>
           GCC&#51032; &#52395; &#48264;&#51704; &#48716;&#46300;&#50752;
           &#47560;&#52268;&#44032;&#51648;&#47196; GMP, MPFR &#48143; MPC
@@ -162,31 +157,26 @@ esac</kbd>
           &#54596;&#50836;&#54620; &#46356;&#47113;&#53664;&#47532;
           &#51060;&#47492;&#51004;&#47196; &#48320;&#44221;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">tar -xf ../mpfr-4.0.2.tar.xz
+        <pre class="userinput"><kbd class=
+        "command">tar -xf ../mpfr-4.0.2.tar.xz
 mv -v mpfr-4.0.2 mpfr
 tar -xf ../gmp-6.2.0.tar.xz
 mv -v gmp-6.2.0 gmp
 tar -xf ../mpc-1.1.0.tar.gz
-mv -v mpc-1.1.0 mpc</kbd>
-</pre>
+mv -v mpc-1.1.0 mpc</kbd></pre>
         <p>
           &#51060;&#51228; Glibc-2.31&#50640;&#49436; &#45208;&#50728;
           &#47928;&#51228;&#47484; &#54644;&#44208;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">sed -e '1161 s|^|//|' \
-    -i libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">sed -e '1161 s|^|//|' \
+    -i libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc</kbd></pre>
         <p>
           &#45796;&#49884; &#48324;&#46020;&#51032; &#48716;&#46300;
           &#46356;&#47113;&#53664;&#47532;&#47484;
           &#49373;&#49457;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mkdir -v build
-cd       build</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">mkdir -v build
+cd       build</kbd></pre>
         <p>
           GCC &#48716;&#46300;&#47484; &#49884;&#51089;&#54616;&#44592;
           &#51204;&#50640;, &#44592;&#48376; &#52572;&#51201;&#54868;
@@ -198,8 +188,8 @@ cd       build</kbd>
           GCC &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">CC=$LFS_TGT-gcc                                    \
+        <pre class="userinput"><kbd class=
+        "command">CC=$LFS_TGT-gcc                                    \
 CXX=$LFS_TGT-g++                                   \
 AR=$LFS_TGT-ar                                     \
 RANLIB=$LFS_TGT-ranlib                             \
@@ -211,8 +201,7 @@ RANLIB=$LFS_TGT-ranlib                             \
     --disable-libstdcxx-pch                        \
     --disable-multilib                             \
     --disable-bootstrap                            \
-    --disable-libgomp</kbd>
-</pre>
+    --disable-libgomp</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Configure &#50741;&#49496;&#46308;&#51032;
@@ -287,15 +276,11 @@ RANLIB=$LFS_TGT-ranlib                             \
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
         <p>
           &#47560;&#47924;&#47532; &#51089;&#50629;&#51004;&#47196;
           &#49900;&#48380;&#47533; &#47553;&#53356;&#47484;
@@ -304,14 +289,14 @@ RANLIB=$LFS_TGT-ranlib                             \
           &#49828;&#53356;&#47549;&#53944;&#46308;&#51008; <span class=
           "command"><strong>gcc</strong></span>&#45824;&#49888; <span class=
           "command"><strong>cc</strong></span>&#47484;
-          &#49892;&#54665;&#54616;&#45716;&#45936;, &#51060;&#47196;&#50024;
-          GNU C &#52980;&#54028;&#51068;&#47084;&#44032; &#54637;&#49345;
+          &#49892;&#54665;&#54632;&#51004;&#47196;&#50024; GNU C
+          &#52980;&#54028;&#51068;&#47084;&#44032; &#54637;&#49345;
           &#49444;&#52824;&#46104;&#50612;&#51080;&#51648; &#50506;&#51008;
           &#47784;&#46304; &#51333;&#47448;&#51032; UNIX
-          &#49884;&#49828;&#53596;&#50640;&#49436; &#49324;&#50857;&#54624;
-          &#49688; &#51080;&#44172; &#48276;&#50857;&#49457;&#51012;
-          &#50976;&#51648;&#54620;&#45796;. <span class=
-          "command"><strong>cc</strong></span>&#47484;
+          &#49884;&#49828;&#53596;&#50640;&#49436;&#46020;
+          &#49324;&#50857;&#54624; &#49688; &#51080;&#44172;
+          &#48276;&#50857;&#49457;&#51012; &#50976;&#51648;&#54620;&#45796;.
+          <span class="command"><strong>cc</strong></span>&#47484;
           &#49324;&#50857;&#54616;&#47732; &#49884;&#49828;&#53596;
           &#44288;&#47532;&#51088;&#44032; &#50612;&#46500; C
           &#52980;&#54028;&#51068;&#47084;&#47484; &#49444;&#52824;&#54624;
@@ -319,9 +304,8 @@ RANLIB=$LFS_TGT-ranlib                             \
           &#44208;&#51221;&#54616;&#46020;&#47197; &#54624; &#49688;
           &#51080;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">ln -sv gcc /tools/bin/cc</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">ln -sv gcc /tools/bin/cc</kbd></pre>
         <div class="admon caution">
           <img alt="[&#44221;&#44256;]" src="../images/caution.png" />
           <h3>
@@ -340,11 +324,10 @@ RANLIB=$LFS_TGT-ranlib                             \
             &#47749;&#47161;&#51004;&#47196; &#50728;&#51204;&#49457;
             &#44160;&#49324;&#47484; &#49688;&#54665;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">echo 'int main(){}' &gt; dummy.c
+          <pre class="userinput"><kbd class=
+          "command">echo 'int main(){}' &gt; dummy.c
 cc dummy.c
-readelf -l a.out | grep ': /tools'</kbd>
-</pre>
+readelf -l a.out | grep ': /tools'</kbd></pre>
           <p>
             &#47784;&#46304; &#44163;&#51060; &#51228;&#45824;&#47196;
             &#51089;&#46041;&#54616;&#47732; &#50724;&#47448;&#44032;
@@ -353,10 +336,8 @@ readelf -l a.out | grep ': /tools'</kbd>
             &#52636;&#47141;&#51008; &#45796;&#51020;&#44284;
             &#44057;&#51012; &#44163;&#51060;&#45796;:
           </p>
-          <pre class="screen">
-<code class=
-"computeroutput">[Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]</code>
-</pre>
+          <pre class="screen"><code class=
+          "computeroutput">[Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]</code></pre>
           <p>
             32&#48708;&#53944;
             &#49884;&#49828;&#53596;&#50640;&#49436;&#45716; &#46041;&#51201;
@@ -385,11 +366,11 @@ readelf -l a.out | grep ': /tools'</kbd>
             &#49892;&#54665;&#54616;&#46972;. &#47564;&#50557; &#51096;
             &#46108;&#45796;&#47732;, <code class=
             "filename">/tools/bin/cc</code>&#44032; &#45572;&#46973;&#46108;
-            &#44163;&#51060;&#45796;. &#51060;&#49345;
-            &#49900;&#48380;&#47533; &#47553;&#53356;&#47484;
-            &#49373;&#49457;&#54616;&#46972;. &#44536;&#47088;
-            &#45796;&#51020; <code class="envar">PATH</code>&#44032;
-            &#50732;&#48148;&#47480;&#51648;
+            &#44163;&#51060;&#45796;. &#50526;&#49436;
+            &#50616;&#44553;&#54620; &#49900;&#48380;&#47533;
+            &#47553;&#53356;&#47484; &#49373;&#49457;&#54616;&#46972;.
+            &#44536;&#47088; &#45796;&#51020; <code class=
+            "envar">PATH</code>&#44032; &#50732;&#48148;&#47480;&#51648;
             &#54869;&#51064;&#54616;&#46972;. <span class=
             "command"><strong>echo $PATH</strong></span>&#47484;
             &#49892;&#54665;&#54664;&#51012; &#46412; &#44208;&#44284;
@@ -413,9 +394,8 @@ readelf -l a.out | grep ': /tools'</kbd>
             &#53580;&#49828;&#53944; &#54028;&#51068;&#51012;
             &#51221;&#47532;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">rm -v dummy.c a.out</kbd>
-</pre>
+          <pre class="userinput"><kbd class=
+          "command">rm -v dummy.c a.out</kbd></pre>
         </div>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">

@@ -68,8 +68,8 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
-              &#49884;&#44036;:</strong> <span class="segbody">less than 0.1
-              SBU</span>
+              &#49884;&#44036;:</strong> <span class="segbody">0.1 SBU
+              ì´í&bull;&tilde;</span>
             </div>
             <div class="seg">
               <strong class="segtitle">&#54596;&#50836;
@@ -88,36 +88,30 @@
           &#47928;&#49436;&#47484; &#49444;&#52824;&#54624;
           &#54056;&#52824;&#47484; &#51201;&#50857;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../bzip2-1.0.8-install_docs-1.patch</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">patch -Np1 -i ../bzip2-1.0.8-install_docs-1.patch</kbd></pre>
         <p>
           &#45796;&#51020; &#47749;&#47161;&#51008; &#49900;&#48380;&#47533;
           &#47553;&#53356;&#47484; &#49345;&#45824;&#51201;&#51004;&#47196;
           &#49373;&#49457;&#54616;&#46020;&#47197; &#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile</kbd></pre>
         <p>
           Man &#54168;&#51060;&#51648;&#44032; &#50732;&#48148;&#47480;
           &#50948;&#52824;&#50640;
           &#49444;&#52824;&#46104;&#50632;&#45716;&#51648;
           &#54869;&#51064;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile</kbd></pre>
         <p>
           Bzip2 &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make -f Makefile-libbz2_so
-make clean</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">make -f Makefile-libbz2_so
+make clean</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Make &#47588;&#44060;&#48320;&#49688;&#51032;
@@ -149,15 +143,12 @@ make clean</kbd>
           &#52980;&#54028;&#51068;&#54616;&#44256;
           &#53580;&#49828;&#53944;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make PREFIX=/usr install</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">make PREFIX=/usr install</kbd></pre>
         <p>
           &#44277;&#50976; <span class=
           "command"><strong>bzip2</strong></span>
@@ -167,14 +158,13 @@ make clean</kbd>
           &#49900;&#48380;&#47533; &#47553;&#53356;&#47484; &#47564;&#46304;
           &#54980; &#51221;&#47532;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">cp -v bzip2-shared /bin/bzip2
+        <pre class="userinput"><kbd class=
+        "command">cp -v bzip2-shared /bin/bzip2
 cp -av libbz2.so* /lib
 ln -sv ../../lib/libbz2.so.1.0 /usr/lib/libbz2.so
 rm -v /usr/bin/{bunzip2,bzcat,bzip2}
 ln -sv bzip2 /bin/bunzip2
-ln -sv bzip2 /bin/bzcat</kbd>
-</pre>
+ln -sv bzip2 /bin/bzcat</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

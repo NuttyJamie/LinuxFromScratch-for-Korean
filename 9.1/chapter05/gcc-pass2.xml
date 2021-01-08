@@ -43,8 +43,8 @@
   <sect2 role="installation">
     <title>GCC 설치</title>
 
-    <para>우리의 첫 번째 GCC 빌드에서는 내부 시스템 헤더 몇 개를 설치했다. 그 중 하나인 <filename>limits.h</filename>는, 보통 해당 시스템의 <filename>limits.h</filename> 헤더(이 경우 <filename>/tools/include/limits.h</filename>)를 설치한다. 그러나 GCC의 첫 빌드 때는 <filename>/tools/include/limits.h</filename>가 존재하지 않았으므로, GCC가 설치한 내부 헤더는 일부에 불과한 자체 파일이고 시스템 헤더의 확장 기능을 포함하지 않는다. 
-이것은 임시 libc를 빌드하는 데는 적합했지만, 이제 GCC를 빌드하는 데는 전체 내부 헤더가 필요하다. 일반적인 상황에서 GCC 빌드 시스템이 수행하는 것과 동일한 명령을 사용해서 내부 헤더의 전체 버전을 만든다:</para>
+    <para>우리의 첫 번째 GCC 빌드는 내부 시스템 헤더 몇 개 설치했다. 이 중 하나인 <filename>limits.h</filename>에는, 보통 해당 시스템의 <filename>limits.h</filename> 헤더, 즉 <filename>/tools/include/limits.h</filename>가 포함된다. 그러나 GCC의 첫 빌드 때는 <filename>/tools/include/limits.h</filename>가 존재하지 않았으므로, GCC가 설치한 내부 헤더는 일부에 불과한 독립적 파일이며 시스템 헤더의 확장 기능이 들어있지 않다. 
+이는 임시 libc를 빌드하는 데는 적합했지만, 지금 GCC를 빌드하는 데는 전체 내부 헤더가 필요하다. 일반적인 상황에서 GCC 빌드 시스템이 수행하는 것과 동일한 명령을 사용해서 내부 헤더의 전체 버전을 만든다:</para>
 
 <screen><userinput remap="pre">cat gcc/limitx.h gcc/glimits.h gcc/limity.h &gt; \
   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h</userinput></screen>
@@ -154,7 +154,7 @@ RANLIB=$LFS_TGT-ranlib                             \
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>마무리 작업으로 심볼릭 링크를 만든다. 많은 프로그램들과 스크립트들은 <command>gcc</command>대신 <command>cc</command>를 실행하는데, 이로써 GNU C 컴파일러가 항상 설치되어있지 않은 모든 종류의 UNIX 시스템에서 사용할 수 있게 범용성을 유지한다. <command>cc</command>를 사용하면 시스템 관리자가 어떤 C 컴파일러를 설치할 지 자유롭게 결정하도록 할 수 있다:</para>
+    <para>마무리 작업으로 심볼릭 링크를 만든다. 많은 프로그램들과 스크립트들은 <command>gcc</command>대신 <command>cc</command>를 실행함으로써 GNU C 컴파일러가 항상 설치되어있지 않은 모든 종류의 UNIX 시스템에서도 사용할 수 있게 범용성을 유지한다. <command>cc</command>를 사용하면 시스템 관리자가 어떤 C 컴파일러를 설치할 지 자유롭게 결정하도록 할 수 있다:</para>
 
 <screen><userinput remap="install">ln -sv gcc /tools/bin/cc</userinput></screen>
 
@@ -172,7 +172,7 @@ readelf -l a.out | grep ': /tools'</userinput></screen>
 
     <para>32비트 시스템에서는 동적 링커가 /tools/lib/ld-linux.so.2임을 참고하라.</para>
 
-    <para>만약 출력이 위와 같이 표시되지 않거나 출력이 전혀 없다면, 무언가 잘못된 것이다. 이전 단계로 돌아가 어디서 문제가 생겼는지 파악하고 수정하라. 이 문제는 계속 진행하기 전에 반드시 해결해야 한다. 먼저 <command>cc</command> 대신 <command>gcc</command>를 사용하여 온전성 검사를 다시 실행하라. 만약 잘 된다면, <filename class="symlink">/tools/bin/cc</filename>가 누락된 것이다. 이상 심볼릭 링크를 생성하라. 그런 다음 <envar>PATH</envar>가 올바른지 확인하라. <command>echo $PATH</command>를 실행했을 때 결과 맨 앞에 <filename class="directory">/tools/bin</filename>가 나오면 올바른 것이다. <envar>PATH</envar>가 잘못됐다면 <systemitem class="username">lfs</systemitem> 유저로 로그인하지 않았거나 <xref linkend="ch-preps-settingenviron" role="."/>에서 문제가 발생했다는 의미이다.</para>
+    <para>만약 출력이 위와 같이 표시되지 않거나 출력이 전혀 없다면, 무언가 잘못된 것이다. 이전 단계로 돌아가 어디서 문제가 생겼는지 파악하고 수정하라. 이 문제는 계속 진행하기 전에 반드시 해결해야 한다. 먼저 <command>cc</command> 대신 <command>gcc</command>를 사용하여 온전성 검사를 다시 실행하라. 만약 잘 된다면, <filename class="symlink">/tools/bin/cc</filename>가 누락된 것이다. 앞서 언급한 심볼릭 링크를 생성하라. 그런 다음 <envar>PATH</envar>가 올바른지 확인하라. <command>echo $PATH</command>를 실행했을 때 결과 맨 앞에 <filename class="directory">/tools/bin</filename>가 나오면 올바른 것이다. <envar>PATH</envar>가 잘못됐다면 <systemitem class="username">lfs</systemitem> 유저로 로그인하지 않았거나 <xref linkend="ch-preps-settingenviron" role="."/>에서 문제가 발생했다는 의미이다.</para>
 
     <para>모두 잘 됐다면, 테스트 파일을 정리하라:</para>
 

@@ -124,9 +124,8 @@
           &#50948;&#52824;&#50640; &#51200;&#51109;&#54616;&#46020;&#47197;
           &#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../glibc-2.31-fhs-1.patch</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">patch -Np1 -i ../glibc-2.31-fhs-1.patch</kbd></pre>
         <p>
           LSB &#51456;&#49688;&#47484; &#50948;&#54620;
           &#49900;&#48380;&#47533; &#47553;&#53356;&#47484;
@@ -137,38 +136,33 @@
           &#54840;&#54872;&#49457; &#49900;&#48380;&#47533;
           &#47553;&#53356;&#47484; &#49373;&#49457;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">case $(uname -m) in
+        <pre class="userinput"><kbd class="command">case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 /lib/ld-lsb.so.3
     ;;
     x86_64) ln -sfv ../lib/ld-linux-x86-64.so.2 /lib64
             ln -sfv ../lib/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
     ;;
-esac</kbd>
-</pre>
+esac</kbd></pre>
         <p>
           Glibc &#47928;&#49436;&#50640;&#49436;&#45716; &#51204;&#50857;
           &#48716;&#46300; &#46356;&#47113;&#53664;&#47532;&#50640;&#49436;
           Glibc&#47484; &#48716;&#46300;&#54624; &#44163;&#51012;
           &#44428;&#51109;&#54622;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mkdir -v build
-cd       build</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">mkdir -v build
+cd       build</kbd></pre>
         <p>
           Glibc &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">CC="gcc -ffile-prefix-map=/tools=/usr" \
+        <pre class="userinput"><kbd class=
+        "command">CC="gcc -ffile-prefix-map=/tools=/usr" \
 ../configure --prefix=/usr                          \
              --disable-werror                       \
              --enable-kernel=3.2                    \
              --enable-stack-protector=strong        \
              --with-headers=/usr/include            \
-             libc_cv_slibdir=/lib</kbd>
-</pre>
+             libc_cv_slibdir=/lib</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>&#50741;&#49496;&#46308;&#44284; &#49352; Configure
@@ -259,9 +253,7 @@ cd       build</kbd>
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <div class="admon important">
           <img alt="[&#51473;&#50836;]" src="../images/important.png" />
           <h3>
@@ -283,12 +275,10 @@ cd       build</kbd>
           &#53580;&#49828;&#53944; &#49892;&#54056;&#45716; &#48372;&#53685;
           &#47924;&#49884;&#54644;&#46020; &#47924;&#48169;&#54616;&#45796;.
         </p>
-        <pre class="userinput">
-<kbd class="command">case $(uname -m) in
+        <pre class="userinput"><kbd class="command">case $(uname -m) in
   i?86)   ln -sfnv $PWD/elf/ld-linux.so.2        /lib ;;
   x86_64) ln -sfnv $PWD/elf/ld-linux-x86-64.so.2 /lib ;;
-esac</kbd>
-</pre>
+esac</kbd></pre>
         <div class="admon note">
           <img alt="[&#52280;&#44256;]" src="../images/note.png" />
           <h3>
@@ -304,9 +294,7 @@ esac</kbd>
             &#45934;&#50612;&#50416;&#51064;&#45796;.
           </p>
         </div>
-        <pre class="userinput">
-<kbd class="command">make check</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make check</kbd></pre>
         <p>
           &#47751; &#44060;&#51032; &#53580;&#49828;&#53944;&#45716;
           &#49892;&#54056;&#54624; &#44163;&#51060;&#45796;. Glibc
@@ -395,9 +383,8 @@ esac</kbd>
           &#45796;&#51020;&#44284; &#44057;&#51060;
           &#48169;&#51648;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">touch /etc/ld.so.conf</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">touch /etc/ld.so.conf</kbd></pre>
         <p>
           &#49373;&#49457;&#46108; Makefile&#51012;
           &#49688;&#51221;&#54616;&#50668; &#48520;&#50756;&#51204;&#54620;
@@ -406,26 +393,21 @@ esac</kbd>
           &#50728;&#51204;&#49457; &#44160;&#49324;&#47484;
           &#44148;&#45320;&#46836;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
         <p>
           <span class="command"><strong>nscd</strong></span>&#47484;
           &#50948;&#54620; configuration &#54028;&#51068;&#44284;
           &#47088;&#53440;&#51076; &#46356;&#47113;&#53664;&#47532;&#47484;
           &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">cp -v ../nscd/nscd.conf /etc/nscd.conf
-mkdir -pv /var/cache/nscd</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">cp -v ../nscd/nscd.conf /etc/nscd.conf
+mkdir -pv /var/cache/nscd</kbd></pre>
         <p>
           &#45796;&#51020;&#51004;&#47196; &#49884;&#49828;&#53596;&#51060;
           &#45796;&#47480; &#50616;&#50612;&#47196; &#51025;&#45813;&#54624;
@@ -462,8 +444,7 @@ mkdir -pv /var/cache/nscd</kbd>
           &#52572;&#49548; &#47196;&#52992;&#51068; &#49464;&#53944;&#47484;
           &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mkdir -pv /usr/lib/locale
+        <pre class="userinput"><kbd class="command">mkdir -pv /usr/lib/locale
 localedef -i POSIX -f UTF-8 C.UTF-8 2&gt; /dev/null || true
 localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
 localedef -i de_DE -f UTF-8 de_DE
@@ -489,8 +470,7 @@ localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
 localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
 localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
 localedef -i zh_CN -f GB18030 zh_CN.GB18030
-localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS</kbd>
-</pre>
+localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS</kbd></pre>
         <p>
           &#52628;&#44032;&#47196;, &#45817;&#49888;&#51032;
           &#44397;&#44032;, &#50616;&#50612; &#48143; &#47928;&#51088;
@@ -507,9 +487,8 @@ localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS</kbd>
           &#47749;&#47161;&#51004;&#47196; &#54620; &#48264;&#50640;
           &#49444;&#52824;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make localedata/install-locales</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">make localedata/install-locales</kbd></pre>
         <p>
           &#44536;&#47088; &#45796;&#51020;,
           &#54596;&#50836;&#54616;&#45796;&#47732; <span class=
@@ -564,8 +543,8 @@ localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS</kbd>
             &#54028;&#51068;&#51012; &#49352;&#47196;
             &#49373;&#49457;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">cat &gt; /etc/nsswitch.conf &lt;&lt; "EOF"
+          <pre class="userinput"><kbd class=
+          "command">cat &gt; /etc/nsswitch.conf &lt;&lt; "EOF"
 <code class="literal"># Begin /etc/nsswitch.conf
 
 passwd: files
@@ -581,8 +560,7 @@ ethers: files
 rpc: files
 
 # End /etc/nsswitch.conf</code>
-EOF</kbd>
-</pre>
+EOF</kbd></pre>
         </div>
         <div class="sect3">
           <h3 class="sect3">
@@ -595,8 +573,8 @@ EOF</kbd>
             &#49444;&#52824;&#54616;&#44256;
             &#49444;&#51221;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">tar -xf ../../tzdata2019c.tar.gz
+          <pre class="userinput"><kbd class=
+          "command">tar -xf ../../tzdata2019c.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}
@@ -610,8 +588,7 @@ done
 
 cp -v zone.tab zone1970.tab iso3166.tab $ZONEINFO
 zic -d $ZONEINFO -p America/New_York
-unset ZONEINFO</kbd>
-</pre>
+unset ZONEINFO</kbd></pre>
           <div class="variablelist">
             <p class="title">
               <strong>zic &#47749;&#47161;&#46308;&#51032;
@@ -705,9 +682,7 @@ unset ZONEINFO</kbd>
             &#54364;&#51456; &#49884;&#44036;&#45824;&#47484;
             &#51221;&#54624; &#49688; &#51080;&#45796;:
           </p>
-          <pre class="userinput">
-<kbd class="command">tzselect</kbd>
-</pre>
+          <pre class="userinput"><kbd class="command">tzselect</kbd></pre>
           <p>
             &#50948;&#52824;&#50640; &#45824;&#54620; &#47751;
             &#44032;&#51648; &#51656;&#47928;&#50640;
@@ -731,10 +706,9 @@ unset ZONEINFO</kbd>
             "filename">/etc/localtime</code> &#54028;&#51068;&#51012;
             &#49373;&#49457;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">ln -sfv /usr/share/zoneinfo/<em class=
-"replaceable"><code>&lt;xxx&gt;</code></em> /etc/localtime</kbd>
-</pre>
+          <pre class="userinput"><kbd class=
+          "command">ln -sfv /usr/share/zoneinfo/<em class=
+          "replaceable"><code>&lt;xxx&gt;</code></em> /etc/localtime</kbd></pre>
           <p>
             &#49440;&#53469;&#54620; &#54364;&#51456;
             &#49884;&#44036;&#45824;&#51032; &#51060;&#47492;&#51004;&#47196;
@@ -783,14 +757,13 @@ unset ZONEINFO</kbd>
             "filename">/etc/ld.so.conf</code> &#54028;&#51068;&#51012;
             &#49373;&#49457;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">cat &gt; /etc/ld.so.conf &lt;&lt; "EOF"
+          <pre class="userinput"><kbd class=
+          "command">cat &gt; /etc/ld.so.conf &lt;&lt; "EOF"
 <code class="literal"># Begin /etc/ld.so.conf
 /usr/local/lib
 /opt/lib
 </code>
-EOF</kbd>
-</pre>
+EOF</kbd></pre>
           <p>
             &#50896;&#54616;&#45716; &#44221;&#50864;, &#46041;&#51201;
             &#47196;&#45908;&#44032; &#46356;&#47113;&#53664;&#47532;&#47484;
@@ -808,14 +781,13 @@ EOF</kbd>
             &#45796;&#51020; &#47749;&#47161;&#51012;
             &#49892;&#54665;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">cat &gt;&gt; /etc/ld.so.conf &lt;&lt; "EOF"
+          <pre class="userinput"><kbd class=
+          "command">cat &gt;&gt; /etc/ld.so.conf &lt;&lt; "EOF"
 <code class="literal"># Add an include directory
 include /etc/ld.so.conf.d/*.conf
 </code>
 EOF
-mkdir -pv /etc/ld.so.conf.d</kbd>
-</pre>
+mkdir -pv /etc/ld.so.conf.d</kbd></pre>
         </div>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">

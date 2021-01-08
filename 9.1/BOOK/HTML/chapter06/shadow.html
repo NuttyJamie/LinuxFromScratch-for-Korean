@@ -114,12 +114,11 @@
           &#49444;&#52824;&#54620; man &#54168;&#51060;&#51648;
           &#49444;&#52824;&#47484; &#48169;&#51648;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">sed -i 's/groups$(EXEEXT) //' src/Makefile.in
+        <pre class="userinput"><kbd class=
+        "command">sed -i 's/groups$(EXEEXT) //' src/Makefile.in
 find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \;
 find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
-find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</kbd>
-</pre>
+find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</kbd></pre>
         <p>
           <a id="shadow-login_defs" name=
           "shadow-login_defs"></a>&#44592;&#48376; <span class=
@@ -137,11 +136,9 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</kbd>
           <code class="filename">/var/mail</code>&#47196;
           &#48320;&#44221;&#54644;&#50556; &#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
-       -e 's@/var/spool/mail@/var/mail@' etc/login.defs</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
+       -e 's@/var/spool/mail@/var/mail@' etc/login.defs</kbd></pre>
         <div class="admon note">
           <img alt="[&#52280;&#44256;]" src="../images/note.png" />
           <h3>
@@ -152,27 +149,22 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</kbd>
             Shadow&#47484; &#48716;&#46300;&#54616;&#45716; &#44221;&#50864;
             &#45796;&#51020;&#51012; &#49892;&#54665;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class=
-"command">sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' etc/login.defs</kbd>
-</pre>
+          <pre class="userinput"><kbd class=
+          "command">sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' etc/login.defs</kbd></pre>
         </div>
         <p>
           useradd&#47196; &#49373;&#49457;&#46104;&#45716; &#52395;
           &#48264;&#51704; &#44536;&#47353; &#48264;&#54840; 1000&#51012;
           &#50557;&#44036; &#49688;&#51221;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">sed -i 's/1000/999/' etc/useradd</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">sed -i 's/1000/999/' etc/useradd</kbd></pre>
         <p>
           Shadow &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">./configure --sysconfdir=/etc --with-group-name-max-length=32</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">./configure --sysconfdir=/etc --with-group-name-max-length=32</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Configure &#50741;&#49496;&#51032;
@@ -197,9 +189,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</kbd>
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#51060; &#54056;&#53412;&#51648;&#45716; &#53580;&#49828;&#53944;
           &#49828;&#50948;&#53944;&#44032; &#54252;&#54632;&#46104;&#50612;
@@ -208,9 +198,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</kbd>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
       </div>
       <div class="configuration" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">
@@ -251,16 +239,12 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</kbd>
           &#54876;&#49457;&#54868;&#54616;&#47140;&#47732;, &#45796;&#51020;
           &#47749;&#47161;&#51012; &#49892;&#54665;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">pwconv</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">pwconv</kbd></pre>
         <p>
           Shadowed &#44536;&#47353; &#50516;&#54840;&#47484;
           &#54876;&#49457;&#54868;&#54616;&#47140;&#47732;:
         </p>
-        <pre class="userinput">
-<kbd class="command">grpconv</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">grpconv</kbd></pre>
         <p>
           <span class="command"><strong>useradd</strong></span>
           &#50976;&#54008;&#47532;&#54000;&#50640; &#45824;&#54620;
@@ -369,9 +353,8 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</kbd>
                 &#54616;&#47140;&#47732; &#45796;&#51020;
                 &#47749;&#47161;&#51012; &#49892;&#54665;&#54616;&#46972;:
               </p>
-              <pre class="userinput">
-<kbd class="command">sed -i 's/yes/no/' /etc/default/useradd</kbd>
-</pre>
+              <pre class="userinput"><kbd class=
+              "command">sed -i 's/yes/no/' /etc/default/useradd</kbd></pre>
             </dd>
           </dl>
         </div>
@@ -386,9 +369,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</kbd>
           &#51221;&#54616;&#44256; &#45796;&#51020;&#51012;
           &#49892;&#54665;&#54616;&#50668; &#49444;&#51221;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">passwd root</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">passwd root</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

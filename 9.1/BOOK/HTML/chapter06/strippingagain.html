@@ -106,9 +106,8 @@
         &#53580;&#49828;&#53944;&#47484; &#49892;&#54665;&#54616;&#45716;
         &#44221;&#50864;&#50640; &#54596;&#50836;&#54616;&#45796;.
       </p>
-      <pre class="userinput">
-<kbd class=
-"command">save_lib="ld-2.31.so libc-2.31.so libpthread-2.31.so libthread_db-1.0.so"
+      <pre class="userinput"><kbd class=
+      "command">save_lib="ld-2.31.so libc-2.31.so libpthread-2.31.so libthread_db-1.0.so"
 
 cd /lib
 
@@ -129,8 +128,7 @@ for LIB in $save_usrlib; do
     objcopy --add-gnu-debuglink=$LIB.dbg $LIB
 done
 
-unset LIB save_lib save_usrlib</kbd>
-</pre>
+unset LIB save_lib save_usrlib</kbd></pre>
       <p>
         &#49828;&#53944;&#47532;&#54609;&#51012;
         &#49688;&#54665;&#54616;&#44592; &#51204;&#50640;,
@@ -139,25 +137,23 @@ unset LIB save_lib save_usrlib</kbd>
         &#49892;&#54665;&#46104;&#51648; &#50506;&#46020;&#47197;
         &#44033;&#48324;&#55176; &#51452;&#51032;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">exec /tools/bin/bash</kbd>
-</pre>
+      <pre class="userinput"><kbd class=
+      "command">exec /tools/bin/bash</kbd></pre>
       <p>
         &#51060;&#51228; &#48148;&#51060;&#45320;&#47532;&#50752;
         &#46972;&#51060;&#48652;&#47084;&#47532;&#45716;
         &#50504;&#51204;&#54616;&#44172;
         &#49828;&#53944;&#47532;&#54609;&#46112; &#49688; &#51080;&#45796;:
       </p>
-      <pre class="userinput">
-<kbd class="command">/tools/bin/find /usr/lib -type f -name \*.a \
+      <pre class="userinput"><kbd class=
+      "command">/tools/bin/find /usr/lib -type f -name \*.a \
    -exec /tools/bin/strip --strip-debug {} ';'
 
 /tools/bin/find /lib /usr/lib -type f \( -name \*.so* -a ! -name \*dbg \) \
    -exec /tools/bin/strip --strip-unneeded {} ';'
 
 /tools/bin/find /{bin,sbin} /usr/{bin,sbin,libexec} -type f \
-    -exec /tools/bin/strip --strip-all {} ';'</kbd>
-</pre>
+    -exec /tools/bin/strip --strip-all {} ';'</kbd></pre>
       <p>
         &#47566;&#51008; &#54028;&#51068;&#47196;&#48512;&#53552;
         &#54028;&#51068; &#54805;&#49885;&#51012;

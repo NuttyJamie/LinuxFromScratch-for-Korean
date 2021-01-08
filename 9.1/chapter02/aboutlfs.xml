@@ -10,17 +10,18 @@
 
   <title>$LFS 변수 설정</title>
 
-  <para>이 책 전반에 걸쳐 환경변수 <envar>LFS</envar>를 여러 차례 사용할 예정이다.
- 이 변수가 LFS 빌드 프로세스 전체에 걸쳐 항상 정의되어 있는지 확인하라. 이것은 당신의 LFS 시스템을 구축할 
+  <para>이 책 전반에 걸쳐 환경변수 <envar>LFS</envar>를 여러 차례 사용할 것이다.
+ 이 변수가 LFS 빌드 과정 전체에 걸쳐 항상 정의되어 있는지 확인하라. 이것은 당신의 LFS 시스템을 구축할 
 디렉토리 이름으로 설정되어야 한다. - 우리는 예로 <filename class="directory">/mnt/lfs</filename>를 사용할 것이지만,
-디렉토리 선택은 당신에게 달려 있다. 별도의 파티션에 LFS를 구축하는 경우 이 디렉토리가 파티션의 마운트 지점이 된다.
+디렉토리 선택은 당신에게 달려 있다. 
+별도의 파티션에 LFS를 구축하려는 경우 그 파티션을 마운트할 지점의 디렉토리 이름으로 변수를 설정하라.
 디렉토리 위치를 선택하고 다음 명령으로 변수를 설정하라:</para>
 
 <screen role="nodump"><userinput>export LFS=<replaceable>/mnt/lfs</replaceable></userinput></screen>
 
   <para>이 변수를 설정하면 <command>mkdir -v $LFS/tools</command>와 같은 명령을 문자 그대로 입력할 수 있다는 이점이
 있다. 셸은 명령 줄을 처리할 때 <quote>$LFS</quote>를 자동으로 <quote>/mnt/lfs</quote>로 
-(또는 다른 설정된 값으로) 바꾸어 준다.</para>
+(또는 따로 설정된 값으로) 바꾸어 준다.</para>
 
   <caution>
   <para>현재 작업 환경을 종료하고 다시 들어갈 때마다(가령 <systemitem class="username">root</systemitem>나 다른 
@@ -29,8 +30,7 @@
 
 <screen role="nodump"><userinput>echo $LFS</userinput></screen>
 
-  <para>출력에 LFS 시스템의 빌드 위치에 대한 주소가 표시되는지 확인하라. 이 주소는 책의 예를 따랐을 경우 
-<filename class="directory">/mnt/lfs</filename>이다. 출력이 올바르지 않다면 이 페이지의 앞서 언급한 명령을 사용해
+  <para>LFS 시스템의 빌드 위치에 대한 주소가 출력되는지 확인하라. 책의 예시를 따랐을 경우 이 주소는 <filename class="directory">/mnt/lfs</filename>이다. 출력이 올바르지 않다면 이 페이지의 앞서 언급한 명령을 사용해
  <envar>$LFS</envar>를 올바른 디렉토리 이름으로 설정하라.</para>
   </caution>
 
@@ -40,11 +40,10 @@
 <envar>LFS</envar> 변수가 필요한 모든 사용자에 대해 <filename>/etc/passwd</filename> 파일에 지정된 셸을 Bash로
 만들어야 한다.</para>
   
-  <para>또 다른 방법은 호스트 시스템에 로그인하는 데 사용되는 방법이다. 일반적으로 그래픽 디스플레이 관리자를
+  <para>호스트 시스템에 로그인하는 방식도 고려해야 한다. 일반적으로 그래픽 디스플레이 관리자를
  통해 로그인하는 경우 가상 터미널이 시작될 때 사용자의 <filename>.bash_profile</filename>은 사용되지 않는다. 이 
 경우 export 명령을 사용자 및 루트의 <filename>.bashrc</filename> 파일에 추가하라. 또한 일부 배포판에는 
-비대화형(non-interactive) Bash 호출에선 <filename>.bashrc</filename>를 불러오지 않는 경우가 있다. 비대화형 사용을
-테스트하기 전에 export 명령을 추가하라.</para>
+비대화형(non-interactive) Bash 호출에선 <filename>.bashrc</filename>를 불러오지 않는 경우가 있다. 비대화형 테스트를 수행하기 전에 export 명령을 추가하라.</para>
   
   </note>
 

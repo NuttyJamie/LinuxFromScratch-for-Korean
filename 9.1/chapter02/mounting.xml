@@ -11,7 +11,7 @@
   <title>새 파티션 마운팅</title>
 
   <para>파일 시스템이 만들어졌으니, 이제 파티션에 접근할 수 있게 해야 한다. 이를 위해 파티션을 선택한 마운트 지점에
-마운트해야 한다. 본서의 목적상, 파일 시스템은 앞의 절에서 기술한 바와 같이 <envar>LFS</envar> 환경변수에 의해 지정된 디렉토리 아래에 마운트되는 것으로 가정한다. </para>
+마운트해야 한다. 본서의 목적상, 파일 시스템은 앞의 절에서 기술한 바와 같이 <envar>LFS</envar> 환경변수에 지정된 디렉토리 아래에 마운트되는 것으로 가정한다. </para>
 
   <para>다음과 같이 마운트 지점을 생성하고 LFS 파일 시스템을 마운트한다:</para>
 
@@ -36,17 +36,17 @@ mount -v -t ext4 /dev/<replaceable>&lt;yyy&gt;</replaceable> $LFS/usr</userinput
 <command>mount</command> 명령을 실행하라. <option>nosuid</option>나 또는 <option>nodev</option>가 설정되어 있으면
 파티션을 다시 마운트해야한다.</para>
 
-  <warning><para>위의 지침은 LFS 프로세스 동안 컴퓨터를 다시 시작하지 않을 것이라고 가정한다. 시스템을 종료할 경우
-빌드 프로세스를 다시 시작할 때마다 LFS 파티션을 다시 마운트하거나 부팅할 때 자동으로 다시 마운트하도록 호스트 
+  <warning><para>위의 지침은 LFS 절차 중에 컴퓨터를 다시 시작하지 않을 것이라고 가정한다. 시스템을 종료할 경우
+빌드 절차를 재개할 때마다 LFS 파티션을 다시 마운트하거나 부팅할 때 자동으로 다시 마운트하도록 호스트 
 시스템의 /etc/fstab file 파일을 수정해야 한다. 예를 들면:
 
 <screen role="nodump">/dev/<replaceable>&lt;xxx&gt;</replaceable>  /mnt/lfs ext4   defaults      1     1</screen>
 
-  추가 선택적 파티션을 사용할 경우 해당 파티션도 추가하라.</para></warning>
+  추가적으로 파티션을 더 사용한다면 해당 파티션도 추가하라.</para></warning>
 
 
-  <para><systemitem class="filesystem">swap</systemitem> 파티션을 사용한다면, <command>swapon</command> 명령으로
-활성화되어 있는지 확인하라.command:</para>
+  <para><systemitem class="filesystem">swap</systemitem> 파티션을 사용한다면, 다음과 같이 <command>swapon</command> 명령으로
+활성화되어 있는지 확인하라:</para>
 
 <screen role="nodump"><userinput>/sbin/swapon -v /dev/<replaceable>&lt;zzz&gt;</replaceable></userinput></screen>
 

@@ -192,9 +192,8 @@
         <para>MD5 sum: <literal>&file-md5;</literal></para>
 
         <note>
-          <para>File (&file-version;)은 더 이상 저 주소에서 구할 수 없을 것이다. 저 마스터 다운로드 주소의 사이트 
-관리자는 새 버전이 배포될 때 이전 버전을 삭제하는 경우가 있다. 정확한 버전을 구할 수 있는 다른 다운로드 주소도 
-이 곳에서 찾을 수 있다: <ulink
+          <para>File (&file-version;)은 더 이상 저 주소에서 구할 수 없을 수도 있다. 저 마스터 다운로드 주소의 사이트 
+관리자는 새 버전이 배포될 때 이전 버전을 삭제하는 경우가 있다. 정확한 버전을 구할 수 있는 다른 다운로드 주소는 이 곳에서도 찾을 수 있다: <ulink
           url="http://www.linuxfromscratch.org/lfs/download.html#ftp"/></para>
         </note>
       </listitem>
@@ -436,7 +435,7 @@
           <para>리눅스 커널은 보안 취약점의 발견으로 인해 비교적 자주 업데이트 된다. 정오표 페이지에 달리 명시되지
 않는 한, 최신 &linux-major-version;.&linux-minor-version;.x 커널 버전을 사용해야 한다.</para>
 
-          <para>리눅스 커널을 업데이트하기에 속도가 제한되거나 대역폭이 비싼 사용자라면 패키지와 패치의 baseline
+          <para>리눅스 커널을 업데이트하기에 속도가 제한적이거나 대역폭 이용료가 비싼 사용자라면 패키지와 패치의 baseline
 버전을 별도로 다운로드할 수 있다. 이렇게 하면 마이너 릴리스 내에서 후속 패치 업그레이드에 소요되는 시간이나 비용이 
 절약될 수 있다.</para>
         </note>

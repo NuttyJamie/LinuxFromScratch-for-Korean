@@ -82,14 +82,13 @@
           Kmod &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr          \
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr          \
             --bindir=/bin          \
             --sysconfdir=/etc      \
             --with-rootlibdir=/lib \
             --with-xz              \
-            --with-zlib</kbd>
-</pre>
+            --with-zlib</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Configure &#50741;&#49496;&#46308;&#51032;
@@ -126,9 +125,7 @@
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#51060; &#54056;&#53412;&#51648;&#45716; LFS chroot
           &#54872;&#44221;&#50640;&#49436; &#49892;&#54665;&#54624; &#49688;
@@ -149,15 +146,13 @@
           &#54840;&#54872;&#46104;&#46020;&#47197; &#49900;&#48380;&#47533;
           &#47553;&#53356; &#49373;&#49457;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install
+        <pre class="userinput"><kbd class="command">make install
 
 for target in depmod insmod lsmod modinfo modprobe rmmod; do
   ln -sfv ../bin/kmod /sbin/$target
 done
 
-ln -sfv kmod /bin/lsmod</kbd>
-</pre>
+ln -sfv kmod /bin/lsmod</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

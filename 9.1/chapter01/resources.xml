@@ -13,18 +13,17 @@
   <sect2 id="ch-intro-faq">
     <title>FAQ</title>
 
-    <para>LFS 시스템을 빌드하는 동안 오류가 발생하거나, 질문이 있거나, 책에 오타가 있다고 생각되는 경우,
-	먼저 <ulink url="&faq-root;"/>에 있는 FAQ(자주 묻는 질문)을 참조하라.</para>
+    <para>LFS 시스템을 빌드하는 동안 오류가 발생하거나, 질문이 있거나, 책에 오타가 있다면,
+	먼저 <ulink url="&faq-root;"/>에 있는 FAQ(자주 묻는 질문)를 참고하라.</para>
 
   </sect2>
 
   <sect2 id="ch-intro-maillists" xreflabel="Chapter&nbsp;1 - Mailing Lists">
     <title>메일링 리스트</title>
 
-    <para><uri>linuxfromscratch.org</uri> 서버는 LFS 프로젝트의 개발에 사용되는 많은 메일링 리스트를 가지고 있다.
-	이러한 목록에는 주요 개발 목록과 지원 목록이 포함되어 있다. FAQ로 문제가 해결되지 않으면 다음 단계는 <ulink url="&lfs-root;search.html"/>에서 메일 목록을 검색하는 것이다.</para>
+    <para><uri>linuxfromscratch.org</uri> 서버는 LFS 프로젝트의 개발에 사용되는 많은 메일링 리스트를 가지고 있다. 이 리스트에는 development와 support, 그 외 리스트들이 있다. FAQ로 문제가 해결되지 않으면 다음 단계는 <ulink url="&lfs-root;search.html"/>에서 메일 목록을 검색하는 것이다.</para>
 
-    <para>다양한 목록, 구독 방법, 보관 위치, 및 추가 정보에 대한 자세한 내용은 <ulink url="&lfs-root;mail.html"/>를 참조하라.</para>
+    <para>다양한 리스트, 구독 방법, 보관 위치 및 추가 정보에 대한 자세한 내용은 <ulink url="&lfs-root;mail.html"/>를 참고하라.</para>
 
   </sect2>
 
@@ -75,7 +74,7 @@ IRC 네트워크는 <uri>irc.freenode.net</uri>에서 찾을 수 있다. 지원 
   <sect2 id="ch-intro-contactinfo">
     <title>문의 정보</title>
 
-    <para>모든 질문과 건의는 LFS 메일링 리스트 중 하나로 전달하라. (위 참조)</para>
+    <para>모든 질문과 건의는 LFS 메일링 리스트 중 하나로 전달하라. (위 참고)</para>
 
   </sect2>
 

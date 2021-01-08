@@ -94,9 +94,8 @@
           &#46356;&#47113;&#53664;&#47532;&#47484;
           &#49373;&#49457;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mkdir -pv /var/lib/hwclock</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">mkdir -pv /var/lib/hwclock</kbd></pre>
       </div>
       <div class="installation" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">
@@ -106,8 +105,8 @@
           Util-linux &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+        <pre class="userinput"><kbd class=
+        "command">./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
             --docdir=/usr/share/doc/util-linux-2.35.1 \
             --disable-chfn-chsh  \
             --disable-login      \
@@ -119,8 +118,7 @@
             --disable-static     \
             --without-python     \
             --without-systemd    \
-            --without-systemdsystemunitdir</kbd>
-</pre>
+            --without-systemdsystemunitdir</kbd></pre>
         <p>
           --disable &#48143; --without &#50741;&#49496;&#51008; LFS&#50640;
           &#50630;&#45716; &#54056;&#53412;&#51648;&#44032;
@@ -135,9 +133,7 @@
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#53580;&#49828;&#53944;&#47484; &#50896;&#54620;&#45796;&#47732;
           root&#44032; &#50500;&#45772; &#50976;&#51200;&#47196;
@@ -175,20 +171,15 @@
             &#47749;&#47161;&#51004;&#47196; &#49892;&#54665;&#54624;
             &#49688; &#51080;&#45796;:
           </p>
-          <pre class="userinput">
-<kbd class="command">bash tests/run.sh --srcdir=$PWD --builddir=$PWD</kbd>
-</pre>
+          <pre class="userinput"><kbd class=
+          "command">bash tests/run.sh --srcdir=$PWD --builddir=$PWD</kbd></pre>
         </div>
-        <pre class="userinput">
-<kbd class="command">chown -Rv nobody .
-su nobody -s /bin/bash -c "PATH=$PATH make -k check"</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">chown -Rv nobody .
+su nobody -s /bin/bash -c "PATH=$PATH make -k check"</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

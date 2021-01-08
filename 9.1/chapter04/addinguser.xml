@@ -12,10 +12,10 @@
 
   <para><systemitem class="username">root</systemitem> 유저로 로그인한 상태
 에서는, 한 번의 실수로 시스템이 손상되거나 
-파괴될 수 있다. 따라서 다음 장에서는 권한 없는 유저로 패키지를 빌드할 것을 권장한다. 당신만의 유저 이름을 사용할 수
-도 있지만, 깨끗한 작업 환경을 쉽게 설정할 수 있도록 <systemitem class="username">lfs</systemitem>라는 새 사용자를 
-같은 이름의 <systemitem class="groupname">lfs</systemitem>로 명명된 새 그룹의 구성원으로 생성하고 설치 프로세스 
-중에는 이 유저를 사용하라. <systemitem class="username">root</systemitem>로 다음 명령을 실행하여 새 사용자를 추가한다:</para>
+파괴될 수 있다. 따라서 다음 장에서는 일반 유저로 패키지를 빌드할 것을 
+권장한다. 당신만의 유저 이름을 사용할 수도 있지만, 깨끗한 작업 환경을 쉽게 설정할 수 있도록 <systemitem class="username">lfs</systemitem>라는 새 사용자를 
+같은 이름의 <systemitem class="groupname">lfs</systemitem>로 명명된 새 그룹의 구성원으로 생성하고 설치 절차 중에는 이 유저를 사용하라. 새 사용자를 추가하려면 <systemitem class="username">root</systemitem>로 다음 명령을 
+실행하라:</para>
 
 <screen><userinput>groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
@@ -65,15 +65,14 @@ null 장치로 특정하여 스켈레톤 디렉토리(기본값은
   </variablelist>
 
   <para><systemitem class="username">lfs</systemitem>로 로그인하려면 
-(<systemitem class="username">root</systemitem>에서 <systemitem class="username">lfs</systemitem> 유저로의 
-전환할 때와 같은 <systemitem class="username">lfs</systemitem> 유저의 비밀번호가 필요 없는 경우와는 달리),
+(<systemitem class="username">root</systemitem>에서 <systemitem class="username">lfs</systemitem> 유저로 
+전환할 때와 같이 <systemitem class="username">lfs</systemitem> 유저의 비밀번호가 필요 없는 경우와는 대조적으로),
   다음과 같이 <systemitem class="username">lfs</systemitem>의 암호를 지정하라:</para>
 
 <screen role="nodump"><userinput>passwd lfs</userinput></screen>
 
-  <para><systemitem class="username">lfs</systemitem>에게 디렉토리 소유권을
-부여해서 <filename class="directory">$LFS/tools</filename>에 대한 전체
- 액세스 권한을 얻으려면:</para>
+  <para><filename class="directory">$LFS/tools</filename>에 대한 전체
+ 접근 권한을 얻기 위해 <systemitem class="username">lfs</systemitem>에게 디렉토리 소유권을 부여한다:</para>
 
 <screen><userinput>chown -v lfs $LFS/tools</userinput></screen>
 
@@ -82,7 +81,7 @@ null 장치로 특정하여 스켈레톤 디렉토리(기본값은
 
 <screen><userinput>chown -v lfs $LFS/sources</userinput></screen>
 
-  <note><para>일부 호스트 시스템에서는 이 명령이 제대로 완료되지 않고 lfs 유저에 대한 로그인을 백그라운드로 
+  <note><para>일부 호스트 시스템에서는 다음 명령이 제대로 완료되지 않고 lfs 유저로의 로그인을 백그라운드로 
 일시 중지시킨다. "lfs:~$" 프롬프트가 즉시 나타나지 않으면 <command>fg</command> 명령을 입력하면 문제가 해결된다.</para></note>
 
   <para>다음은 <systemitem class="username">lfs</systemitem> 유저로의 로그인이다.
@@ -91,6 +90,6 @@ null 장치로 특정하여 스켈레톤 디렉토리(기본값은
 <screen role="nodump"><userinput>su - lfs</userinput></screen>
 
   <para><quote><parameter>-</parameter></quote>는 <command>su</command>에게 비-로그인 셸과 달리 로그인 셸로 
-실행하도록 지시한다. 이 두 종류의 셸 사이의 차이는 <filename>bash(1)</filename>와 <command>info bash</command>에서 자세히 찾을 수 있다. </para>
+실행하도록 지시한다. 이 두 종류의 셸 사이의 차이는 <filename>bash(1)</filename>과 <command>info bash</command>에서 자세히 찾을 수 있다. </para>
 
 </sect1>

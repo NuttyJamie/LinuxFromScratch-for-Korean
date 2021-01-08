@@ -43,7 +43,7 @@
   <sect2 role="installation">
     <title>M4 설치</title>
 
-    <para>우선 glibc-2.28에 의해 알려진 몇 가지를 수정하라:</para>
+    <para>우선 glibc-2.28에서 알려진 몇 가지 수정 사항을 적용한다:</para>
 
 <screen><userinput remap="pre">sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
 echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>

@@ -20,7 +20,7 @@
 <!ENTITY attr-md5 "bc1e5cb5c96d99b24886f1f527d3bb3d">
 <!ENTITY attr-home "&savannah-nongnu;/projects/attr">
 <!ENTITY attr-ch6-du "4.2 MB">
-<!ENTITY attr-ch6-sbu "less than 0.1 SBU">
+<!ENTITY attr-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY autoconf-version "2.69">
 <!ENTITY autoconf-size "1,186 KB">
@@ -29,7 +29,7 @@
 <!ENTITY autoconf-home "&gnu-software;autoconf/">
 <!ENTITY autoconf-ch6-du "79 MB">
 <!ENTITY autoconf-ch6-sbu-tests "3.2">
-<!ENTITY autoconf-ch6-sbu "less than 0.1 SBU (about &autoconf-ch6-sbu-tests; SBU with tests)">
+<!ENTITY autoconf-ch6-sbu "0.1 SBU 이하(테스트 포함 약 &autoconf-ch6-sbu-tests; SBU)">
 
 <!ENTITY automake-version "1.16.1">
 <!ENTITY am-minor-version "1.16">
@@ -38,7 +38,7 @@
 <!ENTITY automake-md5 "53f38e7591fa57c3d2cee682be668e5b">
 <!ENTITY automake-home "&gnu-software;automake/">
 <!ENTITY automake-ch6-du "107 MB">
-<!ENTITY automake-ch6-sbu "less than 0.1 SBU (about 8.1 SBU with tests)">
+<!ENTITY automake-ch6-sbu "0.1 SBU 이하(테스트 포함 약 8.1 SBU)">
 
 <!ENTITY bash-version "5.0">
 <!ENTITY bash-size "9,898 KB">
@@ -86,9 +86,9 @@
 <!ENTITY bzip2-md5 "67e051268d0c475ea773822f7500d0e5">
 <!--<!ENTITY bzip2-home "http://www.bzip.org/">-->
 <!ENTITY bzip2-ch5-du "6.4 MB">
-<!ENTITY bzip2-ch5-sbu "less than 0.1 SBU">
+<!ENTITY bzip2-ch5-sbu "0.1 SBU 이하">
 <!ENTITY bzip2-ch6-du "7.7 MB">
-<!ENTITY bzip2-ch6-sbu "less than 0.1 SBU">
+<!ENTITY bzip2-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY ref5-version "&version;">
 <!ENTITY ref5-size "REF5-SUM KB">
@@ -106,7 +106,7 @@
 <!ENTITY check-md5 "270e82a445be6026040267a5e11cc94b">
 <!ENTITY check-home "https://libcheck.github.io/check">
 <!ENTITY check-ch5-du "13 MB">
-<!ENTITY check-ch5-sbu "0.1 SBU (about 3.5 SBU with tests)">
+<!ENTITY check-ch5-sbu "0.1 SBU (테스트 포함 약 3.5 SBU)">
 
 <!ENTITY coreutils-version "8.31">
 <!ENTITY coreutils-size "5,284 KB">
@@ -132,7 +132,7 @@
 <!ENTITY dejagnu-md5 "e1b07516533f351b3aba3423fafeffd6">
 <!ENTITY dejagnu-home "&gnu-software;dejagnu/">
 <!ENTITY dejagnu-ch5-du "3.2 MB">
-<!ENTITY dejagnu-ch5-sbu "less than 0.1 SBU">
+<!ENTITY dejagnu-ch5-sbu "0.1 SBU 이하">
 
 <!ENTITY diffutils-version "3.7">
 <!ENTITY diffutils-size "1,415 KB">
@@ -287,7 +287,7 @@
 <!ENTITY gperf-md5 "9e251c0a618ad0824b51117d5d9db87e">
 <!ENTITY gperf-home "&gnu-software;gperf/">
 <!ENTITY gperf-ch6-du "6.3 MB">
-<!ENTITY gperf-ch6-sbu "less than 0.1 SBU">
+<!ENTITY gperf-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY grep-version "3.4">
 <!ENTITY grep-size "1,520 KB">
@@ -331,7 +331,7 @@
 <!ENTITY iana-etc-md5 "3ba3afb1d1b261383d247f46cb135ee8">
 <!ENTITY iana-etc-home "http://freecode.com/projects/iana-etc">
 <!ENTITY iana-etc-ch6-du "2.3 MB">
-<!ENTITY iana-etc-ch6-sbu "less than 0.1 SBU">
+<!ENTITY iana-etc-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY inetutils-version "1.9.4">
 <!ENTITY inetutils-size "1,333 KB">
@@ -347,7 +347,7 @@
 <!ENTITY intltool-md5 "12e517cac2b57a0121cda351570f1e63">
 <!ENTITY intltool-home "https://freedesktop.org/wiki/Software/intltool">
 <!ENTITY intltool-ch6-du "1.5 MB">
-<!ENTITY intltool-ch6-sbu "less than 0.1 SBU">
+<!ENTITY intltool-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY iproute2-version "5.5.0">
 <!ENTITY iproute2-size "731 KB">
@@ -379,7 +379,7 @@
 <!ENTITY less-md5 "4ad4408b06d7a6626a055cb453f36819">
 <!ENTITY less-home "http://www.greenwoodsoftware.com/less/">
 <!ENTITY less-ch6-du "4.1 MB">
-<!ENTITY less-ch6-sbu "less than 0.1 SBU">
+<!ENTITY less-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY lfs-bootscripts-version "20191031">      <!-- Scripts depend on this format -->
 <!ENTITY lfs-bootscripts-size "32 KB">        
@@ -387,7 +387,7 @@
 <!ENTITY lfs-bootscripts-md5 "e9249541960df505e4dfac0c32369372">  
 <!ENTITY lfs-bootscripts-home " ">
 <!ENTITY lfs-bootscripts-ch7-du "244 KB"> 
-<!ENTITY lfs-bootscripts-ch7-sbu "less than 0.1 SBU">
+<!ENTITY lfs-bootscripts-ch7-sbu "0.1 SBU 이하">
 
 <!ENTITY libcap-version "2.31">
 <!ENTITY libcap-size "97 KB">
@@ -395,7 +395,7 @@
 <!ENTITY libcap-md5 "52120c05dc797b01f5a7ae70f4335e96">
 <!ENTITY libcap-home "https://sites.google.com/site/fullycapable/">
 <!ENTITY libcap-ch6-du "8.5 MB">
-<!ENTITY libcap-ch6-sbu "less than 0.1 SBU">
+<!ENTITY libcap-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY libffi-version "3.3">
 <!ENTITY libffi-size "1,275 KB">
@@ -433,8 +433,8 @@
 <!-- measured for 4.8.3 / gcc-6.2.0 on x86_64 : minimum is
  allnoconfig extended for a hopefully-bootable build on desktop machine,
  max is allyesconfig which requires openssl -->
-<!ENTITY linux-ch8-du "960 - 4250 MB (typically about 1100 MB)">
-<!ENTITY linux-ch8-sbu "4.4 - 66.0 SBU (typically about 6 SBU)">
+<!ENTITY linux-ch8-du "960 - 4250 MB (일반적으로 약 1100 MB)">
+<!ENTITY linux-ch8-sbu "4.4 - 66.0 SBU (일반적으로 약 6 SBU)">
 
 <!ENTITY linux-headers-ch5-du "1 GB">
 <!ENTITY linux-headers-ch5-sbu "0.1 SBU">
@@ -475,7 +475,7 @@
 <!ENTITY man-pages-md5 "da25a4f8dfed0a34453c90153b98752d">
 <!ENTITY man-pages-home "https://www.kernel.org/doc/man-pages/">
 <!ENTITY man-pages-ch6-du "31 MB">
-<!ENTITY man-pages-ch6-sbu "less than 0.1 SBU">
+<!ENTITY man-pages-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY meson-version "0.53.1">
 <!ENTITY meson-size "1,516 KB">
@@ -483,7 +483,7 @@
 <!ENTITY meson-md5 "9bf73f7b5a2426a7c8674a809bb8cae2">
 <!ENTITY meson-home "https://mesonbuild.com">
 <!ENTITY meson-ch6-du "31 MB">
-<!ENTITY meson-ch6-sbu "less than 0.1 SBU">
+<!ENTITY meson-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY mpc-version "1.1.0">
 <!ENTITY mpc-size "685 KB">
@@ -569,7 +569,7 @@
 <!ENTITY psmisc-md5 "0524258861f00be1a02d27d39d8e5e62">
 <!ENTITY psmisc-home "http://psmisc.sourceforge.net/">
 <!ENTITY psmisc-ch6-du "4.6 MB">
-<!ENTITY psmisc-ch6-sbu "less than 0.1 SBU">
+<!ENTITY psmisc-ch6-sbu "0.1 SBU 이하">
 
 <!-- If python minor version changes, updates in python and 
      meson pages will be needed: python3.6 and python3.6m -->
@@ -620,7 +620,7 @@
 <!ENTITY sysklogd-md5 "c70599ab0d037fde724f7210c2c8d7f8">
 <!ENTITY sysklogd-home "http://www.infodrom.org/projects/sysklogd/">
 <!ENTITY sysklogd-ch6-du "0.6 MB">
-<!ENTITY sysklogd-ch6-sbu "less than 0.1 SBU">
+<!ENTITY sysklogd-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY systemd-version  "244">
 <!--<!ENTITY systemd-stable   "6b4878d">-->
@@ -644,7 +644,7 @@
 <!ENTITY sysvinit-md5 "48cebffebf2a96ab09bec14bf9976016">
 <!ENTITY sysvinit-home "https://savannah.nongnu.org/projects/sysvinit">
 <!ENTITY sysvinit-ch6-du "1.4 MB">
-<!ENTITY sysvinit-ch6-sbu "less than 0.1 SBU">
+<!ENTITY sysvinit-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY tar-version "1.32">
 <!ENTITY tar-size "2,055 KB">
@@ -715,7 +715,7 @@
 <!ENTITY xml-parser-md5 "80bb18a8e6240fcf7ec2f7b57601c170">
 <!ENTITY xml-parser-home "&github;/chorny/XML-Parser">
 <!ENTITY xml-parser-ch6-du "2.4 MB">
-<!ENTITY xml-parser-ch6-sbu "less than 0.1 SBU">
+<!ENTITY xml-parser-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY xz-version "5.2.4">
 <!ENTITY xz-size "1030 KB">
@@ -733,7 +733,7 @@
 <!ENTITY zlib-md5 "85adef240c5f370b308da8c938951a68">
 <!ENTITY zlib-home "https://www.zlib.net/">
 <!ENTITY zlib-ch6-du "5.1 MB">
-<!ENTITY zlib-ch6-sbu "less than 0.1 SBU">
+<!ENTITY zlib-ch6-sbu "0.1 SBU 이하">
 
 <!ENTITY zstd-version "1.4.4">
 <!ENTITY zstd-size "1,903 KB">

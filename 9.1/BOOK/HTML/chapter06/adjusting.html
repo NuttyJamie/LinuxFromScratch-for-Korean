@@ -74,12 +74,11 @@
         -m)-pc-linux-gnu/bin</code>&#50640; &#45824;&#54620;
         &#47553;&#53356;&#46020; &#47564;&#46308; &#44163;&#51060;&#45796;:
       </p>
-      <pre class="userinput">
-<kbd class="command">mv -v /tools/bin/{ld,ld-old}
+      <pre class="userinput"><kbd class=
+      "command">mv -v /tools/bin/{ld,ld-old}
 mv -v /tools/$(uname -m)-pc-linux-gnu/bin/{ld,ld-old}
 mv -v /tools/bin/{ld-new,ld}
-ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</kbd>
-</pre>
+ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</kbd></pre>
       <p>
         &#45796;&#51020;&#51004;&#47196; GCC spec &#54028;&#51068;&#51060;
         &#49352;&#47196;&#50868; &#46041;&#51201; &#47553;&#52964;&#47484;
@@ -98,13 +97,11 @@ ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</kbd>
         "command"><strong>sed</strong></span>
         &#47749;&#47161;&#50612;&#47196; &#49688;&#54665;&#54620;&#45796;:
       </p>
-      <pre class="userinput">
-<kbd class=
-"command">gcc -dumpspecs | sed -e 's@/tools@@g'                   \
+      <pre class="userinput"><kbd class=
+      "command">gcc -dumpspecs | sed -e 's@/tools@@g'                   \
     -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
     -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' &gt;      \
-    `dirname $(gcc --print-libgcc-file-name)`/specs</kbd>
-</pre>
+    `dirname $(gcc --print-libgcc-file-name)`/specs</kbd></pre>
       <p>
         Spec &#54028;&#51068;&#51060; &#49892;&#51228;&#47196;
         &#51032;&#46020;&#54620; &#45824;&#47196;
@@ -122,11 +119,10 @@ ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</kbd>
         &#50728;&#51204;&#49457; &#44160;&#49324;&#47484;
         &#49688;&#54665;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">echo 'int main(){}' &gt; dummy.c
+      <pre class="userinput"><kbd class=
+      "command">echo 'int main(){}' &gt; dummy.c
 cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
-readelf -l a.out | grep ': /lib'</kbd>
-</pre>
+readelf -l a.out | grep ': /lib'</kbd></pre>
       <p>
         &#50724;&#47448;&#44032; &#50630;&#50612;&#50556; &#54616;&#47728;
         &#47560;&#51648;&#47561; &#47749;&#47161;&#51032;
@@ -134,10 +130,8 @@ readelf -l a.out | grep ': /lib'</kbd>
         &#46384;&#47480; &#46041;&#51201; &#47553;&#52964;
         &#51060;&#47492;&#51032; &#52264;&#51060;&#45716; &#47924;&#44288;):
       </p>
-      <pre class="screen">
-<code class=
-"computeroutput">[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</code>
-</pre>
+      <pre class="screen"><code class=
+      "computeroutput">[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</code></pre>
       <p>
         64&#48708;&#53944; &#49884;&#49828;&#53596; <code class=
         "filename">/lib</code>&#45716; &#46041;&#51201;
@@ -163,45 +157,40 @@ readelf -l a.out | grep ': /lib'</kbd>
         &#49444;&#51221;&#46104;&#50632;&#45716;&#51648;
         &#54869;&#51064;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</kbd>
-</pre>
+      <pre class="userinput"><kbd class=
+      "command">grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</kbd></pre>
       <p>
         &#47560;&#51648;&#47561; &#47749;&#47161;&#51032;
         &#52636;&#47141;&#51008; &#45796;&#51020;&#44284;
         &#44057;&#50500;&#50556; &#54620;&#45796;:
       </p>
-      <pre class="screen">
-<code class="computeroutput">/usr/lib/../lib/crt1.o succeeded
+      <pre class="screen"><code class=
+      "computeroutput">/usr/lib/../lib/crt1.o succeeded
 /usr/lib/../lib/crti.o succeeded
-/usr/lib/../lib/crtn.o succeeded</code>
-</pre>
+/usr/lib/../lib/crtn.o succeeded</code></pre>
       <p>
         &#52980;&#54028;&#51068;&#47084;&#44032; &#50732;&#48148;&#47480;
         &#54756;&#45908; &#54028;&#51068;&#51012;
         &#44160;&#49353;&#54616;&#45716;&#51648;
         &#54869;&#51064;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">grep -B1 '^ /usr/include' dummy.log</kbd>
-</pre>
+      <pre class="userinput"><kbd class=
+      "command">grep -B1 '^ /usr/include' dummy.log</kbd></pre>
       <p>
         &#51060; &#47749;&#47161;&#51008; &#52636;&#47141;&#51060;
         &#45796;&#51020;&#44284; &#44057;&#50500;&#50556; &#54620;&#45796;:
       </p>
-      <pre class="screen">
-<code class="computeroutput">#include &lt;...&gt; search starts here:
- /usr/include</code>
-</pre>
+      <pre class="screen"><code class=
+      "computeroutput">#include &lt;...&gt; search starts here:
+ /usr/include</code></pre>
       <p>
         &#44536; &#45796;&#51020;, &#49352; &#47553;&#52964;&#44032;
         &#50732;&#48148;&#47480; &#44160;&#49353; &#44221;&#47196;&#50752;
         &#54632;&#44760; &#49324;&#50857;&#46104;&#44256;
         &#51080;&#45716;&#51648; &#54869;&#51064;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</kbd>
-</pre>
+      <pre class="userinput"><kbd class=
+      "command">grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</kbd></pre>
       <p>
         '-linux-gnu' &#50836;&#49548;&#44032; &#51080;&#45716;
         &#44221;&#47196;&#50640; &#45824;&#54620; &#52280;&#51312;&#45716;
@@ -211,35 +200,30 @@ readelf -l a.out | grep ': /lib'</kbd>
         &#52636;&#47141;&#51008; &#45796;&#51020;&#44284;
         &#44057;&#50500;&#50556; &#54620;&#45796;:
       </p>
-      <pre class="screen">
-<code class="computeroutput">SEARCH_DIR("/usr/lib")
-SEARCH_DIR("/lib")</code>
-</pre>
+      <pre class="screen"><code class="computeroutput">SEARCH_DIR("/usr/lib")
+SEARCH_DIR("/lib")</code></pre>
       <p>
         &#45796;&#51020;&#51004;&#47196; &#50732;&#48148;&#47480;
         libc&#47484; &#49324;&#50857;&#54616;&#44256;
         &#51080;&#45716;&#51648; &#54869;&#51064;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">grep "/lib.*/libc.so.6 " dummy.log</kbd>
-</pre>
+      <pre class="userinput"><kbd class=
+      "command">grep "/lib.*/libc.so.6 " dummy.log</kbd></pre>
       <p>
         &#47560;&#51648;&#47561; &#47749;&#47161;&#51032;
         &#52636;&#47141;&#51008; &#45796;&#51020;&#44284;
         &#44057;&#50500;&#50556; &#54620;&#45796;:
       </p>
-      <pre class="screen">
-<code class="computeroutput">attempt to open /lib/libc.so.6 succeeded</code>
-</pre>
+      <pre class="screen"><code class=
+      "computeroutput">attempt to open /lib/libc.so.6 succeeded</code></pre>
       <p>
         &#47560;&#51648;&#47561;&#51004;&#47196; GCC&#44032;
         &#50732;&#48148;&#47480; &#46041;&#51201; &#47553;&#52964;&#47484;
         &#49324;&#50857;&#54616;&#45716;&#51648;
         &#54869;&#51064;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">grep found dummy.log</kbd>
-</pre>
+      <pre class="userinput"><kbd class=
+      "command">grep found dummy.log</kbd></pre>
       <p>
         &#47560;&#51648;&#47561; &#47749;&#47161;&#51032;
         &#52636;&#47141;&#51008; &#45796;&#51020;&#44284;
@@ -248,10 +232,8 @@ SEARCH_DIR("/lib")</code>
         &#46041;&#51201; &#47553;&#52964; &#51060;&#47492;&#51032;
         &#52264;&#51060;&#45716; &#47924;&#44288;):
       </p>
-      <pre class="screen">
-<code class=
-"computeroutput">found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2</code>
-</pre>
+      <pre class="screen"><code class=
+      "computeroutput">found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2</code></pre>
       <p>
         &#47564;&#50557; &#52636;&#47141;&#51060; &#50948;&#50752;
         &#44057;&#51060; &#45208;&#53440;&#45208;&#51648;
@@ -275,9 +257,8 @@ SEARCH_DIR("/lib")</code>
         &#51089;&#46041;&#54616;&#47732; &#53580;&#49828;&#53944;
         &#54028;&#51068;&#51012; &#51221;&#47532;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">rm -v dummy.c a.out dummy.log</kbd>
-</pre>
+      <pre class="userinput"><kbd class=
+      "command">rm -v dummy.c a.out dummy.log</kbd></pre>
     </div>
     <div class="navfooter">
       <ul>

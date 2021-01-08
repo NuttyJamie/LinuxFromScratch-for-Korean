@@ -90,22 +90,19 @@
           Glibc&#47484; &#48716;&#46300;&#54624; &#44163;&#51012;
           &#44428;&#51109;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mkdir -v build
-cd       build</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">mkdir -v build
+cd       build</kbd></pre>
         <p>
           &#45796;&#51020;&#51004;&#47196; Glibc
           &#52980;&#54028;&#51068;&#51012; &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">../configure                             \
+        <pre class="userinput"><kbd class=
+        "command">../configure                             \
       --prefix=/tools                    \
       --host=$LFS_TGT                    \
       --build=$(../scripts/config.guess) \
       --enable-kernel=3.2                \
-      --with-headers=/tools/include</kbd>
-</pre>
+      --with-headers=/tools/include</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Configure &#50741;&#49496;&#46308;&#51032;
@@ -172,13 +169,12 @@ cd       build</kbd>
         </p>
         <div class="blockquote">
           <blockquote class="blockquote">
-            <pre class="screen">
-<code class="computeroutput">configure: WARNING:
+            <pre class="screen"><code class=
+            "computeroutput">configure: WARNING:
 *** These auxiliary programs are missing or
 *** incompatible versions: msgfmt
 *** some features will be disabled.
-*** Check the INSTALL file for required versions.</code>
-</pre>
+*** Check the INSTALL file for required versions.</code></pre>
           </blockquote>
         </div>
         <p>
@@ -211,15 +207,11 @@ cd       build</kbd>
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
         <div class="admon caution">
           <img alt="[&#44221;&#44256;]" src="../images/caution.png" />
           <h3>
@@ -238,11 +230,10 @@ cd       build</kbd>
             &#47749;&#47161;&#51004;&#47196; &#50728;&#51204;&#49457;
             &#44160;&#49324;&#47484; &#49688;&#54665;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">echo 'int main(){}' &gt; dummy.c
+          <pre class="userinput"><kbd class=
+          "command">echo 'int main(){}' &gt; dummy.c
 $LFS_TGT-gcc dummy.c
-readelf -l a.out | grep ': /tools'</kbd>
-</pre>
+readelf -l a.out | grep ': /tools'</kbd></pre>
           <p>
             &#47784;&#46304; &#44163;&#51060; &#51228;&#45824;&#47196;
             &#51089;&#46041;&#54620;&#45796;&#47732; &#50724;&#47448;&#44032;
@@ -251,10 +242,8 @@ readelf -l a.out | grep ': /tools'</kbd>
             &#52636;&#47141;&#51008; &#45796;&#51020;&#44284;
             &#44057;&#51012; &#44163;&#51060;&#45796;:
           </p>
-          <pre class="screen">
-<code class=
-"computeroutput">[Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]</code>
-</pre>
+          <pre class="screen"><code class=
+          "computeroutput">[Requesting program interpreter: /tools/lib64/ld-linux-x86-64.so.2]</code></pre>
           <p>
             32&#48708;&#53944;
             &#49884;&#49828;&#53596;&#50640;&#49436;&#45716;
@@ -284,9 +273,8 @@ readelf -l a.out | grep ': /tools'</kbd>
             &#53580;&#49828;&#53944; &#54028;&#51068;&#51012;
             &#51221;&#47532;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">rm -v dummy.c a.out</kbd>
-</pre>
+          <pre class="userinput"><kbd class=
+          "command">rm -v dummy.c a.out</kbd></pre>
         </div>
         <div class="admon note">
           <img alt="[&#52280;&#44256;]" src="../images/note.png" />

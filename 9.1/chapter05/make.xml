@@ -56,7 +56,7 @@
       <varlistentry>
         <term><parameter>--without-guile</parameter></term>
         <listitem>
-          <para>Make-&make-version;가 Guile 라이브러리와 링크되지 않게하지만, 다음 장의 <command>chroot</command> 환경에서는 사용할 수 없게 된다.</para>
+          <para>Make-&make-version;가 Guile 라이브러리(호스트 시스템에 존재할 수도 있지만 다음 장의 <command>chroot</command> 환경에서는 사용할 수 없다)와 링크되지 않게한다.</para>
         </listitem>
       </varlistentry>
     </variablelist>

@@ -68,8 +68,8 @@
           <div class="seglistitem">
             <div class="seg">
               <strong class="segtitle">&#50696;&#49345; &#48716;&#46300;
-              &#49884;&#44036;:</strong> <span class="segbody">less than 0.1
-              SBU</span>
+              &#49884;&#44036;:</strong> <span class="segbody">0.1 SBU
+              ì´í&bull;&tilde;</span>
             </div>
             <div class="seg">
               <strong class="segtitle">&#54596;&#50836;
@@ -92,18 +92,14 @@
           &#50724;&#47000;&#46108; &#54532;&#47196;&#44536;&#47016;
           &#44396;&#51312;&#47484; &#49688;&#51221;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
-sed -i 's/union wait/int/' syslogd.c</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
+sed -i 's/union wait/int/' syslogd.c</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#51060; &#54056;&#53412;&#51648;&#50640;&#45716;
           &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#44032;
@@ -112,9 +108,8 @@ sed -i 's/union wait/int/' syslogd.c</kbd>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make BINDIR=/sbin install</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">make BINDIR=/sbin install</kbd></pre>
       </div>
       <div class="configuration" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">
@@ -126,8 +121,8 @@ sed -i 's/union wait/int/' syslogd.c</kbd>
           <code class="filename">/etc/syslog.conf</code>
           &#54028;&#51068;&#51012; &#49373;&#49457;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">cat &gt; /etc/syslog.conf &lt;&lt; "EOF"
+        <pre class="userinput"><kbd class=
+        "command">cat &gt; /etc/syslog.conf &lt;&lt; "EOF"
 <code class="literal"># Begin /etc/syslog.conf
 
 auth,authpriv.* -/var/log/auth.log
@@ -139,8 +134,7 @@ user.* -/var/log/user.log
 *.emerg *
 
 # End /etc/syslog.conf</code>
-EOF</kbd>
-</pre>
+EOF</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

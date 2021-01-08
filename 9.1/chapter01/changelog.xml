@@ -12,8 +12,8 @@
 
   <para>이것은 &releasedate;자 Linux From Scratch 책의 
 		<phrase revision="sysv">&version;</phrase>
-        <phrase revision="systemd">&versiond;</phrase>
-이다. 만약 이 책이 6개월 이상 된 것이라면, 아마도 이미 더 새롭고 더 나은 
+		<phrase revision="systemd">&versiond;</phrase> 버전이다. 
+		만약 이 책이 6개월 이상 된 것이라면, 아마도 이미 더 새롭고 더 나은 
 버전을 구할 수 있을 것이다. 자세한 내용은 <ulink url="&lfs-root;mirrors.html"/>을 통해 
 미러 중 하나를 확인하라.</para>
 

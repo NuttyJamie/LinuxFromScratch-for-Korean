@@ -79,19 +79,17 @@
           &#51068;&#48512; &#50629;&#49828;&#53944;&#47548;
           &#54589;&#49828;&#47484; &#53685;&#54633;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">patch -Np1 -i ../bash-5.0-upstream_fixes-1.patch</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">patch -Np1 -i ../bash-5.0-upstream_fixes-1.patch</kbd></pre>
         <p>
           Bash &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr                    \
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr                    \
             --docdir=/usr/share/doc/bash-5.0 \
             --without-bash-malloc            \
-            --with-installed-readline</kbd>
-</pre>
+            --with-installed-readline</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Configure &#50741;&#49496;&#51032;
@@ -119,9 +117,7 @@
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;&#47484;
           &#49892;&#54665;&#54616;&#51648; &#50506;&#51012; &#44221;&#50864;
@@ -138,28 +134,23 @@
           &#53944;&#47532;&#50640; &#50416;&#44592;
           &#44032;&#45733;&#54616;&#46020;&#47197; &#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">chown -Rv nobody .</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">chown -Rv nobody .</kbd></pre>
         <p>
           &#51060;&#51228; <code class="systemitem">nobody</code>
           &#50976;&#51200;&#47196; &#53580;&#49828;&#53944;&#47484;
           &#49892;&#54665;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">su nobody -s /bin/bash -c "PATH=$PATH HOME=/home make tests"</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">su nobody -s /bin/bash -c "PATH=$PATH HOME=/home make tests"</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54616;&#44256;
           &#44592;&#48376; &#49892;&#54665; &#54028;&#51068;&#51012;
           <code class="filename">/bin</code>&#51004;&#47196;
           &#51060;&#46041;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install
-mv -vf /usr/bin/bash /bin</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install
+mv -vf /usr/bin/bash /bin</kbd></pre>
         <p>
           &#49352;&#47196; &#52980;&#54028;&#51068;&#46108; <span class=
           "command"><strong>bash</strong></span>
@@ -168,9 +159,8 @@ mv -vf /usr/bin/bash /bin</kbd>
           &#51473;&#51064; &#54532;&#47196;&#44536;&#47016;
           &#45824;&#52404;):
         </p>
-        <pre class="userinput">
-<kbd class="command">exec /bin/bash --login +h</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">exec /bin/bash --login +h</kbd></pre>
         <div class="admon note">
           <img alt="[&#52280;&#44256;]" src="../images/note.png" />
           <h3>

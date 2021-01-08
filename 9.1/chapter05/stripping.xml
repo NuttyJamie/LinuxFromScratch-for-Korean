@@ -10,14 +10,14 @@
 
   <title>스트리핑(Stripping)</title>
 
-  <para>이 절의 단계는 선택 사항이지만 LFS 파티션이 다소 작을 경우, 불필요한 항목을 제거할 수 있다는 점을 배울 수 있다는 점에서 유익하다. 지금까지 빌드된 실행 파일과 라이브러리에는 약 70 MB의 불필요한 디버깅 심볼이 포함되어 있다. 다음 명령으로 이러한 심볼을 제거하라:</para>
+  <para>이 절의 내용은 선택 사항이지만 LFS 파티션이 다소 작을 경우, 불필요한 항목을 제거할 수 있다는 점을 배울 수 있다는 점에서 유익하다. 지금까지 빌드된 실행 파일과 라이브러리에는 약 70 MB의 불필요한 디버깅 심볼이 포함되어 있다. 다음 명령으로 이러한 심볼을 제거하라:</para>
 
 <screen><userinput>strip --strip-debug /tools/lib/*
 /usr/bin/strip --strip-unneeded /tools/{,s}bin/*</userinput></screen>
 
-  <para>이 명령들은 파일 형식을 인식하지 못하고 여러 파일을 건너뛴다. 이 중 대부분은 바이너리가 아닌 스크립트이다. 시스템 strip 명령을 사용해 /tools에 strip 바이너리를 포함하라.</para>
+  <para>이 명령들은 파일 형식을 인식하지 못하고 여러 파일을 건너뛴다. 이 중 대부분은 바이너리가 아닌 스크립트이다. 시스템 strip 명령을 사용해서 /tools의 strip 바이너리도 포함시킨다.</para>
 
-  <para>라이브러리에서 <parameter>--strip-unneeded</parameter>를 사용하지 <emphasis>않도록</emphasis> 주의하라. 정적 라이브러리들은 파괴될 것이고 툴체인 패키지는 전체를 다시 빌드해야 한다.</para>
+  <para><parameter>--strip-unneeded</parameter>를 라이브러리에는 사용하지 <emphasis>않는다</emphasis>는 점에 주의하라. 그렇지 않으면 정적 라이브러리들은 파괴될 것이고 툴체인 패키지 전체를 다시 빌드해야 한다.</para>
 
   <para>공간을 더 확보하려면 문서를 삭제한다:</para>
 
@@ -27,6 +27,6 @@
 
 <screen><userinput>find /tools/{lib,libexec} -name \*.la -delete</userinput></screen>
 
-  <para>이 때, 다음 단계에서 Glibc와 Gcc를 빌드하고 설치하는 데 사용할 수 있는 <envar>$LFS</envar>에 최소 3GB의 여유 공간이 있어야 한다. 만약 Glibc를 빌드하고 설치할 수 있으면, 나머지도 빌드, 설치할 수 있다.</para>
+  <para>이 때, 다음 단계에서 Glibc와 Gcc를 빌드하고 설치하는 데 사용할 수 있도록 <envar>$LFS</envar>에 최소 3GB의 여유 공간이 있어야 한다. 만약 Glibc를 빌드하고 설치할 수 있으면, 나머지도 빌드, 설치할 수 있다.</para>
 
 </sect1>

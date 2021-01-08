@@ -56,7 +56,7 @@ cd       build</userinput></screen>
       <para>이 책에서 앞으로 나올 SBU 값을 의미있게 참고하려면, 설정에서 첫 번째 설치까지 이 패키지를 빌드하는 데 걸린 시간을 측정하라. 이 측정을 쉽게 하려면 명령어를 다음과 같이 <command>time</command> 명령어로 감싸라: <userinput>time { ./configure ... &amp;&amp; ...  &amp;&amp; make install; }</userinput>.</para>
     </note>
 
-    <note><para>5장의 대략적인 빌드 SBU 값과 필요 디스크 공간은 테스트 스위트 데이터를 포함하지 않는다.</para></note>
+    <note><para>5장의 대략적인 빌드 SBU 값과 필요 디스크 공간은 테스트 스위트 데이터는 제외한 값이다.</para></note>
 
     <para>이제 Binutils 컴파일을 준비한다:</para>
 
@@ -73,14 +73,14 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--prefix=/tools</parameter></term>
         <listitem>
-          <para>Configure 스크립트가 <filename class="directory">/tools</filename> 디렉토리에 Binutils 프로그램들을 설치하도록 준비한다.</para>
+          <para>Configure 스크립트가 Binutils 프로그램들을 <filename class="directory">/tools</filename> 디렉토리에 설치하도록 한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-sysroot=$LFS</parameter></term>
         <listitem>
-          <para>크로스 컴파일의 경우 빌드 시스템이 필요에 따라 $LFS에서 목표 시스템 라이브러리를 찾도록 지시한다.
+          <para>크로스 컴파일을 위해 빌드 시스템이 필요에 따라 $LFS에서 대상 시스템 라이브러리를 찾도록 지시한다.
           </para>
         </listitem>
       </varlistentry>
@@ -119,7 +119,7 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>이제 컴파일이 끝났다. 원래대로라면 이제 테스트 스위트를 실행했겠지만, 아직은 테스트 스위트 프레임워크(Tcl, Expect 및 DejaGNU가 아직 준비되지 않았다. 이 첫 번째 단계의 프로그램은 곧 두 번째 단계의 프로그램으로 대체될 것이기 때문에 지금 테스트를 실행해봤자 큰 이점은 없다.</para>
+    <para>이제 컴파일이 끝났다. 원래대로라면 이제 테스트 스위트를 실행했겠지만, 아직은 테스트 스위트 프레임워크(Tcl, Expect 및 DejaGNU)가 아직 준비되지 않았다. 이 첫 번째 단계의 프로그램은 곧 두 번째 단계의 프로그램으로 대체될 것이기 때문에 지금 테스트를 실행해봤자 큰 이점은 없다.</para>
 
     <para>x86_64에서 빌드 중이라면, 심볼릭 링크를 만들어서 툴체인의 안정성을 보장하라:</para>
 

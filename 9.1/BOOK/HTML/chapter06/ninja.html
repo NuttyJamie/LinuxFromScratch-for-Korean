@@ -109,9 +109,7 @@
           "command"><strong>&#50696;&#47484;
           &#46308;&#47732;</strong></span>:
         </p>
-        <pre class="screen">
-export NINJAJOBS=4
-</pre>
+        <pre class="screen">export NINJAJOBS=4</pre>
         <p>
           &#47749;&#47161;&#51008; &#48337;&#47148;
           &#54532;&#47196;&#49464;&#49828;&#47484; 4&#44060;&#47196;
@@ -123,21 +121,18 @@ export NINJAJOBS=4
           NINJAJOBS&#47484; &#49324;&#50857;&#54616;&#45716;
           &#44592;&#45733;&#51012; &#52628;&#44032;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">sed -i '/int Guess/a \
+        <pre class="userinput"><kbd class="command">sed -i '/int Guess/a \
   int   j = 0;\
   char* jobs = getenv( "NINJAJOBS" );\
   if ( jobs != NULL ) j = atoi( jobs );\
   if ( j &gt; 0 ) return j;\
-' src/ninja.cc</kbd>
-</pre>
+' src/ninja.cc</kbd></pre>
         <p>
           &#45796;&#51020; &#47749;&#47161;&#51004;&#47196; Ninja&#47484;
           &#48716;&#46300;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">python3 configure.py --bootstrap</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">python3 configure.py --bootstrap</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>&#48716;&#46300; &#50741;&#49496;&#51032;
@@ -163,18 +158,15 @@ export NINJAJOBS=4
           &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;
           &#49892;&#54665;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">./ninja ninja_test
-./ninja_test --gtest_filter=-SubprocessTest.SetWithLots</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">./ninja ninja_test
+./ninja_test --gtest_filter=-SubprocessTest.SetWithLots</kbd></pre>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">install -vm755 ninja /usr/bin/
+        <pre class="userinput"><kbd class=
+        "command">install -vm755 ninja /usr/bin/
 install -vDm644 misc/bash-completion /usr/share/bash-completion/completions/ninja
-install -vDm644 misc/zsh-completion  /usr/share/zsh/site-functions/_ninja</kbd>
-</pre>
+install -vDm644 misc/zsh-completion  /usr/share/zsh/site-functions/_ninja</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

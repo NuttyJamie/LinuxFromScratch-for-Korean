@@ -85,22 +85,20 @@
           &#46972;&#51060;&#48652;&#47084;&#47532;&#47484;
           &#49444;&#52824;&#54616;&#51648; &#50506;&#45716;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">sed -i '/LIBTOOL_INSTALL/d' c++/Makefile.in</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">sed -i '/LIBTOOL_INSTALL/d' c++/Makefile.in</kbd></pre>
         <p>
           Ncurses &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">./configure --prefix=/usr           \
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr           \
             --mandir=/usr/share/man \
             --with-shared           \
             --without-debug         \
             --without-normal        \
             --enable-pc-files       \
-            --enable-widec</kbd>
-</pre>
+            --enable-widec</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>Configure &#50741;&#49496;&#46308;&#51032;
@@ -169,9 +167,7 @@
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#51060; &#54056;&#53412;&#51648;&#45716; &#53580;&#49828;&#53944;
           &#49828;&#50948;&#53944;&#44032; &#51080;&#51648;&#47564;,
@@ -188,9 +184,7 @@
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
         <p>
           &#44277;&#50976;
           &#46972;&#51060;&#48652;&#47084;&#47532;&#46308;&#51012;
@@ -198,9 +192,8 @@
           "filename">/lib</code> &#46356;&#47113;&#53664;&#47532;&#47196;
           &#51060;&#46041;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mv -v /usr/lib/libncursesw.so.6* /lib</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">mv -v /usr/lib/libncursesw.so.6* /lib</kbd></pre>
         <p>
           &#46972;&#51060;&#48652;&#47084;&#47532;&#44032;
           &#51060;&#46041;&#46104;&#50632;&#44592; &#46412;&#47928;&#50640;
@@ -209,10 +202,8 @@
           &#54028;&#51068;&#51012; &#44032;&#47532;&#53416;&#45796;.
           &#51060;&#44163;&#51012; &#45796;&#49884; &#47564;&#46304;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) /usr/lib/libncursesw.so</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) /usr/lib/libncursesw.so</kbd></pre>
         <p>
           &#47566;&#51008; &#51025;&#50857;
           &#54532;&#47196;&#44536;&#47016;&#46308;&#51008;
@@ -230,13 +221,12 @@
           &#49828;&#53356;&#47549;&#53944;&#47196; &#53944;&#47533;&#51012;
           &#50420;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">for lib in ncurses form panel menu ; do
+        <pre class="userinput"><kbd class=
+        "command">for lib in ncurses form panel menu ; do
     rm -vf                    /usr/lib/lib${lib}.so
     echo "INPUT(-l${lib}w)" &gt; /usr/lib/lib${lib}.so
     ln -sfv ${lib}w.pc        /usr/lib/pkgconfig/${lib}.pc
-done</kbd>
-</pre>
+done</kbd></pre>
         <p>
           &#47560;&#51648;&#47561;&#51004;&#47196;, &#48716;&#46300; &#49884;
           <code class="filename">-lcurses</code>&#47484; &#52286;&#45716;
@@ -245,19 +235,17 @@ done</kbd>
           &#50668;&#51204;&#55176; &#48716;&#46300;&#54624; &#49688;
           &#51080;&#45716;&#51648; &#54869;&#51064;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">rm -vf                     /usr/lib/libcursesw.so
+        <pre class="userinput"><kbd class=
+        "command">rm -vf                     /usr/lib/libcursesw.so
 echo "INPUT(-lncursesw)" &gt; /usr/lib/libcursesw.so
-ln -sfv libncurses.so      /usr/lib/libcurses.so</kbd>
-</pre>
+ln -sfv libncurses.so      /usr/lib/libcurses.so</kbd></pre>
         <p>
           &#54596;&#50836;&#54616;&#45796;&#47732;, Ncurses
           &#47928;&#49436;&#47484; &#49444;&#52824;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mkdir -v       /usr/share/doc/ncurses-6.2
-cp -v -R doc/* /usr/share/doc/ncurses-6.2</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">mkdir -v       /usr/share/doc/ncurses-6.2
+cp -v -R doc/* /usr/share/doc/ncurses-6.2</kbd></pre>
         <div class="admon note">
           <img alt="[&#52280;&#44256;]" src="../images/note.png" />
           <h3>
@@ -296,8 +284,7 @@ cp -v -R doc/* /usr/share/doc/ncurses-6.2</kbd>
             &#54056;&#53412;&#51648;&#47484; &#45796;&#49884;
             &#48716;&#46300;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">make distclean
+          <pre class="userinput"><kbd class="command">make distclean
 ./configure --prefix=/usr    \
             --with-shared    \
             --without-normal \
@@ -305,8 +292,7 @@ cp -v -R doc/* /usr/share/doc/ncurses-6.2</kbd>
             --without-cxx-binding \
             --with-abi-version=5 
 make sources libs
-cp -av lib/lib*.so.5* /usr/lib</kbd>
-</pre>
+cp -av lib/lib*.so.5* /usr/lib</kbd></pre>
         </div>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">

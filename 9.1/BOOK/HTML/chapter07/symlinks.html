@@ -154,9 +154,8 @@
             &#51060;&#47084;&#54620; &#44508;&#52825;&#46308;&#51012;
             &#49373;&#49457;&#54616;&#46972;:
           </p>
-          <pre class="install">
-<kbd class="command">bash /lib/udev/init-net-rules.sh</kbd>
-</pre>
+          <pre class="install"><kbd class=
+          "command">bash /lib/udev/init-net-rules.sh</kbd></pre>
           <p>
             &#51060;&#51228; <code class=
             "filename">/etc/udev/rules.d/70-persistent-net.rules</code>
@@ -166,9 +165,8 @@
             &#54624;&#45817;&#46104;&#50632;&#45716;&#51648;
             &#54869;&#51064;&#54616;&#46972;:
           </p>
-          <pre class="userinput">
-<kbd class="command">cat /etc/udev/rules.d/70-persistent-net.rules</kbd>
-</pre>
+          <pre class="userinput"><kbd class=
+          "command">cat /etc/udev/rules.d/70-persistent-net.rules</kbd></pre>
           <div class="admon note">
             <img alt="[&#52280;&#44256;]" src="../images/note.png" />
             <h3>
@@ -473,9 +471,8 @@
           &#45796;&#51020;&#44284; &#50976;&#49324;&#54620;
           &#47749;&#47161;&#51012; &#49892;&#54665;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">udevadm test /sys/block/hdd</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">udevadm test /sys/block/hdd</kbd></pre>
         <p>
           &#45796;&#50577;&#54620; *_id
           &#54532;&#47196;&#44536;&#47016;&#51032; &#52636;&#47141;&#51060;
@@ -509,11 +506,10 @@
           "quote">&#44221;&#47196;&#48324;</span>&rdquo;</span> &#51473;
           &#54616;&#45208;&#51076;):
         </p>
-        <pre class="userinput">
-<kbd class="command">sed -i -e 's/"write_cd_rules"/"write_cd_rules <em class=
-"replaceable"><code>mode</code></em>"/' \
-    /etc/udev/rules.d/83-cdrom-symlinks.rules</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">sed -i -e 's/"write_cd_rules"/"write_cd_rules <em class=
+        "replaceable"><code>mode</code></em>"/' \
+    /etc/udev/rules.d/83-cdrom-symlinks.rules</kbd></pre>
         <p>
           LFS &#49884;&#49828;&#53596;&#50640;
           &#54840;&#49828;&#53944;&#51032; <code class="filename">/dev</code>
@@ -630,18 +626,16 @@
           &#46608;&#45716; &#49884;&#47532;&#50620;
           &#45336;&#48260;&#51060;&#45796;):
         </p>
-        <pre class="userinput">
-<kbd class="command">udevadm info -a -p /sys/class/video4linux/video0</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">udevadm info -a -p /sys/class/video4linux/video0</kbd></pre>
         <p>
           &#44536;&#47532;&#44256;&#45208;&#49436; &#49900;&#48380;&#47533;
           &#47553;&#53356;&#47484; &#49373;&#49457;&#54616;&#45716;
           &#44508;&#52825;&#51012; &#51089;&#49457;&#54620;&#45796;.
           &#50696;&#47484; &#46308;&#50612;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">cat &gt; /etc/udev/rules.d/83-duplicate_devs.rules &lt;&lt; "EOF"
+        <pre class="userinput"><kbd class=
+        "command">cat &gt; /etc/udev/rules.d/83-duplicate_devs.rules &lt;&lt; "EOF"
 <code class="literal">
 # Persistent symlinks for webcam and tuner
 KERNEL=="video*", ATTRS{idProduct}=="1910", ATTRS{idVendor}=="0d81", \
@@ -649,8 +643,7 @@ KERNEL=="video*", ATTRS{idProduct}=="1910", ATTRS{idVendor}=="0d81", \
 KERNEL=="video*", ATTRS{device}=="0x036f", ATTRS{vendor}=="0x109e", \
     SYMLINK+="tvtuner"
 </code>
-EOF</kbd>
-</pre>
+EOF</kbd></pre>
         <p>
           &#51060;&#51228; <code class="filename">/dev/video0</code>&#44284;
           <code class="filename">/dev/video1</code> &#51109;&#52824;&#45716;

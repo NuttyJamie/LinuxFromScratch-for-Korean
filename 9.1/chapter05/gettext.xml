@@ -75,7 +75,7 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>
-    제한된 환경 때문에 이 단계에서는 테스트 스위트를 실행하지 않는 것이 좋다.</para>
+    환경이 제한적이기 때문에 이 단계에서는 테스트 스위트를 실행하지 않는 것이 좋다.</para>
 
     <para><command>msgfmt</command>, <command>msgmerge</command> 그리고 <command>xgettext</command> 프로그램을 설치한다:</para>
 

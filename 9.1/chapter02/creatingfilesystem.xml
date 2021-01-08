@@ -10,32 +10,30 @@
 
   <title>파티션에 파일 시스템 만들기</title>
 
-  <para>이제 빈 파티션이 준비되었으므로 파일 시스템을 만들 수 있다. LFS는 리눅스 커널에서 인식되는 모든 파일 시스템
-을 사용할 수 있지만 가장 일반적인 유형은 ext3와 ext4이다. 파일 시스템의 선택은 복잡할 수 있으며 파일의 특성과 
-파티션 크기에 따라 달라진다. 예를 들어:</para>
+  <para>빈 파티션이 준비되었으므로 이제 파일 시스템을 만들 수 있다. LFS는 리눅스 커널에서 인식되는 모든 파일 시스템을 사용할 수 있지만 가장 일반적인 
+	  타입은 ext3와 ext4이다. 파일 시스템의 선택은 복잡한 사항이며 파일들의 특성과 파티션 크기에 따라 달라질 수 있다. 예를 들어:</para>
 
   <variablelist>
     <varlistentry>
       <term>ext2</term>
-      <listitem><para>는 /boot같은 자주 업데이트되지 않는 작은 파티션에 적합하다.</para>
+      <listitem><para>이 파일 시스템은 /boot같은 자주 업데이트되지 않는 작은 파티션에 적합하다.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>ext3</term>
-      <listitem><para>는 비정상적인 시스템 종료에서 파티션의 상태를 복구하는데 도움을 주는 저널 기능이 포함되어 
-있는 ext2의 업그레이드 버전이다. 범용 파일 시스템으로 널리 쓰인다.</para>
+      <listitem><para>ext2의 업그레이드 버전이며 비정상적인 시스템 종료에서 파티션의 상태를 복구하는데 도움을 주는 저널 기능이 포함되어 있다. 범용 파일 시스템으로 널리 쓰인다.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>ext4</term>
-      <listitem><para>는 파티션 타입 중 ext 파일 시스템군의 최신 버전이다. 나노초단위 타임스탬프, 초대형 파일
+      <listitem><para>파티션 타입 중 ext 파일 시스템군의 최신 버전이다. 나노초단위 타임스탬프, 초대형 파일
 (16TB) 생성 및 사용, 속도 향상 등 몇가지 새로운 기능들을 제공한다.</para>
       </listitem>
     </varlistentry>
   </variablelist>
 
-  <para>FAT32, NTFS, ReiserFS, JFS, XFS를 포함한 다른 파일 시스템들은 특수 목적을 위해 유용하다. 
-이러한 파일 시스템에 대한 자세한 내용은 <ulink url="http://en.wikipedia.org/wiki/Comparison_of_file_systems"/>에서
+  <para>FAT32, NTFS, ReiserFS, JFS, XFS와 같은 다른 파일 시스템들도 
+	  특수한 용도로 쓰인다. 이러한 파일 시스템에 대한 자세한 내용은 <ulink url="http://en.wikipedia.org/wiki/Comparison_of_file_systems"/>에서
 확인하라.</para>
 
   <para>LFS는 root 파일 시스템(/)이 <systemitem class="filesystem">ext4</systemitem> 타입이라고 간주한다. 

@@ -59,9 +59,7 @@
         &#45224;&#51008; &#51068;&#48512; &#52628;&#44032;
         &#54028;&#51068;&#46308;&#51012; &#51221;&#47532;&#54620;&#45796;:
       </p>
-      <pre class="userinput">
-<kbd class="command">rm -rf /tmp/*</kbd>
-</pre>
+      <pre class="userinput"><kbd class="command">rm -rf /tmp/*</kbd></pre>
       <p>
         &#51060;&#51228; &#47196;&#44536;&#50500;&#50883;&#54620; &#54980;
         &#50629;&#45936;&#51060;&#53944;&#46108; chroot
@@ -74,15 +72,13 @@
         &#44221;&#50864; &#51060; &#50629;&#45936;&#51060;&#53944;&#46108;
         chroot &#47749;&#47161;&#51012; &#49324;&#50857;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">logout
+      <pre class="userinput"><kbd class="command">logout
 
 chroot "$LFS" /usr/bin/env -i          \
     HOME=/root TERM="$TERM"            \
     PS1='(lfs chroot) \u:\w\$ '        \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
-    /bin/bash --login</kbd>
-</pre>
+    /bin/bash --login</kbd></pre>
       <p>
         &#51060;&#47111;&#44172; &#54616;&#45716; &#51060;&#50976;&#45716;
         <code class="filename">/tools</code>&#51032;
@@ -151,14 +147,13 @@ chroot "$LFS" /usr/bin/env -i          \
         &#44163;&#46308;&#51060;&#45796;. &#50896;&#54620;&#45796;&#47732;
         &#51648;&#44552; &#49325;&#51228;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">rm -f /usr/lib/lib{bfd,opcodes}.a
+      <pre class="userinput"><kbd class=
+      "command">rm -f /usr/lib/lib{bfd,opcodes}.a
 rm -f /usr/lib/libbz2.a
 rm -f /usr/lib/lib{com_err,e2p,ext2fs,ss}.a
 rm -f /usr/lib/libltdl.a
 rm -f /usr/lib/libfl.a
-rm -f /usr/lib/libz.a</kbd>
-</pre>
+rm -f /usr/lib/libz.a</kbd></pre>
       <p>
         /usr/lib &#48143; /usr/libexec
         &#46356;&#47113;&#53664;&#47532;&#50640;&#46020; &#54028;&#51068;
@@ -174,9 +169,8 @@ rm -f /usr/lib/libz.a</kbd>
         &#50506;&#45796;. &#51228;&#44144;&#54616;&#47140;&#47732;
         &#45796;&#51020;&#51012; &#49892;&#54665;&#54616;&#46972;:
       </p>
-      <pre class="userinput">
-<kbd class="command">find /usr/lib /usr/libexec -name \*.la -delete</kbd>
-</pre>
+      <pre class="userinput"><kbd class=
+      "command">find /usr/lib /usr/libexec -name \*.la -delete</kbd></pre>
       <p>
         libtool &#50500;&#52852;&#51060;&#48652; &#54028;&#51068;&#50640;
         &#45824;&#54620; &#51088;&#49464;&#54620; &#45236;&#50857;&#51008;

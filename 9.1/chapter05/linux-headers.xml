@@ -43,13 +43,13 @@
   <sect2 role="installation">
     <title>리눅스 API 헤더 설치</title>
 
-    <para>리눅스 커널은 시스템의 C 라이브러리(LFS에선 Glibc)가 사용할 애플리케이션 프로그래밍 인터페이스(API)를 공개해야한다. 이는 리눅스 커널 소스 tarball에 들어있는 여러 C 헤더 파일들을 검사함으로써 이뤄진다.</para>
+    <para>리눅스 커널은 시스템의 C 라이브러리(LFS에선 Glibc)가 사용할 애플리케이션 프로그래밍 인터페이스(API)를 공개해야한다. 이는 리눅스 커널 소스 tarball에 들어있는 여러 C 헤더 파일들을 검사하는 방식으로 이뤄진다.</para>
 
-    <para>패키지에 포함된 오래된 파일이 없는지 확인하라:</para>
+    <para>패키지에 포함된 오래된 파일이 없도록 만든다:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
-    <para>이제 소스에서 사용자가 볼 수 있는 커널 헤더를 추출한다. 아직 사용할 수 없는 <application>rsync</application>가 필요하기 때문에, <quote>headers_install</quote>를 대상으로 한 make는 할 수 없다. 헤더들을 일단 <filename class="directory">./usr</filename>에 둔 다음, 필요한 위치에 복사한다.</para>
+    <para>이제 소스에서 사용자가 볼 수 있는 커널 헤더를 추출한다. 아직 사용할 수 없는 <application>rsync</application>가 필요하기 때문에, 권장된 make 대상 <quote>headers_install</quote>은 사용할 수 없다. 헤더들을 일단 <filename class="directory">./usr</filename>에 둔 다음, 필요한 위치에 복사한다.</para>
 
 <screen><userinput remap="make">make headers
 </userinput><userinput remap="install">cp -rv usr/include/* /tools/include</userinput></screen>

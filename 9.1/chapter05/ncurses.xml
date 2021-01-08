@@ -43,7 +43,7 @@
   <sect2 role="installation">
     <title>Ncurses 설치</title>
 
-    <para>우선 설정하는 동안 <command>gawk</command>가 발견되었는지 확인하라:</para>
+    <para>우선 첫 구성 중에 <command>gawk</command>가 검색될 수 있도록 한다:</para>
 
 <screen><userinput remap="pre">sed -i s/mawk// configure</userinput></screen>
 
@@ -62,7 +62,8 @@
       <varlistentry>
         <term><parameter>--without-ada</parameter></term>
         <listitem>
-          <para>Ncurses가 Ada 컴파일러를 지원하지 않도록 한다. Ada 컴파일러는 호스트에 있을 수 있지만 일단 <command>chroot</command> 환경에 들어가면 사용할 수 없다.</para>
+			<para>Ncurses가 Ada 컴파일러를 지원하지 않도록 한다. 
+				Ada 컴파일러가 호스트에 있을지 몰라도 일단 <command>chroot</command> 환경에 들어가면 사용할 수 없다.</para>
         </listitem>
       </varlistentry>
 

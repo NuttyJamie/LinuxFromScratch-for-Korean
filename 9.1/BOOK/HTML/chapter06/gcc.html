@@ -88,45 +88,38 @@
           "quote">lib</span>&rdquo;</span>&#47196;
           &#48320;&#44221;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">case $(uname -m) in
+        <pre class="userinput"><kbd class="command">case $(uname -m) in
   x86_64)
     sed -e '/m64=/s/lib64/lib/' \
         -i.orig gcc/config/i386/t-linux64
   ;;
-esac</kbd>
-</pre>
+esac</kbd></pre>
         <p>
           Gcc 2&#45800;&#44228;&#50640;&#49436;&#52376;&#47100;,
           Glibc-2.31&#50640;&#49436; &#50616;&#44553;&#46108;
           &#47928;&#51228;&#47484; &#49688;&#51221;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">sed -e '1161 s|^|//|' \
-    -i libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">sed -e '1161 s|^|//|' \
+    -i libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc</kbd></pre>
         <p>
           GCC &#47928;&#49436;&#45716; &#51204;&#50857; &#48716;&#46300;
           &#46356;&#47113;&#53664;&#47532;&#50640; GCC&#47484;
           &#44396;&#52629;&#54624; &#44163;&#51012;
           &#44428;&#51109;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mkdir -v build
-cd       build</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">mkdir -v build
+cd       build</kbd></pre>
         <p>
           GCC &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">SED=sed                               \
+        <pre class="userinput"><kbd class=
+        "command">SED=sed                               \
 ../configure --prefix=/usr            \
              --enable-languages=c,c++ \
              --disable-multilib       \
              --disable-bootstrap      \
-             --with-system-zlib</kbd>
-</pre>
+             --with-system-zlib</kbd></pre>
         <p>
           &#45796;&#47480; &#50616;&#50612;&#51032; &#44221;&#50864;&#45716;
           &#50500;&#51649; &#49324;&#50857;&#54624; &#49688; &#50630;&#45716;
@@ -176,9 +169,7 @@ cd       build</kbd>
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <div class="admon important">
           <img alt="[&#51473;&#50836;]" src="../images/important.png" />
           <h3>
@@ -203,9 +194,8 @@ cd       build</kbd>
           &#51204;&#50640; &#49828;&#53469; &#53356;&#44592;&#47484;
           &#45720;&#47536;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">ulimit -s 32768</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">ulimit -s 32768</kbd></pre>
         <p>
           &#44428;&#54620; &#50630;&#45716; &#50976;&#51200;&#47196;
           &#44208;&#44284;&#47484; &#53580;&#49828;&#53944;&#54616;&#46104;
@@ -213,19 +203,16 @@ cd       build</kbd>
           &#51473;&#45800;&#54616;&#51648; &#50506;&#46020;&#47197;
           &#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">chown -Rv nobody . 
-su nobody -s /bin/bash -c "PATH=$PATH make -k check"</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">chown -Rv nobody . 
+su nobody -s /bin/bash -c "PATH=$PATH make -k check"</kbd></pre>
         <p>
           &#53580;&#49828;&#53944; &#49828;&#50948;&#53944;
           &#44208;&#44284;&#50640; &#45824;&#54620; &#50836;&#50557;&#51012;
           &#54869;&#51064;&#54616;&#47140;&#47732; &#45796;&#51020;&#51012;
           &#49892;&#54665;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">../contrib/test_summary</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">../contrib/test_summary</kbd></pre>
         <p>
           &#50836;&#50557;&#47564;&#51012; &#48372;&#47140;&#47732;, &#50948;
           &#44208;&#44284;&#47484; <strong class="userinput"><code>grep -A7
@@ -280,10 +267,8 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</kbd>
           &#46356;&#47113;&#53664;&#47532;&#47484;
           &#49325;&#51228;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install
-rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/9.2.0/include-fixed/bits/</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install
+rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/9.2.0/include-fixed/bits/</kbd></pre>
         <p>
           GCC &#48716;&#46300; &#46356;&#47113;&#53664;&#47532;&#45716;
           &#54788;&#51116; <code class=
@@ -297,10 +282,8 @@ rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/9.2.0/include-fixed/bits/</kbd>
           "systemitem">root</code> &#50976;&#51200; &#48143;
           &#44536;&#47353;&#51004;&#47196; &#48320;&#44221;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/9.2.0/include{,-fixed}</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">chown -v -R root:root \
+    /usr/lib/gcc/*linux-gnu/9.2.0/include{,-fixed}</kbd></pre>
         <p>
           "&#50669;&#49324;&#51201;&#51064;" &#51060;&#50976;&#47196;
           <a class="ulink" href=
@@ -308,9 +291,8 @@ rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/9.2.0/include-fixed/bits/</kbd>
           &#50836;&#44396;&#54616;&#45716; &#49900;&#48380;&#47533;
           &#47553;&#53356;&#47484; &#49373;&#49457;&#54620;&#45796;.
         </p>
-        <pre class="userinput">
-<kbd class="command">ln -sv ../usr/bin/cpp /lib</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">ln -sv ../usr/bin/cpp /lib</kbd></pre>
         <p>
           &#47566;&#51008; &#54056;&#53412;&#51648;&#46308;&#51008;
           <span class="command"><strong>cc</strong></span>&#46972;&#45716;
@@ -322,9 +304,8 @@ rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/9.2.0/include-fixed/bits/</kbd>
           &#49900;&#48380;&#47533; &#47553;&#53356;&#47484;
           &#49373;&#49457;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">ln -sv gcc /usr/bin/cc</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">ln -sv gcc /usr/bin/cc</kbd></pre>
         <p>
           &#47553;&#53356; &#49884;&#44036; &#52572;&#51201;&#54868;(Link
           Time Optimization, LTO)&#47484; &#49324;&#50857;&#54616;&#50668;
@@ -333,11 +314,10 @@ rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/9.2.0/include-fixed/bits/</kbd>
           &#49900;&#48380;&#47533; &#47553;&#53356;&#47484;
           &#52628;&#44032;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">install -v -dm755 /usr/lib/bfd-plugins
+        <pre class="userinput"><kbd class=
+        "command">install -v -dm755 /usr/lib/bfd-plugins
 ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/9.2.0/liblto_plugin.so \
-        /usr/lib/bfd-plugins/</kbd>
-</pre>
+        /usr/lib/bfd-plugins/</kbd></pre>
         <p>
           &#51060;&#51228; &#50864;&#47532;&#51032; &#52572;&#51333;
           &#53812;&#52404;&#51064;(tollchain)&#51060;
@@ -351,11 +331,10 @@ ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/9.2.0/liblto_plugin.so \
           &#44057;&#51008; &#48516;&#48324;&#47141; &#44160;&#49324;&#47484;
           &#49688;&#54665;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">echo 'int main(){}' &gt; dummy.c
+        <pre class="userinput"><kbd class=
+        "command">echo 'int main(){}' &gt; dummy.c
 cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
-readelf -l a.out | grep ': /lib'</kbd>
-</pre>
+readelf -l a.out | grep ': /lib'</kbd></pre>
         <p>
           &#50724;&#47448;&#44032; &#50630;&#50612;&#50556; &#54616;&#47728;
           &#47560;&#51648;&#47561; &#47749;&#47161;&#51032;
@@ -364,30 +343,25 @@ readelf -l a.out | grep ': /lib'</kbd>
           &#51060;&#47492;&#51032; &#52264;&#51060;&#45716;
           &#47924;&#44288;):
         </p>
-        <pre class="screen">
-<code class=
-"computeroutput">[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</code>
-</pre>
+        <pre class="screen"><code class=
+        "computeroutput">[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</code></pre>
         <p>
           &#51060;&#51228; &#50732;&#48148;&#47480; &#49884;&#51089;
           &#54028;&#51068;&#51012; &#49324;&#50857;&#54616;&#46020;&#47197;
           &#49444;&#51221;&#46104;&#50632;&#45716;&#51648;
           &#54869;&#51064;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</kbd></pre>
         <p>
           &#47560;&#51648;&#47561; &#47749;&#47161;&#51032;
           &#52636;&#47141;&#51008; &#45796;&#51020;&#44284;
           &#44057;&#50500;&#50556; &#54620;&#45796;:
         </p>
-        <pre class="screen">
-<code class=
-"computeroutput">/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../lib/crt1.o succeeded
+        <pre class="screen"><code class=
+        "computeroutput">/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../lib/crt1.o succeeded
 /usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../lib/crti.o succeeded
-/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../lib/crtn.o succeeded</code>
-</pre>
+/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../lib/crtn.o succeeded</code></pre>
         <p>
           &#45817;&#49888;&#51032; &#49884;&#49828;&#53596;
           &#50500;&#53412;&#53581;&#52432;&#50640; &#46384;&#46972;
@@ -412,20 +386,18 @@ readelf -l a.out | grep ': /lib'</kbd>
           &#44160;&#49353;&#54616;&#45716;&#51648;
           &#54869;&#51064;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">grep -B4 '^ /usr/include' dummy.log</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">grep -B4 '^ /usr/include' dummy.log</kbd></pre>
         <p>
           &#51060; &#47749;&#47161;&#51008; &#52636;&#47141;&#51060;
           &#45796;&#51020;&#44284; &#44057;&#50500;&#50556; &#54620;&#45796;:
         </p>
-        <pre class="screen">
-<code class="computeroutput">#include &lt;...&gt; search starts here:
+        <pre class="screen"><code class=
+        "computeroutput">#include &lt;...&gt; search starts here:
  /usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include
  /usr/local/include
  /usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed
- /usr/include</code>
-</pre>
+ /usr/include</code></pre>
         <p>
           &#45796;&#49884; &#47568;&#54616;&#51648;&#47564;,
           &#45817;&#49888;&#51032; &#45824;&#49345;
@@ -440,9 +412,8 @@ readelf -l a.out | grep ': /lib'</kbd>
           &#54632;&#44760; &#49324;&#50857;&#46104;&#44256;
           &#51080;&#45716;&#51648; &#54869;&#51064;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</kbd></pre>
         <p>
           '-linux-gnu' &#50836;&#49548;&#44032; &#51080;&#45716;
           &#44221;&#47196;&#50640; &#45824;&#54620; &#52280;&#51312;&#45716;
@@ -452,16 +423,15 @@ readelf -l a.out | grep ': /lib'</kbd>
           &#52636;&#47141;&#51008; &#45796;&#51020;&#44284;
           &#44057;&#50500;&#50556; &#54620;&#45796;:
         </p>
-        <pre class="screen">
-<code class="computeroutput">SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib64")
+        <pre class="screen"><code class=
+        "computeroutput">SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib64")
 SEARCH_DIR("/usr/local/lib64")
 SEARCH_DIR("/lib64")
 SEARCH_DIR("/usr/lib64")
 SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib")
 SEARCH_DIR("/usr/local/lib")
 SEARCH_DIR("/lib")
-SEARCH_DIR("/usr/lib");</code>
-</pre>
+SEARCH_DIR("/usr/lib");</code></pre>
         <p>
           32&#48708;&#53944; &#49884;&#49828;&#53596;&#50640;&#49436;&#45716;
           &#47751; &#44060;&#51032; &#45796;&#47480;
@@ -470,41 +440,37 @@ SEARCH_DIR("/usr/lib");</code>
           &#49884;&#49828;&#53596;&#50640;&#49436;&#45716;
           &#52636;&#47141;&#51060; &#45796;&#51020;&#44284; &#44057;&#45796;:
         </p>
-        <pre class="screen">
-<code class="computeroutput">SEARCH_DIR("/usr/i686-pc-linux-gnu/lib32")
+        <pre class="screen"><code class=
+        "computeroutput">SEARCH_DIR("/usr/i686-pc-linux-gnu/lib32")
 SEARCH_DIR("/usr/local/lib32")
 SEARCH_DIR("/lib32")
 SEARCH_DIR("/usr/lib32")
 SEARCH_DIR("/usr/i686-pc-linux-gnu/lib")
 SEARCH_DIR("/usr/local/lib")
 SEARCH_DIR("/lib")
-SEARCH_DIR("/usr/lib");</code>
-</pre>
+SEARCH_DIR("/usr/lib");</code></pre>
         <p>
           &#45796;&#51020;&#51004;&#47196; &#50732;&#48148;&#47480;
           libc&#47484; &#49324;&#50857;&#54616;&#44256;
           &#51080;&#45716;&#51648; &#54869;&#51064;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">grep "/lib.*/libc.so.6 " dummy.log</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">grep "/lib.*/libc.so.6 " dummy.log</kbd></pre>
         <p>
           &#47560;&#51648;&#47561; &#47749;&#47161;&#51032;
           &#52636;&#47141;&#51008; &#45796;&#51020;&#44284;
           &#44057;&#50500;&#50556; &#54620;&#45796;:
         </p>
-        <pre class="screen">
-<code class="computeroutput">attempt to open /lib/libc.so.6 succeeded</code>
-</pre>
+        <pre class="screen"><code class=
+        "computeroutput">attempt to open /lib/libc.so.6 succeeded</code></pre>
         <p>
           &#47560;&#51648;&#47561;&#51004;&#47196; GCC&#44032;
           &#50732;&#48148;&#47480; &#46041;&#51201; &#47553;&#52964;&#47484;
           &#49324;&#50857;&#54616;&#45716;&#51648;
           &#54869;&#51064;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">grep found dummy.log</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">grep found dummy.log</kbd></pre>
         <p>
           &#47560;&#51648;&#47561; &#47749;&#47161;&#51032;
           &#52636;&#47141;&#51008; &#45796;&#51020;&#44284;
@@ -513,10 +479,8 @@ SEARCH_DIR("/usr/lib");</code>
           &#46041;&#51201; &#47553;&#52964; &#51060;&#47492;&#51032;
           &#52264;&#51060;&#45716; &#47924;&#44288;):
         </p>
-        <pre class="screen">
-<code class=
-"computeroutput">found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2</code>
-</pre>
+        <pre class="screen"><code class=
+        "computeroutput">found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2</code></pre>
         <p>
           &#47564;&#50557; &#52636;&#47141;&#51060; &#50948;&#50752;
           &#44057;&#51060; &#45208;&#53440;&#45208;&#51648;
@@ -540,18 +504,16 @@ SEARCH_DIR("/usr/lib");</code>
           &#51089;&#46041;&#54616;&#47732; &#53580;&#49828;&#53944;
           &#54028;&#51068;&#51012; &#51221;&#47532;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">rm -v dummy.c a.out dummy.log</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">rm -v dummy.c a.out dummy.log</kbd></pre>
         <p>
           &#47560;&#51648;&#47561;&#51004;&#47196;, &#50948;&#52824;&#44032;
           &#51096;&#47803;&#46108; &#54028;&#51068;&#51012;
           &#51060;&#46041;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mkdir -pv /usr/share/gdb/auto-load/usr/lib
-mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">mkdir -pv /usr/share/gdb/auto-load/usr/lib
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

@@ -86,7 +86,7 @@ RANLIB=$LFS_TGT-ranlib         \
 
     </variablelist>
 
-    <para>패키지를 컴파일한:</para>
+    <para>패키지를 컴파일한다:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
@@ -106,7 +106,7 @@ cp -v ld/ld-new /tools/bin</userinput></screen>
       <varlistentry>
         <term><parameter>-C ld clean</parameter></term>
         <listitem>
-          <para><filename class="directory">ld</filename> 하위디렉토리에서 컴파일된 모든 파일을 제거한다.</para>
+          <para><filename class="directory">ld</filename> 하위 디렉토리에서 컴파일된 모든 파일을 제거한다.</para>
         </listitem>
       </varlistentry>
 

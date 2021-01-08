@@ -42,9 +42,9 @@
 
     <para>이 패키지와 다음 2개(Expect와 DejaGNU)는 GCC, Binutils 그리고 다른 패키지의 테스트 스위트 실행을 지원하기 위해 설치된다. 테스트 목적으로 3개의 패키지를 설치하는 것은 과도해 보일 수 있지만, 가장 중요한 도구가 제대로 작동하고 있다는 것을 확인하는 것은 필수는 아니더라도 매우 안심할 수 있는 일이다. 이 장에서 테스트 스위트를 실행하지 않더라도(필수 사항이 아님), <xref linkend="chapter-building-system"/>의 테스트 스위트를 실행하기 위해 필요하다.</para>
 
-    <para>여기서 사용되는 Tcl 패키지는 LFS 테스트를 실행하는 데 필요한 최소 버전이라는 점에 유의하라. 전체 패키지는 <ulink url='&blfs-book;general/tcl.html'>BLFS Tcl procedures</ulink>를 참조하라.</para>
+    <para>여기서 사용되는 Tcl 패키지는 LFS 테스트를 실행하는 데 필요한 최소 버전이라는 점에 유의하라. 전체 패키지는 <ulink url='&blfs-book;general/tcl.html'>BLFS Tcl 절차</ulink>를 참조하라.</para>
 
-    <para>Tcl 컴파일을 준비한:</para>
+    <para>Tcl 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">cd unix
 ./configure --prefix=/tools</userinput></screen>
@@ -57,7 +57,7 @@
 
 <screen><userinput remap="test">TZ=UTC make test</userinput></screen>
 
-    <para>Tcl 테스트 스위트는 완전히 파악되지 않은 호스트 환경에서 실패할 수도 있다. 따라서 테스트 스위트가 실패해도 놀랄 일이 아니며, 중요하지도 않다. <parameter>TZ=UTC</parameter> 매개변수는 표준 시간대를 조정된 협정 세계표준시(UTC)로 설정하지만, 테스트 스위트를 실행하는 동안에만 적용된다. 이렇게 하면 시계 테스트가 올바르게 수행된다. <envar>TZ</envar> 환경변수에 대한 자세한 내용은 <xref linkend="chapter-config"/>에 수록되어 있다.</para>
+    <para>Tcl 테스트 스위트는 완전히 파악되지 않은 호스트 환경에서 실패할 수도 있다. 따라서 테스트 스위트가 실패해도 놀랄 일이 아니며, 중요하지도 않다. <parameter>TZ=UTC</parameter> 매개변수는 표준 시간대를 협정 세계시(UTC)로 설정하지만, 테스트 스위트를 실행하는 동안에만 적용된다. 이렇게 하면 시계 테스트가 올바르게 수행된다. <envar>TZ</envar> 환경변수에 대한 자세한 내용은 <xref linkend="chapter-config"/>에 수록되어 있다.</para>
 
     <para>패키지를 설치한다:</para>
 
@@ -85,7 +85,7 @@
       <segtitle>설치된 라이브러리</segtitle>
 
       <seglistitem>
-        <seg>tclsh (tclsh&tcl-major-version;에 링크됨)와 tclsh&tcl-major-version;</seg>
+        <seg>tclsh(tclsh&tcl-major-version;에 링크됨)과 tclsh&tcl-major-version;</seg>
         <seg>libtcl&tcl-major-version;.so, libtclstub&tcl-major-version;.a</seg>
       </seglistitem>
     </segmentedlist>

@@ -17,7 +17,7 @@
 <screen role="nodump"><userinput>./configure --prefix=/usr</userinput></screen>
 
   <para>이 형식의 텍스트는 옆에 달리 명시되지 않는 한 보이는 대로 정확하게
- 입력하라. 또한 설명하는 부분에서는 어떤 명령어를 설명하고 있는지 가르키기 위해
+ 입력하라. 또한 설명하는 부분에서는 어떤 명령어를 설명하고 있는지 가리키기 위해
  사용된다.</para>
 
   <para>어떤 경우에는 한 논리적 명령이 두 줄 이상으로 길어져 행 끝에 
@@ -74,7 +74,7 @@ EOF</userinput></screen>
 LFS 설치 지침에 따라 이 두 개의 Man 페이지는 <filename>/usr/share/man/man1/passwd.1</filename> 과 
 <filename>/usr/share/man/man5/passwd.5</filename>에 위치한다. 
 이 책에서 <filename>passwd(5)</filename>라 하면,
- 그것은 <filename>/usr/share/man/man5/passwd.5</filename>를 가르킨다.
+ 그것은 <filename>/usr/share/man/man5/passwd.5</filename>를 가리킨다.
  <command>man passwd</command>는 <quote>passwd</quote>와 일치하는 첫 번째 
 Man 페이지, <filename>/usr/share/man/man1/passwd.1</filename>를 출력한다. 
  이 예시에서는, 가리켜진 특정 페이지를 읽으려면 

@@ -89,24 +89,21 @@
           &#46356;&#47113;&#53664;&#47532;&#50640; &#48716;&#46300;&#54624;
           &#44163;&#51012; &#44428;&#51109;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">mkdir -v build
-cd       build</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">mkdir -v build
+cd       build</kbd></pre>
         <p>
           E2fsprogs &#52980;&#54028;&#51068;&#51012;
           &#51456;&#48708;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">../configure --prefix=/usr           \
+        <pre class="userinput"><kbd class=
+        "command">../configure --prefix=/usr           \
              --bindir=/bin           \
              --with-root-prefix=""   \
              --enable-elf-shlibs     \
              --disable-libblkid      \
              --disable-libuuid       \
              --disable-uuidd         \
-             --disable-fsck</kbd>
-</pre>
+             --disable-fsck</kbd></pre>
         <div class="variablelist">
           <p class="title">
             <strong>&#54872;&#44221; &#48320;&#49688;&#50752; configure
@@ -185,17 +182,13 @@ cd       build</kbd>
           &#54056;&#53412;&#51648;&#47484;
           &#52980;&#54028;&#51068;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make</kbd></pre>
         <p>
           &#44208;&#44284;&#47484;
           &#53580;&#49828;&#53944;&#54616;&#47140;&#47732;
           &#49892;&#54665;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make check</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make check</kbd></pre>
         <p>
           E2fsprogs &#53580;&#49828;&#53944; &#51473;
           &#54616;&#45208;&#45716; 256 MB&#51032;
@@ -223,9 +216,7 @@ cd       build</kbd>
         <p>
           &#54056;&#53412;&#51648;&#47484; &#49444;&#52824;&#54620;&#45796;:
         </p>
-        <pre class="userinput">
-<kbd class="command">make install</kbd>
-</pre>
+        <pre class="userinput"><kbd class="command">make install</kbd></pre>
         <p>
           &#46356;&#48260;&#44613; &#49900;&#48380;&#51012;
           &#45208;&#51473;&#50640; &#51228;&#44144;&#54624; &#49688;
@@ -234,10 +225,8 @@ cd       build</kbd>
           &#44032;&#45733;&#54616;&#44172;&#45140;
           &#49444;&#51221;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">chmod -v u+w /usr/lib/{libcom_err,libe2p,libext2fs,libss}.a</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">chmod -v u+w /usr/lib/{libcom_err,libe2p,libext2fs,libss}.a</kbd></pre>
         <p>
           &#51060; &#54056;&#53412;&#51648;&#45716; gzip&#51004;&#47196;
           &#50517;&#52629;&#46108; <code class="filename">.info</code>
@@ -251,22 +240,19 @@ cd       build</kbd>
           <code class="filename">dir</code> &#54028;&#51068;&#51012;
           &#50629;&#45936;&#51060;&#53944;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class="command">gunzip -v /usr/share/info/libext2fs.info.gz
-install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info</kbd>
-</pre>
+        <pre class="userinput"><kbd class=
+        "command">gunzip -v /usr/share/info/libext2fs.info.gz
+install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info</kbd></pre>
         <p>
           &#54596;&#50836;&#54616;&#45796;&#47732;, &#45796;&#51020;
           &#47749;&#47161;&#51004;&#47196; &#52628;&#44032;&#51201;&#51064;
           &#47928;&#49436; &#47751; &#44032;&#51648;&#47484;
           &#49373;&#49457;&#54616;&#44256; &#49444;&#52824;&#54616;&#46972;:
         </p>
-        <pre class="userinput">
-<kbd class=
-"command">makeinfo -o      doc/com_err.info ../lib/et/com_err.texinfo
+        <pre class="userinput"><kbd class=
+        "command">makeinfo -o      doc/com_err.info ../lib/et/com_err.texinfo
 install -v -m644 doc/com_err.info /usr/share/info
-install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd>
-</pre>
+install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</kbd></pre>
       </div>
       <div class="content" lang="ko-KR" xml:lang="ko-KR">
         <h2 class="sect2">

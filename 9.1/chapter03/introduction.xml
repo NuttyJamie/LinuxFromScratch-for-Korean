@@ -11,12 +11,12 @@
   <title>도입</title>
 
   <para>이 장에는 기본적인 리눅스 시스템을 구축하기 위해 다운로드해야 하는 패키지 목록이 포함되어 있다. 
-명시된 버전 번호는 작동하는 것으로 알려진 소프트웨어의 버전이며, 이 책은 그것들을 기반으로 작성되었다. 
+명시된 버전 숫자는 소프트웨어가 작동하는 것으로 알려진 버전이며, 이 책은 그것들을 기반으로 작성되었다. 
 우리는 한 버전에서의 빌드 명령이 새로운 버전에서는 작동하지 않을 수 있기 때문에 새로운 버전을 사용하지 않을 것을 
-강력히 권고한다. 또한 최신 패키지 버전에는 해결이 필요한 문제가 있을 수 있다. 그 해결책은 이 책의 개발 버전에서 
-개발되고 안정될 것이다.</para>
+강력히 권고한다. 또한 최신 패키지 버전에는 해결이 필요한 문제가 있을 수 있다. 그 해결책들은 이 책의 개발 버전에서 
+개발되고 안정화될 것이다.</para>
 
-  <para>다운로드 위치가 항상 열려있지는 않을 수 있다. 이 책이 출간된 이후 다운로드 위치가 바뀌었다면 구글(<ulink
+  <para>다운로드 링크가 항상 사용 가능하지는 않을 수도 있다. 이 책이 출간된 이후 다운로드 위치가 바뀌었다면 구글(<ulink
   url="http://www.google.com/"/>)은 대부분의 패키지에 유용한 검색 엔진을 제공한다. 만약 찾지 못하겠다면 <ulink
   url="&lfs-root;lfs/packages.html#packages"/>에서 설명하는 다른 다운로드 방법 중 하나를 시도해보라. </para>
 
@@ -31,19 +31,18 @@
 
 <screen role="nodump"><userinput>mkdir -v $LFS/sources</userinput></screen>
 
-  <para>이 디렉토리를 쓰기 가능하고 고정적으로 만들어라. <quote>고정적</quote>이란 여러 명의 사용자가 디렉토리에 
-대한 쓰기 권한을 갖고 있더라도 파일 소유자만이 고정 디렉토리 내에서 파일을 삭제할 수 있다는 것을 의미한다.
+  <para>이 디렉토리를 쓰기 가능(writable)하고 고정적(sticky)으로 만들어라. <quote>고정적</quote>이란 여러 명의 사용자가 디렉토리에 
+대한 쓰기 권한을 갖고 있더라도 파일 소유자만이 해당 디렉토리 내에서 파일을 삭제할 수 있다는 것을 의미한다.
 다음 명령은 쓰기 및 고정 모드를 활성화한다:</para>
 
 <screen role="nodump"><userinput>chmod -v a+wt $LFS/sources</userinput></screen>
 
-  <para>모든 패키지와 패치를 다운로드하는 쉬운 방법은 <ulink url="../wget-list">wget-list</ulink>를 
+  <para>손쉽게 모든 패키지와 패치를 다운로드하는 방법은 <ulink url="../wget-list">wget-list</ulink>를 
 <command>wget</command>에 입력하는 것이다. 예를 들면 다음과 같다:</para>
 
 <screen role="nodump"><userinput>wget --input-file=wget-list --continue --directory-prefix=$LFS/sources</userinput></screen>
 
-  <para>또한 LFS-7.0부터는 별도의 파일로 <ulink url="../md5sums">md5sums</ulink>가 있어, 진행하기 전에 모든 패키지
-들이 올바른지 확인할 수 있다. 해당 파일을 <filename class="directory">$LFS/sources</filename>에 넣고 실행하라:</para>
+  <para>추가로 LFS-7.0부터는 별도의 파일로 <ulink url="../md5sums">md5sums</ulink>가 있어, 진행하기 전에 모든 패키지들이 올바른지 확인할 수 있다. 그 파일을 <filename class="directory">$LFS/sources</filename>에 넣고 다음을 실행하라:</para>
 
 <screen role="nodump"><userinput>pushd $LFS/sources
 md5sum -c md5sums

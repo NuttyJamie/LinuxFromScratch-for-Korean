@@ -11,7 +11,7 @@
   <title>새 파티션 만들기</title>
 
   <para>대부분의 다른 운영 체제와 마찬가지로 LFS도 전용 파티션에 설치된다. LFS 시스템을 구축하기 위한 권장 방식은 
-사용 가능한 빈 파티션을 사용하거나, 파티션되지않은 충분한 여유 공간이 있는 경우, 새로 생성하는 것이다.</para>
+사용 가능한 빈 파티션을 사용하거나, 파티션이 지정되지 않은 충분한 여유 공간이 있으면 새로 생성하는 것이다.</para>
 
 <!--
 
@@ -28,7 +28,7 @@
 
 -->
 
-  <para>최소 시스템은 약 10기가바이트(GB)의 파티션을 필요로 한다. 
+  <para>최소한의 시스템은 약 10기가바이트(GB)의 파티션을 필요로 한다. 
 이것은 모든 소스 tarball을 저장하고 패키지를 컴파일하기에 충분하다. 
 그러나 LFS 시스템을 주 리눅스 시스템으로 쓴다면 추가 공간을 필요로 하는 소프트웨어를 더 설치해야할 것이다. 
 30GB의 파티션이 추가적으로 소프트웨어를 설치하기 위해 적당한 크기이다. LFS 시스템 자체는 이렇게 많은 공간을 
@@ -41,88 +41,82 @@
 저장하고 활성 프로세스에 더 많은 메모리를 사용할 수 있도록 커널에서 사용된다. LFS 시스템의 <systemitem class="filesystem">swap</systemitem> 파티션은 호스트 시스템에서 사용하는 파티션과 같을 수 있으며, 이 경우 다른 파티션을 만들 
 필요가 없다.</para>
 
-  <para><command>cfdisk</command> 또는 <command>fdisk</command>와 같은 디스크 파티셔닝 프로그램을 실행하고, 새 
-파티션이 생성될 하드 디스크의 이름을 지정하는 커맨드라인 옵션을 사용하라&mdash;예를 들어 주 디스크 드라이브는 
-<filename class="devicefile">/dev/sda</filename>. 필요한 경우 리눅스 기본 파티션 및 <systemitem class="filesystem">swap</systemitem> 파티션을 생성하라. 프로그램 사용법을 아직 모르는 경우 <filename>cfdisk(8)</filename> 또는 <filename>fdisk(8)</filename>를 참고하라.</para>
+  <para><command>cfdisk</command> 또는 <command>fdisk</command>와 같은 
+	  디스크 파티셔닝 프로그램과 함께, 파티션이 만들어질 하드 디스크를 
+	  지정하는 명령 줄 옵션을 사용한다&mdash;예를 들어 주 디스크 드라이브는 
+	  <filename class="devicefile">/dev/sda</filename>. 필요한 경우 리눅스 
+	  기본(native) 파티션 및 <systemitem class="filesystem">swap</systemitem> 파티션을 생성하라. 프로그램 사용법을 아직 모른다면 <filename>cfdisk(8)</filename> 또는 <filename>fdisk(8)</filename>를 참고하라.</para>
 
-  <note><para>숙련된 사용자의 경우 다른 파티션분할 방식도 가능하다.
-  새로운 LFS 시스템은 소프트웨어 <ulink
+  <note><para>숙련된 사용자라면 다른 파티션 분할 방식도 가능하다.
+  이 새 LFS 시스템은 소프트웨어 <ulink
   url="&blfs-book;postlfs/raid.html">RAID</ulink> 어레이 또는 <ulink
-  url="&blfs-book;postlfs/aboutlvm.html">LVM</ulink> 논리적 볼륨에 있을 수 있다.
-  그러나 이러한 옵션 중 일부는 고급 주제인 <ulink url="&blfs-book;postlfs/initramfs.html">initramfs</ulink>를 
-필요로 한다. 이러한 분할 방법들은 LFS 처음 사용자에게는 권장되지 않는다.</para></note>
+  url="&blfs-book;postlfs/aboutlvm.html">LVM</ulink> 논리적 볼륨 상에 설치할 수도 있다.
+  그러나 이러한 선택지 중 일부는 고급 주제인 <ulink url="&blfs-book;postlfs/initramfs.html">initramfs</ulink>를 
+필요로 한다. 이러한 파티션 분할 방법들은 LFS 처음 사용자에게는 권장되지 않는다.</para></note>
 
-  <para>새 파티션(가령, <filename class="devicefile">sda5</filename>)의 명칭을 기억하라. 이 책은 이것을 LFS 파티션
-이라고 할 것이다. <systemitem class="filesystem">swap</systemitem> 파티션의 명칭도 기억하라. 이들은 나중에
+  <para>새 파티션의 명칭(가령, <filename class="devicefile">sda5</filename>)을 기억하라. 이 책에서는 이것을 LFS 파티션 이라고 칭할 것이다. <systemitem class="filesystem">swap</systemitem> 파티션의 명칭도 기억하라. 이들은 나중에
 <filename>/etc/fstab</filename> 파일에 필요할 것이다.</para>
 
   <sect2>
   <title>다른 파티션에 관해</title>
 
-  <para>시스템 파티셔닝에 대한 조언 요청들은 LFS 메일링 리스트에 자주 게시된다. 이것은 매우 주관적인 주제이다.
-대부분의 배포판에서 기본값은 하나의 작은 swap 파티션을 제외하고 전체 드라이브를 사용하는 것이다. 이것은 여러 가지 
-이유에서 LFS에 최적이 아니다. 유연성을 줄이고 여러 배포판 또는 LFS 구축에서 데이터 공유를 더욱 어렵게 하며, 
-백업 시간이 더 많이 소요되고 파일 시스템 구조의 비효율적인 할당을 통해 디스크 공간을 낭비할 수 있다.</para>
+  <para>시스템 파티션 분배에 대해 조언을 구하는 글은 LFS 메일링 리스트에 드물지 않게 올라온다. 이것은 매우 주관적인 주제이다.
+대부분의 배포판에서 기본값은 하나의 작은 swap 파티션을 제외하고 전체 드라이브를 사용하는 것이다. 이것은 여러 가지 이유에서 LFS에 최적이 아니다. 유연성을 줄이고 여러 배포판 또는 LFS 시스템 내의 데이터 공유를 더욱 어렵게 하며, 
+백업 시간이 더 많이 소요되고 파일 시스템 구조의 비효율적인 할당에 따라 디스크 공간을 낭비할 수 있다.</para>
 
     <sect3>
     <title>Root 파티션</title>
 
-    <para>10 기가바이트의 Root LFS 파티션 (<filename class="directory">/root</filename> 디렉토리와 혼동하지 말라)은
- 대부분의 시스템에 적합한 절충안이다. LFS 와 대부분의 BLFS를 구축할 수 있는 충분한 공간을 제공하면서도, 여러 개의
-파티션을 쉽게 만들어서 쓰기에도 적당히 작다.</para> </sect3>
+    <para>10 기가바이트의 Root LFS 파티션(<filename class="directory">/root</filename> 디렉토리와 혼동하지 말라)은
+ 대부분의 시스템에 적당한 절충안이다. LFS와 대부분의 BLFS를 구축할 수 있는 충분한 공간을 제공하면서도, 여러 개의
+파티션을 만들어서 쓰기에도 쉬울만큼 적당히 작다.</para> </sect3>
 
     <sect3>
     <title>Swap 파티션</title>
 
-    <para>대부분의 배포판은 자동으로 swap 파티션을 생성한다. 일반적으로 swap 파티션의 권장 크기는 물리적 RAM의 약
-2배지만, 이만큼은 거의 필요하지 않다. 디스크 공간이 제한적일 경우 swap 파티션을 2GB로 유지하고 디스크 swapping의 양
-을 모니터링하라.</para>
+	<para>대부분의 배포판은 자동으로 swap 파티션을 생성한다. 
+		일반적으로 swap 파티션의 권장 크기는 물리적 RAM의 약 2배지만, 보통 이만큼까지 필요하지는 않다. 디스크 공간이 제한적일 경우 swap 파티션을 2GB로 유지하고 디스크가 스왑되는 정도를 관찰하라.</para>
 
     <para>스와핑은 결코 좋지 않다. 일반적으로 시스템이 디스크 작업 명령을 듣고 어떻게 반응하는지 관찰하기만 하면
-시스템이 스와핑되는지 알 수 있다. 5기가바이트 파일을 편집하려고 하는 등의 불합리한 명령으로 확인하는 것이다. 스와핑
+시스템이 스와핑되는지 알 수 있다. 5기가바이트짜리 파일을 편집하려고 하는 등의 불합리한 명령으로 확인하는 것이다. 스와핑
 이 자주 발생하면 시스템에 더 많은 RAM을 구입해 장착하는 것이 가장 좋은 해결책이다.</para> 
     </sect3>
 
     <sect3>
     <title>Grub Bios 파티션</title>
 
-    <para><emphasis>부팅 디스크</emphasis>가 GUID 파티션 테이블(GPT)로 파티셔닝된 경우, 약 1MB의 작은 파티션이 아직
-존재하지 않는다면 반드시 생성해야 한다. 이 파티션은 포맷되어 있지 않지만, 부트 로더 설치 중에 GRUB이 이용할 
+    <para><emphasis>부트 디스크</emphasis>가 GUID 파티션 테이블(GPT)로 만들어진 경우, 약 1MB의 작은 파티션이 아직
+존재하지 않는다면 반드시 생성해야 한다. 이 파티션은 포맷하지 않아도 되지만, 부트 로더 설치 중에 GRUB이 이용할 
 수 있어야 한다. 이 파티션은 보통 <command>fdisk</command>를 사용하면 'BIOS Boot' 라벨이 붙고 <command>gdisk</command>를 사용하면 <emphasis>EF02</emphasis> 코드를 갖는다.</para>
 
-    <note><para>Grub BIOS 파티션은 BIOS가 시스템을 부팅하는 데 사용하는 드라이브에 있어야 한다. 이것은 반드시 LFS 
-Root 파티션이 있는 드라이브와 같을 필요는 없다. 시스템의 디스크들은 각기 다른 파티션 테이블 유형을 사용할 수 있다.
-이 파티션에 대한 요구 사항은 부팅 디스크의 파티션 테이블 유형에 따라서만 달라진다.</para></note>
+    <note><para>Grub Bios 파티션은 BIOS가 시스템을 부팅하는 데 사용하는 드라이브에 있어야 한다. 이것은 LFS root 파티션이 있는 드라이브와 반드시 같을 필요는 없다. 시스템의 디스크들은 각기 다른 파티션 테이블 유형을 사용할 수 있다.
+이 파티션에 대한 요구 사항은 부트 디스크의 파티션 테이블 유형에 따라서만 달라진다.</para></note>
     </sect3>
 
     <sect3>
     <title>편의성 파티션</title>
 
-    <para>필요하지는 않지만 디스크 레이아웃 정할 때 고려되는 몇가지 다른 파티션이 있다. 다음 목록은 꼭 따르지 
-않아도 좋지만, 일종의 가이드이다.</para>
+    <para>필요하지는 않지만 디스크 레이아웃을 정할 때 고려되는 몇가지 다른 파티션이 있다. 다음 목록은 꼭 따르지 않아도 좋은, 일종의 가이드이다.</para>
 
     <itemizedlist>
 
-      <listitem><para>/boot &ndash; 적극 권장. 이 파티션을 커널과 다른 부팅 정보들을 저장하는데 사용하라. 큰 디스크
-들의 잠재적인 부팅 문제를 최소화하기 위해, 첫 번째 디스크의 첫 번째 물리 파티션으로 정하라. 파티션 사이즈는 100MB가
-적당하다.</para></listitem>
+		<listitem><para>/boot &ndash; 적극 권장. 이 파티션을 커널과 다른 부팅 정보들을 저장하는데 사용하라. 용량이 큰 디스크들의 잠재적인 부팅 문제를 최소화하려면, 이 파티션을 첫 번째 디스크의 첫 번째 물리적 파티션으로 생성하라. 파티션 크기는 100MB가 적당하다.</para></listitem>
 
       <listitem><para>/home &ndash; 적극 권장. 여러 배포판들과 LFS 시스템 사이에서 당신의 홈 디렉토리와 사용자 
-정의들을 공유하라. 크기는 일반적으로 상당히 크며 사용가능한 디스크 공간에 달려있다.</para></listitem>
+정의 설정들을 공유하라. 크기는 일반적으로 상당히 커야하고 가용한 디스크 공간에 따라 다르다.</para></listitem>
 
-      <listitem><para>/usr &ndash; 작은 클라이언트나 디스크가 없는 워크스테이션에 서버를 제공할 경우 별도의 
-/usr 파티션이 사용된다. 일반적으로 LFS에는 필요하지 않다. 5기가바이트의 용량이면 대부분의 설치 작업에 충분하다.</para></listitem>
+      <listitem><para>/usr &ndash; 별도의 /usr 파티션은 보통 작은 클라이언트에 서버를 제공하거나 디스크가 없는 워크스테이션일 경우에 쓰인다. 일반적인 LFS에는 필요하지 않다. 5기가바이트의 용량이면 대부분의 설치 작업에 충분하다.</para></listitem>
 
       <listitem><para>/opt &ndash; 이 디렉토리는 /usr 계층에 파일을 포함시키지 않고 Gnome이나 KDE와 같은 대형 
-패키지를 여러번 설치하는 BLFS에 가장 유용하다. 사용하려는 경우 일반적으로 5~10기가바이트가 적당하다.</para>
+패키지를 여러번 설치하는 BLFS에 가장 유용하다. 사용하려면 일반적으로 5~10기가바이트가 적당하다.</para>
       </listitem>
 
-      <listitem><para>/tmp &ndash; 별도의 /tmp 디렉토리는 드물지만 작은 클라이언트를 구성할 때 유용하다. 이 파티
-션은 보통 몇 기가바이트를 초과할 일이 없다.</para></listitem>
+      <listitem><para>/tmp &ndash; 별도의 /tmp 디렉토리는 흔치 않지만 작은 클라이언트를 구성할 때 유용하다. 이 파티션은 보통 수 기가바이트를 초과할 일이 없다.</para></listitem>
 
-      <listitem><para>/usr/src &ndash; 이 파티션은 BLFS 소스 파일을 저장하고 LFS 빌드들로 공유할 수 있는 위치를 
-제공하는 데 매우 유용하다. 또한 BLFS 패키지를 빌드하는 위치로도 사용할 수 있다. 30~50기가바이트의 적당히 큰 파티션
-이면 공간이 넉넉할 것이다.</para></listitem>
+	  <listitem><para>/usr/src &ndash; 이 파티션은 BLFS 소스 파일을 
+			  저장하고 LFS 빌드들과 공유할 수 있는 위치로써 매우 유용하다.
+			  또한 BLFS 패키지를 빌드하는 위치로도 사용할 수 있다. 
+			  30~50기가바이트의 적당히 큰 파티션이면 공간이 넉넉할 것이다.</para></listitem>
 
     </itemizedlist>
 
