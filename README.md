@@ -3,8 +3,8 @@
 [**LinuxFromScratch**](http://linuxfromscratch.org) 프로젝트 가이드 한국어 번역판.
 
 **다운로드:**
-[**HTML-nochunk**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/dc69b7e479c49bde226118880803d321bf86c9ad/9.1/BOOK/HTML-nochunks/LFS-BOOK.html) or 
-[**HTML**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/dc69b7e479c49bde226118880803d321bf86c9ad/9.1/BOOK/HTML/index.html) or 
+[**HTML-nochunk**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/5cbf2c23a2012e036c4ded0c9a08028eb5e7d131/9.1/BOOK/HTML-nochunks/LFS-BOOK.html) or 
+[**HTML**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/5cbf2c23a2012e036c4ded0c9a08028eb5e7d131/9.1/BOOK/HTML/index.html) or 
 [**PDF**](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/raw/master/9.1/BOOK/PDF/LFS-BOOK.pdf)
 
 ## 목차 
@@ -14,7 +14,7 @@
 - [변경 사항](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean#Changelog)
 
 ## Linux From Scratch는..
-Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계 별로 빌드하여 자신만의 커스텀 리눅스 시스템을 만드는 프로젝트입니다.
+Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계별로 빌드하여 자신만의 커스텀 리눅스 시스템을 만드는 프로젝트입니다.
 
 ## LFS 시스템의 장점은?
 많은 사람들이 기존 리눅스 배포판을 다운로드 할 수 있는데 왜 리눅스 시스템을 처음부터 새로 빌드해야하는지 궁금해합니다. 그러나 LFS를 구축하면 다음과 같은 몇 가지 장점이 있습니다. 
@@ -34,9 +34,6 @@ Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계 별로 �
 ## 내 LFS 시스템으로 뭘 할 수 있나요?
 설명서에 따른 LFS 시스템은 굉장히 작지만, 원하는 패키지를 추가할 수 있는 강력한 기반을 제공하도록 설계되었습니다. 일반적으로 사용되는 패키지들을 추가하려면 BLFS 프로젝트를 참조하십시오.
 
-<br>
-<br>
-<br>
 <br>
 
 ## ※번역 일러두기
