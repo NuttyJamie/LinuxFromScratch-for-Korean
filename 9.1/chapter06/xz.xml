@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Xz 패키지는 파일을 압축하고 압축을 푸는 프로그램을 포함하고 있다. lzma와 새로운 xz 압축 포맷에 대한 기능을 제공한다. 텍스트 파일을 <command>xz</command>로 압축하면 기존의 <command>gzip</command>이나 <command>bzip2</command>보다 압축률이 더 높다.</para>
+    <para>Xz 패키지는 파일을 압축하고 압축을 푸는 프로그램을 포함하고 있다. lzma 알고리즘과 새로운 xz 압축 포맷에 대한 기능을 제공한다. 텍스트 파일을 <command>xz</command>로 압축하면 기존의 <command>gzip</command>이나 <command>bzip2</command>보다 압축률이 더 높다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -54,7 +54,7 @@
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-  <para>패키지를 설치하고 모든 필수 파일이 올바른 디렉토리에 있는지 확인하라:</para>
+  <para>패키지를 설치하고 모든 필수 파일을 올바른 디렉토리로 옮긴다:</para>
 
 <screen><userinput remap="install">make install
 mv -v   /usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} /bin
@@ -73,26 +73,26 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
 
       <seglistitem>
         <seg>
-          lzcat (xz에 대한 링크), 
-          lzcmp (xzdiff에 대한 링크), 
-          lzdiff (xzdiff에 대한 링크), 
-          lzegrep (xzgrep에 대한 링크), 
-          lzfgrep (xzgrep에 대한 링크),
-          lzgrep (xzgrep에 대한 링크), 
-          lzless (xzless에 대한 링크), 
-          lzma (xz에 대한 링크),
+          lzcat (xz로 링크), 
+          lzcmp (xzdiff로 링크), 
+          lzdiff (xzdiff로 링크), 
+          lzegrep (xzgrep로 링크), 
+          lzfgrep (xzgrep로 링크),
+          lzgrep (xzgrep로 링크), 
+          lzless (xzless로 링크), 
+          lzma (xz로 링크),
           lzmadec, 
           lzmainfo, 
-          lzmore (xzmore에 대한 링크),
-          unlzma (xz에 대한 링크), 
-          unxz (xz에 대한 링크), 
+          lzmore (xzmore로 링크),
+          unlzma (xz로 링크), 
+          unxz (xz로 링크), 
           xz, 
-          xzcat (xz에 대한 링크),
-          xzcmp (xzdiff에 대한 링크), 
+          xzcat (xz로 링크),
+          xzcmp (xzdiff로 링크), 
           xzdec, 
           xzdiff, 
-          xzegrep (xzgrep에 대한 링크),
-          xzfgrep (xzgrep에 대한 링크), 
+          xzegrep (xzgrep로 링크),
+          xzfgrep (xzgrep로 링크), 
           xzgrep, 
           xzless, and 
           xzmore</seg>
@@ -100,7 +100,7 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so</userinput
           liblzma.so
         </seg>
         <seg>
-          /usr/include/lzma 와 
+          /usr/include/lzma와 
           /usr/share/doc/xz-&xz-version;
          </seg>
       </seglistitem>

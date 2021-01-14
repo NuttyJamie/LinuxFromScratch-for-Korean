@@ -63,8 +63,8 @@
     <title>File의 내용</title>
 
     <segmentedlist>
-      <segtitle>설치된 프로그램들</segtitle>
-      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 프로그램</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
 
       <seglistitem>
         <seg>file</seg>
@@ -80,7 +80,7 @@
       <varlistentry id="file">
         <term><command>file</command></term>
         <listitem>
-          <para>여러 테스트를 수행해서 각 파일의 종류를 파악함&mdash;파일 시스템 테스트, 매직넘버 테스트, 언어 테스트 등</para>
+			<para>지정된 각 파일에 대해 분류를 시도; 여러 테스트를 수행함&mdash;파일 시스템 테스트, 매직 넘버 테스트, 언어 테스트</para>
           <indexterm zone="ch-system-file file">
             <primary sortas="b-file">file</primary>
           </indexterm>
@@ -90,7 +90,7 @@
       <varlistentry id="libmagic">
         <term><filename class="libraryfile">libmagic</filename></term>
         <listitem>
-          <para><command>file</command> 프로그램에서 사용하는 매직넘버 인식 루틴을 포함</para>
+          <para><command>file</command> 프로그램에서 사용하는 매직 넘버 인식 루틴을 포함</para>
           <indexterm zone="ch-system-file libmagic">
             <primary sortas="c-libmagic">libmagic</primary>
           </indexterm>

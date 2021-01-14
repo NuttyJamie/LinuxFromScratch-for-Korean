@@ -24,7 +24,7 @@
     <title>초기 장치 노드 생성</title>
 
     <para>커널이 시스템을 부팅할 때 몇 개의 장치 노드, 특히 <filename
-    class="devicefile">콘솔</filename>과 <filename
+    class="devicefile">console</filename>과 <filename
     class="devicefile">null</filename> 장치가 있어야 한다. 장치 노드는 <command>udevd</command>가 시작되기 전에, 그리고 리눅스가 <parameter>init=/bin/bash</parameter>로 시작될 때 사용할 수 있도록 하드 디스크에 생성되어야 한다. 다음 명령을 실행하여 장치를 생성하라:</para>
 
 <screen><userinput>mknod -m 600 $LFS/dev/console c 5 1
@@ -35,7 +35,7 @@ mknod -m 666 $LFS/dev/null c 1 3</userinput></screen>
   <sect2 id="ch-system-bindmount">
     <title>/dev 마운팅과 설정</title>
 
-      <para><filename class="directory">/dev</filename> 디렉토리에 장치를 들이는 권장되는 방법은 <filename class="directory">/dev</filename> 디렉토리에 가상 파일 시스템(예: <systemitem class="filesystem">tmpfs</systemitem>)을 마운트하고, 장치가 감지되거나 액세스될 때 해당 가상 파일 시스템에 동적으로 생성되도록 하는 것이다. 장치 생성은 일반적으로 부팅 절차 중 Udev에 의해 이뤄진다. 지금 이 새로운 시스템은 아직 Udev가 없고 부팅되지도 않았기 때문에 수동으로 마운트를 하고 <filename class="directory">/dev</filename>를 채워야 한다. 이를 위해 호스트 시스템의 <filename class="directory">/dev</filename> 디렉토리를 바인딩한다. 바인딩 마운트는 디렉토리나 마운트 지점의 미러를 다른 위치에 만들 수 있는 특별한 유형의 마운트를 뜻한다. 이 작업을 수행하려면 다음 명령을 사용하라:</para>
+      <para><filename class="directory">/dev</filename> 디렉토리에 장치를 들이는 권장되는 방법은 <filename class="directory">/dev</filename> 디렉토리에 가상 파일 시스템(예: <systemitem class="filesystem">tmpfs</systemitem>)을 마운트하고, 장치가 감지되거나 액세스될 때 해당 가상 파일 시스템에 동적으로 생성되도록 하는 것이다. 장치 생성은 일반적으로 부팅 절차 중 Udev에 의해 이뤄진다. 지금 이 새로운 시스템은 아직 Udev가 없고 부팅되지도 않았기 때문에 수동으로 마운트를 하고 <filename class="directory">/dev</filename>를 채워야 한다. 이를 위해 호스트 시스템의 <filename class="directory">/dev</filename> 디렉토리를 바인딩한다. 바인딩 마운트란 디렉토리나 마운트 지점의 미러를 다른 위치에 만들 수 있는 특별한 유형의 마운트를 뜻한다. 이 작업을 수행하려면 다음 명령을 사용하라:</para>
 
 <screen><userinput>mount -v --bind /dev $LFS/dev</userinput></screen>
 
@@ -64,7 +64,7 @@ mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
       <varlistentry>
         <term><parameter>mode=0620</parameter></term>
         <listitem>
-          <para>devpts가 생성한 모든 장치 노드가 0620 모드를 갖게한다. 위의 옵션과 함께, devpts가 grantpt()의 요구 사항을 만족하는 장치 노드를 생성하도록 한다. 이는 Glibc <command>pt_chown</command> helper 바이너리(기본적으로 설치되어 있지 않은)가 필요하지 않다는 의미이다.</para>
+			<para>devpts가 생성한 모든 장치 노드를 0620 모드(사용자는 읽기/쓰기 가능, 그룹은 쓰기 가능)로 설정한다. 위의 옵션과 함께, devpts가 grantpt()의 요구 사항을 만족하는 장치 노드를 생성하도록 한다. 다시말해 기본적으로 설치되지 않는 Glibc <command>pt_chown</command> helper 바이너리가 필요하지 않다는 의미이다.</para>
         </listitem>
       </varlistentry>
 

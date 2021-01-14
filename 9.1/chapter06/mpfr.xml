@@ -72,7 +72,7 @@ make install-html</userinput></screen>
     <title>MPFR의 내용</title>
 
     <segmentedlist>
-      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
       <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>

@@ -56,7 +56,7 @@
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>공유 라이브러리를 <filename class="directory">/lib</filename>로 이동하고, <filename class="directory">/usr/lib</filename>의 <filename class="extension">.so</filename> 파일을 다시 생성해야 한다:</para>
+    <para>공유 라이브러리를 <filename class="directory">/lib</filename>로 이동해야 하므로, <filename class="directory">/usr/lib</filename>의 <filename class="extension">.so</filename> 파일을 다시 생성해야 한다:</para>
 
 <screen><userinput remap="install">mv -v /usr/lib/libz.so.* /lib
 ln -sfv ../../lib/$(readlink /usr/lib/libz.so) /usr/lib/libz.so</userinput></screen>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- Notes:
      For empty *-home entities use " " not ""
@@ -232,7 +232,7 @@
 <!ENTITY gcc-ch5p2-du "3.7 GB">
 <!ENTITY gcc-ch5p2-sbu "13 SBU">
 <!ENTITY gcc-ch6-du "4.2 GB ">
-<!ENTITY gcc-ch6-sbu "88 SBU (with tests)">
+<!ENTITY gcc-ch6-sbu "88 SBU (테스트 포함)">
 <!ENTITY libquadmath-version "0.0.0">
 <!ENTITY libstdcpp-version   "6.0.27">
 <!ENTITY libitm-version      "1.0.0">

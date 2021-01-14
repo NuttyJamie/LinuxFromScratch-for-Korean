@@ -143,7 +143,7 @@ ln -sfv libncursesw.so.6 /usr/lib/libncurses.so</userinput></screen>
       <segtitle>설치된 프로그램들</segtitle>
 
       <seglistitem>
-        <seg>bc and dc</seg>
+        <seg>bc와 dc</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -155,7 +155,7 @@ ln -sfv libncursesw.so.6 /usr/lib/libncurses.so</userinput></screen>
       <varlistentry id="bc">
         <term><command>bc</command></term>
         <listitem>
-          <para>명령줄 계산기</para>
+          <para>명령 줄 계산기</para>
           <indexterm zone="ch-system-bc bc">
             <primary sortas="b-bc">bc</primary>
           </indexterm>
@@ -165,7 +165,7 @@ ln -sfv libncursesw.so.6 /usr/lib/libncurses.so</userinput></screen>
       <varlistentry id="dc">
         <term><command>dc</command></term>
         <listitem>
-          <para>후위 표기법 명령줄 계산기</para>
+          <para>후위 표기법 명령 줄 계산기</para>
           <indexterm zone="ch-system-bc dc">
             <primary sortas="b-dc">dc</primary>
           </indexterm>

@@ -41,12 +41,12 @@
     <title>GMP 설치</title>
 
     <note>
-      <para>64비트 CPU에서 32비트 x86으로 빌드하고 있고, <emphasis>그와 동시에</emphasis> <envar>CFLAGS</envar>를 지정했다면 configure 스크립트는 64비트로 구성하려 할 것이고 결국 실패할 것이다. 아래 configure 명령을 실행해서 이 문제를 방지하라:
+      <para>64비트 CPU에서 32비트 x86용으로 빌드하고 있고, <emphasis>그와 동시에</emphasis> <envar>CFLAGS</envar>도 지정했다면, configure 스크립트는 64비트용으로 구성하려다 결국 실패할 것이다. 아래 configure 명령을 실행해서 이 문제를 방지하라:
 <screen role="nodump"><userinput><parameter>ABI=32</parameter> ./configure ...</userinput></screen></para>
     </note>
 
     <note>
-      <para>GMP의 기본 설정은 호스트 프로세서에 최적화된 라이브러리를 생성한다. 호스트의 CPU보다 성능이 떨어지는 프로세서에 적합한 라이브러리를 원하는 경우 다음을 실행하여 일반 라이브러리를 생성할 수 있다:
+      <para>GMP의 기본 설정은 호스트 프로세서에 최적화된 라이브러리를 생성한다. 호스트의 CPU보다 성능이 떨어지는 프로세서에 적합한 라이브러리를 원한다면 다음을 실행하여 일반 라이브러리를 생성할 수 있다:
 
 <screen role="nodump"><userinput>cp -v configfsf.guess config.guess
 cp -v configfsf.sub   config.sub</userinput></screen></para>
@@ -91,7 +91,7 @@ make html</userinput></screen>
 
 <screen><userinput remap="test">make check 2>&amp;1 | tee gmp-check-log</userinput></screen>
  
-    <caution><para>GMP의 코드는 구축된 프로세서에 대해 매우 최적화되어 있다. 드물게 프로세서를 감지하는 코드가 시스템 기능을 잘못 식별하여 테스트에 오류가 발생할 수도 있다.</para></caution>
+    <caution><para>GMP의 코드는 해당 코드를 빌드한 프로세서에 대해 고도로 최적화되어 있다. 드문 일이지만, 프로세서를 감지하는 코드가 시스템 기능을 잘못 식별해서 gmp 라이브러리를 사용하는 테스트나 응용 프로그램으로부터 "Illegal instruction"이라는 메시지와 함께 오류가 발생할 수 있다. 이럴 때는 --build=x86_64-unknown-linux-gnu 옵션과 함께 재구성하고 다시 빌드해야 한다. </para></caution>
 
     <para>테스트 스위트의 190개 테스트가 모두 통과했는지 확인하라. 다음 명령을 실행하여 결과를 확인하라:</para>
 

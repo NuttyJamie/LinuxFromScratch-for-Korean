@@ -75,7 +75,7 @@ echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
     </segmentedlist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Short Descriptions</bridgehead>
+      <bridgehead renderas="sect3">요약</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -83,7 +83,7 @@ echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
          <!-- Don't remove the extra space, it prevet a FOP warning. -->
         <term><command>m4 </command></term>
         <listitem>
-          <para>지정된 파일을 복사하는 동시에 파일에 포함된 매크로를 확장 [이러한 매크로들은 내장되어 있거나 사용자 정의되어 있으며 얼마든지 인수를 받을 수 있다. <command>m4</command>는 매크로 확장 외에도 명명된 파일을 포함, 유닉스 명령 실행, 정수 산술 수행, 텍스트 조작, 재귀 등을 위한 기능이 내장되어 있다. <command>m4</command> 프로그램은 컴파일러의 프론트 엔드나 그 자체로 매크로 프로세서로 사용할 수 있다.]</para>
+          <para>지정된 파일을 복사하는 동시에 파일에 포함된 매크로를 확장 [이러한 매크로들은 내장되어 있거나 사용자 정의되어 있으며 얼마든지 인수를 받을 수 있다. <command>m4</command>는 매크로 확장 외에도 명명된 파일을 포함, 유닉스 명령 실행, 정수 산술 계산, 텍스트 조작, 재귀 등을 위한 기능이 내장되어 있다. <command>m4</command> 프로그램은 컴파일러의 프론트 엔드나 그 자체로 매크로 프로세서로 사용할 수 있다.]</para>
           <indexterm zone="ch-system-m4 m4">
             <primary sortas="b-m4">m4</primary>
           </indexterm>

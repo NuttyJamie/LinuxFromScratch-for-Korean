@@ -10,16 +10,16 @@
 
   <title>툴체인 조정</title>
 
-  <para>이제 최종 C 라이브러리가 설치되었으므로, 새롭게 컴파일된 프로그램을 이들 새로운 라이브러리와 연결하도록 툴체인(toolchain)을 조정할 때가 되었다. </para>
+  <para>이제 최종 C 라이브러리가 설치되었으므로, 툴체인(toolchain)을 조정해서 새롭게 컴파일될 프로그램들이 이 새로운 라이브러리들에 연결되도록 해야 한다.</para>
 
-  <para>먼저 <filename class="directory">/tools</filename> 링커를 백업하고 5장에서 만든 조정된 링커로 교체한다. 또 <filename class="directory">/tools/$(uname -m)-pc-linux-gnu/bin</filename>에 대한 링크도 만들 것이다:</para>
+  <para>먼저 <filename class="directory">/tools</filename> 링커를 백업하고 5장에서 만든 조정된 링커로 교체한다. 또 <filename class="directory">/tools/$(uname -m)-pc-linux-gnu/bin</filename>에 해당 링커에 대한 심볼릭 링크도 만들 것이다:</para>
 
 <screen><userinput>mv -v /tools/bin/{ld,ld-old}
 mv -v /tools/$(uname -m)-pc-linux-gnu/bin/{ld,ld-old}
 mv -v /tools/bin/{ld-new,ld}
 ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</userinput></screen>
 
-  <para>다음으로 GCC spec 파일이 새로운 동적 링커를 참조하도록 수정한다. 단순히 <quote>/tools</quote>의 모든 인스턴스를 삭제하면 동적 링커에 대한 올바른 경로가 남는다. 또한 GCC가 올바른 헤더와 Glibc 시작 파일들을 찾을 수 있도록 spec 파일을 조정한다. 다음 <command>sed</command> 명령어로 수행한다:</para>
+  <para>다음으로 GCC spec 파일이 새로운 동적 링커를 참조하도록 수정한다. 단순히 <quote>/tools</quote>의 모든 인스턴스를 삭제하면 동적 링커에 대한 올바른 경로가 남는다. 또한 GCC가 올바른 헤더와 Glibc 시작 파일들을 찾을 수 있도록 spec 파일을 조정한다. 다음 <command>sed</command> 명령을 실행하라:</para>
 
 <screen><userinput>gcc -dumpspecs | sed -e 's@/tools@@g'                   \
     -e '/\*startfile_prefix_spec:/{n;s@.*@/usr/lib/ @}' \
@@ -34,11 +34,11 @@ ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</userinput></screen>
 cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep ': /lib'</userinput></screen>
 
-  <para os="b">오류가 없어야 하며 마지막 명령의 출력은(플랫폼에 따른 동적 링커 이름의 차이는 무관):</para>
+  <para os="b">마지막 명령의 출력은(플랫폼에 따른 동적 링커 이름의 차이는 무관) 다음과 같으며 오류가 없어야 한다:</para>
 
 <screen os="c"><computeroutput>[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</computeroutput></screen>
 
-  <para>64비트 시스템 <filename class="directory">/lib</filename>는 동적 링커의 위치지만, /lib64의 심볼릭 링크를 통해 액세스 된다는 점을 참고하라.</para>
+  <para>64비트 시스템에서 동적 링커의 위치는 <filename class="directory">/lib</filename>이지만, /lib64의 심볼릭 링크를 통해 액세스된다는 점을 참고하라.</para>
 
   <note><para>32비트 시스템에서 인터프리터는 /lib/ld-linux.so.2여야 한다.</para></note>
 
@@ -46,7 +46,7 @@ readelf -l a.out | grep ': /lib'</userinput></screen>
 
 <screen os="e"><userinput>grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</userinput></screen>
 
-  <para os="f">마지막 명령의 출력은 다음과 같아야 한다:</para>
+  <para os="f">이 명령의 출력은 다음과 같아야 한다:</para>
 
 <screen><computeroutput>/usr/lib/../lib/crt1.o succeeded
 /usr/lib/../lib/crti.o succeeded
@@ -56,7 +56,7 @@ readelf -l a.out | grep ': /lib'</userinput></screen>
 
 <screen><userinput>grep -B1 '^ /usr/include' dummy.log</userinput></screen>
 
-  <para os="h">이 명령은 출력이 다음과 같아야 한다:</para>
+  <para os="h">이 명령은 다음과 같은 결과를 출력해야 한다:</para>
 
 <screen><computeroutput>#include &lt;...&gt; search starts here:
  /usr/include</computeroutput></screen>
@@ -65,7 +65,8 @@ readelf -l a.out | grep ': /lib'</userinput></screen>
 
 <screen os="j"><userinput>grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</userinput></screen>
 
-  <para os="k">'-linux-gnu' 요소가 있는 경로에 대한 참조는 무시되어야 하지만 그렇지 않은 경우 마지막 명령의 출력은 다음과 같아야 한다:</para>
+<para os="k">'-linux-gnu' 요소가 있는 경로에 대한 참조는 무시해도 되지만,
+   	나머지 결과는 다음과 같아야 한다:</para>
 
 <screen><computeroutput>SEARCH_DIR("/usr/lib")
 SEARCH_DIR("/lib")</computeroutput></screen>
@@ -74,7 +75,7 @@ SEARCH_DIR("/lib")</computeroutput></screen>
 
 <screen os="m"><userinput>grep "/lib.*/libc.so.6 " dummy.log</userinput></screen>
 
-  <para os="n">마지막 명령의 출력은 다음과 같아야 한다:</para>
+  <para os="n">이 명령의 출력은 다음과 같아야 한다:</para>
 
 <screen os="o"><computeroutput>attempt to open /lib/libc.so.6 succeeded</computeroutput></screen>
 
@@ -82,11 +83,11 @@ SEARCH_DIR("/lib")</computeroutput></screen>
 
 <screen os="q"><userinput>grep found dummy.log</userinput></screen>
 
-  <para os="r">마지막 명령의 출력은 다음과 같아야 한다(플랫폼에 따른 동적 링커 이름의 차이는 무관):</para>
+  <para os="r">이 명령의 출력은 다음과 같아야 한다(플랫폼에 따른 동적 링커 이름의 차이는 무관):</para>
 
 <screen os="s"><computeroutput>found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2</computeroutput></screen>
 
-  <para os="t">만약 출력이 위와 같이 나타나지 않거나 출력이 전혀 없다면, 무언가 심각하게 잘못된 것이다. 이전 단계를 조사하고 추적해서 문제가 어디에 있는지 파악하고 수정하라. 가장 유력한 이유는 spec 파일 조정에 이상이 생겼기 때문이다. 어떤 문제든 계속 진행하기 전에 해결해야 할 것이다.</para>
+  <para os="t">만약 출력이 위와 같이 나타나지 않거나 출력이 전혀 없다면, 무언가 심각하게 잘못된 것이다. 이전 단계를 조사하고 추적해서 문제가 어디에 있는지 파악하고 수정하라. 가장 유력한 원인은 spec 파일 조정에 이상이 생겼기 때문이다. 어떤 문제든 계속 진행하기 전에 해결해야 할 것이다.</para>
 
   <para os="u">모든 것이 올바르게 작동하면 테스트 파일을 정리하라:</para>
 

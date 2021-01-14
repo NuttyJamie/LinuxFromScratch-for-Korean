@@ -40,15 +40,15 @@
   <sect2 role="installation">
     <title>Bzip2 설치</title>
 
-    <para>이 패키지에 대한 문서를 설치할 패치를 적용하라:</para>
+    <para>이 패키지의 문서를 설치하는 패치를 적용한다:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&bzip2-docs-patch;</userinput></screen>
 
-   <para>다음 명령은 심볼릭 링크를 상대적으로 생성하도록 한다:</para>
+   <para>다음 명령은 심볼릭 링크를 상대적으로 생성한다:</para>
 
 <screen><userinput remap="pre">sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile</userinput></screen>
 
-    <para>Man 페이지가 올바른 위치에 설치되었는지 확인하라:</para>
+    <para>Man 문서들을 올바른 위치에 설치하도록 만든다:</para>
 
 <screen><userinput remap="pre">sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile</userinput></screen>
 
@@ -63,7 +63,7 @@ make clean</userinput></screen>
       <varlistentry>
         <term><parameter>-f Makefile-libbz2_so</parameter></term>
         <listitem>
-          <para>다른 <filename>Makefile</filename> 파일을 사용해서 Bzip2를 빌드하게 한다. 이 경우 <filename>Makefile-libbz2_so</filename> 파일은 동적 <filename class="libraryfile">libbz2.so</filename> 라이브러리를 생성하고 Bzip2 유틸리티를 링크한다.</para>
+          <para>다른 <filename>Makefile</filename> 파일을 사용해서 Bzip2를 빌드한다. 여기서 <filename>Makefile-libbz2_so</filename> 파일은 동적 <filename class="libraryfile">libbz2.so</filename> 라이브러리를 생성하고 거기에 Bzip2 유틸리티를 링크한다.</para>
         </listitem>
       </varlistentry>
 
@@ -77,7 +77,7 @@ make clean</userinput></screen>
 
 <screen><userinput remap="install">make PREFIX=/usr install</userinput></screen>
 
-    <para>공유 <command>bzip2</command> 바이너리를 <filename class="directory">/bin</filename> 디렉토리에 설치하고 필요한 심볼릭 링크를 만든 후 정리하라:</para>
+    <para>공유 <command>bzip2</command> 바이너리를 <filename class="directory">/bin</filename> 디렉토리에 설치하고 필요한 심볼릭 링크를 만든 후 정리한다:</para>
 
 <screen><userinput remap="install">cp -v bzip2-shared /bin/bzip2
 cp -av libbz2.so* /lib
@@ -97,9 +97,9 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
-        <seg>bunzip2 (link to bzip2), bzcat (link to bzip2), bzcmp (link to
-        bzdiff), bzdiff, bzegrep (link to bzgrep), bzfgrep (link to bzgrep),
-        bzgrep, bzip2, bzip2recover, bzless (link to bzmore), and bzmore</seg>
+        <seg>bunzip2 (bzip2로 링크), bzcat (bzip2로 링크), bzcmp (
+        bzdiff로 링크), bzdiff, bzegrep (bzgrep로 링크), bzfgrep (bzgrep로 링크),
+        bzgrep, bzip2, bzip2recover, bzless (bzmore로 링크), bzmore</seg>
         <seg>libbz2.{a,so}</seg>
         <seg>/usr/share/doc/bzip2-&bzip2-version;</seg>
       </seglistitem>
@@ -113,7 +113,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <varlistentry id="bunzip2">
         <term><command>bunzip2</command></term>
         <listitem>
-          <para>bzipped 파일을 압축 해제files</para>
+          <para>bzip으로 압축된 파일을 압축 해제</para>
           <indexterm zone="ch-system-bzip2 bunzip2">
             <primary sortas="b-bunzip2">bunzip2</primary>
           </indexterm>
@@ -133,7 +133,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <varlistentry id="bzcmp">
         <term><command>bzcmp</command></term>
         <listitem>
-          <para>bzipped 파일에 대해 <command>cmp</command>를 실행</para>
+          <para>bzip으로 압축된 파일에 대해 <command>cmp</command>를 실행</para>
           <indexterm zone="ch-system-bzip2 bzcmp">
             <primary sortas="b-bzcmp">bzcmp</primary>
           </indexterm>
@@ -143,7 +143,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <varlistentry id="bzdiff">
         <term><command>bzdiff</command></term>
         <listitem>
-          <para>bzipped 파일에 대해 <command>diff</command>를 실행</para>
+          <para>bzip으로 압축된 파일에 대해 <command>diff</command>를 실행</para>
           <indexterm zone="ch-system-bzip2 bzdiff">
             <primary sortas="b-bzdiff">bzdiff</primary>
           </indexterm>
@@ -153,7 +153,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <varlistentry id="bzegrep">
         <term><command>bzegrep</command></term>
         <listitem>
-          <para>bzipped 파일에 대해 <command>egrep</command>를 실행</para>
+          <para>bzip으로 압축된 파일에 대해 <command>egrep</command>를 실행</para>
           <indexterm zone="ch-system-bzip2 bzegrep">
             <primary sortas="b-bzegrep">bzegrep</primary>
           </indexterm>
@@ -163,7 +163,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <varlistentry id="bzfgrep">
         <term><command>bzfgrep</command></term>
         <listitem>
-          <para>bzipped 파일에 대해 <command>fgrep</command>를 실행</para>
+          <para>bzip으로 압축된 파일에 대해 <command>fgrep</command>를 실행</para>
           <indexterm zone="ch-system-bzip2 bzfgrep">
             <primary sortas="b-bzfgrep">bzfgrep</primary>
           </indexterm>
@@ -173,7 +173,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <varlistentry id="bzgrep">
         <term><command>bzgrep</command></term>
         <listitem>
-          <para>bzipped 파일에 대해 <command>grep</command>를 실행</para>
+          <para>bzip으로 압축된 파일에 대해 <command>grep</command>를 실행</para>
           <indexterm zone="ch-system-bzip2 bzgrep">
             <primary sortas="b-bzgrep">bzgrep</primary>
           </indexterm>
@@ -183,7 +183,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <varlistentry id="bzip2">
         <term><command>bzip2</command></term>
         <listitem>
-          <para>허프만(Huffman) 코딩으로 Borrows-Wheeler 블록 정렬 텍스트 압축 알고리즘을 사용하여 파일 압축. <command>gzip</command>과 같은 <quote>Lempel-Ziv</quote> 알고리즘을 사용한 기존의 압축기보다 압축률이 더 우수함</para>
+          <para>허프만(Huffman) 코딩과 Borrows-Wheeler 블록 정렬 텍스트 압축 알고리즘을 사용하여 파일을 압축; <command>gzip</command>과 같은 <quote>Lempel-Ziv</quote> 알고리즘을 사용하는 기존의 압축기보다 압축률이 더 우수함</para>
           <indexterm zone="ch-system-bzip2 bzip2">
             <primary sortas="b-bzip2">bzip2</primary>
           </indexterm>
@@ -193,7 +193,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <varlistentry id="bzip2recover">
         <term><command>bzip2recover</command></term>
         <listitem>
-          <para>손상된 bzipped 파일에서 데이터 복구 시도</para>
+          <para>손상된 bzip 압축 파일에서 데이터 복구 시도</para>
           <indexterm zone="ch-system-bzip2 bzip2recover">
             <primary sortas="b-bzip2recover">bzip2recover</primary>
           </indexterm>
@@ -203,7 +203,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <varlistentry id="bzless">
         <term><command>bzless</command></term>
         <listitem>
-          <para>bzipped 파일에 대해 <command>less</command>를 실행</para>
+          <para>bzip으로 압축된 파일에 대해 <command>less</command>를 실행</para>
           <indexterm zone="ch-system-bzip2 bzless">
             <primary sortas="b-bzless">bzless</primary>
           </indexterm>
@@ -213,7 +213,7 @@ ln -sv bzip2 /bin/bzcat</userinput></screen>
       <varlistentry id="bzmore">
         <term><command>bzmore</command></term>
         <listitem>
-          <para>bzipped 파일에 대해 <command>more</command>를 실행</para>
+          <para>bzip으로 압축된 파일에 대해 <command>more</command>를 실행</para>
           <indexterm zone="ch-system-bzip2 bzmore">
             <primary sortas="b-bzmore">bzmore</primary>
           </indexterm>

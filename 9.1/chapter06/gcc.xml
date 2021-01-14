@@ -94,7 +94,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--with-system-zlib</parameter></term>
         <listitem>
-          <para>GCC가 자체 내부의 Zlib 라이브러리 사본이 아닌 시스템 설치 복사본에 링크하도록 지시한다.</para>
+          <para>GCC가 자체적으로 갖는 내부 Zlib 라이브러리 대신 시스템에 설치된 Zlib 라이브러리에 링크되도록 설정한다.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -124,9 +124,9 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
 
     <para>결과는 <ulink url="&test-results;"/>와 <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>에 있는 결과와 비교할 수 있다.</para>
 
-    <para>get_time과 관련된 6개의 테스트가 실패한 것으로 알려져 있다. 이것들은 명백히 en_HK 로케일과 관련이 있다.</para>
+    <para>get_time과 관련된 6개의 테스트가 실패하는 것으로 알려져 있다. 이것들은 명백히 en_HK 로케일과 관련이 있다.</para>
 
-    <para>experimental/net에서 lookup.cc와 reverse.cc라는 두 테스트는 /etc/hosts and iana-etc가 필요해서 LFS chroot 환경에서 실패하는 것으로 알려져 있다.</para>
+    <para>experimental/net에서 lookup.cc와 reverse.cc라는 두 테스트는 /etc/hosts와 iana-etc가 필요해서 LFS chroot 환경에서 실패하는 것으로 알려져 있다.</para>
 
     <para>pr57193.c와 pr90178.c라는 두 가지 테스트가 실패하는 것으로 알려져 있다. </para>
 
@@ -146,7 +146,8 @@ su nobody -s /bin/bash -c "PATH=$PATH make -k check"</userinput></screen>
 <screen><userinput remap="install">make install
 rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/&gcc-version;/include-fixed/bits/</userinput></screen>
 
-    <para>GCC 빌드 디렉토리는 현재 <systemitem class="username">아무도</systemitem> 소유하지 않으며 설치된 헤더 디렉토리(와 그 내용)의 소유권은 불명확해질 것이다. 소유권을 <systemitem class="username">root</systemitem> 유저 및 그룹으로 변경하라:</para>
+	<para>GCC 빌드 디렉토리는 현재 <systemitem class="username">nobody</systemitem>가 소유하며 설치된 헤더 디렉토리(와 그 내용)의 소유권은 
+		불명확할 것이다. 소유권을 <systemitem class="username">root</systemitem> 유저 및 그룹으로 변경하라:</para>
 
 <screen><userinput remap="install">chown -v -R root:root \
     /usr/lib/gcc/*linux-gnu/&gcc-version;/include{,-fixed}</userinput></screen>
@@ -155,7 +156,7 @@ rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/&gcc-version;/include-fixed/bits/</useri
 
 <screen><userinput remap="install">ln -sv ../usr/bin/cpp /lib</userinput></screen>
 
-		<para>많은 패키지들은 <command>cc</command>라는 이름을 사용하여 C 컴파일러를 호출한다. 이러한 패키지들에 부합하게 만드려면 심볼릭 링크를 생성하라:</para>
+		<para>많은 패키지들은 <command>cc</command>라는 이름으로 C 컴파일러를 호출한다. 이러한 패키지들에 대해 올바르게 동작할 수 있도록 심볼릭 링크를 생성하라:</para>
 
 <screen><userinput remap="install">ln -sv gcc /usr/bin/cc</userinput></screen>
 
@@ -165,7 +166,7 @@ rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/&gcc-version;/include-fixed/bits/</useri
 ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/&gcc-version;/liblto_plugin.so \
         /usr/lib/bfd-plugins/</userinput></screen>
 
-    <para>이제 우리의 최종 툴체인(tollchain)이 자리를 잡았으니 컴파일 및 링크가 예상대로 잘 될 수 있도록 다시 한 번 확인하는 것이 중요하다. 따라서 앞 장에서 했던 것과 같은 분별력 검사를 수행한다:</para>
+    <para>이제 우리의 최종 툴체인(toolchain)이 자리를 잡았으니 컴파일과 링크가 예상대로 잘 될 수 있도록 다시 한 번 확인하는 것이 중요하다. 따라서 앞 장에서 했던 것과 같은 온전성 검사를 수행한다:</para>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="adjusting.xml"
@@ -195,7 +196,7 @@ ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/&gcc-version;/liblto_plugin.so \
 /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/crti.o succeeded
 /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/crtn.o succeeded</computeroutput></screen>
 
-  <para>당신의 시스템 아키텍쳐에 따라 위의 내용은 약간 다를 수 있는데, 대개 <filename class="directory">/usr/lib/gcc</filename> 다음에 나오는 디렉토리 이름이 차이난다. 여기서 중요하게 봐야 할 것은 <command>gcc</command>가 <filename class="directory">/usr/lib</filename> 디렉토리에서 <filename>crt*.o</filename> 파일 3개를 모두 찾아냈다는 점이다.</para>
+  <para>당신의 시스템 아키텍쳐에 따라 위의 내용은 약간 다를 수 있는데, 대개 <filename class="directory">/usr/lib/gcc</filename> 다음에 나오는 디렉토리 이름이 차이난다. 여기서 중요하게 봐야 할 것은 <command>gcc</command>가 <filename class="directory">/usr/lib</filename> 디렉토리에서 <filename>crt*.o</filename> 파일 3개를 모두 찾아내었는지다.</para>
 
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
     href="adjusting.xml"
@@ -244,7 +245,7 @@ SEARCH_DIR("/usr/local/lib")
 SEARCH_DIR("/lib")
 SEARCH_DIR("/usr/lib");</computeroutput></screen>
 
-   <para>32비트 시스템에서는 몇 개의 다른 디렉토리를 볼 수 있다. 예를 들어, i686 시스템에서는 출력이 다음과 같다:</para>
+   <para>32비트 시스템에서는 디렉토리 몇 개가 다른 것을 볼 수 있다. 예를 들어, i686 시스템에서는 출력이 다음과 같다:</para>
 
 <screen><computeroutput>SEARCH_DIR("/usr/i686-pc-linux-gnu/lib32")
 SEARCH_DIR("/usr/local/lib32")
@@ -388,7 +389,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="gcc-ar">
         <term><command>gcc-ar</command></term>
         <listitem>
-          <para>명령줄에 플러그인을 추가하는 <command>ar</command> wrapper. 이 프로그램은 "링크 시간 최적화"를 추가하는 데만 사용되며 기본 빌드 옵션에서는 유용하지 않음</para>
+          <para>명령줄에 플러그인을 추가하는 <command>ar</command> 래퍼(wrapper). 이 프로그램은 "링크 시간 최적화"를 추가하는 데만 사용되며 기본 빌드 옵션에서는 유용하지 않음</para>
           <indexterm zone="ch-system-gcc gcc-ar">
             <primary sortas="b-gcc-ar">gc-ar</primary>
           </indexterm>
@@ -398,7 +399,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="gcc-nm">
         <term><command>gcc-nm</command></term>
         <listitem>
-          <para>명령줄에 플러그인을 추가하는 <command>nm</command> wrapper. 이 프로그램은 "링크 시간 최적화"를 추가하는 데만 사용되며 기본 빌드 옵션에서는 유용하지 않음</para>
+          <para>명령줄에 플러그인을 추가하는 <command>nm</command> 래퍼. 이 프로그램은 "링크 시간 최적화"를 추가하는 데만 사용되며 기본 빌드 옵션에서는 유용하지 않음</para>
           <indexterm zone="ch-system-gcc gcc-nm">
             <primary sortas="b-gcc-nm">gc-nm</primary>
           </indexterm>
@@ -408,7 +409,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="gcc-ranlib">
         <term><command>gcc-ranlib</command></term>
         <listitem>
-          <para>명령줄에 플러그인을 추가하는 <command>ranlib</command> wrapper. 이 프로그램은 "링크 시간 최적화"를 추가하는 데만 사용되며 기본 빌드 옵션에서는 유용하지 않음
+          <para>명령줄에 플러그인을 추가하는 <command>ranlib</command> 래퍼. 이 프로그램은 "링크 시간 최적화"를 추가하는 데만 사용되며 기본 빌드 옵션에서는 유용하지 않음
           </para>
           <indexterm zone="ch-system-gcc gcc-ranlib">
             <primary sortas="b-gcc-ranlib">gc-ranlib</primary>
@@ -519,7 +520,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="liblto_plugin">
         <term><filename class="libraryfile">liblto_plugin</filename></term>
         <listitem>
-          <para>GCC의 링크 시간 최적화(Link Time Optimization, LTO) 플러그인은 컴파일 단위 전체에 걸쳐 최적화를 수행할 수 있도록 한다</para>
+          <para>컴파일 단위 전체에 걸쳐 최적화를 수행할 수 있도록 하는 GCC의 링크 시간 최적화(Link Time Optimization, LTO) 플러그인</para>
           <indexterm zone="ch-system-gcc liblto_plugin">
             <primary sortas="c-liblto_plugin">liblto_plugin</primary>
           </indexterm>
@@ -579,7 +580,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libtsan">
         <term><filename class="libraryfile">libtsan</filename></term>
         <listitem>
-          <para>Thread Sanitizer 런타임 라이브러리</para>
+          <para>The Thread Sanitizer 런타임 라이브러리</para>
           <indexterm zone="ch-system-gcc libtsan">
             <primary sortas="c-libtsan">libtsan</primary>
           </indexterm>
@@ -589,7 +590,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libubsan">
         <term><filename class="libraryfile">libubsan</filename></term>
         <listitem>
-          <para>정의되지 않은 Behavior Sanitizer 런타임 라이브러리</para>
+          <para>The Undefined Behavior Sanitizer 런타임 라이브러리</para>
           <indexterm zone="ch-system-gcc libubsan">
             <primary sortas="c-libubsan">libubsan</primary>
           </indexterm>

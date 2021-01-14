@@ -61,7 +61,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
       <varlistentry>
         <term><parameter>SHLIB_LIBS="-L/tools/lib -lncursesw"</parameter></term>
         <listitem>
-          <para>Readline을 <filename class="libraryfile">libncursesw</filename> 라이브러리에 링크하도록 강제한다.</para>
+          <para>Readline을 <filename class="libraryfile">libncursesw</filename> 라이브러리에 강제로 링크한다.</para>
         </listitem>
       </varlistentry>
 
@@ -73,7 +73,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
 
 <screen><userinput remap="install">make SHLIB_LIBS="-L/tools/lib -lncursesw" install</userinput></screen>
 
-    <para>이제 동적 라이브러리를 보다 적절한 위치로 이동하고 일부 권한 및 심볼릭 링크를 수정하라:</para>
+    <para>이제 동적 라이브러리를 보다 적절한 위치로 이동하고 권한 및 심볼릭 링크를 수정하라:</para>
 
 <screen><userinput remap="install">mv -v /usr/lib/lib{readline,history}.so.* /lib
 chmod -v u+w /lib/lib{readline,history}.so.*

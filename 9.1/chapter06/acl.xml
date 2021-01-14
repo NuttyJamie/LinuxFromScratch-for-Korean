@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Acl 패키지에는 액세서 제어 목록을 관리하는 유틸리티가 포함되어 있다. 이 유틸리티는 파일 및 디렉토리에 대한 보다 세분화된 임의 액세스 권한을 정의하는 데 사용된다.</para>
+    <para>Acl 패키지에는 액세서 제어 목록을 관리하는 유틸리티가 포함되어 있다. 이 유틸리티는 파일 및 디렉토리에 대한 보다 세분화된 액세스 권한을 정의하는 데 사용된다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -57,7 +57,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Acl 테스트는 <application>Coreutils</application>가 Acl 라이브러리와 함께 빌드된 후, 액세스 관리를 지원하는 파일 시스템에서 실행되어야 한다. 원하는 경우 이 장 뒷부분에서 <application>Coreutils</application>를 빌드한 후 <command>make check</command>를 실행하라.</para>
+    <para>Acl 테스트는 <application>Coreutils</application>가 Acl 라이브러리와 함께 빌드된 후, 액세스 관리를 지원하는 파일 시스템에서 실행되어야 한다. 테스트를 원하면 이 장 뒷부분에서 <application>Coreutils</application>를 빌드한 후 <command>make check</command>를 실행하라.</para>
 
     <para>패키지를 설치한다:</para>
 

@@ -10,7 +10,7 @@
 
   <title>패키지 관리</title>
 
-  <para>패키지 관리를 LFS 책에 추가해달라는 요청이 자주 온다. 패키지 관리자를 사용하면 파일 설치를 추적하여 삭제나 업그레이드를 편리하게 할 수 있다. 바이너리와 라이브러리 파일들 뿐만 아니라, 패키지 관리자도 구성 파일들의 설치를 관리한다. 궁금해지기 전에 말해두자면, 안된다&mdash;이 절에서는 특정 패키지 관리자에 대해 이야기하거나 추천하지 않을 것이다. 이 절의 내용은 더 인기 있는 기술들과 작동 원리들에 대한 정리이다. 당신을 위한 완벽한 패키지 관리자는 이런 기술들 가운데 하나일수도 둘 이상을 조합한 것일 수도 있다. 이 절에서는 패키지를 업그레이드 할 때 발생할 수 있는 문제에 대해 간략히 설명한다.</para>
+  <para>패키지 관리를 LFS 책에서 다뤄달라는 요청이 자주 온다. 패키지 관리자를 사용하면 파일 설치를 추적하여 삭제나 업그레이드를 편리하게 할 수 있다. 바이너리와 라이브러리 파일들 뿐만 아니라, 패키지 관리자도 구성 파일들의 설치를 관리한다. 궁금해지기 전에 말해두자면, 안된다&mdash;이 절에서는 특정 패키지 관리자에 대해 이야기하거나 추천하지 않을 것이다. 이 절의 내용은 더 인기 있는 테크닉과 그 작동 원리들에 대한 정리이다. 당신을 위한 완벽한 패키지 관리자는 이런 기술들 가운데 하나일수도 둘 이상을 조합한 것일 수도 있다. 이 절에서는 패키지를 업그레이드 할 때 발생할 수 있는 문제에 대해 간략히 설명한다.</para>
 
   <para>LFS나 BLFS에서 패키지 관리자를 언급하지 않는 몇 가지 이유는 다음과 같다:</para>
 
@@ -27,9 +27,9 @@
   <para>패키지 관리 주제에 대해 몇 가지 힌트가 작성되어있다. <ulink url="&hints-index;">힌트 프로젝트</ulink>에 방문하여 해당 프로젝트 중 필요한 것이 있는지 확인해보라.</para>
 
   <sect2>
-    <title>업그레이드 문제</title>
+    <title>업그레이드에 관해</title>
 
-    <para>패키지 관리자를 사용하면 최신 버전이 배포되었을 때 쉽게 업그레이드할 수 있다. 일반적으로 LFS와 BLFS 책의 지침들로 새로운 버전으로 업그레이드할 수 있다. 다음은 특히 작동 중인 시스템에서, 패키지를 업그레이드할 때 알아야 할 몇 가지 사항이다.</para>
+    <para>패키지 관리자를 사용하면 최신 버전이 배포되었을 때 쉽게 업그레이드할 수 있다. 일반적으로 LFS와 BLFS 책의 지침들을 통해 새로운 버전으로 업그레이드할 수 있다. 다음은 특히 작동 중인 시스템에서, 패키지를 업그레이드할 때 알아야 할 몇 가지 사항이다.</para>
 
     <itemizedlist>
       <listitem>
@@ -75,13 +75,13 @@
 make
 make install</userinput></screen>
 
-      <para>설치는 되지만 의존 패키지는 예상했던 대로 libfoo에 연결되지 않을 수 있다. libfoo에 대해 링크하는 패키지를 컴파일하면 예상했던 <filename class='libraryfile'>/usr/lib/libfoo.so.1</filename>이 아닌 <filename class='libraryfile'>/usr/pkg/libfoo/1.1/lib/libfoo.so.1</filename>과 연결된 것을 알 수 있다. 올바른 방법은 <envar>DESTDIR</envar> 전략을 사용하여 패키지를 가짜로 설치하는 것이다. 이 방식은 이렇게 작동한다:</para>
+      <para>설치는 되지만 의존 패키지는 예상했던 대로 libfoo에 연결되지 않을 수 있다. libfoo에 링크되는 패키지를 컴파일하면 예상했던 <filename class='libraryfile'>/usr/lib/libfoo.so.1</filename>이 아닌 <filename class='libraryfile'>/usr/pkg/libfoo/1.1/lib/libfoo.so.1</filename>과 연결된 것을 알 수 있다. 올바른 방법은 <envar>DESTDIR</envar> 전략을 사용하여 패키지를 가짜로 설치하는 것이다. 이 방식은 이렇게 작동한다:</para>
 
 <screen role="nodump"><userinput>./configure --prefix=/usr
 make
 make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
 
-      <para>대부분의 패키지가 이러한 방식을 지원하지만, 그렇지 않은 패키지도 있다. 그렇지 않은 패키지의 경우 패키지를 수동으로 설치해야 하거나 문제가 있는 패키지를 <filename class='directory'>/opt</filename>에 설치하는 것이 더 낫다.</para>
+      <para>대부분의 패키지가 이러한 방식을 지원하지만, 그렇지 않은 패키지도 있다. 패키지가 이 방식을 지원하지 않으면 수동으로 설치해야 하거나 문제가 있는 패키지를 <filename class='directory'>/opt</filename>에 설치하는 것이 더 낫다.</para>
 
     </sect3>
 
@@ -90,7 +90,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
 
       <para>이 기법에서는 패키지가 설치되기 전에 파일에 타임스탬프를 찍는다. 설치 후 적절한 옵션과 함께 간단한 <command>find</command> 명령을 사용하면 타임스탬프 파일이 생성된 후 설치된 모든 파일의 로그를 생성할 수 있다. 이 방식을 채택한 패키지 관리자는 install-log이다.</para>
 
-      <para>이 방법은 단순하다는 장점이 있지만 두 가지 단점이 있다. 설치 중에 파일이 현재 시간 이외의 타임스탬프와 함께 설치되면 패키지 관리자가 해당 파일을 추적하지 않는다. 더구나 이 방법은 한 번에 하나의 패키지를 설치할 때만 사용할 수 있다. 두 개의 패키지가 서로 다른 두 개의 콘솔에 설치되는 경우 로그는 신뢰할 수 없다.</para>
+      <para>이 방법은 단순하다는 장점이 있지만 두 가지 단점이 있다. 설치 중에 파일이 현재 시간 이외의 타임스탬프와 함께 설치되면 패키지 관리자가 해당 파일을 추적하지 않는다. 더구나 이 방법은 한 번에 하나의 패키지를 설치할 때만 사용할 수 있다. 두 개의 패키지가 서로 다른 두 개의 콘솔에 설치될 때는 로그를 신뢰할 수 없다.</para>
 
     </sect3>
 
@@ -107,10 +107,10 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
     <sect3>
       <title>패키지 아카이브 생성</title>
 
-      <para>이 방식에서는 패키지 설치를 앞서 Symlink 스타일 패키지 관리에서 설명한 대로 별도의 트리로 위장한다. 설치가 끝나면 설치된 파일들로 패키지 아카이브를 생성한다. 이 보관 파일은 로컬 컴퓨터나 다른 컴퓨터에 패키지를 설치하는 데 사용할 수 있다. </para>
+      <para>이 방식에서는 앞서 Symlink 스타일 패키지 관리에서 설명한 대로 패키지 설치를 별도의 트리로 위장한다. 설치가 끝나면 설치된 파일들로 패키지 아카이브를 생성한다. 이 보관 파일은 로컬 컴퓨터나 다른 컴퓨터에 패키지를 설치하는 데 사용할 수 있다. </para>
 
-      <para>이 방식은 상용 배포판에서 찾을 수 있는 대부분의 패키지 관리자들이 사용한다. 이 방식을 따르는 패키지 관리자의 예로는 RPM (<ulink
-      url="http://refspecs.linuxfoundation.org/lsb.shtml">Linux Standard Base Specification</ulink>에 의해 요구됨), pkg-utils, 데비안의 apt, 그리고 젠투의 Portage system이 있다. LFS 시스템에 이런 스타일의 패키지 관리 방식을 채택하려면 <ulink url="&hints-root;fakeroot.txt"/>을 참고하라.</para>
+      <para>이 방식은 상용 배포판에서 찾을 수 있는 대부분의 패키지 관리자들이 사용한다. 이 방식을 따르는 패키지 관리자의 예로는 RPM (참고로, <ulink
+      url="http://refspecs.linuxfoundation.org/lsb.shtml">Linux Standard Base Specification</ulink>에 필요), pkg-utils, 데비안의 apt, 그리고 젠투의 Portage system이 있다. LFS 시스템에 이런 스타일의 패키지 관리 방식을 채택하려면 <ulink url="&hints-root;fakeroot.txt"/>을 참고하라.</para>
 
       <para>의존성 정보를 포함하는 패키지 파일의 생성은 복잡할 뿐더러 LFS의 범위를 벗어난다.</para>
 
@@ -150,7 +150,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
 
     <para>시스템 하드웨어와 원래 커널 구성의 차이에 따라 새로운 시스템을 위한 커스텀 커널을 빌드해야 할 수도 있다.</para>
 
-    <note><para>유사하지만 동일하지 않은 아키텍쳐 간에는 복사할 때 일부 문제가 있다는 보고가 있었다. 예를 들어 인텔 시스템의 명령어 세트가 AMD 프로세서와 동일하지 않으며 일부 프로세서의 이후 버전에는 이전 버전에서 사용할 수 없는 명령이 있을 수 있다.</para></note>
+    <note><para>유사하지만 동일하지 않은 아키텍쳐 간에는 복사할 때 일부 문제가 있다는 보고가 있었다. 예를 들어 인텔 시스템의 명령어 세트는 AMD 프로세서와 동일하지 않으며 일부 프로세서의 이후 버전에는 이전 버전에서 사용할 수 없는 명령이 있을 수 있다.</para></note>
 
     <para>마지막으로 <xref linkend="ch-bootable-grub"/>을 통해 새 시스템을 부팅 가능하도록 만들어야 한다.</para>
 

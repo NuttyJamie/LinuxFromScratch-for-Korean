@@ -24,7 +24,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>리눅스 API 헤더(리눅스-&linux-version;.tar.xz의)는 Glibc에 쓰이는 커널 API를 공개한다.</para>
+    <para>리눅스-&linux-version;.tar.xz의 리눅스 API 헤더는 Glibc에 쓰이는 커널 API를 담고있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>

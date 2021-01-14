@@ -57,7 +57,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
        -e 's@/var/spool/mail@/var/mail@' etc/login.defs</userinput></screen>
 
     <note>
-      <para>Cracklib을 지원하도록 Shadow를 빌드하는 경우 다음을 실행하라:</para>
+      <para>앞에서 Cracklib과 함께 Shadow를 빌드하기로 했다면 다음을 실행하라:</para>
 
 <screen role="nodump"><userinput>sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' etc/login.defs</userinput></screen>
     </note>
@@ -113,7 +113,7 @@ ln -sfv ../../lib/libshadow.so.0 /usr/lib/libshadow.so</userinput></screen> -->
       <secondary>configuring</secondary>
     </indexterm>
 
-    <para>이 패키지에는 유저와 그룹을 추가, 수정 및 삭제하고, 유저 및 그룹의 암호를 설정 및 변경하며, 기타 관리 작업을 수행하는 유틸리티가 포함되어 있다. <emphasis>password shadowing</emphasis>의 의미에 대한 자세한 설명은 압축 해제된 소스 트리에 있는 <filename>doc/HOWTO</filename> 파일을 참고하라. Shadow 지원을 사용할 경우 암호를 확인해야 하는 프로그램들(디스플레이 관리자, FTP 프로그램들, pop3 데몬 등)은 반드시 Shadow와 호환되어야 함을 명심하라. 다시 말해, 그 프로그램들은 Shadow 암호로 작업할 수 있어야 한다.</para>
+    <para>이 패키지에는 유저와 그룹을 추가, 수정 및 삭제하고, 유저 및 그룹의 암호를 설정 및 변경하며, 기타 관리 작업을 수행하는 유틸리티가 포함되어 있다. <emphasis>password shadowing</emphasis>의 의미에 대한 자세한 설명은 압축 해제된 소스 트리에 있는 <filename>doc/HOWTO</filename> 파일을 참고하라. Shadow 지원을 사용할 경우 암호를 확인해야 하는 프로그램들(디스플레이 관리자, FTP 프로그램들, pop3 데몬 등)은 반드시 Shadow와 호환되어야 함을 명심하라. 다시 말해, 그 프로그램들은 Shadow로 처리된 암호로 작동이 가능해야 한다.</para>
 
     <para>Shadowed 암호를 활성화하려면, 다음 명령을 실행하라:</para>
 
@@ -123,7 +123,7 @@ ln -sfv ../../lib/libshadow.so.0 /usr/lib/libshadow.so</userinput></screen> -->
 
 <screen><userinput>grpconv</userinput></screen>
 
-    <para><command>useradd</command> 유틸리티에 대한 Shadow의 기본 설정은 설명이 필요한 몇 가지 주의사항이 있다. 우선 <command>useradd</command> 유틸리티의 기본 동작은 유저와 동일한 이름의 그룹을 만드는 것이다. 기본적으로 유저 ID (UID)와 그룹 ID (GID) 번호는 1000으로 시작한다. 즉, 매개 변수를 <command>useradd</command>에 전달하지 않으면, 각 유저가 시스템에서 고유한 그룹의 구성원이 된다는 의미이다. 이런 방식이 마음에 들지 않는다면 <parameter>-g</parameter> 매개 변수를 <command>useradd</command>에 전달해야 한다. 기본 매개 변수는 <filename>/etc/default/useradd</filename> 파일에 저장된다. 당신의 목적에 맞게 이 파일에서 두 개의 매개 변수를 수정해야 할 수도 있다.</para>
+    <para><command>useradd</command> 유틸리티에 대한 Shadow의 기본 설정은 설명이 필요한 몇 가지 주의사항이 있다. 우선 <command>useradd</command> 유틸리티의 기본 동작은 유저와 동일한 이름의 그룹을 만드는 것이다. 기본적으로 유저 ID (UID)와 그룹 ID (GID) 번호는 1000으로 시작한다. 즉, 매개 변수를 <command>useradd</command>에 전달하지 않으면, 각 유저가 시스템에서 유일한 한 그룹의 구성원이 된다는 의미이다. 이런 방식이 마음에 들지 않는다면 <parameter>-g</parameter> 매개 변수를 <command>useradd</command>에 전달해야 한다. 기본 매개 변수는 <filename>/etc/default/useradd</filename> 파일에 저장된다. 따라서 동작 방식을 바꾸려면 이 파일에서 두 개의 매개 변수를 수정해야 한다.</para>
 
     <variablelist>
       <title><filename>/etc/default/useradd</filename> 매개 변수 설명</title>
@@ -131,7 +131,7 @@ ln -sfv ../../lib/libshadow.so.0 /usr/lib/libshadow.so</userinput></screen> -->
       <varlistentry>
         <term><parameter>GROUP=1000</parameter></term>
         <listitem>
-          <para>이 매개 변수는 /etc/group 파일에 사용되는 그룹 번호의 시작을 설정한다. 원하는 대로 수정할 수 있다. <command>useradd</command>는 UID나 GID를 재사용하지 않는다는 점에 주의하라. 이 매개 변수에 이미 사용된 번호를 대입할 경우 그 숫자 다음으로 사용 가능한 번호를 사용한다. 또 <parameter>-g</parameter> 매개 변수 없이 <command>useradd</command>를 처음 사용할 때 시스템에 그룹 1000이 없는 경우, 터미널에 <computeroutput>useradd: unknown GID 1000</computeroutput>이라는 메시지가 표시된다는 점을 참고하라. 이 메시지는 무시해도 되고 그룹 번호 1000이 사용될 것이다.</para>
+          <para>이 매개 변수는 /etc/group 파일에 사용되는 그룹 번호의 시작을 설정한다. 원하는 대로 수정할 수 있다. <command>useradd</command>는 UID나 GID를 재사용하지 않는다는 점에 주의하라. 이 매개 변수에 이미 사용된 번호를 대입하면 그 숫자 다음으로 사용 가능한 번호를 사용한다. 또 <parameter>-g</parameter> 매개 변수 없이 <command>useradd</command>를 처음 사용할 때 시스템에 그룹 1000이 없으면, 터미널에 <computeroutput>useradd: unknown GID 1000</computeroutput>이라는 메시지가 표시된다는 점을 참고하라. 그룹 번호 1000이 사용될 것이기 때문에 이 메시지는 무시해도 된다.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -182,7 +182,7 @@ ln -sfv ../../lib/libshadow.so.0 /usr/lib/libshadow.so</userinput></screen> -->
       <varlistentry id="chage">
         <term><command>chage</command></term>
         <listitem>
-          <para>비밀번호 변경 필수 날짜 사이의 최대 기간을 변경하는 데 사용</para>
+          <para>비밀번호를 변경해야하는 날짜의 최대 기간을 변경하는 데 사용</para>
           <indexterm zone="ch-system-shadow chage">
             <primary sortas="b-chage">chage</primary>
           </indexterm>
@@ -282,7 +282,7 @@ ln -sfv ../../lib/libshadow.so.0 /usr/lib/libshadow.so</userinput></screen> -->
       <varlistentry id="groupmems">
         <term><command>groupmems</command></term>
         <listitem>
-          <para>유저가 슈퍼 사용자 권한 없이 자신의 그룹 구성원 목록을 관리할 수 있도록 허용</para>
+          <para>유저가 슈퍼 유저 권한 없이 자신의 그룹 구성원 목록을 관리할 수 있도록 허용</para>
           <indexterm zone="ch-system-shadow groupmems">
             <primary sortas="b-groupmems">groupmems</primary>
           </indexterm>
