@@ -89,7 +89,7 @@ sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>
 <screen><userinput remap="install">make install</userinput></screen>
 
     <note>
-      <para>일부 언어(예: 벨로루시어)의 경우 Kbd 패키지에서는 ISO-8859-5 인코딩을 사용하는 유용한 키맵이 제공되지 않고, 보통 CP1251 키맵이 사용된다. 이러한 언어의 사용자는 별도로 키맵을 다운로드 받아야 한다.</para>
+      <para>일부 언어(예: 벨로루시어)의 경우 Kbd 패키지에서는 ISO-8859-5 인코딩을 사용하는 키맵이 제공되지 않고, CP1251 키맵이 사용된다. 이러한 언어의 사용자는 별도로 키맵을 다운로드 받아야 한다.</para>
     </note>
 
 <!--

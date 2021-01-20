@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Kmod 패키지에는 커녈 모듈을 로드하기 위한 라이브러리 및 유틸리티가 포함되어 있음</para>
+    <para>Kmod 패키지에는 커널 모듈을 로드하기 위한 라이브러리 및 유틸리티가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -72,14 +72,14 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>이 패키지는 LFS chroot 환경에서 실행할 수 있는 테스트 스위트가 없다. 적어도 git 프로그램이 필요하며 여러 테스트가 git 리포지토리 밖에선 실행되지 않는다.</para>
+    <para>이 패키지는 LFS chroot 환경에서 실행할 수 있는 테스트 스위트가 없다. 최소한 git 프로그램이 필요하며 여러 테스트가 git 리포지토리 밖에선 실행되지 않는다.</para>
 
 <!--
     <para>To test the results, issue:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 -->
-    <para>패키지를 설치하고 Module-Init-Tools(이전에 리눅스 커널 모듈을 처리하던 패키지)와 호환되도록 심볼릭 링크 생성:</para>
+    <para>패키지를 설치하고 Module-Init-Tools(이전에 리눅스 커널 모듈을 처리하던 패키지)와 호환되도록 심볼릭 링크 생성한다:</para>
 
 <screen><userinput remap="install">make install
 

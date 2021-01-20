@@ -113,7 +113,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="autopoint">
         <term><command>autopoint</command></term>
         <listitem>
-          <para>표준 Gettext 인프라 파일을 소스 패키지로 복사</para>
+          <para>표준 Gettext 인프라 파일을 원본 패키지로 복사</para>
           <indexterm zone="ch-system-gettext autopoint">
             <primary sortas="b-autopoint">autopoint</primary>
           </indexterm>
@@ -123,7 +123,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="envsubst">
         <term><command>envsubst</command></term>
         <listitem>
-          <para>셸 형식 문자열에서 환경 변수 대체</para>
+          <para>셸 서식 문자열에서 환경 변수 대체</para>
           <indexterm zone="ch-system-gettext envsubst">
             <primary sortas="b-envsubst">envsubst</primary>
           </indexterm>
@@ -133,7 +133,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="gettext">
         <term><command>gettext</command></term>
         <listitem>
-          <para>메시지 카탈로그에서 번역을 찾아 원본 언어의 메시지를 사용자의 언어로 번역</para>
+          <para>메시지 카탈로그에서 번역 자료를 찾아 원본 언어의 메시지를 사용자의 언어로 번역</para>
           <indexterm zone="ch-system-gettext gettext">
             <primary sortas="b-gettext">gettext</primary>
           </indexterm>

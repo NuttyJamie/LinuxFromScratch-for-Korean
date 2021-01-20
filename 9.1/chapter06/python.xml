@@ -115,7 +115,7 @@ tar --strip-components=1  \
     <varlistentry>
       <term><option>--no-same-owner</option> and <option>--no-same-permissions</option></term>
       <listitem>
-        <para>설치될 파일들의 소유권과 사용 권한을 올바르게 지정한다. 이러한 옵션이 없으면 <application>tar</application>를 사용할 때 그 유저의 값을 따라 패키지 파일들이 설치된다. </para>
+        <para>설치될 파일들의 소유권과 사용 권한을 올바르게 지정한다. 이러한 옵션이 없으면 <application>tar</application>를 사용해서 패키지를 설치할 때 소유권과 권한으로 원제작자의 이름이 부여된다. </para>
       </listitem>
     </varlistentry>
 
@@ -200,7 +200,7 @@ tar --strip-components=1  \
         <term><command>python3</command></term>
         <listitem>
           <para>
-            해석형, 대화형, 객체 지향 프로그래밍 언어.
+            대화형, 객체 지향 인터프리터 프로그래밍 언어.
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-python3">python3</primary>

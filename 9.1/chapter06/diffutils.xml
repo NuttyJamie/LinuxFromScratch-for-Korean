@@ -88,7 +88,7 @@
       <varlistentry id="diff">
         <term><command>diff</command></term>
         <listitem>
-          <para>두 파일 또는 디렉토리를 비교하고 파일의 행이 다른 것을 출력</para>
+          <para>두 파일 또는 디렉토리를 비교해서 파일의 행이 다른 부분을 출력</para>
           <indexterm zone="ch-system-diffutils diff">
             <primary sortas="b-diff">diff</primary>
           </indexterm>

@@ -54,14 +54,14 @@
       <varlistentry>
         <term><parameter>--disable-werror</parameter></term>
         <listitem>
-          <para>보다 최신 버전의 Flex에서 알려진 경고 사항들을 기반으로 빌드를 완료할 수 있다.</para>
+          <para>보다 최신 버전의 Flex에서 알려진 경고 사항들을 기반으로 빌드를 한다.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-efiemu</parameter></term>
         <listitem>
-          <para>LFS에 필요하지 않은 기능 및 테스트 프로그램을 비활성화하여 빌드할 대상을 최소화한다.</para>
+          <para>LFS에 필요하지 않은 기능과 테스트 프로그램을 비활성화하여 빌드할 대상을 최소화한다.</para>
         </listitem>
       </varlistentry>
 

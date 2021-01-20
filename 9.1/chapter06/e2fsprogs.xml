@@ -73,7 +73,7 @@ PKG_CONFIG_PATH=/tools/lib/pkgconfig \
       </varlistentry>
 -->
       <varlistentry>
-        <term><parameter>--with-root-prefix=""</parameter> and
+        <term><parameter>--with-root-prefix=""</parameter>와
               <parameter>--bindir=/bin</parameter></term>
         <listitem>
           <para>어떤 프로그램(예를 들면 <command>e2fsck</command> 프로그램)들은 필수적인 프로그램이다. 예를 들어 <filename class="directory">/usr</filename>가 마운트되지 않았을 때에도, 이러한 프로그램들은 사용 가능해야 한다. 이들은 <filename class="directory">/lib</filename> 및 <filename class="directory">/sbin</filename>과 같은 디렉토리에 속한다. 이 옵션이 E2fsprogs의 configure에 전달되지 않으면, 프로그램이 <filename class="directory">/usr</filename> 디렉토리에 설치된다.</para>

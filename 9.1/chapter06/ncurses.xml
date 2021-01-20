@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Ncurses 설치</title>
 
-    <para>Configure에 의해 처리되지 않는 정적 라이브러리를 설치하지 않는다:</para>
+    <para>Configure에 의해 처리되지 않는 정적 라이브러리 설치를 비활성화 한다:</para>
 
 <screen><userinput remap="pre">sed -i '/LIBTOOL_INSTALL/d' c++/Makefile.in</userinput></screen>
 
@@ -96,11 +96,11 @@
 
 <screen><userinput remap="install">mv -v /usr/lib/libncursesw.so.6* /lib</userinput></screen>
 
-    <para>라이브러리가 이동되었기 때문에 한 심볼릭 링크는 존재하지 않는 파일을 가리킨다. 이것을 다시 만든다:</para>
+    <para>라이브러리가 이동되었기 때문에 존재하지 않는 파일을 가리키고 있는 심볼릭 링크 하나가 있다. 이것을 다시 만든다:</para>
 
 <screen><userinput remap="install">ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) /usr/lib/libncursesw.so</userinput></screen>
 
-    <para>많은 응용 프로그램들은 여전히 링커가 비 와이드(일반) 문자 Ncurses 라이브러리를 찾을 수 있는 것처럼 작동할 것이다. 이러한 응용 프로그램들이 와이드 문자 라이브러리에 링크되도록 심볼릭 링크 및 링커 스크립트로 트릭을 쓴다:</para>
+    <para>많은 응용 프로그램들은 여전히 링커가 비-와이드 문자(즉, 일반 8비트 로케일용) Ncurses 라이브러리를 찾을 수 있는 것처럼 작동할 것이다. 이러한 응용 프로그램들이 와이드 문자 라이브러리에 링크되도록 심볼릭 링크 및 링커 스크립트로 트릭을 쓴다:</para>
 
 <screen><userinput remap="install">for lib in ncurses form panel menu ; do
     rm -vf                    /usr/lib/lib${lib}.so
@@ -108,7 +108,7 @@
     ln -sfv ${lib}w.pc        /usr/lib/pkgconfig/${lib}.pc
 done</userinput></screen>
 
-    <para>마지막으로, 빌드 시 <filename class="libraryfile">-lcurses</filename>를 찾는 오래된 응용 프로그램들을 여전히 빌드할 수 있는지 확인하라:</para>
+    <para>마지막으로, 빌드 시 <filename class="libraryfile">-lcurses</filename>를 찾는 오래된 응용 프로그램들을 빌드 가능하도록 만든다:</para>
 
 <screen><userinput remap="install">rm -vf                     /usr/lib/libcursesw.so
 echo "INPUT(-lncursesw)" &gt; /usr/lib/libcursesw.so
@@ -121,7 +121,7 @@ cp -v -R doc/* /usr/share/doc/ncurses-&ncurses-version;</userinput></screen>
 
     <note>
 
-      <para>소스로부터 컴파일하여 설치한 패키지는 런타임 중에 비 와이드 문자 Ncurses 라이브러리에 링크되지 않으므로, 위의 설명은 비 와이드 문자 Ncurses 라이브러리를 생성하지 않는다. 그러나 비 와이드 문자 Ncurses 라이브러리에 대해서만 링크하는 것으로 알려진 바이너리 전용 응용 프로그램들은 라이브러리 버전 5가 필요하다. 일부 바이너리 전용 응용 프로그램 때문에, 또는 LSB를 준수하기 위해 이러한 라이브러리가 필요한 경우 다음 명령을 사용하여 패키지를 다시 빌드하라:</para>
+      <para>소스로부터 컴파일하여 설치한 패키지는 런타임 중에 비-와이드 문자 Ncurses 라이브러리에 링크되지 않으므로, 위의 설명은 비-와이드 문자 Ncurses 라이브러리를 생성하지 않는다. 그러나 비-와이드 문자 Ncurses 라이브러리에 대해서만 링크하는 것으로 알려진 바이너리 전용 응용 프로그램들은 라이브러리 버전 5가 필요하다. 일부 바이너리 전용 응용 프로그램 때문에, 또는 LSB를 준수하기 위해 이러한 라이브러리가 필요하다면 다음 명령을 사용하여 패키지를 다시 빌드하라:</para>
 
 <screen role="nodump"><userinput>make distclean
 ./configure --prefix=/usr    \
@@ -164,7 +164,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
            libmenuw.so, 
            libncursesw.so,
            libncurses++w.a,
-           libpanelw.so, 그리고 라이브러리 이름에 "w"가 없는 비-와이드-문자 대응 파일들.</seg>
+           libpanelw.so, 그리고 라이브러리 이름에 "w"가 없는 비-와이드 문자 대응 파일들.</seg>
         <seg>
            /usr/share/tabset, 
            /usr/share/terminfo,
@@ -311,7 +311,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libformw">
         <term><filename class="libraryfile">libformw</filename></term>
         <listitem>
-          <para>양식 구현 기능 포함</para>
+          <para>양식 구현 함수 포함</para>
           <indexterm zone="ch-system-ncurses libformw">
             <primary sortas="c-libformw">libformw</primary>
           </indexterm>
@@ -321,7 +321,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libmenuw">
         <term><filename class="libraryfile">libmenuw</filename></term>
         <listitem>
-          <para>메뉴 구현 기능 포함</para>
+          <para>메뉴 구현 함수 포함</para>
           <indexterm zone="ch-system-ncurses libmenuw">
             <primary sortas="c-libmenuw">libmenuw</primary>
           </indexterm>
@@ -331,7 +331,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libpanelw">
         <term><filename class="libraryfile">libpanelw</filename></term>
         <listitem>
-          <para>패널 구현 기능 포함</para>
+          <para>패널 구현 함수 포함</para>
           <indexterm zone="ch-system-ncurses libpanelw">
             <primary sortas="c-libpanelw">libpanelw</primary>
           </indexterm>

@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Flex 패키지에는 텍스트의 패턴을 인식하는 프로그램을 생성하는 유틸리티가 포함되어 있다.</para>
+    <para>Flex 패키지에는 텍스트의 패턴을 인식하는 프로그램을 생성하는 도구가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,11 +40,11 @@
   <sect2 role="installation">
     <title>Flex 설치</title>
 
-    <para>우선, Glibc-2.26에서 소개된 문제를 수정한다:</para>
+    <para>우선, Glibc-2.26에서 생긴 문제를 수정한다:</para>
 
 <screen><userinput remap="pre">sed -i "/math.h/a #include &lt;malloc.h&gt;" src/flexdef.h</userinput></screen>
 
-    <para>이 빌드 절차는 <application>help2man</application> 프로그램이 실행 파일의 --help 옵션으로부터 man 페이지를 생성할 수 있다고 가정한다. 이것은 존재하지 않기 때문에, 우리는 환경 변수를 사용하여 이 과정을 생략한다. 이제 Flex 컴파일을 준비한다:</para>
+    <para>이 빌드 절차는 <application>help2man</application> 프로그램이 실행 파일의 --help 옵션으로부터 man 페이지를 생성할 수 있다고 가정한다. 그러나 이는 존재하지 않기 때문에, 우리는 환경 변수를 사용하여 이 과정을 생략한다. 이제 Flex 컴파일을 준비한다:</para>
 
 <screen><userinput remap="configure">HELP2MAN=/tools/bin/true \
 ./configure --prefix=/usr --docdir=/usr/share/doc/flex-&flex-version;</userinput></screen>
@@ -53,11 +53,11 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>결과를 실행하려면(약 0.5 SBU) 실행하라:</para>
+    <para>결과를 테스트하려면(약 0.5 SBU) 실행하라:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>패키지를 설치한다:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
@@ -72,11 +72,11 @@
 
     <segmentedlist>
       <segtitle>설치된 프로그램들</segtitle>
-      <segtitle>설치된 라이브러리들</segtitle>
+      <segtitle>설치된 라이브러리</segtitle>
       <segtitle>설치된 디렉토리</segtitle>
 
       <seglistitem>
-        <seg>flex, flex++ (flex로 링크), and lex (flex로 링크)</seg>
+        <seg>flex, flex++ (flex로 링크), lex (flex로 링크)</seg>
         <seg>libfl.so</seg>
         <seg>/usr/share/doc/flex-&flex-version;</seg>
       </seglistitem>

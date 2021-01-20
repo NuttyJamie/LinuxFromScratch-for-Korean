@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Bash 설치</title>
 
-    <para>일부 업스트림 픽스를 통합한다:</para>
+    <para>업스트림 수정 사항 몇 가지를 적용한다:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&bash-fixes-patch;</userinput></screen>
 
@@ -57,7 +57,7 @@
       <varlistentry>
         <term><parameter>--with-installed-readline</parameter></term>
         <listitem>
-          <para>Bash가 자체 버전 readline 대신 이미 시스템에 설치된 <filename class="libraryfile">readline</filename> 라이브러리를 사용하도록 지시한다.</para>
+          <para>Bash가 자체에 내장된 readline 대신 이미 시스템에 설치된 <filename class="libraryfile">readline</filename> 라이브러리를 사용하도록 지시한다.</para>
         </listitem>
       </varlistentry>
 
@@ -67,9 +67,9 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>테스트 스위트를 실행하지 않을 경우 <quote>패키지 설치</quote>로 이동하라.</para>
+    <para>테스트 스위트를 실행하지 않을 것이라면 <quote>패키지 설치</quote>로 이동하라.</para>
 
-    <para>테스트를 준비하려면, <systemitem class="username">nobody</systemitem> 라는 이름의 유저가 소스 트리에 쓰기 가능하도록 하라:</para>
+    <para>테스트를 준비하려면, <systemitem class="username">nobody</systemitem> 유저에게 소스 트리에 쓰기 권한을 부여하라:</para>
 
 <screen><userinput remap="test">chown -Rv nobody .</userinput></screen>
 
@@ -87,7 +87,7 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
 <screen role="nodump"><userinput>exec /bin/bash --login +h</userinput></screen>
 
     <note>
-      <para>이 매개 변수는 <command>bash</command> 프로세스를 대화형 로그인 셸로 만들고 해싱을 비활성화한 채로 유지해서 새로운 프로그램이 사용 가능할 때 발견되도록 한다.</para>
+      <para>이 매개 변수는 <command>bash</command> 프로세스를 대화형 로그인 셸로 만들고 해싱을 비활성화한 채로 유지해서 새로운 프로그램을 사용할 수 있게 한다.</para>
     </note>
 
   </sect2>
@@ -97,7 +97,7 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
 
     <segmentedlist>
       <segtitle>설치된 프로그램들</segtitle>
-      <segtitle>설치된 디렉토리</segtitle>
+      <segtitle>설치된 디렉토리들</segtitle>
 
       <seglistitem>
         <seg>bash, bashbug, sh (bash로 링크)</seg>
@@ -114,7 +114,7 @@ mv -vf /usr/bin/bash /bin</userinput></screen>
       <varlistentry id="bash">
         <term><command>bash</command></term>
         <listitem>
-          <para>널리 사용되는 명령어 인터프리터; 명령줄을 실행하기 전에 주어진 명령에 대해 다양한 종류의 확장 및 대체 작업을 수행하는 강력한 해석 프로그램</para>
+          <para>널리 사용되는 명령어 인터프리터; 명령줄을 실행하기 전에 주어진 명령에 대해 다양한 종류의 확장 및 대체 작업을 수행하는 강력한 인터프리터</para>
           <indexterm zone="ch-system-bash bash">
             <primary sortas="b-bash">bash</primary>
           </indexterm>

@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Meson은 오픈 소스 빌드 시스템이다. 극단적으로 빠르고, 더욱 중요한 것은 매우 사용자 친화적인 것이다. </para>
+    <para>Meson은 오픈 소스 빌드 시스템이다. 극단적으로 빠르고, 더욱 중요한 것은 매우 사용자 친화적이다. </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -55,7 +55,7 @@
 cp -rv dest/* /</userinput></screen>
 
     <variablelist>
-      <title>설치 매개 변수들의 의미:</title>
+      <title>설치 매개 변수의 의미:</title>
       
       <varlistentry>
         <term><parameter>--root=dest</parameter></term>
@@ -76,7 +76,7 @@ cp -rv dest/* /</userinput></screen>
 
       <seglistitem>
         <seg>meson</seg>
-        <seg>/usr/lib/python&python-minor;/site-packages/meson-&meson-version;-py&python-minor;.egg-info and /usr/lib/python&python-minor;/site-packages/mesonbuild</seg>
+        <seg>/usr/lib/python&python-minor;/site-packages/meson-&meson-version;-py&python-minor;.egg-info와 /usr/lib/python&python-minor;/site-packages/mesonbuild</seg>
       </seglistitem>
     </segmentedlist>
 

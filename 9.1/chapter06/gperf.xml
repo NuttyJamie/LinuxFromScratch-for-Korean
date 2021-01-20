@@ -79,7 +79,7 @@
       <varlistentry id="gperf">
         <term><command>gperf</command></term>
         <listitem>
-          <para>키 세트로부터 완벽한 해시를 생성</para>
+          <para>키 세트로부터 완전한 해시를 생성</para>
           <indexterm zone="ch-system-gperf gperf">
             <primary sortas="b-gperf">gperf</primary>
           </indexterm>

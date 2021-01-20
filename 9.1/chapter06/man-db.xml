@@ -78,7 +78,7 @@
       <varlistentry>
         <term><parameter>--disable-setuid</parameter></term>
         <listitem>
-          <para><command>man</command> 프로그램 setuid를 <systemitem class="username">man</systemitem> 유저로 만들지 않도록 비활성화한다.</para>
+          <para><command>man</command> 프로그램 setuid를 <systemitem class="username">man</systemitem> 유저로 만들지 않도록 한다.</para>
         </listitem>
       </varlistentry>
 
@@ -132,7 +132,8 @@
   <sect2>
     <title>LFS의 비-영어권 매뉴얼 페이지</title>
 
-    <para>다음 표는 <filename class="directory">/usr/share/man/&lt;ll&gt;</filename>에 설치된 매뉴얼 페이지들이 인코딩 될 문자 세트를 보여준다. 이 외에도, Man-DB는 해당 디렉토리에 설치된 매뉴얼 페이지들이 UTF-8로 인코딩되어 있는지 정확하게 확인한다.</para>
+	<para>다음 표는 <filename class="directory">/usr/share/man/&lt;ll&gt;</filename>에 설치된 Man-DB의 매뉴얼 페이지들이 인코딩될 수 있는 문자 세트들을 보여준다. 이 외에도, Man-DB는 해당 디렉토리에 설치된 매뉴얼 페이지들이 
+		UTF-8로 인코딩되어 있는지 정확하게 확인한다.</para>
 
     <!-- Origin: man-db-2.5.9/lib/encodings.c -->
     <table>

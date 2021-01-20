@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>OpenSSL 패키지에는 암호화와 관련된 관리 도구와 라이브러리가 포함되어 있다. 이는 OpenSSH, 이메일 애플리케이션 및 웹 브라우저(HTTPS 사이트 접근용)와 같은 다른 패키지에 암호화 기능을 제공하는 데 유용하다. </para>
+    <para>OpenSSL 패키지에는 암호화와 관련된 관리 도구와 라이브러리가 포함되어 있다. 이는 OpenSSH, 이메일 응용 프로그램 및 웹 브라우저(HTTPS 사이트 접근용)와 같은 다른 패키지에 암호화 기능을 제공하는 데 쓰인다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -119,7 +119,7 @@ cp -vfr doc/* /usr/share/doc/openssl-&openssl-version;</userinput></screen>
         <term><command>openssl</command></term>
         <listitem>
           <para>
-            셸에서 <application>OpenSSL</application>의 암호화 라이브러리의 다양한 암호화 기능을 사용하기 위한 명령줄 도구이다. <command>man 1 openssl</command>에 설명되어 있는 다양한 기능들에 사용된다.
+            셸에서 <application>OpenSSL</application>의 암호화 라이브러리의 다양한 암호화 기능을 사용하기 위한 명령줄 도구이다. <command>man 1 openssl</command>에 설명되어 있는 다양한 기능들을 사용할 수 있다.
           </para>
           <indexterm zone="ch-system-openssl openssl-prog">
             <primary sortas="b-openssl">openssl</primary>

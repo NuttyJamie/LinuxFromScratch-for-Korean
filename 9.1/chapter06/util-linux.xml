@@ -86,7 +86,7 @@
             --disable-static     \
             --without-python</userinput></screen>
 
-    <para>--disable 및 --without 옵션은 LFS에 없는 패키지가 필요하거나, 다른 패키지에 의해 설치된 프로그램과 일치하지 않는 구성 요소의 빌드에 대한 경고를 무시한다.</para>
+    <para>--disable과 --without 옵션들은 LFS에 없는 패키지가 필요하거나 다른 패키지에 의해 설치된 프로그램과 호환되지 않는 구성 요소의 빌드에 대한 경고를 무시한다.</para>
 
     <para>패키지를 컴파일한다:</para>
 
@@ -94,7 +94,7 @@
 
     <para>테스트를 원한다면 root가 아닌 유저로 실행하라:</para>
 
-    <warning><para>테스트 스위트를 root 유저로 실행하는 것은 시스템에 피해를 끼칠 수 있다. 이를 실행하려면, 커널에 대한 CONFIG_SCSI_DEBUG 옵션을 반드시 실행 중인 시스템에서 사용할 수 있어야 하며, 반드시 모듈로 빌드되어야 한다. 커널에 포함시켜서 빌드하면 부팅이 되지 않는다. 적용 범위를 넓히려면 다른 BLFS 패키지를 설치해야 한다. 원한다면 이 테스트는 완성된 LFS 시스템으로 재부팅해서 다음 명령으로 실행할 수 있다:</para>
+    <warning><para>테스트 스위트를 root 유저로 실행하는 것은 시스템에 피해를 끼칠 수 있다. 이를 실행하려면, 커널에 대한 CONFIG_SCSI_DEBUG 옵션을 반드시 실행 중인 시스템에서 사용할 수 있어야 하며, 반드시 모듈로 빌드되어야 한다. 커널에 포함시켜서 빌드하면 부팅이 되지 않는다. 완전한 테스트를 위해선 다른 BLFS 패키지를 설치해야 한다. 원한다면 이 테스트는 완성된 LFS 시스템으로 재부팅해서 다음 명령으로 실행할 수 있다:</para>
 
     <screen role="nodump"><userinput>bash tests/run.sh --srcdir=$PWD --builddir=$PWD</userinput></screen> 
     </warning>

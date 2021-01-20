@@ -72,7 +72,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>테스트 스위트는 LFS를 위한 몇 가지 사용자 정의에 따른 수정이 필요하다. 스크립트가 tty 장치를 사용하지 않을 때 실패하는 한 테스트를 삭제하고 다른 두 가지를 수정한다. 테스트 스위트를 실행하려면 다음 명령을 실행하라:</para>
+    <para>테스트 스위트는 LFS를 위한 몇 가지 수정이 필요하다. 스크립트가 tty 장치를 사용하지 않을 때 실패하는 한 테스트를 삭제하고 다른 두 가지를 수정한다. 테스트 스위트를 실행하려면 다음 명령을 실행하라:</para>
 
 <screen><userinput remap="test">sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
 sed -i '/set tty/d' testsuite/pkill.test/pkill.exp

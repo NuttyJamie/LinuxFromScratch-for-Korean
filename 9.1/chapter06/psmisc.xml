@@ -68,7 +68,7 @@ mv -v /usr/bin/killall /bin</userinput></screen>
       <segtitle>설치된 프로그램들</segtitle>
 
       <seglistitem>
-        <seg>fuser, killall, peekfd, prtstat, pslog, pstree, and pstree.x11 (pstree로 링크)</seg>
+        <seg>fuser, killall, peekfd, prtstat, pslog, pstree, pstree.x11 (pstree로 링크)</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -100,7 +100,7 @@ mv -v /usr/bin/killall /bin</userinput></screen>
       <varlistentry id="peekfd">
         <term><command>peekfd</command></term>
         <listitem>
-          <para>PID가 지정되면 실행 중인 프로세스의 파일 서술자를 훑어봄</para>
+          <para>PID가 지정되면 실행 중인 프로세스의 파일 디스크립터를 훑어봄</para>
           <indexterm zone="ch-system-psmisc peekfd">
             <primary sortas="b-peekfd">peekfd</primary>
           </indexterm>

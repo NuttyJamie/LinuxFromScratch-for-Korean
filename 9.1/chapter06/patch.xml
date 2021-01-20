@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Patch 패키지에는 일반적으로 <command>diff</command> 프로그램에서 만든 <quote>patch</quote> 파일을 적용하여 파일을 수정하거나 만드는 프로그램이 포함되어 있다.</para>
+    <para>Patch 패키지에는 일반적으로 <command>diff</command> 프로그램으로 만든 <quote>patch</quote> 파일을 적용하여 파일을 수정하거나 만드는 프로그램이 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>

@@ -192,7 +192,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
       <varlistentry id="routef">
         <term><command>routef</command></term>
         <listitem>
-          <para><command>ip route</command>의 구성 요소. 라우팅 테이블을 비우는 용도.</para>
+          <para><command>ip route</command>의 구성 요소. 라우팅 테이블을 비우는 용도</para>
           <indexterm zone="ch-system-iproute2 routef">
             <primary sortas="b-routef">routef</primary>
           </indexterm>

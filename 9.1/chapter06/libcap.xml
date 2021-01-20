@@ -54,7 +54,7 @@
       <varlistentry>
         <term><parameter>lib=lib</parameter></term>
         <listitem>
-          <para>x86_64에서 <filename>/lib64</filename>가 아닌 <filename>/lib</filename>로 라이브러리 디렉토리를 설정한다. x86에는 영향이 없다.</para>
+          <para>x86_64에서 라이브러리 디렉토리를 <filename>/lib64</filename>가 아닌 <filename>/lib</filename>로 설정한다. x86에는 영향이 없다.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -75,7 +75,7 @@ chmod -v 755 /lib/libcap.so.&libcap-version;</userinput></screen>
 
     <segmentedlist>
       <segtitle>설치된 프로그램들</segtitle>
-      <segtitle>설치된 라이브러리</segtitle>
+      <segtitle>설치된 라이브러리들</segtitle>
 
       <seglistitem>
         <seg>capsh, getcap, getpcaps, setcap</seg>
@@ -131,7 +131,7 @@ chmod -v 755 /lib/libcap.so.&libcap-version;</userinput></screen>
       <varlistentry id="libcap">
         <term><filename class="libraryfile">libcap</filename></term>
         <listitem>
-          <para>POSIX 1003.1e 기능을 조작하는 라이브러리 기능 포함
+          <para>POSIX 1003.1e 기능을 조작하는 라이브러리 함수 포함
           </para>
           <indexterm zone="ch-system-libcap libcap">
             <primary sortas="c-libcap">libcap</primary>

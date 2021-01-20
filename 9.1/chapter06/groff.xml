@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Groff 설치</title>
 
-    <para>Groff는 환경 변수 <envar>PAGE</envar>의 값이 기본 용지 크기여야 한다. 미국의 사용자에게는 <parameter>PAGE=letter</parameter>가 적당하다. 다른 곳에서는 <parameter>PAGE=A4</parameter>가 더 적합할 것이다. 컴파일 중에 기본 용지 크기가 설정되지만 나중에 <filename>/etc/papersize</filename> 파일에서 <quote>A4</quote>나 <quote>letter</quote>로 덮어쓸 수 있다.</para>
+    <para>Groff는 환경 변수 <envar>PAGE</envar>의 값이 기본 용지 크기여야 한다. 미국의 사용자에게는 <parameter>PAGE=letter</parameter>가 적합하다. 다른 곳에서는 <parameter>PAGE=A4</parameter>가 더 적합할 것이다. 컴파일 중에 기본 용지 크기가 설정되지만 나중에 <filename>/etc/papersize</filename> 파일에서 <quote>A4</quote>나 <quote>letter</quote>로 덮어쓸 수 있다.</para>
 
     <para>Groff 컴파일을 준비한다:</para>
 

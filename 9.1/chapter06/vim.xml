@@ -36,7 +36,7 @@
     </segmentedlist>
 
     <tip>
-      <title>Vim의 대체품</title>
+      <title>Vim의 대체제</title>
 
       <para>Emacs, Joe 또는 Nano와 같은 다른 편집기를 선호한다면 <ulink
       url="&blfs-book;postlfs/editors.html"/>에서 제안된 설치 지침들을 참고하기 바란다.</para>
@@ -73,7 +73,7 @@
 
 <!--<screen><userinput remap="test">LANG=en_US.UTF-8 make -j1 test &amp;&gt; vim-test.log</userinput></screen>-->
 
-    <para>테스트 스위트는 많은 바이너리 데이터를 화면에 출력한다. 이로 인해 현재 터미널의 설정에 문제가 발생할 수 있다. 이 문제는 위에서 보인 바와 같이 출력을 로그 파일로 리다이렉팅해서 방지할 수 있다. 테스트가 성공적으로 끝나면 로그 파일 "ALL DONE"이라는 문구가 표시된다.</para>
+    <para>테스트 스위트는 많은 바이너리 데이터를 화면에 출력한다. 이로 인해 현재 터미널의 설정에 문제가 발생할 수 있다. 이 문제는 위에서 보인 바와 같이 출력을 로그 파일로 리다이렉팅해서 방지할 수 있다. 테스트가 성공적으로 끝나면 로그 파일 안에 "ALL DONE"이라는 문구가 표시된다.</para>
 
     <para>패키지를 설치한다:</para>
 
@@ -86,7 +86,7 @@ for L in  /usr/share/man/{,*/}man1/vim.1; do
     ln -sv vim.1 $(dirname $L)/vi.1
 done</userinput></screen>
 
-    <para>기본적으로 Vim의 문서들은 <filename class="directory">/usr/share/vim</filename>에 설치된다. 다음 심볼릭 링크로 다른 패키지들을 위한 문서들처럼 같은 위치에서 <filename class="directory">/usr/share/doc/vim-&vim-version;</filename>를 통해 문서들에 접근할 수 있다:</para>
+    <para>기본적으로 Vim의 문서들은 <filename class="directory">/usr/share/vim</filename>에 설치된다. 다음과 같이 심볼릭 링크를 만들어서 다른 패키지의 문서들처럼 <filename class="directory">/usr/share/doc/vim-&vim-version;</filename>를 통해 문서들에 접근할 수 있다:</para>
 
 <screen><userinput remap="install">ln -sv ../&vim-docdir;/doc /usr/share/doc/vim-&vim-version;</userinput></screen>
 
@@ -101,7 +101,7 @@ done</userinput></screen>
       <primary sortas="e-/etc/vimrc">/etc/vimrc</primary>
     </indexterm>
 
-    <para>기본적으로 <command>vim</command>은 vi-비호환 모드로 실행된다. 이는 과거에 다른 편집기를 사용하던 사용자들에게는 낯설 것이다. 새롭게 동작하고 있다는 사실을 강조하기 위해 <quote>nocompatible(비호환)</quote> 설정이 아래에 포함되어 있다. 그리고 <quote>compatible(호환)</quote> 모드로 변경하려는 사용자들에게는 이 항목을 설정 파일의 첫 번째로 두어야 함을 상기시키고자 한다. 이것은 다른 설정들을 변경하기 때문에 다른 설정들을 사용자 정의하려면 반드시 이 설정 뒤에 이루어져야 한다. 다음을 실행하여 기본 <command>vim</command> 설정 파일을 생성하라:</para>
+    <para>기본적으로 <command>vim</command>은 vi-비호환 모드로 실행된다. 이는 평소 다른 편집기를 사용하던 사용자들에게는 낯설 것이다. 아래에는 vi 대신 새로운 vim이 사용되고 있다는 것을 강조하기 위해 <quote>nocompatible</quote>(비호환) 설정이 명시되어 있다. 그리고 <quote>compatible(호환)</quote> 모드로 변경하려는 사용자들에게는 이 항목을 설정 파일의 첫 번째로 두어야 함을 상기시키고자 명시하였다. 이 설정은 다른 설정들을 변경하기 때문에 그 위에 덮어쓰기 위해선 반드시 이 설정 뒤에 기재되어야 한다. 다음을 실행하여 기본 <command>vim</command> 설정 파일을 생성하라:</para>
 
 <screen><userinput>cat &gt; /etc/vimrc &lt;&lt; "EOF"
 <literal>" Begin /etc/vimrc
@@ -121,7 +121,7 @@ endif
 " End /etc/vimrc</literal>
 EOF</userinput></screen>
 
-    <para><parameter>set nocompatible</parameter> 설정은 <command>vim</command>을 vi-compatible 방식보다 더 유용한 방식으로(기본값) 동작하게 한다. <quote>no</quote>를 지우면 오래된 <command>vi</command> 방식을 고수한다. <parameter>set backspace=2</parameter> 설정은 줄 바꿈, 자동 들여쓰기, 삽입의 시작 부분에서도 Backspace로 글자를 지울 수 있게 한다. <parameter>syntax on</parameter> 매개 변수는 Vim의 문법 강조를 활성화한다. <parameter>set mouse=</parameter> 설정은 chroot나 원격 연결로 작업할 때 텍스트를 마우스로 적절히 붙여넣을 수 있다. 마지막으로, <emphasis>if</emphasis> 문의 <parameter>set background=dark</parameter> 설정은 일부 터미널 에뮬레이터의 배경색을 <command>vim</command>이 알맞게 인식하도록 한다. 이렇게 하면 저 프로그램들의 검정 배경에 쓰기 더 좋은 색 구성표를 적용한다.</para>
+    <para><parameter>set nocompatible</parameter> 설정은 <command>vim</command>을 vi-compatible 방식보다 더 유용한 방식으로(기본값) 동작하게 한다. <quote>no</quote>를 지우면 오래된 <command>vi</command> 방식을 고수한다. <parameter>set backspace=2</parameter> 설정은 줄 바꿈, 자동 들여쓰기, 삽입의 시작 부분에서도 Backspace로 글자를 지울 수 있게 한다. <parameter>syntax on</parameter> 매개 변수는 Vim의 문법 강조 기능을 활성화한다. <parameter>set mouse=</parameter> 설정은 chroot나 원격 연결로 작업할 때 텍스트를 마우스로 적절히 붙여넣을 수 있다. 마지막으로, <emphasis>if</emphasis> 문의 <parameter>set background=dark</parameter> 설정은 일부 터미널 에뮬레이터의 배경색을 <command>vim</command>이 알맞게 인식하도록 한다. 즉, 저 프로그램들의 검정 배경에 쓰기 더 좋은 색 구성표를 적용한다.</para>
 <!--
     <para>Creating an empty <filename>~/.vimrc</filename> prevents vim from
     overriding settings in <filename>/etc/vimrc</filename> by using

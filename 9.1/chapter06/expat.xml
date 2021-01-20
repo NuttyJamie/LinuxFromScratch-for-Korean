@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Expat 설치</title>
 
-    <para>우선 LFS 환경에서 회귀 테스트 문제를 해결한다:</para>
+    <para>우선 LFS 환경에서의 회귀 테스트 문제를 해결한다:</para>
 
 <screen><userinput remap="pre">sed -i 's|usr/bin/env |bin/|' run.sh.in</userinput></screen>
 
@@ -91,7 +91,7 @@
       <varlistentry id="xmlwf">
         <term><command>xmlwf </command></term>
         <listitem>
-          <para>XML 문서가 제대로 구성되었는지의 여부를 확인할 수 있는 비-인증 유틸리티</para>
+          <para>XML 문서가 제대로 구성되었는지의 여부를 확인할 수 있는 비검증 유틸리티</para>
           <indexterm zone="ch-system-expat xmlwf">
             <primary sortas="b-xmlwf">xmlwf</primary>
           </indexterm>
@@ -101,7 +101,7 @@
       <varlistentry id="libexpat">
         <term><filename class="libraryfile">libexpat</filename></term>
         <listitem>
-          <para>Contains API functions for parsing XML</para>
+          <para>XML을 파싱하기 위한 API 함수들을 포함</para>
           <indexterm zone="ch-system-expat libexpat">
             <primary sortas="c-libexpat">libexpat</primary>
           </indexterm>

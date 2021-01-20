@@ -72,7 +72,7 @@
 
       <seglistitem>
         <seg>gunzip, gzexe, gzip, uncompress (gunzip과 하드 링크), zcat, zcmp, 
-        zdiff, zegrep, zfgrep, zforce, zgrep, zless, zmore, and znew</seg>
+        zdiff, zegrep, zfgrep, zforce, zgrep, zless, zmore, znew</seg>
       </seglistitem>
     </segmentedlist>
 

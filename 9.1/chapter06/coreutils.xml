@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Coreutils 설치</title>
 
-    <para>POSIX는 Coreutils의 프로그램들이 멀티바이트 문자에서도 문자 경계를 정확하게 인식하는 것이 필요하다. 다음 패치는 이 미준수 사항과 기타 다국어화 관련 버그를 수정한다.</para>
+    <para>POSIX를 사용하려면 Coreutils의 프로그램들이 멀티바이트 문자에서도 문자 경계를 정확하게 인식해야 한다. 다음 패치는 이 미준수 사항과 기타 다국어화 관련 버그를 수정한다.</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&coreutils-i18n-patch;</userinput></screen>
 
@@ -132,7 +132,7 @@ mv -v /usr/bin/chroot /usr/sbin
 mv -v /usr/share/man/man1/chroot.1 /usr/share/man/man8/chroot.8
 sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</userinput></screen>
 
-    <para revision="sysv">LFS-부트스크립트 패키지의 몇몇 스크립트는 <command>head</command>, <command>nice</command>, <command>sleep</command>, <command>touch</command>에 따라 달라진다. 부팅 과정에서는 <filename class="directory">/usr</filename>를 사용할 수 없으므로 FHS를 준수하기 위해서는 이 바이너리들이 root 파티션에 있어야 한다:</para>
+    <para revision="sysv">LFS-부트스크립트 패키지의 스크립트 중 몇 가지는 <command>head</command>, <command>nice</command>, <command>sleep</command>, <command>touch</command>가 필요하다. 부팅 중에는 <filename class="directory">/usr</filename>에 접근할 수 없으므로 FHS를 준수하기 위해서는 이 바이너리들이 root 파티션에 있어야 한다:</para>
 
 <screen><userinput remap="install">mv -v /usr/bin/{head,nice,sleep,touch} /bin</userinput></screen>
 
@@ -157,7 +157,7 @@ sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8</userinput></screen>
         sha512sum, shred, shuf, sleep, sort, split, stat, stdbuf, stty, sum,
         sync, tac, tail, tee, test, timeout, touch, tr, true, truncate, tsort,
         tty, uname, unexpand, uniq, unlink, users, vdir, wc, who, whoami, yes</seg>
-        <seg>libstdbuf.so (/usr/libexec/coreutils의)</seg>
+        <seg>(/usr/libexec/coreutils의) libstdbuf.so</seg>
         <seg>/usr/libexec/coreutils</seg>
       </seglistitem>
     </segmentedlist>

@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Perl 패키지에는 Practical Extraction 및 Report Language가 포함되어 있다.</para>
+    <para>Perl 패키지에는 Practical Extraction and Report Language가 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Perl 설치</title>
 
-    <para>우선 Perl의 configuration 파일 및 선택적 테스트 제품군 중 하나에서 참조할 기본 <filename>/etc/hosts</filename> 파일을 생성하라:</para>
+    <para>우선 Perl의 configuration 파일 및 선택적 테스트 스위트에서 참조할 기본 <filename>/etc/hosts</filename> 파일을 생성하라:</para>
 
 <screen><userinput remap="pre">echo "127.0.0.1 localhost $(hostname)" &gt; /etc/hosts</userinput></screen>
 
