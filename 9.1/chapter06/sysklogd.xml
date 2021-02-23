@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Sysklogd 패키지에는 특수한 상황이 발생했을 때 커널이 내보내는 것과 같은 시스템 메시지들을 기록하는 프로그램이 포함되어 있다.</para>
+    <para>Sysklogd 패키지에는 예기치 않은 상황이 발생했을 때 커널이 생성하는 것과 같은 시스템 메시지들을 기록하는 프로그램이 포함되어 있다.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Sysklogd 설치</title>
 
-    <para>우선 klogd의 특정 조건에서 세그멘테이션 오류를 일으키는 문제를 해결하고, 오래된 프로그램 구조를 수정한다:</para>
+    <para>우선 klogd가 특정 조건에서 세그멘테이션 오류를 일으키는 문제를 해결하고, 오래된 프로그램 구조를 수정한다:</para>
 
 <screen><userinput remap="pre">sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
 sed -i 's/union wait/int/' syslogd.c</userinput></screen>
@@ -116,7 +116,7 @@ EOF</userinput></screen>
       <varlistentry id="syslogd">
         <term><command>syslogd</command></term>
         <listitem>
-          <para>시스템 프로그램이 기록을 위해 제공하는 메시지 로깅[모든 로그 메시지에는 최소한 날짜와 호스트 이름이 포함되며, 일반적으로 프로그램 이름도 포함되지만, 로그 데몬을 얼마나 신뢰하는지에 따라 달라진다.]</para>
+          <para>시스템 프로그램이 기록을 위해 제공하는 메시지 로깅[모든 로그 메시지에는 기본적으로 날짜와 호스트 이름이 포함되며, 일반적으로 프로그램 이름도 포함되지만, 로그 데몬을 얼마나 신뢰하는지에 따라 달라진다.]</para>
           <indexterm zone="ch-system-sysklogd syslogd">
             <primary sortas="b-syslogd">syslogd</primary>
           </indexterm>

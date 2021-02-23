@@ -80,7 +80,7 @@
       <varlistentry id="cleanfs-bootscripts">
         <term><command>cleanfs</command></term>
         <listitem>
-          <para><filename class="directory">/var/run/</filename> 및 <filename class="directory">/var/lock/</filename>와 같은 재부팅 중에 보존되지 않아야 하는 파일을 제거; <filename>/var/run/utmp</filename>를 다시 생성하고 존재할 수 있는 <filename>/etc/nologin</filename>, <filename>/fastboot</filename>, <filename>/forcefsck</filename> 파일들을 삭제함</para>
+          <para><filename class="directory">/var/run/</filename>과 <filename class="directory">/var/lock/</filename>의 파일들과 같이 재부팅할 때 보존되지 않아야 하는 파일들을 제거; <filename>/var/run/utmp</filename>를 다시 생성하고 존재할 수 있는 <filename>/etc/nologin</filename>, <filename>/fastboot</filename>, <filename>/forcefsck</filename> 파일들을 삭제함</para>
           <indexterm zone="ch-config-bootscripts cleanfs-bootscripts">
             <primary sortas="d-cleanfs">cleanfs</primary>
           </indexterm>

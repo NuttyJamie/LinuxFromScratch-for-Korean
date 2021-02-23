@@ -8,13 +8,13 @@
 <sect1 id="ch-system-strippingagain">
   <?dbhtml filename="strippingagain.html"?>
 
-  <title>한 번 더 스트리핑</title>
+  <title>한 번 더 스트리핑하기</title>
 
-  <para>이 절은 선택 사항이다. 사용자가 프로그래머가 아니고 시스템 소프트웨어에서 디버깅을 할 계획이 없다면, 바이너리와 라이브러리에서 디버깅 심볼을 제거해서 시스템 크기를 약 90 MB 줄일 수 있다. 이는 소프트웨어를 더 이상 완전히 디버깅할 수 없다는 점 외에는 다른 불편을 일으키지 않는다.</para>
+  <para>이 절은 선택 사항이다. 사용자가 프로그래머가 아니고 시스템 소프트웨어에서 디버깅을 할 계획이 없다면, 바이너리와 라이브러리에서 디버깅 심볼을 제거해서 시스템 크기를 약 90 MB 줄일 수 있다. 이는 소프트웨어를 더 이상 온전히 디버깅할 수 없다는 점 외에는 다른 불편을 일으키지 않는다.</para>
 
-  <para>아래에 언급된 명령어를 사용하는 대부분의 사람들은 어떠한 어려움도 겪지 않는다. 그러나, 오타를 쳐서 새 시스템이 사용할 수 없게 되버리는 일은 쉬우므로, <command>strip</command> 명령을 실행하기 전에 현재 상태에서 LFS 시스템을 백업하는 것이 좋다.</para>
+  <para>아래에 언급된 명령어를 사용하는 대부분의 사람들은 어떠한 어려움도 겪지 않는다. 그러나, 오타를 쳐서 새 시스템이 사용할 수 없게 돼버리기 쉬우므로, <command>strip</command> 명령을 실행하기 전에 현재 상태에서 LFS 시스템을 백업하는 것이 좋다.</para>
 
-  <para>먼저 선택한 라이브러리의 디버깅 심볼을 별도의 파일에 배치한다. 이 디버깅 정보는 나중에 BLFS에서 <ulink url='&blfs-book;/general/valgrind.html'>valgrind</ulink>나 <ulink url='&blfs-book;/general/gdb.html'>gdb</ulink>를 사용하는 회귀 테스트를 실행하는 경우에 필요하다.</para>
+  <para>먼저 선택한 라이브러리의 디버깅 심볼을 별도의 파일에 배치한다. 이 디버깅 정보는 나중에 BLFS에서 <ulink url='&blfs-book;/general/valgrind.html'>valgrind</ulink>나 <ulink url='&blfs-book;/general/gdb.html'>gdb</ulink>를 사용하는 회귀 테스트를 실행할 때 필요하다.</para>
 
 <!-- also of interest are libgfortan, libgo, libgomp, and libobjc from gcc -->
 

@@ -118,7 +118,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
       <primary sortas="e-/etc/udev/hwdb.bin">/etc/udev/hwdb.bin</primary>
     </indexterm>
 
-    <para>하드웨어 장치에 대한 정보는 <filename class="directory">/etc/udev/hwdb.d</filename> 및 <filename class="directory">/lib/udev/hwdb.d</filename> 디렉토리에서 관리된다. <application>Eudev</application>는 그 정보를 바이너리 데이터베이스 <filename>/etc/udev/hwdb.bin</filename>으로 컴파일할 필요가 있다. 초기 데이터베이스를 생성하라:</para>
+    <para>하드웨어 장치에 대한 정보는 <filename class="directory">/etc/udev/hwdb.d</filename> 및 <filename class="directory">/lib/udev/hwdb.d</filename> 디렉토리에서 관리된다. <application>Eudev</application>는 그 정보를 바이너리 데이터베이스 <filename>/etc/udev/hwdb.bin</filename>으로 컴파일해야 한다. 초기 데이터베이스를 생성하라:</para>
 
 <!--<screen><userinput>LD_LIBRARY_PATH=/tools/lib udevadm hwdb - -update</userinput></screen>-->
 <screen><userinput>udevadm hwdb --update</userinput></screen>
@@ -153,7 +153,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
       <varlistentry id="udevadm" revision="sysv">
         <term><command>udevadm</command></term>
         <listitem>
-          <para>일반 udev 관리 도구: udevd 데몬 제어, Udevd 데이터베이스 정보 제공, uevents 모니터링, uevents 종료 대기, Udev 구성 테스트 및 특정 장치에 대한 uevents 트리거</para>
+          <para>일반 udev 관리 도구: udevd 데몬 제어, Udevd 데이터베이스에서 정보 제공, uevents 모니터링, uevents 완료 대기, Udev 구성 테스트 및 특정 장치에 대한 uevents 발동</para>
           <indexterm zone="ch-system-eudev udevadm">
             <primary sortas="b-udevadm">udevadm</primary>
           </indexterm>
@@ -183,7 +183,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
       <varlistentry id="etc-udev">
         <term><filename class="directory">/etc/udev</filename></term>
         <listitem>
-          <para>Udev 구성 파일, 장치 권한 및 장치 이름 지정 규칙 포함</para>
+          <para>Udev 구성 파일, 장치 권한 및 장치 명명 규칙 포함</para>
           <indexterm zone="ch-system-eudev etc-udev">
             <primary sortas="e-/etc/udev">/etc/udev</primary>
           </indexterm>

@@ -123,7 +123,7 @@
       <varlistentry id="halt-sysv">
         <term><command>halt</command></term>
         <listitem>
-          <para>일반적으로 <parameter>-h</parameter> 옵션으로 <command>shutdown</command>을 호출하지만, 이미 run-level 0인 경우 커널에 시스템을 중지하도록 지시한다; <filename>/var/log/wtmp</filename> 파일에 시스템이 다운되고 있음을 기록함</para>
+          <para>보통은 <parameter>-h</parameter> 옵션으로 <command>shutdown</command>을 호출하지만, 이미 run-level이 0이라면 커널에 시스템을 중지하도록 지시한다; <filename>/var/log/wtmp</filename> 파일에 시스템이 종료되고 있음을 기록함</para>
           <indexterm zone="ch-system-sysvinit halt-sysv">
             <primary sortas="b-halt">halt</primary>
           </indexterm>
@@ -133,7 +133,7 @@
       <varlistentry id="init-sysv">
         <term><command>init</command></term>
         <listitem>
-          <para>커널이 부팅 프로세스를 거치는 하드웨어들을 초기화할 때 시작하는 첫 번째 프로세스이자, 구성 파일에 지정된 모든 프로세스를 시작하는 프로세스</para>
+          <para>커널이 부팅 프로세스를 거치는 하드웨어들을 초기화할 때 실행하는 첫 번째 프로세스이자, 구성 파일에 지정된 모든 프로세스를 시작하는 프로세스</para>
           <indexterm zone="ch-system-sysvinit init-sysv">
             <primary sortas="b-init">init</primary>
           </indexterm>
@@ -183,7 +183,7 @@
       <varlistentry id="shutdown-sysv">
         <term><command>shutdown</command></term>
         <listitem>
-          <para>모든 프로세스에 신호를 보내고 로그인한 모든 유저에게 통지하는 안전한 방법으로 시스템 작동 중단</para>
+          <para>모든 프로세스에 신호를 보내고 로그인한 모든 유저에게 통지해서 안전하게 시스템 종료</para>
           <indexterm zone="ch-system-sysvinit shutdown-sysv">
             <primary sortas="b-shutdown">shutdown</primary>
           </indexterm>
@@ -193,7 +193,7 @@
       <varlistentry id="telinit-sysv">
         <term><command>telinit</command></term>
         <listitem>
-          <para><command>init</command>에게 변경할 run-level을 지정</para>
+          <para><command>init</command>에게 어떤 run-level로 변경할지를 지정</para>
           <indexterm zone="ch-system-sysvinit telinit-sysv">
             <primary sortas="b-telinit">telinit</primary>
           </indexterm>

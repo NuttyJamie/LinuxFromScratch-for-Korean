@@ -15,20 +15,20 @@
     <secondary>usage</secondary>
   </indexterm>
 
-  <para><xref linkend="chapter-building-system"/>에서 우리는, <phrase revision="systemd">systemd</phrase><phrase revision="sysv">eudev</phrase>가 빌드될 때 Udev 패키지를 설치했다. 이들의 작동 방식에 대한 자세한 내용을 살펴보기 전에, 예전의 장치 핸들링 방법에 관한 간단한 역사에 대해 짚고 넘어가고자 한다.</para>
+  <para><xref linkend="chapter-building-system"/>에서 우리는, <phrase revision="systemd">systemd</phrase><phrase revision="sysv">eudev</phrase>가 빌드될 때 Udev 패키지를 설치했다. 이들의 작동 방식에 대한 자세한 내용을 살펴보기 전에, 과거의 장치 핸들링 방법의 역사에 대해 간단히 짚고 넘어가고자 한다.</para>
 
-  <para>일반적인 리눅스 시스템은 전통적으로 정적인 장치 생성 방법을 사용해서, 해당 하드웨어 장치가 실제로 존재하는지 여부에 관계없이 <filename class="directory">/dev</filename> 아래에 매우 많은 장치 노드(때로는 문자 그대로 수천 개의 노드)가 만들어졌다. 이는 일반적으로 <command>MAKEDEV</command> 스크립트를 통해 이뤄졌는데, 이 스크립트는 세상에 존재할 수 있는 모든 장치에 대한 관련 주/부 장치 번호와 함께 <command>mknod</command> 프로그램에 대한 여러 호출들을 담고 있었다.</para>
+  <para>일반적인 리눅스 시스템은 전통적으로 정적인 장치 생성 방법을 사용해서, 해당 하드웨어 장치가 실제로 존재하는지 여부에 관계없이 <filename class="directory">/dev</filename> 아래에 매우 많은 장치 노드(때로는 말 그대로 수천 개의 노드)가 만들어졌다. 이는 일반적으로 <command>MAKEDEV</command> 스크립트를 통해 이뤄졌는데, 이 스크립트는 세상에 존재할 수 있는 모든 장치에 대한 관련 주/부 장치 번호와 함께 <command>mknod</command> 프로그램에 대한 여러 호출들을 담고 있었다.</para>
 
   <para>Udev를 사용하면 커널에 의해 탐지된 장치만 해당 장치 노드가 생성된다. 이런 장치 노드는 시스템이 부팅될 때마다 생성되기 때문에 <systemitem class="filesystem">devtmpfs</systemitem> 파일 시스템(완전히 시스템 메모리에 상주하는 가상 파일 시스템)에 저장된다. 장치 노드는 공간이 많이 필요하지 않기 때문에 사용되는 메모리는 무시할 수 있다.</para>
 
   <sect2>
     <title>역사</title>
 
-    <para>2000년 2월, <systemitem class="filesystem">devfs</systemitem>라는 새로운 파일 시스템이 2.3.46 커널에 병합되어 2.4 안정 버전 커널 동안 사용할 수 있게 되었다. 커널 소스에 존재함에도 불구하고, 동적으로 장치를 만드는 이 방법은 핵심 커널 개발자들로부터 결코 지지를 받지 못했다.</para>
+    <para>2000년 2월, <systemitem class="filesystem">devfs</systemitem>라는 새로운 파일 시스템이 2.3.46 커널에 병합되어 2.4 안정 버전 커널에서 사용할 수 있게 되었다. 동적으로 장치를 만드는 이 방법은 비록 커널 소스에 존재는 했으나 핵심 커널 개발자들로부터 결코 지지를 받지 못했다.</para>
 
-    <para><systemitem class="filesystem">devfs</systemitem>에서 채택된 접근 방식의 주요 문제는 장치 탐지, 생성 및 명명 처리 방식이었다. 장치 노드 명명 문제인 후자가 아마도 가장 중요한 사안이었을 것이다. 장치 이름을 설정할 수 있는 경우 장치 명명 정책은 특정 개발자가 정하는 것이 아니라 시스템 관리자의 몫이어야 한다는 것이 보편적인 생각이다. 더구나 <systemitem class="filesystem">devfs</systemitem> 파일 시스템은 설계에 내재되어 있어 커널에 대한 실질적인 수정 없이는 고칠 수 없는 경합 조건에 시달렸다. 그것은 유지보수의 부족으로 장기간 폐기된 것으로 표시되었고, 결국 2006년 6월 커널에서 제거되었다.</para>
+    <para><systemitem class="filesystem">devfs</systemitem>에서 채택된 접근 방식의 주요 문제는 장치 인식, 생성 및 명명 처리 방식이었다. 장치 노드 명명 문제인 후자가 아마도 가장 중요한 사안이었을 것이다. 장치 이름을 설정하는 것이 가능하다면, 장치 명명 정책은 특정 개발자가 아닌 시스템 관리자의 몫이어야 한다는 것이 보편적인 생각이다. 더구나 <systemitem class="filesystem">devfs</systemitem> 파일 시스템은 그 설계 구조상 커널에 대한 실질적인 수정 없이는 고칠 수 없는 교착 상태에 시달렸다. 이는 유지보수가 부실해지자 장기간 폐기된 것으로 표시되었고, 결국 2006년 6월 커널에서 제거되었다.</para>
 
-    <para>나중에 안정된 2.6 버전으로 배포된 2.5 개발 버전 커널 트리가 개발되면서 <systemitem class="filesystem">sysfs</systemitem>라는 새로운 가상 파일 시스템이 생겼다. <systemitem class="filesystem">sysfs</systemitem>의 일은 시스템 하드웨어 구성보기를 사용자 공간프로세스로 내보내는 것이다. 이 사용자 공간에서 볼 수 있는 표현 방식으로 인해, <systemitem class="filesystem">devfs</systemitem>의 사용자 공간용 대체품 개발 가능성이 훨씬 더 현실로 다가왔다.</para>
+    <para>나중에 2.6 안정 버전으로 배포된 2.5 개발 버전 커널 트리가 개발되면서 <systemitem class="filesystem">sysfs</systemitem>라는 새로운 가상 파일 시스템이 생겼다. <systemitem class="filesystem">sysfs</systemitem>의 역할은 시스템 하드웨어 구성을 유저스페이스 프로세스(userspace processes)에서 볼 수 있도록 하는 것이다. 이 유저스페이스에서 볼 수 있도록 하는 표현 방식으로 인해, <systemitem class="filesystem">devfs</systemitem>에 대응하는 유저스페이스용 대체품 개발 가능성이 훨씬 더 높아졌다.</para>
 
   </sect2>
 
@@ -38,24 +38,24 @@
     <sect3>
       <title>Sysfs</title>
 
-      <para><systemitem class="filesystem">sysfs</systemitem> 파일 시스템은 위에서 간략히 언급했다. <systemitem class="filesystem">sysfs</systemitem>가 시스템에 존재하는 장치와 어떤 장치 번호를 사용해야 하는지를 어떻게 아는지 궁금할 수 있다. 커널로 컴파일된 드라이버는 커널에 의해 감지되는 대로 자신의 개체를 <systemitem class="filesystem">sysfs</systemitem>(내부적으론 devtmpfs)에 직접 등록한다. 모듈로 컴파일된 드라이버의 경우 모듈이 로드될 때 이 등록이 이루어진다. <systemitem class="filesystem">sysfs</systemitem> 파일 시스템을 마운트하면(/sys에), 드라이버가 <systemitem class="filesystem">sysfs</systemitem>에 등록한 데이터를 사용자 공간 프로세스와 처리를 위한 udevd(장치 노드 수정 포함)에 사용할 수 있다.</para>
+      <para><systemitem class="filesystem">sysfs</systemitem> 파일 시스템은 위에서 간략히 언급했다. 그렇다면 <systemitem class="filesystem">sysfs</systemitem>는 시스템에 어떤 장치가 존재하는지, 또 그 장치들에 어떤 장치 번호를 사용해야 하는지를 어떻게 알 수 있을까? 커널 내부로 컴파일된 드라이버는 커널에 의해 감지되는 대로 장치를 <systemitem class="filesystem">sysfs</systemitem>(내부적으론 devtmpfs)에 직접 등록한다. 모듈로 컴파일된 드라이버는 모듈이 로드될 때 등록된다. <systemitem class="filesystem">sysfs</systemitem> 파일 시스템이 마운트되고나면(/sys에), 드라이버가 <systemitem class="filesystem">sysfs</systemitem>에 등록한 데이터는 유저스페이스 프로세스와 udevd에서 사용 가능하여 장치 노드 수정을 포함한 처리에 쓰인다.</para>
 
     </sect3>
 
     <sect3>
       <title>장치 노드 생성</title>
 
-      <para>장치 파일은 커널에 의해 <systemitem class="filesystem">devtmpfs</systemitem> 파일 시스템으로 생성된다. 장치 노드를 등록하려는 모든 드라이버는 <systemitem class="filesystem">devtmpfs</systemitem>를 통해 (드라이버 코어에 의해) 작업을 수행한다. <systemitem class="filesystem">devtmpfs</systemitem> 인스턴스가 <filename class="directory">/dev</filename>에 마운트되면, 처음에 장치 노드가 고정된 이름과 권한, 소유자를 갖고 생성된다.</para>
+      <para>장치 파일은 커널에 의해 <systemitem class="filesystem">devtmpfs</systemitem> 파일 시스템으로 생성된다. 장치 노드를 등록하려는 모든 드라이버는 <systemitem class="filesystem">devtmpfs</systemitem>를 통해 (드라이버 코어에 의해) 작업을 수행한다. <systemitem class="filesystem">devtmpfs</systemitem> 인스턴스가 <filename class="directory">/dev</filename>에 마운트되면, 장치 노드가 고정된 이름과 권한, 소유자를 갖고 초기화되어 생성된다.</para>
 
-      <para>잠시 후, 커널은 uevent를 <command>udevd</command>로 보낼 것이다. <filename class="directory">/etc/udev/rules.d</filename>, <filename class="directory">/lib/udev/rules.d</filename>, 및 <filename class="directory">/run/udev/rules.d</filename> 디렉토리에 있는 파일들에 지정된 규칙에 따라, <command>udevd</command>는 장치 노드에 대한 추가 심볼릭 링크를 만들거나, 장치 노드 권한, 소유자 또는 그룹을 변경하거나, 해당 개체에 대한 내부 <command>udevd</command> 데이터베이스 항목(이름)을 수정한다.</para>
+      <para>그리고나서, 커널은 uevent를 <command>udevd</command>로 보낸다. <filename class="directory">/etc/udev/rules.d</filename>, <filename class="directory">/lib/udev/rules.d</filename>, <filename class="directory">/run/udev/rules.d</filename> 디렉토리에 있는 파일들에 지정된 규칙에 따라, <command>udevd</command>는 장치 노드에 대한 추가 심볼릭 링크를 만들거나, 장치 노드 권한, 소유자 또는 그룹을 변경하거나, 해당 개체에 대한 내부 <command>udevd</command> 데이터베이스 항목(이름)을 수정한다.</para>
 
-      <para>이 세 디렉토리 안의 규칙들은 번호가 메겨지고 디렉토리들은 모두 병합된다. 만약 <command>udevd</command>가 생성 중인 장치에 대한 규칙을 찾지 못하면, 처음에 사용된 <systemitem class="filesystem">devtmpfs</systemitem>에 권한과 소유권을 남긴다.</para> </sect3>
+      <para>이 세 디렉토리 안의 규칙들은 번호가 메겨지고 디렉토리들은 모두 병합된다. 만약 <command>udevd</command>가 생성 중인 장치에 대한 규칙을 찾지 못하면, <systemitem class="filesystem">devtmpfs</systemitem>가 처음 사용된 장치의 권한과 소유권을 남긴다.</para> </sect3>
       
     <sect3 id="module-loading">
       <title>모듈 로딩</title>
 
       <para>모듈로 컴파일된 장치 드라이버에는 별칭(alias)이 내장되어 있을 수 있다. 별칭은 <command>modinfo</command> 프로그램의 출력에서 볼 수 있으며 일반적으로 모듈이 지원하는 장치의 버스 고유 식별자와 관련이 있다. 예를 들어, <emphasis>snd-fm801</emphasis> 드라이버는 벤더 ID가 0x1319이고 장치 ID가 0x0801인 PCI 장치를 지원하며, <quote>pci:v00001319d00000801sv*sd*bc04sc01i*</quote>라는 별칭을 갖고 있다. 대부분의 장치는, 버스 드라이버가 <systemitem class="filesystem">sysfs</systemitem>를 통해 장치를 처리할 드라이버의 별칭을 내보낸다. 다시 말해, <filename>/sys/bus/pci/devices/0000:00:0d.0/modalias</filename> 파일은 문자열 <quote>pci:v00001319d00000801sv00001319sd00001319bc04sc01i00</quote>을 담고 있다.
-      Udev와 함께 제공되는 기본 규칙은 <command>udevd</command>가 <envar>MODALIAS</envar> uevent 환경 변수의 내용(sysfs의 <filename>modalias</filename> 파일 내용과 같아야 함)으로 <command>/sbin/modprobe</command>를 호출하여, 와일드카드 확장 후 별칭이 이 문자열과 일치하는 모든 모듈을 로딩하게 한다.</para>
+      Udev와 함께 제공되는 기본 규칙은 <command>udevd</command>가 <envar>MODALIAS</envar> uevent 환경 변수의 내용(sysfs의 <filename>modalias</filename> 파일 내용과 같음)으로 <command>/sbin/modprobe</command>를 호출하여, 와일드카드 확장 후 별칭이 이 문자열과 일치하는 모든 모듈을 로딩하게 한다.</para>
 
       <para>이 예에서는, 구식(그리고 원치 않는) <emphasis>forte</emphasis> 드라이버가 사용 가능하다면, <emphasis>snd-fm801</emphasis> 외에도 추가적으로 로드된다는 것을 의미한다. 원치 않는 드라이버 로드를 방지하려면 아래를 참고하라.</para>
 
@@ -157,7 +157,7 @@
     <itemizedlist>
 
       <listitem>
-        <para><systemitem class="filesystem">devfs</systemitem>의 유저 스페이스 구현
+        <para><systemitem class="filesystem">devfs</systemitem>의 유저스페이스 구현
         <ulink url="http://www.kroah.com/linux/talks/ols_2003_udev_paper/Reprint-Kroah-Hartman-OLS2003.pdf"/></para>
       </listitem>
 

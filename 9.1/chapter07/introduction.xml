@@ -10,7 +10,7 @@
 
   <title>도입</title>
 
-    <para>리눅스 시스템 부팅은 여러 작업들을 수반한다. 그 과정들은 반드시 가상, 실제 파일 시스템을 모두 마운트하고, 장치를 초기화하며, 스왑을 활성화하고, 파일 시스템 무결성 확인, 스왑 파티션이나 파일 마운트, 시스템 시계 설정, 네트워크 시작, 시스템에 필요한 데몬 시작, 사용자가 필요로 하는 사용자 지정 작업들을 수행해야 한다. 이 절차는 작업들이 올바른 순서로 수행되도록 구성되어야 하지만 동시에 가능한 한 빨리 실행되어야 한다.</para>
+    <para>리눅스 시스템 부팅은 여러 작업들을 수반한다. 이 과정 중에는 반드시 가상, 실제 파일 시스템을 모두 마운트하고, 장치 초기화, 스왑 활성화, 파일 시스템 무결성 확인, 스왑 파티션 또는 파일 마운트, 시스템 시계 설정, 네트워크 시작, 시스템에 필요한 데몬 시작, 사용자가 필요로 하는 사용자 지정 작업들을 수행해야 한다. 이 절차는 작업들이 올바른 순서로 수행되도록 구성되어야 하지만 동시에 가능한 한 빨리 실행되어야 한다.</para>
 
 <!--    <para>In the packages that were installed in Chapter&nbsp;6, there were two
     different boot systems installed.  LFS provides the ability to easily
@@ -23,7 +23,7 @@
 
     <para>System V는 약 1983년부터 리눅스 등 유닉스와 유닉스 계열 시스템에서 사용되고 있는 고전적인 부팅 절차이다. <command>login</command>(getty를 통한)같은 기본 프로그램을 시작하고 스크립트를 실행하는, <command>init</command>이라는 작은 프로그램으로 구성되어 있다. 보통 <command>rc</command>라는 이름의 이 스크립트는 시스템 초기화에 필요한 작업을 수행하는 추가적인 스크립트들의 실행을 관리한다.</para>
 
-    <para><command>init</command> 프로그램은 <filename>/etc/inittab</filename> 파일에 의해 제어되며 사용자가 실행할 수 있는 run level로 준비된다:</para>
+    <para><command>init</command> 프로그램은 <filename>/etc/inittab</filename> 파일에 의해 제어되며 사용자가 실행할 수 있는 run level들로 구성되어 있다:</para>
 
 <literallayout>
 0 &mdash; 시스템 종료(halt)
@@ -55,7 +55,7 @@
 
     <itemizedlist>
       <listitem>
-          <para>비교적 느린 부팅 속도. 평균적인 속도의 LFS 시스템은 첫 번째 커널 메시지에서 로그인 프롬프트까지 부팅 시간을 측정했을 때 8-12초가 걸린다. 네트워크 연결은 일반적으로 로그인 프롬프트 후 약 2초 후에 수립된다.</para>
+          <para>비교적 느린 부팅 속도. 평균적인 속도의 LFS 시스템은 첫 번째 커널 메시지부터 로그인 프롬프트까지 부팅 시간을 측정했을 때 8-12초가 걸린다. 네트워크 연결은 일반적으로 로그인 프롬프트 후 약 2초 후에 수립된다.</para>
       </listitem>
 
       <listitem>

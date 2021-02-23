@@ -14,7 +14,7 @@
 
 <screen><userinput>rm -rf /tmp/*</userinput></screen>
 
-  <para>이제 로그아웃한 후 업데이트된 chroot 명령을 사용하여 chroot 환경으로 다시 진입하라. 이제부터는, 종료 후에 chroot 환경으로 다시 진입해야 하는 경우 이 업데이트된 chroot 명령을 사용하라:</para>
+  <para>이제 로그아웃한 후 업데이트된 chroot 명령을 사용하여 chroot 환경으로 다시 진입하라. 이제부터는, 종료 후에 chroot 환경으로 다시 진입해야 할 때 이 업데이트된 chroot 명령을 사용하라:</para>
 
 <screen role="nodump"><userinput>logout
 
@@ -24,13 +24,13 @@ chroot "$LFS" /usr/bin/env -i          \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
     /bin/bash --login</userinput></screen>
 
-  <para>이렇게 하는 이유는 <filename class="directory">/tools</filename>의 프로그램들이 더 이상 필요하지 않기 때문이다. 이런 이유로 원한다면 <filename class="directory">/tools</filename> 디렉토리를 삭제해도 좋다.</para>
+  <para>이렇게 하는 이유는 <filename class="directory">/tools</filename>의 프로그램들이 더 이상 필요하지 않기 때문이다. 따라서 원한다면 <filename class="directory">/tools</filename> 디렉토리를 삭제해도 좋다.</para>
 
   <note>
     <para><filename class="directory">/tools</filename>를 삭제하면 툴체인 테스트 실행에 사용되었던 Tcl, Expect, DejaGNU의 임시 복사본도 삭제된다. 나중에 이러한 프로그램이 필요하면 다시 컴파일하고 다시 설치해야 한다. BLFS 책에는 이에 대한 지침이 수록되어 있다(<ulink url="&blfs-root;"/> 참고).</para>
   </note>
 
-  <para>수동으로 또는 재부팅하여 가상 커널 파일 시스템이 마운트 해제된 경우, chroot로 다시 진입할 때 가상 커널 파일 시스템이 마운트되었는지 확인하라. 이 과정은 <xref linkend="ch-system-bindmount"/> 및 <xref linkend="ch-system-kernfsmount"/>에서 설명되었다.</para>
+  <para>재부팅으로 인해 가상 커널 파일 시스템이 마운트 해제되었거나 수동으로 해제했다면 chroot로 다시 진입할 때 가상 커널 파일 시스템이 마운트되었는지 확인하라. 이 과정은 앞서 <xref linkend="ch-system-bindmount"/> 및 <xref linkend="ch-system-kernfsmount"/>에서 설명되었다.</para>
 
   <para>여러 패키지의 회귀 테스트를 통과하기 위해 이 장 앞 부분에서 지우지 않은 정적 라이브러리들이 몇 개 있었다. 이 라이브러리들은 binutils, bzip2, e2fsprogs, flex, libtool, zlib에 있던 것들이다. 원한다면 지금 삭제하라:</para>
 
@@ -41,7 +41,7 @@ rm -f /usr/lib/libltdl.a
 rm -f /usr/lib/libfl.a
 rm -f /usr/lib/libz.a</userinput></screen>
 
-  <para>/usr/lib 및 /usr/libexec 디렉토리에도 파일 이름 확장자가 .la인 여러 파일들이 설치되었다. 이는 "libtool 아카이브" 파일이며 일반적으로 리눅스 시스템에서는 필요하지 않다. 이 시점에서는 이 중 어느 것도 필요하지 않다. 제거하려면 다음을 실행하라:</para>
+  <para>/usr/lib 및 /usr/libexec 디렉토리에도 파일 이름의 확장자가 .la인 여러 파일들이 설치되었다. 이는 "libtool 아카이브" 파일이며 일반적으로 리눅스 시스템에서는 필요하지 않다. 이 시점에서는 이 중 어느 것도 필요하지 않다. 제거하려면 다음을 실행하라:</para>
 
 <screen><userinput>find /usr/lib /usr/libexec -name \*.la -delete</userinput></screen>
 
