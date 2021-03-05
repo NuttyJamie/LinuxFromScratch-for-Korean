@@ -14,20 +14,20 @@
 
     <title>네트워크 장치</title>
 
-    <para>Udev는 기본적으로 펌웨어/BIOS 데이터 또는 버스, 슬롯, MAC 주소와 같은 물리적 특성을 따라 네트워크 장치를 명명한다. 이 명명 규칙의 목적은 네트워크 카드가 발견된 시간에 근거하지 않고 네트워크 장치 이름이 일관성 있게 명명되도록 하는 것이다. 예를 들어 인텔과 리얼텍이 만든 네트워크 카드가 두 장 있는 컴퓨터에서 인텔이 제작한 네트워크 카드는 eht0이 되고 리얼텍 카드는 eth1이 될 수 있다. 어떤 경우에는 재부팅 후에 카드 번호가 다시 반대로 매겨지기도 한다.</para>
+    <para>Udev는 기본적으로 펌웨어/BIOS 데이터 또는 버스, 슬롯, MAC 주소와 같은 물리적 특성에 따라 네트워크 장치를 명명한다. 이 명명 규칙의 목적은 네트워크 장치 이름이 장치가 인식된 시간에 근거하지 않고  일관성 있게 명명되도록 하는 것이다. 예를 들어 인텔과 리얼텍의 네트워크 카드가 두 개 있는 컴퓨터에서, 인텔 네트워크 카드 이름이 eht0, 리얼텍 카드는 eth1이 되었다면 재부팅 후에는 카드 번호가 서로 반대로 매겨지기도 한다.</para>
     
-    <para>새로운 명명 체계에서 일반적인 네트워크 장치 이름은 enp5s0 또는 wlp3s0과 같은 것이 될 것이다. 이 명명 규칙을 원하지 않는다면, 전통적인 명명 방식 또는 사용자 정의 방식을 구현할 수 있다.</para>
+    <para>새로운 명명 체계에서 일반적인 네트워크 장치 이름은 enp5s0 또는 wlp3s0과 같은 것이 될 것이다. 이 명명 규칙을 원하지 않는다면, 전통적인 명명 방식이나 사용자 정의 방식도 사용할 수 있다.</para>
 
     <sect3>
       <title>커널 명령줄에서 영구 명명 비활성화</title>
    
-      <para>eth0, eth1, 등을 사용한 전통적인 명명 방식은 커널 명령줄에 <userinput>net.ifnames=0</userinput>을 추가하여 복원할 수 있다. 이는 동일한 유형의 이더넷 장치가 하나만 있는 시스템에 가장 적합하다. 노트북은 eth0과 wlan0이라는 이름의 다중 이더넷 연결을 가지고 있으며 이 방법의 후보이기도 하다. 명령행은 GRUB 구성 파일에서 전달된다. <xref linkend="grub-cfg"/>를 참고하라.</para>
+      <para>eth0, eth1과 같이 명명하는 기존 방식은 커널 명령줄에 <userinput>net.ifnames=0</userinput>을 추가하여 복원할 수 있다. 이는 동일한 유형의 이더넷 장치가 단 한 개만 존재하는 시스템에 가장 적합하다. 노트북은 흔히 eth0과 wlan0이라는 이름으로 이더넷 연결 방식을 여러 개 가지고 있으며 이 방법을 사용할 법한 대상이기도 하다. 명령행은 GRUB 구성 파일에서 전달된다. <xref linkend="grub-cfg"/>를 참고하라.</para>
     </sect3>
 
     <sect3>
       <title>사용자 지정 Udev 규칙 생성</title>
    
-      <para>명명 방식은 사용자 지정 Udev 규칙을 생성하여 수정할 수 있다. 초기 규칙을 생성하는 스크립트가 포함되어있다. 다음을 실행하여 이러한 규칙들을 생성하라:</para>
+      <para>명명 방식은 사용자 지정 Udev 규칙을 생성함으로써 변경할 수 있다. 초기 규칙을 생성하는 스크립트가 포함되어있다. 다음을 실행하여 이러한 규칙들을 생성하라:</para>
 
 <screen role="install"><userinput>bash /lib/udev/init-net-rules.sh</userinput></screen>
 
@@ -35,30 +35,30 @@
 
 <screen role="nodump"><userinput>cat /etc/udev/rules.d/70-persistent-net.rules</userinput></screen>
 
-      <note><para>MAC 주소가 수동으로 네트워크 카드에 할당되었거나 Qemu나 Xen과 같은 가상 환경에서 MAC 주소를 할당받는 등의 경우, 주소가 일관성있게 할당되지 않기 때문에 네트워크 규칙 파일이 생성되지 않았을 수 있다. 이런 경우엔 이 방법을 사용할 수 없다.</para></note>
+      <note><para>MAC 주소가 네트워크 카드에 수동으로 할당되었거나, Qemu, Xen과 같은 가상 환경에서 MAC 주소를 할당받은 경우와 같은 일부 상황에서는 주소가 일관되게 할당되지 않았기 때문에 네트워크 규칙 파일이 생성되지 않았을 수 있다. 이런 경우엔 이 방법을 사용할 수 없다.</para></note>
   
-      <para>이 파일은 각 NIC에 대해 두 줄씩 이어지는 주석 블록으로 시작한다. 각 NIC의 첫 번째 줄은 하드웨어 ID(예를 들면 PCI 카드인 경우 PCI 공급 업체와 장치 ID)와 드라이버를 찾을 수 있는 경우 괄호 안에 표시하는 설명이다. 하드웨어 ID나 드라이버 모두 인터페이스를 제공할 이름을 명명하는 데 사용되지 않는다; 이 정보는 참조용일 뿐이다. 두 번째 줄은 이 NIC와 일치하고 실제로 이름을 할당하는 Udev 규칙이다.</para>
+      <para>이 파일은 각 NIC에 대해 두 줄씩 이어지는 주석 블록으로 시작한다. 각 NIC의 첫 번째 줄은 드라이버를 찾을 수 있는 경우 괄호 안의 드라이버와 함께 해당 하드웨어 ID(PCI 카드를 예로 들면 PCI 공급 업체와 장치 ID)를 보여주는 주석이다. 하드웨어 ID나 드라이버 모두 인터페이스를 제공할 이름을 명명하는 데 사용되지 않는다; 이 정보는 참조용일 뿐이다. 두 번째 줄이 이 NIC와 일치하며 실제로 이름을 할당하는 Udev 규칙이다.</para>
   
       <para>모든 Udev 규칙은 쉼표와 선택적 공백으로 구분된 여러 개의 키로 구성된다. 이 규칙의 키와 각각의 설명은 다음과 같다:</para>
   
       <itemizedlist>
         <listitem>
-          <para><literal>SUBSYSTEM=="net"</literal> - Udev가 네트워크 카드가 아닌 장치들을 무시하도록 한다.</para>
+          <para><literal>SUBSYSTEM=="net"</literal> - 네트워크 카드가 아닌 장치들을 무시한다.</para>
         </listitem>
         <listitem>
-          <para><literal>ACTION=="add"</literal> - Udev가 추가가 아닌 uevent에 대해서는 이 규칙을 무시하도록 한다("삭제" 및 "변경" uevents도 발생하지만 네트워크 인터페이스의 이름을 바꿀 필요는 없다).</para>
+          <para><literal>ACTION=="add"</literal> - add가 아닌 uevent에 대해서는 이 규칙을 무시하도록 한다("remove" 및 "change" uevents도 발생하지만 네트워크 인터페이스의 이름을 바꿀 필요는 없다).</para>
         </listitem>
         <listitem>
-          <para><literal>DRIVERS=="?*"</literal> - Udev가 VLAN 또는 브릿지 하위 인터페이스를 무시하도록 한다(이들 하위 인터페이스들은 드라이버를 갖지 않기 때문). 이 하위 인터페이스들은 할당될 이름이 부모 장치들과 충돌하기 때문에 생략된다.</para>
+          <para><literal>DRIVERS=="?*"</literal> - Udev가 VLAN이나 브릿지 하위 인터페이스를 무시하도록 한다(이 하위 인터페이스들은 드라이버를 갖지 않기 때문). 이 하위 인터페이스들은 할당될 이름이 부모 장치와 충돌하기 때문에 건너뛴다.</para>
         </listitem>
         <listitem>
-          <para><literal>ATTR{address}</literal> - 이 키의 값은 NIC의 MAC 주소이다.</para>
+          <para><literal>ATTR{address}</literal> - NIC의 MAC 주소이다.</para>
         </listitem>
         <listitem>
-          <para><literal>ATTR{type}=="1"</literal> - 다중 가상 인터페이스를 생성하는 특정 무선 드라이버의 경우 규칙이 주 인터페이스와 짝을 이루도록 한다. VLAN과 브릿지 하위 인터페이스가 생략된 것과 같은 이유로 보조 인터페이스는 생략된다: 그렇지 않으면 이름 충돌이 발생할 수 있다.</para>
+          <para><literal>ATTR{type}=="1"</literal> - 여러 가상 인터페이스를 생성하는 특정 무선 드라이버의 경우 규칙이 주 인터페이스와만 짝을 이루도록 한다. VLAN과 브릿지 하위 인터페이스와 같은 이유로 보조 인터페이스는 생략된다: 그렇지 않으면 이름이 충돌할 수 있다.</para>
         </listitem>
         <listitem>
-          <para><literal>NAME</literal> - 이 키의 값은 Udev가 이 인터페이스에 할당할 이름이다.</para>
+          <para><literal>NAME</literal> - Udev가 이 인터페이스에 할당할 이름이다.</para>
         </listitem>
       </itemizedlist>
   
@@ -72,33 +72,33 @@
 
     <title>CD-ROM symlinks</title>
 
-    <para>추후 설치할 수 있는 일부 소프트웨어(예: 다양한 미디어 플레이어)는 CD-ROM이나 DVD-ROM을 가리키는 <filename class="symlink">/dev/cdrom</filename> 및 <filename class="symlink">/dev/dvd</filename> 심볼릭 링크가 존재할 것으로 예상한다. 또 이러한 심볼릭 링크들을 참조하도록 <filename>/etc/fstab</filename>에 추가하는 것이 편리할 것이다. Udev에는 각 장치의 기능에 따라 이러한 심볼릭 링크를 생성하기 위한 규칙 파일을 생성하는 스크립트가 함께 제공되지만, 스크립트를 사용하도록 하려면 두 가지 작동 모드 중 어떤 모드를 사용할지 결정해야 한다.</para>
+    <para>추후 설치할지도 모르는 일부 소프트웨어(예: 다양한 미디어 플레이어)에는 CD-ROM이나 DVD-ROM을 가리키는 <filename class="symlink">/dev/cdrom</filename> 및 <filename class="symlink">/dev/dvd</filename> 심볼릭 링크가 필요하다. 또 이러한 심볼릭 링크들을 참조하도록 <filename>/etc/fstab</filename>에 추가하는 것이 편리할 것이다. Udev에는 각 장치의 기능에 따라 이러한 심볼릭 링크를 생성하기 위해 규칙 파일을 생성하는 스크립트가 함께 제공되지만, 스크립트를 사용하도록 하려면 두 가지 작동 모드 중 어떤 모드를 사용할지 결정해야 한다.</para>
 
-    <para>첫째는 스크립트가 <quote>경로별</quote> 모드(USB 및 FireWire 장치의 경우 기본적으로 사용됨)에서 작동할 수 있고, 여기서 스크립트가 생성하는 규칙은 CD나 DVD 장치의 물리적 경로에 따라 달라진다. 둘째는 <quote>id 별</quote> 모드(IDE와 SCSI 장치에서의 기본값)로 작동할 수 있으며, 여기서 생성되는 규칙은 CD나 DVD 장치 자체에 저장된 식별 문자열에 따라 달라진다. 경로는 Udev의 <command>path_id</command> 스크립트에 의해 결정되며, 식별 문자열은 보유하고 있는 장치 유형에 따라 <command>ata_id</command>나 <command>scsi_id</command> 프로그램에 의해 하드웨어로부터 인식된다.</para>
+    <para>첫째는 스크립트가 <quote>by-path</quote> 모드(USB 및 FireWire 장치에서 기본적으로 사용됨)로 작동할 수 있고, 여기서는 스크립트가 생성하는 규칙이 CD나 DVD 장치의 물리적 경로에 따라 달라진다. 둘째는 <quote>by-id</quote> 모드(IDE와 SCSI 장치에서의 기본값)로 작동할 수 있으며, 여기서 생성되는 규칙은 CD나 DVD 장치 자체에 저장된 식별 문자열에 따라 달라진다. 경로는 Udev의 <command>path_id</command> 스크립트에 의해 결정되며, 식별 문자열은 보유하고 있는 장치 유형에 따라 <command>ata_id</command>나 <command>scsi_id</command> 프로그램에 의해 하드웨어로부터 인식된다.</para>
 
-    <para>각 접근법마다 장점이 있다; 어떤 방법을 사용할지는 어떤 종류의 장치가 변경될 수 있는지에 따라 달라질 것이다. 드라이브를 다른 IDE 포트나 다른 USB 커넥터로 옮기려는 경우와 같이, 장치에 대한 물리적 경로(즉, 연결되는 포트 또는 슬롯)가 변경될 것이라면 <quote>id 별</quote> 모드를 사용하라. 반면에 장치 수명이 끝나가서 동일한 기능의 다른 장치로 교체하고 동일한 커넥터에 꽂는다면, 장치의 식별이 변경될 것이기 때문에 <quote>경로별</quote> 모드를 사용해야 한다.</para>
+    <para>각 접근법마다 장점이 있다; 어떤 방법을 사용할지는 어떤 종류의 장치가 변경될 수 있는지에 따라 달라질 것이다. 드라이브를 다른 IDE 포트나 다른 USB 커넥터로 옮기려는 때와 같이, 장치에 대한 물리적 경로(즉, 연결되는 포트 또는 슬롯)가 변경될 것이라면 <quote>by-id</quote> 모드를 사용하라. 반면에 장치 수명이 끝나가서 동일한 기능의 다른 장치로 교체하고 동일한 커넥터에 꽂는다면, 장치의 식별이 변경될 것이기 때문에 <quote>by-path</quote> 모드를 사용해야 한다.</para>
 
-    <para>두 경우가 모두 일어날 수 있다면, 더 자주 발생할 것으로 예상되는 유형에 따라 모드를 선택하라.</para>
+    <para>두 경우 모두 일어날 것 같다면, 더 자주 발생할 것으로 예상되는 상황에 따라 모드를 선택하라.</para>
 
 <!-- If you use by-id mode, the symlinks will survive even the transition
      to libata for IDE drives, but that is not for the book. -->
 
-    <important><para>외부 장치(예: USB 연결 CD 드라이브)는 장치를 새 외부 포트에 연결할 때마다 물리적 경로가 변경되기 때문에 경로별 모드로 고정해선 안 된다. 모든 외부 연결식 장치들은, 물리적 경로로 인식하도록 Udev 규칙을 작성할 경우 이 문제가 발생할 것이다; 이러한 문제는 CD와 DVD 드라이브에만 국한되지 않는다.</para></important>
+    <important><para>외부 장치(예: USB 연결 CD 드라이브)는 장치를 새 외부 포트에 연결할 때마다 물리적 경로가 변경되기 때문에 by-path 모드를 사용해선 안 된다. 모든 외부 연결식 장치들은, 물리적 경로로 인식하도록 Udev 규칙을 작성할 경우 이 문제가 발생할 것이다; 이러한 문제는 CD와 DVD 드라이브에만 국한되지 않는다.</para></important>
 
     <para>Udev 스크립트가 사용할 값을 보려면 해당 CD-ROM에 대해, <filename class="directory">/sys</filename> 아래(예를 들면 <filename class="directory">/sys/block/hdd</filename>)에서 해당 디렉토리를 찾아 다음과 유사한 명령을 실행하라:</para>
 
 <screen role="nodump"><userinput>udevadm test /sys/block/hdd</userinput></screen>
 
-    <para>다양한 *_id 프로그램의 출력이 나오는 행을 살펴보라. <quote>id 별</quote> 모드는 ID_SERIAL 값이 존재하고 비어있지 않으면 그 값을 사용할 것이고, 그렇지 않으면 ID_MODEL과 ID_REVISION의 조합을 사용할 것이다. <quote>경로별</quote> 모드는 ID_PATH 값을 사용할 것이다.</para>
+    <para>다양한 *_id 프로그램의 출력이 나오는 행을 살펴보라. <quote>by-id</quote> 모드는 ID_SERIAL 값이 존재하고 비어있지 않으면 그 값을 사용하고, 그렇지 않으면 ID_MODEL과 ID_REVISION의 조합을 사용한다. <quote>by-path</quote> 모드는 ID_PATH 값을 사용할 것이다.</para>
 
-    <para>기본 모드가 사용자의 상황에 적합하지 않은 경우 다음과 같이 <filename>/etc/udev/rules.d/83-cdrom-symlinks.rules</filename> 파일을 수정할 수 있다(여기서 <replaceable>모드</replaceable>는 <quote>id 별</quote> 또는 <quote>경로별</quote> 중 하나임):</para>
+    <para>기본 모드가 사용자의 상황에 적합하지 않은 경우 <filename>/etc/udev/rules.d/83-cdrom-symlinks.rules</filename> 파일을 다음과 같이 수정할 수 있다(여기서 <replaceable>모드</replaceable>는 <quote>by-id</quote> 또는 <quote>by-path</quote> 중 하나임):</para>
 
 <screen role="nodump"><userinput>sed -i -e 's/"write_cd_rules"/"write_cd_rules <replaceable>mode</replaceable>"/' \
     /etc/udev/rules.d/83-cdrom-symlinks.rules</userinput></screen>
 
-    <para>LFS 시스템에 호스트의 <filename class="directory">/dev</filename> 디렉토리를 바인딩 마운트했으며 호스트에 심볼릭 링크가 있다고 가정하기 때문에, 지금은 규칙 파일이나 심볼릭 링크를 생성할 필요가 없다는 점을 참고하라. LFS 시스템을 처음 부팅할 때 규칙과 심볼릭 링크가 생성된다.</para>
+    <para>지금은 규칙 파일이나 심볼릭 링크를 생성할 필요가 없다는 점을 참고하라. 왜냐하면 LFS 시스템에 호스트의 <filename class="directory">/dev</filename> 디렉토리를 바인딩 마운트했으며 호스트에 심볼릭 링크가 존재한다고 가정하기 때문이다. LFS 시스템을 처음 부팅하면 규칙과 심볼릭 링크가 생성될 것이다.</para>
 
-    <para>그러나, CD-ROM 장치가 여러 개 있으면 장치가 예측 가능한 순서로 검색되지 않기 때문에 해당 시점에 생성된 심볼릭 링크가 호스트를 가리키는 장치와는 다른 장치를 가리킬 수 있다. LFS 시스템을 처음 부팅할 때 생성되는 할당은 안정적이기 때문에, 동일한 장치를 가리키기 위해 두 시스템의 심볼릭 링크가 필요한 경우에만 문제가 된다. 필요한 경우 부팅 후 생성된 <filename>/etc/udev/rules.d/70-persistent-cd.rules</filename> 파일을 검사하고 편집하여 할당된 심볼릭 링크가 필요한 것과 일치하는지 확인하라.</para>
+    <para>그러나, 만약 CD-ROM 장치가 여러 개 있다면 장치가 예측 가능한 순서대로 검색되지 않기 때문에, 해당 시점에 생성된 심볼릭 링크가 호스트에서 가리키던 장치와는 다른 장치를 가리킬 수 있다. LFS 시스템을 처음 부팅할 때 할당되는 링크는 안정적이기 때문에, 동일한 장치를 가리키는 데에 양쪽 시스템 모두 심볼릭 링크가 필요한 경우에만 문제가 된다. 필요하다면 부팅 후 생성된 <filename>/etc/udev/rules.d/70-persistent-cd.rules</filename> 파일을 검사하고 편집하여 할당된 심볼릭 링크가 필요한 것과 일치하도록 하라.</para>
 
   </sect2>
 
@@ -106,9 +106,9 @@
 
     <title>중복 장치 처리</title>
 
-    <para><xref linkend="ch-config-udev"/>에서 설명했듯이, <filename class="directory">/dev</filename>에 동일한 기능을 가진 장치가 나타나는 순서는 본질적으로 무작위이다. 예를 들어 USB 웹 카메라와 TV 튜너가 있는 경우 <filename>/dev/video0</filename>은 카메라를, <filename>/dev/video1</filename>은 튜너를 참조할 때가 있고, 재부팅 후 순서가 반대로 될 수가 있다. 사운드 카드와 네트워크 카드를 제외한 모든 종류의 하드웨어에 대해 사용자 지정 영구 심볼릭 링크를 위한 Udev 규칙을 생성하여 이 문제를 해결할 수 있다. 네트워크 카드의 경우는 <xref linkend="ch-config-network"/>에서 별도로 다루며, 사운드 카드 구성은 <ulink url="&blfs-book;postlfs/devices.html">BLFS</ulink>에서 확인할 수 있다.</para>
+    <para><xref linkend="ch-config-udev"/>에서 설명했듯이, 동일한 기능의 장치끼리는 <filename class="directory">/dev</filename>에 나타나는 순서가 본질적으로 무작위이다. 가령 USB 웹 카메라와 TV 튜너가 있을 때 <filename>/dev/video0</filename>은 카메라를, <filename>/dev/video1</filename>은 튜너를 참조할 때가 있고, 재부팅 후에는 순서가 반대로 될 수도 있다. 이 문제는 사운드 카드와 네트워크 카드를 제외한 모든 종류의 하드웨어에 대해 사용자 지정 영구 심볼릭 링크를 위한 Udev 규칙을 생성하여 해결할 수 있다. 네트워크 카드의 경우는 <xref linkend="ch-config-network"/>에서 별도로 다루며, 사운드 카드 구성은 <ulink url="&blfs-book;postlfs/devices.html">BLFS</ulink>에서 확인할 수 있다.</para>
 
-    <para>이 문제가 발생할 가능성이 높은 각 장치에 대해(현재 리눅스 배포판에서 문제가 없더라도), <filename class="directory">/sys/class</filename>나 <filename class="directory">/sys/block</filename> 아래에서 해당 디렉토리를 찾아보라. 비디오 장치는 <filename class="directory">/sys/class/video4linux/video<replaceable>X</replaceable></filename>일 것이다. 장치를 고유하게 식별하는 속성을 파악하라(일반적으로 공급 업체와 제품 ID 또는 시리얼 넘버이다):</para>
+	<para>이 문제가 발생할 가능성이 높은 각 장치에 대해(현재 사용 중인 리눅스 배포판에서 문제가 없더라도), <filename class="directory">/sys/class</filename>나 <filename class="directory">/sys/block</filename> 아래에서 해당 디렉토리를 찾아보라. 비디오 장치는 아마 <filename class="directory">/sys/class/video4linux/video<replaceable>X</replaceable></filename>일 것이다. 장치를 고유하게 식별하는 속성을 파악하라(보통은 공급 업체와 제품 ID 그리고/또는 시리얼 넘버가 이에 속한다):</para>
 
 <screen role="nodump"><userinput>udevadm info -a -p /sys/class/video4linux/video0</userinput></screen>
 
@@ -124,7 +124,7 @@ KERNEL=="video*", ATTRS{device}=="0x036f", ATTRS{vendor}=="0x109e", \
 </literal>
 EOF</userinput></screen>
 
-    <para>이제 <filename>/dev/video0</filename>과 <filename>/dev/video1</filename> 장치는 여전히 튜너와 웹 카메라를 임의로 가리키지만(따라서 직접 사용해서는 안 된다), <filename>/dev/tvtuner</filename>와 <filename>/dev/webcam</filename> 심볼릭 링크는 항상 올바른 장치를 가리킨다.</para>
+    <para>그 결과, <filename>/dev/video0</filename>과 <filename>/dev/video1</filename> 장치는 여전히 튜너와 웹 카메라를 무작위로 가리키겠지만(따라서 직접 사용해서는 안 된다), <filename>/dev/tvtuner</filename>와 <filename>/dev/webcam</filename> 심볼릭 링크는 항상 올바른 장치를 가리킬 것이다.</para>
 
  </sect2>
 

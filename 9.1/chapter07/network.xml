@@ -27,9 +27,9 @@
   <sect2>
     <title>네트워크 인터페이스 구성 파일 생성</title>
 
-    <para>네트워크 스크립트에 어떤 인터페이스가 쓰일지는 일반적으로 <filename class="directory">/etc/sysconfig/</filename>에 있는 파일에 따라 달라진다. 이 디렉토리에는 <filename>ifconfig.xyz</filename>같은, 구성할 각 인터페이스에 대한 파일이 있어야 하며 여기서 <quote>xyz</quote>는 네트워크 카드를 설명한다. 대개 인터페이스 이름(가령 eth0)이 책정된다. 이 파일 안에는 IP 주소, 서브넷 마스크 등과 같은 이 인터페이스의 속성이 있다. 파일 이름의 확장자 앞부분은 <emphasis>ifconfig</emphasis>가 되어야 한다.</para>
+    <para>네트워크 스크립트에 어떤 인터페이스가 쓰일지는 일반적으로 <filename class="directory">/etc/sysconfig/</filename>에 있는 파일에 따라 달라진다. 이 디렉토리에는 <filename>ifconfig.xyz</filename>같은, 구성할 각 인터페이스에 대한 파일이 포함되어야 한다. 여기서 <quote>xyz</quote>는 네트워크 카드를 칭한다. 보통 인터페이스 이름(가령 eth0)이 적합하다. 이 파일 안에는 IP 주소, 서브넷 마스크 등과 같은 해당 인터페이스의 속성이 있다. 파일 이름의 확장자 앞부분은 <emphasis>ifconfig</emphasis>가 되어야 한다.</para>
 
-    <note><para>앞 절의 절차를 따르지 않았다면 Udev는 시스템 물리적 특성에 따라 enp2s1 등의 네트워크 카드 인터페이스 이름을 할당할 것이다. 인터페이스 이름을 모르겠다면 시스템을 부팅한 후 항상 <command>ip link</command>나 <command>ls /sys/class/net</command>를 실행하면 된다.</para></note>
+    <note><para>앞 절의 절차를 따르지 않았다면 Udev는 네트워크 카드 인터페이스 이름을 시스템 물리적 특성에 따라 enp2s1과 같은 식으로 할당할 것이다. 인터페이스 이름을 모르겠다면 시스템을 부팅한 후 언제든지 <command>ip link</command>나 <command>ls /sys/class/net</command>를 실행하면 된다.</para></note>
 
     <para>다음 명령은 정적 IP 주소를 가진 <emphasis>eth0</emphasis> 장치의 샘플 파일을 생성한다:</para>
 <!-- jhalfs relies on the values for IFACE, IP, etc. If you want to change
@@ -45,17 +45,17 @@ PREFIX=<replaceable>24</replaceable>
 BROADCAST=<replaceable>192.168.1.255</replaceable></literal>
 EOF</userinput></screen>
 
-    <para>기울임꼴로 표시된 값은 모든 파일에서 적절한 설정과 맞도록 수정해야 한다.</para>
+    <para>기울임꼴로 표시된 값은 적절한 설정과 맞도록 모든 파일에서 수정해야 한다.</para>
 
-    <para><envar>ONBOOT</envar> 변수가 <quote>yes</quote>로 설정된 경우 System V 네트워크 스크립트는 시스템 부팅 중에 네트워크 인터페이스 카드(NIC)를 불러온다. <quote>yes</quote> 이외의 항목으로 설정되었다면 NIC가 네트워크 스크립트에서 무시되고 자동으로 잡히지 않는다. 인터페이스는 <command>ifup</command> 및 <command>ifdown</command> 명령으로 수동으로 시작하거나 중지할 수 있다.</para>
+    <para><envar>ONBOOT</envar> 변수가 <quote>yes</quote>로 설정되면 System V 네트워크 스크립트는 네트워크 인터페이스 카드(NIC)를 시스템 부팅 중에 불러올 것이다. <quote>yes</quote> 이외의 항목으로 설정되면 NIC는 네트워크 스크립트에서 무시되고 자동으로 잡히지 않는다. 인터페이스는 <command>ifup</command>과 <command>ifdown</command> 명령으로 수동으로 시작하거나 중지할 수 있다.</para>
 
-    <para><envar>IFACE</envar> 변수는 인터페이스 이름(예: eth0)을 정의한다. 이는 모든 네트워크 장치 구성 파일에 필요하다. 파일 이름 확장자는 반드시 이 값과 일치해야 한다.</para>
+    <para><envar>IFACE</envar> 변수는 인터페이스 이름(예: eth0)을 정의한다. 이는 모든 네트워크 장치 구성 파일에 필요하다. 파일명의 확장자는 반드시 이 값과 일치해야 한다.</para>
 
-    <para><envar>SERVICE</envar> 변수는 IP 주소를 얻기 위해 사용되는 방법을 정의한다. LFS-Bootscipts 패키지는 모듈식 IP 할당 방식이며 <filename class="directory">/lib/services/</filename> 디렉토리에 추가 파일을 만들면 다른 IP 할당 방법을 사용할 수 있다. 이는 BLFS 책에서 다루는 DHCP(Dynamic Host Configuration Protocol)에 일반적으로 사용된다.</para>
+    <para><envar>SERVICE</envar> 변수는 IP 주소를 얻기 위해 사용되는 방법을 정의한다. LFS-Bootscipts 패키지의 IP 할당 방식은 모듈형이며, <filename class="directory">/lib/services/</filename> 디렉토리에 추가 파일을 만들면 다른 IP 할당 방법을 사용할 수 있다. 이는 BLFS 책에서 다루는 DHCP(Dynamic Host Configuration Protocol)에 일반적으로 사용된다.</para>
 
-    <para><envar>GATEWAY</envar> 변수는 기본 게이트웨이 IP 주소가 있는 경우 기본 게이트웨이 IP 주소를 포함해야 한다. 그렇지 않은 경우 변수를 완전히 주석 처리하라.</para>
+    <para><envar>GATEWAY</envar> 변수는 기본 게이트웨이 IP 주소가 존재한다면 그것을 포함해야 한다. 존재하지 않는다면 이 변수 전체를 주석 처리하라.</para>
 
-    <para><envar>PREFIX</envar> 변수는 서브넷에서 사용되는 비트 수를 사용한다. IP 주소의 각 옥텟은 8비트이다. 서브넷의 넷마스크가 255.255.255.0이라면, 네트워크 번호를 지정하기 위해 처음 3개의 옥텟(24비트)을 사용한다. 넷마스크가 255.255.255.240이라면, 처음 28비트를 사용할 것이다. 보통 24비트보다 긴 접두사는 DLS과 케이블 기반 인터넷 서비스 공급자(ISP)가 사용한다. 이 예(PREFIX=24)에서 넷마스크는 255.255.255.0이다. 특정 서브넷에 따라 <envar>PREFIX</envar> 변수를 조정하라. 생략할 경우 접두사는 기본적으로 24로 지정된다.</para>
+    <para><envar>PREFIX</envar> 변수는 서브넷에서 사용되는 비트 수를 사용한다. IP 주소의 각 옥텟은 8비트이다. 서브넷의 넷마스크가 255.255.255.0이라면, 네트워크 번호를 지정하는 데에 처음 3개의 옥텟(24비트)을 사용한다. 넷마스크가 255.255.255.240이라면, 처음 28비트를 사용할 것이다. 보통 24비트보다 긴 접두어(prefix)는 DSL과 케이블 기반 인터넷 서비스 공급자(ISP)가 사용한다. 이 예(접두어=24)에서 넷마스크는 255.255.255.0이다. 특정 서브넷에 따라 <envar>PREFIX</envar> 변수를 조정하라. 생략할 경우 접두사는 기본적으로 24로 지정된다.</para>
 
     <para>자세한 정보는 <command>ifup</command> man 페이지를 참고하라.</para>
 
@@ -67,7 +67,7 @@ EOF</userinput></screen>
       <primary sortas="e-/etc/resolv.conf">/etc/resolv.conf</primary>
     </indexterm>
 
-    <para>인터넷 도메인 이름을 IP 주소로 또는 그 반대로 변환하려면 시스템에서 DNS(Domain Name Service) 이름 확인을 할 방법이 필요하다. ISP나 네트워크 관리자가 사용할 수 있는 DNS 서버의 IP 주소를 <filename>/etc/resolv.conf</filename>에 두는 것이 가장 좋다. 다음을 실행하여 파일을 작성하라:</para>
+    <para>인터넷 도메인 이름을 IP 주소로, 또는 그 반대로 변환하려면 시스템에서 DNS(Domain Name Service) 이름을 확인할 방법이 필요하다. ISP나 네트워크 관리자가 사용할 수 있는 DNS 서버의 IP 주소를 <filename>/etc/resolv.conf</filename>에 두는 것이 가장 좋다. 다음을 실행하여 파일을 작성하라:</para>
 
 <screen><userinput>cat &gt; /etc/resolv.conf &lt;&lt; "EOF"
 <literal># Begin /etc/resolv.conf
@@ -79,9 +79,9 @@ nameserver <replaceable>&lt;보조 네임서버의 IP 주소&gt;</replaceable>
 # End /etc/resolv.conf</literal>
 EOF</userinput></screen>
 
-    <para><varname>domain</varname>문은 생략하거나 <varname>search</varname> 문으로 바꿀 수 있다. 자세한 내용은 resolv.conf의 man 페이지를 참고하라.</para>
+    <para><varname>domain</varname> 문은 생략하거나 <varname>search</varname> 문으로 바꿀 수 있다. 자세한 내용은 resolv.conf의 man 페이지를 참고하라.</para>
 
-    <para><replaceable>&lt;네임서버의 IP 주소&gt;</replaceable>에 설정에 가장 적합한 DNS의 IP 주소를 입력하라. 입력 항목은 보통 두 개 이상일 것이다(예비 용도를 위한 보조 서버 필요). DNS 서버 하나만 필요하거나 원한다면 파일에서 두 번째 <emphasis>nameserver</emphasis> 행을 제거하라. IP 주소는 로컬 네트워크의 라우터일 수도 있다.</para>
+    <para><replaceable>&lt;네임서버의 IP 주소&gt;</replaceable>를 설정에 가장 적합한 DNS의 IP 주소로 대체하라. 입력 항목은 보통 두 개 이상일 것이다(예비 용도를 위한 보조 서버 필요). DNS 서버가 단 하나만 필요하거나 원한다면 파일에서 두 번째 <emphasis>nameserver</emphasis> 행을 제거하라. 로컬 네트워크에 속한 라우터의 IP 주소를 사용할 수도 있다.</para>
 
     <note>
       <para>구글 공용 IPv4 DNS 주소는 8.8.8.8과 8.8.4.4이다.</para>
@@ -97,13 +97,13 @@ EOF</userinput></screen>
       <secondary>configuring</secondary>
     </indexterm>
 
-     <para>부팅 과정 중에 <filename>/etc/hostname</filename> 파일이 시스템의 호스트 이름을 설정하는 데 사용된다.</para>
+     <para>부팅 중에 <filename>/etc/hostname</filename> 파일이 시스템의 호스트 이름을 설정하는 데 사용된다.</para>
 
      <para><filename>/etc/hostname</filename> 파일을 생성하고 다음을 실행하여 호스트 이름을 입력하라:</para>
 
 <screen><userinput>echo "<replaceable>&lt;lfs&gt;</replaceable>" &gt; /etc/hostname</userinput></screen>
 
-     <para><replaceable>&lt;lfs&gt;</replaceable>는 컴퓨터에 부여된 이름으로 바꿔야 한다. 여기에 FQDN(Fully Qualified Domain Name)을 입력하지 않도록 하라. 이는 <filename>/etc/hosts</filename> 파일에 저장된다.</para>
+     <para><replaceable>&lt;lfs&gt;</replaceable>를 컴퓨터에 부여된 이름으로 바꿔야 한다. 여기에 FQDN(Fully Qualified Domain Name)을 입력하지 않도록 하라. 그것은 <filename>/etc/hosts</filename> 파일에 저장한다.</para>
 
   </sect2>
 
@@ -124,20 +124,20 @@ EOF</userinput></screen>
        <secondary>/etc/hosts</secondary>
      </indexterm>
    
-     <para><filename>/etc/hosts</filename> 파일에서 사용할 IP 주소, FQDN(fully-qualified domain name) 및 가능한 별칭(aliases)을 결정하라. 문법은 다음과 같다:</para>
+     <para><filename>/etc/hosts</filename> 파일에서 사용할 IP 주소, FQDN 및 가능한 별칭을 결정하라. 문법은 다음과 같다:</para>
    
 <screen><literal>IP_address myhost.example.org aliases</literal></screen>
 
-     <para>컴퓨터가 인터넷에 공개되어야 하는 경우가 아닌 한(즉, 등록된 도메인과 할당된 IP 주소의 유효한 블록이 있음&mdash;대부분의 사용자는 해당되지 않음), IP 주소가 사설 네트워크 IP 주소 범위에 있도록 하라. 유효한 범위는 다음과 같다:</para>
+     <para>컴퓨터가 인터넷에 공개되어있지 않는 한(즉, 등록된 도메인과 할당된 IP 주소의 유효한 블록이 있지 않는 한&mdash;대부분의 사용자는 해당되지 않음), IP 주소가 사설 네트워크 IP 주소 범위에 있도록 하라. 유효한 범위는 다음과 같다:</para>
 
-<screen><literal>Private Network Address Range      Normal Prefix
+<screen><literal>사설 네트워크 주소 범위      일반 접두어
 10.0.0.1 - 10.255.255.254           8
 172.x.0.1 - 172.x.255.254           16
 192.168.y.1 - 192.168.y.254         24</literal></screen>
 
      <para>x는 16-31 사이의 임의의 숫자이며, y는 0-255 사이의 임의의 숫자이다.</para>
    
-     <para>유효한 사설 IP 주소는 192.168.1.1이 될 수 있다. 이 IP에 유효한 FQDN은 lfs.example.org이 된다.</para>
+     <para>유효한 사설 IP 주소는 192.168.1.1을 쓸 수 있다. 이 IP에 유효한 FQDN은 lfs.example.org이 될 것이다.</para>
    
      <para>네트워크 카드를 사용하지 않더라도 유효한 FQDN이 필요하다. 이는 특정 프로그램이 올바르게 작동하기 위함이다.</para>
    
@@ -156,7 +156,7 @@ ff02::2   ip6-allrouters
 # End /etc/hosts</literal>
 EOF</userinput></screen>
 
-     <para><replaceable>&lt;192.168.1.1&gt;</replaceable>, <replaceable>&lt;FQDN&gt;</replaceable>, <replaceable>&lt;HOSTNAME&gt;</replaceable> 값은 특정 용도나 요건에 맞게 변경해야 한다(네트워크/시스템 관리자가 IP 주소를 할당하고 컴퓨터가 기존 네트워크에 연결될 경우). 선택 사항인 별칭 이름은 생략할 수 있다.</para>
+     <para><replaceable>&lt;192.168.1.1&gt;</replaceable>, <replaceable>&lt;FQDN&gt;</replaceable>, <replaceable>&lt;HOSTNAME&gt;</replaceable> 값은 특정 용도나 요구 사항(네트워크/시스템 관리자가 IP 주소를 할당하고 컴퓨터가 기존 네트워크에 연결될 경우)에 맞게 변경해야 한다. 선택 사항인 별칭 이름은 생략할 수 있다.</para>
 
 <!--  This is not very useful
 
