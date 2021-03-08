@@ -1,10 +1,10 @@
 # Linux From Scratch
 ## 번역 검수 계획
-1. 오역 수정, 문장 교정, 번역 누락 검토 (진행 중)
-2. 맞춤법, 띄어쓰기 확인
+1. 오역 수정, 문장 교정, 번역 누락 검토 (완료)
+2. 맞춤법, 띄어쓰기 확인 (완료)
 - - -
 
-### 오역 수정, 문장 교정, 번역 누락 검토 (진행 중)
+### 오역 수정, 문장 교정, 번역 누락 검토 (완료)
 
 - [x] Preface
 	- [x] Foreword
@@ -173,55 +173,55 @@
         - [x] Introduction
         - [x] LFS-Bootscripts-20191031
         - [x] Overview of Device and Module Handling
-        - [ ] Managing Devices
-        - [ ] General Network Configuration
-        - [ ] System V Bootscript Usage and Configuration
-        - [ ] The Bash Shell Startup Files
-        - [ ] Creating the /etc/inputrc File
-        - [ ] Creating the /etc/shells File
-    - [ ] 8. Making the LFS System Bootable
-        - [ ] Introduction
-        - [ ] Creating the /etc/fstab File
-        - [ ] Linux-5.5.3
-        - [ ] Using GRUB to Set Up the Boot Process
-    - [ ] 9. The End
-        - [ ] The End
-        - [ ] Get Counted
-        - [ ] Rebooting the System
-        - [ ] What Now?
+        - [x] Managing Devices
+        - [x] General Network Configuration
+        - [x] System V Bootscript Usage and Configuration
+        - [x] The Bash Shell Startup Files
+        - [x] Creating the /etc/inputrc File
+        - [x] Creating the /etc/shells File
+    - [x] 8. Making the LFS System Bootable
+        - [x] Introduction
+        - [x] Creating the /etc/fstab File
+        - [x] Linux-5.5.3
+        - [x] Using GRUB to Set Up the Boot Process
+    - [x] 9. The End
+        - [x] The End
+        - [x] Get Counted
+        - [x] Rebooting the System
+        - [x] What Now?
 
-- [ ] IV. Appendices
+- [x] IV. Appendices
 
-    - [ ] A. Acronyms and Terms
-    - [ ] B. Acknowledgments
-    - [ ] C. Dependencies
-    - [ ] D. Boot and sysconfig scripts version-20191031
-        - [ ] /etc/rc.d/init.d/rc
-        - [ ] /lib/lsb/init-functions
-        - [ ] /etc/rc.d/init.d/mountvirtfs
-        - [ ] /etc/rc.d/init.d/modules
-        - [ ] /etc/rc.d/init.d/udev
-        - [ ] /etc/rc.d/init.d/swap
-        - [ ] /etc/rc.d/init.d/setclock
-        - [ ] /etc/rc.d/init.d/checkfs
-        - [ ] /etc/rc.d/init.d/mountfs
-        - [ ] /etc/rc.d/init.d/udev_retry
-        - [ ] /etc/rc.d/init.d/cleanfs
-        - [ ] /etc/rc.d/init.d/console
-        - [ ] /etc/rc.d/init.d/localnet
-        - [ ] /etc/rc.d/init.d/sysctl
-        - [ ] /etc/rc.d/init.d/sysklogd
-        - [ ] /etc/rc.d/init.d/network
-        - [ ] /etc/rc.d/init.d/sendsignals
-        - [ ] /etc/rc.d/init.d/reboot
-        - [ ] /etc/rc.d/init.d/halt
-        - [ ] /etc/rc.d/init.d/template
-        - [ ] /etc/sysconfig/modules
-        - [ ] /etc/sysconfig/createfiles
-        - [ ] /etc/sysconfig/udev-retry
-        - [ ] /sbin/ifup
-        - [ ] /sbin/ifdown
-        - [ ] /lib/services/ipv4-static
-        - [ ] /lib/services/ipv4-static-route
-    - [ ] E. Udev configuration rules
-        - [ ] 55-lfs.rules
+    - [x] A. Acronyms and Terms
+    - [x] B. Acknowledgments
+    - [x] C. Dependencies
+    - [x] D. Boot and sysconfig scripts version-20191031
+        - [x] /etc/rc.d/init.d/rc
+        - [x] /lib/lsb/init-functions
+        - [x] /etc/rc.d/init.d/mountvirtfs
+        - [x] /etc/rc.d/init.d/modules
+        - [x] /etc/rc.d/init.d/udev
+        - [x] /etc/rc.d/init.d/swap
+        - [x] /etc/rc.d/init.d/setclock
+        - [x] /etc/rc.d/init.d/checkfs
+        - [x] /etc/rc.d/init.d/mountfs
+        - [x] /etc/rc.d/init.d/udev_retry
+        - [x] /etc/rc.d/init.d/cleanfs
+        - [x] /etc/rc.d/init.d/console
+        - [x] /etc/rc.d/init.d/localnet
+        - [x] /etc/rc.d/init.d/sysctl
+        - [x] /etc/rc.d/init.d/sysklogd
+        - [x] /etc/rc.d/init.d/network
+        - [x] /etc/rc.d/init.d/sendsignals
+        - [x] /etc/rc.d/init.d/reboot
+        - [x] /etc/rc.d/init.d/halt
+        - [x] /etc/rc.d/init.d/template
+        - [x] /etc/sysconfig/modules
+        - [x] /etc/sysconfig/createfiles
+        - [x] /etc/sysconfig/udev-retry
+        - [x] /sbin/ifup
+        - [x] /sbin/ifdown
+        - [x] /lib/services/ipv4-static
+        - [x] /lib/services/ipv4-static-route
+    - [x] E. Udev configuration rules
+        - [x] 55-lfs.rules

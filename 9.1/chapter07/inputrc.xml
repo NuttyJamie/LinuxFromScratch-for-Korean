@@ -16,11 +16,11 @@
 
   <para><filename>inputrc</filename> 파일은 사용자가 터미널에서 명령을 입력하는 동안 편집 기능을 제공하는 Readline 라이브러리의 설정 파일이다. 키보드 입력을 특정 작업으로 변환하여 작동한다. Readline은 Bash 및 대부분의 다른 셸 및 기타 여러 응용 프로그램에서 사용된다.</para>
 
-  <para>대부분의 사용자는 사용자별 기능이 필요하지 않으므로 아래 명령어는 로그인하는 모든 사용자가 사용하는 전역 <filename>/etc/inputrc</filename>를 생성한다. 나중에 사용자별로 기본값을 재정의해야 할 경우 수정된 매핑으로 사용자의 홈 디렉토리에 <filename>.inputrc</filename> 파일을 만들 수 있다.</para>
+  <para>대부분의 사용자는 사용자별 기능이 필요하지 않으므로 아래 명령어는 로그인하는 모든 사용자가 사용하는 전역 <filename>/etc/inputrc</filename>를 생성한다. 추후 사용자별로 기본값을 재정의해야 할 경우는 매핑을 수정해서 사용자의 홈 디렉토리에 <filename>.inputrc</filename> 파일을 만들 수 있다.</para>
 
   <para><filename>inputrc</filename> 파일을 편집하는 방법에 대한 자세한 내용은 <emphasis>Readline Init File</emphasis>의 <command>info bash</command>를 참고하라. <command>info readline</command> 또한 정보를 얻기 좋다.</para>
 
-  <para>아래는 다양한 옵션의 기능을 설명하기 위한 주석과 함께 일반적인 전역 <filename>inputrc</filename> 예시이다. 주석들은 명령들과 같은 줄에 있을 수 없다는 점에 유의하라. 다음을 실행하여 파일을 생성한다:</para>
+  <para>아래는 다양한 옵션의 기능을 설명하기 위한 주석과 함께 일반적인 전역 <filename>inputrc</filename> 예시이다. 주석과 명령은 서로 같은 줄에 있을 수 없다는 점에 유의하라. 다음을 실행하여 파일을 생성한다:</para>
 
 <screen><userinput>cat &gt; /etc/inputrc &lt;&lt; "EOF"
 <literal># Begin /etc/inputrc

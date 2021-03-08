@@ -14,22 +14,22 @@
     <primary sortas="e-/etc/profile">/etc/profile</primary>
   </indexterm>
 
-  <para>셸 프로그램인 <command>/bin/bash</command>는 (이하 <quote>셸</quote>로 칭함) 실행할 환경을 만들기 위해 시작 파일 모음을 사용한다. 각 파일들은 특정한 용도를 가지며 로그인과 대화형 환경에 따라 다르게 영향을 미칠 수 있다. <filename class="directory">/etc</filename> 디렉토리의 파일은 전역 설정을 제공한다. 홈 디렉토리에 동일한 파일이 있다면, 전역 설정보다 우선시된다.</para>
+  <para>셸 프로그램(이하 <quote>셸</quote>로 칭함)인 <command>/bin/bash</command>는 실행할 환경을 만들기 위해 시작 파일 모음을 사용한다. 각 파일들은 특정한 용도를 가지며 로그인과 대화형 환경에 따라 다른 영향을 미친다. <filename class="directory">/etc</filename> 디렉토리의 파일은 전역 설정을 제공한다. 홈 디렉토리에 동일한 파일이 있다면, 전역 설정보다 우선시된다.</para>
 
-  <para>대화형 로그인 셸은 <filename>/etc/passwd</filename> 파일을 읽어 <command>/bin/login</command>을 사용하여 로그인 성공 후 시작된다. 대화형 비로그인 셸은 명령줄(예: <prompt>[prompt]$</prompt><command>/bin/bash</command>)에서 시작한다. 비대화형 셸은 일반적으로 셸 스크립트가 실행 중일 때 나타난다. 스크립트를 처리하느라 명령들 간에 사용자의 입력을 기다리지 않기 때문에 비대화형이라 한다.</para>
+  <para><command>/bin/login</command>을 통해 <filename>/etc/passwd</filename> 파일을 읽어 로그인에 성공하면 대화형 로그인 셸이 시작된다. 대화형 비로그인 셸은 명령줄에서 시작한다(예: <prompt>[prompt]$</prompt><command>/bin/bash</command>). 비대화형 셸은 일반적으로 셸 스크립트가 실행 중일 때 나타난다. 스크립트를 처리하느라 명령들 간에 사용자의 입력을 기다리지 않기 때문에 비대화형이라 한다.</para>
 
   <para>더 많은 정보는 <command>info bash</command>의 <emphasis>Bash Startup Files and Interactive Shells</emphasis>절을 참고하라.</para>
 
   <para><filename>/etc/profile</filename>과 <filename>~/.bash_profile</filename> 파일들은 셸이 대화형 로그인 셸로 호출될 때 읽힌다.</para>
 
-  <para>아래의 기본 <filename>/etc/profile</filename>은 자국어 지원에 필요한 몇 가지 환경 변수를 설정한다. 이들을 적절히 설정하면:</para>
+  <para>아래에서 설명할 기본 <filename>/etc/profile</filename>은 자국어 지원에 필요한 몇 가지 환경 변수를 설정한다. 이들을 적절히 설정하면 다음과 같은 결과들을 얻을 수 있다:</para>
 
   <itemizedlist>
     <listitem>
       <para>프로그램들의 출력을 자국어로 출력</para>
     </listitem>
     <listitem>
-      <para>문자를 문자, 숫자 및 기타 기호로 적절히 분류한다. 이는 <command>bash</command>가 영미권 이외의 지역에서 ASCII가 아닌 문자를 올바르게 다루기 위해 필요하다.</para>
+      <para>문자를 문자, 숫자 및 기타 기호로 올바르게 분류한다. 이는 <command>bash</command>가 영미권 이외의 비 ASCII문자를 명령줄에서 올바르게 다루기 위해 필요하다.</para>
     </listitem>
     <listitem>
       <para>국가에 대한 올바른 알파벳 정렬 순서</para>
@@ -42,14 +42,14 @@
     </listitem>
   </itemizedlist>
 
-  <para>아래 <replaceable>&lt;ll&gt;</replaceable>을 원하는 언어에 대한 2글자 코드로(예: <quote>en</quote>), <replaceable>&lt;CC&gt;</replaceable>를 해당 국가(예: <quote>GB</quote>)로 대체하라. <replaceable>&lt;charmap&gt;</replaceable>은 선택한 지역에 대한 표준 문자표(charmap)로 대체해야 한다. <quote>@euro</quote>와 같은 선택적 옵션도 사용할 수 있다.</para>
+  <para>아래 <replaceable>&lt;ll&gt;</replaceable>을 원하는 언어에 대한 2글자 코드로(예: <quote>en</quote>), <replaceable>&lt;CC&gt;</replaceable>를 해당 국가(예: <quote>GB</quote>)로 대체하라. <replaceable>&lt;charmap&gt;</replaceable>은 선택한 지역에 대한 표준 문자표로 대체해야 한다. <quote>@euro</quote>와 같은 선택적 옵션도 사용할 수 있다.</para>
 
   <para>Glibc에서 지원하는 모든 국가/지역(locale)의 목록은 다음 명령을 실행하여 얻을 수 있다:</para>
 
 <screen role="nodump"><userinput>locale -a</userinput></screen>
 
-  <para>문자표는 많은 별칭을 가질 수 있다. 예를 들어 <quote>ISO-8859-1</quote>을 <quote>iso8859-1</quote> 또는 <quote>iso88591</quote>이라고도 한다.
-  일부 응용 프로그램들은 다양한 동의어를 올바르게 처리하지 못하므로(가령 <quote>UTF-8</quote>을 <quote>utf8</quote>이 아닌 <quote>UTF-8</quote>로 표기하도록 요구한다), 대부분의 경우 특정 국가/지역의 정식 명칭을 선택하는 것이 가장 안전하다. 정식 명칭을 알아내려면 다음 명령을 실행하라. 여기서 <replaceable>&lt;locale name&gt;</replaceable>은 선호하는 국가/지역에 대한 <command>locale -a</command>의 출력 결과이다(이 예시에서는 <quote>en_GB.iso88591</quote>).</para>
+  <para>문자표는 많은 별칭을 가질 수 있다. 예를 들어 <quote>ISO-8859-1</quote>은 <quote>iso8859-1</quote> 또는 <quote>iso88591</quote>이라고도 한다.
+  일부 응용 프로그램들은 이 다양한 동의어들을 올바르게 처리하지 못하므로(가령 <quote>UTF-8</quote>은 <quote>utf8</quote>이 아닌 <quote>UTF-8</quote>로 표기되어야 한다), 대부분의 경우 특정 국가/지역의 정식 명칭을 선택하는 것이 가장 안전하다. 정식 명칭을 알아내려면 다음 명령을 실행하라. 여기서 <replaceable>&lt;locale name&gt;</replaceable>은 선호하는 국가/지역에 대한 <command>locale -a</command>의 출력 결과이다(이 예시에서는 <quote>en_GB.iso88591</quote>).</para>
 
 <screen role="nodump"><userinput>LC_ALL=<replaceable>&lt;locale name&gt;</replaceable> locale charmap</userinput></screen>
 
@@ -57,27 +57,27 @@
 
 <screen><computeroutput>ISO-8859-1</computeroutput></screen>
 
-  <para>이렇게 하면 최종 국가/지역 설정은 <quote>en_GB.ISO-8859-1</quote>이 된다. 위의 휴리스틱을 사용하여 찾은 로케일을 Bash 시작 파일에 추가하기 전에 먼저 테스트하는 것이 중요하다:</para>
+  <para>이렇게 하면 최종 국가/지역 설정은 <quote>en_GB.ISO-8859-1</quote>이 된다. 위의 방법을 사용하여 찾은 로케일을 Bash 시작 파일에 추가하기 전에 먼저 테스트하는 것이 중요하다:</para>
 
 <screen role="nodump"><userinput>LC_ALL=&lt;locale name&gt; locale language
 LC_ALL=&lt;locale name&gt; locale charmap
 LC_ALL=&lt;locale name&gt; locale int_curr_symbol
 LC_ALL=&lt;locale name&gt; locale int_prefix</userinput></screen>
 
-  <para>위의 명령은 언어 이름, 해당 국가에서 사용하는 문자 인코딩, 현지 통화 및 국제 전화 지역 번호 등을 출력한다. 위의 명령 중 하나가 아래 표시된 것과 유사한 메시지와 함께 실패하는 경우, 해당 로케일이 6장에서 설치되지 않았거나 Glibc의 기본 설치로부터 지원되지 않음을 의미한다.</para>
+  <para>위의 명령은 언어 이름, 해당 국가에서 사용하는 문자 인코딩, 현지 통화 및 국제 전화 지역 번호 등을 출력한다. 위의 명령 중 하나가 아래 표시된 것과 유사한 메시지와 함께 실패한다면, 해당 로케일이 6장에서 설치되지 않았거나 Glibc의 기본 설치로부터 지원되지 않음을 의미한다.</para>
 
 <screen><computeroutput>locale: Cannot set LC_* to default locale: No such file or directory</computeroutput></screen>
 
   <para>이 경우 <command>localedef</command> 명령을 사용하여 원하는 로케일을 설치하거나, 다른 로케일을 선택해야 한다. 아래 지침은 Glibc로부터 이러한 오류 메시지가 뜨지 않는다고 가정한다.</para>
 
   <!-- FIXME: the xlib example will became obsolete real soon -->
-  <para>LFS 이외의 일부 패키지들은 선택한 로케일을 지원하지 않을 수도 있다. 한 가지 예는 X 라이브러리(X 윈도 시스템의 일부)로, 로케일이 내부 파일의 문자표 이름 중 하나와 정확히 일치하지 않으면 다음 오류 메시지를 출력한다:</para>
+  <para>LFS 이외의 일부 패키지들은 선택한 로케일을 지원하지 않을 수도 있다. X 라이브러리(X 윈도 시스템의 일부)가 한 가지 예로, 로케일이 내부 파일의 문자표 이름 중 하나와 정확히 일치하지 않으면 다음 오류 메시지를 출력한다:</para>
 
 <screen><computeroutput>Warning: locale not supported by Xlib, locale set to C</computeroutput></screen>
 
-  <para>간혹 Xlib는 "iso88591" 대신 "ISO-8859-1"와 같은, 표준 대시와 함께 대문자로 표기된 문자표를 필요로 한다. 로케일 사양의 문자표 부분을 제거하여 적절한 사양을 찾을 수도 있다. 이는 두 로케일에서 <command>locale charmap</command> 명령을 실행하여 확인할 수 있다. 예를 들어, Xlib에서 이 로케일을 인식하도록 하려면 "de_DE.ISO-8859-15@euro"를 "de_DE@euro"로 변경해야 한다.</para>
+  <para>간혹 Xlib는 "iso88591" 대신 "ISO-8859-1"와 같이, 표준 대시와 함께 대문자로 표기된 문자표를 필요로 한다. 로케일 사양의 문자표 부분을 제거하여 적절한 사양을 찾을 수도 있다. 이는 두 로케일에서 <command>locale charmap</command> 명령을 실행하여 확인할 수 있다. 예를 들어, Xlib에서 이 로케일을 인식하도록 하려면 "de_DE.ISO-8859-15@euro"를 "de_DE@euro"로 변경해야 한다.</para>
 
-  <para>로케일 이름이 지정된 로케일이 내부 동작과 맞지 않을 경우 다른 패키지에서도 잘못 작동할 수 있다(그러나 오류 메시지를 반드시 출력하지는 않을 수도 있다). 이 경우, 다른 리눅스 배포판들에서 로케일을 지원하는 방법을 조사하면 몇 가지 유용한 정보를 얻을 수 있다.</para>
+  <para>다른 패키지도 로케일 이름이 기대값에 알맞지 않을 경우 잘못 작동할 수 있다(그러나 오류 메시지를 반드시 출력하지는 않을 수도 있다). 이 경우, 다른 리눅스 배포판들에서 로케일을 지원하는 방법을 조사하면 몇 가지 유용한 정보를 얻을 수 있다.</para>
 
   <para>올바르게 로케일을 설정했다면 <filename>/etc/profile</filename> 파일을 생성하라:</para>
 

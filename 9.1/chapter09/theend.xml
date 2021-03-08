@@ -30,7 +30,7 @@
 
 <screen revision="systemd"><userinput>echo &versiond; &gt; /etc/lfs-release</userinput></screen>
 
-  <para>설치된 시스템을 설명하는 두 개의 파일은 바이너리 형식으로 또는 빌드하여, 시스템에 설치될 패키지에서 사용할 수 있다.</para>
+  <para>설치된 시스템을 설명하는 두 개의 파일을 바이너리 형식으로 또는 빌드하여, 시스템에 설치될 패키지에서 사용할 수 있다.</para>
 
   <para>첫 번째는 Linux Standards Base(LSB)와 관련된 새 시스템의 상태를 보여준다. 이 파일을 작성하려면 다음을 실행하라:</para>
 

@@ -10,7 +10,7 @@
 
   <title>시스템 재부팅</title>
 
-  <para>이제 몯느 소프트웨어가 설치되었으니 컴퓨터를 다시 부팅할 시간이다. 그러나 몇 가지 알아야 할 것이 있다. 이 책에서 만든 시스템은 아주 최소한의 것이며 앞으로 계속 사용하는 데 필요한 기능이 없을 가능성이 크다. 현재 chroot 환경에 있는 동안 BLFS 책에서 몇 가지 추가 패키지를 설치하면 새 LFS 시스템으로 재부팅한 후에도 계속 사용할 수 있는 훨씬 더 좋은 환경을 만들 수 있다. 다음은 몇 가지 제안 사항이다:</para>
+  <para>이제 모든 소프트웨어가 설치되었으니 컴퓨터를 다시 부팅할 시간이다. 그러나 몇 가지 알아야 할 것이 있다. 이 책에서 만든 시스템은 아주 최소한의 것이며 앞으로 계속 사용하는 데 필요한 기능이 없을 가능성이 크다. 현재 chroot 환경에 있는 동안 BLFS 책에서 몇 가지 추가 패키지를 설치하면 새 LFS 시스템으로 재부팅한 후에도 계속 사용할 수 있는 훨씬 더 좋은 환경을 만들 수 있다. 다음은 몇 가지 제안 사항이다:</para>
 
   <itemizedlist>
 
@@ -18,7 +18,7 @@
 
     <listitem><para><ulink url='&blfs-book;general/gpm.html'>GPM</ulink> 패키지를 통해 가상 터미널에서 복사/붙여넣기 작업을 수행할 수 있다.</para></listitem>
 
-    <listitem><para>정적 IP 구성이 네트워킹 요구 사항을 충족하지 못하는 상황이라면, <ulink url='&blfs-book;basicnet/dhcpcd.html'>dhcpcd</ulink>나 <ulink url='&blfs-book;basicnet/dhcp.html'>dhcp</ulink>의 클라이언트 부분을 설치하는 것이 유용할 수 있다.</para></listitem>
+    <listitem><para>정적 IP 구성이 네트워킹 요구 사항을 충족하지 못하는 상황이라면, <ulink url='&blfs-book;basicnet/dhcpcd.html'>dhcpcd</ulink>나 <ulink url='&blfs-book;basicnet/dhcp.html'>dhcp</ulink>의 클라이언트 부분을 설치하면 도움이 될 것이다.</para></listitem>
 
     <listitem><para><ulink url='&blfs-book;postlfs/sudo.html'>sudo</ulink>를 설치하면 root 사용자가 아닌 사용자로써 패키지를 빌드하고 새 시스템에 결과물을 쉽게 설치하는 데 유용하다.  </para></listitem>
 

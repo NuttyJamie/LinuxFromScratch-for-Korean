@@ -20,11 +20,11 @@
     <primary sortas="e-etc-shells">/etc/shells</primary>
   </indexterm>
 
-  <para><filename>shells</filename> 파일에는 시스템의 로그인 셸 목록이 들어 있다. 응용 프로그램은 이 파일을 사용하여 셸의 유효한지 확인한다. 각 셸에 대해 디렉토리 구조의 루트(/)에 상대적인 셸 경로로 구성된 단일 행이 있어야 한다.</para>
+  <para><filename>shells</filename> 파일에는 시스템의 로그인 셸 목록이 들어 있다. 응용 프로그램은 이 파일을 사용하여 셸이 유효한지 확인한다. 각 셸에 대해 디렉토리 구조의 루트(/)에 상대적인 셸 경로로 구성된 단일 행이 있어야 한다.</para>
 
-  <para>예를 들면, 권한 없는 사용자가 자신의 계정에 대한 로그인 셸을 변경할 수 있는지의 여부를 확인할 때 <command>chsh</command>가 이 파일을 참조한다. 명령어가 목록에 있지 않으면, 사용자의 변경 요청이 거부된다.</para>
+  <para>예를 들면, 루트가 아닌 일반 사용자가 자신의 계정에 대한 로그인 셸을 변경할 수 있는지 확인할 때는 <command>chsh</command>이 이 파일을 검토한다. 변경하려는 셸이 목록에 있지 않으면, 사용자의 변경 요청이 거부된다.</para>
 
-  <para>이는 <filename>/etc/shells</filename>을 찾지 못하면 탐색기를 띄우지 않는 <application>GDM</application>이나, 기본적으로 이 파일에 포함되지 않은 셸로 접근하는 사용자는 차단하는 FTP 데몬과 같은 응용 프로그램들에 필요하다.</para>
+  <para>이는 <filename>/etc/shells</filename>을 찾지 못하면 인터페이스를 띄우지 않는 <application>GDM</application>이나, 기본적으로 이 파일에 포함되지 않은 셸로 접근하는 사용자를 차단하는 FTP 데몬과 같은 응용 프로그램들에 필요하다.</para>
 
 <screen role="root"><userinput>cat &gt; /etc/shells &lt;&lt; "EOF"
 <literal># Begin /etc/shells

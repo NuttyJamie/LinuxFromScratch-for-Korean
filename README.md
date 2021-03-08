@@ -55,10 +55,11 @@ Linux From Scratch (이하 LFS)는 모든 것을 소스로부터 단계별로 �
 - Slackware64-14.2 
 
 ## TODO
-- [x] [LFS 번역 검수 진행 중 (2021-01-01~)](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
+- [x] [LFS 번역 검수 완료 (2021-01-01~2021-03-08)](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/blob/master/TODO.md#table-of-contents)
 - [ ] BLFS
 - [ ] ALFS
 
 ## Changelog
 - 2020-11-12    초안 완성
 - 2020-12-27    프로젝트 라이센스 정정 (MIT -> CC-BY-NC-SA 2.0)
+- 2021-03-08	LFS 9.1 번역 완료
