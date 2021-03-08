@@ -3,8 +3,8 @@
 [**LinuxFromScratch**](http://linuxfromscratch.org) 프로젝트 가이드 한국어 번역판.
 
 **다운로드:**
-[**HTML-nochunk**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/5cbf2c23a2012e036c4ded0c9a08028eb5e7d131/9.1/BOOK/HTML-nochunks/LFS-BOOK.html) or 
-[**HTML**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/5cbf2c23a2012e036c4ded0c9a08028eb5e7d131/9.1/BOOK/HTML/index.html) or 
+[**HTML-nochunk**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/88bdabae8abf2fad511b497b0dc676e6ac95b965/9.1/BOOK/HTML-nochunks/LFS-BOOK.html) or 
+[**HTML**](https://rawcdn.githack.com/NuttyJamie/LinuxFromScratch-for-Korean/88bdabae8abf2fad511b497b0dc676e6ac95b965/9.1/BOOK/HTML/index.html) or 
 [**PDF**](https://github.com/NuttyJamie/LinuxFromScratch-for-Korean/raw/master/9.1/BOOK/PDF/LFS-BOOK.pdf)
 
 ## 목차 
